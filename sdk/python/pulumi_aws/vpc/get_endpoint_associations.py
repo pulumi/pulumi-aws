@@ -23,8 +23,6 @@ __all__ = [
     'get_endpoint_associations_output',
 ]
 
-warnings.warn("""aws.vpc/getendpointassociations.getEndpointAssociations has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations""", DeprecationWarning)
-
 @pulumi.output_type
 class GetEndpointAssociationsResult:
     """
@@ -97,14 +95,13 @@ def get_endpoint_associations(region: Optional[builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_vpc_endpoint_associations(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
+    example = aws.vpc.get_endpoint_associations(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
     ```
 
 
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
     """
-    pulumi.log.warn("""get_endpoint_associations is deprecated: aws.vpc/getendpointassociations.getEndpointAssociations has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations""")
     __args__ = dict()
     __args__['region'] = region
     __args__['vpcEndpointId'] = vpc_endpoint_id
@@ -130,14 +127,13 @@ def get_endpoint_associations_output(region: Optional[pulumi.Input[Optional[buil
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_vpc_endpoint_associations(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
+    example = aws.vpc.get_endpoint_associations(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
     ```
 
 
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
     """
-    pulumi.log.warn("""get_endpoint_associations is deprecated: aws.vpc/getendpointassociations.getEndpointAssociations has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations""")
     __args__ = dict()
     __args__['region'] = region
     __args__['vpcEndpointId'] = vpc_endpoint_id

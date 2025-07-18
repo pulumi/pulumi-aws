@@ -2297,7 +2297,6 @@
         "vpc/getEndpointAssociations.ts",
         "vpc/getSecurityGroupRule.ts",
         "vpc/getSecurityGroupRules.ts",
-        "vpc/getVpcEndpointAssociations.ts",
         "vpc/index.ts",
         "vpc/routeServer.ts",
         "vpc/routeServerEndpoint.ts",

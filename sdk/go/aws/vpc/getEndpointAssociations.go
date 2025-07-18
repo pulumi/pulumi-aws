@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.GetVpcEndpointAssociations(ctx, &vpc.GetVpcEndpointAssociationsArgs{
+//			_, err := vpc.GetEndpointAssociations(ctx, &vpc.GetEndpointAssociationsArgs{
 //				VpcEndpointId: exampleAwsVpcEndpoint.Id,
 //			}, nil)
 //			if err != nil {
@@ -40,8 +40,6 @@ import (
 //	}
 //
 // ```
-//
-// Deprecated: aws.vpc/getendpointassociations.getEndpointAssociations has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations
 func GetEndpointAssociations(ctx *pulumi.Context, args *GetEndpointAssociationsArgs, opts ...pulumi.InvokeOption) (*GetEndpointAssociationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEndpointAssociationsResult
