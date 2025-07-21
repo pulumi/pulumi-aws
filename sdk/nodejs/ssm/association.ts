@@ -179,7 +179,7 @@ import * as utilities from "../utilities";
  * // EC2 Instance 1 - Web Server with "ServerType" tag
  * const webServer = new aws.ec2.Instance("web_server", {
  *     ami: amazonLinux.id,
- *     instanceType: aws.ec2.InstanceType[instanceType],
+ *     instanceType: aws.ec2.InstanceType.T3_Micro,
  *     subnetId: _default.id,
  *     vpcSecurityGroupIds: [ec2Sg.id],
  *     iamInstanceProfile: ec2SsmProfile.name,
@@ -208,7 +208,7 @@ import * as utilities from "../utilities";
  * // EC2 Instance 2 - Database Server with "Role" tag
  * const databaseServer = new aws.ec2.Instance("database_server", {
  *     ami: amazonLinux.id,
- *     instanceType: aws.ec2.InstanceType[instanceType],
+ *     instanceType: aws.ec2.InstanceType.T3_Micro,
  *     subnetId: _default.id,
  *     vpcSecurityGroupIds: [ec2Sg.id],
  *     iamInstanceProfile: ec2SsmProfile.name,

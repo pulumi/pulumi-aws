@@ -350,7 +350,7 @@ type Permission struct {
 	Action pulumi.StringOutput `pulumi:"action"`
 	// Event Source Token for Alexa Skills
 	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
-	// Name of the Lambda function
+	// Name or ARN of the Lambda function
 	Function pulumi.StringOutput `pulumi:"function"`
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType pulumi.StringPtrOutput `pulumi:"functionUrlAuthType"`
@@ -417,7 +417,7 @@ type permissionState struct {
 	Action *string `pulumi:"action"`
 	// Event Source Token for Alexa Skills
 	EventSourceToken *string `pulumi:"eventSourceToken"`
-	// Name of the Lambda function
+	// Name or ARN of the Lambda function
 	Function interface{} `pulumi:"function"`
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
@@ -446,7 +446,7 @@ type PermissionState struct {
 	Action pulumi.StringPtrInput
 	// Event Source Token for Alexa Skills
 	EventSourceToken pulumi.StringPtrInput
-	// Name of the Lambda function
+	// Name or ARN of the Lambda function
 	Function pulumi.Input
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType pulumi.StringPtrInput
@@ -479,7 +479,7 @@ type permissionArgs struct {
 	Action string `pulumi:"action"`
 	// Event Source Token for Alexa Skills
 	EventSourceToken *string `pulumi:"eventSourceToken"`
-	// Name of the Lambda function
+	// Name or ARN of the Lambda function
 	Function interface{} `pulumi:"function"`
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
@@ -509,7 +509,7 @@ type PermissionArgs struct {
 	Action pulumi.StringInput
 	// Event Source Token for Alexa Skills
 	EventSourceToken pulumi.StringPtrInput
-	// Name of the Lambda function
+	// Name or ARN of the Lambda function
 	Function pulumi.Input
 	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType pulumi.StringPtrInput
@@ -630,7 +630,7 @@ func (o PermissionOutput) EventSourceToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.EventSourceToken }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Lambda function
+// Name or ARN of the Lambda function
 func (o PermissionOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Function }).(pulumi.StringOutput)
 }

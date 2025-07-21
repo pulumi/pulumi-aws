@@ -429,14 +429,14 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
+     * Server-side encryption of the object in S3. Valid values are `&#34;AES256&#34;`, `&#34;aws:kms&#34;`, `&#34;aws:kms:dsse&#34;`, and `&#34;aws:fsx&#34;`.
      * 
      */
     @Import(name="serverSideEncryption")
     private @Nullable Output<String> serverSideEncryption;
 
     /**
-     * @return Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
+     * @return Server-side encryption of the object in S3. Valid values are `&#34;AES256&#34;`, `&#34;aws:kms&#34;`, `&#34;aws:kms:dsse&#34;`, and `&#34;aws:fsx&#34;`.
      * 
      */
     public Optional<Output<String>> serverSideEncryption() {
@@ -1190,7 +1190,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param serverSideEncryption Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
+         * @param serverSideEncryption Server-side encryption of the object in S3. Valid values are `&#34;AES256&#34;`, `&#34;aws:kms&#34;`, `&#34;aws:kms:dsse&#34;`, and `&#34;aws:fsx&#34;`.
          * 
          * @return builder
          * 
@@ -1201,7 +1201,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param serverSideEncryption Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
+         * @param serverSideEncryption Server-side encryption of the object in S3. Valid values are `&#34;AES256&#34;`, `&#34;aws:kms&#34;`, `&#34;aws:kms:dsse&#34;`, and `&#34;aws:fsx&#34;`.
          * 
          * @return builder
          * 

@@ -311,7 +311,13 @@ namespace Pulumi.Aws.CloudFront
     ///                 "HEAD",
     ///                 "OPTIONS",
     ///             },
+    ///             CachedMethods = new[]
+    ///             {
+    ///                 "GET",
+    ///                 "HEAD",
+    ///             },
     ///             TargetOriginId = s3OriginId,
+    ///             ViewerProtocolPolicy = "allow-all",
     ///         },
     ///         Restrictions = new Aws.CloudFront.Inputs.DistributionRestrictionsArgs
     ///         {
@@ -352,6 +358,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var exampleLogDeliverySource = new Aws.CloudWatch.LogDeliverySource("example", new()
     ///     {
+    ///         Region = "us-east-1",
     ///         Name = "example",
     ///         LogType = "ACCESS_LOGS",
     ///         ResourceArn = example.Arn,
@@ -365,6 +372,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var exampleLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("example", new()
     ///     {
+    ///         Region = "us-east-1",
     ///         Name = "s3-destination",
     ///         OutputFormat = "parquet",
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
@@ -375,6 +383,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var exampleLogDelivery = new Aws.CloudWatch.LogDelivery("example", new()
     ///     {
+    ///         Region = "us-east-1",
     ///         DeliverySourceName = exampleLogDeliverySource.Name,
     ///         DeliveryDestinationArn = exampleLogDeliveryDestination.Arn,
     ///         S3DeliveryConfigurations = new[]
@@ -384,6 +393,58 @@ namespace Pulumi.Aws.CloudFront
     ///                 SuffixPath = "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
     ///             },
     ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With V2 logging to Data Firehose
+    /// 
+    /// The example below creates a CloudFront distribution with [standard logging V2 to Data Firehose](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudFront.Distribution("example");
+    /// 
+    ///     var cloudfrontLogs = new Aws.Kinesis.FirehoseDeliveryStream("cloudfront_logs", new()
+    ///     {
+    ///         Region = "us-east-1",
+    ///         Tags = 
+    ///         {
+    ///             { "LogDeliveryEnabled", "true" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLogDeliverySource = new Aws.CloudWatch.LogDeliverySource("example", new()
+    ///     {
+    ///         Region = "us-east-1",
+    ///         Name = "cloudfront-logs-source",
+    ///         LogType = "ACCESS_LOGS",
+    ///         ResourceArn = example.Arn,
+    ///     });
+    /// 
+    ///     var exampleLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("example", new()
+    ///     {
+    ///         Region = "us-east-1",
+    ///         Name = "firehose-destination",
+    ///         OutputFormat = "json",
+    ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
+    ///         {
+    ///             DestinationResourceArn = cloudfrontLogs.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLogDelivery = new Aws.CloudWatch.LogDelivery("example", new()
+    ///     {
+    ///         Region = "us-east-1",
+    ///         DeliverySourceName = exampleLogDeliverySource.Name,
+    ///         DeliveryDestinationArn = exampleLogDeliveryDestination.Arn,
     ///     });
     /// 
     /// });

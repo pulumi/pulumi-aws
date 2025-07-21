@@ -242,6 +242,8 @@ type Service struct {
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
 	// Configuration block for deployment circuit breaker. See below.
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrOutput `pulumi:"deploymentCircuitBreaker"`
+	// Configuration block for deployment settings. See below.
+	DeploymentConfiguration ServiceDeploymentConfigurationPtrOutput `pulumi:"deploymentConfiguration"`
 	// Configuration block for deployment controller configuration. See below.
 	DeploymentController ServiceDeploymentControllerPtrOutput `pulumi:"deploymentController"`
 	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
@@ -347,6 +349,8 @@ type serviceState struct {
 	Cluster *string `pulumi:"cluster"`
 	// Configuration block for deployment circuit breaker. See below.
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
+	// Configuration block for deployment settings. See below.
+	DeploymentConfiguration *ServiceDeploymentConfiguration `pulumi:"deploymentConfiguration"`
 	// Configuration block for deployment controller configuration. See below.
 	DeploymentController *ServiceDeploymentController `pulumi:"deploymentController"`
 	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
@@ -423,6 +427,8 @@ type ServiceState struct {
 	Cluster pulumi.StringPtrInput
 	// Configuration block for deployment circuit breaker. See below.
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput
+	// Configuration block for deployment settings. See below.
+	DeploymentConfiguration ServiceDeploymentConfigurationPtrInput
 	// Configuration block for deployment controller configuration. See below.
 	DeploymentController ServiceDeploymentControllerPtrInput
 	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
@@ -501,6 +507,8 @@ type serviceArgs struct {
 	Cluster *string `pulumi:"cluster"`
 	// Configuration block for deployment circuit breaker. See below.
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
+	// Configuration block for deployment settings. See below.
+	DeploymentConfiguration *ServiceDeploymentConfiguration `pulumi:"deploymentConfiguration"`
 	// Configuration block for deployment controller configuration. See below.
 	DeploymentController *ServiceDeploymentController `pulumi:"deploymentController"`
 	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
@@ -574,6 +582,8 @@ type ServiceArgs struct {
 	Cluster pulumi.StringPtrInput
 	// Configuration block for deployment circuit breaker. See below.
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput
+	// Configuration block for deployment settings. See below.
+	DeploymentConfiguration ServiceDeploymentConfigurationPtrInput
 	// Configuration block for deployment controller configuration. See below.
 	DeploymentController ServiceDeploymentControllerPtrInput
 	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
@@ -750,6 +760,11 @@ func (o ServiceOutput) Cluster() pulumi.StringOutput {
 // Configuration block for deployment circuit breaker. See below.
 func (o ServiceOutput) DeploymentCircuitBreaker() ServiceDeploymentCircuitBreakerPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDeploymentCircuitBreakerPtrOutput { return v.DeploymentCircuitBreaker }).(ServiceDeploymentCircuitBreakerPtrOutput)
+}
+
+// Configuration block for deployment settings. See below.
+func (o ServiceOutput) DeploymentConfiguration() ServiceDeploymentConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceDeploymentConfigurationPtrOutput { return v.DeploymentConfiguration }).(ServiceDeploymentConfigurationPtrOutput)
 }
 
 // Configuration block for deployment controller configuration. See below.

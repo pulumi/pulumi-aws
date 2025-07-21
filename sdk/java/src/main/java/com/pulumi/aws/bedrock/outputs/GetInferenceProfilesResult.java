@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInferenceProfilesResult {
@@ -23,6 +25,11 @@ public final class GetInferenceProfilesResult {
      */
     private List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries;
     private String region;
+    /**
+     * @return Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means the inference profile was created by a user.
+     * 
+     */
+    private @Nullable String type;
 
     private GetInferenceProfilesResult() {}
     /**
@@ -42,6 +49,13 @@ public final class GetInferenceProfilesResult {
     public String region() {
         return this.region;
     }
+    /**
+     * @return Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means the inference profile was created by a user.
+     * 
+     */
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -55,12 +69,14 @@ public final class GetInferenceProfilesResult {
         private String id;
         private List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries;
         private String region;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetInferenceProfilesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.inferenceProfileSummaries = defaults.inferenceProfileSummaries;
     	      this.region = defaults.region;
+    	      this.type = defaults.type;
         }
 
         @CustomType.Setter
@@ -90,11 +106,18 @@ public final class GetInferenceProfilesResult {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
+        public Builder type(@Nullable String type) {
+
+            this.type = type;
+            return this;
+        }
         public GetInferenceProfilesResult build() {
             final var _resultValue = new GetInferenceProfilesResult();
             _resultValue.id = id;
             _resultValue.inferenceProfileSummaries = inferenceProfileSummaries;
             _resultValue.region = region;
+            _resultValue.type = type;
             return _resultValue;
         }
     }

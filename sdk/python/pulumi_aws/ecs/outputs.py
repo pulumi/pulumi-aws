@@ -29,8 +29,11 @@ __all__ = [
     'ServiceAlarms',
     'ServiceCapacityProviderStrategy',
     'ServiceDeploymentCircuitBreaker',
+    'ServiceDeploymentConfiguration',
+    'ServiceDeploymentConfigurationLifecycleHook',
     'ServiceDeploymentController',
     'ServiceLoadBalancer',
+    'ServiceLoadBalancerAdvancedConfiguration',
     'ServiceNetworkConfiguration',
     'ServiceOrderedPlacementStrategy',
     'ServicePlacementConstraint',
@@ -39,6 +42,9 @@ __all__ = [
     'ServiceServiceConnectConfigurationLogConfigurationSecretOption',
     'ServiceServiceConnectConfigurationService',
     'ServiceServiceConnectConfigurationServiceClientAlias',
+    'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule',
+    'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader',
+    'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue',
     'ServiceServiceConnectConfigurationServiceTimeout',
     'ServiceServiceConnectConfigurationServiceTls',
     'ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority',
@@ -761,6 +767,129 @@ class ServiceDeploymentCircuitBreaker(dict):
 
 
 @pulumi.output_type
+class ServiceDeploymentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bakeTimeInMinutes":
+            suggest = "bake_time_in_minutes"
+        elif key == "lifecycleHooks":
+            suggest = "lifecycle_hooks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDeploymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDeploymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bake_time_in_minutes: Optional[builtins.str] = None,
+                 lifecycle_hooks: Optional[Sequence['outputs.ServiceDeploymentConfigurationLifecycleHook']] = None,
+                 strategy: Optional[builtins.str] = None):
+        """
+        :param builtins.str bake_time_in_minutes: Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        :param Sequence['ServiceDeploymentConfigurationLifecycleHookArgs'] lifecycle_hooks: Configuration block for lifecycle hooks that are invoked during deployments. See below.
+        :param builtins.str strategy: Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        """
+        if bake_time_in_minutes is not None:
+            pulumi.set(__self__, "bake_time_in_minutes", bake_time_in_minutes)
+        if lifecycle_hooks is not None:
+            pulumi.set(__self__, "lifecycle_hooks", lifecycle_hooks)
+        if strategy is not None:
+            pulumi.set(__self__, "strategy", strategy)
+
+    @property
+    @pulumi.getter(name="bakeTimeInMinutes")
+    def bake_time_in_minutes(self) -> Optional[builtins.str]:
+        """
+        Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        """
+        return pulumi.get(self, "bake_time_in_minutes")
+
+    @property
+    @pulumi.getter(name="lifecycleHooks")
+    def lifecycle_hooks(self) -> Optional[Sequence['outputs.ServiceDeploymentConfigurationLifecycleHook']]:
+        """
+        Configuration block for lifecycle hooks that are invoked during deployments. See below.
+        """
+        return pulumi.get(self, "lifecycle_hooks")
+
+    @property
+    @pulumi.getter
+    def strategy(self) -> Optional[builtins.str]:
+        """
+        Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        """
+        return pulumi.get(self, "strategy")
+
+
+@pulumi.output_type
+class ServiceDeploymentConfigurationLifecycleHook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hookTargetArn":
+            suggest = "hook_target_arn"
+        elif key == "lifecycleStages":
+            suggest = "lifecycle_stages"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDeploymentConfigurationLifecycleHook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDeploymentConfigurationLifecycleHook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDeploymentConfigurationLifecycleHook.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hook_target_arn: builtins.str,
+                 lifecycle_stages: Sequence[builtins.str],
+                 role_arn: builtins.str):
+        """
+        :param builtins.str hook_target_arn: ARN of the Lambda function to invoke for the lifecycle hook.
+        :param Sequence[builtins.str] lifecycle_stages: Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+        :param builtins.str role_arn: ARN of the IAM role that grants the service permission to invoke the Lambda function.
+        """
+        pulumi.set(__self__, "hook_target_arn", hook_target_arn)
+        pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="hookTargetArn")
+    def hook_target_arn(self) -> builtins.str:
+        """
+        ARN of the Lambda function to invoke for the lifecycle hook.
+        """
+        return pulumi.get(self, "hook_target_arn")
+
+    @property
+    @pulumi.getter(name="lifecycleStages")
+    def lifecycle_stages(self) -> Sequence[builtins.str]:
+        """
+        Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+        """
+        return pulumi.get(self, "lifecycle_stages")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> builtins.str:
+        """
+        ARN of the IAM role that grants the service permission to invoke the Lambda function.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
 class ServiceDeploymentController(dict):
     def __init__(__self__, *,
                  type: Optional[builtins.str] = None):
@@ -788,6 +917,8 @@ class ServiceLoadBalancer(dict):
             suggest = "container_name"
         elif key == "containerPort":
             suggest = "container_port"
+        elif key == "advancedConfiguration":
+            suggest = "advanced_configuration"
         elif key == "elbName":
             suggest = "elb_name"
         elif key == "targetGroupArn":
@@ -807,11 +938,13 @@ class ServiceLoadBalancer(dict):
     def __init__(__self__, *,
                  container_name: builtins.str,
                  container_port: builtins.int,
+                 advanced_configuration: Optional['outputs.ServiceLoadBalancerAdvancedConfiguration'] = None,
                  elb_name: Optional[builtins.str] = None,
                  target_group_arn: Optional[builtins.str] = None):
         """
         :param builtins.str container_name: Name of the container to associate with the load balancer (as it appears in a container definition).
         :param builtins.int container_port: Port on the container to associate with the load balancer.
+        :param 'ServiceLoadBalancerAdvancedConfigurationArgs' advanced_configuration: Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
                
                > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         :param builtins.str elb_name: Name of the ELB (Classic) to associate with the service.
@@ -819,6 +952,8 @@ class ServiceLoadBalancer(dict):
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "container_port", container_port)
+        if advanced_configuration is not None:
+            pulumi.set(__self__, "advanced_configuration", advanced_configuration)
         if elb_name is not None:
             pulumi.set(__self__, "elb_name", elb_name)
         if target_group_arn is not None:
@@ -837,10 +972,18 @@ class ServiceLoadBalancer(dict):
     def container_port(self) -> builtins.int:
         """
         Port on the container to associate with the load balancer.
+        """
+        return pulumi.get(self, "container_port")
+
+    @property
+    @pulumi.getter(name="advancedConfiguration")
+    def advanced_configuration(self) -> Optional['outputs.ServiceLoadBalancerAdvancedConfiguration']:
+        """
+        Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
 
         > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
-        return pulumi.get(self, "container_port")
+        return pulumi.get(self, "advanced_configuration")
 
     @property
     @pulumi.getter(name="elbName")
@@ -857,6 +1000,81 @@ class ServiceLoadBalancer(dict):
         ARN of the Load Balancer target group to associate with the service.
         """
         return pulumi.get(self, "target_group_arn")
+
+
+@pulumi.output_type
+class ServiceLoadBalancerAdvancedConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alternateTargetGroupArn":
+            suggest = "alternate_target_group_arn"
+        elif key == "productionListenerRule":
+            suggest = "production_listener_rule"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "testListenerRule":
+            suggest = "test_listener_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLoadBalancerAdvancedConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLoadBalancerAdvancedConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLoadBalancerAdvancedConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alternate_target_group_arn: builtins.str,
+                 production_listener_rule: builtins.str,
+                 role_arn: builtins.str,
+                 test_listener_rule: Optional[builtins.str] = None):
+        """
+        :param builtins.str alternate_target_group_arn: ARN of the alternate target group to use for Blue/Green deployments.
+        :param builtins.str production_listener_rule: ARN of the listener rule that routes production traffic.
+        :param builtins.str role_arn: ARN of the IAM role that allows ECS to manage the target groups.
+        :param builtins.str test_listener_rule: ARN of the listener rule that routes test traffic.
+        """
+        pulumi.set(__self__, "alternate_target_group_arn", alternate_target_group_arn)
+        pulumi.set(__self__, "production_listener_rule", production_listener_rule)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if test_listener_rule is not None:
+            pulumi.set(__self__, "test_listener_rule", test_listener_rule)
+
+    @property
+    @pulumi.getter(name="alternateTargetGroupArn")
+    def alternate_target_group_arn(self) -> builtins.str:
+        """
+        ARN of the alternate target group to use for Blue/Green deployments.
+        """
+        return pulumi.get(self, "alternate_target_group_arn")
+
+    @property
+    @pulumi.getter(name="productionListenerRule")
+    def production_listener_rule(self) -> builtins.str:
+        """
+        ARN of the listener rule that routes production traffic.
+        """
+        return pulumi.get(self, "production_listener_rule")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> builtins.str:
+        """
+        ARN of the IAM role that allows ECS to manage the target groups.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="testListenerRule")
+    def test_listener_rule(self) -> Optional[builtins.str]:
+        """
+        ARN of the listener rule that routes test traffic.
+        """
+        return pulumi.get(self, "test_listener_rule")
 
 
 @pulumi.output_type
@@ -1280,6 +1498,8 @@ class ServiceServiceConnectConfigurationServiceClientAlias(dict):
         suggest = None
         if key == "dnsName":
             suggest = "dns_name"
+        elif key == "testTrafficRules":
+            suggest = "test_traffic_rules"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceServiceConnectConfigurationServiceClientAlias. Access the value via the '{suggest}' property getter instead.")
@@ -1294,14 +1514,18 @@ class ServiceServiceConnectConfigurationServiceClientAlias(dict):
 
     def __init__(__self__, *,
                  port: builtins.int,
-                 dns_name: Optional[builtins.str] = None):
+                 dns_name: Optional[builtins.str] = None,
+                 test_traffic_rules: Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule']] = None):
         """
         :param builtins.int port: Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
         :param builtins.str dns_name: Name that you use in the applications of client tasks to connect to this service.
+        :param Sequence['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs'] test_traffic_rules: Configuration block for test traffic routing rules. See below.
         """
         pulumi.set(__self__, "port", port)
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
+        if test_traffic_rules is not None:
+            pulumi.set(__self__, "test_traffic_rules", test_traffic_rules)
 
     @property
     @pulumi.getter
@@ -1318,6 +1542,80 @@ class ServiceServiceConnectConfigurationServiceClientAlias(dict):
         Name that you use in the applications of client tasks to connect to this service.
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="testTrafficRules")
+    def test_traffic_rules(self) -> Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule']]:
+        """
+        Configuration block for test traffic routing rules. See below.
+        """
+        return pulumi.get(self, "test_traffic_rules")
+
+
+@pulumi.output_type
+class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule(dict):
+    def __init__(__self__, *,
+                 header: Optional['outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader'] = None):
+        """
+        :param 'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs' header: Configuration block for header-based routing rules. See below.
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional['outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader']:
+        """
+        Configuration block for header-based routing rules. See below.
+        """
+        return pulumi.get(self, "header")
+
+
+@pulumi.output_type
+class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 value: 'outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue'):
+        """
+        :param builtins.str name: Name of the HTTP header to match.
+        :param 'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs' value: Configuration block for header value matching criteria. See below.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the HTTP header to match.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> 'outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue':
+        """
+        Configuration block for header value matching criteria. See below.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue(dict):
+    def __init__(__self__, *,
+                 exact: builtins.str):
+        """
+        :param builtins.str exact: Exact string value to match in the header.
+        """
+        pulumi.set(__self__, "exact", exact)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> builtins.str:
+        """
+        Exact string value to match in the header.
+        """
+        return pulumi.get(self, "exact")
 
 
 @pulumi.output_type

@@ -120,12 +120,16 @@ class CertificateOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_transparency_logging_preference: Optional[builtins.str] = None):
+                 certificate_transparency_logging_preference: Optional[builtins.str] = None,
+                 export: Optional[builtins.str] = None):
         """
         :param builtins.str certificate_transparency_logging_preference: Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        :param builtins.str export: Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
         """
         if certificate_transparency_logging_preference is not None:
             pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
+        if export is not None:
+            pulumi.set(__self__, "export", export)
 
     @property
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
@@ -134,6 +138,14 @@ class CertificateOptions(dict):
         Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
         return pulumi.get(self, "certificate_transparency_logging_preference")
+
+    @property
+    @pulumi.getter
+    def export(self) -> Optional[builtins.str]:
+        """
+        Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+        """
+        return pulumi.get(self, "export")
 
 
 @pulumi.output_type

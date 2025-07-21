@@ -18,14 +18,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     public static final OrganizationCustomPolicyRuleArgs Empty = new OrganizationCustomPolicyRuleArgs();
 
     /**
-     * List of AWS account identifiers to exclude from the rule
+     * List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
      * 
      */
     @Import(name="debugLogDeliveryAccounts")
     private @Nullable Output<List<String>> debugLogDeliveryAccounts;
 
     /**
-     * @return List of AWS account identifiers to exclude from the rule
+     * @return List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
      * 
      */
     public Optional<Output<List<String>>> debugLogDeliveryAccounts() {
@@ -33,14 +33,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * Description of the rule
+     * Description of the rule.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the rule
+     * @return Description of the rule.
      * 
      */
     public Optional<Output<String>> description() {
@@ -48,14 +48,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * List of AWS account identifiers to exclude from the rule
+     * List of AWS account identifiers to exclude from the rule.
      * 
      */
     @Import(name="excludedAccounts")
     private @Nullable Output<List<String>> excludedAccounts;
 
     /**
-     * @return List of AWS account identifiers to exclude from the rule
+     * @return List of AWS account identifiers to exclude from the rule.
      * 
      */
     public Optional<Output<List<String>>> excludedAccounts() {
@@ -63,14 +63,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * A string in JSON format that is passed to the AWS Config Rule Lambda Function
+     * A string in JSON format that is passed to the AWS Config Rule Lambda Function.
      * 
      */
     @Import(name="inputParameters")
     private @Nullable Output<String> inputParameters;
 
     /**
-     * @return A string in JSON format that is passed to the AWS Config Rule Lambda Function
+     * @return A string in JSON format that is passed to the AWS Config Rule Lambda Function.
      * 
      */
     public Optional<Output<String>> inputParameters() {
@@ -93,14 +93,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * name of the rule
+     * Name of the rule.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return name of the rule
+     * @return Name of the rule.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * runtime system for your organization AWS Config Custom Policy rules
+     * Runtime system for policy rules.
      * 
      */
     @Import(name="policyRuntime", required=true)
     private Output<String> policyRuntime;
 
     /**
-     * @return runtime system for your organization AWS Config Custom Policy rules
+     * @return Runtime system for policy rules.
      * 
      */
     public Output<String> policyRuntime() {
@@ -123,14 +123,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * policy definition containing the logic for your organization AWS Config Custom Policy rule
+     * Policy definition containing the rule logic.
      * 
      */
     @Import(name="policyText", required=true)
     private Output<String> policyText;
 
     /**
-     * @return policy definition containing the logic for your organization AWS Config Custom Policy rule
+     * @return Policy definition containing the rule logic.
      * 
      */
     public Output<String> policyText() {
@@ -153,14 +153,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * Identifier of the AWS resource to evaluate
+     * Identifier of the AWS resource to evaluate.
      * 
      */
     @Import(name="resourceIdScope")
     private @Nullable Output<String> resourceIdScope;
 
     /**
-     * @return Identifier of the AWS resource to evaluate
+     * @return Identifier of the AWS resource to evaluate.
      * 
      */
     public Optional<Output<String>> resourceIdScope() {
@@ -168,14 +168,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * List of types of AWS resources to evaluate
+     * List of types of AWS resources to evaluate.
      * 
      */
     @Import(name="resourceTypesScopes")
     private @Nullable Output<List<String>> resourceTypesScopes;
 
     /**
-     * @return List of types of AWS resources to evaluate
+     * @return List of types of AWS resources to evaluate.
      * 
      */
     public Optional<Output<List<String>>> resourceTypesScopes() {
@@ -183,14 +183,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * Tag key of AWS resources to evaluate
+     * Tag key of AWS resources to evaluate.
      * 
      */
     @Import(name="tagKeyScope")
     private @Nullable Output<String> tagKeyScope;
 
     /**
-     * @return Tag key of AWS resources to evaluate
+     * @return Tag key of AWS resources to evaluate.
      * 
      */
     public Optional<Output<String>> tagKeyScope() {
@@ -198,14 +198,14 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * Tag value of AWS resources to evaluate
+     * Tag value of AWS resources to evaluate.
      * 
      */
     @Import(name="tagValueScope")
     private @Nullable Output<String> tagValueScope;
 
     /**
-     * @return Tag value of AWS resources to evaluate
+     * @return Tag value of AWS resources to evaluate.
      * 
      */
     public Optional<Output<String>> tagValueScope() {
@@ -213,7 +213,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
      * 
      * The following arguments are optional:
      * 
@@ -222,7 +222,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     private Output<List<String>> triggerTypes;
 
     /**
-     * @return List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     * @return List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
      * 
      * The following arguments are optional:
      * 
@@ -269,7 +269,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param debugLogDeliveryAccounts List of AWS account identifiers to exclude from the rule
+         * @param debugLogDeliveryAccounts List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param debugLogDeliveryAccounts List of AWS account identifiers to exclude from the rule
+         * @param debugLogDeliveryAccounts List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param debugLogDeliveryAccounts List of AWS account identifiers to exclude from the rule
+         * @param debugLogDeliveryAccounts List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param description Description of the rule
+         * @param description Description of the rule.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param description Description of the rule
+         * @param description Description of the rule.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param excludedAccounts List of AWS account identifiers to exclude from the rule
+         * @param excludedAccounts List of AWS account identifiers to exclude from the rule.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param excludedAccounts List of AWS account identifiers to exclude from the rule
+         * @param excludedAccounts List of AWS account identifiers to exclude from the rule.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param excludedAccounts List of AWS account identifiers to exclude from the rule
+         * @param excludedAccounts List of AWS account identifiers to exclude from the rule.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param inputParameters A string in JSON format that is passed to the AWS Config Rule Lambda Function
+         * @param inputParameters A string in JSON format that is passed to the AWS Config Rule Lambda Function.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param inputParameters A string in JSON format that is passed to the AWS Config Rule Lambda Function
+         * @param inputParameters A string in JSON format that is passed to the AWS Config Rule Lambda Function.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name name of the rule
+         * @param name Name of the rule.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name name of the rule
+         * @param name Name of the rule.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param policyRuntime runtime system for your organization AWS Config Custom Policy rules
+         * @param policyRuntime Runtime system for policy rules.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param policyRuntime runtime system for your organization AWS Config Custom Policy rules
+         * @param policyRuntime Runtime system for policy rules.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param policyText policy definition containing the logic for your organization AWS Config Custom Policy rule
+         * @param policyText Policy definition containing the rule logic.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param policyText policy definition containing the logic for your organization AWS Config Custom Policy rule
+         * @param policyText Policy definition containing the rule logic.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceIdScope Identifier of the AWS resource to evaluate
+         * @param resourceIdScope Identifier of the AWS resource to evaluate.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceIdScope Identifier of the AWS resource to evaluate
+         * @param resourceIdScope Identifier of the AWS resource to evaluate.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceTypesScopes List of types of AWS resources to evaluate
+         * @param resourceTypesScopes List of types of AWS resources to evaluate.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceTypesScopes List of types of AWS resources to evaluate
+         * @param resourceTypesScopes List of types of AWS resources to evaluate.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceTypesScopes List of types of AWS resources to evaluate
+         * @param resourceTypesScopes List of types of AWS resources to evaluate.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tagKeyScope Tag key of AWS resources to evaluate
+         * @param tagKeyScope Tag key of AWS resources to evaluate.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tagKeyScope Tag key of AWS resources to evaluate
+         * @param tagKeyScope Tag key of AWS resources to evaluate.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tagValueScope Tag value of AWS resources to evaluate
+         * @param tagValueScope Tag value of AWS resources to evaluate.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tagValueScope Tag value of AWS resources to evaluate
+         * @param tagValueScope Tag value of AWS resources to evaluate.
          * 
          * @return builder
          * 
@@ -572,7 +572,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+         * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
          * 
          * The following arguments are optional:
          * 
@@ -585,7 +585,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+         * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
          * 
          * The following arguments are optional:
          * 
@@ -597,7 +597,7 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+         * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
          * 
          * The following arguments are optional:
          * 

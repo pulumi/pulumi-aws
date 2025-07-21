@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.ServiceLoadBalancerAdvancedConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -14,14 +15,19 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceLoadBalancer {
     /**
+     * @return Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
+     * 
+     * &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+     * 
+     */
+    private @Nullable ServiceLoadBalancerAdvancedConfiguration advancedConfiguration;
+    /**
      * @return Name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
     private String containerName;
     /**
      * @return Port on the container to associate with the load balancer.
-     * 
-     * &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
      */
     private Integer containerPort;
@@ -38,6 +44,15 @@ public final class ServiceLoadBalancer {
 
     private ServiceLoadBalancer() {}
     /**
+     * @return Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
+     * 
+     * &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+     * 
+     */
+    public Optional<ServiceLoadBalancerAdvancedConfiguration> advancedConfiguration() {
+        return Optional.ofNullable(this.advancedConfiguration);
+    }
+    /**
      * @return Name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
@@ -46,8 +61,6 @@ public final class ServiceLoadBalancer {
     }
     /**
      * @return Port on the container to associate with the load balancer.
-     * 
-     * &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
      */
     public Integer containerPort() {
@@ -77,6 +90,7 @@ public final class ServiceLoadBalancer {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ServiceLoadBalancerAdvancedConfiguration advancedConfiguration;
         private String containerName;
         private Integer containerPort;
         private @Nullable String elbName;
@@ -84,12 +98,19 @@ public final class ServiceLoadBalancer {
         public Builder() {}
         public Builder(ServiceLoadBalancer defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.advancedConfiguration = defaults.advancedConfiguration;
     	      this.containerName = defaults.containerName;
     	      this.containerPort = defaults.containerPort;
     	      this.elbName = defaults.elbName;
     	      this.targetGroupArn = defaults.targetGroupArn;
         }
 
+        @CustomType.Setter
+        public Builder advancedConfiguration(@Nullable ServiceLoadBalancerAdvancedConfiguration advancedConfiguration) {
+
+            this.advancedConfiguration = advancedConfiguration;
+            return this;
+        }
         @CustomType.Setter
         public Builder containerName(String containerName) {
             if (containerName == null) {
@@ -120,6 +141,7 @@ public final class ServiceLoadBalancer {
         }
         public ServiceLoadBalancer build() {
             final var _resultValue = new ServiceLoadBalancer();
+            _resultValue.advancedConfiguration = advancedConfiguration;
             _resultValue.containerName = containerName;
             _resultValue.containerPort = containerPort;
             _resultValue.elbName = elbName;

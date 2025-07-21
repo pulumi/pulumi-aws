@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
         /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// Configuration block for test traffic routing rules. See below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule> TestTrafficRules;
 
         [OutputConstructor]
         private ServiceServiceConnectConfigurationServiceClientAlias(
             string? dnsName,
 
-            int port)
+            int port,
+
+            ImmutableArray<Outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule> testTrafficRules)
         {
             DnsName = dnsName;
             Port = port;
+            TestTrafficRules = testTrafficRules;
         }
     }
 }

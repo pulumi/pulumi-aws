@@ -30,10 +30,26 @@ public final class CertificateOptionsArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.certificateTransparencyLoggingPreference);
     }
 
+    /**
+     * Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+     * 
+     */
+    @Import(name="export")
+    private @Nullable Output<String> export;
+
+    /**
+     * @return Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+     * 
+     */
+    public Optional<Output<String>> export() {
+        return Optional.ofNullable(this.export);
+    }
+
     private CertificateOptionsArgs() {}
 
     private CertificateOptionsArgs(CertificateOptionsArgs $) {
         this.certificateTransparencyLoggingPreference = $.certificateTransparencyLoggingPreference;
+        this.export = $.export;
     }
 
     public static Builder builder() {
@@ -73,6 +89,27 @@ public final class CertificateOptionsArgs extends com.pulumi.resources.ResourceA
          */
         public Builder certificateTransparencyLoggingPreference(String certificateTransparencyLoggingPreference) {
             return certificateTransparencyLoggingPreference(Output.of(certificateTransparencyLoggingPreference));
+        }
+
+        /**
+         * @param export Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder export(@Nullable Output<String> export) {
+            $.export = export;
+            return this;
+        }
+
+        /**
+         * @param export Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder export(String export) {
+            return export(Output.of(export));
         }
 
         public CertificateOptionsArgs build() {

@@ -47,14 +47,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Lambda function
+     * Name or ARN of the Lambda function
      * 
      */
     @Import(name="function", required=true)
     private Output<String> function;
 
     /**
-     * @return Name of the Lambda function
+     * @return Name or ARN of the Lambda function
      * 
      */
     public Output<String> function() {
@@ -278,7 +278,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function Name of the Lambda function
+         * @param function Name or ARN of the Lambda function
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function Name of the Lambda function
+         * @param function Name or ARN of the Lambda function
          * 
          * @return builder
          * 

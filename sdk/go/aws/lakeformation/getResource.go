@@ -59,6 +59,8 @@ type LookupResourceArgs struct {
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
 	Arn string `pulumi:"arn"`
+	// Flag to enable AWS LakeFormation hybrid access permission mode.
+	HybridAccessEnabled bool `pulumi:"hybridAccessEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
@@ -66,6 +68,10 @@ type LookupResourceResult struct {
 	Region       string `pulumi:"region"`
 	// Role that the resource was registered with.
 	RoleArn string `pulumi:"roleArn"`
+	// Whether the resource is a federated resource.
+	WithFederation bool `pulumi:"withFederation"`
+	// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+	WithPrivilegedAccess bool `pulumi:"withPrivilegedAccess"`
 }
 
 func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceResultOutput {
@@ -108,6 +114,11 @@ func (o LookupResourceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Flag to enable AWS LakeFormation hybrid access permission mode.
+func (o LookupResourceResultOutput) HybridAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupResourceResult) bool { return v.HybridAccessEnabled }).(pulumi.BoolOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Id }).(pulumi.StringOutput)
@@ -125,6 +136,16 @@ func (o LookupResourceResultOutput) Region() pulumi.StringOutput {
 // Role that the resource was registered with.
 func (o LookupResourceResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Whether the resource is a federated resource.
+func (o LookupResourceResultOutput) WithFederation() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupResourceResult) bool { return v.WithFederation }).(pulumi.BoolOutput)
+}
+
+// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+func (o LookupResourceResultOutput) WithPrivilegedAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupResourceResult) bool { return v.WithPrivilegedAccess }).(pulumi.BoolOutput)
 }
 
 func init() {

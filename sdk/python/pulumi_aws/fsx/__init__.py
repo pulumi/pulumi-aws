@@ -21,6 +21,7 @@ from .ontap_volume import *
 from .open_zfs_file_system import *
 from .open_zfs_snapshot import *
 from .open_zfs_volume import *
+from .s3_access_point_attachment import *
 from .windows_file_system import *
 from ._inputs import *
 from . import outputs

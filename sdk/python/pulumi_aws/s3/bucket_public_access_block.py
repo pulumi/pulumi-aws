@@ -25,12 +25,13 @@ class BucketPublicAccessBlockArgs:
                  block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
                  ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None):
+                 restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None,
+                 skip_destroy: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a BucketPublicAccessBlock resource.
         :param pulumi.Input[builtins.str] bucket: S3 Bucket to which this Public Access Block configuration should be applied.
         :param pulumi.Input[builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+               * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
                * PUT Object calls will fail if the request includes an object ACL.
         :param pulumi.Input[builtins.bool] block_public_policy: Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
                * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
@@ -39,6 +40,7 @@ class BucketPublicAccessBlockArgs:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
+        :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
         if block_public_acls is not None:
@@ -51,6 +53,8 @@ class BucketPublicAccessBlockArgs:
             pulumi.set(__self__, "region", region)
         if restrict_public_buckets is not None:
             pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
 
     @property
     @pulumi.getter
@@ -69,7 +73,7 @@ class BucketPublicAccessBlockArgs:
     def block_public_acls(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+        * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
         * PUT Object calls will fail if the request includes an object ACL.
         """
         return pulumi.get(self, "block_public_acls")
@@ -129,6 +133,18 @@ class BucketPublicAccessBlockArgs:
     def restrict_public_buckets(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "restrict_public_buckets", value)
 
+    @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+        """
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
 
 @pulumi.input_type
 class _BucketPublicAccessBlockState:
@@ -138,11 +154,12 @@ class _BucketPublicAccessBlockState:
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None):
+                 restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None,
+                 skip_destroy: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering BucketPublicAccessBlock resources.
         :param pulumi.Input[builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+               * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
                * PUT Object calls will fail if the request includes an object ACL.
         :param pulumi.Input[builtins.bool] block_public_policy: Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
                * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
@@ -152,6 +169,7 @@ class _BucketPublicAccessBlockState:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
+        :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
         """
         if block_public_acls is not None:
             pulumi.set(__self__, "block_public_acls", block_public_acls)
@@ -165,13 +183,15 @@ class _BucketPublicAccessBlockState:
             pulumi.set(__self__, "region", region)
         if restrict_public_buckets is not None:
             pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
 
     @property
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+        * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
         * PUT Object calls will fail if the request includes an object ACL.
         """
         return pulumi.get(self, "block_public_acls")
@@ -243,6 +263,18 @@ class _BucketPublicAccessBlockState:
     def restrict_public_buckets(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "restrict_public_buckets", value)
 
+    @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+        """
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
 
 @pulumi.type_token("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock")
 class BucketPublicAccessBlock(pulumi.CustomResource):
@@ -256,12 +288,9 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
                  ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None,
+                 skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
-        Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
-
-        > This resource cannot be used with S3 directory buckets.
-
         ## Example Usage
 
         ```python
@@ -288,7 +317,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+               * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
                * PUT Object calls will fail if the request includes an object ACL.
         :param pulumi.Input[builtins.bool] block_public_policy: Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
                * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
@@ -298,6 +327,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
+        :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
         """
         ...
     @overload
@@ -306,10 +336,6 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
                  args: BucketPublicAccessBlockArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
-
-        > This resource cannot be used with S3 directory buckets.
-
         ## Example Usage
 
         ```python
@@ -354,6 +380,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
                  ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None,
+                 skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -371,6 +398,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
             __props__.__dict__["ignore_public_acls"] = ignore_public_acls
             __props__.__dict__["region"] = region
             __props__.__dict__["restrict_public_buckets"] = restrict_public_buckets
+            __props__.__dict__["skip_destroy"] = skip_destroy
         super(BucketPublicAccessBlock, __self__).__init__(
             'aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock',
             resource_name,
@@ -386,7 +414,8 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
-            restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None) -> 'BucketPublicAccessBlock':
+            restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None,
+            skip_destroy: Optional[pulumi.Input[builtins.bool]] = None) -> 'BucketPublicAccessBlock':
         """
         Get an existing BucketPublicAccessBlock resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -395,7 +424,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+               * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
                * PUT Object calls will fail if the request includes an object ACL.
         :param pulumi.Input[builtins.bool] block_public_policy: Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
                * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
@@ -405,6 +434,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
+        :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -416,6 +446,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         __props__.__dict__["ignore_public_acls"] = ignore_public_acls
         __props__.__dict__["region"] = region
         __props__.__dict__["restrict_public_buckets"] = restrict_public_buckets
+        __props__.__dict__["skip_destroy"] = skip_destroy
         return BucketPublicAccessBlock(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -423,7 +454,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
     def block_public_acls(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+        * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
         * PUT Object calls will fail if the request includes an object ACL.
         """
         return pulumi.get(self, "block_public_acls")
@@ -470,4 +501,12 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
         return pulumi.get(self, "restrict_public_buckets")
+
+    @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+        """
+        return pulumi.get(self, "skip_destroy")
 

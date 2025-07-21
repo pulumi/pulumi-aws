@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +25,11 @@ public final class ServiceServiceConnectConfigurationServiceClientAlias {
      * 
      */
     private Integer port;
+    /**
+     * @return Configuration block for test traffic routing rules. See below.
+     * 
+     */
+    private @Nullable List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule> testTrafficRules;
 
     private ServiceServiceConnectConfigurationServiceClientAlias() {}
     /**
@@ -39,6 +46,13 @@ public final class ServiceServiceConnectConfigurationServiceClientAlias {
     public Integer port() {
         return this.port;
     }
+    /**
+     * @return Configuration block for test traffic routing rules. See below.
+     * 
+     */
+    public List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule> testTrafficRules() {
+        return this.testTrafficRules == null ? List.of() : this.testTrafficRules;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,11 +65,13 @@ public final class ServiceServiceConnectConfigurationServiceClientAlias {
     public static final class Builder {
         private @Nullable String dnsName;
         private Integer port;
+        private @Nullable List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule> testTrafficRules;
         public Builder() {}
         public Builder(ServiceServiceConnectConfigurationServiceClientAlias defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsName = defaults.dnsName;
     	      this.port = defaults.port;
+    	      this.testTrafficRules = defaults.testTrafficRules;
         }
 
         @CustomType.Setter
@@ -72,10 +88,20 @@ public final class ServiceServiceConnectConfigurationServiceClientAlias {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
+        public Builder testTrafficRules(@Nullable List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule> testTrafficRules) {
+
+            this.testTrafficRules = testTrafficRules;
+            return this;
+        }
+        public Builder testTrafficRules(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule... testTrafficRules) {
+            return testTrafficRules(List.of(testTrafficRules));
+        }
         public ServiceServiceConnectConfigurationServiceClientAlias build() {
             final var _resultValue = new ServiceServiceConnectConfigurationServiceClientAlias();
             _resultValue.dnsName = dnsName;
             _resultValue.port = port;
+            _resultValue.testTrafficRules = testTrafficRules;
             return _resultValue;
         }
     }

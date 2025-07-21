@@ -83,11 +83,17 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Output("withFederation")]
         public Output<bool> WithFederation { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
+        [Output("withPrivilegedAccess")]
+        public Output<bool> WithPrivilegedAccess { get; private set; } = null!;
 
 
         /// <summary>
@@ -169,11 +175,17 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Input("withFederation")]
         public Input<bool>? WithFederation { get; set; }
+
+        /// <summary>
+        /// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
+        [Input("withPrivilegedAccess")]
+        public Input<bool>? WithPrivilegedAccess { get; set; }
 
         public ResourceArgs()
         {
@@ -223,11 +235,17 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Input("withFederation")]
         public Input<bool>? WithFederation { get; set; }
+
+        /// <summary>
+        /// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
+        [Input("withPrivilegedAccess")]
+        public Input<bool>? WithPrivilegedAccess { get; set; }
 
         public ResourceState()
         {

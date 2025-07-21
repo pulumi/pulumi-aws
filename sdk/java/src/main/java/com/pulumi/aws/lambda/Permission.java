@@ -392,14 +392,14 @@ public class Permission extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventSourceToken);
     }
     /**
-     * Name of the Lambda function
+     * Name or ARN of the Lambda function
      * 
      */
     @Export(name="function", refs={String.class}, tree="[0]")
     private Output<String> function;
 
     /**
-     * @return Name of the Lambda function
+     * @return Name or ARN of the Lambda function
      * 
      */
     public Output<String> function() {

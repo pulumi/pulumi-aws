@@ -365,7 +365,7 @@ type BucketObjectv2 struct {
 	OverrideProvider BucketObjectv2OverrideProviderPtrOutput `pulumi:"overrideProvider"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	// Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
 	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
 	Source pulumi.AssetOrArchiveOutput `pulumi:"source"`
@@ -484,7 +484,7 @@ type bucketObjectv2State struct {
 	OverrideProvider *BucketObjectv2OverrideProvider `pulumi:"overrideProvider"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	// Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
 	Source pulumi.AssetOrArchive `pulumi:"source"`
@@ -565,7 +565,7 @@ type BucketObjectv2State struct {
 	OverrideProvider BucketObjectv2OverrideProviderPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	// Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
 	Source pulumi.AssetOrArchiveInput
@@ -638,7 +638,7 @@ type bucketObjectv2Args struct {
 	OverrideProvider *BucketObjectv2OverrideProvider `pulumi:"overrideProvider"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	// Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
 	Source pulumi.AssetOrArchive `pulumi:"source"`
@@ -704,7 +704,7 @@ type BucketObjectv2Args struct {
 	OverrideProvider BucketObjectv2OverrideProviderPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	// Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
 	Source pulumi.AssetOrArchiveInput
@@ -948,7 +948,7 @@ func (o BucketObjectv2Output) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+// Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
 func (o BucketObjectv2Output) ServerSideEncryption() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.ServerSideEncryption }).(pulumi.StringOutput)
 }

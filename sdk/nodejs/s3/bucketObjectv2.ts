@@ -308,7 +308,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+     * Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
      */
     public readonly serverSideEncryption!: pulumi.Output<string>;
     /**
@@ -557,7 +557,7 @@ export interface BucketObjectv2State {
      */
     region?: pulumi.Input<string>;
     /**
-     * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+     * Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
      */
     serverSideEncryption?: pulumi.Input<string>;
     /**
@@ -687,7 +687,7 @@ export interface BucketObjectv2Args {
      */
     region?: pulumi.Input<string>;
     /**
-     * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+     * Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
      */
     serverSideEncryption?: pulumi.Input<string>;
     /**

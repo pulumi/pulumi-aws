@@ -188,7 +188,7 @@ namespace Pulumi.Aws.DataSync
         [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
 
-        [Input("agentArns", required: true)]
+        [Input("agentArns")]
         private InputList<string>? _agentArns;
 
         /// <summary>

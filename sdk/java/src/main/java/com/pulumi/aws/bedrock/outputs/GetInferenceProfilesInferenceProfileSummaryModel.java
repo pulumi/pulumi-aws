@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetInferenceProfilesInferenceProfileSummaryModel {
     /**
-     * @return The Amazon Resource Name (ARN) of the model.
+     * @return Amazon Resource Name (ARN) of the model.
      * 
      */
     private String modelArn;
 
     private GetInferenceProfilesInferenceProfileSummaryModel() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the model.
+     * @return Amazon Resource Name (ARN) of the model.
      * 
      */
     public String modelArn() {

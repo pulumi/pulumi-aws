@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 import com.pulumi.aws.cloudwatch.inputs.LogMetricFilterMetricTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class LogMetricFilterState extends com.pulumi.resources.ResourceArgs {
 
     public static final LogMetricFilterState Empty = new LogMetricFilterState();
+
+    /**
+     * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+     * 
+     */
+    @Import(name="applyOnTransformedLogs")
+    private @Nullable Output<Boolean> applyOnTransformedLogs;
+
+    /**
+     * @return Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+     * 
+     */
+    public Optional<Output<Boolean>> applyOnTransformedLogs() {
+        return Optional.ofNullable(this.applyOnTransformedLogs);
+    }
 
     /**
      * The name of the log group to associate the metric filter with.
@@ -96,6 +112,7 @@ public final class LogMetricFilterState extends com.pulumi.resources.ResourceArg
     private LogMetricFilterState() {}
 
     private LogMetricFilterState(LogMetricFilterState $) {
+        this.applyOnTransformedLogs = $.applyOnTransformedLogs;
         this.logGroupName = $.logGroupName;
         this.metricTransformation = $.metricTransformation;
         this.name = $.name;
@@ -119,6 +136,27 @@ public final class LogMetricFilterState extends com.pulumi.resources.ResourceArg
 
         public Builder(LogMetricFilterState defaults) {
             $ = new LogMetricFilterState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param applyOnTransformedLogs Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applyOnTransformedLogs(@Nullable Output<Boolean> applyOnTransformedLogs) {
+            $.applyOnTransformedLogs = applyOnTransformedLogs;
+            return this;
+        }
+
+        /**
+         * @param applyOnTransformedLogs Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applyOnTransformedLogs(Boolean applyOnTransformedLogs) {
+            return applyOnTransformedLogs(Output.of(applyOnTransformedLogs));
         }
 
         /**

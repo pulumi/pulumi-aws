@@ -233,6 +233,12 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceDeploymentCircuitBreaker?> DeploymentCircuitBreaker { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for deployment settings. See below.
+        /// </summary>
+        [Output("deploymentConfiguration")]
+        public Output<Outputs.ServiceDeploymentConfiguration?> DeploymentConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for deployment controller configuration. See below.
         /// </summary>
         [Output("deploymentController")]
@@ -492,6 +498,12 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.ServiceDeploymentCircuitBreakerArgs>? DeploymentCircuitBreaker { get; set; }
 
         /// <summary>
+        /// Configuration block for deployment settings. See below.
+        /// </summary>
+        [Input("deploymentConfiguration")]
+        public Input<Inputs.ServiceDeploymentConfigurationArgs>? DeploymentConfiguration { get; set; }
+
+        /// <summary>
         /// Configuration block for deployment controller configuration. See below.
         /// </summary>
         [Input("deploymentController")]
@@ -747,6 +759,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("deploymentCircuitBreaker")]
         public Input<Inputs.ServiceDeploymentCircuitBreakerGetArgs>? DeploymentCircuitBreaker { get; set; }
+
+        /// <summary>
+        /// Configuration block for deployment settings. See below.
+        /// </summary>
+        [Input("deploymentConfiguration")]
+        public Input<Inputs.ServiceDeploymentConfigurationGetArgs>? DeploymentConfiguration { get; set; }
 
         /// <summary>
         /// Configuration block for deployment controller configuration. See below.

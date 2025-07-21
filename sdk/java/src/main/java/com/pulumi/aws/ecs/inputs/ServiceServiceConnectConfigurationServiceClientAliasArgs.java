@@ -3,11 +3,13 @@
 
 package com.pulumi.aws.ecs.inputs;
 
+import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -47,11 +49,27 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
         return this.port;
     }
 
+    /**
+     * Configuration block for test traffic routing rules. See below.
+     * 
+     */
+    @Import(name="testTrafficRules")
+    private @Nullable Output<List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs>> testTrafficRules;
+
+    /**
+     * @return Configuration block for test traffic routing rules. See below.
+     * 
+     */
+    public Optional<Output<List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs>>> testTrafficRules() {
+        return Optional.ofNullable(this.testTrafficRules);
+    }
+
     private ServiceServiceConnectConfigurationServiceClientAliasArgs() {}
 
     private ServiceServiceConnectConfigurationServiceClientAliasArgs(ServiceServiceConnectConfigurationServiceClientAliasArgs $) {
         this.dnsName = $.dnsName;
         this.port = $.port;
+        this.testTrafficRules = $.testTrafficRules;
     }
 
     public static Builder builder() {
@@ -112,6 +130,37 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param testTrafficRules Configuration block for test traffic routing rules. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder testTrafficRules(@Nullable Output<List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs>> testTrafficRules) {
+            $.testTrafficRules = testTrafficRules;
+            return this;
+        }
+
+        /**
+         * @param testTrafficRules Configuration block for test traffic routing rules. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder testTrafficRules(List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs> testTrafficRules) {
+            return testTrafficRules(Output.of(testTrafficRules));
+        }
+
+        /**
+         * @param testTrafficRules Configuration block for test traffic routing rules. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder testTrafficRules(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs... testTrafficRules) {
+            return testTrafficRules(List.of(testTrafficRules));
         }
 
         public ServiceServiceConnectConfigurationServiceClientAliasArgs build() {

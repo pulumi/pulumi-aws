@@ -117,13 +117,13 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
      * 
      */
     @Import(name="regionalParameters")
-    private @Nullable Output<Map<String,String>> regionalParameters;
+    private @Nullable Output<Map<String,Map<String,String>>> regionalParameters;
 
     /**
      * @return Parameters for each region in which the blueprint is enabled
      * 
      */
-    public Optional<Output<Map<String,String>>> regionalParameters() {
+    public Optional<Output<Map<String,Map<String,String>>>> regionalParameters() {
         return Optional.ofNullable(this.regionalParameters);
     }
 
@@ -305,7 +305,7 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder regionalParameters(@Nullable Output<Map<String,String>> regionalParameters) {
+        public Builder regionalParameters(@Nullable Output<Map<String,Map<String,String>>> regionalParameters) {
             $.regionalParameters = regionalParameters;
             return this;
         }
@@ -316,7 +316,7 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder regionalParameters(Map<String,String> regionalParameters) {
+        public Builder regionalParameters(Map<String,Map<String,String>> regionalParameters) {
             return regionalParameters(Output.of(regionalParameters));
         }
 

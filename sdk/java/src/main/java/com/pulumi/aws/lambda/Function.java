@@ -369,6 +369,136 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Function with logging to S3 or Data Firehose
+ * 
+ * #### Required Resources
+ * 
+ * * An S3 bucket or Data Firehose delivery stream to store the logs.
+ * * A CloudWatch Log Group with:
+ *   
+ *     * `log_group_class = &#34;DELIVERY&#34;`
+ *     * A subscription filter whose `destination_arn` points to the S3 bucket or the Data Firehose delivery stream.
+ * 
+ * * IAM roles:
+ *   
+ *     * Assumed by the `logs.amazonaws.com` service to deliver logs to the S3 bucket or Data Firehose delivery stream.
+ *     * Assumed by the `lambda.amazonaws.com` service to send logs to CloudWatch Logs
+ * 
+ * * A Lambda function:
+ *   
+ *     * In the `logging_configuration`, specify the name of the Log Group created above using the `log_group` field
+ *     * No special configuration is required to use S3 or Firehose as the log destination
+ * 
+ * For more details, see [Sending Lambda function logs to Amazon S3](https://docs.aws.amazon.com/lambda/latest/dg/logging-with-s3.html).
+ * 
+ * ### Example: Exporting Lambda Logs to S3 Bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.cloudwatch.LogSubscriptionFilter;
+ * import com.pulumi.aws.cloudwatch.LogSubscriptionFilterArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var lambdaFunctionName = "lambda-log-export-example";
+ * 
+ *         var lambdaLogExportBucket = new Bucket("lambdaLogExportBucket", BucketArgs.builder()
+ *             .bucket(String.format("%s-bucket", lambdaFunctionName))
+ *             .build());
+ * 
+ *         var export = new LogGroup("export", LogGroupArgs.builder()
+ *             .name(String.format("/aws/lambda/%s", lambdaFunctionName))
+ *             .logGroupClass("DELIVERY")
+ *             .build());
+ * 
+ *         final var logsAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("sts:AssumeRole")
+ *                 .effect("Allow")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("logs.amazonaws.com")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var logsLogExport = new Role("logsLogExport", RoleArgs.builder()
+ *             .name(String.format("%s-lambda-log-export-role", lambdaFunctionName))
+ *             .assumeRolePolicy(logsAssumeRole.json())
+ *             .build());
+ * 
+ *         final var lambdaLogExport = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("s3:PutObject")
+ *                 .effect("Allow")
+ *                 .resources(lambdaLogExportBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+ *                 .build())
+ *             .build());
+ * 
+ *         var lambdaLogExportRolePolicy = new RolePolicy("lambdaLogExportRolePolicy", RolePolicyArgs.builder()
+ *             .policy(lambdaLogExport.applyValue(_lambdaLogExport -> _lambdaLogExport.json()))
+ *             .role(logsLogExport.name())
+ *             .build());
+ * 
+ *         var lambdaLogExportLogSubscriptionFilter = new LogSubscriptionFilter("lambdaLogExportLogSubscriptionFilter", LogSubscriptionFilterArgs.builder()
+ *             .name(String.format("%s-filter", lambdaFunctionName))
+ *             .logGroup(export.name())
+ *             .filterPattern("")
+ *             .destinationArn(lambdaLogExportBucket.arn())
+ *             .roleArn(logsLogExport.arn())
+ *             .build());
+ * 
+ *         var logExport = new Function("logExport", FunctionArgs.builder()
+ *             .name(lambdaFunctionName)
+ *             .handler("index.lambda_handler")
+ *             .runtime("python3.13")
+ *             .role(example.arn())
+ *             .code(new FileArchive("function.zip"))
+ *             .loggingConfig(FunctionLoggingConfigArgs.builder()
+ *                 .logFormat("Text")
+ *                 .logGroup(export.name())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(export)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Function with Error Handling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

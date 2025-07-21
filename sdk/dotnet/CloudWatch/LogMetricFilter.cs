@@ -55,6 +55,12 @@ namespace Pulumi.Aws.CloudWatch
     public partial class LogMetricFilter : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+        /// </summary>
+        [Output("applyOnTransformedLogs")]
+        public Output<bool> ApplyOnTransformedLogs { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the log group to associate the metric filter with.
         /// </summary>
         [Output("logGroupName")]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogMetricFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+        /// </summary>
+        [Input("applyOnTransformedLogs")]
+        public Input<bool>? ApplyOnTransformedLogs { get; set; }
+
+        /// <summary>
         /// The name of the log group to associate the metric filter with.
         /// </summary>
         [Input("logGroupName", required: true)]
@@ -170,6 +182,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogMetricFilterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+        /// </summary>
+        [Input("applyOnTransformedLogs")]
+        public Input<bool>? ApplyOnTransformedLogs { get; set; }
+
         /// <summary>
         /// The name of the log group to associate the metric filter with.
         /// </summary>

@@ -169,6 +169,8 @@ __all__ = [
     'ObjectCopyGrant',
     'ObjectCopyOverrideProvider',
     'ObjectCopyOverrideProviderDefaultTags',
+    'GetAccessPointPublicAccessBlockConfigurationResult',
+    'GetAccessPointVpcConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -7741,5 +7743,74 @@ class ObjectCopyOverrideProviderDefaultTags(dict):
         Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetAccessPointPublicAccessBlockConfigurationResult(dict):
+    def __init__(__self__, *,
+                 block_public_acls: builtins.bool,
+                 block_public_policy: builtins.bool,
+                 ignore_public_acls: builtins.bool,
+                 restrict_public_buckets: builtins.bool):
+        """
+        :param builtins.bool block_public_acls: Whether Amazon S3 blocks public ACLs for buckets in this account.
+        :param builtins.bool block_public_policy: Whether Amazon S3 blocks public bucket policies for buckets in this account.
+        :param builtins.bool ignore_public_acls: Whether Amazon S3 ignores public ACLs for buckets in this account.
+        :param builtins.bool restrict_public_buckets: Whether Amazon S3 restricts public bucket policies for buckets in this account.
+        """
+        pulumi.set(__self__, "block_public_acls", block_public_acls)
+        pulumi.set(__self__, "block_public_policy", block_public_policy)
+        pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+
+    @property
+    @pulumi.getter(name="blockPublicAcls")
+    def block_public_acls(self) -> builtins.bool:
+        """
+        Whether Amazon S3 blocks public ACLs for buckets in this account.
+        """
+        return pulumi.get(self, "block_public_acls")
+
+    @property
+    @pulumi.getter(name="blockPublicPolicy")
+    def block_public_policy(self) -> builtins.bool:
+        """
+        Whether Amazon S3 blocks public bucket policies for buckets in this account.
+        """
+        return pulumi.get(self, "block_public_policy")
+
+    @property
+    @pulumi.getter(name="ignorePublicAcls")
+    def ignore_public_acls(self) -> builtins.bool:
+        """
+        Whether Amazon S3 ignores public ACLs for buckets in this account.
+        """
+        return pulumi.get(self, "ignore_public_acls")
+
+    @property
+    @pulumi.getter(name="restrictPublicBuckets")
+    def restrict_public_buckets(self) -> builtins.bool:
+        """
+        Whether Amazon S3 restricts public bucket policies for buckets in this account.
+        """
+        return pulumi.get(self, "restrict_public_buckets")
+
+
+@pulumi.output_type
+class GetAccessPointVpcConfigurationResult(dict):
+    def __init__(__self__, *,
+                 vpc_id: builtins.str):
+        """
+        :param builtins.str vpc_id: Access point will only allow connections from this VPC.
+        """
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> builtins.str:
+        """
+        Access point will only allow connections from this VPC.
+        """
+        return pulumi.get(self, "vpc_id")
 
 

@@ -131,6 +131,10 @@ namespace Pulumi.Aws.LakeFormation
     {
         public readonly string Arn;
         /// <summary>
+        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// </summary>
+        public readonly bool HybridAccessEnabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -143,10 +147,20 @@ namespace Pulumi.Aws.LakeFormation
         /// Role that the resource was registered with.
         /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Whether the resource is a federated resource.
+        /// </summary>
+        public readonly bool WithFederation;
+        /// <summary>
+        /// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+        /// </summary>
+        public readonly bool WithPrivilegedAccess;
 
         [OutputConstructor]
         private GetResourceResult(
             string arn,
+
+            bool hybridAccessEnabled,
 
             string id,
 
@@ -154,13 +168,20 @@ namespace Pulumi.Aws.LakeFormation
 
             string region,
 
-            string roleArn)
+            string roleArn,
+
+            bool withFederation,
+
+            bool withPrivilegedAccess)
         {
             Arn = arn;
+            HybridAccessEnabled = hybridAccessEnabled;
             Id = id;
             LastModified = lastModified;
             Region = region;
             RoleArn = roleArn;
+            WithFederation = withFederation;
+            WithPrivilegedAccess = withPrivilegedAccess;
         }
     }
 }

@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Synthetics
         public Output<string> Handler { get; private set; } = null!;
 
         /// <summary>
-        /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        /// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Synthetics
         public Input<string> Handler { get; set; } = null!;
 
         /// <summary>
-        /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        /// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Synthetics
         public Input<string>? Handler { get; set; }
 
         /// <summary>
-        /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        /// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

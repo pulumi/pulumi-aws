@@ -14,39 +14,39 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GetInferenceProfilesInferenceProfileSummaryResult
     {
         /// <summary>
-        /// The time at which the inference profile was created.
+        /// Time at which the inference profile was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The description of the inference profile.
+        /// Description of the inference profile.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the inference profile.
+        /// Amazon Resource Name (ARN) of the inference profile.
         /// </summary>
         public readonly string InferenceProfileArn;
         /// <summary>
-        /// The unique identifier of the inference profile.
+        /// Unique identifier of the inference profile.
         /// </summary>
         public readonly string InferenceProfileId;
         /// <summary>
-        /// The name of the inference profile.
+        /// Name of the inference profile.
         /// </summary>
         public readonly string InferenceProfileName;
         /// <summary>
-        /// A list of information about each model in the inference profile. See `models`.
+        /// List of information about each model in the inference profile. See `models` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryModelResult> Models;
         /// <summary>
-        /// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+        /// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+        /// Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The time at which the inference profile was last updated.
+        /// Time at which the inference profile was last updated.
         /// </summary>
         public readonly string UpdatedAt;
 

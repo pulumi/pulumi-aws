@@ -332,7 +332,11 @@ import javax.annotation.Nullable;
  *                     "GET",
  *                     "HEAD",
  *                     "OPTIONS")
+ *                 .cachedMethods(                
+ *                     "GET",
+ *                     "HEAD")
  *                 .targetOriginId(s3OriginId)
+ *                 .viewerProtocolPolicy("allow-all")
  *                 .build())
  *             .restrictions(DistributionRestrictionsArgs.builder()
  *                 .geoRestriction(DistributionRestrictionsGeoRestrictionArgs.builder()
@@ -394,6 +398,7 @@ import javax.annotation.Nullable;
  *         var example = new Distribution("example");
  * 
  *         var exampleLogDeliverySource = new LogDeliverySource("exampleLogDeliverySource", LogDeliverySourceArgs.builder()
+ *             .region("us-east-1")
  *             .name("example")
  *             .logType("ACCESS_LOGS")
  *             .resourceArn(example.arn())
@@ -405,6 +410,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogDeliveryDestination = new LogDeliveryDestination("exampleLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
+ *             .region("us-east-1")
  *             .name("s3-destination")
  *             .outputFormat("parquet")
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
@@ -413,11 +419,82 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogDelivery = new LogDelivery("exampleLogDelivery", LogDeliveryArgs.builder()
+ *             .region("us-east-1")
  *             .deliverySourceName(exampleLogDeliverySource.name())
  *             .deliveryDestinationArn(exampleLogDeliveryDestination.arn())
  *             .s3DeliveryConfigurations(LogDeliveryS3DeliveryConfigurationArgs.builder()
  *                 .suffixPath("/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}")
  *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With V2 logging to Data Firehose
+ * 
+ * The example below creates a CloudFront distribution with [standard logging V2 to Data Firehose](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.Distribution;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySource;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySourceArgs;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs;
+ * import com.pulumi.aws.cloudwatch.LogDelivery;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Distribution("example");
+ * 
+ *         var cloudfrontLogs = new FirehoseDeliveryStream("cloudfrontLogs", FirehoseDeliveryStreamArgs.builder()
+ *             .region("us-east-1")
+ *             .tags(Map.of("LogDeliveryEnabled", "true"))
+ *             .build());
+ * 
+ *         var exampleLogDeliverySource = new LogDeliverySource("exampleLogDeliverySource", LogDeliverySourceArgs.builder()
+ *             .region("us-east-1")
+ *             .name("cloudfront-logs-source")
+ *             .logType("ACCESS_LOGS")
+ *             .resourceArn(example.arn())
+ *             .build());
+ * 
+ *         var exampleLogDeliveryDestination = new LogDeliveryDestination("exampleLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
+ *             .region("us-east-1")
+ *             .name("firehose-destination")
+ *             .outputFormat("json")
+ *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
+ *                 .destinationResourceArn(cloudfrontLogs.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLogDelivery = new LogDelivery("exampleLogDelivery", LogDeliveryArgs.builder()
+ *             .region("us-east-1")
+ *             .deliverySourceName(exampleLogDeliverySource.name())
+ *             .deliveryDestinationArn(exampleLogDeliveryDestination.arn())
  *             .build());
  * 
  *     }

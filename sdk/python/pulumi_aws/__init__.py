@@ -2039,6 +2039,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentFlow",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentFlow:AgentFlow": "AgentFlow"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentKnowledgeBase",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -6147,6 +6155,14 @@ _utilities.register(
   "fqn": "pulumi_aws.fsx",
   "classes": {
    "aws:fsx/openZfsVolume:OpenZfsVolume": "OpenZfsVolume"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fsx/s3AccessPointAttachment",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment": "S3AccessPointAttachment"
   }
  },
  {

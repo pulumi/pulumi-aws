@@ -9,6 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.datazone.Domain("example", {
+ *     name: "example_domain",
+ *     domainExecutionRole: domainExecutionRole.arn,
+ * });
+ * const defaultDataLake = aws.datazone.getEnvironmentBlueprintOutput({
+ *     domainId: example.id,
+ *     name: "DefaultDataLake",
+ *     managed: true,
+ * });
+ * const exampleEnvironmentBlueprintConfiguration = new aws.datazone.EnvironmentBlueprintConfiguration("example", {
+ *     domainId: example.id,
+ *     environmentBlueprintId: defaultDataLake.apply(defaultDataLake => defaultDataLake.id),
+ *     enabledRegions: ["us-east-1"],
+ *     regionalParameters: {
+ *         "us-east-1": {
+ *             s3Location: "s3://my-amazon-datazone-bucket",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `domain_id` and `environment_blueprint_id`, separated by a `/`. For example:
@@ -74,7 +101,7 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
     /**
      * Parameters for each region in which the blueprint is enabled
      */
-    public readonly regionalParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly regionalParameters!: pulumi.Output<{[key: string]: {[key: string]: string}} | undefined>;
 
     /**
      * Create a EnvironmentBlueprintConfiguration resource with the given unique name, arguments, and options.
@@ -153,7 +180,7 @@ export interface EnvironmentBlueprintConfigurationState {
     /**
      * Parameters for each region in which the blueprint is enabled
      */
-    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
 }
 
 /**
@@ -189,5 +216,5 @@ export interface EnvironmentBlueprintConfigurationArgs {
     /**
      * Parameters for each region in which the blueprint is enabled
      */
-    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
 }

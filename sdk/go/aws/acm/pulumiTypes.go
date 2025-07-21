@@ -140,6 +140,8 @@ func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) C
 type CertificateOptions struct {
 	// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 	CertificateTransparencyLoggingPreference *string `pulumi:"certificateTransparencyLoggingPreference"`
+	// Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+	Export *string `pulumi:"export"`
 }
 
 // CertificateOptionsInput is an input type that accepts CertificateOptionsArgs and CertificateOptionsOutput values.
@@ -156,6 +158,8 @@ type CertificateOptionsInput interface {
 type CertificateOptionsArgs struct {
 	// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 	CertificateTransparencyLoggingPreference pulumi.StringPtrInput `pulumi:"certificateTransparencyLoggingPreference"`
+	// Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+	Export pulumi.StringPtrInput `pulumi:"export"`
 }
 
 func (CertificateOptionsArgs) ElementType() reflect.Type {
@@ -240,6 +244,11 @@ func (o CertificateOptionsOutput) CertificateTransparencyLoggingPreference() pul
 	return o.ApplyT(func(v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
 }
 
+// Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+func (o CertificateOptionsOutput) Export() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOptions) *string { return v.Export }).(pulumi.StringPtrOutput)
+}
+
 type CertificateOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateOptionsPtrOutput) ElementType() reflect.Type {
@@ -271,6 +280,16 @@ func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() 
 			return nil
 		}
 		return v.CertificateTransparencyLoggingPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+func (o CertificateOptionsPtrOutput) Export() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Export
 	}).(pulumi.StringPtrOutput)
 }
 

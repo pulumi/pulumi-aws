@@ -296,6 +296,140 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
+    /// ### Function with logging to S3 or Data Firehose
+    /// 
+    /// #### Required Resources
+    /// 
+    /// * An S3 bucket or Data Firehose delivery stream to store the logs.
+    /// * A CloudWatch Log Group with:
+    ///   
+    ///     * `log_group_class = "DELIVERY"`
+    ///     * A subscription filter whose `destination_arn` points to the S3 bucket or the Data Firehose delivery stream.
+    /// 
+    /// * IAM roles:
+    ///   
+    ///     * Assumed by the `logs.amazonaws.com` service to deliver logs to the S3 bucket or Data Firehose delivery stream.
+    ///     * Assumed by the `lambda.amazonaws.com` service to send logs to CloudWatch Logs
+    /// 
+    /// * A Lambda function:
+    ///   
+    ///     * In the `logging_configuration`, specify the name of the Log Group created above using the `log_group` field
+    ///     * No special configuration is required to use S3 or Firehose as the log destination
+    /// 
+    /// For more details, see [Sending Lambda function logs to Amazon S3](https://docs.aws.amazon.com/lambda/latest/dg/logging-with-s3.html).
+    /// 
+    /// ### Example: Exporting Lambda Logs to S3 Bucket
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var lambdaFunctionName = "lambda-log-export-example";
+    /// 
+    ///     var lambdaLogExportBucket = new Aws.S3.Bucket("lambda_log_export", new()
+    ///     {
+    ///         BucketName = $"{lambdaFunctionName}-bucket",
+    ///     });
+    /// 
+    ///     var export = new Aws.CloudWatch.LogGroup("export", new()
+    ///     {
+    ///         Name = $"/aws/lambda/{lambdaFunctionName}",
+    ///         LogGroupClass = "DELIVERY",
+    ///     });
+    /// 
+    ///     var logsAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "logs.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var logsLogExport = new Aws.Iam.Role("logs_log_export", new()
+    ///     {
+    ///         Name = $"{lambdaFunctionName}-lambda-log-export-role",
+    ///         AssumeRolePolicy = logsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var lambdaLogExport = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{lambdaLogExportBucket.Arn}/*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var lambdaLogExportRolePolicy = new Aws.Iam.RolePolicy("lambda_log_export", new()
+    ///     {
+    ///         Policy = lambdaLogExport.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Role = logsLogExport.Name,
+    ///     });
+    /// 
+    ///     var lambdaLogExportLogSubscriptionFilter = new Aws.CloudWatch.LogSubscriptionFilter("lambda_log_export", new()
+    ///     {
+    ///         Name = $"{lambdaFunctionName}-filter",
+    ///         LogGroup = export.Name,
+    ///         FilterPattern = "",
+    ///         DestinationArn = lambdaLogExportBucket.Arn,
+    ///         RoleArn = logsLogExport.Arn,
+    ///     });
+    /// 
+    ///     var logExport = new Aws.Lambda.Function("log_export", new()
+    ///     {
+    ///         Name = lambdaFunctionName,
+    ///         Handler = "index.lambda_handler",
+    ///         Runtime = Aws.Lambda.Runtime.Python3d13,
+    ///         Role = example.Arn,
+    ///         Code = new FileArchive("function.zip"),
+    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
+    ///         {
+    ///             LogFormat = "Text",
+    ///             LogGroup = export.Name,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             export,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Function with Error Handling
     /// 
     /// ```csharp

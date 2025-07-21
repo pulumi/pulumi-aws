@@ -985,7 +985,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getInferenceProfile:getInferenceProfile", TypeShape.of(GetInferenceProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
+     * Data source for managing AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1015,6 +1015,41 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Filter by Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .type("APPLICATION")
      *             .build());
      * 
      *     }
@@ -1028,7 +1063,7 @@ public final class BedrockFunctions {
         return getInferenceProfiles(GetInferenceProfilesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
+     * Data source for managing AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1058,6 +1093,41 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Filter by Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .type("APPLICATION")
      *             .build());
      * 
      *     }
@@ -1071,7 +1141,7 @@ public final class BedrockFunctions {
         return getInferenceProfilesPlain(GetInferenceProfilesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
+     * Data source for managing AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1101,6 +1171,41 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Filter by Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .type("APPLICATION")
      *             .build());
      * 
      *     }
@@ -1114,7 +1219,7 @@ public final class BedrockFunctions {
         return getInferenceProfiles(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
+     * Data source for managing AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1144,6 +1249,41 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Filter by Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .type("APPLICATION")
      *             .build());
      * 
      *     }
@@ -1157,7 +1297,7 @@ public final class BedrockFunctions {
         return getInferenceProfilesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
+     * Data source for managing AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1187,6 +1327,41 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Filter by Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .type("APPLICATION")
      *             .build());
      * 
      *     }
@@ -1200,7 +1375,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
+     * Data source for managing AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1238,12 +1413,47 @@ public final class BedrockFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ### Filter by Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .type("APPLICATION")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetInferenceProfilesResult> getInferenceProfiles(GetInferenceProfilesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
+     * Data source for managing AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1273,6 +1483,41 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Filter by Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .type("APPLICATION")
      *             .build());
      * 
      *     }

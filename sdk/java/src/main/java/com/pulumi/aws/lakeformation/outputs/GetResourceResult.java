@@ -5,12 +5,18 @@ package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetResourceResult {
     private String arn;
+    /**
+     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
+     * 
+     */
+    private Boolean hybridAccessEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -27,10 +33,27 @@ public final class GetResourceResult {
      * 
      */
     private String roleArn;
+    /**
+     * @return Whether the resource is a federated resource.
+     * 
+     */
+    private Boolean withFederation;
+    /**
+     * @return Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+     * 
+     */
+    private Boolean withPrivilegedAccess;
 
     private GetResourceResult() {}
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
+     * 
+     */
+    public Boolean hybridAccessEnabled() {
+        return this.hybridAccessEnabled;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -56,6 +79,20 @@ public final class GetResourceResult {
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return Whether the resource is a federated resource.
+     * 
+     */
+    public Boolean withFederation() {
+        return this.withFederation;
+    }
+    /**
+     * @return Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+     * 
+     */
+    public Boolean withPrivilegedAccess() {
+        return this.withPrivilegedAccess;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -67,18 +104,24 @@ public final class GetResourceResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private Boolean hybridAccessEnabled;
         private String id;
         private String lastModified;
         private String region;
         private String roleArn;
+        private Boolean withFederation;
+        private Boolean withPrivilegedAccess;
         public Builder() {}
         public Builder(GetResourceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.hybridAccessEnabled = defaults.hybridAccessEnabled;
     	      this.id = defaults.id;
     	      this.lastModified = defaults.lastModified;
     	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
+    	      this.withFederation = defaults.withFederation;
+    	      this.withPrivilegedAccess = defaults.withPrivilegedAccess;
         }
 
         @CustomType.Setter
@@ -87,6 +130,14 @@ public final class GetResourceResult {
               throw new MissingRequiredPropertyException("GetResourceResult", "arn");
             }
             this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hybridAccessEnabled(Boolean hybridAccessEnabled) {
+            if (hybridAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "hybridAccessEnabled");
+            }
+            this.hybridAccessEnabled = hybridAccessEnabled;
             return this;
         }
         @CustomType.Setter
@@ -121,13 +172,32 @@ public final class GetResourceResult {
             this.roleArn = roleArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder withFederation(Boolean withFederation) {
+            if (withFederation == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "withFederation");
+            }
+            this.withFederation = withFederation;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder withPrivilegedAccess(Boolean withPrivilegedAccess) {
+            if (withPrivilegedAccess == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "withPrivilegedAccess");
+            }
+            this.withPrivilegedAccess = withPrivilegedAccess;
+            return this;
+        }
         public GetResourceResult build() {
             final var _resultValue = new GetResourceResult();
             _resultValue.arn = arn;
+            _resultValue.hybridAccessEnabled = hybridAccessEnabled;
             _resultValue.id = id;
             _resultValue.lastModified = lastModified;
             _resultValue.region = region;
             _resultValue.roleArn = roleArn;
+            _resultValue.withFederation = withFederation;
+            _resultValue.withPrivilegedAccess = withPrivilegedAccess;
             return _resultValue;
         }
     }

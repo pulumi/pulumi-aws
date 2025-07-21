@@ -99,8 +99,6 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     @Import(name="withFederation")
     private @Nullable Output<Boolean> withFederation;
@@ -108,11 +106,28 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     public Optional<Output<Boolean>> withFederation() {
         return Optional.ofNullable(this.withFederation);
+    }
+
+    /**
+     * Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    @Import(name="withPrivilegedAccess")
+    private @Nullable Output<Boolean> withPrivilegedAccess;
+
+    /**
+     * @return Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    public Optional<Output<Boolean>> withPrivilegedAccess() {
+        return Optional.ofNullable(this.withPrivilegedAccess);
     }
 
     private ResourceArgs() {}
@@ -124,6 +139,7 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         this.roleArn = $.roleArn;
         this.useServiceLinkedRole = $.useServiceLinkedRole;
         this.withFederation = $.withFederation;
+        this.withPrivilegedAccess = $.withPrivilegedAccess;
     }
 
     public static Builder builder() {
@@ -256,8 +272,6 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param withFederation Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
          * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-         * 
          * @return builder
          * 
          */
@@ -269,13 +283,36 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param withFederation Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
          * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-         * 
          * @return builder
          * 
          */
         public Builder withFederation(Boolean withFederation) {
             return withFederation(Output.of(withFederation));
+        }
+
+        /**
+         * @param withPrivilegedAccess Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withPrivilegedAccess(@Nullable Output<Boolean> withPrivilegedAccess) {
+            $.withPrivilegedAccess = withPrivilegedAccess;
+            return this;
+        }
+
+        /**
+         * @param withPrivilegedAccess Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withPrivilegedAccess(Boolean withPrivilegedAccess) {
+            return withPrivilegedAccess(Output.of(withPrivilegedAccess));
         }
 
         public ResourceArgs build() {

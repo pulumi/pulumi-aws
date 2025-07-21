@@ -86,70 +86,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule")
 public class OrganizationCustomPolicyRule extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the rule
+     * Amazon Resource Name (ARN) of the rule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the rule
+     * @return Amazon Resource Name (ARN) of the rule.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * List of AWS account identifiers to exclude from the rule
+     * List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
      * 
      */
     @Export(name="debugLogDeliveryAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> debugLogDeliveryAccounts;
 
     /**
-     * @return List of AWS account identifiers to exclude from the rule
+     * @return List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
      * 
      */
     public Output<Optional<List<String>>> debugLogDeliveryAccounts() {
         return Codegen.optional(this.debugLogDeliveryAccounts);
     }
     /**
-     * Description of the rule
+     * Description of the rule.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of the rule
+     * @return Description of the rule.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * List of AWS account identifiers to exclude from the rule
+     * List of AWS account identifiers to exclude from the rule.
      * 
      */
     @Export(name="excludedAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedAccounts;
 
     /**
-     * @return List of AWS account identifiers to exclude from the rule
+     * @return List of AWS account identifiers to exclude from the rule.
      * 
      */
     public Output<Optional<List<String>>> excludedAccounts() {
         return Codegen.optional(this.excludedAccounts);
     }
     /**
-     * A string in JSON format that is passed to the AWS Config Rule Lambda Function
+     * A string in JSON format that is passed to the AWS Config Rule Lambda Function.
      * 
      */
     @Export(name="inputParameters", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inputParameters;
 
     /**
-     * @return A string in JSON format that is passed to the AWS Config Rule Lambda Function
+     * @return A string in JSON format that is passed to the AWS Config Rule Lambda Function.
      * 
      */
     public Output<Optional<String>> inputParameters() {
@@ -170,42 +170,42 @@ public class OrganizationCustomPolicyRule extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.maximumExecutionFrequency);
     }
     /**
-     * name of the rule
+     * Name of the rule.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return name of the rule
+     * @return Name of the rule.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * runtime system for your organization AWS Config Custom Policy rules
+     * Runtime system for policy rules.
      * 
      */
     @Export(name="policyRuntime", refs={String.class}, tree="[0]")
     private Output<String> policyRuntime;
 
     /**
-     * @return runtime system for your organization AWS Config Custom Policy rules
+     * @return Runtime system for policy rules.
      * 
      */
     public Output<String> policyRuntime() {
         return this.policyRuntime;
     }
     /**
-     * policy definition containing the logic for your organization AWS Config Custom Policy rule
+     * Policy definition containing the rule logic.
      * 
      */
     @Export(name="policyText", refs={String.class}, tree="[0]")
     private Output<String> policyText;
 
     /**
-     * @return policy definition containing the logic for your organization AWS Config Custom Policy rule
+     * @return Policy definition containing the rule logic.
      * 
      */
     public Output<String> policyText() {
@@ -226,63 +226,63 @@ public class OrganizationCustomPolicyRule extends com.pulumi.resources.CustomRes
         return this.region;
     }
     /**
-     * Identifier of the AWS resource to evaluate
+     * Identifier of the AWS resource to evaluate.
      * 
      */
     @Export(name="resourceIdScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceIdScope;
 
     /**
-     * @return Identifier of the AWS resource to evaluate
+     * @return Identifier of the AWS resource to evaluate.
      * 
      */
     public Output<Optional<String>> resourceIdScope() {
         return Codegen.optional(this.resourceIdScope);
     }
     /**
-     * List of types of AWS resources to evaluate
+     * List of types of AWS resources to evaluate.
      * 
      */
     @Export(name="resourceTypesScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resourceTypesScopes;
 
     /**
-     * @return List of types of AWS resources to evaluate
+     * @return List of types of AWS resources to evaluate.
      * 
      */
     public Output<Optional<List<String>>> resourceTypesScopes() {
         return Codegen.optional(this.resourceTypesScopes);
     }
     /**
-     * Tag key of AWS resources to evaluate
+     * Tag key of AWS resources to evaluate.
      * 
      */
     @Export(name="tagKeyScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tagKeyScope;
 
     /**
-     * @return Tag key of AWS resources to evaluate
+     * @return Tag key of AWS resources to evaluate.
      * 
      */
     public Output<Optional<String>> tagKeyScope() {
         return Codegen.optional(this.tagKeyScope);
     }
     /**
-     * Tag value of AWS resources to evaluate
+     * Tag value of AWS resources to evaluate.
      * 
      */
     @Export(name="tagValueScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tagValueScope;
 
     /**
-     * @return Tag value of AWS resources to evaluate
+     * @return Tag value of AWS resources to evaluate.
      * 
      */
     public Output<Optional<String>> tagValueScope() {
         return Codegen.optional(this.tagValueScope);
     }
     /**
-     * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
      * 
      * The following arguments are optional:
      * 
@@ -291,7 +291,7 @@ public class OrganizationCustomPolicyRule extends com.pulumi.resources.CustomRes
     private Output<List<String>> triggerTypes;
 
     /**
-     * @return List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     * @return List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
      * 
      * The following arguments are optional:
      * 

@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.aws.ecs.inputs.ServiceAlarmsArgs;
 import com.pulumi.aws.ecs.inputs.ServiceCapacityProviderStrategyArgs;
 import com.pulumi.aws.ecs.inputs.ServiceDeploymentCircuitBreakerArgs;
+import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.ServiceDeploymentControllerArgs;
 import com.pulumi.aws.ecs.inputs.ServiceLoadBalancerArgs;
 import com.pulumi.aws.ecs.inputs.ServiceNetworkConfigurationArgs;
@@ -119,6 +120,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ServiceDeploymentCircuitBreakerArgs>> deploymentCircuitBreaker() {
         return Optional.ofNullable(this.deploymentCircuitBreaker);
+    }
+
+    /**
+     * Configuration block for deployment settings. See below.
+     * 
+     */
+    @Import(name="deploymentConfiguration")
+    private @Nullable Output<ServiceDeploymentConfigurationArgs> deploymentConfiguration;
+
+    /**
+     * @return Configuration block for deployment settings. See below.
+     * 
+     */
+    public Optional<Output<ServiceDeploymentConfigurationArgs>> deploymentConfiguration() {
+        return Optional.ofNullable(this.deploymentConfiguration);
     }
 
     /**
@@ -571,6 +587,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         this.capacityProviderStrategies = $.capacityProviderStrategies;
         this.cluster = $.cluster;
         this.deploymentCircuitBreaker = $.deploymentCircuitBreaker;
+        this.deploymentConfiguration = $.deploymentConfiguration;
         this.deploymentController = $.deploymentController;
         this.deploymentMaximumPercent = $.deploymentMaximumPercent;
         this.deploymentMinimumHealthyPercent = $.deploymentMinimumHealthyPercent;
@@ -754,6 +771,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder deploymentCircuitBreaker(ServiceDeploymentCircuitBreakerArgs deploymentCircuitBreaker) {
             return deploymentCircuitBreaker(Output.of(deploymentCircuitBreaker));
+        }
+
+        /**
+         * @param deploymentConfiguration Configuration block for deployment settings. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentConfiguration(@Nullable Output<ServiceDeploymentConfigurationArgs> deploymentConfiguration) {
+            $.deploymentConfiguration = deploymentConfiguration;
+            return this;
+        }
+
+        /**
+         * @param deploymentConfiguration Configuration block for deployment settings. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentConfiguration(ServiceDeploymentConfigurationArgs deploymentConfiguration) {
+            return deploymentConfiguration(Output.of(deploymentConfiguration));
         }
 
         /**

@@ -69,9 +69,11 @@ type Resource struct {
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
 	UseServiceLinkedRole pulumi.BoolPtrOutput `pulumi:"useServiceLinkedRole"`
 	// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+	WithFederation pulumi.BoolOutput `pulumi:"withFederation"`
+	// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
 	//
 	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-	WithFederation pulumi.BoolOutput `pulumi:"withFederation"`
+	WithPrivilegedAccess pulumi.BoolOutput `pulumi:"withPrivilegedAccess"`
 }
 
 // NewResource registers a new resource with the given unique name, arguments, and options.
@@ -122,9 +124,11 @@ type resourceState struct {
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
 	UseServiceLinkedRole *bool `pulumi:"useServiceLinkedRole"`
 	// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+	WithFederation *bool `pulumi:"withFederation"`
+	// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
 	//
 	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-	WithFederation *bool `pulumi:"withFederation"`
+	WithPrivilegedAccess *bool `pulumi:"withPrivilegedAccess"`
 }
 
 type ResourceState struct {
@@ -143,9 +147,11 @@ type ResourceState struct {
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
 	UseServiceLinkedRole pulumi.BoolPtrInput
 	// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+	WithFederation pulumi.BoolPtrInput
+	// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
 	//
 	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-	WithFederation pulumi.BoolPtrInput
+	WithPrivilegedAccess pulumi.BoolPtrInput
 }
 
 func (ResourceState) ElementType() reflect.Type {
@@ -166,9 +172,11 @@ type resourceArgs struct {
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
 	UseServiceLinkedRole *bool `pulumi:"useServiceLinkedRole"`
 	// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+	WithFederation *bool `pulumi:"withFederation"`
+	// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
 	//
 	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-	WithFederation *bool `pulumi:"withFederation"`
+	WithPrivilegedAccess *bool `pulumi:"withPrivilegedAccess"`
 }
 
 // The set of arguments for constructing a Resource resource.
@@ -186,9 +194,11 @@ type ResourceArgs struct {
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
 	UseServiceLinkedRole pulumi.BoolPtrInput
 	// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+	WithFederation pulumi.BoolPtrInput
+	// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
 	//
 	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-	WithFederation pulumi.BoolPtrInput
+	WithPrivilegedAccess pulumi.BoolPtrInput
 }
 
 func (ResourceArgs) ElementType() reflect.Type {
@@ -311,10 +321,15 @@ func (o ResourceOutput) UseServiceLinkedRole() pulumi.BoolPtrOutput {
 }
 
 // Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-//
-// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 func (o ResourceOutput) WithFederation() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Resource) pulumi.BoolOutput { return v.WithFederation }).(pulumi.BoolOutput)
+}
+
+// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+//
+// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+func (o ResourceOutput) WithPrivilegedAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Resource) pulumi.BoolOutput { return v.WithPrivilegedAccess }).(pulumi.BoolOutput)
 }
 
 type ResourceArrayOutput struct{ *pulumi.OutputState }

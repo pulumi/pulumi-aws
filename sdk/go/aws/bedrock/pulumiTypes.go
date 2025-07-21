@@ -9305,6 +9305,8422 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFo
 	}).(pulumi.StringPtrOutput)
 }
 
+type AgentFlowDefinition struct {
+	// A list of connection definitions in the flow. See Connection for more information.
+	Connections []AgentFlowDefinitionConnection `pulumi:"connections"`
+	// A list of node definitions in the flow. See Node for more information.
+	Nodes []AgentFlowDefinitionNode `pulumi:"nodes"`
+}
+
+// AgentFlowDefinitionInput is an input type that accepts AgentFlowDefinitionArgs and AgentFlowDefinitionOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionInput` via:
+//
+//	AgentFlowDefinitionArgs{...}
+type AgentFlowDefinitionInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionOutput() AgentFlowDefinitionOutput
+	ToAgentFlowDefinitionOutputWithContext(context.Context) AgentFlowDefinitionOutput
+}
+
+type AgentFlowDefinitionArgs struct {
+	// A list of connection definitions in the flow. See Connection for more information.
+	Connections AgentFlowDefinitionConnectionArrayInput `pulumi:"connections"`
+	// A list of node definitions in the flow. See Node for more information.
+	Nodes AgentFlowDefinitionNodeArrayInput `pulumi:"nodes"`
+}
+
+func (AgentFlowDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinition)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionArgs) ToAgentFlowDefinitionOutput() AgentFlowDefinitionOutput {
+	return i.ToAgentFlowDefinitionOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionArgs) ToAgentFlowDefinitionOutputWithContext(ctx context.Context) AgentFlowDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionOutput)
+}
+
+func (i AgentFlowDefinitionArgs) ToAgentFlowDefinitionPtrOutput() AgentFlowDefinitionPtrOutput {
+	return i.ToAgentFlowDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionArgs) ToAgentFlowDefinitionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionOutput).ToAgentFlowDefinitionPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionPtrInput is an input type that accepts AgentFlowDefinitionArgs, AgentFlowDefinitionPtr and AgentFlowDefinitionPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionPtrInput` via:
+//
+//	        AgentFlowDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionPtrOutput() AgentFlowDefinitionPtrOutput
+	ToAgentFlowDefinitionPtrOutputWithContext(context.Context) AgentFlowDefinitionPtrOutput
+}
+
+type agentFlowDefinitionPtrType AgentFlowDefinitionArgs
+
+func AgentFlowDefinitionPtr(v *AgentFlowDefinitionArgs) AgentFlowDefinitionPtrInput {
+	return (*agentFlowDefinitionPtrType)(v)
+}
+
+func (*agentFlowDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinition)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionPtrType) ToAgentFlowDefinitionPtrOutput() AgentFlowDefinitionPtrOutput {
+	return i.ToAgentFlowDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionPtrType) ToAgentFlowDefinitionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionPtrOutput)
+}
+
+type AgentFlowDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinition)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionOutput) ToAgentFlowDefinitionOutput() AgentFlowDefinitionOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionOutput) ToAgentFlowDefinitionOutputWithContext(ctx context.Context) AgentFlowDefinitionOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionOutput) ToAgentFlowDefinitionPtrOutput() AgentFlowDefinitionPtrOutput {
+	return o.ToAgentFlowDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionOutput) ToAgentFlowDefinitionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinition) *AgentFlowDefinition {
+		return &v
+	}).(AgentFlowDefinitionPtrOutput)
+}
+
+// A list of connection definitions in the flow. See Connection for more information.
+func (o AgentFlowDefinitionOutput) Connections() AgentFlowDefinitionConnectionArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinition) []AgentFlowDefinitionConnection { return v.Connections }).(AgentFlowDefinitionConnectionArrayOutput)
+}
+
+// A list of node definitions in the flow. See Node for more information.
+func (o AgentFlowDefinitionOutput) Nodes() AgentFlowDefinitionNodeArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinition) []AgentFlowDefinitionNode { return v.Nodes }).(AgentFlowDefinitionNodeArrayOutput)
+}
+
+type AgentFlowDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinition)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionPtrOutput) ToAgentFlowDefinitionPtrOutput() AgentFlowDefinitionPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionPtrOutput) ToAgentFlowDefinitionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionPtrOutput) Elem() AgentFlowDefinitionOutput {
+	return o.ApplyT(func(v *AgentFlowDefinition) AgentFlowDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinition
+		return ret
+	}).(AgentFlowDefinitionOutput)
+}
+
+// A list of connection definitions in the flow. See Connection for more information.
+func (o AgentFlowDefinitionPtrOutput) Connections() AgentFlowDefinitionConnectionArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinition) []AgentFlowDefinitionConnection {
+		if v == nil {
+			return nil
+		}
+		return v.Connections
+	}).(AgentFlowDefinitionConnectionArrayOutput)
+}
+
+// A list of node definitions in the flow. See Node for more information.
+func (o AgentFlowDefinitionPtrOutput) Nodes() AgentFlowDefinitionNodeArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinition) []AgentFlowDefinitionNode {
+		if v == nil {
+			return nil
+		}
+		return v.Nodes
+	}).(AgentFlowDefinitionNodeArrayOutput)
+}
+
+type AgentFlowDefinitionConnection struct {
+	// Configuration of the connection. See Connection Configuration for more information.
+	Configuration *AgentFlowDefinitionConnectionConfiguration `pulumi:"configuration"`
+	// A name for the connection that you can reference.
+	Name string `pulumi:"name"`
+	// The node that the connection starts at.
+	Source string `pulumi:"source"`
+	// The node that the connection ends at.
+	Target string `pulumi:"target"`
+	// Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+	Type string `pulumi:"type"`
+}
+
+// AgentFlowDefinitionConnectionInput is an input type that accepts AgentFlowDefinitionConnectionArgs and AgentFlowDefinitionConnectionOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionConnectionInput` via:
+//
+//	AgentFlowDefinitionConnectionArgs{...}
+type AgentFlowDefinitionConnectionInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionConnectionOutput() AgentFlowDefinitionConnectionOutput
+	ToAgentFlowDefinitionConnectionOutputWithContext(context.Context) AgentFlowDefinitionConnectionOutput
+}
+
+type AgentFlowDefinitionConnectionArgs struct {
+	// Configuration of the connection. See Connection Configuration for more information.
+	Configuration AgentFlowDefinitionConnectionConfigurationPtrInput `pulumi:"configuration"`
+	// A name for the connection that you can reference.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The node that the connection starts at.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The node that the connection ends at.
+	Target pulumi.StringInput `pulumi:"target"`
+	// Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentFlowDefinitionConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionConnection)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionConnectionArgs) ToAgentFlowDefinitionConnectionOutput() AgentFlowDefinitionConnectionOutput {
+	return i.ToAgentFlowDefinitionConnectionOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionConnectionArgs) ToAgentFlowDefinitionConnectionOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionOutput)
+}
+
+// AgentFlowDefinitionConnectionArrayInput is an input type that accepts AgentFlowDefinitionConnectionArray and AgentFlowDefinitionConnectionArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionConnectionArrayInput` via:
+//
+//	AgentFlowDefinitionConnectionArray{ AgentFlowDefinitionConnectionArgs{...} }
+type AgentFlowDefinitionConnectionArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionConnectionArrayOutput() AgentFlowDefinitionConnectionArrayOutput
+	ToAgentFlowDefinitionConnectionArrayOutputWithContext(context.Context) AgentFlowDefinitionConnectionArrayOutput
+}
+
+type AgentFlowDefinitionConnectionArray []AgentFlowDefinitionConnectionInput
+
+func (AgentFlowDefinitionConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionConnection)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionConnectionArray) ToAgentFlowDefinitionConnectionArrayOutput() AgentFlowDefinitionConnectionArrayOutput {
+	return i.ToAgentFlowDefinitionConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionConnectionArray) ToAgentFlowDefinitionConnectionArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionArrayOutput)
+}
+
+type AgentFlowDefinitionConnectionOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionConnection)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionConnectionOutput) ToAgentFlowDefinitionConnectionOutput() AgentFlowDefinitionConnectionOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionOutput) ToAgentFlowDefinitionConnectionOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionOutput {
+	return o
+}
+
+// Configuration of the connection. See Connection Configuration for more information.
+func (o AgentFlowDefinitionConnectionOutput) Configuration() AgentFlowDefinitionConnectionConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnection) *AgentFlowDefinitionConnectionConfiguration {
+		return v.Configuration
+	}).(AgentFlowDefinitionConnectionConfigurationPtrOutput)
+}
+
+// A name for the connection that you can reference.
+func (o AgentFlowDefinitionConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The node that the connection starts at.
+func (o AgentFlowDefinitionConnectionOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnection) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The node that the connection ends at.
+func (o AgentFlowDefinitionConnectionOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnection) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+func (o AgentFlowDefinitionConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnection) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionConnection)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionConnectionArrayOutput) ToAgentFlowDefinitionConnectionArrayOutput() AgentFlowDefinitionConnectionArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionArrayOutput) ToAgentFlowDefinitionConnectionArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionConnection {
+		return vs[0].([]AgentFlowDefinitionConnection)[vs[1].(int)]
+	}).(AgentFlowDefinitionConnectionOutput)
+}
+
+type AgentFlowDefinitionConnectionConfiguration struct {
+	// The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+	Conditional *AgentFlowDefinitionConnectionConfigurationConditional `pulumi:"conditional"`
+	// The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+	Data *AgentFlowDefinitionConnectionConfigurationData `pulumi:"data"`
+}
+
+// AgentFlowDefinitionConnectionConfigurationInput is an input type that accepts AgentFlowDefinitionConnectionConfigurationArgs and AgentFlowDefinitionConnectionConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionConnectionConfigurationInput` via:
+//
+//	AgentFlowDefinitionConnectionConfigurationArgs{...}
+type AgentFlowDefinitionConnectionConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionConnectionConfigurationOutput() AgentFlowDefinitionConnectionConfigurationOutput
+	ToAgentFlowDefinitionConnectionConfigurationOutputWithContext(context.Context) AgentFlowDefinitionConnectionConfigurationOutput
+}
+
+type AgentFlowDefinitionConnectionConfigurationArgs struct {
+	// The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+	Conditional AgentFlowDefinitionConnectionConfigurationConditionalPtrInput `pulumi:"conditional"`
+	// The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+	Data AgentFlowDefinitionConnectionConfigurationDataPtrInput `pulumi:"data"`
+}
+
+func (AgentFlowDefinitionConnectionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionConnectionConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationArgs) ToAgentFlowDefinitionConnectionConfigurationOutput() AgentFlowDefinitionConnectionConfigurationOutput {
+	return i.ToAgentFlowDefinitionConnectionConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationArgs) ToAgentFlowDefinitionConnectionConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationArgs) ToAgentFlowDefinitionConnectionConfigurationPtrOutput() AgentFlowDefinitionConnectionConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionConnectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationArgs) ToAgentFlowDefinitionConnectionConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionConfigurationOutput).ToAgentFlowDefinitionConnectionConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionConnectionConfigurationPtrInput is an input type that accepts AgentFlowDefinitionConnectionConfigurationArgs, AgentFlowDefinitionConnectionConfigurationPtr and AgentFlowDefinitionConnectionConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionConnectionConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionConnectionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionConnectionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionConnectionConfigurationPtrOutput() AgentFlowDefinitionConnectionConfigurationPtrOutput
+	ToAgentFlowDefinitionConnectionConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionConnectionConfigurationPtrOutput
+}
+
+type agentFlowDefinitionConnectionConfigurationPtrType AgentFlowDefinitionConnectionConfigurationArgs
+
+func AgentFlowDefinitionConnectionConfigurationPtr(v *AgentFlowDefinitionConnectionConfigurationArgs) AgentFlowDefinitionConnectionConfigurationPtrInput {
+	return (*agentFlowDefinitionConnectionConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionConnectionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionConnectionConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionConnectionConfigurationPtrType) ToAgentFlowDefinitionConnectionConfigurationPtrOutput() AgentFlowDefinitionConnectionConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionConnectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionConnectionConfigurationPtrType) ToAgentFlowDefinitionConnectionConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionConnectionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionConnectionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionConnectionConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationOutput) ToAgentFlowDefinitionConnectionConfigurationOutput() AgentFlowDefinitionConnectionConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationOutput) ToAgentFlowDefinitionConnectionConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationOutput) ToAgentFlowDefinitionConnectionConfigurationPtrOutput() AgentFlowDefinitionConnectionConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionConnectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationOutput) ToAgentFlowDefinitionConnectionConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionConnectionConfiguration) *AgentFlowDefinitionConnectionConfiguration {
+		return &v
+	}).(AgentFlowDefinitionConnectionConfigurationPtrOutput)
+}
+
+// The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+func (o AgentFlowDefinitionConnectionConfigurationOutput) Conditional() AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfiguration) *AgentFlowDefinitionConnectionConfigurationConditional {
+		return v.Conditional
+	}).(AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput)
+}
+
+// The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+func (o AgentFlowDefinitionConnectionConfigurationOutput) Data() AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfiguration) *AgentFlowDefinitionConnectionConfigurationData {
+		return v.Data
+	}).(AgentFlowDefinitionConnectionConfigurationDataPtrOutput)
+}
+
+type AgentFlowDefinitionConnectionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionConnectionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionConnectionConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) ToAgentFlowDefinitionConnectionConfigurationPtrOutput() AgentFlowDefinitionConnectionConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) ToAgentFlowDefinitionConnectionConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) Elem() AgentFlowDefinitionConnectionConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfiguration) AgentFlowDefinitionConnectionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionConnectionConfiguration
+		return ret
+	}).(AgentFlowDefinitionConnectionConfigurationOutput)
+}
+
+// The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) Conditional() AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfiguration) *AgentFlowDefinitionConnectionConfigurationConditional {
+		if v == nil {
+			return nil
+		}
+		return v.Conditional
+	}).(AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput)
+}
+
+// The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) Data() AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfiguration) *AgentFlowDefinitionConnectionConfigurationData {
+		if v == nil {
+			return nil
+		}
+		return v.Data
+	}).(AgentFlowDefinitionConnectionConfigurationDataPtrOutput)
+}
+
+type AgentFlowDefinitionConnectionConfigurationConditional struct {
+	Condition string `pulumi:"condition"`
+}
+
+// AgentFlowDefinitionConnectionConfigurationConditionalInput is an input type that accepts AgentFlowDefinitionConnectionConfigurationConditionalArgs and AgentFlowDefinitionConnectionConfigurationConditionalOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionConnectionConfigurationConditionalInput` via:
+//
+//	AgentFlowDefinitionConnectionConfigurationConditionalArgs{...}
+type AgentFlowDefinitionConnectionConfigurationConditionalInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionConnectionConfigurationConditionalOutput() AgentFlowDefinitionConnectionConfigurationConditionalOutput
+	ToAgentFlowDefinitionConnectionConfigurationConditionalOutputWithContext(context.Context) AgentFlowDefinitionConnectionConfigurationConditionalOutput
+}
+
+type AgentFlowDefinitionConnectionConfigurationConditionalArgs struct {
+	Condition pulumi.StringInput `pulumi:"condition"`
+}
+
+func (AgentFlowDefinitionConnectionConfigurationConditionalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationConditional)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationConditionalArgs) ToAgentFlowDefinitionConnectionConfigurationConditionalOutput() AgentFlowDefinitionConnectionConfigurationConditionalOutput {
+	return i.ToAgentFlowDefinitionConnectionConfigurationConditionalOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationConditionalArgs) ToAgentFlowDefinitionConnectionConfigurationConditionalOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationConditionalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionConfigurationConditionalOutput)
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationConditionalArgs) ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutput() AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return i.ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationConditionalArgs) ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionConfigurationConditionalOutput).ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionConnectionConfigurationConditionalPtrInput is an input type that accepts AgentFlowDefinitionConnectionConfigurationConditionalArgs, AgentFlowDefinitionConnectionConfigurationConditionalPtr and AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionConnectionConfigurationConditionalPtrInput` via:
+//
+//	        AgentFlowDefinitionConnectionConfigurationConditionalArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionConnectionConfigurationConditionalPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutput() AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput
+	ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutputWithContext(context.Context) AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput
+}
+
+type agentFlowDefinitionConnectionConfigurationConditionalPtrType AgentFlowDefinitionConnectionConfigurationConditionalArgs
+
+func AgentFlowDefinitionConnectionConfigurationConditionalPtr(v *AgentFlowDefinitionConnectionConfigurationConditionalArgs) AgentFlowDefinitionConnectionConfigurationConditionalPtrInput {
+	return (*agentFlowDefinitionConnectionConfigurationConditionalPtrType)(v)
+}
+
+func (*agentFlowDefinitionConnectionConfigurationConditionalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionConnectionConfigurationConditional)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionConnectionConfigurationConditionalPtrType) ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutput() AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return i.ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionConnectionConfigurationConditionalPtrType) ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput)
+}
+
+type AgentFlowDefinitionConnectionConfigurationConditionalOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionConnectionConfigurationConditionalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationConditional)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationConditionalOutput) ToAgentFlowDefinitionConnectionConfigurationConditionalOutput() AgentFlowDefinitionConnectionConfigurationConditionalOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationConditionalOutput) ToAgentFlowDefinitionConnectionConfigurationConditionalOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationConditionalOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationConditionalOutput) ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutput() AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return o.ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationConditionalOutput) ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionConnectionConfigurationConditional) *AgentFlowDefinitionConnectionConfigurationConditional {
+		return &v
+	}).(AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput)
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationConditionalOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfigurationConditional) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionConnectionConfigurationConditional)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutput() AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) ToAgentFlowDefinitionConnectionConfigurationConditionalPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) Elem() AgentFlowDefinitionConnectionConfigurationConditionalOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfigurationConditional) AgentFlowDefinitionConnectionConfigurationConditional {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionConnectionConfigurationConditional
+		return ret
+	}).(AgentFlowDefinitionConnectionConfigurationConditionalOutput)
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfigurationConditional) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Condition
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionConnectionConfigurationData struct {
+	// The name of the output in the source node that the connection begins from.
+	SourceOutput string `pulumi:"sourceOutput"`
+	// The name of the input in the target node that the connection ends at.
+	TargetInput string `pulumi:"targetInput"`
+}
+
+// AgentFlowDefinitionConnectionConfigurationDataInput is an input type that accepts AgentFlowDefinitionConnectionConfigurationDataArgs and AgentFlowDefinitionConnectionConfigurationDataOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionConnectionConfigurationDataInput` via:
+//
+//	AgentFlowDefinitionConnectionConfigurationDataArgs{...}
+type AgentFlowDefinitionConnectionConfigurationDataInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionConnectionConfigurationDataOutput() AgentFlowDefinitionConnectionConfigurationDataOutput
+	ToAgentFlowDefinitionConnectionConfigurationDataOutputWithContext(context.Context) AgentFlowDefinitionConnectionConfigurationDataOutput
+}
+
+type AgentFlowDefinitionConnectionConfigurationDataArgs struct {
+	// The name of the output in the source node that the connection begins from.
+	SourceOutput pulumi.StringInput `pulumi:"sourceOutput"`
+	// The name of the input in the target node that the connection ends at.
+	TargetInput pulumi.StringInput `pulumi:"targetInput"`
+}
+
+func (AgentFlowDefinitionConnectionConfigurationDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationData)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationDataArgs) ToAgentFlowDefinitionConnectionConfigurationDataOutput() AgentFlowDefinitionConnectionConfigurationDataOutput {
+	return i.ToAgentFlowDefinitionConnectionConfigurationDataOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationDataArgs) ToAgentFlowDefinitionConnectionConfigurationDataOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionConfigurationDataOutput)
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationDataArgs) ToAgentFlowDefinitionConnectionConfigurationDataPtrOutput() AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return i.ToAgentFlowDefinitionConnectionConfigurationDataPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionConnectionConfigurationDataArgs) ToAgentFlowDefinitionConnectionConfigurationDataPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionConfigurationDataOutput).ToAgentFlowDefinitionConnectionConfigurationDataPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionConnectionConfigurationDataPtrInput is an input type that accepts AgentFlowDefinitionConnectionConfigurationDataArgs, AgentFlowDefinitionConnectionConfigurationDataPtr and AgentFlowDefinitionConnectionConfigurationDataPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionConnectionConfigurationDataPtrInput` via:
+//
+//	        AgentFlowDefinitionConnectionConfigurationDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionConnectionConfigurationDataPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionConnectionConfigurationDataPtrOutput() AgentFlowDefinitionConnectionConfigurationDataPtrOutput
+	ToAgentFlowDefinitionConnectionConfigurationDataPtrOutputWithContext(context.Context) AgentFlowDefinitionConnectionConfigurationDataPtrOutput
+}
+
+type agentFlowDefinitionConnectionConfigurationDataPtrType AgentFlowDefinitionConnectionConfigurationDataArgs
+
+func AgentFlowDefinitionConnectionConfigurationDataPtr(v *AgentFlowDefinitionConnectionConfigurationDataArgs) AgentFlowDefinitionConnectionConfigurationDataPtrInput {
+	return (*agentFlowDefinitionConnectionConfigurationDataPtrType)(v)
+}
+
+func (*agentFlowDefinitionConnectionConfigurationDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionConnectionConfigurationData)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionConnectionConfigurationDataPtrType) ToAgentFlowDefinitionConnectionConfigurationDataPtrOutput() AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return i.ToAgentFlowDefinitionConnectionConfigurationDataPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionConnectionConfigurationDataPtrType) ToAgentFlowDefinitionConnectionConfigurationDataPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionConnectionConfigurationDataPtrOutput)
+}
+
+type AgentFlowDefinitionConnectionConfigurationDataOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionConnectionConfigurationDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationData)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationDataOutput) ToAgentFlowDefinitionConnectionConfigurationDataOutput() AgentFlowDefinitionConnectionConfigurationDataOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationDataOutput) ToAgentFlowDefinitionConnectionConfigurationDataOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationDataOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationDataOutput) ToAgentFlowDefinitionConnectionConfigurationDataPtrOutput() AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return o.ToAgentFlowDefinitionConnectionConfigurationDataPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationDataOutput) ToAgentFlowDefinitionConnectionConfigurationDataPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionConnectionConfigurationData) *AgentFlowDefinitionConnectionConfigurationData {
+		return &v
+	}).(AgentFlowDefinitionConnectionConfigurationDataPtrOutput)
+}
+
+// The name of the output in the source node that the connection begins from.
+func (o AgentFlowDefinitionConnectionConfigurationDataOutput) SourceOutput() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfigurationData) string { return v.SourceOutput }).(pulumi.StringOutput)
+}
+
+// The name of the input in the target node that the connection ends at.
+func (o AgentFlowDefinitionConnectionConfigurationDataOutput) TargetInput() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfigurationData) string { return v.TargetInput }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionConnectionConfigurationDataPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionConnectionConfigurationDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionConnectionConfigurationData)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) ToAgentFlowDefinitionConnectionConfigurationDataPtrOutput() AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) ToAgentFlowDefinitionConnectionConfigurationDataPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) Elem() AgentFlowDefinitionConnectionConfigurationDataOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfigurationData) AgentFlowDefinitionConnectionConfigurationData {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionConnectionConfigurationData
+		return ret
+	}).(AgentFlowDefinitionConnectionConfigurationDataOutput)
+}
+
+// The name of the output in the source node that the connection begins from.
+func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) SourceOutput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfigurationData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceOutput
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the input in the target node that the connection ends at.
+func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) TargetInput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfigurationData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetInput
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNode struct {
+	// Contains configurations for the node. See Node Configuration for more information.
+	Configuration *AgentFlowDefinitionNodeConfiguration `pulumi:"configuration"`
+	// A list of objects containing information about an input into the node. See Node Input for more information.
+	Inputs []AgentFlowDefinitionNodeInputType `pulumi:"inputs"`
+	// A name for the node.
+	Name string `pulumi:"name"`
+	// A list of objects containing information about an output from the node. See Node Output for more information.
+	Outputs []AgentFlowDefinitionNodeOutputType `pulumi:"outputs"`
+	// The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+	Type string `pulumi:"type"`
+}
+
+// AgentFlowDefinitionNodeInput is an input type that accepts AgentFlowDefinitionNodeArgs and AgentFlowDefinitionNodeOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeInput` via:
+//
+//	AgentFlowDefinitionNodeArgs{...}
+type AgentFlowDefinitionNodeInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeOutput() AgentFlowDefinitionNodeOutput
+	ToAgentFlowDefinitionNodeOutputWithContext(context.Context) AgentFlowDefinitionNodeOutput
+}
+
+type AgentFlowDefinitionNodeArgs struct {
+	// Contains configurations for the node. See Node Configuration for more information.
+	Configuration AgentFlowDefinitionNodeConfigurationPtrInput `pulumi:"configuration"`
+	// A list of objects containing information about an input into the node. See Node Input for more information.
+	Inputs AgentFlowDefinitionNodeInputTypeArrayInput `pulumi:"inputs"`
+	// A name for the node.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of objects containing information about an output from the node. See Node Output for more information.
+	Outputs AgentFlowDefinitionNodeOutputTypeArrayInput `pulumi:"outputs"`
+	// The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentFlowDefinitionNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNode)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeArgs) ToAgentFlowDefinitionNodeOutput() AgentFlowDefinitionNodeOutput {
+	return i.ToAgentFlowDefinitionNodeOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeArgs) ToAgentFlowDefinitionNodeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeOutput)
+}
+
+// AgentFlowDefinitionNodeArrayInput is an input type that accepts AgentFlowDefinitionNodeArray and AgentFlowDefinitionNodeArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeArrayInput` via:
+//
+//	AgentFlowDefinitionNodeArray{ AgentFlowDefinitionNodeArgs{...} }
+type AgentFlowDefinitionNodeArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeArrayOutput() AgentFlowDefinitionNodeArrayOutput
+	ToAgentFlowDefinitionNodeArrayOutputWithContext(context.Context) AgentFlowDefinitionNodeArrayOutput
+}
+
+type AgentFlowDefinitionNodeArray []AgentFlowDefinitionNodeInput
+
+func (AgentFlowDefinitionNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNode)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeArray) ToAgentFlowDefinitionNodeArrayOutput() AgentFlowDefinitionNodeArrayOutput {
+	return i.ToAgentFlowDefinitionNodeArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeArray) ToAgentFlowDefinitionNodeArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeArrayOutput)
+}
+
+type AgentFlowDefinitionNodeOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNode)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeOutput) ToAgentFlowDefinitionNodeOutput() AgentFlowDefinitionNodeOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeOutput) ToAgentFlowDefinitionNodeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeOutput {
+	return o
+}
+
+// Contains configurations for the node. See Node Configuration for more information.
+func (o AgentFlowDefinitionNodeOutput) Configuration() AgentFlowDefinitionNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNode) *AgentFlowDefinitionNodeConfiguration { return v.Configuration }).(AgentFlowDefinitionNodeConfigurationPtrOutput)
+}
+
+// A list of objects containing information about an input into the node. See Node Input for more information.
+func (o AgentFlowDefinitionNodeOutput) Inputs() AgentFlowDefinitionNodeInputTypeArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNode) []AgentFlowDefinitionNodeInputType { return v.Inputs }).(AgentFlowDefinitionNodeInputTypeArrayOutput)
+}
+
+// A name for the node.
+func (o AgentFlowDefinitionNodeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNode) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of objects containing information about an output from the node. See Node Output for more information.
+func (o AgentFlowDefinitionNodeOutput) Outputs() AgentFlowDefinitionNodeOutputTypeArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNode) []AgentFlowDefinitionNodeOutputType { return v.Outputs }).(AgentFlowDefinitionNodeOutputTypeArrayOutput)
+}
+
+// The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+func (o AgentFlowDefinitionNodeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNode) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNode)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeArrayOutput) ToAgentFlowDefinitionNodeArrayOutput() AgentFlowDefinitionNodeArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeArrayOutput) ToAgentFlowDefinitionNodeArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionNode {
+		return vs[0].([]AgentFlowDefinitionNode)[vs[1].(int)]
+	}).(AgentFlowDefinitionNodeOutput)
+}
+
+type AgentFlowDefinitionNodeConfiguration struct {
+	// Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+	Agent *AgentFlowDefinitionNodeConfigurationAgent `pulumi:"agent"`
+	// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+	Collector *AgentFlowDefinitionNodeConfigurationCollector `pulumi:"collector"`
+	Condition *AgentFlowDefinitionNodeConfigurationCondition `pulumi:"condition"`
+	// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+	InlineCode *AgentFlowDefinitionNodeConfigurationInlineCode `pulumi:"inlineCode"`
+	Input      *AgentFlowDefinitionNodeConfigurationInputType  `pulumi:"input"`
+	// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+	Iterator *AgentFlowDefinitionNodeConfigurationIterator `pulumi:"iterator"`
+	// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+	KnowledgeBase *AgentFlowDefinitionNodeConfigurationKnowledgeBase `pulumi:"knowledgeBase"`
+	// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+	LambdaFunction *AgentFlowDefinitionNodeConfigurationLambdaFunction `pulumi:"lambdaFunction"`
+	// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+	Lex    *AgentFlowDefinitionNodeConfigurationLex        `pulumi:"lex"`
+	Output *AgentFlowDefinitionNodeConfigurationOutputType `pulumi:"output"`
+	// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+	Prompt *AgentFlowDefinitionNodeConfigurationPrompt `pulumi:"prompt"`
+	// Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+	Retrieval *AgentFlowDefinitionNodeConfigurationRetrieval `pulumi:"retrieval"`
+	// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+	Storage *AgentFlowDefinitionNodeConfigurationStorage `pulumi:"storage"`
+}
+
+// AgentFlowDefinitionNodeConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationArgs and AgentFlowDefinitionNodeConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationOutput() AgentFlowDefinitionNodeConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationArgs struct {
+	// Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+	Agent AgentFlowDefinitionNodeConfigurationAgentPtrInput `pulumi:"agent"`
+	// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+	Collector AgentFlowDefinitionNodeConfigurationCollectorPtrInput `pulumi:"collector"`
+	Condition AgentFlowDefinitionNodeConfigurationConditionPtrInput `pulumi:"condition"`
+	// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+	InlineCode AgentFlowDefinitionNodeConfigurationInlineCodePtrInput `pulumi:"inlineCode"`
+	Input      AgentFlowDefinitionNodeConfigurationInputTypePtrInput  `pulumi:"input"`
+	// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+	Iterator AgentFlowDefinitionNodeConfigurationIteratorPtrInput `pulumi:"iterator"`
+	// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+	KnowledgeBase AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrInput `pulumi:"knowledgeBase"`
+	// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+	LambdaFunction AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrInput `pulumi:"lambdaFunction"`
+	// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+	Lex    AgentFlowDefinitionNodeConfigurationLexPtrInput        `pulumi:"lex"`
+	Output AgentFlowDefinitionNodeConfigurationOutputTypePtrInput `pulumi:"output"`
+	// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+	Prompt AgentFlowDefinitionNodeConfigurationPromptPtrInput `pulumi:"prompt"`
+	// Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+	Retrieval AgentFlowDefinitionNodeConfigurationRetrievalPtrInput `pulumi:"retrieval"`
+	// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+	Storage AgentFlowDefinitionNodeConfigurationStoragePtrInput `pulumi:"storage"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationOutput() AgentFlowDefinitionNodeConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationArgs, AgentFlowDefinitionNodeConfigurationPtr and AgentFlowDefinitionNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPtrType AgentFlowDefinitionNodeConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationArgs) AgentFlowDefinitionNodeConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationOutput() AgentFlowDefinitionNodeConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPtrOutput)
+}
+
+// Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationOutput) Agent() AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationAgent {
+		return v.Agent
+	}).(AgentFlowDefinitionNodeConfigurationAgentPtrOutput)
+}
+
+// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+func (o AgentFlowDefinitionNodeConfigurationOutput) Collector() AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCollector {
+		return v.Collector
+	}).(AgentFlowDefinitionNodeConfigurationCollectorPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutput) Condition() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCondition {
+		return v.Condition
+	}).(AgentFlowDefinitionNodeConfigurationConditionPtrOutput)
+}
+
+// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationOutput) InlineCode() AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInlineCode {
+		return v.InlineCode
+	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutput) Input() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInputType {
+		return v.Input
+	}).(AgentFlowDefinitionNodeConfigurationInputTypePtrOutput)
+}
+
+// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+func (o AgentFlowDefinitionNodeConfigurationOutput) Iterator() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationIterator {
+		return v.Iterator
+	}).(AgentFlowDefinitionNodeConfigurationIteratorPtrOutput)
+}
+
+// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationOutput) KnowledgeBase() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBase {
+		return v.KnowledgeBase
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput)
+}
+
+// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationOutput) LambdaFunction() AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLambdaFunction {
+		return v.LambdaFunction
+	}).(AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput)
+}
+
+// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationOutput) Lex() AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLex { return v.Lex }).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutput) Output() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationOutputType {
+		return v.Output
+	}).(AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput)
+}
+
+// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationOutput) Prompt() AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationPrompt {
+		return v.Prompt
+	}).(AgentFlowDefinitionNodeConfigurationPromptPtrOutput)
+}
+
+// Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationOutput) Retrieval() AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationRetrieval {
+		return v.Retrieval
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput)
+}
+
+// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationOutput) Storage() AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationStorage {
+		return v.Storage
+	}).(AgentFlowDefinitionNodeConfigurationStoragePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) AgentFlowDefinitionNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationOutput)
+}
+
+// Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Agent() AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationAgent {
+		if v == nil {
+			return nil
+		}
+		return v.Agent
+	}).(AgentFlowDefinitionNodeConfigurationAgentPtrOutput)
+}
+
+// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Collector() AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCollector {
+		if v == nil {
+			return nil
+		}
+		return v.Collector
+	}).(AgentFlowDefinitionNodeConfigurationCollectorPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Condition() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCondition {
+		if v == nil {
+			return nil
+		}
+		return v.Condition
+	}).(AgentFlowDefinitionNodeConfigurationConditionPtrOutput)
+}
+
+// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) InlineCode() AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInlineCode {
+		if v == nil {
+			return nil
+		}
+		return v.InlineCode
+	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Input() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInputType {
+		if v == nil {
+			return nil
+		}
+		return v.Input
+	}).(AgentFlowDefinitionNodeConfigurationInputTypePtrOutput)
+}
+
+// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Iterator() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationIterator {
+		if v == nil {
+			return nil
+		}
+		return v.Iterator
+	}).(AgentFlowDefinitionNodeConfigurationIteratorPtrOutput)
+}
+
+// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) KnowledgeBase() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBase {
+		if v == nil {
+			return nil
+		}
+		return v.KnowledgeBase
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput)
+}
+
+// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) LambdaFunction() AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLambdaFunction {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunction
+	}).(AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput)
+}
+
+// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Lex() AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLex {
+		if v == nil {
+			return nil
+		}
+		return v.Lex
+	}).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Output() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationOutputType {
+		if v == nil {
+			return nil
+		}
+		return v.Output
+	}).(AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput)
+}
+
+// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Prompt() AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationPrompt {
+		if v == nil {
+			return nil
+		}
+		return v.Prompt
+	}).(AgentFlowDefinitionNodeConfigurationPromptPtrOutput)
+}
+
+// Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Retrieval() AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationRetrieval {
+		if v == nil {
+			return nil
+		}
+		return v.Retrieval
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput)
+}
+
+// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Storage() AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationStorage {
+		if v == nil {
+			return nil
+		}
+		return v.Storage
+	}).(AgentFlowDefinitionNodeConfigurationStoragePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationAgent struct {
+	// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+	AgentAliasArn string `pulumi:"agentAliasArn"`
+}
+
+// AgentFlowDefinitionNodeConfigurationAgentInput is an input type that accepts AgentFlowDefinitionNodeConfigurationAgentArgs and AgentFlowDefinitionNodeConfigurationAgentOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationAgentInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationAgentArgs{...}
+type AgentFlowDefinitionNodeConfigurationAgentInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationAgentOutput() AgentFlowDefinitionNodeConfigurationAgentOutput
+	ToAgentFlowDefinitionNodeConfigurationAgentOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationAgentOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationAgentArgs struct {
+	// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+	AgentAliasArn pulumi.StringInput `pulumi:"agentAliasArn"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationAgent)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationAgentArgs) ToAgentFlowDefinitionNodeConfigurationAgentOutput() AgentFlowDefinitionNodeConfigurationAgentOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationAgentOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationAgentArgs) ToAgentFlowDefinitionNodeConfigurationAgentOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationAgentOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationAgentArgs) ToAgentFlowDefinitionNodeConfigurationAgentPtrOutput() AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationAgentPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationAgentArgs) ToAgentFlowDefinitionNodeConfigurationAgentPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationAgentOutput).ToAgentFlowDefinitionNodeConfigurationAgentPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationAgentPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationAgentArgs, AgentFlowDefinitionNodeConfigurationAgentPtr and AgentFlowDefinitionNodeConfigurationAgentPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationAgentPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationAgentArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationAgentPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationAgentPtrOutput() AgentFlowDefinitionNodeConfigurationAgentPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationAgentPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationAgentPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationAgentPtrType AgentFlowDefinitionNodeConfigurationAgentArgs
+
+func AgentFlowDefinitionNodeConfigurationAgentPtr(v *AgentFlowDefinitionNodeConfigurationAgentArgs) AgentFlowDefinitionNodeConfigurationAgentPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationAgentPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationAgentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationAgent)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationAgentPtrType) ToAgentFlowDefinitionNodeConfigurationAgentPtrOutput() AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationAgentPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationAgentPtrType) ToAgentFlowDefinitionNodeConfigurationAgentPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationAgentPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationAgentOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationAgent)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationAgentOutput) ToAgentFlowDefinitionNodeConfigurationAgentOutput() AgentFlowDefinitionNodeConfigurationAgentOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationAgentOutput) ToAgentFlowDefinitionNodeConfigurationAgentOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationAgentOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationAgentOutput) ToAgentFlowDefinitionNodeConfigurationAgentPtrOutput() AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationAgentPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationAgentOutput) ToAgentFlowDefinitionNodeConfigurationAgentPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationAgent) *AgentFlowDefinitionNodeConfigurationAgent {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationAgentPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+func (o AgentFlowDefinitionNodeConfigurationAgentOutput) AgentAliasArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationAgent) string { return v.AgentAliasArn }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationAgentPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationAgentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationAgent)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationAgentPtrOutput) ToAgentFlowDefinitionNodeConfigurationAgentPtrOutput() AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationAgentPtrOutput) ToAgentFlowDefinitionNodeConfigurationAgentPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationAgentPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationAgentOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationAgent) AgentFlowDefinitionNodeConfigurationAgent {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationAgent
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationAgentOutput)
+}
+
+// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+func (o AgentFlowDefinitionNodeConfigurationAgentPtrOutput) AgentAliasArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationAgent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AgentAliasArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationCollector struct {
+}
+
+// AgentFlowDefinitionNodeConfigurationCollectorInput is an input type that accepts AgentFlowDefinitionNodeConfigurationCollectorArgs and AgentFlowDefinitionNodeConfigurationCollectorOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationCollectorInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationCollectorArgs{...}
+type AgentFlowDefinitionNodeConfigurationCollectorInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationCollectorOutput() AgentFlowDefinitionNodeConfigurationCollectorOutput
+	ToAgentFlowDefinitionNodeConfigurationCollectorOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationCollectorOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationCollectorArgs struct {
+}
+
+func (AgentFlowDefinitionNodeConfigurationCollectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationCollector)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationCollectorArgs) ToAgentFlowDefinitionNodeConfigurationCollectorOutput() AgentFlowDefinitionNodeConfigurationCollectorOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationCollectorOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationCollectorArgs) ToAgentFlowDefinitionNodeConfigurationCollectorOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationCollectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationCollectorOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationCollectorArgs) ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutput() AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationCollectorArgs) ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationCollectorOutput).ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationCollectorPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationCollectorArgs, AgentFlowDefinitionNodeConfigurationCollectorPtr and AgentFlowDefinitionNodeConfigurationCollectorPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationCollectorPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationCollectorArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationCollectorPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutput() AgentFlowDefinitionNodeConfigurationCollectorPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationCollectorPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationCollectorPtrType AgentFlowDefinitionNodeConfigurationCollectorArgs
+
+func AgentFlowDefinitionNodeConfigurationCollectorPtr(v *AgentFlowDefinitionNodeConfigurationCollectorArgs) AgentFlowDefinitionNodeConfigurationCollectorPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationCollectorPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationCollectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationCollector)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationCollectorPtrType) ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutput() AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationCollectorPtrType) ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationCollectorPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationCollectorOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationCollectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationCollector)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationCollectorOutput) ToAgentFlowDefinitionNodeConfigurationCollectorOutput() AgentFlowDefinitionNodeConfigurationCollectorOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationCollectorOutput) ToAgentFlowDefinitionNodeConfigurationCollectorOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationCollectorOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationCollectorOutput) ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutput() AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationCollectorOutput) ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationCollector) *AgentFlowDefinitionNodeConfigurationCollector {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationCollectorPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationCollectorPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationCollectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationCollector)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationCollectorPtrOutput) ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutput() AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationCollectorPtrOutput) ToAgentFlowDefinitionNodeConfigurationCollectorPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationCollectorPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationCollectorOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationCollector) AgentFlowDefinitionNodeConfigurationCollector {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationCollector
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationCollectorOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationCondition struct {
+	Conditions []AgentFlowDefinitionNodeConfigurationConditionCondition `pulumi:"conditions"`
+}
+
+// AgentFlowDefinitionNodeConfigurationConditionInput is an input type that accepts AgentFlowDefinitionNodeConfigurationConditionArgs and AgentFlowDefinitionNodeConfigurationConditionOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationConditionInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationConditionArgs{...}
+type AgentFlowDefinitionNodeConfigurationConditionInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationConditionOutput() AgentFlowDefinitionNodeConfigurationConditionOutput
+	ToAgentFlowDefinitionNodeConfigurationConditionOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationConditionOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationConditionArgs struct {
+	Conditions AgentFlowDefinitionNodeConfigurationConditionConditionArrayInput `pulumi:"conditions"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationCondition)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationConditionArgs) ToAgentFlowDefinitionNodeConfigurationConditionOutput() AgentFlowDefinitionNodeConfigurationConditionOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationConditionOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationConditionArgs) ToAgentFlowDefinitionNodeConfigurationConditionOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationConditionOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationConditionArgs) ToAgentFlowDefinitionNodeConfigurationConditionPtrOutput() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationConditionArgs) ToAgentFlowDefinitionNodeConfigurationConditionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationConditionOutput).ToAgentFlowDefinitionNodeConfigurationConditionPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationConditionPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationConditionArgs, AgentFlowDefinitionNodeConfigurationConditionPtr and AgentFlowDefinitionNodeConfigurationConditionPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationConditionPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationConditionPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationConditionPtrOutput() AgentFlowDefinitionNodeConfigurationConditionPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationConditionPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationConditionPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationConditionPtrType AgentFlowDefinitionNodeConfigurationConditionArgs
+
+func AgentFlowDefinitionNodeConfigurationConditionPtr(v *AgentFlowDefinitionNodeConfigurationConditionArgs) AgentFlowDefinitionNodeConfigurationConditionPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationConditionPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationCondition)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationConditionPtrType) ToAgentFlowDefinitionNodeConfigurationConditionPtrOutput() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationConditionPtrType) ToAgentFlowDefinitionNodeConfigurationConditionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationConditionPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationConditionOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationCondition)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionOutput) ToAgentFlowDefinitionNodeConfigurationConditionOutput() AgentFlowDefinitionNodeConfigurationConditionOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionOutput) ToAgentFlowDefinitionNodeConfigurationConditionOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionOutput) ToAgentFlowDefinitionNodeConfigurationConditionPtrOutput() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionOutput) ToAgentFlowDefinitionNodeConfigurationConditionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationCondition) *AgentFlowDefinitionNodeConfigurationCondition {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationConditionPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionOutput) Conditions() AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationCondition) []AgentFlowDefinitionNodeConfigurationConditionCondition {
+		return v.Conditions
+	}).(AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationCondition)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionPtrOutput) ToAgentFlowDefinitionNodeConfigurationConditionPtrOutput() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionPtrOutput) ToAgentFlowDefinitionNodeConfigurationConditionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationConditionOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationCondition) AgentFlowDefinitionNodeConfigurationCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationCondition
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationConditionOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionPtrOutput) Conditions() AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationCondition) []AgentFlowDefinitionNodeConfigurationConditionCondition {
+		if v == nil {
+			return nil
+		}
+		return v.Conditions
+	}).(AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationConditionCondition struct {
+	Expression *string `pulumi:"expression"`
+	// A name for the flow.
+	Name string `pulumi:"name"`
+}
+
+// AgentFlowDefinitionNodeConfigurationConditionConditionInput is an input type that accepts AgentFlowDefinitionNodeConfigurationConditionConditionArgs and AgentFlowDefinitionNodeConfigurationConditionConditionOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationConditionConditionInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationConditionConditionArgs{...}
+type AgentFlowDefinitionNodeConfigurationConditionConditionInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationConditionConditionOutput() AgentFlowDefinitionNodeConfigurationConditionConditionOutput
+	ToAgentFlowDefinitionNodeConfigurationConditionConditionOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationConditionConditionOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationConditionConditionArgs struct {
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// A name for the flow.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationConditionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationConditionCondition)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationConditionConditionArgs) ToAgentFlowDefinitionNodeConfigurationConditionConditionOutput() AgentFlowDefinitionNodeConfigurationConditionConditionOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationConditionConditionOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationConditionConditionArgs) ToAgentFlowDefinitionNodeConfigurationConditionConditionOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationConditionConditionOutput)
+}
+
+// AgentFlowDefinitionNodeConfigurationConditionConditionArrayInput is an input type that accepts AgentFlowDefinitionNodeConfigurationConditionConditionArray and AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationConditionConditionArrayInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationConditionConditionArray{ AgentFlowDefinitionNodeConfigurationConditionConditionArgs{...} }
+type AgentFlowDefinitionNodeConfigurationConditionConditionArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput() AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput
+	ToAgentFlowDefinitionNodeConfigurationConditionConditionArrayOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationConditionConditionArray []AgentFlowDefinitionNodeConfigurationConditionConditionInput
+
+func (AgentFlowDefinitionNodeConfigurationConditionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationConditionCondition)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationConditionConditionArray) ToAgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput() AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationConditionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationConditionConditionArray) ToAgentFlowDefinitionNodeConfigurationConditionConditionArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationConditionConditionOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationConditionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationConditionCondition)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionConditionOutput) ToAgentFlowDefinitionNodeConfigurationConditionConditionOutput() AgentFlowDefinitionNodeConfigurationConditionConditionOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionConditionOutput) ToAgentFlowDefinitionNodeConfigurationConditionConditionOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionConditionOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionConditionOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationConditionCondition) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// A name for the flow.
+func (o AgentFlowDefinitionNodeConfigurationConditionConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationConditionCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationConditionCondition)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput) ToAgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput() AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput) ToAgentFlowDefinitionNodeConfigurationConditionConditionArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionNodeConfigurationConditionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionNodeConfigurationConditionCondition {
+		return vs[0].([]AgentFlowDefinitionNodeConfigurationConditionCondition)[vs[1].(int)]
+	}).(AgentFlowDefinitionNodeConfigurationConditionConditionOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationInlineCode struct {
+	// The code that's executed in your inline code node.
+	Code string `pulumi:"code"`
+	// The programming language used by your inline code node.
+	Language string `pulumi:"language"`
+}
+
+// AgentFlowDefinitionNodeConfigurationInlineCodeInput is an input type that accepts AgentFlowDefinitionNodeConfigurationInlineCodeArgs and AgentFlowDefinitionNodeConfigurationInlineCodeOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationInlineCodeInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationInlineCodeArgs{...}
+type AgentFlowDefinitionNodeConfigurationInlineCodeInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationInlineCodeOutput() AgentFlowDefinitionNodeConfigurationInlineCodeOutput
+	ToAgentFlowDefinitionNodeConfigurationInlineCodeOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationInlineCodeOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationInlineCodeArgs struct {
+	// The code that's executed in your inline code node.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The programming language used by your inline code node.
+	Language pulumi.StringInput `pulumi:"language"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationInlineCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationInlineCode)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationInlineCodeArgs) ToAgentFlowDefinitionNodeConfigurationInlineCodeOutput() AgentFlowDefinitionNodeConfigurationInlineCodeOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationInlineCodeOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationInlineCodeArgs) ToAgentFlowDefinitionNodeConfigurationInlineCodeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInlineCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationInlineCodeOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationInlineCodeArgs) ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutput() AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationInlineCodeArgs) ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationInlineCodeOutput).ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationInlineCodePtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationInlineCodeArgs, AgentFlowDefinitionNodeConfigurationInlineCodePtr and AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationInlineCodePtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationInlineCodeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationInlineCodePtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutput() AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput
+	ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationInlineCodePtrType AgentFlowDefinitionNodeConfigurationInlineCodeArgs
+
+func AgentFlowDefinitionNodeConfigurationInlineCodePtr(v *AgentFlowDefinitionNodeConfigurationInlineCodeArgs) AgentFlowDefinitionNodeConfigurationInlineCodePtrInput {
+	return (*agentFlowDefinitionNodeConfigurationInlineCodePtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationInlineCodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationInlineCode)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationInlineCodePtrType) ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutput() AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationInlineCodePtrType) ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationInlineCodeOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationInlineCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationInlineCode)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInlineCodeOutput) ToAgentFlowDefinitionNodeConfigurationInlineCodeOutput() AgentFlowDefinitionNodeConfigurationInlineCodeOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInlineCodeOutput) ToAgentFlowDefinitionNodeConfigurationInlineCodeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInlineCodeOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInlineCodeOutput) ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutput() AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInlineCodeOutput) ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationInlineCode) *AgentFlowDefinitionNodeConfigurationInlineCode {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
+}
+
+// The code that's executed in your inline code node.
+func (o AgentFlowDefinitionNodeConfigurationInlineCodeOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationInlineCode) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The programming language used by your inline code node.
+func (o AgentFlowDefinitionNodeConfigurationInlineCodeOutput) Language() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationInlineCode) string { return v.Language }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationInlineCode)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutput() AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) ToAgentFlowDefinitionNodeConfigurationInlineCodePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) Elem() AgentFlowDefinitionNodeConfigurationInlineCodeOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationInlineCode) AgentFlowDefinitionNodeConfigurationInlineCode {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationInlineCode
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationInlineCodeOutput)
+}
+
+// The code that's executed in your inline code node.
+func (o AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationInlineCode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The programming language used by your inline code node.
+func (o AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationInlineCode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Language
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationInputType struct {
+}
+
+// AgentFlowDefinitionNodeConfigurationInputTypeInput is an input type that accepts AgentFlowDefinitionNodeConfigurationInputTypeArgs and AgentFlowDefinitionNodeConfigurationInputTypeOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationInputTypeInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationInputTypeArgs{...}
+type AgentFlowDefinitionNodeConfigurationInputTypeInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationInputTypeOutput() AgentFlowDefinitionNodeConfigurationInputTypeOutput
+	ToAgentFlowDefinitionNodeConfigurationInputTypeOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationInputTypeOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationInputTypeArgs struct {
+}
+
+func (AgentFlowDefinitionNodeConfigurationInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationInputType)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationInputTypeArgs) ToAgentFlowDefinitionNodeConfigurationInputTypeOutput() AgentFlowDefinitionNodeConfigurationInputTypeOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationInputTypeOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationInputTypeArgs) ToAgentFlowDefinitionNodeConfigurationInputTypeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationInputTypeOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationInputTypeArgs) ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutput() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationInputTypeArgs) ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationInputTypeOutput).ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationInputTypePtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationInputTypeArgs, AgentFlowDefinitionNodeConfigurationInputTypePtr and AgentFlowDefinitionNodeConfigurationInputTypePtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationInputTypePtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationInputTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationInputTypePtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutput() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput
+	ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationInputTypePtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationInputTypePtrType AgentFlowDefinitionNodeConfigurationInputTypeArgs
+
+func AgentFlowDefinitionNodeConfigurationInputTypePtr(v *AgentFlowDefinitionNodeConfigurationInputTypeArgs) AgentFlowDefinitionNodeConfigurationInputTypePtrInput {
+	return (*agentFlowDefinitionNodeConfigurationInputTypePtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationInputType)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationInputTypePtrType) ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutput() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationInputTypePtrType) ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationInputTypePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationInputTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationInputType)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInputTypeOutput) ToAgentFlowDefinitionNodeConfigurationInputTypeOutput() AgentFlowDefinitionNodeConfigurationInputTypeOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInputTypeOutput) ToAgentFlowDefinitionNodeConfigurationInputTypeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInputTypeOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInputTypeOutput) ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutput() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInputTypeOutput) ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationInputType) *AgentFlowDefinitionNodeConfigurationInputType {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationInputTypePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationInputType)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInputTypePtrOutput) ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutput() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInputTypePtrOutput) ToAgentFlowDefinitionNodeConfigurationInputTypePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationInputTypePtrOutput) Elem() AgentFlowDefinitionNodeConfigurationInputTypeOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationInputType) AgentFlowDefinitionNodeConfigurationInputType {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationInputType
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationInputTypeOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationIterator struct {
+}
+
+// AgentFlowDefinitionNodeConfigurationIteratorInput is an input type that accepts AgentFlowDefinitionNodeConfigurationIteratorArgs and AgentFlowDefinitionNodeConfigurationIteratorOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationIteratorInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationIteratorArgs{...}
+type AgentFlowDefinitionNodeConfigurationIteratorInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationIteratorOutput() AgentFlowDefinitionNodeConfigurationIteratorOutput
+	ToAgentFlowDefinitionNodeConfigurationIteratorOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationIteratorOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationIteratorArgs struct {
+}
+
+func (AgentFlowDefinitionNodeConfigurationIteratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationIterator)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationIteratorArgs) ToAgentFlowDefinitionNodeConfigurationIteratorOutput() AgentFlowDefinitionNodeConfigurationIteratorOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationIteratorOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationIteratorArgs) ToAgentFlowDefinitionNodeConfigurationIteratorOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationIteratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationIteratorOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationIteratorArgs) ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutput() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationIteratorArgs) ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationIteratorOutput).ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationIteratorPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationIteratorArgs, AgentFlowDefinitionNodeConfigurationIteratorPtr and AgentFlowDefinitionNodeConfigurationIteratorPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationIteratorPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationIteratorArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationIteratorPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutput() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationIteratorPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationIteratorPtrType AgentFlowDefinitionNodeConfigurationIteratorArgs
+
+func AgentFlowDefinitionNodeConfigurationIteratorPtr(v *AgentFlowDefinitionNodeConfigurationIteratorArgs) AgentFlowDefinitionNodeConfigurationIteratorPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationIteratorPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationIteratorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationIterator)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationIteratorPtrType) ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutput() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationIteratorPtrType) ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationIteratorPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationIteratorOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationIteratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationIterator)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationIteratorOutput) ToAgentFlowDefinitionNodeConfigurationIteratorOutput() AgentFlowDefinitionNodeConfigurationIteratorOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationIteratorOutput) ToAgentFlowDefinitionNodeConfigurationIteratorOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationIteratorOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationIteratorOutput) ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutput() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationIteratorOutput) ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationIterator) *AgentFlowDefinitionNodeConfigurationIterator {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationIteratorPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationIteratorPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationIteratorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationIterator)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationIteratorPtrOutput) ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutput() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationIteratorPtrOutput) ToAgentFlowDefinitionNodeConfigurationIteratorPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationIteratorPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationIteratorOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationIterator) AgentFlowDefinitionNodeConfigurationIterator {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationIterator
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationIteratorOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBase struct {
+	// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+	GuardrailConfiguration *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration `pulumi:"guardrailConfiguration"`
+	// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+	InferenceConfiguration *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration `pulumi:"inferenceConfiguration"`
+	// The unique identifier of the knowledge base to query.
+	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
+	ModelId         string `pulumi:"modelId"`
+	NumberOfResults *int   `pulumi:"numberOfResults"`
+}
+
+// AgentFlowDefinitionNodeConfigurationKnowledgeBaseInput is an input type that accepts AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs and AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationKnowledgeBaseInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs{...}
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs struct {
+	// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+	GuardrailConfiguration AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrInput `pulumi:"guardrailConfiguration"`
+	// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+	InferenceConfiguration AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
+	// The unique identifier of the knowledge base to query.
+	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
+	ModelId         pulumi.StringInput `pulumi:"modelId"`
+	NumberOfResults pulumi.IntPtrInput `pulumi:"numberOfResults"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBase)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput).ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs, AgentFlowDefinitionNodeConfigurationKnowledgeBasePtr and AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationKnowledgeBasePtrType AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs
+
+func AgentFlowDefinitionNodeConfigurationKnowledgeBasePtr(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs) AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrInput {
+	return (*agentFlowDefinitionNodeConfigurationKnowledgeBasePtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationKnowledgeBasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationKnowledgeBase)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationKnowledgeBasePtrType) ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationKnowledgeBasePtrType) ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBase)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBase {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput)
+}
+
+// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
+		return v.GuardrailConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput)
+}
+
+// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
+		return v.InferenceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput)
+}
+
+// The unique identifier of the knowledge base to query.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) KnowledgeBaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) NumberOfResults() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) *int { return v.NumberOfResults }).(pulumi.IntPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationKnowledgeBase)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) Elem() AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) AgentFlowDefinitionNodeConfigurationKnowledgeBase {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationKnowledgeBase
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput)
+}
+
+// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput)
+}
+
+// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput)
+}
+
+// The unique identifier of the knowledge base to query.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KnowledgeBaseId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) NumberOfResults() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfResults
+	}).(pulumi.IntPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration struct {
+	// The unique identifier of the guardrail.
+	GuardrailIdentifier string `pulumi:"guardrailIdentifier"`
+	// The version of the guardrail.
+	GuardrailVersion string `pulumi:"guardrailVersion"`
+}
+
+// AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs and AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs struct {
+	// The unique identifier of the guardrail.
+	GuardrailIdentifier pulumi.StringInput `pulumi:"guardrailIdentifier"`
+	// The version of the guardrail.
+	GuardrailVersion pulumi.StringInput `pulumi:"guardrailVersion"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs, AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtr and AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrType AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput)
+}
+
+// The unique identifier of the guardrail.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput) GuardrailIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) string {
+		return v.GuardrailIdentifier
+	}).(pulumi.StringOutput)
+}
+
+// The version of the guardrail.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput) GuardrailVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) string {
+		return v.GuardrailVersion
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput)
+}
+
+// The unique identifier of the guardrail.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GuardrailIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the guardrail.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput) GuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GuardrailVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration struct {
+	Text *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText `pulumi:"text"`
+}
+
+// AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs and AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs struct {
+	Text AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrInput `pulumi:"text"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs, AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtr and AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrType AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput) Text() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText {
+		return v.Text
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput) Text() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText struct {
+	// Maximum number of tokens to return in the response.
+	MaxTokens *int `pulumi:"maxTokens"`
+	// List of strings that define sequences after which the model will stop generating.
+	StopSequences []string `pulumi:"stopSequences"`
+	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+	Temperature *float64 `pulumi:"temperature"`
+	// Percentage of most-likely candidates that the model considers for the next token.
+	TopP *float64 `pulumi:"topP"`
+}
+
+// AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextInput is an input type that accepts AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs and AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs{...}
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs struct {
+	// Maximum number of tokens to return in the response.
+	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
+	// List of strings that define sequences after which the model will stop generating.
+	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
+	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
+	// Percentage of most-likely candidates that the model considers for the next token.
+	TopP pulumi.Float64PtrInput `pulumi:"topP"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput).ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs, AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtr and AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrType AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs
+
+func AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtr(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrType) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrType) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput)
+}
+
+// Maximum number of tokens to return in the response.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) *int {
+		return v.MaxTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+// List of strings that define sequences after which the model will stop generating.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) []string {
+		return v.StopSequences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) *float64 {
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Percentage of most-likely candidates that the model considers for the next token.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) *float64 {
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput) ToAgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput)
+}
+
+// Maximum number of tokens to return in the response.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+// List of strings that define sequences after which the model will stop generating.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StopSequences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Percentage of most-likely candidates that the model considers for the next token.
+func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationLambdaFunction struct {
+	// The Amazon Resource Name (ARN) of the Lambda function to invoke.
+	LambdaArn string `pulumi:"lambdaArn"`
+}
+
+// AgentFlowDefinitionNodeConfigurationLambdaFunctionInput is an input type that accepts AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs and AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationLambdaFunctionInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs{...}
+type AgentFlowDefinitionNodeConfigurationLambdaFunctionInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationLambdaFunctionOutput() AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput
+	ToAgentFlowDefinitionNodeConfigurationLambdaFunctionOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs struct {
+	// The Amazon Resource Name (ARN) of the Lambda function to invoke.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationLambdaFunction)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionOutput() AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationLambdaFunctionOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput() AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput).ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs, AgentFlowDefinitionNodeConfigurationLambdaFunctionPtr and AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput() AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationLambdaFunctionPtrType AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs
+
+func AgentFlowDefinitionNodeConfigurationLambdaFunctionPtr(v *AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs) AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationLambdaFunctionPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationLambdaFunctionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationLambdaFunction)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationLambdaFunctionPtrType) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput() AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationLambdaFunctionPtrType) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationLambdaFunction)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionOutput() AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput() AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationLambdaFunction) *AgentFlowDefinitionNodeConfigurationLambdaFunction {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function to invoke.
+func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationLambdaFunction) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationLambdaFunction)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput() AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) ToAgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationLambdaFunction) AgentFlowDefinitionNodeConfigurationLambdaFunction {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationLambdaFunction
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function to invoke.
+func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationLambdaFunction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationLex struct {
+	// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+	BotAliasArn string `pulumi:"botAliasArn"`
+	// The Region to invoke the Amazon Lex bot in
+	LocaleId string `pulumi:"localeId"`
+}
+
+// AgentFlowDefinitionNodeConfigurationLexInput is an input type that accepts AgentFlowDefinitionNodeConfigurationLexArgs and AgentFlowDefinitionNodeConfigurationLexOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationLexInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationLexArgs{...}
+type AgentFlowDefinitionNodeConfigurationLexInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationLexOutput() AgentFlowDefinitionNodeConfigurationLexOutput
+	ToAgentFlowDefinitionNodeConfigurationLexOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationLexOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationLexArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+	BotAliasArn pulumi.StringInput `pulumi:"botAliasArn"`
+	// The Region to invoke the Amazon Lex bot in
+	LocaleId pulumi.StringInput `pulumi:"localeId"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationLexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationLex)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationLexArgs) ToAgentFlowDefinitionNodeConfigurationLexOutput() AgentFlowDefinitionNodeConfigurationLexOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationLexOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationLexArgs) ToAgentFlowDefinitionNodeConfigurationLexOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationLexOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationLexArgs) ToAgentFlowDefinitionNodeConfigurationLexPtrOutput() AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationLexPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationLexArgs) ToAgentFlowDefinitionNodeConfigurationLexPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationLexOutput).ToAgentFlowDefinitionNodeConfigurationLexPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationLexPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationLexArgs, AgentFlowDefinitionNodeConfigurationLexPtr and AgentFlowDefinitionNodeConfigurationLexPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationLexPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationLexArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationLexPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationLexPtrOutput() AgentFlowDefinitionNodeConfigurationLexPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationLexPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationLexPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationLexPtrType AgentFlowDefinitionNodeConfigurationLexArgs
+
+func AgentFlowDefinitionNodeConfigurationLexPtr(v *AgentFlowDefinitionNodeConfigurationLexArgs) AgentFlowDefinitionNodeConfigurationLexPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationLexPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationLexPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationLex)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationLexPtrType) ToAgentFlowDefinitionNodeConfigurationLexPtrOutput() AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationLexPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationLexPtrType) ToAgentFlowDefinitionNodeConfigurationLexPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationLexOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationLexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationLex)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLexOutput) ToAgentFlowDefinitionNodeConfigurationLexOutput() AgentFlowDefinitionNodeConfigurationLexOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLexOutput) ToAgentFlowDefinitionNodeConfigurationLexOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLexOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLexOutput) ToAgentFlowDefinitionNodeConfigurationLexPtrOutput() AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationLexPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLexOutput) ToAgentFlowDefinitionNodeConfigurationLexPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationLex) *AgentFlowDefinitionNodeConfigurationLex {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+func (o AgentFlowDefinitionNodeConfigurationLexOutput) BotAliasArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationLex) string { return v.BotAliasArn }).(pulumi.StringOutput)
+}
+
+// The Region to invoke the Amazon Lex bot in
+func (o AgentFlowDefinitionNodeConfigurationLexOutput) LocaleId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationLex) string { return v.LocaleId }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationLexPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationLexPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationLex)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) ToAgentFlowDefinitionNodeConfigurationLexPtrOutput() AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) ToAgentFlowDefinitionNodeConfigurationLexPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationLexPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationLexOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationLex) AgentFlowDefinitionNodeConfigurationLex {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationLex
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationLexOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) BotAliasArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationLex) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BotAliasArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Region to invoke the Amazon Lex bot in
+func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) LocaleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationLex) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocaleId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationOutputType struct {
+}
+
+// AgentFlowDefinitionNodeConfigurationOutputTypeInput is an input type that accepts AgentFlowDefinitionNodeConfigurationOutputTypeArgs and AgentFlowDefinitionNodeConfigurationOutputTypeOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationOutputTypeInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationOutputTypeArgs{...}
+type AgentFlowDefinitionNodeConfigurationOutputTypeInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationOutputTypeOutput() AgentFlowDefinitionNodeConfigurationOutputTypeOutput
+	ToAgentFlowDefinitionNodeConfigurationOutputTypeOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationOutputTypeOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationOutputTypeArgs struct {
+}
+
+func (AgentFlowDefinitionNodeConfigurationOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationOutputType)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationOutputTypeArgs) ToAgentFlowDefinitionNodeConfigurationOutputTypeOutput() AgentFlowDefinitionNodeConfigurationOutputTypeOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationOutputTypeOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationOutputTypeArgs) ToAgentFlowDefinitionNodeConfigurationOutputTypeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationOutputTypeOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationOutputTypeArgs) ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutput() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationOutputTypeArgs) ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationOutputTypeOutput).ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationOutputTypePtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationOutputTypeArgs, AgentFlowDefinitionNodeConfigurationOutputTypePtr and AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationOutputTypePtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationOutputTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationOutputTypePtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutput() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput
+	ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationOutputTypePtrType AgentFlowDefinitionNodeConfigurationOutputTypeArgs
+
+func AgentFlowDefinitionNodeConfigurationOutputTypePtr(v *AgentFlowDefinitionNodeConfigurationOutputTypeArgs) AgentFlowDefinitionNodeConfigurationOutputTypePtrInput {
+	return (*agentFlowDefinitionNodeConfigurationOutputTypePtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationOutputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationOutputType)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationOutputTypePtrType) ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutput() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationOutputTypePtrType) ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationOutputTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationOutputType)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutputTypeOutput) ToAgentFlowDefinitionNodeConfigurationOutputTypeOutput() AgentFlowDefinitionNodeConfigurationOutputTypeOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutputTypeOutput) ToAgentFlowDefinitionNodeConfigurationOutputTypeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationOutputTypeOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutputTypeOutput) ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutput() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutputTypeOutput) ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationOutputType) *AgentFlowDefinitionNodeConfigurationOutputType {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationOutputType)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput) ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutput() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput) ToAgentFlowDefinitionNodeConfigurationOutputTypePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput) Elem() AgentFlowDefinitionNodeConfigurationOutputTypeOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationOutputType) AgentFlowDefinitionNodeConfigurationOutputType {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationOutputType
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationOutputTypeOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPrompt struct {
+	// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+	GuardrailConfiguration *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration `pulumi:"guardrailConfiguration"`
+	SourceConfiguration    *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration    `pulumi:"sourceConfiguration"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptArgs and AgentFlowDefinitionNodeConfigurationPromptOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptOutput() AgentFlowDefinitionNodeConfigurationPromptOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptArgs struct {
+	// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+	GuardrailConfiguration AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrInput `pulumi:"guardrailConfiguration"`
+	SourceConfiguration    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrInput    `pulumi:"sourceConfiguration"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPrompt)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptArgs) ToAgentFlowDefinitionNodeConfigurationPromptOutput() AgentFlowDefinitionNodeConfigurationPromptOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptArgs) ToAgentFlowDefinitionNodeConfigurationPromptOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptArgs) ToAgentFlowDefinitionNodeConfigurationPromptPtrOutput() AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptArgs) ToAgentFlowDefinitionNodeConfigurationPromptPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptOutput).ToAgentFlowDefinitionNodeConfigurationPromptPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptArgs, AgentFlowDefinitionNodeConfigurationPromptPtr and AgentFlowDefinitionNodeConfigurationPromptPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptPtrOutput() AgentFlowDefinitionNodeConfigurationPromptPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptPtrType AgentFlowDefinitionNodeConfigurationPromptArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptPtr(v *AgentFlowDefinitionNodeConfigurationPromptArgs) AgentFlowDefinitionNodeConfigurationPromptPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPrompt)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptPtrType) ToAgentFlowDefinitionNodeConfigurationPromptPtrOutput() AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptPtrType) ToAgentFlowDefinitionNodeConfigurationPromptPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPrompt)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptOutput) ToAgentFlowDefinitionNodeConfigurationPromptOutput() AgentFlowDefinitionNodeConfigurationPromptOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptOutput) ToAgentFlowDefinitionNodeConfigurationPromptOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptOutput) ToAgentFlowDefinitionNodeConfigurationPromptPtrOutput() AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptOutput) ToAgentFlowDefinitionNodeConfigurationPromptPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPrompt {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptPtrOutput)
+}
+
+// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
+		return v.GuardrailConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptOutput) SourceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
+		return v.SourceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPrompt)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptPtrOutput() AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPrompt) AgentFlowDefinitionNodeConfigurationPrompt {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPrompt
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptOutput)
+}
+
+// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) SourceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SourceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration struct {
+	// The unique identifier of the guardrail.
+	GuardrailIdentifier string `pulumi:"guardrailIdentifier"`
+	// The version of the guardrail.
+	GuardrailVersion string `pulumi:"guardrailVersion"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs and AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs struct {
+	// The unique identifier of the guardrail.
+	GuardrailIdentifier pulumi.StringInput `pulumi:"guardrailIdentifier"`
+	// The version of the guardrail.
+	GuardrailVersion pulumi.StringInput `pulumi:"guardrailVersion"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs, AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtr and AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrType AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput)
+}
+
+// The unique identifier of the guardrail.
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) GuardrailIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) string {
+		return v.GuardrailIdentifier
+	}).(pulumi.StringOutput)
+}
+
+// The version of the guardrail.
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) GuardrailVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) string {
+		return v.GuardrailVersion
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput)
+}
+
+// The unique identifier of the guardrail.
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GuardrailIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the guardrail.
+func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput) GuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GuardrailVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration struct {
+	// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+	Inline *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline `pulumi:"inline"`
+	// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+	Resource *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource `pulumi:"resource"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs struct {
+	// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+	Inline AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrInput `pulumi:"inline"`
+	// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+	Resource AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrInput `pulumi:"resource"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput)
+}
+
+// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) Inline() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline {
+		return v.Inline
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput)
+}
+
+// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) Resource() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource {
+		return v.Resource
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput)
+}
+
+// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) Inline() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline {
+		if v == nil {
+			return nil
+		}
+		return v.Inline
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput)
+}
+
+// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) Resource() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource {
+		if v == nil {
+			return nil
+		}
+		return v.Resource
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline struct {
+	// Additional fields to be included in the model request for the Prompt node.
+	AdditionalModelRequestFields *string `pulumi:"additionalModelRequestFields"`
+	// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+	InferenceConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration `pulumi:"inferenceConfiguration"`
+	ModelId                string                                                                                     `pulumi:"modelId"`
+	// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+	TemplateConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration `pulumi:"templateConfiguration"`
+	// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+	TemplateType string `pulumi:"templateType"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs struct {
+	// Additional fields to be included in the model request for the Prompt node.
+	AdditionalModelRequestFields pulumi.StringPtrInput `pulumi:"additionalModelRequestFields"`
+	// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+	InferenceConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
+	ModelId                pulumi.StringInput                                                                                `pulumi:"modelId"`
+	// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+	TemplateConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrInput `pulumi:"templateConfiguration"`
+	// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+	TemplateType pulumi.StringInput `pulumi:"templateType"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput)
+}
+
+// Additional fields to be included in the model request for the Prompt node.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) AdditionalModelRequestFields() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *string {
+		return v.AdditionalModelRequestFields
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
+		return v.InferenceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) TemplateConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
+		return v.TemplateConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput)
+}
+
+// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) TemplateType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) string {
+		return v.TemplateType
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput)
+}
+
+// Additional fields to be included in the model request for the Prompt node.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) AdditionalModelRequestFields() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalModelRequestFields
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) TemplateConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput)
+}
+
+// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) TemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TemplateType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration struct {
+	Text *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText `pulumi:"text"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs struct {
+	Text AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrInput `pulumi:"text"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText {
+		return v.Text
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText struct {
+	// Maximum number of tokens to return in the response.
+	MaxTokens *int `pulumi:"maxTokens"`
+	// List of strings that define sequences after which the model will stop generating.
+	StopSequences []string `pulumi:"stopSequences"`
+	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+	Temperature *float64 `pulumi:"temperature"`
+	// Percentage of most-likely candidates that the model considers for the next token.
+	TopP *float64 `pulumi:"topP"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs struct {
+	// Maximum number of tokens to return in the response.
+	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
+	// List of strings that define sequences after which the model will stop generating.
+	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
+	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
+	// Percentage of most-likely candidates that the model considers for the next token.
+	TopP pulumi.Float64PtrInput `pulumi:"topP"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput)
+}
+
+// Maximum number of tokens to return in the response.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) *int {
+		return v.MaxTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+// List of strings that define sequences after which the model will stop generating.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) []string {
+		return v.StopSequences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) *float64 {
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Percentage of most-likely candidates that the model considers for the next token.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) *float64 {
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput)
+}
+
+// Maximum number of tokens to return in the response.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+// List of strings that define sequences after which the model will stop generating.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StopSequences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Percentage of most-likely candidates that the model considers for the next token.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration struct {
+	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+	Chat *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat `pulumi:"chat"`
+	Text *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText `pulumi:"text"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs struct {
+	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+	Chat AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrInput `pulumi:"chat"`
+	Text AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrInput `pulumi:"text"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput)
+}
+
+// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) Chat() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
+		return v.Chat
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
+		return v.Text
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput)
+}
+
+// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput) Chat() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
+		if v == nil {
+			return nil
+		}
+		return v.Chat
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat struct {
+	InputVariables []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable `pulumi:"inputVariables"`
+	// A list of messages in the chat for the prompt. See Message for more information.
+	Messages []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage `pulumi:"messages"`
+	// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+	Systems []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem `pulumi:"systems"`
+	// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+	ToolConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration `pulumi:"toolConfiguration"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs struct {
+	InputVariables AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayInput `pulumi:"inputVariables"`
+	// A list of messages in the chat for the prompt. See Message for more information.
+	Messages AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayInput `pulumi:"messages"`
+	// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+	Systems AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayInput `pulumi:"systems"`
+	// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+	ToolConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrInput `pulumi:"toolConfiguration"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable {
+		return v.InputVariables
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput)
+}
+
+// A list of messages in the chat for the prompt. See Message for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) Messages() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage {
+		return v.Messages
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput)
+}
+
+// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) Systems() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem {
+		return v.Systems
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput)
+}
+
+// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) ToolConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration {
+		return v.ToolConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable {
+		if v == nil {
+			return nil
+		}
+		return v.InputVariables
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput)
+}
+
+// A list of messages in the chat for the prompt. See Message for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) Messages() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput)
+}
+
+// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) Systems() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem {
+		if v == nil {
+			return nil
+		}
+		return v.Systems
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput)
+}
+
+// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) ToolConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ToolConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable struct {
+	// The name of the variable.
+	Name string `pulumi:"name"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs struct {
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArray and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArray{ AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs{...} }
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArray []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableInput
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput {
+	return o
+}
+
+// The name of the variable.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable {
+		return vs[0].([]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable)[vs[1].(int)]
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage struct {
+	// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+	Content *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent `pulumi:"content"`
+	// The role that the message belongs to.
+	Role string `pulumi:"role"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs struct {
+	// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+	Content AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrInput `pulumi:"content"`
+	// The role that the message belongs to.
+	Role pulumi.StringInput `pulumi:"role"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArray and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArray{ AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs{...} }
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArray []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageInput
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput {
+	return o
+}
+
+// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput) Content() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent {
+		return v.Content
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput)
+}
+
+// The role that the message belongs to.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage) string {
+		return v.Role
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage {
+		return vs[0].([]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage)[vs[1].(int)]
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent struct {
+	CachePoint *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint `pulumi:"cachePoint"`
+	Text       *string                                                                                                               `pulumi:"text"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs struct {
+	CachePoint AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrInput `pulumi:"cachePoint"`
+	Text       pulumi.StringPtrInput                                                                                                        `pulumi:"text"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
+		return v.CachePoint
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *string {
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
+		if v == nil {
+			return nil
+		}
+		return v.CachePoint
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type string `pulumi:"type"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem struct {
+	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	CachePoint *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint `pulumi:"cachePoint"`
+	// The text in the system prompt.
+	Text *string `pulumi:"text"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs struct {
+	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	CachePoint AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrInput `pulumi:"cachePoint"`
+	// The text in the system prompt.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArray and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArray{ AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs{...} }
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArray []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemInput
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput {
+	return o
+}
+
+// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint {
+		return v.CachePoint
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput)
+}
+
+// The text in the system prompt.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem) *string {
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem {
+		return vs[0].([]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem)[vs[1].(int)]
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type string `pulumi:"type"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration struct {
+	// Defines which tools the model should request when invoked. See Tool Choice for more information.
+	ToolChoice *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice `pulumi:"toolChoice"`
+	// A list of tools to pass to a model. See Tool for more information.
+	Tools []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool `pulumi:"tools"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs struct {
+	// Defines which tools the model should request when invoked. See Tool Choice for more information.
+	ToolChoice AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrInput `pulumi:"toolChoice"`
+	// A list of tools to pass to a model. See Tool for more information.
+	Tools AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayInput `pulumi:"tools"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput)
+}
+
+// Defines which tools the model should request when invoked. See Tool Choice for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput) ToolChoice() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice {
+		return v.ToolChoice
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
+}
+
+// A list of tools to pass to a model. See Tool for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput) Tools() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool {
+		return v.Tools
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput)
+}
+
+// Defines which tools the model should request when invoked. See Tool Choice for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput) ToolChoice() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice {
+		if v == nil {
+			return nil
+		}
+		return v.ToolChoice
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
+}
+
+// A list of tools to pass to a model. See Tool for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput) Tools() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool {
+		if v == nil {
+			return nil
+		}
+		return v.Tools
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool struct {
+	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	CachePoint *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint `pulumi:"cachePoint"`
+	// The specification for the tool. See Tool Specification for more information.
+	ToolSpec *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec `pulumi:"toolSpec"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs struct {
+	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	CachePoint AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrInput `pulumi:"cachePoint"`
+	// The specification for the tool. See Tool Specification for more information.
+	ToolSpec AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput `pulumi:"toolSpec"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArray and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArray{ AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs{...} }
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArray []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolInput
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput {
+	return o
+}
+
+// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint {
+		return v.CachePoint
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
+}
+
+// The specification for the tool. See Tool Specification for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput) ToolSpec() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec {
+		return v.ToolSpec
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool {
+		return vs[0].([]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool)[vs[1].(int)]
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type string `pulumi:"type"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice struct {
+	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+	Any *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny `pulumi:"any"`
+	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+	Auto *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto `pulumi:"auto"`
+	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+	Tool *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool `pulumi:"tool"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs struct {
+	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+	Any AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput `pulumi:"any"`
+	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+	Auto AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput `pulumi:"auto"`
+	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+	Tool AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput `pulumi:"tool"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
+}
+
+// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) Any() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny {
+		return v.Any
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
+}
+
+// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) Auto() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto {
+		return v.Auto
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
+}
+
+// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) Tool() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
+		return v.Tool
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput)
+}
+
+// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Any() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny {
+		if v == nil {
+			return nil
+		}
+		return v.Any
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
+}
+
+// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Auto() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto {
+		if v == nil {
+			return nil
+		}
+		return v.Auto
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
+}
+
+// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Tool() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
+		if v == nil {
+			return nil
+		}
+		return v.Tool
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny struct {
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs struct {
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto struct {
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs struct {
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool struct {
+	// A name for the flow.
+	Name string `pulumi:"name"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs struct {
+	// A name for the flow.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
+}
+
+// A name for the flow.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput)
+}
+
+// A name for the flow.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec struct {
+	// A description for the flow.
+	Description *string `pulumi:"description"`
+	// The input schema of the tool. See Tool Input Schema for more information.
+	InputSchema *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema `pulumi:"inputSchema"`
+	// A name for the flow.
+	Name string `pulumi:"name"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs struct {
+	// A description for the flow.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The input schema of the tool. See Tool Input Schema for more information.
+	InputSchema AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput `pulumi:"inputSchema"`
+	// A name for the flow.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput)
+}
+
+// A description for the flow.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input schema of the tool. See Tool Input Schema for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) InputSchema() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
+		return v.InputSchema
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
+}
+
+// A name for the flow.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput)
+}
+
+// A description for the flow.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input schema of the tool. See Tool Input Schema for more information.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) InputSchema() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
+		if v == nil {
+			return nil
+		}
+		return v.InputSchema
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
+}
+
+// A name for the flow.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema struct {
+	// A JSON object defining the input schema for the tool.
+	Json *string `pulumi:"json"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs struct {
+	// A JSON object defining the input schema for the tool.
+	Json pulumi.StringPtrInput `pulumi:"json"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
+}
+
+// A JSON object defining the input schema for the tool.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *string {
+		return v.Json
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput)
+}
+
+// A JSON object defining the input schema for the tool.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText struct {
+	CachePoint     *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint     `pulumi:"cachePoint"`
+	InputVariables []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable `pulumi:"inputVariables"`
+	Text           string                                                                                                      `pulumi:"text"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs struct {
+	CachePoint     AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrInput      `pulumi:"cachePoint"`
+	InputVariables AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayInput `pulumi:"inputVariables"`
+	Text           pulumi.StringInput                                                                                                  `pulumi:"text"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
+		return v.CachePoint
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable {
+		return v.InputVariables
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) string {
+		return v.Text
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
+		if v == nil {
+			return nil
+		}
+		return v.CachePoint
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable {
+		if v == nil {
+			return nil
+		}
+		return v.InputVariables
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type string `pulumi:"type"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable struct {
+	// The name of the variable.
+	Name string `pulumi:"name"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs struct {
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArray and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArray{ AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs{...} }
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArray []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableInput
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArray) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput {
+	return o
+}
+
+// The name of the variable.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable {
+		return vs[0].([]AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable)[vs[1].(int)]
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource struct {
+	ResourceArn string `pulumi:"resourceArn"`
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs{...}
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs struct {
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput).ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs, AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtr and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput
+	ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrType AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs
+
+func AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtr(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrInput {
+	return (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrType) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource) string {
+		return v.ResourceArn
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput) ToAgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput) Elem() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource) AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrieval struct {
+	ServiceConfiguration *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration `pulumi:"serviceConfiguration"`
+}
+
+// AgentFlowDefinitionNodeConfigurationRetrievalInput is an input type that accepts AgentFlowDefinitionNodeConfigurationRetrievalArgs and AgentFlowDefinitionNodeConfigurationRetrievalOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationRetrievalInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationRetrievalArgs{...}
+type AgentFlowDefinitionNodeConfigurationRetrievalInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationRetrievalOutput() AgentFlowDefinitionNodeConfigurationRetrievalOutput
+	ToAgentFlowDefinitionNodeConfigurationRetrievalOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationRetrievalOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalArgs struct {
+	ServiceConfiguration AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrInput `pulumi:"serviceConfiguration"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationRetrievalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrieval)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalArgs) ToAgentFlowDefinitionNodeConfigurationRetrievalOutput() AgentFlowDefinitionNodeConfigurationRetrievalOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationRetrievalOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalArgs) ToAgentFlowDefinitionNodeConfigurationRetrievalOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationRetrievalOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalArgs) ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalArgs) ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationRetrievalOutput).ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationRetrievalPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationRetrievalArgs, AgentFlowDefinitionNodeConfigurationRetrievalPtr and AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationRetrievalPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationRetrievalArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationRetrievalPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationRetrievalPtrType AgentFlowDefinitionNodeConfigurationRetrievalArgs
+
+func AgentFlowDefinitionNodeConfigurationRetrievalPtr(v *AgentFlowDefinitionNodeConfigurationRetrievalArgs) AgentFlowDefinitionNodeConfigurationRetrievalPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationRetrievalPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationRetrievalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationRetrieval)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationRetrievalPtrType) ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationRetrievalPtrType) ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationRetrievalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrieval)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalOutput() AgentFlowDefinitionNodeConfigurationRetrievalOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationRetrieval) *AgentFlowDefinitionNodeConfigurationRetrieval {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationRetrieval) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
+		return v.ServiceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationRetrieval)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationRetrievalOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrieval) AgentFlowDefinitionNodeConfigurationRetrieval {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationRetrieval
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrieval) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration struct {
+	S3 *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 `pulumi:"s3"`
+}
+
+// AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs and AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs struct {
+	S3 AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrInput `pulumi:"s3"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs, AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtr and AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrType AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput) S3() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
+		return v.S3
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput) S3() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 struct {
+	BucketName string `pulumi:"bucketName"`
+}
+
+// AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Input is an input type that accepts AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args and AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Input` via:
+//
+//	AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args{...}
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Input interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output
+	ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3OutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args struct {
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output {
+	return i.ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3OutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3OutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output).ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args, AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Ptr and AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput
+	ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrType AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args
+
+func AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Ptr(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrInput {
+	return (*agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrType) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrType) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3OutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3) string {
+		return v.BucketName
+	}).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput) ToAgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput) Elem() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3) AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationStorage struct {
+	ServiceConfiguration *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration `pulumi:"serviceConfiguration"`
+}
+
+// AgentFlowDefinitionNodeConfigurationStorageInput is an input type that accepts AgentFlowDefinitionNodeConfigurationStorageArgs and AgentFlowDefinitionNodeConfigurationStorageOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationStorageInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationStorageArgs{...}
+type AgentFlowDefinitionNodeConfigurationStorageInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationStorageOutput() AgentFlowDefinitionNodeConfigurationStorageOutput
+	ToAgentFlowDefinitionNodeConfigurationStorageOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationStorageOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageArgs struct {
+	ServiceConfiguration AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrInput `pulumi:"serviceConfiguration"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorage)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageArgs) ToAgentFlowDefinitionNodeConfigurationStorageOutput() AgentFlowDefinitionNodeConfigurationStorageOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationStorageOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageArgs) ToAgentFlowDefinitionNodeConfigurationStorageOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationStorageOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageArgs) ToAgentFlowDefinitionNodeConfigurationStoragePtrOutput() AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationStoragePtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageArgs) ToAgentFlowDefinitionNodeConfigurationStoragePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationStorageOutput).ToAgentFlowDefinitionNodeConfigurationStoragePtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationStoragePtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationStorageArgs, AgentFlowDefinitionNodeConfigurationStoragePtr and AgentFlowDefinitionNodeConfigurationStoragePtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationStoragePtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationStoragePtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationStoragePtrOutput() AgentFlowDefinitionNodeConfigurationStoragePtrOutput
+	ToAgentFlowDefinitionNodeConfigurationStoragePtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationStoragePtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationStoragePtrType AgentFlowDefinitionNodeConfigurationStorageArgs
+
+func AgentFlowDefinitionNodeConfigurationStoragePtr(v *AgentFlowDefinitionNodeConfigurationStorageArgs) AgentFlowDefinitionNodeConfigurationStoragePtrInput {
+	return (*agentFlowDefinitionNodeConfigurationStoragePtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationStorage)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationStoragePtrType) ToAgentFlowDefinitionNodeConfigurationStoragePtrOutput() AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationStoragePtrType) ToAgentFlowDefinitionNodeConfigurationStoragePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationStoragePtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorage)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageOutput) ToAgentFlowDefinitionNodeConfigurationStorageOutput() AgentFlowDefinitionNodeConfigurationStorageOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageOutput) ToAgentFlowDefinitionNodeConfigurationStorageOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageOutput) ToAgentFlowDefinitionNodeConfigurationStoragePtrOutput() AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationStoragePtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageOutput) ToAgentFlowDefinitionNodeConfigurationStoragePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationStorage) *AgentFlowDefinitionNodeConfigurationStorage {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationStoragePtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationStorage) *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
+		return v.ServiceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationStorage)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) ToAgentFlowDefinitionNodeConfigurationStoragePtrOutput() AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) ToAgentFlowDefinitionNodeConfigurationStoragePtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) Elem() AgentFlowDefinitionNodeConfigurationStorageOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorage) AgentFlowDefinitionNodeConfigurationStorage {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationStorage
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationStorageOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorage) *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceConfiguration
+	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration struct {
+	S3 *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 `pulumi:"s3"`
+}
+
+// AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationInput is an input type that accepts AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs and AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationInput` via:
+//
+//	AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs{...}
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput
+	ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs struct {
+	S3 AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrInput `pulumi:"s3"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput).ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs, AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtr and AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput
+	ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrType AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs
+
+func AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtr(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrInput {
+	return (*agentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrType) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration) *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) S3() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration) *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
+		return v.S3
+	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput) Elem() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration) AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput) S3() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration) *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 struct {
+	BucketName string `pulumi:"bucketName"`
+}
+
+// AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Input is an input type that accepts AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args and AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Input` via:
+//
+//	AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args{...}
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Input interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output
+	ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3OutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args struct {
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+}
+
+func (AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output {
+	return i.ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3OutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3OutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output)
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output).ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutputWithContext(ctx)
+}
+
+// AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrInput is an input type that accepts AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args, AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Ptr and AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrInput` via:
+//
+//	        AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput
+	ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutputWithContext(context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput
+}
+
+type agentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrType AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args
+
+func AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Ptr(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrInput {
+	return (*agentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrType)(v)
+}
+
+func (*agentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3)(nil)).Elem()
+}
+
+func (i *agentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrType) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return i.ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrType) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3OutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return o.ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3) *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
+		return &v
+	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput) ToAgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput) Elem() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3) AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3
+		return ret
+	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output)
+}
+
+func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowDefinitionNodeInputType struct {
+	// How input data flows between iterations in a DoWhile loop.
+	Category   *string `pulumi:"category"`
+	Expression string  `pulumi:"expression"`
+	// A name for the flow.
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+}
+
+// AgentFlowDefinitionNodeInputTypeInput is an input type that accepts AgentFlowDefinitionNodeInputTypeArgs and AgentFlowDefinitionNodeInputTypeOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeInputTypeInput` via:
+//
+//	AgentFlowDefinitionNodeInputTypeArgs{...}
+type AgentFlowDefinitionNodeInputTypeInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeInputTypeOutput() AgentFlowDefinitionNodeInputTypeOutput
+	ToAgentFlowDefinitionNodeInputTypeOutputWithContext(context.Context) AgentFlowDefinitionNodeInputTypeOutput
+}
+
+type AgentFlowDefinitionNodeInputTypeArgs struct {
+	// How input data flows between iterations in a DoWhile loop.
+	Category   pulumi.StringPtrInput `pulumi:"category"`
+	Expression pulumi.StringInput    `pulumi:"expression"`
+	// A name for the flow.
+	Name pulumi.StringInput `pulumi:"name"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentFlowDefinitionNodeInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeInputType)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeInputTypeArgs) ToAgentFlowDefinitionNodeInputTypeOutput() AgentFlowDefinitionNodeInputTypeOutput {
+	return i.ToAgentFlowDefinitionNodeInputTypeOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeInputTypeArgs) ToAgentFlowDefinitionNodeInputTypeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeInputTypeOutput)
+}
+
+// AgentFlowDefinitionNodeInputTypeArrayInput is an input type that accepts AgentFlowDefinitionNodeInputTypeArray and AgentFlowDefinitionNodeInputTypeArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeInputTypeArrayInput` via:
+//
+//	AgentFlowDefinitionNodeInputTypeArray{ AgentFlowDefinitionNodeInputTypeArgs{...} }
+type AgentFlowDefinitionNodeInputTypeArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeInputTypeArrayOutput() AgentFlowDefinitionNodeInputTypeArrayOutput
+	ToAgentFlowDefinitionNodeInputTypeArrayOutputWithContext(context.Context) AgentFlowDefinitionNodeInputTypeArrayOutput
+}
+
+type AgentFlowDefinitionNodeInputTypeArray []AgentFlowDefinitionNodeInputTypeInput
+
+func (AgentFlowDefinitionNodeInputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeInputType)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeInputTypeArray) ToAgentFlowDefinitionNodeInputTypeArrayOutput() AgentFlowDefinitionNodeInputTypeArrayOutput {
+	return i.ToAgentFlowDefinitionNodeInputTypeArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeInputTypeArray) ToAgentFlowDefinitionNodeInputTypeArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeInputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeInputTypeArrayOutput)
+}
+
+type AgentFlowDefinitionNodeInputTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeInputType)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeInputTypeOutput) ToAgentFlowDefinitionNodeInputTypeOutput() AgentFlowDefinitionNodeInputTypeOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeInputTypeOutput) ToAgentFlowDefinitionNodeInputTypeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeInputTypeOutput {
+	return o
+}
+
+// How input data flows between iterations in a DoWhile loop.
+func (o AgentFlowDefinitionNodeInputTypeOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+func (o AgentFlowDefinitionNodeInputTypeOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// A name for the flow.
+func (o AgentFlowDefinitionNodeInputTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AgentFlowDefinitionNodeInputTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeInputTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeInputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeInputType)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeInputTypeArrayOutput) ToAgentFlowDefinitionNodeInputTypeArrayOutput() AgentFlowDefinitionNodeInputTypeArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeInputTypeArrayOutput) ToAgentFlowDefinitionNodeInputTypeArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeInputTypeArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeInputTypeArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionNodeInputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionNodeInputType {
+		return vs[0].([]AgentFlowDefinitionNodeInputType)[vs[1].(int)]
+	}).(AgentFlowDefinitionNodeInputTypeOutput)
+}
+
+type AgentFlowDefinitionNodeOutputType struct {
+	// A name for the flow.
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+}
+
+// AgentFlowDefinitionNodeOutputTypeInput is an input type that accepts AgentFlowDefinitionNodeOutputTypeArgs and AgentFlowDefinitionNodeOutputTypeOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeOutputTypeInput` via:
+//
+//	AgentFlowDefinitionNodeOutputTypeArgs{...}
+type AgentFlowDefinitionNodeOutputTypeInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeOutputTypeOutput() AgentFlowDefinitionNodeOutputTypeOutput
+	ToAgentFlowDefinitionNodeOutputTypeOutputWithContext(context.Context) AgentFlowDefinitionNodeOutputTypeOutput
+}
+
+type AgentFlowDefinitionNodeOutputTypeArgs struct {
+	// A name for the flow.
+	Name pulumi.StringInput `pulumi:"name"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentFlowDefinitionNodeOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeOutputType)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeOutputTypeArgs) ToAgentFlowDefinitionNodeOutputTypeOutput() AgentFlowDefinitionNodeOutputTypeOutput {
+	return i.ToAgentFlowDefinitionNodeOutputTypeOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeOutputTypeArgs) ToAgentFlowDefinitionNodeOutputTypeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeOutputTypeOutput)
+}
+
+// AgentFlowDefinitionNodeOutputTypeArrayInput is an input type that accepts AgentFlowDefinitionNodeOutputTypeArray and AgentFlowDefinitionNodeOutputTypeArrayOutput values.
+// You can construct a concrete instance of `AgentFlowDefinitionNodeOutputTypeArrayInput` via:
+//
+//	AgentFlowDefinitionNodeOutputTypeArray{ AgentFlowDefinitionNodeOutputTypeArgs{...} }
+type AgentFlowDefinitionNodeOutputTypeArrayInput interface {
+	pulumi.Input
+
+	ToAgentFlowDefinitionNodeOutputTypeArrayOutput() AgentFlowDefinitionNodeOutputTypeArrayOutput
+	ToAgentFlowDefinitionNodeOutputTypeArrayOutputWithContext(context.Context) AgentFlowDefinitionNodeOutputTypeArrayOutput
+}
+
+type AgentFlowDefinitionNodeOutputTypeArray []AgentFlowDefinitionNodeOutputTypeInput
+
+func (AgentFlowDefinitionNodeOutputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeOutputType)(nil)).Elem()
+}
+
+func (i AgentFlowDefinitionNodeOutputTypeArray) ToAgentFlowDefinitionNodeOutputTypeArrayOutput() AgentFlowDefinitionNodeOutputTypeArrayOutput {
+	return i.ToAgentFlowDefinitionNodeOutputTypeArrayOutputWithContext(context.Background())
+}
+
+func (i AgentFlowDefinitionNodeOutputTypeArray) ToAgentFlowDefinitionNodeOutputTypeArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeOutputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowDefinitionNodeOutputTypeArrayOutput)
+}
+
+type AgentFlowDefinitionNodeOutputTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowDefinitionNodeOutputType)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeOutputTypeOutput) ToAgentFlowDefinitionNodeOutputTypeOutput() AgentFlowDefinitionNodeOutputTypeOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeOutputTypeOutput) ToAgentFlowDefinitionNodeOutputTypeOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeOutputTypeOutput {
+	return o
+}
+
+// A name for the flow.
+func (o AgentFlowDefinitionNodeOutputTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeOutputType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AgentFlowDefinitionNodeOutputTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentFlowDefinitionNodeOutputType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentFlowDefinitionNodeOutputTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowDefinitionNodeOutputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentFlowDefinitionNodeOutputType)(nil)).Elem()
+}
+
+func (o AgentFlowDefinitionNodeOutputTypeArrayOutput) ToAgentFlowDefinitionNodeOutputTypeArrayOutput() AgentFlowDefinitionNodeOutputTypeArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeOutputTypeArrayOutput) ToAgentFlowDefinitionNodeOutputTypeArrayOutputWithContext(ctx context.Context) AgentFlowDefinitionNodeOutputTypeArrayOutput {
+	return o
+}
+
+func (o AgentFlowDefinitionNodeOutputTypeArrayOutput) Index(i pulumi.IntInput) AgentFlowDefinitionNodeOutputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentFlowDefinitionNodeOutputType {
+		return vs[0].([]AgentFlowDefinitionNodeOutputType)[vs[1].(int)]
+	}).(AgentFlowDefinitionNodeOutputTypeOutput)
+}
+
+type AgentFlowTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentFlowTimeoutsInput is an input type that accepts AgentFlowTimeoutsArgs and AgentFlowTimeoutsOutput values.
+// You can construct a concrete instance of `AgentFlowTimeoutsInput` via:
+//
+//	AgentFlowTimeoutsArgs{...}
+type AgentFlowTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentFlowTimeoutsOutput() AgentFlowTimeoutsOutput
+	ToAgentFlowTimeoutsOutputWithContext(context.Context) AgentFlowTimeoutsOutput
+}
+
+type AgentFlowTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentFlowTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowTimeouts)(nil)).Elem()
+}
+
+func (i AgentFlowTimeoutsArgs) ToAgentFlowTimeoutsOutput() AgentFlowTimeoutsOutput {
+	return i.ToAgentFlowTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentFlowTimeoutsArgs) ToAgentFlowTimeoutsOutputWithContext(ctx context.Context) AgentFlowTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowTimeoutsOutput)
+}
+
+func (i AgentFlowTimeoutsArgs) ToAgentFlowTimeoutsPtrOutput() AgentFlowTimeoutsPtrOutput {
+	return i.ToAgentFlowTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentFlowTimeoutsArgs) ToAgentFlowTimeoutsPtrOutputWithContext(ctx context.Context) AgentFlowTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowTimeoutsOutput).ToAgentFlowTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentFlowTimeoutsPtrInput is an input type that accepts AgentFlowTimeoutsArgs, AgentFlowTimeoutsPtr and AgentFlowTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentFlowTimeoutsPtrInput` via:
+//
+//	        AgentFlowTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentFlowTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentFlowTimeoutsPtrOutput() AgentFlowTimeoutsPtrOutput
+	ToAgentFlowTimeoutsPtrOutputWithContext(context.Context) AgentFlowTimeoutsPtrOutput
+}
+
+type agentFlowTimeoutsPtrType AgentFlowTimeoutsArgs
+
+func AgentFlowTimeoutsPtr(v *AgentFlowTimeoutsArgs) AgentFlowTimeoutsPtrInput {
+	return (*agentFlowTimeoutsPtrType)(v)
+}
+
+func (*agentFlowTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowTimeouts)(nil)).Elem()
+}
+
+func (i *agentFlowTimeoutsPtrType) ToAgentFlowTimeoutsPtrOutput() AgentFlowTimeoutsPtrOutput {
+	return i.ToAgentFlowTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentFlowTimeoutsPtrType) ToAgentFlowTimeoutsPtrOutputWithContext(ctx context.Context) AgentFlowTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentFlowTimeoutsPtrOutput)
+}
+
+type AgentFlowTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentFlowTimeouts)(nil)).Elem()
+}
+
+func (o AgentFlowTimeoutsOutput) ToAgentFlowTimeoutsOutput() AgentFlowTimeoutsOutput {
+	return o
+}
+
+func (o AgentFlowTimeoutsOutput) ToAgentFlowTimeoutsOutputWithContext(ctx context.Context) AgentFlowTimeoutsOutput {
+	return o
+}
+
+func (o AgentFlowTimeoutsOutput) ToAgentFlowTimeoutsPtrOutput() AgentFlowTimeoutsPtrOutput {
+	return o.ToAgentFlowTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentFlowTimeoutsOutput) ToAgentFlowTimeoutsPtrOutputWithContext(ctx context.Context) AgentFlowTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentFlowTimeouts) *AgentFlowTimeouts {
+		return &v
+	}).(AgentFlowTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentFlowTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentFlowTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentFlowTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentFlowTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentFlowTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentFlowTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentFlowTimeouts)(nil)).Elem()
+}
+
+func (o AgentFlowTimeoutsPtrOutput) ToAgentFlowTimeoutsPtrOutput() AgentFlowTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentFlowTimeoutsPtrOutput) ToAgentFlowTimeoutsPtrOutputWithContext(ctx context.Context) AgentFlowTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentFlowTimeoutsPtrOutput) Elem() AgentFlowTimeoutsOutput {
+	return o.ApplyT(func(v *AgentFlowTimeouts) AgentFlowTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentFlowTimeouts
+		return ret
+	}).(AgentFlowTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentFlowTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentFlowTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentFlowTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentFlowTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type AgentKnowledgeBaseKnowledgeBaseConfiguration struct {
 	// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
 	Type string `pulumi:"type"`
@@ -20372,23 +28788,23 @@ func (o GetInferenceProfileModelArrayOutput) Index(i pulumi.IntInput) GetInferen
 }
 
 type GetInferenceProfilesInferenceProfileSummary struct {
-	// The time at which the inference profile was created.
+	// Time at which the inference profile was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// The description of the inference profile.
+	// Description of the inference profile.
 	Description string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the inference profile.
+	// Amazon Resource Name (ARN) of the inference profile.
 	InferenceProfileArn string `pulumi:"inferenceProfileArn"`
-	// The unique identifier of the inference profile.
+	// Unique identifier of the inference profile.
 	InferenceProfileId string `pulumi:"inferenceProfileId"`
-	// The name of the inference profile.
+	// Name of the inference profile.
 	InferenceProfileName string `pulumi:"inferenceProfileName"`
-	// A list of information about each model in the inference profile. See `models`.
+	// List of information about each model in the inference profile. See `models` Block.
 	Models []GetInferenceProfilesInferenceProfileSummaryModel `pulumi:"models"`
-	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+	// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status string `pulumi:"status"`
-	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+	// Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
 	Type string `pulumi:"type"`
-	// The time at which the inference profile was last updated.
+	// Time at which the inference profile was last updated.
 	UpdatedAt string `pulumi:"updatedAt"`
 }
 
@@ -20404,23 +28820,23 @@ type GetInferenceProfilesInferenceProfileSummaryInput interface {
 }
 
 type GetInferenceProfilesInferenceProfileSummaryArgs struct {
-	// The time at which the inference profile was created.
+	// Time at which the inference profile was created.
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
-	// The description of the inference profile.
+	// Description of the inference profile.
 	Description pulumi.StringInput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the inference profile.
+	// Amazon Resource Name (ARN) of the inference profile.
 	InferenceProfileArn pulumi.StringInput `pulumi:"inferenceProfileArn"`
-	// The unique identifier of the inference profile.
+	// Unique identifier of the inference profile.
 	InferenceProfileId pulumi.StringInput `pulumi:"inferenceProfileId"`
-	// The name of the inference profile.
+	// Name of the inference profile.
 	InferenceProfileName pulumi.StringInput `pulumi:"inferenceProfileName"`
-	// A list of information about each model in the inference profile. See `models`.
+	// List of information about each model in the inference profile. See `models` Block.
 	Models GetInferenceProfilesInferenceProfileSummaryModelArrayInput `pulumi:"models"`
-	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+	// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status pulumi.StringInput `pulumi:"status"`
-	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+	// Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The time at which the inference profile was last updated.
+	// Time at which the inference profile was last updated.
 	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
 }
 
@@ -20475,49 +28891,49 @@ func (o GetInferenceProfilesInferenceProfileSummaryOutput) ToGetInferenceProfile
 	return o
 }
 
-// The time at which the inference profile was created.
+// Time at which the inference profile was created.
 func (o GetInferenceProfilesInferenceProfileSummaryOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The description of the inference profile.
+// Description of the inference profile.
 func (o GetInferenceProfilesInferenceProfileSummaryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the inference profile.
+// Amazon Resource Name (ARN) of the inference profile.
 func (o GetInferenceProfilesInferenceProfileSummaryOutput) InferenceProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.InferenceProfileArn }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the inference profile.
+// Unique identifier of the inference profile.
 func (o GetInferenceProfilesInferenceProfileSummaryOutput) InferenceProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.InferenceProfileId }).(pulumi.StringOutput)
 }
 
-// The name of the inference profile.
+// Name of the inference profile.
 func (o GetInferenceProfilesInferenceProfileSummaryOutput) InferenceProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.InferenceProfileName }).(pulumi.StringOutput)
 }
 
-// A list of information about each model in the inference profile. See `models`.
+// List of information about each model in the inference profile. See `models` Block.
 func (o GetInferenceProfilesInferenceProfileSummaryOutput) Models() GetInferenceProfilesInferenceProfileSummaryModelArrayOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) []GetInferenceProfilesInferenceProfileSummaryModel {
 		return v.Models
 	}).(GetInferenceProfilesInferenceProfileSummaryModelArrayOutput)
 }
 
-// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 func (o GetInferenceProfilesInferenceProfileSummaryOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+// Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
 func (o GetInferenceProfilesInferenceProfileSummaryOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The time at which the inference profile was last updated.
+// Time at which the inference profile was last updated.
 func (o GetInferenceProfilesInferenceProfileSummaryOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -20543,7 +28959,7 @@ func (o GetInferenceProfilesInferenceProfileSummaryArrayOutput) Index(i pulumi.I
 }
 
 type GetInferenceProfilesInferenceProfileSummaryModel struct {
-	// The Amazon Resource Name (ARN) of the model.
+	// Amazon Resource Name (ARN) of the model.
 	ModelArn string `pulumi:"modelArn"`
 }
 
@@ -20559,7 +28975,7 @@ type GetInferenceProfilesInferenceProfileSummaryModelInput interface {
 }
 
 type GetInferenceProfilesInferenceProfileSummaryModelArgs struct {
-	// The Amazon Resource Name (ARN) of the model.
+	// Amazon Resource Name (ARN) of the model.
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
 }
 
@@ -20614,7 +29030,7 @@ func (o GetInferenceProfilesInferenceProfileSummaryModelOutput) ToGetInferencePr
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the model.
+// Amazon Resource Name (ARN) of the model.
 func (o GetInferenceProfilesInferenceProfileSummaryModelOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummaryModel) string { return v.ModelArn }).(pulumi.StringOutput)
 }
@@ -20764,6 +29180,120 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionInput)(nil)).Elem(), AgentFlowDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionPtrInput)(nil)).Elem(), AgentFlowDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionConnectionInput)(nil)).Elem(), AgentFlowDefinitionConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionConnectionArrayInput)(nil)).Elem(), AgentFlowDefinitionConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationInput)(nil)).Elem(), AgentFlowDefinitionConnectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionConnectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationConditionalInput)(nil)).Elem(), AgentFlowDefinitionConnectionConfigurationConditionalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationConditionalPtrInput)(nil)).Elem(), AgentFlowDefinitionConnectionConfigurationConditionalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationDataInput)(nil)).Elem(), AgentFlowDefinitionConnectionConfigurationDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionConnectionConfigurationDataPtrInput)(nil)).Elem(), AgentFlowDefinitionConnectionConfigurationDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeInput)(nil)).Elem(), AgentFlowDefinitionNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeArrayInput)(nil)).Elem(), AgentFlowDefinitionNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationAgentInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationAgentPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationCollectorInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationCollectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationCollectorPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationCollectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationConditionInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationConditionPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationConditionConditionInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationConditionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationConditionConditionArrayInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationConditionConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationInlineCodeInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationInlineCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationInlineCodePtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationInlineCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationInputTypeInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationInputTypePtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationIteratorInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationIteratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationIteratorPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationIteratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationLambdaFunctionInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationLexInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationLexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationLexPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationLexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationOutputTypeInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationOutputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationOutputTypePtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationOutputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationRetrievalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationRetrievalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Input)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorageInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStoragePtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Input)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrInput)(nil)).Elem(), AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeInputTypeInput)(nil)).Elem(), AgentFlowDefinitionNodeInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeInputTypeArrayInput)(nil)).Elem(), AgentFlowDefinitionNodeInputTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeOutputTypeInput)(nil)).Elem(), AgentFlowDefinitionNodeOutputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowDefinitionNodeOutputTypeArrayInput)(nil)).Elem(), AgentFlowDefinitionNodeOutputTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowTimeoutsInput)(nil)).Elem(), AgentFlowTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentFlowTimeoutsPtrInput)(nil)).Elem(), AgentFlowTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{})
@@ -21050,6 +29580,120 @@ func init() {
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionConnectionOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionConnectionArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionConnectionConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionConnectionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionConnectionConfigurationConditionalOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionConnectionConfigurationDataOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionConnectionConfigurationDataPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationAgentOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationAgentPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationCollectorOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationCollectorPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationConditionOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationConditionPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationConditionConditionOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationInlineCodeOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationInputTypeOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationInputTypePtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationIteratorOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationIteratorPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationLexOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationLexPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationOutputTypeOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationRetrievalOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationStorageOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationStoragePtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeInputTypeOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeInputTypeArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeOutputTypeOutput{})
+	pulumi.RegisterOutputType(AgentFlowDefinitionNodeOutputTypeArrayOutput{})
+	pulumi.RegisterOutputType(AgentFlowTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentFlowTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput{})

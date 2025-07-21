@@ -12,6 +12,7 @@ from .agent_agent_alias import *
 from .agent_agent_collaborator import *
 from .agent_agent_knowledge_base_association import *
 from .agent_data_source import *
+from .agent_flow import *
 from .agent_knowledge_base import *
 from .agent_prompt import *
 from .custom_model import *

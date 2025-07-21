@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OpenZfsSnapshot{}
 	case "aws:fsx/openZfsVolume:OpenZfsVolume":
 		r = &OpenZfsVolume{}
+	case "aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment":
+		r = &S3AccessPointAttachment{}
 	case "aws:fsx/windowsFileSystem:WindowsFileSystem":
 		r = &WindowsFileSystem{}
 	default:
@@ -104,6 +106,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"fsx/openZfsVolume",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fsx/s3AccessPointAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

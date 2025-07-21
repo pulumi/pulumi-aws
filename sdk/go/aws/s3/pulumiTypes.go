@@ -21817,6 +21817,227 @@ func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
 	}).(iam.PolicyDocumentVersionPtrOutput)
 }
 
+type GetAccessPointPublicAccessBlockConfiguration struct {
+	// Whether Amazon S3 blocks public ACLs for buckets in this account.
+	BlockPublicAcls bool `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 blocks public bucket policies for buckets in this account.
+	BlockPublicPolicy bool `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 ignores public ACLs for buckets in this account.
+	IgnorePublicAcls bool `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 restricts public bucket policies for buckets in this account.
+	RestrictPublicBuckets bool `pulumi:"restrictPublicBuckets"`
+}
+
+// GetAccessPointPublicAccessBlockConfigurationInput is an input type that accepts GetAccessPointPublicAccessBlockConfigurationArgs and GetAccessPointPublicAccessBlockConfigurationOutput values.
+// You can construct a concrete instance of `GetAccessPointPublicAccessBlockConfigurationInput` via:
+//
+//	GetAccessPointPublicAccessBlockConfigurationArgs{...}
+type GetAccessPointPublicAccessBlockConfigurationInput interface {
+	pulumi.Input
+
+	ToGetAccessPointPublicAccessBlockConfigurationOutput() GetAccessPointPublicAccessBlockConfigurationOutput
+	ToGetAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Context) GetAccessPointPublicAccessBlockConfigurationOutput
+}
+
+type GetAccessPointPublicAccessBlockConfigurationArgs struct {
+	// Whether Amazon S3 blocks public ACLs for buckets in this account.
+	BlockPublicAcls pulumi.BoolInput `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 blocks public bucket policies for buckets in this account.
+	BlockPublicPolicy pulumi.BoolInput `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 ignores public ACLs for buckets in this account.
+	IgnorePublicAcls pulumi.BoolInput `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 restricts public bucket policies for buckets in this account.
+	RestrictPublicBuckets pulumi.BoolInput `pulumi:"restrictPublicBuckets"`
+}
+
+func (GetAccessPointPublicAccessBlockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i GetAccessPointPublicAccessBlockConfigurationArgs) ToGetAccessPointPublicAccessBlockConfigurationOutput() GetAccessPointPublicAccessBlockConfigurationOutput {
+	return i.ToGetAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointPublicAccessBlockConfigurationArgs) ToGetAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) GetAccessPointPublicAccessBlockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointPublicAccessBlockConfigurationOutput)
+}
+
+// GetAccessPointPublicAccessBlockConfigurationArrayInput is an input type that accepts GetAccessPointPublicAccessBlockConfigurationArray and GetAccessPointPublicAccessBlockConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointPublicAccessBlockConfigurationArrayInput` via:
+//
+//	GetAccessPointPublicAccessBlockConfigurationArray{ GetAccessPointPublicAccessBlockConfigurationArgs{...} }
+type GetAccessPointPublicAccessBlockConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointPublicAccessBlockConfigurationArrayOutput() GetAccessPointPublicAccessBlockConfigurationArrayOutput
+	ToGetAccessPointPublicAccessBlockConfigurationArrayOutputWithContext(context.Context) GetAccessPointPublicAccessBlockConfigurationArrayOutput
+}
+
+type GetAccessPointPublicAccessBlockConfigurationArray []GetAccessPointPublicAccessBlockConfigurationInput
+
+func (GetAccessPointPublicAccessBlockConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i GetAccessPointPublicAccessBlockConfigurationArray) ToGetAccessPointPublicAccessBlockConfigurationArrayOutput() GetAccessPointPublicAccessBlockConfigurationArrayOutput {
+	return i.ToGetAccessPointPublicAccessBlockConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointPublicAccessBlockConfigurationArray) ToGetAccessPointPublicAccessBlockConfigurationArrayOutputWithContext(ctx context.Context) GetAccessPointPublicAccessBlockConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointPublicAccessBlockConfigurationArrayOutput)
+}
+
+type GetAccessPointPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o GetAccessPointPublicAccessBlockConfigurationOutput) ToGetAccessPointPublicAccessBlockConfigurationOutput() GetAccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o GetAccessPointPublicAccessBlockConfigurationOutput) ToGetAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) GetAccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+// Whether Amazon S3 blocks public ACLs for buckets in this account.
+func (o GetAccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAccessPointPublicAccessBlockConfiguration) bool { return v.BlockPublicAcls }).(pulumi.BoolOutput)
+}
+
+// Whether Amazon S3 blocks public bucket policies for buckets in this account.
+func (o GetAccessPointPublicAccessBlockConfigurationOutput) BlockPublicPolicy() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAccessPointPublicAccessBlockConfiguration) bool { return v.BlockPublicPolicy }).(pulumi.BoolOutput)
+}
+
+// Whether Amazon S3 ignores public ACLs for buckets in this account.
+func (o GetAccessPointPublicAccessBlockConfigurationOutput) IgnorePublicAcls() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAccessPointPublicAccessBlockConfiguration) bool { return v.IgnorePublicAcls }).(pulumi.BoolOutput)
+}
+
+// Whether Amazon S3 restricts public bucket policies for buckets in this account.
+func (o GetAccessPointPublicAccessBlockConfigurationOutput) RestrictPublicBuckets() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAccessPointPublicAccessBlockConfiguration) bool { return v.RestrictPublicBuckets }).(pulumi.BoolOutput)
+}
+
+type GetAccessPointPublicAccessBlockConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointPublicAccessBlockConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o GetAccessPointPublicAccessBlockConfigurationArrayOutput) ToGetAccessPointPublicAccessBlockConfigurationArrayOutput() GetAccessPointPublicAccessBlockConfigurationArrayOutput {
+	return o
+}
+
+func (o GetAccessPointPublicAccessBlockConfigurationArrayOutput) ToGetAccessPointPublicAccessBlockConfigurationArrayOutputWithContext(ctx context.Context) GetAccessPointPublicAccessBlockConfigurationArrayOutput {
+	return o
+}
+
+func (o GetAccessPointPublicAccessBlockConfigurationArrayOutput) Index(i pulumi.IntInput) GetAccessPointPublicAccessBlockConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointPublicAccessBlockConfiguration {
+		return vs[0].([]GetAccessPointPublicAccessBlockConfiguration)[vs[1].(int)]
+	}).(GetAccessPointPublicAccessBlockConfigurationOutput)
+}
+
+type GetAccessPointVpcConfiguration struct {
+	// Access point will only allow connections from this VPC.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// GetAccessPointVpcConfigurationInput is an input type that accepts GetAccessPointVpcConfigurationArgs and GetAccessPointVpcConfigurationOutput values.
+// You can construct a concrete instance of `GetAccessPointVpcConfigurationInput` via:
+//
+//	GetAccessPointVpcConfigurationArgs{...}
+type GetAccessPointVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToGetAccessPointVpcConfigurationOutput() GetAccessPointVpcConfigurationOutput
+	ToGetAccessPointVpcConfigurationOutputWithContext(context.Context) GetAccessPointVpcConfigurationOutput
+}
+
+type GetAccessPointVpcConfigurationArgs struct {
+	// Access point will only allow connections from this VPC.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (GetAccessPointVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i GetAccessPointVpcConfigurationArgs) ToGetAccessPointVpcConfigurationOutput() GetAccessPointVpcConfigurationOutput {
+	return i.ToGetAccessPointVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointVpcConfigurationArgs) ToGetAccessPointVpcConfigurationOutputWithContext(ctx context.Context) GetAccessPointVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointVpcConfigurationOutput)
+}
+
+// GetAccessPointVpcConfigurationArrayInput is an input type that accepts GetAccessPointVpcConfigurationArray and GetAccessPointVpcConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointVpcConfigurationArrayInput` via:
+//
+//	GetAccessPointVpcConfigurationArray{ GetAccessPointVpcConfigurationArgs{...} }
+type GetAccessPointVpcConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointVpcConfigurationArrayOutput() GetAccessPointVpcConfigurationArrayOutput
+	ToGetAccessPointVpcConfigurationArrayOutputWithContext(context.Context) GetAccessPointVpcConfigurationArrayOutput
+}
+
+type GetAccessPointVpcConfigurationArray []GetAccessPointVpcConfigurationInput
+
+func (GetAccessPointVpcConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i GetAccessPointVpcConfigurationArray) ToGetAccessPointVpcConfigurationArrayOutput() GetAccessPointVpcConfigurationArrayOutput {
+	return i.ToGetAccessPointVpcConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointVpcConfigurationArray) ToGetAccessPointVpcConfigurationArrayOutputWithContext(ctx context.Context) GetAccessPointVpcConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointVpcConfigurationArrayOutput)
+}
+
+type GetAccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o GetAccessPointVpcConfigurationOutput) ToGetAccessPointVpcConfigurationOutput() GetAccessPointVpcConfigurationOutput {
+	return o
+}
+
+func (o GetAccessPointVpcConfigurationOutput) ToGetAccessPointVpcConfigurationOutputWithContext(ctx context.Context) GetAccessPointVpcConfigurationOutput {
+	return o
+}
+
+// Access point will only allow connections from this VPC.
+func (o GetAccessPointVpcConfigurationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type GetAccessPointVpcConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointVpcConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o GetAccessPointVpcConfigurationArrayOutput) ToGetAccessPointVpcConfigurationArrayOutput() GetAccessPointVpcConfigurationArrayOutput {
+	return o
+}
+
+func (o GetAccessPointVpcConfigurationArrayOutput) ToGetAccessPointVpcConfigurationArrayOutputWithContext(ctx context.Context) GetAccessPointVpcConfigurationArrayOutput {
+	return o
+}
+
+func (o GetAccessPointVpcConfigurationArrayOutput) Index(i pulumi.IntInput) GetAccessPointVpcConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointVpcConfiguration {
+		return vs[0].([]GetAccessPointVpcConfiguration)[vs[1].(int)]
+	}).(GetAccessPointVpcConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
@@ -22117,6 +22338,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderDefaultTagsPtrInput)(nil)).Elem(), ObjectCopyOverrideProviderDefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentInput)(nil)).Elem(), PolicyDocumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentPtrInput)(nil)).Elem(), PolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), GetAccessPointPublicAccessBlockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPublicAccessBlockConfigurationArrayInput)(nil)).Elem(), GetAccessPointPublicAccessBlockConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointVpcConfigurationInput)(nil)).Elem(), GetAccessPointVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointVpcConfigurationArrayInput)(nil)).Elem(), GetAccessPointVpcConfigurationArray{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
@@ -22416,4 +22641,8 @@ func init() {
 	pulumi.RegisterOutputType(ObjectCopyOverrideProviderDefaultTagsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentPtrOutput{})
+	pulumi.RegisterOutputType(GetAccessPointPublicAccessBlockConfigurationOutput{})
+	pulumi.RegisterOutputType(GetAccessPointPublicAccessBlockConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetAccessPointVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(GetAccessPointVpcConfigurationArrayOutput{})
 }

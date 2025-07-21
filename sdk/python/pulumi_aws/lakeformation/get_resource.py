@@ -27,10 +27,13 @@ class GetResourceResult:
     """
     A collection of values returned by getResource.
     """
-    def __init__(__self__, arn=None, id=None, last_modified=None, region=None, role_arn=None):
+    def __init__(__self__, arn=None, hybrid_access_enabled=None, id=None, last_modified=None, region=None, role_arn=None, with_federation=None, with_privileged_access=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if hybrid_access_enabled and not isinstance(hybrid_access_enabled, bool):
+            raise TypeError("Expected argument 'hybrid_access_enabled' to be a bool")
+        pulumi.set(__self__, "hybrid_access_enabled", hybrid_access_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,11 +46,25 @@ class GetResourceResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if with_federation and not isinstance(with_federation, bool):
+            raise TypeError("Expected argument 'with_federation' to be a bool")
+        pulumi.set(__self__, "with_federation", with_federation)
+        if with_privileged_access and not isinstance(with_privileged_access, bool):
+            raise TypeError("Expected argument 'with_privileged_access' to be a bool")
+        pulumi.set(__self__, "with_privileged_access", with_privileged_access)
 
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="hybridAccessEnabled")
+    def hybrid_access_enabled(self) -> builtins.bool:
+        """
+        Flag to enable AWS LakeFormation hybrid access permission mode.
+        """
+        return pulumi.get(self, "hybrid_access_enabled")
 
     @property
     @pulumi.getter
@@ -78,6 +95,22 @@ class GetResourceResult:
         """
         return pulumi.get(self, "role_arn")
 
+    @property
+    @pulumi.getter(name="withFederation")
+    def with_federation(self) -> builtins.bool:
+        """
+        Whether the resource is a federated resource.
+        """
+        return pulumi.get(self, "with_federation")
+
+    @property
+    @pulumi.getter(name="withPrivilegedAccess")
+    def with_privileged_access(self) -> builtins.bool:
+        """
+        Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+        """
+        return pulumi.get(self, "with_privileged_access")
+
 
 class AwaitableGetResourceResult(GetResourceResult):
     # pylint: disable=using-constant-test
@@ -86,10 +119,13 @@ class AwaitableGetResourceResult(GetResourceResult):
             yield self
         return GetResourceResult(
             arn=self.arn,
+            hybrid_access_enabled=self.hybrid_access_enabled,
             id=self.id,
             last_modified=self.last_modified,
             region=self.region,
-            role_arn=self.role_arn)
+            role_arn=self.role_arn,
+            with_federation=self.with_federation,
+            with_privileged_access=self.with_privileged_access)
 
 
 def get_resource(arn: Optional[builtins.str] = None,
@@ -119,10 +155,13 @@ def get_resource(arn: Optional[builtins.str] = None,
 
     return AwaitableGetResourceResult(
         arn=pulumi.get(__ret__, 'arn'),
+        hybrid_access_enabled=pulumi.get(__ret__, 'hybrid_access_enabled'),
         id=pulumi.get(__ret__, 'id'),
         last_modified=pulumi.get(__ret__, 'last_modified'),
         region=pulumi.get(__ret__, 'region'),
-        role_arn=pulumi.get(__ret__, 'role_arn'))
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        with_federation=pulumi.get(__ret__, 'with_federation'),
+        with_privileged_access=pulumi.get(__ret__, 'with_privileged_access'))
 def get_resource_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
@@ -149,7 +188,10 @@ def get_resource_output(arn: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws:lakeformation/getResource:getResource', __args__, opts=opts, typ=GetResourceResult)
     return __ret__.apply(lambda __response__: GetResourceResult(
         arn=pulumi.get(__response__, 'arn'),
+        hybrid_access_enabled=pulumi.get(__response__, 'hybrid_access_enabled'),
         id=pulumi.get(__response__, 'id'),
         last_modified=pulumi.get(__response__, 'last_modified'),
         region=pulumi.get(__response__, 'region'),
-        role_arn=pulumi.get(__response__, 'role_arn')))
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        with_federation=pulumi.get(__response__, 'with_federation'),
+        with_privileged_access=pulumi.get(__response__, 'with_privileged_access')))

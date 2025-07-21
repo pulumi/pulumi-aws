@@ -65,7 +65,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    public readonly agentArns!: pulumi.Output<string[]>;
+    public readonly agentArns!: pulumi.Output<string[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
@@ -144,9 +144,6 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as LocationObjectStorageArgs | undefined;
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'agentArns'");
-            }
             if ((!args || args.bucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucketName'");
             }
@@ -248,7 +245,7 @@ export interface LocationObjectStorageArgs {
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    agentArns: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The bucket on the self-managed object storage server that is used to read data from.
      */

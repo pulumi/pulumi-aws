@@ -331,7 +331,7 @@ import (
 //	// EC2 Instance 1 - Web Server with "ServerType" tag
 //	_, err = ec2.NewInstance(ctx, "web_server", &ec2.InstanceArgs{
 //		Ami:          pulumi.Any(amazonLinux.Id),
-//		InstanceType: ec2.InstanceType(instanceType),
+//		InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //		SubnetId:     pulumi.Any(_default.Id),
 //		VpcSecurityGroupIds: pulumi.StringArray{
 //			ec2Sg.Id,
@@ -370,7 +370,7 @@ import (
 //			// EC2 Instance 2 - Database Server with "Role" tag
 //			_, err = ec2.NewInstance(ctx, "database_server", &ec2.InstanceArgs{
 //				Ami:          pulumi.Any(amazonLinux.Id),
-//				InstanceType: ec2.InstanceType(instanceType),
+//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //				SubnetId:     pulumi.Any(_default.Id),
 //				VpcSecurityGroupIds: pulumi.StringArray{
 //					ec2Sg.Id,

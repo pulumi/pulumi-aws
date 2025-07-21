@@ -180,6 +180,11 @@ export type DirectoryBucket = import("./directoryBucket").DirectoryBucket;
 export const DirectoryBucket: typeof import("./directoryBucket").DirectoryBucket = null as any;
 utilities.lazyLoad(exports, ["DirectoryBucket"], () => require("./directoryBucket"));
 
+export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
+export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
+export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
+
 export { GetAccountPublicAccessBlockArgs, GetAccountPublicAccessBlockResult, GetAccountPublicAccessBlockOutputArgs } from "./getAccountPublicAccessBlock";
 export const getAccountPublicAccessBlock: typeof import("./getAccountPublicAccessBlock").getAccountPublicAccessBlock = null as any;
 export const getAccountPublicAccessBlockOutput: typeof import("./getAccountPublicAccessBlock").getAccountPublicAccessBlockOutput = null as any;

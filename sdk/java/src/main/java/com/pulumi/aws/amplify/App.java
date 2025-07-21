@@ -650,14 +650,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.iamServiceRoleArn);
     }
     /**
-     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
      * 
      */
     @Export(name="jobConfig", refs={AppJobConfig.class}, tree="[0]")
     private Output<AppJobConfig> jobConfig;
 
     /**
-     * @return Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * @return Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
      * 
      */
     public Output<AppJobConfig> jobConfig() {

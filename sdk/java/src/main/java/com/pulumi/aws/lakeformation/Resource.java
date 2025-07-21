@@ -158,8 +158,6 @@ public class Resource extends com.pulumi.resources.CustomResource {
     /**
      * Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     @Export(name="withFederation", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> withFederation;
@@ -167,11 +165,27 @@ public class Resource extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     public Output<Boolean> withFederation() {
         return this.withFederation;
+    }
+    /**
+     * Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    @Export(name="withPrivilegedAccess", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> withPrivilegedAccess;
+
+    /**
+     * @return Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    public Output<Boolean> withPrivilegedAccess() {
+        return this.withPrivilegedAccess;
     }
 
     /**

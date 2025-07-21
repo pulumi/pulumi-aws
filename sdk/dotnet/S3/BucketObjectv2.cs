@@ -418,7 +418,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+        /// Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
         /// </summary>
         [Output("serverSideEncryption")]
         public Output<string> ServerSideEncryption { get; private set; } = null!;
@@ -656,7 +656,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+        /// Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
         /// </summary>
         [Input("serverSideEncryption")]
         public Input<string>? ServerSideEncryption { get; set; }
@@ -882,7 +882,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+        /// Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
         /// </summary>
         [Input("serverSideEncryption")]
         public Input<string>? ServerSideEncryption { get; set; }

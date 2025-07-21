@@ -788,7 +788,7 @@ class Association(pulumi.CustomResource):
         # EC2 Instance 1 - Web Server with "ServerType" tag
         web_server = aws.ec2.Instance("web_server",
             ami=amazon_linux["id"],
-            instance_type=aws.ec2.InstanceType(instance_type),
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             subnet_id=default["id"],
             vpc_security_group_ids=[ec2_sg["id"]],
             iam_instance_profile=ec2_ssm_profile["name"],
@@ -814,7 +814,7 @@ class Association(pulumi.CustomResource):
         # EC2 Instance 2 - Database Server with "Role" tag
         database_server = aws.ec2.Instance("database_server",
             ami=amazon_linux["id"],
-            instance_type=aws.ec2.InstanceType(instance_type),
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             subnet_id=default["id"],
             vpc_security_group_ids=[ec2_sg["id"]],
             iam_instance_profile=ec2_ssm_profile["name"],
@@ -1034,7 +1034,7 @@ class Association(pulumi.CustomResource):
         # EC2 Instance 1 - Web Server with "ServerType" tag
         web_server = aws.ec2.Instance("web_server",
             ami=amazon_linux["id"],
-            instance_type=aws.ec2.InstanceType(instance_type),
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             subnet_id=default["id"],
             vpc_security_group_ids=[ec2_sg["id"]],
             iam_instance_profile=ec2_ssm_profile["name"],
@@ -1060,7 +1060,7 @@ class Association(pulumi.CustomResource):
         # EC2 Instance 2 - Database Server with "Role" tag
         database_server = aws.ec2.Instance("database_server",
             ami=amazon_linux["id"],
-            instance_type=aws.ec2.InstanceType(instance_type),
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             subnet_id=default["id"],
             vpc_security_group_ids=[ec2_sg["id"]],
             iam_instance_profile=ec2_ssm_profile["name"],

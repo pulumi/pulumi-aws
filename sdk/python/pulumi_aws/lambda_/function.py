@@ -1532,6 +1532,77 @@ class Function(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
+        ### Function with logging to S3 or Data Firehose
+
+        #### Required Resources
+
+        * An S3 bucket or Data Firehose delivery stream to store the logs.
+        * A CloudWatch Log Group with:
+          
+            * `log_group_class = "DELIVERY"`
+            * A subscription filter whose `destination_arn` points to the S3 bucket or the Data Firehose delivery stream.
+
+        * IAM roles:
+          
+            * Assumed by the `logs.amazonaws.com` service to deliver logs to the S3 bucket or Data Firehose delivery stream.
+            * Assumed by the `lambda.amazonaws.com` service to send logs to CloudWatch Logs
+
+        * A Lambda function:
+          
+            * In the `logging_configuration`, specify the name of the Log Group created above using the `log_group` field
+            * No special configuration is required to use S3 or Firehose as the log destination
+
+        For more details, see [Sending Lambda function logs to Amazon S3](https://docs.aws.amazon.com/lambda/latest/dg/logging-with-s3.html).
+
+        ### Example: Exporting Lambda Logs to S3 Bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_function_name = "lambda-log-export-example"
+        lambda_log_export_bucket = aws.s3.Bucket("lambda_log_export", bucket=f"{lambda_function_name}-bucket")
+        export = aws.cloudwatch.LogGroup("export",
+            name=f"/aws/lambda/{lambda_function_name}",
+            log_group_class="DELIVERY")
+        logs_assume_role = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["logs.amazonaws.com"],
+            }],
+        }])
+        logs_log_export = aws.iam.Role("logs_log_export",
+            name=f"{lambda_function_name}-lambda-log-export-role",
+            assume_role_policy=logs_assume_role.json)
+        lambda_log_export = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["s3:PutObject"],
+            "effect": "Allow",
+            "resources": [lambda_log_export_bucket.arn.apply(lambda arn: f"{arn}/*")],
+        }])
+        lambda_log_export_role_policy = aws.iam.RolePolicy("lambda_log_export",
+            policy=lambda_log_export.json,
+            role=logs_log_export.name)
+        lambda_log_export_log_subscription_filter = aws.cloudwatch.LogSubscriptionFilter("lambda_log_export",
+            name=f"{lambda_function_name}-filter",
+            log_group=export.name,
+            filter_pattern="",
+            destination_arn=lambda_log_export_bucket.arn,
+            role_arn=logs_log_export.arn)
+        log_export = aws.lambda_.Function("log_export",
+            name=lambda_function_name,
+            handler="index.lambda_handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D13,
+            role=example["arn"],
+            code=pulumi.FileArchive("function.zip"),
+            logging_config={
+                "log_format": "Text",
+                "log_group": export.name,
+            },
+            opts = pulumi.ResourceOptions(depends_on=[export]))
+        ```
+
         ### Function with Error Handling
 
         ```python
@@ -1878,6 +1949,77 @@ class Function(pulumi.CustomResource):
                 "system_log_level": "WARN",
             },
             opts = pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
+        ### Function with logging to S3 or Data Firehose
+
+        #### Required Resources
+
+        * An S3 bucket or Data Firehose delivery stream to store the logs.
+        * A CloudWatch Log Group with:
+          
+            * `log_group_class = "DELIVERY"`
+            * A subscription filter whose `destination_arn` points to the S3 bucket or the Data Firehose delivery stream.
+
+        * IAM roles:
+          
+            * Assumed by the `logs.amazonaws.com` service to deliver logs to the S3 bucket or Data Firehose delivery stream.
+            * Assumed by the `lambda.amazonaws.com` service to send logs to CloudWatch Logs
+
+        * A Lambda function:
+          
+            * In the `logging_configuration`, specify the name of the Log Group created above using the `log_group` field
+            * No special configuration is required to use S3 or Firehose as the log destination
+
+        For more details, see [Sending Lambda function logs to Amazon S3](https://docs.aws.amazon.com/lambda/latest/dg/logging-with-s3.html).
+
+        ### Example: Exporting Lambda Logs to S3 Bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_function_name = "lambda-log-export-example"
+        lambda_log_export_bucket = aws.s3.Bucket("lambda_log_export", bucket=f"{lambda_function_name}-bucket")
+        export = aws.cloudwatch.LogGroup("export",
+            name=f"/aws/lambda/{lambda_function_name}",
+            log_group_class="DELIVERY")
+        logs_assume_role = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["logs.amazonaws.com"],
+            }],
+        }])
+        logs_log_export = aws.iam.Role("logs_log_export",
+            name=f"{lambda_function_name}-lambda-log-export-role",
+            assume_role_policy=logs_assume_role.json)
+        lambda_log_export = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["s3:PutObject"],
+            "effect": "Allow",
+            "resources": [lambda_log_export_bucket.arn.apply(lambda arn: f"{arn}/*")],
+        }])
+        lambda_log_export_role_policy = aws.iam.RolePolicy("lambda_log_export",
+            policy=lambda_log_export.json,
+            role=logs_log_export.name)
+        lambda_log_export_log_subscription_filter = aws.cloudwatch.LogSubscriptionFilter("lambda_log_export",
+            name=f"{lambda_function_name}-filter",
+            log_group=export.name,
+            filter_pattern="",
+            destination_arn=lambda_log_export_bucket.arn,
+            role_arn=logs_log_export.arn)
+        log_export = aws.lambda_.Function("log_export",
+            name=lambda_function_name,
+            handler="index.lambda_handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D13,
+            role=example["arn"],
+            code=pulumi.FileArchive("function.zip"),
+            logging_config={
+                "log_format": "Text",
+                "log_group": export.name,
+            },
+            opts = pulumi.ResourceOptions(depends_on=[export]))
         ```
 
         ### Function with Error Handling
