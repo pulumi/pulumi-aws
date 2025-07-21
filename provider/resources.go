@@ -2283,8 +2283,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					if _, ok := pm["bootstrapSelfManagedAddons"]; !ok {
 						pm["bootstrapSelfManagedAddons"] = resource.NewBoolProperty(true)
 					}
-					// Remove deprecated certificateAuthority key from state
-					delete(pm, "certificateAuthority")
 					return pm, nil
 				},
 			},
