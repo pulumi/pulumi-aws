@@ -5,7 +5,7 @@ Subject: [PATCH] Fix elbv2 target group read to workaround #2517
 
 
 diff --git a/internal/service/elbv2/target_group.go b/internal/service/elbv2/target_group.go
-index 1e7901cf93..1e5fe9b2d3 100644
+index 27a7f5e3c9..08bf64d0e3 100644
 --- a/internal/service/elbv2/target_group.go
 +++ b/internal/service/elbv2/target_group.go
 @@ -634,19 +634,19 @@ func resourceTargetGroupRead(ctx context.Context, d *schema.ResourceData, meta a
