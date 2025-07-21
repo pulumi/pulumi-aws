@@ -38,15 +38,15 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    @Import(name="agentArns", required=true)
-    private Output<List<String>> agentArns;
+    @Import(name="agentArns")
+    private @Nullable Output<List<String>> agentArns;
 
     /**
      * @return A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    public Output<List<String>> agentArns() {
-        return this.agentArns;
+    public Optional<Output<List<String>>> agentArns() {
+        return Optional.ofNullable(this.agentArns);
     }
 
     /**
@@ -245,7 +245,7 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder agentArns(Output<List<String>> agentArns) {
+        public Builder agentArns(@Nullable Output<List<String>> agentArns) {
             $.agentArns = agentArns;
             return this;
         }
@@ -460,9 +460,6 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
         }
 
         public LocationObjectStorageArgs build() {
-            if ($.agentArns == null) {
-                throw new MissingRequiredPropertyException("LocationObjectStorageArgs", "agentArns");
-            }
             if ($.bucketName == null) {
                 throw new MissingRequiredPropertyException("LocationObjectStorageArgs", "bucketName");
             }

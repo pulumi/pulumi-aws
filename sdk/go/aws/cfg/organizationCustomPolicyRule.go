@@ -76,35 +76,35 @@ import (
 type OrganizationCustomPolicyRule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the rule
+	// Amazon Resource Name (ARN) of the rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// List of AWS account identifiers to exclude from the rule
+	// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 	DebugLogDeliveryAccounts pulumi.StringArrayOutput `pulumi:"debugLogDeliveryAccounts"`
-	// Description of the rule
+	// Description of the rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// List of AWS account identifiers to exclude from the rule
+	// List of AWS account identifiers to exclude from the rule.
 	ExcludedAccounts pulumi.StringArrayOutput `pulumi:"excludedAccounts"`
-	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+	// A string in JSON format that is passed to the AWS Config Rule Lambda Function.
 	InputParameters pulumi.StringPtrOutput `pulumi:"inputParameters"`
 	// Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency pulumi.StringPtrOutput `pulumi:"maximumExecutionFrequency"`
-	// name of the rule
+	// Name of the rule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// runtime system for your organization AWS Config Custom Policy rules
+	// Runtime system for policy rules.
 	PolicyRuntime pulumi.StringOutput `pulumi:"policyRuntime"`
-	// policy definition containing the logic for your organization AWS Config Custom Policy rule
+	// Policy definition containing the rule logic.
 	PolicyText pulumi.StringOutput `pulumi:"policyText"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of the AWS resource to evaluate
+	// Identifier of the AWS resource to evaluate.
 	ResourceIdScope pulumi.StringPtrOutput `pulumi:"resourceIdScope"`
-	// List of types of AWS resources to evaluate
+	// List of types of AWS resources to evaluate.
 	ResourceTypesScopes pulumi.StringArrayOutput `pulumi:"resourceTypesScopes"`
-	// Tag key of AWS resources to evaluate
+	// Tag key of AWS resources to evaluate.
 	TagKeyScope pulumi.StringPtrOutput `pulumi:"tagKeyScope"`
-	// Tag value of AWS resources to evaluate
+	// Tag value of AWS resources to evaluate.
 	TagValueScope pulumi.StringPtrOutput `pulumi:"tagValueScope"`
-	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
 	//
 	// The following arguments are optional:
 	TriggerTypes pulumi.StringArrayOutput `pulumi:"triggerTypes"`
@@ -149,70 +149,70 @@ func GetOrganizationCustomPolicyRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationCustomPolicyRule resources.
 type organizationCustomPolicyRuleState struct {
-	// Amazon Resource Name (ARN) of the rule
+	// Amazon Resource Name (ARN) of the rule.
 	Arn *string `pulumi:"arn"`
-	// List of AWS account identifiers to exclude from the rule
+	// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 	DebugLogDeliveryAccounts []string `pulumi:"debugLogDeliveryAccounts"`
-	// Description of the rule
+	// Description of the rule.
 	Description *string `pulumi:"description"`
-	// List of AWS account identifiers to exclude from the rule
+	// List of AWS account identifiers to exclude from the rule.
 	ExcludedAccounts []string `pulumi:"excludedAccounts"`
-	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+	// A string in JSON format that is passed to the AWS Config Rule Lambda Function.
 	InputParameters *string `pulumi:"inputParameters"`
 	// Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
-	// name of the rule
+	// Name of the rule.
 	Name *string `pulumi:"name"`
-	// runtime system for your organization AWS Config Custom Policy rules
+	// Runtime system for policy rules.
 	PolicyRuntime *string `pulumi:"policyRuntime"`
-	// policy definition containing the logic for your organization AWS Config Custom Policy rule
+	// Policy definition containing the rule logic.
 	PolicyText *string `pulumi:"policyText"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Identifier of the AWS resource to evaluate
+	// Identifier of the AWS resource to evaluate.
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
-	// List of types of AWS resources to evaluate
+	// List of types of AWS resources to evaluate.
 	ResourceTypesScopes []string `pulumi:"resourceTypesScopes"`
-	// Tag key of AWS resources to evaluate
+	// Tag key of AWS resources to evaluate.
 	TagKeyScope *string `pulumi:"tagKeyScope"`
-	// Tag value of AWS resources to evaluate
+	// Tag value of AWS resources to evaluate.
 	TagValueScope *string `pulumi:"tagValueScope"`
-	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
 	//
 	// The following arguments are optional:
 	TriggerTypes []string `pulumi:"triggerTypes"`
 }
 
 type OrganizationCustomPolicyRuleState struct {
-	// Amazon Resource Name (ARN) of the rule
+	// Amazon Resource Name (ARN) of the rule.
 	Arn pulumi.StringPtrInput
-	// List of AWS account identifiers to exclude from the rule
+	// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 	DebugLogDeliveryAccounts pulumi.StringArrayInput
-	// Description of the rule
+	// Description of the rule.
 	Description pulumi.StringPtrInput
-	// List of AWS account identifiers to exclude from the rule
+	// List of AWS account identifiers to exclude from the rule.
 	ExcludedAccounts pulumi.StringArrayInput
-	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+	// A string in JSON format that is passed to the AWS Config Rule Lambda Function.
 	InputParameters pulumi.StringPtrInput
 	// Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency pulumi.StringPtrInput
-	// name of the rule
+	// Name of the rule.
 	Name pulumi.StringPtrInput
-	// runtime system for your organization AWS Config Custom Policy rules
+	// Runtime system for policy rules.
 	PolicyRuntime pulumi.StringPtrInput
-	// policy definition containing the logic for your organization AWS Config Custom Policy rule
+	// Policy definition containing the rule logic.
 	PolicyText pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Identifier of the AWS resource to evaluate
+	// Identifier of the AWS resource to evaluate.
 	ResourceIdScope pulumi.StringPtrInput
-	// List of types of AWS resources to evaluate
+	// List of types of AWS resources to evaluate.
 	ResourceTypesScopes pulumi.StringArrayInput
-	// Tag key of AWS resources to evaluate
+	// Tag key of AWS resources to evaluate.
 	TagKeyScope pulumi.StringPtrInput
-	// Tag value of AWS resources to evaluate
+	// Tag value of AWS resources to evaluate.
 	TagValueScope pulumi.StringPtrInput
-	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
 	//
 	// The following arguments are optional:
 	TriggerTypes pulumi.StringArrayInput
@@ -223,33 +223,33 @@ func (OrganizationCustomPolicyRuleState) ElementType() reflect.Type {
 }
 
 type organizationCustomPolicyRuleArgs struct {
-	// List of AWS account identifiers to exclude from the rule
+	// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 	DebugLogDeliveryAccounts []string `pulumi:"debugLogDeliveryAccounts"`
-	// Description of the rule
+	// Description of the rule.
 	Description *string `pulumi:"description"`
-	// List of AWS account identifiers to exclude from the rule
+	// List of AWS account identifiers to exclude from the rule.
 	ExcludedAccounts []string `pulumi:"excludedAccounts"`
-	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+	// A string in JSON format that is passed to the AWS Config Rule Lambda Function.
 	InputParameters *string `pulumi:"inputParameters"`
 	// Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
-	// name of the rule
+	// Name of the rule.
 	Name *string `pulumi:"name"`
-	// runtime system for your organization AWS Config Custom Policy rules
+	// Runtime system for policy rules.
 	PolicyRuntime string `pulumi:"policyRuntime"`
-	// policy definition containing the logic for your organization AWS Config Custom Policy rule
+	// Policy definition containing the rule logic.
 	PolicyText string `pulumi:"policyText"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Identifier of the AWS resource to evaluate
+	// Identifier of the AWS resource to evaluate.
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
-	// List of types of AWS resources to evaluate
+	// List of types of AWS resources to evaluate.
 	ResourceTypesScopes []string `pulumi:"resourceTypesScopes"`
-	// Tag key of AWS resources to evaluate
+	// Tag key of AWS resources to evaluate.
 	TagKeyScope *string `pulumi:"tagKeyScope"`
-	// Tag value of AWS resources to evaluate
+	// Tag value of AWS resources to evaluate.
 	TagValueScope *string `pulumi:"tagValueScope"`
-	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
 	//
 	// The following arguments are optional:
 	TriggerTypes []string `pulumi:"triggerTypes"`
@@ -257,33 +257,33 @@ type organizationCustomPolicyRuleArgs struct {
 
 // The set of arguments for constructing a OrganizationCustomPolicyRule resource.
 type OrganizationCustomPolicyRuleArgs struct {
-	// List of AWS account identifiers to exclude from the rule
+	// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 	DebugLogDeliveryAccounts pulumi.StringArrayInput
-	// Description of the rule
+	// Description of the rule.
 	Description pulumi.StringPtrInput
-	// List of AWS account identifiers to exclude from the rule
+	// List of AWS account identifiers to exclude from the rule.
 	ExcludedAccounts pulumi.StringArrayInput
-	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+	// A string in JSON format that is passed to the AWS Config Rule Lambda Function.
 	InputParameters pulumi.StringPtrInput
 	// Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency pulumi.StringPtrInput
-	// name of the rule
+	// Name of the rule.
 	Name pulumi.StringPtrInput
-	// runtime system for your organization AWS Config Custom Policy rules
+	// Runtime system for policy rules.
 	PolicyRuntime pulumi.StringInput
-	// policy definition containing the logic for your organization AWS Config Custom Policy rule
+	// Policy definition containing the rule logic.
 	PolicyText pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Identifier of the AWS resource to evaluate
+	// Identifier of the AWS resource to evaluate.
 	ResourceIdScope pulumi.StringPtrInput
-	// List of types of AWS resources to evaluate
+	// List of types of AWS resources to evaluate.
 	ResourceTypesScopes pulumi.StringArrayInput
-	// Tag key of AWS resources to evaluate
+	// Tag key of AWS resources to evaluate.
 	TagKeyScope pulumi.StringPtrInput
-	// Tag value of AWS resources to evaluate
+	// Tag value of AWS resources to evaluate.
 	TagValueScope pulumi.StringPtrInput
-	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
 	//
 	// The following arguments are optional:
 	TriggerTypes pulumi.StringArrayInput
@@ -376,27 +376,27 @@ func (o OrganizationCustomPolicyRuleOutput) ToOrganizationCustomPolicyRuleOutput
 	return o
 }
 
-// Amazon Resource Name (ARN) of the rule
+// Amazon Resource Name (ARN) of the rule.
 func (o OrganizationCustomPolicyRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of AWS account identifiers to exclude from the rule
+// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 func (o OrganizationCustomPolicyRuleOutput) DebugLogDeliveryAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringArrayOutput { return v.DebugLogDeliveryAccounts }).(pulumi.StringArrayOutput)
 }
 
-// Description of the rule
+// Description of the rule.
 func (o OrganizationCustomPolicyRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// List of AWS account identifiers to exclude from the rule
+// List of AWS account identifiers to exclude from the rule.
 func (o OrganizationCustomPolicyRuleOutput) ExcludedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringArrayOutput { return v.ExcludedAccounts }).(pulumi.StringArrayOutput)
 }
 
-// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+// A string in JSON format that is passed to the AWS Config Rule Lambda Function.
 func (o OrganizationCustomPolicyRuleOutput) InputParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringPtrOutput { return v.InputParameters }).(pulumi.StringPtrOutput)
 }
@@ -406,17 +406,17 @@ func (o OrganizationCustomPolicyRuleOutput) MaximumExecutionFrequency() pulumi.S
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringPtrOutput { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
 }
 
-// name of the rule
+// Name of the rule.
 func (o OrganizationCustomPolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// runtime system for your organization AWS Config Custom Policy rules
+// Runtime system for policy rules.
 func (o OrganizationCustomPolicyRuleOutput) PolicyRuntime() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.PolicyRuntime }).(pulumi.StringOutput)
 }
 
-// policy definition containing the logic for your organization AWS Config Custom Policy rule
+// Policy definition containing the rule logic.
 func (o OrganizationCustomPolicyRuleOutput) PolicyText() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.PolicyText }).(pulumi.StringOutput)
 }
@@ -426,27 +426,27 @@ func (o OrganizationCustomPolicyRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of the AWS resource to evaluate
+// Identifier of the AWS resource to evaluate.
 func (o OrganizationCustomPolicyRuleOutput) ResourceIdScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringPtrOutput { return v.ResourceIdScope }).(pulumi.StringPtrOutput)
 }
 
-// List of types of AWS resources to evaluate
+// List of types of AWS resources to evaluate.
 func (o OrganizationCustomPolicyRuleOutput) ResourceTypesScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringArrayOutput { return v.ResourceTypesScopes }).(pulumi.StringArrayOutput)
 }
 
-// Tag key of AWS resources to evaluate
+// Tag key of AWS resources to evaluate.
 func (o OrganizationCustomPolicyRuleOutput) TagKeyScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringPtrOutput { return v.TagKeyScope }).(pulumi.StringPtrOutput)
 }
 
-// Tag value of AWS resources to evaluate
+// Tag value of AWS resources to evaluate.
 func (o OrganizationCustomPolicyRuleOutput) TagValueScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringPtrOutput { return v.TagValueScope }).(pulumi.StringPtrOutput)
 }
 
-// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
 //
 // The following arguments are optional:
 func (o OrganizationCustomPolicyRuleOutput) TriggerTypes() pulumi.StringArrayOutput {

@@ -35,7 +35,7 @@ class PermissionArgs:
         """
         The set of arguments for constructing a Permission resource.
         :param pulumi.Input[builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function
+        :param pulumi.Input[builtins.str] function: Name or ARN of the Lambda function
         :param pulumi.Input[builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
                The following arguments are optional:
@@ -87,7 +87,7 @@ class PermissionArgs:
     @pulumi.getter
     def function(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Lambda function
+        Name or ARN of the Lambda function
         """
         return pulumi.get(self, "function")
 
@@ -237,7 +237,7 @@ class _PermissionState:
         Input properties used for looking up and filtering Permission resources.
         :param pulumi.Input[builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[builtins.str] event_source_token: Event Source Token for Alexa Skills
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function
+        :param pulumi.Input[builtins.str] function: Name or ARN of the Lambda function
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
         :param pulumi.Input[builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
@@ -303,7 +303,7 @@ class _PermissionState:
     @pulumi.getter
     def function(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of the Lambda function
+        Name or ARN of the Lambda function
         """
         return pulumi.get(self, "function")
 
@@ -600,7 +600,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[builtins.str] event_source_token: Event Source Token for Alexa Skills
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function
+        :param pulumi.Input[builtins.str] function: Name or ARN of the Lambda function
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
         :param pulumi.Input[builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
@@ -859,7 +859,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[builtins.str] event_source_token: Event Source Token for Alexa Skills
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function
+        :param pulumi.Input[builtins.str] function: Name or ARN of the Lambda function
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
         :param pulumi.Input[builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
@@ -910,7 +910,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter
     def function(self) -> pulumi.Output[builtins.str]:
         """
-        Name of the Lambda function
+        Name or ARN of the Lambda function
         """
         return pulumi.get(self, "function")
 

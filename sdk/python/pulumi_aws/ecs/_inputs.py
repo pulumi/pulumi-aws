@@ -40,10 +40,16 @@ __all__ = [
     'ServiceCapacityProviderStrategyArgsDict',
     'ServiceDeploymentCircuitBreakerArgs',
     'ServiceDeploymentCircuitBreakerArgsDict',
+    'ServiceDeploymentConfigurationArgs',
+    'ServiceDeploymentConfigurationArgsDict',
+    'ServiceDeploymentConfigurationLifecycleHookArgs',
+    'ServiceDeploymentConfigurationLifecycleHookArgsDict',
     'ServiceDeploymentControllerArgs',
     'ServiceDeploymentControllerArgsDict',
     'ServiceLoadBalancerArgs',
     'ServiceLoadBalancerArgsDict',
+    'ServiceLoadBalancerAdvancedConfigurationArgs',
+    'ServiceLoadBalancerAdvancedConfigurationArgsDict',
     'ServiceNetworkConfigurationArgs',
     'ServiceNetworkConfigurationArgsDict',
     'ServiceOrderedPlacementStrategyArgs',
@@ -60,6 +66,12 @@ __all__ = [
     'ServiceServiceConnectConfigurationServiceArgsDict',
     'ServiceServiceConnectConfigurationServiceClientAliasArgs',
     'ServiceServiceConnectConfigurationServiceClientAliasArgsDict',
+    'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs',
+    'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgsDict',
+    'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs',
+    'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgsDict',
+    'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs',
+    'ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgsDict',
     'ServiceServiceConnectConfigurationServiceTimeoutArgs',
     'ServiceServiceConnectConfigurationServiceTimeoutArgsDict',
     'ServiceServiceConnectConfigurationServiceTlsArgs',
@@ -966,6 +978,147 @@ class ServiceDeploymentCircuitBreakerArgs:
 
 
 if not MYPY:
+    class ServiceDeploymentConfigurationArgsDict(TypedDict):
+        bake_time_in_minutes: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        """
+        lifecycle_hooks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentConfigurationLifecycleHookArgsDict']]]]
+        """
+        Configuration block for lifecycle hooks that are invoked during deployments. See below.
+        """
+        strategy: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        """
+elif False:
+    ServiceDeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceDeploymentConfigurationArgs:
+    def __init__(__self__, *,
+                 bake_time_in_minutes: Optional[pulumi.Input[builtins.str]] = None,
+                 lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentConfigurationLifecycleHookArgs']]]] = None,
+                 strategy: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] bake_time_in_minutes: Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentConfigurationLifecycleHookArgs']]] lifecycle_hooks: Configuration block for lifecycle hooks that are invoked during deployments. See below.
+        :param pulumi.Input[builtins.str] strategy: Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        """
+        if bake_time_in_minutes is not None:
+            pulumi.set(__self__, "bake_time_in_minutes", bake_time_in_minutes)
+        if lifecycle_hooks is not None:
+            pulumi.set(__self__, "lifecycle_hooks", lifecycle_hooks)
+        if strategy is not None:
+            pulumi.set(__self__, "strategy", strategy)
+
+    @property
+    @pulumi.getter(name="bakeTimeInMinutes")
+    def bake_time_in_minutes(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        """
+        return pulumi.get(self, "bake_time_in_minutes")
+
+    @bake_time_in_minutes.setter
+    def bake_time_in_minutes(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bake_time_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="lifecycleHooks")
+    def lifecycle_hooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentConfigurationLifecycleHookArgs']]]]:
+        """
+        Configuration block for lifecycle hooks that are invoked during deployments. See below.
+        """
+        return pulumi.get(self, "lifecycle_hooks")
+
+    @lifecycle_hooks.setter
+    def lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentConfigurationLifecycleHookArgs']]]]):
+        pulumi.set(self, "lifecycle_hooks", value)
+
+    @property
+    @pulumi.getter
+    def strategy(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        """
+        return pulumi.get(self, "strategy")
+
+    @strategy.setter
+    def strategy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "strategy", value)
+
+
+if not MYPY:
+    class ServiceDeploymentConfigurationLifecycleHookArgsDict(TypedDict):
+        hook_target_arn: pulumi.Input[builtins.str]
+        """
+        ARN of the Lambda function to invoke for the lifecycle hook.
+        """
+        lifecycle_stages: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+        """
+        role_arn: pulumi.Input[builtins.str]
+        """
+        ARN of the IAM role that grants the service permission to invoke the Lambda function.
+        """
+elif False:
+    ServiceDeploymentConfigurationLifecycleHookArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceDeploymentConfigurationLifecycleHookArgs:
+    def __init__(__self__, *,
+                 hook_target_arn: pulumi.Input[builtins.str],
+                 lifecycle_stages: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 role_arn: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] hook_target_arn: ARN of the Lambda function to invoke for the lifecycle hook.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] lifecycle_stages: Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+        :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that grants the service permission to invoke the Lambda function.
+        """
+        pulumi.set(__self__, "hook_target_arn", hook_target_arn)
+        pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="hookTargetArn")
+    def hook_target_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        ARN of the Lambda function to invoke for the lifecycle hook.
+        """
+        return pulumi.get(self, "hook_target_arn")
+
+    @hook_target_arn.setter
+    def hook_target_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "hook_target_arn", value)
+
+    @property
+    @pulumi.getter(name="lifecycleStages")
+    def lifecycle_stages(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+        """
+        return pulumi.get(self, "lifecycle_stages")
+
+    @lifecycle_stages.setter
+    def lifecycle_stages(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "lifecycle_stages", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        ARN of the IAM role that grants the service permission to invoke the Lambda function.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+
+if not MYPY:
     class ServiceDeploymentControllerArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1006,6 +1159,10 @@ if not MYPY:
         container_port: pulumi.Input[builtins.int]
         """
         Port on the container to associate with the load balancer.
+        """
+        advanced_configuration: NotRequired[pulumi.Input['ServiceLoadBalancerAdvancedConfigurationArgsDict']]
+        """
+        Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
 
         > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
@@ -1025,11 +1182,13 @@ class ServiceLoadBalancerArgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[builtins.str],
                  container_port: pulumi.Input[builtins.int],
+                 advanced_configuration: Optional[pulumi.Input['ServiceLoadBalancerAdvancedConfigurationArgs']] = None,
                  elb_name: Optional[pulumi.Input[builtins.str]] = None,
                  target_group_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] container_name: Name of the container to associate with the load balancer (as it appears in a container definition).
         :param pulumi.Input[builtins.int] container_port: Port on the container to associate with the load balancer.
+        :param pulumi.Input['ServiceLoadBalancerAdvancedConfigurationArgs'] advanced_configuration: Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
                
                > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         :param pulumi.Input[builtins.str] elb_name: Name of the ELB (Classic) to associate with the service.
@@ -1037,6 +1196,8 @@ class ServiceLoadBalancerArgs:
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "container_port", container_port)
+        if advanced_configuration is not None:
+            pulumi.set(__self__, "advanced_configuration", advanced_configuration)
         if elb_name is not None:
             pulumi.set(__self__, "elb_name", elb_name)
         if target_group_arn is not None:
@@ -1059,14 +1220,26 @@ class ServiceLoadBalancerArgs:
     def container_port(self) -> pulumi.Input[builtins.int]:
         """
         Port on the container to associate with the load balancer.
-
-        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         return pulumi.get(self, "container_port")
 
     @container_port.setter
     def container_port(self, value: pulumi.Input[builtins.int]):
         pulumi.set(self, "container_port", value)
+
+    @property
+    @pulumi.getter(name="advancedConfiguration")
+    def advanced_configuration(self) -> Optional[pulumi.Input['ServiceLoadBalancerAdvancedConfigurationArgs']]:
+        """
+        Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
+
+        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+        """
+        return pulumi.get(self, "advanced_configuration")
+
+    @advanced_configuration.setter
+    def advanced_configuration(self, value: Optional[pulumi.Input['ServiceLoadBalancerAdvancedConfigurationArgs']]):
+        pulumi.set(self, "advanced_configuration", value)
 
     @property
     @pulumi.getter(name="elbName")
@@ -1091,6 +1264,95 @@ class ServiceLoadBalancerArgs:
     @target_group_arn.setter
     def target_group_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "target_group_arn", value)
+
+
+if not MYPY:
+    class ServiceLoadBalancerAdvancedConfigurationArgsDict(TypedDict):
+        alternate_target_group_arn: pulumi.Input[builtins.str]
+        """
+        ARN of the alternate target group to use for Blue/Green deployments.
+        """
+        production_listener_rule: pulumi.Input[builtins.str]
+        """
+        ARN of the listener rule that routes production traffic.
+        """
+        role_arn: pulumi.Input[builtins.str]
+        """
+        ARN of the IAM role that allows ECS to manage the target groups.
+        """
+        test_listener_rule: NotRequired[pulumi.Input[builtins.str]]
+        """
+        ARN of the listener rule that routes test traffic.
+        """
+elif False:
+    ServiceLoadBalancerAdvancedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceLoadBalancerAdvancedConfigurationArgs:
+    def __init__(__self__, *,
+                 alternate_target_group_arn: pulumi.Input[builtins.str],
+                 production_listener_rule: pulumi.Input[builtins.str],
+                 role_arn: pulumi.Input[builtins.str],
+                 test_listener_rule: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] alternate_target_group_arn: ARN of the alternate target group to use for Blue/Green deployments.
+        :param pulumi.Input[builtins.str] production_listener_rule: ARN of the listener rule that routes production traffic.
+        :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that allows ECS to manage the target groups.
+        :param pulumi.Input[builtins.str] test_listener_rule: ARN of the listener rule that routes test traffic.
+        """
+        pulumi.set(__self__, "alternate_target_group_arn", alternate_target_group_arn)
+        pulumi.set(__self__, "production_listener_rule", production_listener_rule)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if test_listener_rule is not None:
+            pulumi.set(__self__, "test_listener_rule", test_listener_rule)
+
+    @property
+    @pulumi.getter(name="alternateTargetGroupArn")
+    def alternate_target_group_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        ARN of the alternate target group to use for Blue/Green deployments.
+        """
+        return pulumi.get(self, "alternate_target_group_arn")
+
+    @alternate_target_group_arn.setter
+    def alternate_target_group_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "alternate_target_group_arn", value)
+
+    @property
+    @pulumi.getter(name="productionListenerRule")
+    def production_listener_rule(self) -> pulumi.Input[builtins.str]:
+        """
+        ARN of the listener rule that routes production traffic.
+        """
+        return pulumi.get(self, "production_listener_rule")
+
+    @production_listener_rule.setter
+    def production_listener_rule(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "production_listener_rule", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        ARN of the IAM role that allows ECS to manage the target groups.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="testListenerRule")
+    def test_listener_rule(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ARN of the listener rule that routes test traffic.
+        """
+        return pulumi.get(self, "test_listener_rule")
+
+    @test_listener_rule.setter
+    def test_listener_rule(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "test_listener_rule", value)
 
 
 if not MYPY:
@@ -1640,6 +1902,10 @@ if not MYPY:
         """
         Name that you use in the applications of client tasks to connect to this service.
         """
+        test_traffic_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgsDict']]]]
+        """
+        Configuration block for test traffic routing rules. See below.
+        """
 elif False:
     ServiceServiceConnectConfigurationServiceClientAliasArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1647,14 +1913,18 @@ elif False:
 class ServiceServiceConnectConfigurationServiceClientAliasArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[builtins.int],
-                 dns_name: Optional[pulumi.Input[builtins.str]] = None):
+                 dns_name: Optional[pulumi.Input[builtins.str]] = None,
+                 test_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs']]]] = None):
         """
         :param pulumi.Input[builtins.int] port: Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
         :param pulumi.Input[builtins.str] dns_name: Name that you use in the applications of client tasks to connect to this service.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs']]] test_traffic_rules: Configuration block for test traffic routing rules. See below.
         """
         pulumi.set(__self__, "port", port)
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
+        if test_traffic_rules is not None:
+            pulumi.set(__self__, "test_traffic_rules", test_traffic_rules)
 
     @property
     @pulumi.getter
@@ -1679,6 +1949,131 @@ class ServiceServiceConnectConfigurationServiceClientAliasArgs:
     @dns_name.setter
     def dns_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="testTrafficRules")
+    def test_traffic_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs']]]]:
+        """
+        Configuration block for test traffic routing rules. See below.
+        """
+        return pulumi.get(self, "test_traffic_rules")
+
+    @test_traffic_rules.setter
+    def test_traffic_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs']]]]):
+        pulumi.set(self, "test_traffic_rules", value)
+
+
+if not MYPY:
+    class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgsDict(TypedDict):
+        header: NotRequired[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgsDict']]
+        """
+        Configuration block for header-based routing rules. See below.
+        """
+elif False:
+    ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs:
+    def __init__(__self__, *,
+                 header: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs']] = None):
+        """
+        :param pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs'] header: Configuration block for header-based routing rules. See below.
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs']]:
+        """
+        Configuration block for header-based routing rules. See below.
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs']]):
+        pulumi.set(self, "header", value)
+
+
+if not MYPY:
+    class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        Name of the HTTP header to match.
+        """
+        value: pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgsDict']
+        """
+        Configuration block for header value matching criteria. See below.
+        """
+elif False:
+    ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 value: pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs']):
+        """
+        :param pulumi.Input[builtins.str] name: Name of the HTTP header to match.
+        :param pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs'] value: Configuration block for header value matching criteria. See below.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the HTTP header to match.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs']:
+        """
+        Configuration block for header value matching criteria. See below.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs']):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgsDict(TypedDict):
+        exact: pulumi.Input[builtins.str]
+        """
+        Exact string value to match in the header.
+        """
+elif False:
+    ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs:
+    def __init__(__self__, *,
+                 exact: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] exact: Exact string value to match in the header.
+        """
+        pulumi.set(__self__, "exact", exact)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> pulumi.Input[builtins.str]:
+        """
+        Exact string value to match in the header.
+        """
+        return pulumi.get(self, "exact")
+
+    @exact.setter
+    def exact(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "exact", value)
 
 
 if not MYPY:

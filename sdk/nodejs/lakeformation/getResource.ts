@@ -46,6 +46,10 @@ export interface GetResourceArgs {
 export interface GetResourceResult {
     readonly arn: string;
     /**
+     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     */
+    readonly hybridAccessEnabled: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -58,6 +62,14 @@ export interface GetResourceResult {
      * Role that the resource was registered with.
      */
     readonly roleArn: string;
+    /**
+     * Whether the resource is a federated resource.
+     */
+    readonly withFederation: boolean;
+    /**
+     * Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+     */
+    readonly withPrivilegedAccess: boolean;
 }
 /**
  * Provides details about a Lake Formation resource.

@@ -287,7 +287,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly iamServiceRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+     * Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
      */
     public readonly jobConfig!: pulumi.Output<outputs.amplify.AppJobConfig>;
     /**
@@ -477,7 +477,7 @@ export interface AppState {
      */
     iamServiceRoleArn?: pulumi.Input<string>;
     /**
-     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+     * Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
      */
     jobConfig?: pulumi.Input<inputs.amplify.AppJobConfig>;
     /**
@@ -583,7 +583,7 @@ export interface AppArgs {
      */
     iamServiceRoleArn?: pulumi.Input<string>;
     /**
-     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+     * Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
      */
     jobConfig?: pulumi.Input<inputs.amplify.AppJobConfig>;
     /**

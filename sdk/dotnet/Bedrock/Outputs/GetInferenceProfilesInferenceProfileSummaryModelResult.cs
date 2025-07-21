@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GetInferenceProfilesInferenceProfileSummaryModelResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the model.
+        /// Amazon Resource Name (ARN) of the model.
         /// </summary>
         public readonly string ModelArn;
 

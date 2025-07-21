@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -77,6 +78,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:cloudwatch/logMetricFilter:LogMetricFilter")
 public class LogMetricFilter extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+     * 
+     */
+    @Export(name="applyOnTransformedLogs", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> applyOnTransformedLogs;
+
+    /**
+     * @return Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+     * 
+     */
+    public Output<Boolean> applyOnTransformedLogs() {
+        return this.applyOnTransformedLogs;
+    }
     /**
      * The name of the log group to associate the metric filter with.
      * 

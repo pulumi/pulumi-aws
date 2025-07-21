@@ -53,7 +53,7 @@ class CanaryArgs:
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[builtins.bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
-        :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[builtins.str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
@@ -201,7 +201,7 @@ class CanaryArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         """
         return pulumi.get(self, "name")
 
@@ -368,7 +368,7 @@ class _CanaryState:
         :param pulumi.Input[builtins.str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
-        :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[builtins.str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
@@ -539,7 +539,7 @@ class _CanaryState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         """
         return pulumi.get(self, "name")
 
@@ -807,7 +807,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
-        :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[builtins.str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
@@ -988,7 +988,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
-        :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[builtins.str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
@@ -1107,7 +1107,7 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         """
         return pulumi.get(self, "name")
 

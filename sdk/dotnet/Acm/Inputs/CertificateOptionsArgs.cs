@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Acm.Inputs
         [Input("certificateTransparencyLoggingPreference")]
         public Input<string>? CertificateTransparencyLoggingPreference { get; set; }
 
+        /// <summary>
+        /// Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+        /// </summary>
+        [Input("export")]
+        public Input<string>? Export { get; set; }
+
         public CertificateOptionsArgs()
         {
         }

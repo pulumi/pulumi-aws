@@ -321,6 +321,145 @@ import (
 //
 // ```
 //
+// ### Function with logging to S3 or Data Firehose
+//
+// #### Required Resources
+//
+// * An S3 bucket or Data Firehose delivery stream to store the logs.
+// * A CloudWatch Log Group with:
+//
+//   - `logGroupClass = "DELIVERY"`
+//   - A subscription filter whose `destinationArn` points to the S3 bucket or the Data Firehose delivery stream.
+//
+// * IAM roles:
+//
+//   - Assumed by the `logs.amazonaws.com` service to deliver logs to the S3 bucket or Data Firehose delivery stream.
+//   - Assumed by the `lambda.amazonaws.com` service to send logs to CloudWatch Logs
+//
+// * A Lambda function:
+//
+//   - In the `loggingConfiguration`, specify the name of the Log Group created above using the `logGroup` field
+//   - No special configuration is required to use S3 or Firehose as the log destination
+//
+// For more details, see [Sending Lambda function logs to Amazon S3](https://docs.aws.amazon.com/lambda/latest/dg/logging-with-s3.html).
+//
+// ### Example: Exporting Lambda Logs to S3 Bucket
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lambdaFunctionName := "lambda-log-export-example"
+//			lambdaLogExportBucket, err := s3.NewBucket(ctx, "lambda_log_export", &s3.BucketArgs{
+//				Bucket: pulumi.Sprintf("%v-bucket", lambdaFunctionName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			export, err := cloudwatch.NewLogGroup(ctx, "export", &cloudwatch.LogGroupArgs{
+//				Name:          pulumi.Sprintf("/aws/lambda/%v", lambdaFunctionName),
+//				LogGroupClass: pulumi.String("DELIVERY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			logsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"logs.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			logsLogExport, err := iam.NewRole(ctx, "logs_log_export", &iam.RoleArgs{
+//				Name:             pulumi.Sprintf("%v-lambda-log-export-role", lambdaFunctionName),
+//				AssumeRolePolicy: pulumi.String(logsAssumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			lambdaLogExport := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Resources: pulumi.StringArray{
+//							lambdaLogExportBucket.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRolePolicy(ctx, "lambda_log_export", &iam.RolePolicyArgs{
+//				Policy: pulumi.String(lambdaLogExport.ApplyT(func(lambdaLogExport iam.GetPolicyDocumentResult) (*string, error) {
+//					return &lambdaLogExport.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//				Role: logsLogExport.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogSubscriptionFilter(ctx, "lambda_log_export", &cloudwatch.LogSubscriptionFilterArgs{
+//				Name:           pulumi.Sprintf("%v-filter", lambdaFunctionName),
+//				LogGroup:       export.Name,
+//				FilterPattern:  pulumi.String(""),
+//				DestinationArn: lambdaLogExportBucket.Arn,
+//				RoleArn:        logsLogExport.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunction(ctx, "log_export", &lambda.FunctionArgs{
+//				Name:    pulumi.String(lambdaFunctionName),
+//				Handler: pulumi.String("index.lambda_handler"),
+//				Runtime: pulumi.String(lambda.RuntimePython3d13),
+//				Role:    pulumi.Any(example.Arn),
+//				Code:    pulumi.NewFileArchive("function.zip"),
+//				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
+//					LogFormat: pulumi.String("Text"),
+//					LogGroup:  export.Name,
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				export,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Function with Error Handling
 //
 // ```go

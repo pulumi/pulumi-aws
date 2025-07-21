@@ -9,6 +9,7 @@ import com.pulumi.aws.ecs.inputs.ServiceState;
 import com.pulumi.aws.ecs.outputs.ServiceAlarms;
 import com.pulumi.aws.ecs.outputs.ServiceCapacityProviderStrategy;
 import com.pulumi.aws.ecs.outputs.ServiceDeploymentCircuitBreaker;
+import com.pulumi.aws.ecs.outputs.ServiceDeploymentConfiguration;
 import com.pulumi.aws.ecs.outputs.ServiceDeploymentController;
 import com.pulumi.aws.ecs.outputs.ServiceLoadBalancer;
 import com.pulumi.aws.ecs.outputs.ServiceNetworkConfiguration;
@@ -384,6 +385,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ServiceDeploymentCircuitBreaker>> deploymentCircuitBreaker() {
         return Codegen.optional(this.deploymentCircuitBreaker);
+    }
+    /**
+     * Configuration block for deployment settings. See below.
+     * 
+     */
+    @Export(name="deploymentConfiguration", refs={ServiceDeploymentConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceDeploymentConfiguration> deploymentConfiguration;
+
+    /**
+     * @return Configuration block for deployment settings. See below.
+     * 
+     */
+    public Output<Optional<ServiceDeploymentConfiguration>> deploymentConfiguration() {
+        return Codegen.optional(this.deploymentConfiguration);
     }
     /**
      * Configuration block for deployment controller configuration. See below.

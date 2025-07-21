@@ -345,7 +345,7 @@ import javax.annotation.Nullable;
  *         // EC2 Instance 1 - Web Server with "ServerType" tag
  *         var webServer = new Instance("webServer", InstanceArgs.builder()
  *             .ami(amazonLinux.id())
- *             .instanceType(instanceType)
+ *             .instanceType("t3.micro")
  *             .subnetId(default_.id())
  *             .vpcSecurityGroupIds(ec2Sg.id())
  *             .iamInstanceProfile(ec2SsmProfile.name())
@@ -376,7 +376,7 @@ import javax.annotation.Nullable;
  *         // EC2 Instance 2 - Database Server with "Role" tag
  *         var databaseServer = new Instance("databaseServer", InstanceArgs.builder()
  *             .ami(amazonLinux.id())
- *             .instanceType(instanceType)
+ *             .instanceType("t3.micro")
  *             .subnetId(default_.id())
  *             .vpcSecurityGroupIds(ec2Sg.id())
  *             .iamInstanceProfile(ec2SsmProfile.name())

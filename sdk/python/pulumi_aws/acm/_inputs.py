@@ -126,18 +126,26 @@ if not MYPY:
         """
         Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
+        export: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+        """
 elif False:
     CertificateOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateOptionsArgs:
     def __init__(__self__, *,
-                 certificate_transparency_logging_preference: Optional[pulumi.Input[builtins.str]] = None):
+                 certificate_transparency_logging_preference: Optional[pulumi.Input[builtins.str]] = None,
+                 export: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] certificate_transparency_logging_preference: Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        :param pulumi.Input[builtins.str] export: Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
         """
         if certificate_transparency_logging_preference is not None:
             pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
+        if export is not None:
+            pulumi.set(__self__, "export", export)
 
     @property
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
@@ -150,6 +158,18 @@ class CertificateOptionsArgs:
     @certificate_transparency_logging_preference.setter
     def certificate_transparency_logging_preference(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "certificate_transparency_logging_preference", value)
+
+    @property
+    @pulumi.getter
+    def export(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+        """
+        return pulumi.get(self, "export")
+
+    @export.setter
+    def export(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "export", value)
 
 
 if not MYPY:

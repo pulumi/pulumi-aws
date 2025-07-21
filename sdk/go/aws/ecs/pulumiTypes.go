@@ -1948,6 +1948,298 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ServiceDeploymentConfiguration struct {
+	// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+	BakeTimeInMinutes *string `pulumi:"bakeTimeInMinutes"`
+	// Configuration block for lifecycle hooks that are invoked during deployments. See below.
+	LifecycleHooks []ServiceDeploymentConfigurationLifecycleHook `pulumi:"lifecycleHooks"`
+	// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+	Strategy *string `pulumi:"strategy"`
+}
+
+// ServiceDeploymentConfigurationInput is an input type that accepts ServiceDeploymentConfigurationArgs and ServiceDeploymentConfigurationOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationInput` via:
+//
+//	ServiceDeploymentConfigurationArgs{...}
+type ServiceDeploymentConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationOutput() ServiceDeploymentConfigurationOutput
+	ToServiceDeploymentConfigurationOutputWithContext(context.Context) ServiceDeploymentConfigurationOutput
+}
+
+type ServiceDeploymentConfigurationArgs struct {
+	// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+	BakeTimeInMinutes pulumi.StringPtrInput `pulumi:"bakeTimeInMinutes"`
+	// Configuration block for lifecycle hooks that are invoked during deployments. See below.
+	LifecycleHooks ServiceDeploymentConfigurationLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
+	// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+	Strategy pulumi.StringPtrInput `pulumi:"strategy"`
+}
+
+func (ServiceDeploymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i ServiceDeploymentConfigurationArgs) ToServiceDeploymentConfigurationOutput() ServiceDeploymentConfigurationOutput {
+	return i.ToServiceDeploymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationArgs) ToServiceDeploymentConfigurationOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationOutput)
+}
+
+func (i ServiceDeploymentConfigurationArgs) ToServiceDeploymentConfigurationPtrOutput() ServiceDeploymentConfigurationPtrOutput {
+	return i.ToServiceDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationArgs) ToServiceDeploymentConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationOutput).ToServiceDeploymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceDeploymentConfigurationPtrInput is an input type that accepts ServiceDeploymentConfigurationArgs, ServiceDeploymentConfigurationPtr and ServiceDeploymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationPtrInput` via:
+//
+//	        ServiceDeploymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDeploymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationPtrOutput() ServiceDeploymentConfigurationPtrOutput
+	ToServiceDeploymentConfigurationPtrOutputWithContext(context.Context) ServiceDeploymentConfigurationPtrOutput
+}
+
+type serviceDeploymentConfigurationPtrType ServiceDeploymentConfigurationArgs
+
+func ServiceDeploymentConfigurationPtr(v *ServiceDeploymentConfigurationArgs) ServiceDeploymentConfigurationPtrInput {
+	return (*serviceDeploymentConfigurationPtrType)(v)
+}
+
+func (*serviceDeploymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i *serviceDeploymentConfigurationPtrType) ToServiceDeploymentConfigurationPtrOutput() ServiceDeploymentConfigurationPtrOutput {
+	return i.ToServiceDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDeploymentConfigurationPtrType) ToServiceDeploymentConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationPtrOutput)
+}
+
+type ServiceDeploymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationOutput) ToServiceDeploymentConfigurationOutput() ServiceDeploymentConfigurationOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationOutput) ToServiceDeploymentConfigurationOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationOutput) ToServiceDeploymentConfigurationPtrOutput() ServiceDeploymentConfigurationPtrOutput {
+	return o.ToServiceDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentConfigurationOutput) ToServiceDeploymentConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentConfiguration) *ServiceDeploymentConfiguration {
+		return &v
+	}).(ServiceDeploymentConfigurationPtrOutput)
+}
+
+// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+func (o ServiceDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *string { return v.BakeTimeInMinutes }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for lifecycle hooks that are invoked during deployments. See below.
+func (o ServiceDeploymentConfigurationOutput) LifecycleHooks() ServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) []ServiceDeploymentConfigurationLifecycleHook {
+		return v.LifecycleHooks
+	}).(ServiceDeploymentConfigurationLifecycleHookArrayOutput)
+}
+
+// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+func (o ServiceDeploymentConfigurationOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *string { return v.Strategy }).(pulumi.StringPtrOutput)
+}
+
+type ServiceDeploymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationPtrOutput) ToServiceDeploymentConfigurationPtrOutput() ServiceDeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationPtrOutput) ToServiceDeploymentConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationPtrOutput) Elem() ServiceDeploymentConfigurationOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) ServiceDeploymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentConfiguration
+		return ret
+	}).(ServiceDeploymentConfigurationOutput)
+}
+
+// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+func (o ServiceDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BakeTimeInMinutes
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for lifecycle hooks that are invoked during deployments. See below.
+func (o ServiceDeploymentConfigurationPtrOutput) LifecycleHooks() ServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) []ServiceDeploymentConfigurationLifecycleHook {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleHooks
+	}).(ServiceDeploymentConfigurationLifecycleHookArrayOutput)
+}
+
+// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+func (o ServiceDeploymentConfigurationPtrOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Strategy
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceDeploymentConfigurationLifecycleHook struct {
+	// ARN of the Lambda function to invoke for the lifecycle hook.
+	HookTargetArn string `pulumi:"hookTargetArn"`
+	// Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+	LifecycleStages []string `pulumi:"lifecycleStages"`
+	// ARN of the IAM role that grants the service permission to invoke the Lambda function.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// ServiceDeploymentConfigurationLifecycleHookInput is an input type that accepts ServiceDeploymentConfigurationLifecycleHookArgs and ServiceDeploymentConfigurationLifecycleHookOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationLifecycleHookInput` via:
+//
+//	ServiceDeploymentConfigurationLifecycleHookArgs{...}
+type ServiceDeploymentConfigurationLifecycleHookInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationLifecycleHookOutput() ServiceDeploymentConfigurationLifecycleHookOutput
+	ToServiceDeploymentConfigurationLifecycleHookOutputWithContext(context.Context) ServiceDeploymentConfigurationLifecycleHookOutput
+}
+
+type ServiceDeploymentConfigurationLifecycleHookArgs struct {
+	// ARN of the Lambda function to invoke for the lifecycle hook.
+	HookTargetArn pulumi.StringInput `pulumi:"hookTargetArn"`
+	// Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+	LifecycleStages pulumi.StringArrayInput `pulumi:"lifecycleStages"`
+	// ARN of the IAM role that grants the service permission to invoke the Lambda function.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (ServiceDeploymentConfigurationLifecycleHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHook)(nil)).Elem()
+}
+
+func (i ServiceDeploymentConfigurationLifecycleHookArgs) ToServiceDeploymentConfigurationLifecycleHookOutput() ServiceDeploymentConfigurationLifecycleHookOutput {
+	return i.ToServiceDeploymentConfigurationLifecycleHookOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationLifecycleHookArgs) ToServiceDeploymentConfigurationLifecycleHookOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationLifecycleHookOutput)
+}
+
+// ServiceDeploymentConfigurationLifecycleHookArrayInput is an input type that accepts ServiceDeploymentConfigurationLifecycleHookArray and ServiceDeploymentConfigurationLifecycleHookArrayOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationLifecycleHookArrayInput` via:
+//
+//	ServiceDeploymentConfigurationLifecycleHookArray{ ServiceDeploymentConfigurationLifecycleHookArgs{...} }
+type ServiceDeploymentConfigurationLifecycleHookArrayInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationLifecycleHookArrayOutput() ServiceDeploymentConfigurationLifecycleHookArrayOutput
+	ToServiceDeploymentConfigurationLifecycleHookArrayOutputWithContext(context.Context) ServiceDeploymentConfigurationLifecycleHookArrayOutput
+}
+
+type ServiceDeploymentConfigurationLifecycleHookArray []ServiceDeploymentConfigurationLifecycleHookInput
+
+func (ServiceDeploymentConfigurationLifecycleHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDeploymentConfigurationLifecycleHook)(nil)).Elem()
+}
+
+func (i ServiceDeploymentConfigurationLifecycleHookArray) ToServiceDeploymentConfigurationLifecycleHookArrayOutput() ServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return i.ToServiceDeploymentConfigurationLifecycleHookArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationLifecycleHookArray) ToServiceDeploymentConfigurationLifecycleHookArrayOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationLifecycleHookArrayOutput)
+}
+
+type ServiceDeploymentConfigurationLifecycleHookOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationLifecycleHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHook)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) ToServiceDeploymentConfigurationLifecycleHookOutput() ServiceDeploymentConfigurationLifecycleHookOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) ToServiceDeploymentConfigurationLifecycleHookOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookOutput {
+	return o
+}
+
+// ARN of the Lambda function to invoke for the lifecycle hook.
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) HookTargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) string { return v.HookTargetArn }).(pulumi.StringOutput)
+}
+
+// Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) LifecycleStages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) []string { return v.LifecycleStages }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the IAM role that grants the service permission to invoke the Lambda function.
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type ServiceDeploymentConfigurationLifecycleHookArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationLifecycleHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDeploymentConfigurationLifecycleHook)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookArrayOutput) ToServiceDeploymentConfigurationLifecycleHookArrayOutput() ServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookArrayOutput) ToServiceDeploymentConfigurationLifecycleHookArrayOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookArrayOutput) Index(i pulumi.IntInput) ServiceDeploymentConfigurationLifecycleHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDeploymentConfigurationLifecycleHook {
+		return vs[0].([]ServiceDeploymentConfigurationLifecycleHook)[vs[1].(int)]
+	}).(ServiceDeploymentConfigurationLifecycleHookOutput)
+}
+
 type ServiceDeploymentController struct {
 	// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 	Type *string `pulumi:"type"`
@@ -2086,11 +2378,13 @@ func (o ServiceDeploymentControllerPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ServiceLoadBalancer struct {
+	// Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
+	//
+	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+	AdvancedConfiguration *ServiceLoadBalancerAdvancedConfiguration `pulumi:"advancedConfiguration"`
 	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName string `pulumi:"containerName"`
 	// Port on the container to associate with the load balancer.
-	//
-	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	ContainerPort int `pulumi:"containerPort"`
 	// Name of the ELB (Classic) to associate with the service.
 	ElbName *string `pulumi:"elbName"`
@@ -2110,11 +2404,13 @@ type ServiceLoadBalancerInput interface {
 }
 
 type ServiceLoadBalancerArgs struct {
+	// Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
+	//
+	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+	AdvancedConfiguration ServiceLoadBalancerAdvancedConfigurationPtrInput `pulumi:"advancedConfiguration"`
 	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
 	// Port on the container to associate with the load balancer.
-	//
-	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
 	// Name of the ELB (Classic) to associate with the service.
 	ElbName pulumi.StringPtrInput `pulumi:"elbName"`
@@ -2173,14 +2469,19 @@ func (o ServiceLoadBalancerOutput) ToServiceLoadBalancerOutputWithContext(ctx co
 	return o
 }
 
+// Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
+//
+// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+func (o ServiceLoadBalancerOutput) AdvancedConfiguration() ServiceLoadBalancerAdvancedConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceLoadBalancer) *ServiceLoadBalancerAdvancedConfiguration { return v.AdvancedConfiguration }).(ServiceLoadBalancerAdvancedConfigurationPtrOutput)
+}
+
 // Name of the container to associate with the load balancer (as it appears in a container definition).
 func (o ServiceLoadBalancerOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
 // Port on the container to associate with the load balancer.
-//
-// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 func (o ServiceLoadBalancerOutput) ContainerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) int { return v.ContainerPort }).(pulumi.IntOutput)
 }
@@ -2213,6 +2514,200 @@ func (o ServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) ServiceLoadBala
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLoadBalancer {
 		return vs[0].([]ServiceLoadBalancer)[vs[1].(int)]
 	}).(ServiceLoadBalancerOutput)
+}
+
+type ServiceLoadBalancerAdvancedConfiguration struct {
+	// ARN of the alternate target group to use for Blue/Green deployments.
+	AlternateTargetGroupArn string `pulumi:"alternateTargetGroupArn"`
+	// ARN of the listener rule that routes production traffic.
+	ProductionListenerRule string `pulumi:"productionListenerRule"`
+	// ARN of the IAM role that allows ECS to manage the target groups.
+	RoleArn string `pulumi:"roleArn"`
+	// ARN of the listener rule that routes test traffic.
+	TestListenerRule *string `pulumi:"testListenerRule"`
+}
+
+// ServiceLoadBalancerAdvancedConfigurationInput is an input type that accepts ServiceLoadBalancerAdvancedConfigurationArgs and ServiceLoadBalancerAdvancedConfigurationOutput values.
+// You can construct a concrete instance of `ServiceLoadBalancerAdvancedConfigurationInput` via:
+//
+//	ServiceLoadBalancerAdvancedConfigurationArgs{...}
+type ServiceLoadBalancerAdvancedConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceLoadBalancerAdvancedConfigurationOutput() ServiceLoadBalancerAdvancedConfigurationOutput
+	ToServiceLoadBalancerAdvancedConfigurationOutputWithContext(context.Context) ServiceLoadBalancerAdvancedConfigurationOutput
+}
+
+type ServiceLoadBalancerAdvancedConfigurationArgs struct {
+	// ARN of the alternate target group to use for Blue/Green deployments.
+	AlternateTargetGroupArn pulumi.StringInput `pulumi:"alternateTargetGroupArn"`
+	// ARN of the listener rule that routes production traffic.
+	ProductionListenerRule pulumi.StringInput `pulumi:"productionListenerRule"`
+	// ARN of the IAM role that allows ECS to manage the target groups.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// ARN of the listener rule that routes test traffic.
+	TestListenerRule pulumi.StringPtrInput `pulumi:"testListenerRule"`
+}
+
+func (ServiceLoadBalancerAdvancedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLoadBalancerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i ServiceLoadBalancerAdvancedConfigurationArgs) ToServiceLoadBalancerAdvancedConfigurationOutput() ServiceLoadBalancerAdvancedConfigurationOutput {
+	return i.ToServiceLoadBalancerAdvancedConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceLoadBalancerAdvancedConfigurationArgs) ToServiceLoadBalancerAdvancedConfigurationOutputWithContext(ctx context.Context) ServiceLoadBalancerAdvancedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadBalancerAdvancedConfigurationOutput)
+}
+
+func (i ServiceLoadBalancerAdvancedConfigurationArgs) ToServiceLoadBalancerAdvancedConfigurationPtrOutput() ServiceLoadBalancerAdvancedConfigurationPtrOutput {
+	return i.ToServiceLoadBalancerAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLoadBalancerAdvancedConfigurationArgs) ToServiceLoadBalancerAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceLoadBalancerAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadBalancerAdvancedConfigurationOutput).ToServiceLoadBalancerAdvancedConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceLoadBalancerAdvancedConfigurationPtrInput is an input type that accepts ServiceLoadBalancerAdvancedConfigurationArgs, ServiceLoadBalancerAdvancedConfigurationPtr and ServiceLoadBalancerAdvancedConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceLoadBalancerAdvancedConfigurationPtrInput` via:
+//
+//	        ServiceLoadBalancerAdvancedConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLoadBalancerAdvancedConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceLoadBalancerAdvancedConfigurationPtrOutput() ServiceLoadBalancerAdvancedConfigurationPtrOutput
+	ToServiceLoadBalancerAdvancedConfigurationPtrOutputWithContext(context.Context) ServiceLoadBalancerAdvancedConfigurationPtrOutput
+}
+
+type serviceLoadBalancerAdvancedConfigurationPtrType ServiceLoadBalancerAdvancedConfigurationArgs
+
+func ServiceLoadBalancerAdvancedConfigurationPtr(v *ServiceLoadBalancerAdvancedConfigurationArgs) ServiceLoadBalancerAdvancedConfigurationPtrInput {
+	return (*serviceLoadBalancerAdvancedConfigurationPtrType)(v)
+}
+
+func (*serviceLoadBalancerAdvancedConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLoadBalancerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i *serviceLoadBalancerAdvancedConfigurationPtrType) ToServiceLoadBalancerAdvancedConfigurationPtrOutput() ServiceLoadBalancerAdvancedConfigurationPtrOutput {
+	return i.ToServiceLoadBalancerAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLoadBalancerAdvancedConfigurationPtrType) ToServiceLoadBalancerAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceLoadBalancerAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadBalancerAdvancedConfigurationPtrOutput)
+}
+
+type ServiceLoadBalancerAdvancedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceLoadBalancerAdvancedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLoadBalancerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o ServiceLoadBalancerAdvancedConfigurationOutput) ToServiceLoadBalancerAdvancedConfigurationOutput() ServiceLoadBalancerAdvancedConfigurationOutput {
+	return o
+}
+
+func (o ServiceLoadBalancerAdvancedConfigurationOutput) ToServiceLoadBalancerAdvancedConfigurationOutputWithContext(ctx context.Context) ServiceLoadBalancerAdvancedConfigurationOutput {
+	return o
+}
+
+func (o ServiceLoadBalancerAdvancedConfigurationOutput) ToServiceLoadBalancerAdvancedConfigurationPtrOutput() ServiceLoadBalancerAdvancedConfigurationPtrOutput {
+	return o.ToServiceLoadBalancerAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLoadBalancerAdvancedConfigurationOutput) ToServiceLoadBalancerAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceLoadBalancerAdvancedConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLoadBalancerAdvancedConfiguration) *ServiceLoadBalancerAdvancedConfiguration {
+		return &v
+	}).(ServiceLoadBalancerAdvancedConfigurationPtrOutput)
+}
+
+// ARN of the alternate target group to use for Blue/Green deployments.
+func (o ServiceLoadBalancerAdvancedConfigurationOutput) AlternateTargetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLoadBalancerAdvancedConfiguration) string { return v.AlternateTargetGroupArn }).(pulumi.StringOutput)
+}
+
+// ARN of the listener rule that routes production traffic.
+func (o ServiceLoadBalancerAdvancedConfigurationOutput) ProductionListenerRule() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLoadBalancerAdvancedConfiguration) string { return v.ProductionListenerRule }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role that allows ECS to manage the target groups.
+func (o ServiceLoadBalancerAdvancedConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLoadBalancerAdvancedConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// ARN of the listener rule that routes test traffic.
+func (o ServiceLoadBalancerAdvancedConfigurationOutput) TestListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLoadBalancerAdvancedConfiguration) *string { return v.TestListenerRule }).(pulumi.StringPtrOutput)
+}
+
+type ServiceLoadBalancerAdvancedConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLoadBalancerAdvancedConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLoadBalancerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o ServiceLoadBalancerAdvancedConfigurationPtrOutput) ToServiceLoadBalancerAdvancedConfigurationPtrOutput() ServiceLoadBalancerAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceLoadBalancerAdvancedConfigurationPtrOutput) ToServiceLoadBalancerAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceLoadBalancerAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceLoadBalancerAdvancedConfigurationPtrOutput) Elem() ServiceLoadBalancerAdvancedConfigurationOutput {
+	return o.ApplyT(func(v *ServiceLoadBalancerAdvancedConfiguration) ServiceLoadBalancerAdvancedConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLoadBalancerAdvancedConfiguration
+		return ret
+	}).(ServiceLoadBalancerAdvancedConfigurationOutput)
+}
+
+// ARN of the alternate target group to use for Blue/Green deployments.
+func (o ServiceLoadBalancerAdvancedConfigurationPtrOutput) AlternateTargetGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLoadBalancerAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AlternateTargetGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the listener rule that routes production traffic.
+func (o ServiceLoadBalancerAdvancedConfigurationPtrOutput) ProductionListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLoadBalancerAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProductionListenerRule
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role that allows ECS to manage the target groups.
+func (o ServiceLoadBalancerAdvancedConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLoadBalancerAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the listener rule that routes test traffic.
+func (o ServiceLoadBalancerAdvancedConfigurationPtrOutput) TestListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLoadBalancerAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TestListenerRule
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceNetworkConfiguration struct {
@@ -3259,6 +3754,8 @@ type ServiceServiceConnectConfigurationServiceClientAlias struct {
 	DnsName *string `pulumi:"dnsName"`
 	// Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
 	Port int `pulumi:"port"`
+	// Configuration block for test traffic routing rules. See below.
+	TestTrafficRules []ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule `pulumi:"testTrafficRules"`
 }
 
 // ServiceServiceConnectConfigurationServiceClientAliasInput is an input type that accepts ServiceServiceConnectConfigurationServiceClientAliasArgs and ServiceServiceConnectConfigurationServiceClientAliasOutput values.
@@ -3277,6 +3774,8 @@ type ServiceServiceConnectConfigurationServiceClientAliasArgs struct {
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	// Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
 	Port pulumi.IntInput `pulumi:"port"`
+	// Configuration block for test traffic routing rules. See below.
+	TestTrafficRules ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayInput `pulumi:"testTrafficRules"`
 }
 
 func (ServiceServiceConnectConfigurationServiceClientAliasArgs) ElementType() reflect.Type {
@@ -3340,6 +3839,13 @@ func (o ServiceServiceConnectConfigurationServiceClientAliasOutput) Port() pulum
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceClientAlias) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// Configuration block for test traffic routing rules. See below.
+func (o ServiceServiceConnectConfigurationServiceClientAliasOutput) TestTrafficRules() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceClientAlias) []ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule {
+		return v.TestTrafficRules
+	}).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput)
+}
+
 type ServiceServiceConnectConfigurationServiceClientAliasArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceServiceConnectConfigurationServiceClientAliasArrayOutput) ElementType() reflect.Type {
@@ -3358,6 +3864,404 @@ func (o ServiceServiceConnectConfigurationServiceClientAliasArrayOutput) Index(i
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceServiceConnectConfigurationServiceClientAlias {
 		return vs[0].([]ServiceServiceConnectConfigurationServiceClientAlias)[vs[1].(int)]
 	}).(ServiceServiceConnectConfigurationServiceClientAliasOutput)
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule struct {
+	// Configuration block for header-based routing rules. See below.
+	Header *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader `pulumi:"header"`
+}
+
+// ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleInput is an input type that accepts ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs and ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput values.
+// You can construct a concrete instance of `ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleInput` via:
+//
+//	ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs{...}
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleInput interface {
+	pulumi.Input
+
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutputWithContext(context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs struct {
+	// Configuration block for header-based routing rules. See below.
+	Header ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrInput `pulumi:"header"`
+}
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule)(nil)).Elem()
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput {
+	return i.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutputWithContext(context.Background())
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput)
+}
+
+// ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayInput is an input type that accepts ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArray and ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput values.
+// You can construct a concrete instance of `ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayInput` via:
+//
+//	ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArray{ ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs{...} }
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayInput interface {
+	pulumi.Input
+
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutputWithContext(context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArray []ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleInput
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule)(nil)).Elem()
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArray) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput {
+	return i.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArray) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput)
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput struct{ *pulumi.OutputState }
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule)(nil)).Elem()
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput {
+	return o
+}
+
+// Configuration block for header-based routing rules. See below.
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput) Header() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule) *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader {
+		return v.Header
+	}).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput)
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule)(nil)).Elem()
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput) Index(i pulumi.IntInput) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule {
+		return vs[0].([]ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule)[vs[1].(int)]
+	}).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput)
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader struct {
+	// Name of the HTTP header to match.
+	Name string `pulumi:"name"`
+	// Configuration block for header value matching criteria. See below.
+	Value ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue `pulumi:"value"`
+}
+
+// ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderInput is an input type that accepts ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs and ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput values.
+// You can construct a concrete instance of `ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderInput` via:
+//
+//	ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs{...}
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderInput interface {
+	pulumi.Input
+
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutputWithContext(context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs struct {
+	// Name of the HTTP header to match.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Configuration block for header value matching criteria. See below.
+	Value ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueInput `pulumi:"value"`
+}
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader)(nil)).Elem()
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput {
+	return i.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutputWithContext(context.Background())
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput)
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput {
+	return i.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput).ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutputWithContext(ctx)
+}
+
+// ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrInput is an input type that accepts ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs, ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtr and ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput values.
+// You can construct a concrete instance of `ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrInput` via:
+//
+//	        ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrInput interface {
+	pulumi.Input
+
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutputWithContext(context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput
+}
+
+type serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrType ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs
+
+func ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtr(v *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrInput {
+	return (*serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrType)(v)
+}
+
+func (*serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader)(nil)).Elem()
+}
+
+func (i *serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrType) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput {
+	return i.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrType) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput)
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput struct{ *pulumi.OutputState }
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader)(nil)).Elem()
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput {
+	return o.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader) *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader {
+		return &v
+	}).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput)
+}
+
+// Name of the HTTP header to match.
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Configuration block for header value matching criteria. See below.
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput) Value() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue {
+		return v.Value
+	}).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput)
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader)(nil)).Elem()
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput) Elem() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader
+		return ret
+	}).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput)
+}
+
+// Name of the HTTP header to match.
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for header value matching criteria. See below.
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput) Value() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader) *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput)
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue struct {
+	// Exact string value to match in the header.
+	Exact string `pulumi:"exact"`
+}
+
+// ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueInput is an input type that accepts ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs and ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput values.
+// You can construct a concrete instance of `ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueInput` via:
+//
+//	ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs{...}
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueInput interface {
+	pulumi.Input
+
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutputWithContext(context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs struct {
+	// Exact string value to match in the header.
+	Exact pulumi.StringInput `pulumi:"exact"`
+}
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue)(nil)).Elem()
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput {
+	return i.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutputWithContext(context.Background())
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput)
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput {
+	return i.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput).ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutputWithContext(ctx)
+}
+
+// ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrInput is an input type that accepts ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs, ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtr and ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput values.
+// You can construct a concrete instance of `ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrInput` via:
+//
+//	        ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrInput interface {
+	pulumi.Input
+
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput
+	ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutputWithContext(context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput
+}
+
+type serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrType ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs
+
+func ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtr(v *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrInput {
+	return (*serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrType)(v)
+}
+
+func (*serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue)(nil)).Elem()
+}
+
+func (i *serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrType) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput {
+	return i.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrType) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput)
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput struct{ *pulumi.OutputState }
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue)(nil)).Elem()
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput {
+	return o.ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue) *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue {
+		return &v
+	}).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput)
+}
+
+// Exact string value to match in the header.
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput) Exact() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue) string {
+		return v.Exact
+	}).(pulumi.StringOutput)
+}
+
+type ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue)(nil)).Elem()
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput) ToServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput) Elem() ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue) ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue
+		return ret
+	}).(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput)
+}
+
+// Exact string value to match in the header.
+func (o ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Exact
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceServiceConnectConfigurationServiceTimeout struct {
@@ -9662,10 +10566,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyArrayInput)(nil)).Elem(), ServiceCapacityProviderStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentCircuitBreakerInput)(nil)).Elem(), ServiceDeploymentCircuitBreakerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentCircuitBreakerPtrInput)(nil)).Elem(), ServiceDeploymentCircuitBreakerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationInput)(nil)).Elem(), ServiceDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookInput)(nil)).Elem(), ServiceDeploymentConfigurationLifecycleHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookArrayInput)(nil)).Elem(), ServiceDeploymentConfigurationLifecycleHookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerPtrInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerInput)(nil)).Elem(), ServiceLoadBalancerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerArrayInput)(nil)).Elem(), ServiceLoadBalancerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerAdvancedConfigurationInput)(nil)).Elem(), ServiceLoadBalancerAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerAdvancedConfigurationPtrInput)(nil)).Elem(), ServiceLoadBalancerAdvancedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceOrderedPlacementStrategyInput)(nil)).Elem(), ServiceOrderedPlacementStrategyArgs{})
@@ -9682,6 +10592,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceArrayInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasArrayInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceTimeoutInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceTimeoutPtrInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceTlsInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceTlsArgs{})
@@ -9792,10 +10708,16 @@ func init() {
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLifecycleHookOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLoadBalancerAdvancedConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceLoadBalancerAdvancedConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceOrderedPlacementStrategyOutput{})
@@ -9812,6 +10734,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceArrayOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasArrayOutput{})
+	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleOutput{})
+	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArrayOutput{})
+	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderOutput{})
+	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderPtrOutput{})
+	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueOutput{})
+	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValuePtrOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceTimeoutOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceTlsOutput{})

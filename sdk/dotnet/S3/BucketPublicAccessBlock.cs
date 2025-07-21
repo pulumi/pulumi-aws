@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3
 {
     /// <summary>
-    /// Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
-    /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -54,7 +50,7 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        /// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+        /// * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
         /// * PUT Object calls will fail if the request includes an object ACL.
         /// </summary>
         [Output("blockPublicAcls")]
@@ -92,6 +88,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("restrictPublicBuckets")]
         public Output<bool?> RestrictPublicBuckets { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+        /// </summary>
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,7 +143,7 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        /// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+        /// * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
         /// * PUT Object calls will fail if the request includes an object ACL.
         /// </summary>
         [Input("blockPublicAcls")]
@@ -180,6 +182,12 @@ namespace Pulumi.Aws.S3
         [Input("restrictPublicBuckets")]
         public Input<bool>? RestrictPublicBuckets { get; set; }
 
+        /// <summary>
+        /// Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
+
         public BucketPublicAccessBlockArgs()
         {
         }
@@ -190,7 +198,7 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        /// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+        /// * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
         /// * PUT Object calls will fail if the request includes an object ACL.
         /// </summary>
         [Input("blockPublicAcls")]
@@ -228,6 +236,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("restrictPublicBuckets")]
         public Input<bool>? RestrictPublicBuckets { get; set; }
+
+        /// <summary>
+        /// Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         public BucketPublicAccessBlockState()
         {

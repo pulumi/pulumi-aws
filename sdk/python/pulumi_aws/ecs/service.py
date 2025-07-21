@@ -27,6 +27,7 @@ class ServiceArgs:
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
                  cluster: Optional[pulumi.Input[builtins.str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
+                 deployment_configuration: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']] = None,
                  deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
                  deployment_maximum_percent: Optional[pulumi.Input[builtins.int]] = None,
                  deployment_minimum_healthy_percent: Optional[pulumi.Input[builtins.int]] = None,
@@ -62,6 +63,7 @@ class ServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[builtins.str] cluster: ARN of an ECS cluster.
         :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
+        :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Configuration block for deployment settings. See below.
         :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: Configuration block for deployment controller configuration. See below.
         :param pulumi.Input[builtins.int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         :param pulumi.Input[builtins.int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
@@ -104,6 +106,8 @@ class ServiceArgs:
             pulumi.set(__self__, "cluster", cluster)
         if deployment_circuit_breaker is not None:
             pulumi.set(__self__, "deployment_circuit_breaker", deployment_circuit_breaker)
+        if deployment_configuration is not None:
+            pulumi.set(__self__, "deployment_configuration", deployment_configuration)
         if deployment_controller is not None:
             pulumi.set(__self__, "deployment_controller", deployment_controller)
         if deployment_maximum_percent is not None:
@@ -220,6 +224,18 @@ class ServiceArgs:
     @deployment_circuit_breaker.setter
     def deployment_circuit_breaker(self, value: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']]):
         pulumi.set(self, "deployment_circuit_breaker", value)
+
+    @property
+    @pulumi.getter(name="deploymentConfiguration")
+    def deployment_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]:
+        """
+        Configuration block for deployment settings. See below.
+        """
+        return pulumi.get(self, "deployment_configuration")
+
+    @deployment_configuration.setter
+    def deployment_configuration(self, value: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]):
+        pulumi.set(self, "deployment_configuration", value)
 
     @property
     @pulumi.getter(name="deploymentController")
@@ -570,6 +586,7 @@ class _ServiceState:
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
                  cluster: Optional[pulumi.Input[builtins.str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
+                 deployment_configuration: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']] = None,
                  deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
                  deployment_maximum_percent: Optional[pulumi.Input[builtins.int]] = None,
                  deployment_minimum_healthy_percent: Optional[pulumi.Input[builtins.int]] = None,
@@ -607,6 +624,7 @@ class _ServiceState:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[builtins.str] cluster: ARN of an ECS cluster.
         :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
+        :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Configuration block for deployment settings. See below.
         :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: Configuration block for deployment controller configuration. See below.
         :param pulumi.Input[builtins.int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         :param pulumi.Input[builtins.int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
@@ -652,6 +670,8 @@ class _ServiceState:
             pulumi.set(__self__, "cluster", cluster)
         if deployment_circuit_breaker is not None:
             pulumi.set(__self__, "deployment_circuit_breaker", deployment_circuit_breaker)
+        if deployment_configuration is not None:
+            pulumi.set(__self__, "deployment_configuration", deployment_configuration)
         if deployment_controller is not None:
             pulumi.set(__self__, "deployment_controller", deployment_controller)
         if deployment_maximum_percent is not None:
@@ -782,6 +802,18 @@ class _ServiceState:
     @deployment_circuit_breaker.setter
     def deployment_circuit_breaker(self, value: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']]):
         pulumi.set(self, "deployment_circuit_breaker", value)
+
+    @property
+    @pulumi.getter(name="deploymentConfiguration")
+    def deployment_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]:
+        """
+        Configuration block for deployment settings. See below.
+        """
+        return pulumi.get(self, "deployment_configuration")
+
+    @deployment_configuration.setter
+    def deployment_configuration(self, value: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]):
+        pulumi.set(self, "deployment_configuration", value)
 
     @property
     @pulumi.getter(name="deploymentController")
@@ -1146,6 +1178,7 @@ class Service(pulumi.CustomResource):
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]]] = None,
                  cluster: Optional[pulumi.Input[builtins.str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']]] = None,
+                 deployment_configuration: Optional[pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
                  deployment_controller: Optional[pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']]] = None,
                  deployment_maximum_percent: Optional[pulumi.Input[builtins.int]] = None,
                  deployment_minimum_healthy_percent: Optional[pulumi.Input[builtins.int]] = None,
@@ -1294,6 +1327,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[builtins.str] cluster: ARN of an ECS cluster.
         :param pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
+        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Configuration block for deployment settings. See below.
         :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: Configuration block for deployment controller configuration. See below.
         :param pulumi.Input[builtins.int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         :param pulumi.Input[builtins.int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
@@ -1464,6 +1498,7 @@ class Service(pulumi.CustomResource):
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]]] = None,
                  cluster: Optional[pulumi.Input[builtins.str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']]] = None,
+                 deployment_configuration: Optional[pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
                  deployment_controller: Optional[pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']]] = None,
                  deployment_maximum_percent: Optional[pulumi.Input[builtins.int]] = None,
                  deployment_minimum_healthy_percent: Optional[pulumi.Input[builtins.int]] = None,
@@ -1506,6 +1541,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
             __props__.__dict__["cluster"] = cluster
             __props__.__dict__["deployment_circuit_breaker"] = deployment_circuit_breaker
+            __props__.__dict__["deployment_configuration"] = deployment_configuration
             __props__.__dict__["deployment_controller"] = deployment_controller
             __props__.__dict__["deployment_maximum_percent"] = deployment_maximum_percent
             __props__.__dict__["deployment_minimum_healthy_percent"] = deployment_minimum_healthy_percent
@@ -1552,6 +1588,7 @@ class Service(pulumi.CustomResource):
             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]]] = None,
             cluster: Optional[pulumi.Input[builtins.str]] = None,
             deployment_circuit_breaker: Optional[pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']]] = None,
+            deployment_configuration: Optional[pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
             deployment_controller: Optional[pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']]] = None,
             deployment_maximum_percent: Optional[pulumi.Input[builtins.int]] = None,
             deployment_minimum_healthy_percent: Optional[pulumi.Input[builtins.int]] = None,
@@ -1594,6 +1631,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[builtins.str] cluster: ARN of an ECS cluster.
         :param pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
+        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Configuration block for deployment settings. See below.
         :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: Configuration block for deployment controller configuration. See below.
         :param pulumi.Input[builtins.int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         :param pulumi.Input[builtins.int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
@@ -1637,6 +1675,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
         __props__.__dict__["cluster"] = cluster
         __props__.__dict__["deployment_circuit_breaker"] = deployment_circuit_breaker
+        __props__.__dict__["deployment_configuration"] = deployment_configuration
         __props__.__dict__["deployment_controller"] = deployment_controller
         __props__.__dict__["deployment_maximum_percent"] = deployment_maximum_percent
         __props__.__dict__["deployment_minimum_healthy_percent"] = deployment_minimum_healthy_percent
@@ -1715,6 +1754,14 @@ class Service(pulumi.CustomResource):
         Configuration block for deployment circuit breaker. See below.
         """
         return pulumi.get(self, "deployment_circuit_breaker")
+
+    @property
+    @pulumi.getter(name="deploymentConfiguration")
+    def deployment_configuration(self) -> pulumi.Output[Optional['outputs.ServiceDeploymentConfiguration']]:
+        """
+        Configuration block for deployment settings. See below.
+        """
+        return pulumi.get(self, "deployment_configuration")
 
     @property
     @pulumi.getter(name="deploymentController")

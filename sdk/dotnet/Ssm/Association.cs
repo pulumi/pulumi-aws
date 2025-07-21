@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Ssm
     ///     var webServer = new Aws.Ec2.Instance("web_server", new()
     ///     {
     ///         Ami = amazonLinux.Id,
-    ///         InstanceType = System.Enum.Parse&lt;Aws.Ec2.InstanceType&gt;(instanceType),
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
     ///         SubnetId = @default.Id,
     ///         VpcSecurityGroupIds = new[]
     ///         {
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Ssm
     ///     var databaseServer = new Aws.Ec2.Instance("database_server", new()
     ///     {
     ///         Ami = amazonLinux.Id,
-    ///         InstanceType = System.Enum.Parse&lt;Aws.Ec2.InstanceType&gt;(instanceType),
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
     ///         SubnetId = @default.Id,
     ///         VpcSecurityGroupIds = new[]
     ///         {

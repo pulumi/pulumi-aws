@@ -215,7 +215,7 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly eventSourceToken!: pulumi.Output<string | undefined>;
     /**
-     * Name of the Lambda function
+     * Name or ARN of the Lambda function
      */
     public readonly function!: pulumi.Output<string>;
     /**
@@ -324,7 +324,7 @@ export interface PermissionState {
      */
     eventSourceToken?: pulumi.Input<string>;
     /**
-     * Name of the Lambda function
+     * Name or ARN of the Lambda function
      */
     function?: pulumi.Input<string | Function>;
     /**
@@ -380,7 +380,7 @@ export interface PermissionArgs {
      */
     eventSourceToken?: pulumi.Input<string>;
     /**
-     * Name of the Lambda function
+     * Name or ARN of the Lambda function
      */
     function: pulumi.Input<string | Function>;
     /**

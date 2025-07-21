@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Ecs.Inputs
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        [Input("testTrafficRules")]
+        private InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleGetArgs>? _testTrafficRules;
+
+        /// <summary>
+        /// Configuration block for test traffic routing rules. See below.
+        /// </summary>
+        public InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleGetArgs> TestTrafficRules
+        {
+            get => _testTrafficRules ?? (_testTrafficRules = new InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleGetArgs>());
+            set => _testTrafficRules = value;
+        }
+
         public ServiceServiceConnectConfigurationServiceClientAliasGetArgs()
         {
         }

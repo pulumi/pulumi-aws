@@ -36,22 +36,22 @@ class OrganizationCustomPolicyRuleArgs:
                  tag_value_scope: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationCustomPolicyRule resource.
-        :param pulumi.Input[builtins.str] policy_runtime: runtime system for your organization AWS Config Custom Policy rules
-        :param pulumi.Input[builtins.str] policy_text: policy definition containing the logic for your organization AWS Config Custom Policy rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        :param pulumi.Input[builtins.str] policy_runtime: Runtime system for policy rules.
+        :param pulumi.Input[builtins.str] policy_text: Policy definition containing the rule logic.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] debug_log_delivery_accounts: List of AWS account identifiers to exclude from the rule
-        :param pulumi.Input[builtins.str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
-        :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] debug_log_delivery_accounts: List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
+        :param pulumi.Input[builtins.str] description: Description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule.
+        :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-        :param pulumi.Input[builtins.str] name: name of the rule
+        :param pulumi.Input[builtins.str] name: Name of the rule.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
-        :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate
-        :param pulumi.Input[builtins.str] tag_value_scope: Tag value of AWS resources to evaluate
+        :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate.
+        :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate.
+        :param pulumi.Input[builtins.str] tag_value_scope: Tag value of AWS resources to evaluate.
         """
         pulumi.set(__self__, "policy_runtime", policy_runtime)
         pulumi.set(__self__, "policy_text", policy_text)
@@ -83,7 +83,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="policyRuntime")
     def policy_runtime(self) -> pulumi.Input[builtins.str]:
         """
-        runtime system for your organization AWS Config Custom Policy rules
+        Runtime system for policy rules.
         """
         return pulumi.get(self, "policy_runtime")
 
@@ -95,7 +95,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="policyText")
     def policy_text(self) -> pulumi.Input[builtins.str]:
         """
-        policy definition containing the logic for your organization AWS Config Custom Policy rule
+        Policy definition containing the rule logic.
         """
         return pulumi.get(self, "policy_text")
 
@@ -107,7 +107,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="triggerTypes")
     def trigger_types(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
         """
-        List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
 
         The following arguments are optional:
         """
@@ -121,7 +121,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="debugLogDeliveryAccounts")
     def debug_log_delivery_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of AWS account identifiers to exclude from the rule
+        List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
         """
         return pulumi.get(self, "debug_log_delivery_accounts")
 
@@ -133,7 +133,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Description of the rule
+        Description of the rule.
         """
         return pulumi.get(self, "description")
 
@@ -145,7 +145,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="excludedAccounts")
     def excluded_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of AWS account identifiers to exclude from the rule
+        List of AWS account identifiers to exclude from the rule.
         """
         return pulumi.get(self, "excluded_accounts")
 
@@ -157,7 +157,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         """
         return pulumi.get(self, "input_parameters")
 
@@ -181,7 +181,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        name of the rule
+        Name of the rule.
         """
         return pulumi.get(self, "name")
 
@@ -205,7 +205,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="resourceIdScope")
     def resource_id_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Identifier of the AWS resource to evaluate
+        Identifier of the AWS resource to evaluate.
         """
         return pulumi.get(self, "resource_id_scope")
 
@@ -217,7 +217,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="resourceTypesScopes")
     def resource_types_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of types of AWS resources to evaluate
+        List of types of AWS resources to evaluate.
         """
         return pulumi.get(self, "resource_types_scopes")
 
@@ -229,7 +229,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="tagKeyScope")
     def tag_key_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Tag key of AWS resources to evaluate
+        Tag key of AWS resources to evaluate.
         """
         return pulumi.get(self, "tag_key_scope")
 
@@ -241,7 +241,7 @@ class OrganizationCustomPolicyRuleArgs:
     @pulumi.getter(name="tagValueScope")
     def tag_value_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Tag value of AWS resources to evaluate
+        Tag value of AWS resources to evaluate.
         """
         return pulumi.get(self, "tag_value_scope")
 
@@ -270,21 +270,21 @@ class _OrganizationCustomPolicyRuleState:
                  trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OrganizationCustomPolicyRule resources.
-        :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] debug_log_delivery_accounts: List of AWS account identifiers to exclude from the rule
-        :param pulumi.Input[builtins.str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
-        :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] debug_log_delivery_accounts: List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
+        :param pulumi.Input[builtins.str] description: Description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule.
+        :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-        :param pulumi.Input[builtins.str] name: name of the rule
-        :param pulumi.Input[builtins.str] policy_runtime: runtime system for your organization AWS Config Custom Policy rules
-        :param pulumi.Input[builtins.str] policy_text: policy definition containing the logic for your organization AWS Config Custom Policy rule
+        :param pulumi.Input[builtins.str] name: Name of the rule.
+        :param pulumi.Input[builtins.str] policy_runtime: Runtime system for policy rules.
+        :param pulumi.Input[builtins.str] policy_text: Policy definition containing the rule logic.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
-        :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate
-        :param pulumi.Input[builtins.str] tag_value_scope: Tag value of AWS resources to evaluate
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate.
+        :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate.
+        :param pulumi.Input[builtins.str] tag_value_scope: Tag value of AWS resources to evaluate.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
                
                The following arguments are optional:
         """
@@ -323,7 +323,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the rule
+        Amazon Resource Name (ARN) of the rule.
         """
         return pulumi.get(self, "arn")
 
@@ -335,7 +335,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="debugLogDeliveryAccounts")
     def debug_log_delivery_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of AWS account identifiers to exclude from the rule
+        List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
         """
         return pulumi.get(self, "debug_log_delivery_accounts")
 
@@ -347,7 +347,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Description of the rule
+        Description of the rule.
         """
         return pulumi.get(self, "description")
 
@@ -359,7 +359,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="excludedAccounts")
     def excluded_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of AWS account identifiers to exclude from the rule
+        List of AWS account identifiers to exclude from the rule.
         """
         return pulumi.get(self, "excluded_accounts")
 
@@ -371,7 +371,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         """
         return pulumi.get(self, "input_parameters")
 
@@ -395,7 +395,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        name of the rule
+        Name of the rule.
         """
         return pulumi.get(self, "name")
 
@@ -407,7 +407,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="policyRuntime")
     def policy_runtime(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        runtime system for your organization AWS Config Custom Policy rules
+        Runtime system for policy rules.
         """
         return pulumi.get(self, "policy_runtime")
 
@@ -419,7 +419,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="policyText")
     def policy_text(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        policy definition containing the logic for your organization AWS Config Custom Policy rule
+        Policy definition containing the rule logic.
         """
         return pulumi.get(self, "policy_text")
 
@@ -443,7 +443,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="resourceIdScope")
     def resource_id_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Identifier of the AWS resource to evaluate
+        Identifier of the AWS resource to evaluate.
         """
         return pulumi.get(self, "resource_id_scope")
 
@@ -455,7 +455,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="resourceTypesScopes")
     def resource_types_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of types of AWS resources to evaluate
+        List of types of AWS resources to evaluate.
         """
         return pulumi.get(self, "resource_types_scopes")
 
@@ -467,7 +467,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="tagKeyScope")
     def tag_key_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Tag key of AWS resources to evaluate
+        Tag key of AWS resources to evaluate.
         """
         return pulumi.get(self, "tag_key_scope")
 
@@ -479,7 +479,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="tagValueScope")
     def tag_value_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Tag value of AWS resources to evaluate
+        Tag value of AWS resources to evaluate.
         """
         return pulumi.get(self, "tag_value_scope")
 
@@ -491,7 +491,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter(name="triggerTypes")
     def trigger_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
 
         The following arguments are optional:
         """
@@ -566,20 +566,20 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] debug_log_delivery_accounts: List of AWS account identifiers to exclude from the rule
-        :param pulumi.Input[builtins.str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
-        :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] debug_log_delivery_accounts: List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
+        :param pulumi.Input[builtins.str] description: Description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule.
+        :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-        :param pulumi.Input[builtins.str] name: name of the rule
-        :param pulumi.Input[builtins.str] policy_runtime: runtime system for your organization AWS Config Custom Policy rules
-        :param pulumi.Input[builtins.str] policy_text: policy definition containing the logic for your organization AWS Config Custom Policy rule
+        :param pulumi.Input[builtins.str] name: Name of the rule.
+        :param pulumi.Input[builtins.str] policy_runtime: Runtime system for policy rules.
+        :param pulumi.Input[builtins.str] policy_text: Policy definition containing the rule logic.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
-        :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate
-        :param pulumi.Input[builtins.str] tag_value_scope: Tag value of AWS resources to evaluate
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate.
+        :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate.
+        :param pulumi.Input[builtins.str] tag_value_scope: Tag value of AWS resources to evaluate.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
                
                The following arguments are optional:
         """
@@ -721,21 +721,21 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] debug_log_delivery_accounts: List of AWS account identifiers to exclude from the rule
-        :param pulumi.Input[builtins.str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
-        :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] debug_log_delivery_accounts: List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
+        :param pulumi.Input[builtins.str] description: Description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule.
+        :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-        :param pulumi.Input[builtins.str] name: name of the rule
-        :param pulumi.Input[builtins.str] policy_runtime: runtime system for your organization AWS Config Custom Policy rules
-        :param pulumi.Input[builtins.str] policy_text: policy definition containing the logic for your organization AWS Config Custom Policy rule
+        :param pulumi.Input[builtins.str] name: Name of the rule.
+        :param pulumi.Input[builtins.str] policy_runtime: Runtime system for policy rules.
+        :param pulumi.Input[builtins.str] policy_text: Policy definition containing the rule logic.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
-        :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate
-        :param pulumi.Input[builtins.str] tag_value_scope: Tag value of AWS resources to evaluate
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate.
+        :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate.
+        :param pulumi.Input[builtins.str] tag_value_scope: Tag value of AWS resources to evaluate.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
                
                The following arguments are optional:
         """
@@ -764,7 +764,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        Amazon Resource Name (ARN) of the rule
+        Amazon Resource Name (ARN) of the rule.
         """
         return pulumi.get(self, "arn")
 
@@ -772,7 +772,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="debugLogDeliveryAccounts")
     def debug_log_delivery_accounts(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        List of AWS account identifiers to exclude from the rule
+        List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
         """
         return pulumi.get(self, "debug_log_delivery_accounts")
 
@@ -780,7 +780,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Description of the rule
+        Description of the rule.
         """
         return pulumi.get(self, "description")
 
@@ -788,7 +788,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="excludedAccounts")
     def excluded_accounts(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        List of AWS account identifiers to exclude from the rule
+        List of AWS account identifiers to exclude from the rule.
         """
         return pulumi.get(self, "excluded_accounts")
 
@@ -796,7 +796,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         """
         return pulumi.get(self, "input_parameters")
 
@@ -812,7 +812,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        name of the rule
+        Name of the rule.
         """
         return pulumi.get(self, "name")
 
@@ -820,7 +820,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="policyRuntime")
     def policy_runtime(self) -> pulumi.Output[builtins.str]:
         """
-        runtime system for your organization AWS Config Custom Policy rules
+        Runtime system for policy rules.
         """
         return pulumi.get(self, "policy_runtime")
 
@@ -828,7 +828,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="policyText")
     def policy_text(self) -> pulumi.Output[builtins.str]:
         """
-        policy definition containing the logic for your organization AWS Config Custom Policy rule
+        Policy definition containing the rule logic.
         """
         return pulumi.get(self, "policy_text")
 
@@ -844,7 +844,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="resourceIdScope")
     def resource_id_scope(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Identifier of the AWS resource to evaluate
+        Identifier of the AWS resource to evaluate.
         """
         return pulumi.get(self, "resource_id_scope")
 
@@ -852,7 +852,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="resourceTypesScopes")
     def resource_types_scopes(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        List of types of AWS resources to evaluate
+        List of types of AWS resources to evaluate.
         """
         return pulumi.get(self, "resource_types_scopes")
 
@@ -860,7 +860,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="tagKeyScope")
     def tag_key_scope(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Tag key of AWS resources to evaluate
+        Tag key of AWS resources to evaluate.
         """
         return pulumi.get(self, "tag_key_scope")
 
@@ -868,7 +868,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="tagValueScope")
     def tag_value_scope(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Tag value of AWS resources to evaluate
+        Tag value of AWS resources to evaluate.
         """
         return pulumi.get(self, "tag_value_scope")
 
@@ -876,7 +876,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="triggerTypes")
     def trigger_types(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
 
         The following arguments are optional:
         """

@@ -20,10 +20,10 @@ __all__ = ['LocationObjectStorageArgs', 'LocationObjectStorage']
 @pulumi.input_type
 class LocationObjectStorageArgs:
     def __init__(__self__, *,
-                 agent_arns: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  bucket_name: pulumi.Input[builtins.str],
                  server_hostname: pulumi.Input[builtins.str],
                  access_key: Optional[pulumi.Input[builtins.str]] = None,
+                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate: Optional[pulumi.Input[builtins.str]] = None,
@@ -33,10 +33,10 @@ class LocationObjectStorageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationObjectStorage resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
         :param pulumi.Input[builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
         :param pulumi.Input[builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         :param pulumi.Input[builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
@@ -45,11 +45,12 @@ class LocationObjectStorageArgs:
         :param pulumi.Input[builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "server_hostname", server_hostname)
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
+        if agent_arns is not None:
+            pulumi.set(__self__, "agent_arns", agent_arns)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if secret_key is not None:
@@ -64,18 +65,6 @@ class LocationObjectStorageArgs:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated.
-        """
-        return pulumi.get(self, "agent_arns")
-
-    @agent_arns.setter
-    def agent_arns(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
-        pulumi.set(self, "agent_arns", value)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -112,6 +101,18 @@ class LocationObjectStorageArgs:
     @access_key.setter
     def access_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="agentArns")
+    def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        A list of DataSync Agent ARNs with which this location will be associated.
+        """
+        return pulumi.get(self, "agent_arns")
+
+    @agent_arns.setter
+    def agent_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "agent_arns", value)
 
     @property
     @pulumi.getter
@@ -554,8 +555,6 @@ class LocationObjectStorage(pulumi.CustomResource):
             __props__ = LocationObjectStorageArgs.__new__(LocationObjectStorageArgs)
 
             __props__.__dict__["access_key"] = access_key
-            if agent_arns is None and not opts.urn:
-                raise TypeError("Missing required property 'agent_arns'")
             __props__.__dict__["agent_arns"] = agent_arns
             if bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket_name'")
@@ -651,7 +650,7 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> pulumi.Output[Sequence[builtins.str]]:
+    def agent_arns(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
         A list of DataSync Agent ARNs with which this location will be associated.
         """

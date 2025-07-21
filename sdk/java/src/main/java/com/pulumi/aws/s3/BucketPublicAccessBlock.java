@@ -16,10 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
- * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -78,7 +74,7 @@ import javax.annotation.Nullable;
 public class BucketPublicAccessBlock extends com.pulumi.resources.CustomResource {
     /**
      * Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-     * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+     * * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
      * * PUT Object calls will fail if the request includes an object ACL.
      * 
      */
@@ -87,7 +83,7 @@ public class BucketPublicAccessBlock extends com.pulumi.resources.CustomResource
 
     /**
      * @return Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-     * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+     * * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
      * * PUT Object calls will fail if the request includes an object ACL.
      * 
      */
@@ -169,6 +165,20 @@ public class BucketPublicAccessBlock extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<Boolean>> restrictPublicBuckets() {
         return Codegen.optional(this.restrictPublicBuckets);
+    }
+    /**
+     * Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+     * 
+     */
+    @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipDestroy;
+
+    /**
+     * @return Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+     * 
+     */
+    public Output<Optional<Boolean>> skipDestroy() {
+        return Codegen.optional(this.skipDestroy);
     }
 
     /**

@@ -46,14 +46,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Lambda function
+     * Name or ARN of the Lambda function
      * 
      */
     @Import(name="function")
     private @Nullable Output<String> function;
 
     /**
-     * @return Name of the Lambda function
+     * @return Name or ARN of the Lambda function
      * 
      */
     public Optional<Output<String>> function() {
@@ -277,7 +277,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function Name of the Lambda function
+         * @param function Name or ARN of the Lambda function
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function Name of the Lambda function
+         * @param function Name or ARN of the Lambda function
          * 
          * @return builder
          * 

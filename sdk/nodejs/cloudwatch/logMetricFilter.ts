@@ -66,6 +66,10 @@ export class LogMetricFilter extends pulumi.CustomResource {
     }
 
     /**
+     * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+     */
+    public readonly applyOnTransformedLogs!: pulumi.Output<boolean>;
+    /**
      * The name of the log group to associate the metric filter with.
      */
     public readonly logGroupName!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class LogMetricFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogMetricFilterState | undefined;
+            resourceInputs["applyOnTransformedLogs"] = state ? state.applyOnTransformedLogs : undefined;
             resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
             resourceInputs["metricTransformation"] = state ? state.metricTransformation : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -116,6 +121,7 @@ export class LogMetricFilter extends pulumi.CustomResource {
             if ((!args || args.pattern === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
+            resourceInputs["applyOnTransformedLogs"] = args ? args.applyOnTransformedLogs : undefined;
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["metricTransformation"] = args ? args.metricTransformation : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -131,6 +137,10 @@ export class LogMetricFilter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogMetricFilter resources.
  */
 export interface LogMetricFilterState {
+    /**
+     * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+     */
+    applyOnTransformedLogs?: pulumi.Input<boolean>;
     /**
      * The name of the log group to associate the metric filter with.
      */
@@ -158,6 +168,10 @@ export interface LogMetricFilterState {
  * The set of arguments for constructing a LogMetricFilter resource.
  */
 export interface LogMetricFilterArgs {
+    /**
+     * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+     */
+    applyOnTransformedLogs?: pulumi.Input<boolean>;
     /**
      * The name of the log group to associate the metric filter with.
      */

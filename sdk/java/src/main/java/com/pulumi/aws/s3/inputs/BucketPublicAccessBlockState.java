@@ -18,7 +18,7 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
 
     /**
      * Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-     * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+     * * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
      * * PUT Object calls will fail if the request includes an object ACL.
      * 
      */
@@ -27,7 +27,7 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
 
     /**
      * @return Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-     * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+     * * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
      * * PUT Object calls will fail if the request includes an object ACL.
      * 
      */
@@ -116,6 +116,21 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.restrictPublicBuckets);
     }
 
+    /**
+     * Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
+    }
+
     private BucketPublicAccessBlockState() {}
 
     private BucketPublicAccessBlockState(BucketPublicAccessBlockState $) {
@@ -125,6 +140,7 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
         this.ignorePublicAcls = $.ignorePublicAcls;
         this.region = $.region;
         this.restrictPublicBuckets = $.restrictPublicBuckets;
+        this.skipDestroy = $.skipDestroy;
     }
 
     public static Builder builder() {
@@ -147,7 +163,7 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
 
         /**
          * @param blockPublicAcls Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-         * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+         * * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
          * * PUT Object calls will fail if the request includes an object ACL.
          * 
          * @return builder
@@ -160,7 +176,7 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
 
         /**
          * @param blockPublicAcls Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-         * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+         * * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
          * * PUT Object calls will fail if the request includes an object ACL.
          * 
          * @return builder
@@ -279,6 +295,27 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
          */
         public Builder restrictPublicBuckets(Boolean restrictPublicBuckets) {
             return restrictPublicBuckets(Output.of(restrictPublicBuckets));
+        }
+
+        /**
+         * @param skipDestroy Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         public BucketPublicAccessBlockState build() {

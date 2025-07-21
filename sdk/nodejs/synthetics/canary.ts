@@ -100,7 +100,7 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly handler!: pulumi.Output<string>;
     /**
-     * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+     * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -293,7 +293,7 @@ export interface CanaryState {
      */
     handler?: pulumi.Input<string>;
     /**
-     * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+     * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
     name?: pulumi.Input<string>;
     /**
@@ -393,7 +393,7 @@ export interface CanaryArgs {
      */
     handler: pulumi.Input<string>;
     /**
-     * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+     * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
     name?: pulumi.Input<string>;
     /**

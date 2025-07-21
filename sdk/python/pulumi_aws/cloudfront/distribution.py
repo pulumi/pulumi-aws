@@ -1159,7 +1159,12 @@ class Distribution(pulumi.CustomResource):
                     "HEAD",
                     "OPTIONS",
                 ],
+                "cached_methods": [
+                    "GET",
+                    "HEAD",
+                ],
                 "target_origin_id": s3_origin_id,
+                "viewer_protocol_policy": "allow-all",
             },
             restrictions={
                 "geo_restriction": {
@@ -1187,6 +1192,7 @@ class Distribution(pulumi.CustomResource):
 
         example = aws.cloudfront.Distribution("example")
         example_log_delivery_source = aws.cloudwatch.LogDeliverySource("example",
+            region="us-east-1",
             name="example",
             log_type="ACCESS_LOGS",
             resource_arn=example.arn)
@@ -1194,17 +1200,51 @@ class Distribution(pulumi.CustomResource):
             bucket="testbucket",
             force_destroy=True)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            region="us-east-1",
             name="s3-destination",
             output_format="parquet",
             delivery_destination_configuration={
                 "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
             })
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            region="us-east-1",
             delivery_source_name=example_log_delivery_source.name,
             delivery_destination_arn=example_log_delivery_destination.arn,
             s3_delivery_configurations=[{
                 "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
             }])
+        ```
+
+        ### With V2 logging to Data Firehose
+
+        The example below creates a CloudFront distribution with [standard logging V2 to Data Firehose](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.Distribution("example")
+        cloudfront_logs = aws.kinesis.FirehoseDeliveryStream("cloudfront_logs",
+            region="us-east-1",
+            tags={
+                "LogDeliveryEnabled": "true",
+            })
+        example_log_delivery_source = aws.cloudwatch.LogDeliverySource("example",
+            region="us-east-1",
+            name="cloudfront-logs-source",
+            log_type="ACCESS_LOGS",
+            resource_arn=example.arn)
+        example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            region="us-east-1",
+            name="firehose-destination",
+            output_format="json",
+            delivery_destination_configuration={
+                "destination_resource_arn": cloudfront_logs.arn,
+            })
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            region="us-east-1",
+            delivery_source_name=example_log_delivery_source.name,
+            delivery_destination_arn=example_log_delivery_destination.arn)
         ```
 
         ## Import
@@ -1466,7 +1506,12 @@ class Distribution(pulumi.CustomResource):
                     "HEAD",
                     "OPTIONS",
                 ],
+                "cached_methods": [
+                    "GET",
+                    "HEAD",
+                ],
                 "target_origin_id": s3_origin_id,
+                "viewer_protocol_policy": "allow-all",
             },
             restrictions={
                 "geo_restriction": {
@@ -1494,6 +1539,7 @@ class Distribution(pulumi.CustomResource):
 
         example = aws.cloudfront.Distribution("example")
         example_log_delivery_source = aws.cloudwatch.LogDeliverySource("example",
+            region="us-east-1",
             name="example",
             log_type="ACCESS_LOGS",
             resource_arn=example.arn)
@@ -1501,17 +1547,51 @@ class Distribution(pulumi.CustomResource):
             bucket="testbucket",
             force_destroy=True)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            region="us-east-1",
             name="s3-destination",
             output_format="parquet",
             delivery_destination_configuration={
                 "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
             })
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            region="us-east-1",
             delivery_source_name=example_log_delivery_source.name,
             delivery_destination_arn=example_log_delivery_destination.arn,
             s3_delivery_configurations=[{
                 "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
             }])
+        ```
+
+        ### With V2 logging to Data Firehose
+
+        The example below creates a CloudFront distribution with [standard logging V2 to Data Firehose](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.Distribution("example")
+        cloudfront_logs = aws.kinesis.FirehoseDeliveryStream("cloudfront_logs",
+            region="us-east-1",
+            tags={
+                "LogDeliveryEnabled": "true",
+            })
+        example_log_delivery_source = aws.cloudwatch.LogDeliverySource("example",
+            region="us-east-1",
+            name="cloudfront-logs-source",
+            log_type="ACCESS_LOGS",
+            resource_arn=example.arn)
+        example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            region="us-east-1",
+            name="firehose-destination",
+            output_format="json",
+            delivery_destination_configuration={
+                "destination_resource_arn": cloudfront_logs.arn,
+            })
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            region="us-east-1",
+            delivery_source_name=example_log_delivery_source.name,
+            delivery_destination_arn=example_log_delivery_destination.arn)
         ```
 
         ## Import

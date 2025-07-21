@@ -63,7 +63,7 @@ class AppArgs:
         :param pulumi.Input[builtins.bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables map for an Amplify app.
         :param pulumi.Input[builtins.str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
-        :param pulumi.Input['AppJobConfigArgs'] job_config: Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        :param pulumi.Input['AppJobConfigArgs'] job_config: Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         :param pulumi.Input[builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         :param pulumi.Input[builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
@@ -314,7 +314,7 @@ class AppArgs:
     @pulumi.getter(name="jobConfig")
     def job_config(self) -> Optional[pulumi.Input['AppJobConfigArgs']]:
         """
-        Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         """
         return pulumi.get(self, "job_config")
 
@@ -445,7 +445,7 @@ class _AppState:
         :param pulumi.Input[builtins.bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables map for an Amplify app.
         :param pulumi.Input[builtins.str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
-        :param pulumi.Input['AppJobConfigArgs'] job_config: Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        :param pulumi.Input['AppJobConfigArgs'] job_config: Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         :param pulumi.Input[builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         :param pulumi.Input[builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
@@ -730,7 +730,7 @@ class _AppState:
     @pulumi.getter(name="jobConfig")
     def job_config(self) -> Optional[pulumi.Input['AppJobConfigArgs']]:
         """
-        Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         """
         return pulumi.get(self, "job_config")
 
@@ -1052,7 +1052,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables map for an Amplify app.
         :param pulumi.Input[builtins.str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
-        :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']] job_config: Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']] job_config: Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         :param pulumi.Input[builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         :param pulumi.Input[builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
@@ -1373,7 +1373,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables map for an Amplify app.
         :param pulumi.Input[builtins.str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
-        :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']] job_config: Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']] job_config: Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         :param pulumi.Input[builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         :param pulumi.Input[builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
@@ -1564,7 +1564,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="jobConfig")
     def job_config(self) -> pulumi.Output['outputs.AppJobConfig']:
         """
-        Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         """
         return pulumi.get(self, "job_config")
 

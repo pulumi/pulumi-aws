@@ -359,7 +359,7 @@ type App struct {
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrOutput `pulumi:"iamServiceRoleArn"`
-	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
 	JobConfig AppJobConfigOutput `pulumi:"jobConfig"`
 	// Name for an Amplify app.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -460,7 +460,7 @@ type appState struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn *string `pulumi:"iamServiceRoleArn"`
-	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
 	JobConfig *AppJobConfig `pulumi:"jobConfig"`
 	// Name for an Amplify app.
 	Name *string `pulumi:"name"`
@@ -517,7 +517,7 @@ type AppState struct {
 	EnvironmentVariables pulumi.StringMapInput
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrInput
-	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
 	JobConfig AppJobConfigPtrInput
 	// Name for an Amplify app.
 	Name pulumi.StringPtrInput
@@ -574,7 +574,7 @@ type appArgs struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn *string `pulumi:"iamServiceRoleArn"`
-	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
 	JobConfig *AppJobConfig `pulumi:"jobConfig"`
 	// Name for an Amplify app.
 	Name *string `pulumi:"name"`
@@ -624,7 +624,7 @@ type AppArgs struct {
 	EnvironmentVariables pulumi.StringMapInput
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrInput
-	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
 	JobConfig AppJobConfigPtrInput
 	// Name for an Amplify app.
 	Name pulumi.StringPtrInput
@@ -817,7 +817,7 @@ func (o AppOutput) IamServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.IamServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
 func (o AppOutput) JobConfig() AppJobConfigOutput {
 	return o.ApplyT(func(v *App) AppJobConfigOutput { return v.JobConfig }).(AppJobConfigOutput)
 }

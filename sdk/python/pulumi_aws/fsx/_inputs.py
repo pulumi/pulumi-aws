@@ -96,6 +96,18 @@ __all__ = [
     'OpenZfsVolumeOriginSnapshotArgsDict',
     'OpenZfsVolumeUserAndGroupQuotaArgs',
     'OpenZfsVolumeUserAndGroupQuotaArgsDict',
+    'S3AccessPointAttachmentOpenzfsConfigurationArgs',
+    'S3AccessPointAttachmentOpenzfsConfigurationArgsDict',
+    'S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs',
+    'S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgsDict',
+    'S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs',
+    'S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgsDict',
+    'S3AccessPointAttachmentS3AccessPointArgs',
+    'S3AccessPointAttachmentS3AccessPointArgsDict',
+    'S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs',
+    'S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict',
+    'S3AccessPointAttachmentTimeoutsArgs',
+    'S3AccessPointAttachmentTimeoutsArgsDict',
     'WindowsFileSystemAuditLogConfigurationArgs',
     'WindowsFileSystemAuditLogConfigurationArgsDict',
     'WindowsFileSystemDiskIopsConfigurationArgs',
@@ -2613,6 +2625,314 @@ class OpenZfsVolumeUserAndGroupQuotaArgs:
     @type.setter
     def type(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentOpenzfsConfigurationArgsDict(TypedDict):
+        volume_id: pulumi.Input[builtins.str]
+        """
+        ID of the FSx for OpenZFS volume to which the S3 access point is attached.
+        """
+        file_system_identity: NotRequired[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgsDict']]
+        """
+        File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `file_system_identity` Block for details.
+        """
+elif False:
+    S3AccessPointAttachmentOpenzfsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentOpenzfsConfigurationArgs:
+    def __init__(__self__, *,
+                 volume_id: pulumi.Input[builtins.str],
+                 file_system_identity: Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] volume_id: ID of the FSx for OpenZFS volume to which the S3 access point is attached.
+        :param pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs'] file_system_identity: File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `file_system_identity` Block for details.
+        """
+        pulumi.set(__self__, "volume_id", volume_id)
+        if file_system_identity is not None:
+            pulumi.set(__self__, "file_system_identity", file_system_identity)
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> pulumi.Input[builtins.str]:
+        """
+        ID of the FSx for OpenZFS volume to which the S3 access point is attached.
+        """
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "volume_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemIdentity")
+    def file_system_identity(self) -> Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs']]:
+        """
+        File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `file_system_identity` Block for details.
+        """
+        return pulumi.get(self, "file_system_identity")
+
+    @file_system_identity.setter
+    def file_system_identity(self, value: Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs']]):
+        pulumi.set(self, "file_system_identity", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgsDict(TypedDict):
+        type: pulumi.Input[builtins.str]
+        """
+        FSx for OpenZFS user identity type. Valid values: `POSIX`.
+        """
+        posix_user: NotRequired[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgsDict']]
+        """
+        UID and GIDs of the file system POSIX user. See `posix_user` Block for details.
+        """
+elif False:
+    S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str],
+                 posix_user: Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] type: FSx for OpenZFS user identity type. Valid values: `POSIX`.
+        :param pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs'] posix_user: UID and GIDs of the file system POSIX user. See `posix_user` Block for details.
+        """
+        pulumi.set(__self__, "type", type)
+        if posix_user is not None:
+            pulumi.set(__self__, "posix_user", posix_user)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        FSx for OpenZFS user identity type. Valid values: `POSIX`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="posixUser")
+    def posix_user(self) -> Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs']]:
+        """
+        UID and GIDs of the file system POSIX user. See `posix_user` Block for details.
+        """
+        return pulumi.get(self, "posix_user")
+
+    @posix_user.setter
+    def posix_user(self, value: Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs']]):
+        pulumi.set(self, "posix_user", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgsDict(TypedDict):
+        gid: pulumi.Input[builtins.int]
+        """
+        GID of the file system user.
+        """
+        uid: pulumi.Input[builtins.int]
+        """
+        UID of the file system user.
+        """
+        secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        List of secondary GIDs for the file system user..
+        """
+elif False:
+    S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs:
+    def __init__(__self__, *,
+                 gid: pulumi.Input[builtins.int],
+                 uid: pulumi.Input[builtins.int],
+                 secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[builtins.int] gid: GID of the file system user.
+        :param pulumi.Input[builtins.int] uid: UID of the file system user.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] secondary_gids: List of secondary GIDs for the file system user..
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+        if secondary_gids is not None:
+            pulumi.set(__self__, "secondary_gids", secondary_gids)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> pulumi.Input[builtins.int]:
+        """
+        GID of the file system user.
+        """
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> pulumi.Input[builtins.int]:
+        """
+        UID of the file system user.
+        """
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "uid", value)
+
+    @property
+    @pulumi.getter(name="secondaryGids")
+    def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        List of secondary GIDs for the file system user..
+        """
+        return pulumi.get(self, "secondary_gids")
+
+    @secondary_gids.setter
+    def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "secondary_gids", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentS3AccessPointArgsDict(TypedDict):
+        policy: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Access policy associated with the S3 access point configuration.
+        """
+        vpc_configuration: NotRequired[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict']]
+        """
+        Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpc_configuration` Block for details.
+        """
+elif False:
+    S3AccessPointAttachmentS3AccessPointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentS3AccessPointArgs:
+    def __init__(__self__, *,
+                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 vpc_configuration: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] policy: Access policy associated with the S3 access point configuration.
+        :param pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs'] vpc_configuration: Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpc_configuration` Block for details.
+        """
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Access policy associated with the S3 access point configuration.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]:
+        """
+        Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpc_configuration` Block for details.
+        """
+        return pulumi.get(self, "vpc_configuration")
+
+    @vpc_configuration.setter
+    def vpc_configuration(self, value: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]):
+        pulumi.set(self, "vpc_configuration", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict(TypedDict):
+        vpc_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        VPC ID.
+        """
+elif False:
+    S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 vpc_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] vpc_id: VPC ID.
+        """
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        VPC ID.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpc_id", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    S3AccessPointAttachmentTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[builtins.str]] = None,
+                 delete: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "delete", value)
 
 
 if not MYPY:

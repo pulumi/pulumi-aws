@@ -63,6 +63,8 @@ import (
 type LogMetricFilter struct {
 	pulumi.CustomResourceState
 
+	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+	ApplyOnTransformedLogs pulumi.BoolOutput `pulumi:"applyOnTransformedLogs"`
 	// The name of the log group to associate the metric filter with.
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// A block defining collection of information needed to define how metric data gets emitted. See below.
@@ -115,6 +117,8 @@ func GetLogMetricFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogMetricFilter resources.
 type logMetricFilterState struct {
+	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`
 	// The name of the log group to associate the metric filter with.
 	LogGroupName *string `pulumi:"logGroupName"`
 	// A block defining collection of information needed to define how metric data gets emitted. See below.
@@ -129,6 +133,8 @@ type logMetricFilterState struct {
 }
 
 type LogMetricFilterState struct {
+	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+	ApplyOnTransformedLogs pulumi.BoolPtrInput
 	// The name of the log group to associate the metric filter with.
 	LogGroupName pulumi.StringPtrInput
 	// A block defining collection of information needed to define how metric data gets emitted. See below.
@@ -147,6 +153,8 @@ func (LogMetricFilterState) ElementType() reflect.Type {
 }
 
 type logMetricFilterArgs struct {
+	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`
 	// The name of the log group to associate the metric filter with.
 	LogGroupName string `pulumi:"logGroupName"`
 	// A block defining collection of information needed to define how metric data gets emitted. See below.
@@ -162,6 +170,8 @@ type logMetricFilterArgs struct {
 
 // The set of arguments for constructing a LogMetricFilter resource.
 type LogMetricFilterArgs struct {
+	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+	ApplyOnTransformedLogs pulumi.BoolPtrInput
 	// The name of the log group to associate the metric filter with.
 	LogGroupName pulumi.StringInput
 	// A block defining collection of information needed to define how metric data gets emitted. See below.
@@ -260,6 +270,11 @@ func (o LogMetricFilterOutput) ToLogMetricFilterOutput() LogMetricFilterOutput {
 
 func (o LogMetricFilterOutput) ToLogMetricFilterOutputWithContext(ctx context.Context) LogMetricFilterOutput {
 	return o
+}
+
+// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+func (o LogMetricFilterOutput) ApplyOnTransformedLogs() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LogMetricFilter) pulumi.BoolOutput { return v.ApplyOnTransformedLogs }).(pulumi.BoolOutput)
 }
 
 // The name of the log group to associate the metric filter with.

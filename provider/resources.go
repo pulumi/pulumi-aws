@@ -6050,6 +6050,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_dsql_cluster_peering":                       {"identifier"},
 		"aws_dsql_cluster":                               {"identifier"},
 		"aws_prometheus_query_logging_configuration":     {"workspaceId"},
+		"aws_fsx_s3_access_point_attachment":             {"name"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {

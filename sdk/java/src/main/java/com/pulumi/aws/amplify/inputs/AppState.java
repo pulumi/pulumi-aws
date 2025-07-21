@@ -294,14 +294,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
      * 
      */
     @Import(name="jobConfig")
     private @Nullable Output<AppJobConfigArgs> jobConfig;
 
     /**
-     * @return Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * @return Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
      * 
      */
     public Optional<Output<AppJobConfigArgs>> jobConfig() {
@@ -877,7 +877,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobConfig Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+         * @param jobConfig Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
          * 
          * @return builder
          * 
@@ -888,7 +888,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobConfig Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+         * @param jobConfig Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
          * 
          * @return builder
          * 

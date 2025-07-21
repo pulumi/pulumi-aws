@@ -42,6 +42,7 @@ from .bucket_versioning_v2 import *
 from .bucket_website_configuration import *
 from .bucket_website_configuration_v2 import *
 from .directory_bucket import *
+from .get_access_point import *
 from .get_account_public_access_block import *
 from .get_bucket import *
 from .get_bucket_object import *

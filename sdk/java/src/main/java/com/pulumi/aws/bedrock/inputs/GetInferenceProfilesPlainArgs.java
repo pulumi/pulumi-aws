@@ -29,10 +29,26 @@ public final class GetInferenceProfilesPlainArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
+     * 
+     */
+    @Import(name="type")
+    private @Nullable String type;
+
+    /**
+     * @return Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
+     * 
+     */
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
+    }
+
     private GetInferenceProfilesPlainArgs() {}
 
     private GetInferenceProfilesPlainArgs(GetInferenceProfilesPlainArgs $) {
         this.region = $.region;
+        this.type = $.type;
     }
 
     public static Builder builder() {
@@ -61,6 +77,17 @@ public final class GetInferenceProfilesPlainArgs extends com.pulumi.resources.In
          */
         public Builder region(@Nullable String region) {
             $.region = region;
+            return this;
+        }
+
+        /**
+         * @param type Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(@Nullable String type) {
+            $.type = type;
             return this;
         }
 

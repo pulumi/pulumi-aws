@@ -761,14 +761,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
+     * Server-side encryption of the object in S3. Valid values are `&#34;AES256&#34;`, `&#34;aws:kms&#34;`, `&#34;aws:kms:dsse&#34;`, and `&#34;aws:fsx&#34;`.
      * 
      */
     @Export(name="serverSideEncryption", refs={String.class}, tree="[0]")
     private Output<String> serverSideEncryption;
 
     /**
-     * @return Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
+     * @return Server-side encryption of the object in S3. Valid values are `&#34;AES256&#34;`, `&#34;aws:kms&#34;`, `&#34;aws:kms:dsse&#34;`, and `&#34;aws:fsx&#34;`.
      * 
      */
     public Output<String> serverSideEncryption() {

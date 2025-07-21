@@ -80,6 +80,11 @@ export type OpenZfsVolume = import("./openZfsVolume").OpenZfsVolume;
 export const OpenZfsVolume: typeof import("./openZfsVolume").OpenZfsVolume = null as any;
 utilities.lazyLoad(exports, ["OpenZfsVolume"], () => require("./openZfsVolume"));
 
+export { S3AccessPointAttachmentArgs, S3AccessPointAttachmentState } from "./s3accessPointAttachment";
+export type S3AccessPointAttachment = import("./s3accessPointAttachment").S3AccessPointAttachment;
+export const S3AccessPointAttachment: typeof import("./s3accessPointAttachment").S3AccessPointAttachment = null as any;
+utilities.lazyLoad(exports, ["S3AccessPointAttachment"], () => require("./s3accessPointAttachment"));
+
 export { WindowsFileSystemArgs, WindowsFileSystemState } from "./windowsFileSystem";
 export type WindowsFileSystem = import("./windowsFileSystem").WindowsFileSystem;
 export const WindowsFileSystem: typeof import("./windowsFileSystem").WindowsFileSystem = null as any;
@@ -110,6 +115,8 @@ const _module = {
                 return new OpenZfsSnapshot(name, <any>undefined, { urn })
             case "aws:fsx/openZfsVolume:OpenZfsVolume":
                 return new OpenZfsVolume(name, <any>undefined, { urn })
+            case "aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment":
+                return new S3AccessPointAttachment(name, <any>undefined, { urn })
             case "aws:fsx/windowsFileSystem:WindowsFileSystem":
                 return new WindowsFileSystem(name, <any>undefined, { urn })
             default:
@@ -127,4 +134,5 @@ pulumi.runtime.registerResourceModule("aws", "fsx/ontapVolume", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/openZfsFileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/openZfsSnapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/openZfsVolume", _module)
+pulumi.runtime.registerResourceModule("aws", "fsx/s3AccessPointAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/windowsFileSystem", _module)

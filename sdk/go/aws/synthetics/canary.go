@@ -76,7 +76,7 @@ type Canary struct {
 	FailureRetentionPeriod pulumi.IntPtrOutput `pulumi:"failureRetentionPeriod"`
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler pulumi.StringOutput `pulumi:"handler"`
-	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -175,7 +175,7 @@ type canaryState struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler *string `pulumi:"handler"`
-	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -230,7 +230,7 @@ type CanaryState struct {
 	FailureRetentionPeriod pulumi.IntPtrInput
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler pulumi.StringPtrInput
-	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -285,7 +285,7 @@ type canaryArgs struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler string `pulumi:"handler"`
-	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -329,7 +329,7 @@ type CanaryArgs struct {
 	FailureRetentionPeriod pulumi.IntPtrInput
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler pulumi.StringInput
-	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -486,7 +486,7 @@ func (o CanaryOutput) Handler() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Handler }).(pulumi.StringOutput)
 }
 
-// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 func (o CanaryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

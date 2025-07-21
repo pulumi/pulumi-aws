@@ -65,31 +65,31 @@ namespace Pulumi.Aws.Cfg
     public partial class OrganizationCustomPolicyRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the rule
+        /// Amazon Resource Name (ARN) of the rule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// List of AWS account identifiers to exclude from the rule
+        /// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
         /// </summary>
         [Output("debugLogDeliveryAccounts")]
         public Output<ImmutableArray<string>> DebugLogDeliveryAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the rule
+        /// Description of the rule.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// List of AWS account identifiers to exclude from the rule
+        /// List of AWS account identifiers to exclude from the rule.
         /// </summary>
         [Output("excludedAccounts")]
         public Output<ImmutableArray<string>> ExcludedAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        /// A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         /// </summary>
         [Output("inputParameters")]
         public Output<string?> InputParameters { get; private set; } = null!;
@@ -101,19 +101,19 @@ namespace Pulumi.Aws.Cfg
         public Output<string?> MaximumExecutionFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// name of the rule
+        /// Name of the rule.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// runtime system for your organization AWS Config Custom Policy rules
+        /// Runtime system for policy rules.
         /// </summary>
         [Output("policyRuntime")]
         public Output<string> PolicyRuntime { get; private set; } = null!;
 
         /// <summary>
-        /// policy definition containing the logic for your organization AWS Config Custom Policy rule
+        /// Policy definition containing the rule logic.
         /// </summary>
         [Output("policyText")]
         public Output<string> PolicyText { get; private set; } = null!;
@@ -125,31 +125,31 @@ namespace Pulumi.Aws.Cfg
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the AWS resource to evaluate
+        /// Identifier of the AWS resource to evaluate.
         /// </summary>
         [Output("resourceIdScope")]
         public Output<string?> ResourceIdScope { get; private set; } = null!;
 
         /// <summary>
-        /// List of types of AWS resources to evaluate
+        /// List of types of AWS resources to evaluate.
         /// </summary>
         [Output("resourceTypesScopes")]
         public Output<ImmutableArray<string>> ResourceTypesScopes { get; private set; } = null!;
 
         /// <summary>
-        /// Tag key of AWS resources to evaluate
+        /// Tag key of AWS resources to evaluate.
         /// </summary>
         [Output("tagKeyScope")]
         public Output<string?> TagKeyScope { get; private set; } = null!;
 
         /// <summary>
-        /// Tag value of AWS resources to evaluate
+        /// Tag value of AWS resources to evaluate.
         /// </summary>
         [Output("tagValueScope")]
         public Output<string?> TagValueScope { get; private set; } = null!;
 
         /// <summary>
-        /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<string>? _debugLogDeliveryAccounts;
 
         /// <summary>
-        /// List of AWS account identifiers to exclude from the rule
+        /// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
         /// </summary>
         public InputList<string> DebugLogDeliveryAccounts
         {
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Cfg
         }
 
         /// <summary>
-        /// Description of the rule
+        /// Description of the rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<string>? _excludedAccounts;
 
         /// <summary>
-        /// List of AWS account identifiers to exclude from the rule
+        /// List of AWS account identifiers to exclude from the rule.
         /// </summary>
         public InputList<string> ExcludedAccounts
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Cfg
         }
 
         /// <summary>
-        /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        /// A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         /// </summary>
         [Input("inputParameters")]
         public Input<string>? InputParameters { get; set; }
@@ -245,19 +245,19 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? MaximumExecutionFrequency { get; set; }
 
         /// <summary>
-        /// name of the rule
+        /// Name of the rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// runtime system for your organization AWS Config Custom Policy rules
+        /// Runtime system for policy rules.
         /// </summary>
         [Input("policyRuntime", required: true)]
         public Input<string> PolicyRuntime { get; set; } = null!;
 
         /// <summary>
-        /// policy definition containing the logic for your organization AWS Config Custom Policy rule
+        /// Policy definition containing the rule logic.
         /// </summary>
         [Input("policyText", required: true)]
         public Input<string> PolicyText { get; set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Identifier of the AWS resource to evaluate
+        /// Identifier of the AWS resource to evaluate.
         /// </summary>
         [Input("resourceIdScope")]
         public Input<string>? ResourceIdScope { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<string>? _resourceTypesScopes;
 
         /// <summary>
-        /// List of types of AWS resources to evaluate
+        /// List of types of AWS resources to evaluate.
         /// </summary>
         public InputList<string> ResourceTypesScopes
         {
@@ -287,13 +287,13 @@ namespace Pulumi.Aws.Cfg
         }
 
         /// <summary>
-        /// Tag key of AWS resources to evaluate
+        /// Tag key of AWS resources to evaluate.
         /// </summary>
         [Input("tagKeyScope")]
         public Input<string>? TagKeyScope { get; set; }
 
         /// <summary>
-        /// Tag value of AWS resources to evaluate
+        /// Tag value of AWS resources to evaluate.
         /// </summary>
         [Input("tagValueScope")]
         public Input<string>? TagValueScope { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<string>? _triggerTypes;
 
         /// <summary>
-        /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class OrganizationCustomPolicyRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the rule
+        /// Amazon Resource Name (ARN) of the rule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<string>? _debugLogDeliveryAccounts;
 
         /// <summary>
-        /// List of AWS account identifiers to exclude from the rule
+        /// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
         /// </summary>
         public InputList<string> DebugLogDeliveryAccounts
         {
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Cfg
         }
 
         /// <summary>
-        /// Description of the rule
+        /// Description of the rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<string>? _excludedAccounts;
 
         /// <summary>
-        /// List of AWS account identifiers to exclude from the rule
+        /// List of AWS account identifiers to exclude from the rule.
         /// </summary>
         public InputList<string> ExcludedAccounts
         {
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.Cfg
         }
 
         /// <summary>
-        /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        /// A string in JSON format that is passed to the AWS Config Rule Lambda Function.
         /// </summary>
         [Input("inputParameters")]
         public Input<string>? InputParameters { get; set; }
@@ -369,19 +369,19 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? MaximumExecutionFrequency { get; set; }
 
         /// <summary>
-        /// name of the rule
+        /// Name of the rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// runtime system for your organization AWS Config Custom Policy rules
+        /// Runtime system for policy rules.
         /// </summary>
         [Input("policyRuntime")]
         public Input<string>? PolicyRuntime { get; set; }
 
         /// <summary>
-        /// policy definition containing the logic for your organization AWS Config Custom Policy rule
+        /// Policy definition containing the rule logic.
         /// </summary>
         [Input("policyText")]
         public Input<string>? PolicyText { get; set; }
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Identifier of the AWS resource to evaluate
+        /// Identifier of the AWS resource to evaluate.
         /// </summary>
         [Input("resourceIdScope")]
         public Input<string>? ResourceIdScope { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<string>? _resourceTypesScopes;
 
         /// <summary>
-        /// List of types of AWS resources to evaluate
+        /// List of types of AWS resources to evaluate.
         /// </summary>
         public InputList<string> ResourceTypesScopes
         {
@@ -411,13 +411,13 @@ namespace Pulumi.Aws.Cfg
         }
 
         /// <summary>
-        /// Tag key of AWS resources to evaluate
+        /// Tag key of AWS resources to evaluate.
         /// </summary>
         [Input("tagKeyScope")]
         public Input<string>? TagKeyScope { get; set; }
 
         /// <summary>
-        /// Tag value of AWS resources to evaluate
+        /// Tag value of AWS resources to evaluate.
         /// </summary>
         [Input("tagValueScope")]
         public Input<string>? TagValueScope { get; set; }
@@ -426,7 +426,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<string>? _triggerTypes;
 
         /// <summary>
-        /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
         /// 
         /// The following arguments are optional:
         /// </summary>

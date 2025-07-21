@@ -288,7 +288,12 @@ import (
 //						pulumi.String("HEAD"),
 //						pulumi.String("OPTIONS"),
 //					},
-//					TargetOriginId: pulumi.String(s3OriginId),
+//					CachedMethods: pulumi.StringArray{
+//						pulumi.String("GET"),
+//						pulumi.String("HEAD"),
+//					},
+//					TargetOriginId:       pulumi.String(s3OriginId),
+//					ViewerProtocolPolicy: pulumi.String("allow-all"),
 //				},
 //				Restrictions: &cloudfront.DistributionRestrictionsArgs{
 //					GeoRestriction: &cloudfront.DistributionRestrictionsGeoRestrictionArgs{
@@ -339,6 +344,7 @@ import (
 //				return err
 //			}
 //			exampleLogDeliverySource, err := cloudwatch.NewLogDeliverySource(ctx, "example", &cloudwatch.LogDeliverySourceArgs{
+//				Region:      pulumi.String("us-east-1"),
 //				Name:        pulumi.String("example"),
 //				LogType:     pulumi.String("ACCESS_LOGS"),
 //				ResourceArn: example.Arn,
@@ -354,6 +360,7 @@ import (
 //				return err
 //			}
 //			exampleLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "example", &cloudwatch.LogDeliveryDestinationArgs{
+//				Region:       pulumi.String("us-east-1"),
 //				Name:         pulumi.String("s3-destination"),
 //				OutputFormat: pulumi.String("parquet"),
 //				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
@@ -366,6 +373,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogDelivery(ctx, "example", &cloudwatch.LogDeliveryArgs{
+//				Region:                 pulumi.String("us-east-1"),
 //				DeliverySourceName:     exampleLogDeliverySource.Name,
 //				DeliveryDestinationArn: exampleLogDeliveryDestination.Arn,
 //				S3DeliveryConfigurations: cloudwatch.LogDeliveryS3DeliveryConfigurationArray{
@@ -373,6 +381,71 @@ import (
 //						SuffixPath: pulumi.String("/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}"),
 //					},
 //				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### With V2 logging to Data Firehose
+//
+// The example below creates a CloudFront distribution with [standard logging V2 to Data Firehose](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cloudfront.NewDistribution(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			cloudfrontLogs, err := kinesis.NewFirehoseDeliveryStream(ctx, "cloudfront_logs", &kinesis.FirehoseDeliveryStreamArgs{
+//				Region: pulumi.String("us-east-1"),
+//				Tags: pulumi.StringMap{
+//					"LogDeliveryEnabled": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogDeliverySource, err := cloudwatch.NewLogDeliverySource(ctx, "example", &cloudwatch.LogDeliverySourceArgs{
+//				Region:      pulumi.String("us-east-1"),
+//				Name:        pulumi.String("cloudfront-logs-source"),
+//				LogType:     pulumi.String("ACCESS_LOGS"),
+//				ResourceArn: example.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "example", &cloudwatch.LogDeliveryDestinationArgs{
+//				Region:       pulumi.String("us-east-1"),
+//				Name:         pulumi.String("firehose-destination"),
+//				OutputFormat: pulumi.String("json"),
+//				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
+//					DestinationResourceArn: cloudfrontLogs.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogDelivery(ctx, "example", &cloudwatch.LogDeliveryArgs{
+//				Region:                 pulumi.String("us-east-1"),
+//				DeliverySourceName:     exampleLogDeliverySource.Name,
+//				DeliveryDestinationArn: exampleLogDeliveryDestination.Arn,
 //			})
 //			if err != nil {
 //				return err

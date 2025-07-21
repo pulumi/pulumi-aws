@@ -202,6 +202,87 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Function with logging to S3 or Data Firehose
+ *
+ * #### Required Resources
+ *
+ * * An S3 bucket or Data Firehose delivery stream to store the logs.
+ * * A CloudWatch Log Group with:
+ *   
+ *     * `logGroupClass = "DELIVERY"`
+ *     * A subscription filter whose `destinationArn` points to the S3 bucket or the Data Firehose delivery stream.
+ *
+ * * IAM roles:
+ *   
+ *     * Assumed by the `logs.amazonaws.com` service to deliver logs to the S3 bucket or Data Firehose delivery stream.
+ *     * Assumed by the `lambda.amazonaws.com` service to send logs to CloudWatch Logs
+ *
+ * * A Lambda function:
+ *   
+ *     * In the `loggingConfiguration`, specify the name of the Log Group created above using the `logGroup` field
+ *     * No special configuration is required to use S3 or Firehose as the log destination
+ *
+ * For more details, see [Sending Lambda function logs to Amazon S3](https://docs.aws.amazon.com/lambda/latest/dg/logging-with-s3.html).
+ *
+ * ### Example: Exporting Lambda Logs to S3 Bucket
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const lambdaFunctionName = "lambda-log-export-example";
+ * const lambdaLogExportBucket = new aws.s3.Bucket("lambda_log_export", {bucket: `${lambdaFunctionName}-bucket`});
+ * const _export = new aws.cloudwatch.LogGroup("export", {
+ *     name: `/aws/lambda/${lambdaFunctionName}`,
+ *     logGroupClass: "DELIVERY",
+ * });
+ * const logsAssumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["logs.amazonaws.com"],
+ *         }],
+ *     }],
+ * });
+ * const logsLogExport = new aws.iam.Role("logs_log_export", {
+ *     name: `${lambdaFunctionName}-lambda-log-export-role`,
+ *     assumeRolePolicy: logsAssumeRole.then(logsAssumeRole => logsAssumeRole.json),
+ * });
+ * const lambdaLogExport = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: ["s3:PutObject"],
+ *         effect: "Allow",
+ *         resources: [pulumi.interpolate`${lambdaLogExportBucket.arn}/*`],
+ *     }],
+ * });
+ * const lambdaLogExportRolePolicy = new aws.iam.RolePolicy("lambda_log_export", {
+ *     policy: lambdaLogExport.apply(lambdaLogExport => lambdaLogExport.json),
+ *     role: logsLogExport.name,
+ * });
+ * const lambdaLogExportLogSubscriptionFilter = new aws.cloudwatch.LogSubscriptionFilter("lambda_log_export", {
+ *     name: `${lambdaFunctionName}-filter`,
+ *     logGroup: _export.name,
+ *     filterPattern: "",
+ *     destinationArn: lambdaLogExportBucket.arn,
+ *     roleArn: logsLogExport.arn,
+ * });
+ * const logExport = new aws.lambda.Function("log_export", {
+ *     name: lambdaFunctionName,
+ *     handler: "index.lambda_handler",
+ *     runtime: aws.lambda.Runtime.Python3d13,
+ *     role: example.arn,
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     loggingConfig: {
+ *         logFormat: "Text",
+ *         logGroup: _export.name,
+ *     },
+ * }, {
+ *     dependsOn: [_export],
+ * });
+ * ```
+ *
  * ### Function with Error Handling
  *
  * ```typescript

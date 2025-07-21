@@ -16,6 +16,11 @@ public final class CertificateOptions {
      * 
      */
     private @Nullable String certificateTransparencyLoggingPreference;
+    /**
+     * @return Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+     * 
+     */
+    private @Nullable String export;
 
     private CertificateOptions() {}
     /**
@@ -24,6 +29,13 @@ public final class CertificateOptions {
      */
     public Optional<String> certificateTransparencyLoggingPreference() {
         return Optional.ofNullable(this.certificateTransparencyLoggingPreference);
+    }
+    /**
+     * @return Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+     * 
+     */
+    public Optional<String> export() {
+        return Optional.ofNullable(this.export);
     }
 
     public static Builder builder() {
@@ -36,10 +48,12 @@ public final class CertificateOptions {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateTransparencyLoggingPreference;
+        private @Nullable String export;
         public Builder() {}
         public Builder(CertificateOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateTransparencyLoggingPreference = defaults.certificateTransparencyLoggingPreference;
+    	      this.export = defaults.export;
         }
 
         @CustomType.Setter
@@ -48,9 +62,16 @@ public final class CertificateOptions {
             this.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
             return this;
         }
+        @CustomType.Setter
+        public Builder export(@Nullable String export) {
+
+            this.export = export;
+            return this;
+        }
         public CertificateOptions build() {
             final var _resultValue = new CertificateOptions();
             _resultValue.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
+            _resultValue.export = export;
             return _resultValue;
         }
     }

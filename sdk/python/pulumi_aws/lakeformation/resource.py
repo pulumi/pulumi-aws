@@ -25,7 +25,8 @@ class ResourceArgs:
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[builtins.bool]] = None,
-                 with_federation: Optional[pulumi.Input[builtins.bool]] = None):
+                 with_federation: Optional[pulumi.Input[builtins.bool]] = None,
+                 with_privileged_access: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a Resource resource.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the resource.
@@ -36,6 +37,7 @@ class ResourceArgs:
         :param pulumi.Input[builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         :param pulumi.Input[builtins.bool] with_federation: Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+        :param pulumi.Input[builtins.bool] with_privileged_access: Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
                
                > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
@@ -50,6 +52,8 @@ class ResourceArgs:
             pulumi.set(__self__, "use_service_linked_role", use_service_linked_role)
         if with_federation is not None:
             pulumi.set(__self__, "with_federation", with_federation)
+        if with_privileged_access is not None:
+            pulumi.set(__self__, "with_privileged_access", with_privileged_access)
 
     @property
     @pulumi.getter
@@ -118,14 +122,26 @@ class ResourceArgs:
     def with_federation(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-
-        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         return pulumi.get(self, "with_federation")
 
     @with_federation.setter
     def with_federation(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "with_federation", value)
+
+    @property
+    @pulumi.getter(name="withPrivilegedAccess")
+    def with_privileged_access(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+
+        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        """
+        return pulumi.get(self, "with_privileged_access")
+
+    @with_privileged_access.setter
+    def with_privileged_access(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "with_privileged_access", value)
 
 
 @pulumi.input_type
@@ -137,7 +153,8 @@ class _ResourceState:
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[builtins.bool]] = None,
-                 with_federation: Optional[pulumi.Input[builtins.bool]] = None):
+                 with_federation: Optional[pulumi.Input[builtins.bool]] = None,
+                 with_privileged_access: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the resource.
@@ -149,6 +166,7 @@ class _ResourceState:
         :param pulumi.Input[builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         :param pulumi.Input[builtins.bool] with_federation: Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+        :param pulumi.Input[builtins.bool] with_privileged_access: Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
                
                > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
@@ -166,6 +184,8 @@ class _ResourceState:
             pulumi.set(__self__, "use_service_linked_role", use_service_linked_role)
         if with_federation is not None:
             pulumi.set(__self__, "with_federation", with_federation)
+        if with_privileged_access is not None:
+            pulumi.set(__self__, "with_privileged_access", with_privileged_access)
 
     @property
     @pulumi.getter
@@ -246,14 +266,26 @@ class _ResourceState:
     def with_federation(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-
-        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         return pulumi.get(self, "with_federation")
 
     @with_federation.setter
     def with_federation(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "with_federation", value)
+
+    @property
+    @pulumi.getter(name="withPrivilegedAccess")
+    def with_privileged_access(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+
+        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        """
+        return pulumi.get(self, "with_privileged_access")
+
+    @with_privileged_access.setter
+    def with_privileged_access(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "with_privileged_access", value)
 
 
 @pulumi.type_token("aws:lakeformation/resource:Resource")
@@ -268,6 +300,7 @@ class Resource(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[builtins.bool]] = None,
                  with_federation: Optional[pulumi.Input[builtins.bool]] = None,
+                 with_privileged_access: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
         Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
@@ -297,6 +330,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         :param pulumi.Input[builtins.bool] with_federation: Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+        :param pulumi.Input[builtins.bool] with_privileged_access: Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
                
                > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
@@ -345,6 +379,7 @@ class Resource(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[builtins.bool]] = None,
                  with_federation: Optional[pulumi.Input[builtins.bool]] = None,
+                 with_privileged_access: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -362,6 +397,7 @@ class Resource(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["use_service_linked_role"] = use_service_linked_role
             __props__.__dict__["with_federation"] = with_federation
+            __props__.__dict__["with_privileged_access"] = with_privileged_access
             __props__.__dict__["last_modified"] = None
         super(Resource, __self__).__init__(
             'aws:lakeformation/resource:Resource',
@@ -379,7 +415,8 @@ class Resource(pulumi.CustomResource):
             region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             use_service_linked_role: Optional[pulumi.Input[builtins.bool]] = None,
-            with_federation: Optional[pulumi.Input[builtins.bool]] = None) -> 'Resource':
+            with_federation: Optional[pulumi.Input[builtins.bool]] = None,
+            with_privileged_access: Optional[pulumi.Input[builtins.bool]] = None) -> 'Resource':
         """
         Get an existing Resource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -396,6 +433,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         :param pulumi.Input[builtins.bool] with_federation: Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+        :param pulumi.Input[builtins.bool] with_privileged_access: Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
                
                > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
@@ -410,6 +448,7 @@ class Resource(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["use_service_linked_role"] = use_service_linked_role
         __props__.__dict__["with_federation"] = with_federation
+        __props__.__dict__["with_privileged_access"] = with_privileged_access
         return Resource(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -467,8 +506,16 @@ class Resource(pulumi.CustomResource):
     def with_federation(self) -> pulumi.Output[builtins.bool]:
         """
         Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+        """
+        return pulumi.get(self, "with_federation")
+
+    @property
+    @pulumi.getter(name="withPrivilegedAccess")
+    def with_privileged_access(self) -> pulumi.Output[builtins.bool]:
+        """
+        Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
 
         > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
-        return pulumi.get(self, "with_federation")
+        return pulumi.get(self, "with_privileged_access")
 

@@ -114,14 +114,14 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+     * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+     * @return Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      * 
      */
     public Optional<Output<String>> name() {
@@ -481,7 +481,7 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+         * @param name Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+         * @param name Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
          * 
          * @return builder
          * 

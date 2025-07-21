@@ -14,13 +14,17 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceLoadBalancer
     {
         /// <summary>
+        /// Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
+        /// 
+        /// &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+        /// </summary>
+        public readonly Outputs.ServiceLoadBalancerAdvancedConfiguration? AdvancedConfiguration;
+        /// <summary>
         /// Name of the container to associate with the load balancer (as it appears in a container definition).
         /// </summary>
         public readonly string ContainerName;
         /// <summary>
         /// Port on the container to associate with the load balancer.
-        /// 
-        /// &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         /// </summary>
         public readonly int ContainerPort;
         /// <summary>
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceLoadBalancer(
+            Outputs.ServiceLoadBalancerAdvancedConfiguration? advancedConfiguration,
+
             string containerName,
 
             int containerPort,
@@ -42,6 +48,7 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             string? targetGroupArn)
         {
+            AdvancedConfiguration = advancedConfiguration;
             ContainerName = containerName;
             ContainerPort = containerPort;
             ElbName = elbName;

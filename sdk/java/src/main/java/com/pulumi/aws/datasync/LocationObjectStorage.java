@@ -89,14 +89,14 @@ public class LocationObjectStorage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="agentArns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> agentArns;
+    private Output</* @Nullable */ List<String>> agentArns;
 
     /**
      * @return A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    public Output<List<String>> agentArns() {
-        return this.agentArns;
+    public Output<Optional<List<String>>> agentArns() {
+        return Codegen.optional(this.agentArns);
     }
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.

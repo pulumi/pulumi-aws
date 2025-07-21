@@ -140,6 +140,120 @@ __all__ = [
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgsDict',
+    'AgentFlowDefinitionArgs',
+    'AgentFlowDefinitionArgsDict',
+    'AgentFlowDefinitionConnectionArgs',
+    'AgentFlowDefinitionConnectionArgsDict',
+    'AgentFlowDefinitionConnectionConfigurationArgs',
+    'AgentFlowDefinitionConnectionConfigurationArgsDict',
+    'AgentFlowDefinitionConnectionConfigurationConditionalArgs',
+    'AgentFlowDefinitionConnectionConfigurationConditionalArgsDict',
+    'AgentFlowDefinitionConnectionConfigurationDataArgs',
+    'AgentFlowDefinitionConnectionConfigurationDataArgsDict',
+    'AgentFlowDefinitionNodeArgs',
+    'AgentFlowDefinitionNodeArgsDict',
+    'AgentFlowDefinitionNodeConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationAgentArgs',
+    'AgentFlowDefinitionNodeConfigurationAgentArgsDict',
+    'AgentFlowDefinitionNodeConfigurationCollectorArgs',
+    'AgentFlowDefinitionNodeConfigurationCollectorArgsDict',
+    'AgentFlowDefinitionNodeConfigurationConditionArgs',
+    'AgentFlowDefinitionNodeConfigurationConditionArgsDict',
+    'AgentFlowDefinitionNodeConfigurationConditionConditionArgs',
+    'AgentFlowDefinitionNodeConfigurationConditionConditionArgsDict',
+    'AgentFlowDefinitionNodeConfigurationInlineCodeArgs',
+    'AgentFlowDefinitionNodeConfigurationInlineCodeArgsDict',
+    'AgentFlowDefinitionNodeConfigurationInputArgs',
+    'AgentFlowDefinitionNodeConfigurationInputArgsDict',
+    'AgentFlowDefinitionNodeConfigurationIteratorArgs',
+    'AgentFlowDefinitionNodeConfigurationIteratorArgsDict',
+    'AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs',
+    'AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgsDict',
+    'AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs',
+    'AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgsDict',
+    'AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs',
+    'AgentFlowDefinitionNodeConfigurationLambdaFunctionArgsDict',
+    'AgentFlowDefinitionNodeConfigurationLexArgs',
+    'AgentFlowDefinitionNodeConfigurationLexArgsDict',
+    'AgentFlowDefinitionNodeConfigurationOutputArgs',
+    'AgentFlowDefinitionNodeConfigurationOutputArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgsDict',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs',
+    'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgsDict',
+    'AgentFlowDefinitionNodeConfigurationRetrievalArgs',
+    'AgentFlowDefinitionNodeConfigurationRetrievalArgsDict',
+    'AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args',
+    'AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3ArgsDict',
+    'AgentFlowDefinitionNodeConfigurationStorageArgs',
+    'AgentFlowDefinitionNodeConfigurationStorageArgsDict',
+    'AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs',
+    'AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgsDict',
+    'AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args',
+    'AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3ArgsDict',
+    'AgentFlowDefinitionNodeInputArgs',
+    'AgentFlowDefinitionNodeInputArgsDict',
+    'AgentFlowDefinitionNodeOutputArgs',
+    'AgentFlowDefinitionNodeOutputArgsDict',
+    'AgentFlowTimeoutsArgs',
+    'AgentFlowTimeoutsArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs',
@@ -3709,6 +3823,2738 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
     @parsing_prompt_string.setter
     def parsing_prompt_string(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "parsing_prompt_string", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionArgsDict(TypedDict):
+        connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionConnectionArgsDict']]]]
+        """
+        A list of connection definitions in the flow. See Connection for more information.
+        """
+        nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeArgsDict']]]]
+        """
+        A list of node definitions in the flow. See Node for more information.
+        """
+elif False:
+    AgentFlowDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionArgs:
+    def __init__(__self__, *,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionConnectionArgs']]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionConnectionArgs']]] connections: A list of connection definitions in the flow. See Connection for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeArgs']]] nodes: A list of node definitions in the flow. See Node for more information.
+        """
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+
+    @property
+    @pulumi.getter
+    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionConnectionArgs']]]]:
+        """
+        A list of connection definitions in the flow. See Connection for more information.
+        """
+        return pulumi.get(self, "connections")
+
+    @connections.setter
+    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionConnectionArgs']]]]):
+        pulumi.set(self, "connections", value)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeArgs']]]]:
+        """
+        A list of node definitions in the flow. See Node for more information.
+        """
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeArgs']]]]):
+        pulumi.set(self, "nodes", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionConnectionArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        A name for the connection that you can reference.
+        """
+        source: pulumi.Input[builtins.str]
+        """
+        The node that the connection starts at.
+        """
+        target: pulumi.Input[builtins.str]
+        """
+        The node that the connection ends at.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+        """
+        configuration: NotRequired[pulumi.Input['AgentFlowDefinitionConnectionConfigurationArgsDict']]
+        """
+        Configuration of the connection. See Connection Configuration for more information.
+        """
+elif False:
+    AgentFlowDefinitionConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionConnectionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 source: pulumi.Input[builtins.str],
+                 target: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str],
+                 configuration: Optional[pulumi.Input['AgentFlowDefinitionConnectionConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] name: A name for the connection that you can reference.
+        :param pulumi.Input[builtins.str] source: The node that the connection starts at.
+        :param pulumi.Input[builtins.str] target: The node that the connection ends at.
+        :param pulumi.Input[builtins.str] type: Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+        :param pulumi.Input['AgentFlowDefinitionConnectionConfigurationArgs'] configuration: Configuration of the connection. See Connection Configuration for more information.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "type", type)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        A name for the connection that you can reference.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[builtins.str]:
+        """
+        The node that the connection starts at.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[builtins.str]:
+        """
+        The node that the connection ends at.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionConnectionConfigurationArgs']]:
+        """
+        Configuration of the connection. See Connection Configuration for more information.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionConnectionConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionConnectionConfigurationArgsDict(TypedDict):
+        conditional: NotRequired[pulumi.Input['AgentFlowDefinitionConnectionConfigurationConditionalArgsDict']]
+        """
+        The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+        """
+        data: NotRequired[pulumi.Input['AgentFlowDefinitionConnectionConfigurationDataArgsDict']]
+        """
+        The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+        """
+elif False:
+    AgentFlowDefinitionConnectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionConnectionConfigurationArgs:
+    def __init__(__self__, *,
+                 conditional: Optional[pulumi.Input['AgentFlowDefinitionConnectionConfigurationConditionalArgs']] = None,
+                 data: Optional[pulumi.Input['AgentFlowDefinitionConnectionConfigurationDataArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionConnectionConfigurationConditionalArgs'] conditional: The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionConnectionConfigurationDataArgs'] data: The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+        """
+        if conditional is not None:
+            pulumi.set(__self__, "conditional", conditional)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter
+    def conditional(self) -> Optional[pulumi.Input['AgentFlowDefinitionConnectionConfigurationConditionalArgs']]:
+        """
+        The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+        """
+        return pulumi.get(self, "conditional")
+
+    @conditional.setter
+    def conditional(self, value: Optional[pulumi.Input['AgentFlowDefinitionConnectionConfigurationConditionalArgs']]):
+        pulumi.set(self, "conditional", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input['AgentFlowDefinitionConnectionConfigurationDataArgs']]:
+        """
+        The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input['AgentFlowDefinitionConnectionConfigurationDataArgs']]):
+        pulumi.set(self, "data", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionConnectionConfigurationConditionalArgsDict(TypedDict):
+        condition: pulumi.Input[builtins.str]
+elif False:
+    AgentFlowDefinitionConnectionConfigurationConditionalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionConnectionConfigurationConditionalArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "condition", condition)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "condition", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionConnectionConfigurationDataArgsDict(TypedDict):
+        source_output: pulumi.Input[builtins.str]
+        """
+        The name of the output in the source node that the connection begins from.
+        """
+        target_input: pulumi.Input[builtins.str]
+        """
+        The name of the input in the target node that the connection ends at.
+        """
+elif False:
+    AgentFlowDefinitionConnectionConfigurationDataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionConnectionConfigurationDataArgs:
+    def __init__(__self__, *,
+                 source_output: pulumi.Input[builtins.str],
+                 target_input: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] source_output: The name of the output in the source node that the connection begins from.
+        :param pulumi.Input[builtins.str] target_input: The name of the input in the target node that the connection ends at.
+        """
+        pulumi.set(__self__, "source_output", source_output)
+        pulumi.set(__self__, "target_input", target_input)
+
+    @property
+    @pulumi.getter(name="sourceOutput")
+    def source_output(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the output in the source node that the connection begins from.
+        """
+        return pulumi.get(self, "source_output")
+
+    @source_output.setter
+    def source_output(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "source_output", value)
+
+    @property
+    @pulumi.getter(name="targetInput")
+    def target_input(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the input in the target node that the connection ends at.
+        """
+        return pulumi.get(self, "target_input")
+
+    @target_input.setter
+    def target_input(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "target_input", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        A name for the node.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+        """
+        configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationArgsDict']]
+        """
+        Contains configurations for the node. See Node Configuration for more information.
+        """
+        inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeInputArgsDict']]]]
+        """
+        A list of objects containing information about an input into the node. See Node Input for more information.
+        """
+        outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeOutputArgsDict']]]]
+        """
+        A list of objects containing information about an output from the node. See Node Output for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str],
+                 configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationArgs']] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeInputArgs']]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeOutputArgs']]]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: A name for the node.
+        :param pulumi.Input[builtins.str] type: The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationArgs'] configuration: Contains configurations for the node. See Node Configuration for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeInputArgs']]] inputs: A list of objects containing information about an input into the node. See Node Input for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeOutputArgs']]] outputs: A list of objects containing information about an output from the node. See Node Output for more information.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        A name for the node.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationArgs']]:
+        """
+        Contains configurations for the node. See Node Configuration for more information.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeInputArgs']]]]:
+        """
+        A list of objects containing information about an input into the node. See Node Input for more information.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeOutputArgs']]]]:
+        """
+        A list of objects containing information about an output from the node. See Node Output for more information.
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeOutputArgs']]]]):
+        pulumi.set(self, "outputs", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationArgsDict(TypedDict):
+        agent: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationAgentArgsDict']]
+        """
+        Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+        """
+        collector: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationCollectorArgsDict']]
+        """
+        Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+        """
+        condition: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionArgsDict']]
+        inline_code: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationInlineCodeArgsDict']]
+        """
+        Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+        """
+        input: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationInputArgsDict']]
+        iterator: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationIteratorArgsDict']]
+        """
+        Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+        """
+        knowledge_base: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgsDict']]
+        """
+        Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+        """
+        lambda_function: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationLambdaFunctionArgsDict']]
+        """
+        Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+        """
+        lex: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationLexArgsDict']]
+        """
+        Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+        """
+        output: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationOutputArgsDict']]
+        prompt: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptArgsDict']]
+        """
+        Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+        """
+        retrieval: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalArgsDict']]
+        """
+        Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+        """
+        storage: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageArgsDict']]
+        """
+        Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 agent: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationAgentArgs']] = None,
+                 collector: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationCollectorArgs']] = None,
+                 condition: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionArgs']] = None,
+                 inline_code: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationInlineCodeArgs']] = None,
+                 input: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationInputArgs']] = None,
+                 iterator: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationIteratorArgs']] = None,
+                 knowledge_base: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs']] = None,
+                 lambda_function: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs']] = None,
+                 lex: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationLexArgs']] = None,
+                 output: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationOutputArgs']] = None,
+                 prompt: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptArgs']] = None,
+                 retrieval: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalArgs']] = None,
+                 storage: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationAgentArgs'] agent: Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationCollectorArgs'] collector: Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationInlineCodeArgs'] inline_code: Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationIteratorArgs'] iterator: Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs'] knowledge_base: Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs'] lambda_function: Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationLexArgs'] lex: Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptArgs'] prompt: Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalArgs'] retrieval: Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageArgs'] storage: Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+        """
+        if agent is not None:
+            pulumi.set(__self__, "agent", agent)
+        if collector is not None:
+            pulumi.set(__self__, "collector", collector)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if inline_code is not None:
+            pulumi.set(__self__, "inline_code", inline_code)
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if iterator is not None:
+            pulumi.set(__self__, "iterator", iterator)
+        if knowledge_base is not None:
+            pulumi.set(__self__, "knowledge_base", knowledge_base)
+        if lambda_function is not None:
+            pulumi.set(__self__, "lambda_function", lambda_function)
+        if lex is not None:
+            pulumi.set(__self__, "lex", lex)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+        if prompt is not None:
+            pulumi.set(__self__, "prompt", prompt)
+        if retrieval is not None:
+            pulumi.set(__self__, "retrieval", retrieval)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter
+    def agent(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationAgentArgs']]:
+        """
+        Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+        """
+        return pulumi.get(self, "agent")
+
+    @agent.setter
+    def agent(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationAgentArgs']]):
+        pulumi.set(self, "agent", value)
+
+    @property
+    @pulumi.getter
+    def collector(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationCollectorArgs']]:
+        """
+        Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+        """
+        return pulumi.get(self, "collector")
+
+    @collector.setter
+    def collector(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationCollectorArgs']]):
+        pulumi.set(self, "collector", value)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionArgs']]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionArgs']]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="inlineCode")
+    def inline_code(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationInlineCodeArgs']]:
+        """
+        Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+        """
+        return pulumi.get(self, "inline_code")
+
+    @inline_code.setter
+    def inline_code(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationInlineCodeArgs']]):
+        pulumi.set(self, "inline_code", value)
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationInputArgs']]:
+        return pulumi.get(self, "input")
+
+    @input.setter
+    def input(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationInputArgs']]):
+        pulumi.set(self, "input", value)
+
+    @property
+    @pulumi.getter
+    def iterator(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationIteratorArgs']]:
+        """
+        Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+        """
+        return pulumi.get(self, "iterator")
+
+    @iterator.setter
+    def iterator(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationIteratorArgs']]):
+        pulumi.set(self, "iterator", value)
+
+    @property
+    @pulumi.getter(name="knowledgeBase")
+    def knowledge_base(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs']]:
+        """
+        Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+        """
+        return pulumi.get(self, "knowledge_base")
+
+    @knowledge_base.setter
+    def knowledge_base(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs']]):
+        pulumi.set(self, "knowledge_base", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunction")
+    def lambda_function(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs']]:
+        """
+        Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+        """
+        return pulumi.get(self, "lambda_function")
+
+    @lambda_function.setter
+    def lambda_function(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs']]):
+        pulumi.set(self, "lambda_function", value)
+
+    @property
+    @pulumi.getter
+    def lex(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationLexArgs']]:
+        """
+        Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+        """
+        return pulumi.get(self, "lex")
+
+    @lex.setter
+    def lex(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationLexArgs']]):
+        pulumi.set(self, "lex", value)
+
+    @property
+    @pulumi.getter
+    def output(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationOutputArgs']]:
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationOutputArgs']]):
+        pulumi.set(self, "output", value)
+
+    @property
+    @pulumi.getter
+    def prompt(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptArgs']]:
+        """
+        Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+        """
+        return pulumi.get(self, "prompt")
+
+    @prompt.setter
+    def prompt(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptArgs']]):
+        pulumi.set(self, "prompt", value)
+
+    @property
+    @pulumi.getter
+    def retrieval(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalArgs']]:
+        """
+        Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+        """
+        return pulumi.get(self, "retrieval")
+
+    @retrieval.setter
+    def retrieval(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalArgs']]):
+        pulumi.set(self, "retrieval", value)
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageArgs']]:
+        """
+        Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+        """
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageArgs']]):
+        pulumi.set(self, "storage", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationAgentArgsDict(TypedDict):
+        agent_alias_arn: pulumi.Input[builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationAgentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationAgentArgs:
+    def __init__(__self__, *,
+                 agent_alias_arn: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] agent_alias_arn: The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+        """
+        pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
+
+    @property
+    @pulumi.getter(name="agentAliasArn")
+    def agent_alias_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+        """
+        return pulumi.get(self, "agent_alias_arn")
+
+    @agent_alias_arn.setter
+    def agent_alias_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "agent_alias_arn", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationCollectorArgsDict(TypedDict):
+        pass
+elif False:
+    AgentFlowDefinitionNodeConfigurationCollectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationCollectorArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationConditionArgsDict(TypedDict):
+        conditions: pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgsDict']]]
+elif False:
+    AgentFlowDefinitionNodeConfigurationConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationConditionArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]):
+        pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]:
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationConditionConditionArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        A name for the flow.
+        """
+        expression: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    AgentFlowDefinitionNodeConfigurationConditionConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationConditionConditionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 expression: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: A name for the flow.
+        """
+        pulumi.set(__self__, "name", name)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        A name for the flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "expression", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationInlineCodeArgsDict(TypedDict):
+        code: pulumi.Input[builtins.str]
+        """
+        The code that's executed in your inline code node.
+        """
+        language: pulumi.Input[builtins.str]
+        """
+        The programming language used by your inline code node.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationInlineCodeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationInlineCodeArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[builtins.str],
+                 language: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] code: The code that's executed in your inline code node.
+        :param pulumi.Input[builtins.str] language: The programming language used by your inline code node.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "language", language)
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[builtins.str]:
+        """
+        The code that's executed in your inline code node.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def language(self) -> pulumi.Input[builtins.str]:
+        """
+        The programming language used by your inline code node.
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "language", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationInputArgsDict(TypedDict):
+        pass
+elif False:
+    AgentFlowDefinitionNodeConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationInputArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationIteratorArgsDict(TypedDict):
+        pass
+elif False:
+    AgentFlowDefinitionNodeConfigurationIteratorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationIteratorArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgsDict(TypedDict):
+        knowledge_base_id: pulumi.Input[builtins.str]
+        """
+        The unique identifier of the knowledge base to query.
+        """
+        model_id: pulumi.Input[builtins.str]
+        guardrail_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgsDict']]
+        """
+        Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        """
+        inference_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgsDict']]
+        """
+        Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        """
+        number_of_results: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs:
+    def __init__(__self__, *,
+                 knowledge_base_id: pulumi.Input[builtins.str],
+                 model_id: pulumi.Input[builtins.str],
+                 guardrail_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs']] = None,
+                 inference_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs']] = None,
+                 number_of_results: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] knowledge_base_id: The unique identifier of the knowledge base to query.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs'] guardrail_configuration: Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs'] inference_configuration: Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        """
+        pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
+        pulumi.set(__self__, "model_id", model_id)
+        if guardrail_configuration is not None:
+            pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
+        if inference_configuration is not None:
+            pulumi.set(__self__, "inference_configuration", inference_configuration)
+        if number_of_results is not None:
+            pulumi.set(__self__, "number_of_results", number_of_results)
+
+    @property
+    @pulumi.getter(name="knowledgeBaseId")
+    def knowledge_base_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The unique identifier of the knowledge base to query.
+        """
+        return pulumi.get(self, "knowledge_base_id")
+
+    @knowledge_base_id.setter
+    def knowledge_base_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "knowledge_base_id", value)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+    @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs']]:
+        """
+        Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        """
+        return pulumi.get(self, "guardrail_configuration")
+
+    @guardrail_configuration.setter
+    def guardrail_configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs']]):
+        pulumi.set(self, "guardrail_configuration", value)
+
+    @property
+    @pulumi.getter(name="inferenceConfiguration")
+    def inference_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs']]:
+        """
+        Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        """
+        return pulumi.get(self, "inference_configuration")
+
+    @inference_configuration.setter
+    def inference_configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs']]):
+        pulumi.set(self, "inference_configuration", value)
+
+    @property
+    @pulumi.getter(name="numberOfResults")
+    def number_of_results(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "number_of_results")
+
+    @number_of_results.setter
+    def number_of_results(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "number_of_results", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgsDict(TypedDict):
+        guardrail_identifier: pulumi.Input[builtins.str]
+        """
+        The unique identifier of the guardrail.
+        """
+        guardrail_version: pulumi.Input[builtins.str]
+        """
+        The version of the guardrail.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs:
+    def __init__(__self__, *,
+                 guardrail_identifier: pulumi.Input[builtins.str],
+                 guardrail_version: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] guardrail_identifier: The unique identifier of the guardrail.
+        :param pulumi.Input[builtins.str] guardrail_version: The version of the guardrail.
+        """
+        pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> pulumi.Input[builtins.str]:
+        """
+        The unique identifier of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @guardrail_identifier.setter
+    def guardrail_identifier(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "guardrail_identifier", value)
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> pulumi.Input[builtins.str]:
+        """
+        The version of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_version")
+
+    @guardrail_version.setter
+    def guardrail_version(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "guardrail_version", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgsDict(TypedDict):
+        text: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgsDict']]
+elif False:
+    AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs:
+    def __init__(__self__, *,
+                 text: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs']] = None):
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs']]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs']]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgsDict(TypedDict):
+        max_tokens: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Maximum number of tokens to return in the response.
+        """
+        stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        List of strings that define sequences after which the model will stop generating.
+        """
+        temperature: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+        """
+        top_p: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Percentage of most-likely candidates that the model considers for the next token.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs:
+    def __init__(__self__, *,
+                 max_tokens: Optional[pulumi.Input[builtins.int]] = None,
+                 stop_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 temperature: Optional[pulumi.Input[builtins.float]] = None,
+                 top_p: Optional[pulumi.Input[builtins.float]] = None):
+        """
+        :param pulumi.Input[builtins.int] max_tokens: Maximum number of tokens to return in the response.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] stop_sequences: List of strings that define sequences after which the model will stop generating.
+        :param pulumi.Input[builtins.float] temperature: Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+        :param pulumi.Input[builtins.float] top_p: Percentage of most-likely candidates that the model considers for the next token.
+        """
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if stop_sequences is not None:
+            pulumi.set(__self__, "stop_sequences", stop_sequences)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Maximum number of tokens to return in the response.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_tokens", value)
+
+    @property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        List of strings that define sequences after which the model will stop generating.
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @stop_sequences.setter
+    def stop_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "stop_sequences", value)
+
+    @property
+    @pulumi.getter
+    def temperature(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+        """
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "temperature", value)
+
+    @property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Percentage of most-likely candidates that the model considers for the next token.
+        """
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "top_p", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationLambdaFunctionArgsDict(TypedDict):
+        lambda_arn: pulumi.Input[builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the Lambda function to invoke.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationLambdaFunctionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] lambda_arn: The Amazon Resource Name (ARN) of the Lambda function to invoke.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Lambda function to invoke.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "lambda_arn", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationLexArgsDict(TypedDict):
+        bot_alias_arn: pulumi.Input[builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+        """
+        locale_id: pulumi.Input[builtins.str]
+        """
+        The Region to invoke the Amazon Lex bot in
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationLexArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationLexArgs:
+    def __init__(__self__, *,
+                 bot_alias_arn: pulumi.Input[builtins.str],
+                 locale_id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] bot_alias_arn: The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+        :param pulumi.Input[builtins.str] locale_id: The Region to invoke the Amazon Lex bot in
+        """
+        pulumi.set(__self__, "bot_alias_arn", bot_alias_arn)
+        pulumi.set(__self__, "locale_id", locale_id)
+
+    @property
+    @pulumi.getter(name="botAliasArn")
+    def bot_alias_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+        """
+        return pulumi.get(self, "bot_alias_arn")
+
+    @bot_alias_arn.setter
+    def bot_alias_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "bot_alias_arn", value)
+
+    @property
+    @pulumi.getter(name="localeId")
+    def locale_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The Region to invoke the Amazon Lex bot in
+        """
+        return pulumi.get(self, "locale_id")
+
+    @locale_id.setter
+    def locale_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "locale_id", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationOutputArgsDict(TypedDict):
+        pass
+elif False:
+    AgentFlowDefinitionNodeConfigurationOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationOutputArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptArgsDict(TypedDict):
+        guardrail_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgsDict']]
+        """
+        Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        """
+        source_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgsDict']]
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptArgs:
+    def __init__(__self__, *,
+                 guardrail_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs']] = None,
+                 source_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs'] guardrail_configuration: Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        """
+        if guardrail_configuration is not None:
+            pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
+        if source_configuration is not None:
+            pulumi.set(__self__, "source_configuration", source_configuration)
+
+    @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs']]:
+        """
+        Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        """
+        return pulumi.get(self, "guardrail_configuration")
+
+    @guardrail_configuration.setter
+    def guardrail_configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs']]):
+        pulumi.set(self, "guardrail_configuration", value)
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs']]:
+        return pulumi.get(self, "source_configuration")
+
+    @source_configuration.setter
+    def source_configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs']]):
+        pulumi.set(self, "source_configuration", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgsDict(TypedDict):
+        guardrail_identifier: pulumi.Input[builtins.str]
+        """
+        The unique identifier of the guardrail.
+        """
+        guardrail_version: pulumi.Input[builtins.str]
+        """
+        The version of the guardrail.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs:
+    def __init__(__self__, *,
+                 guardrail_identifier: pulumi.Input[builtins.str],
+                 guardrail_version: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] guardrail_identifier: The unique identifier of the guardrail.
+        :param pulumi.Input[builtins.str] guardrail_version: The version of the guardrail.
+        """
+        pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> pulumi.Input[builtins.str]:
+        """
+        The unique identifier of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @guardrail_identifier.setter
+    def guardrail_identifier(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "guardrail_identifier", value)
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> pulumi.Input[builtins.str]:
+        """
+        The version of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_version")
+
+    @guardrail_version.setter
+    def guardrail_version(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "guardrail_version", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgsDict(TypedDict):
+        inline: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgsDict']]
+        """
+        Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+        """
+        resource: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgsDict']]
+        """
+        Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 inline: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs']] = None,
+                 resource: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs'] inline: Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs'] resource: Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+        """
+        if inline is not None:
+            pulumi.set(__self__, "inline", inline)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def inline(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs']]:
+        """
+        Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+        """
+        return pulumi.get(self, "inline")
+
+    @inline.setter
+    def inline(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs']]):
+        pulumi.set(self, "inline", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs']]:
+        """
+        Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs']]):
+        pulumi.set(self, "resource", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgsDict(TypedDict):
+        model_id: pulumi.Input[builtins.str]
+        template_type: pulumi.Input[builtins.str]
+        """
+        The type of prompt template. Valid values: `TEXT`, `CHAT`.
+        """
+        additional_model_request_fields: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Additional fields to be included in the model request for the Prompt node.
+        """
+        inference_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgsDict']]
+        """
+        Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        """
+        template_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgsDict']]
+        """
+        Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs:
+    def __init__(__self__, *,
+                 model_id: pulumi.Input[builtins.str],
+                 template_type: pulumi.Input[builtins.str],
+                 additional_model_request_fields: Optional[pulumi.Input[builtins.str]] = None,
+                 inference_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs']] = None,
+                 template_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] template_type: The type of prompt template. Valid values: `TEXT`, `CHAT`.
+        :param pulumi.Input[builtins.str] additional_model_request_fields: Additional fields to be included in the model request for the Prompt node.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs'] inference_configuration: Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs'] template_configuration: Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+        """
+        pulumi.set(__self__, "model_id", model_id)
+        pulumi.set(__self__, "template_type", template_type)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+        if inference_configuration is not None:
+            pulumi.set(__self__, "inference_configuration", inference_configuration)
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+    @property
+    @pulumi.getter(name="templateType")
+    def template_type(self) -> pulumi.Input[builtins.str]:
+        """
+        The type of prompt template. Valid values: `TEXT`, `CHAT`.
+        """
+        return pulumi.get(self, "template_type")
+
+    @template_type.setter
+    def template_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "template_type", value)
+
+    @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Additional fields to be included in the model request for the Prompt node.
+        """
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @additional_model_request_fields.setter
+    def additional_model_request_fields(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "additional_model_request_fields", value)
+
+    @property
+    @pulumi.getter(name="inferenceConfiguration")
+    def inference_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs']]:
+        """
+        Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        """
+        return pulumi.get(self, "inference_configuration")
+
+    @inference_configuration.setter
+    def inference_configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs']]):
+        pulumi.set(self, "inference_configuration", value)
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs']]:
+        """
+        Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+        """
+        return pulumi.get(self, "template_configuration")
+
+    @template_configuration.setter
+    def template_configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs']]):
+        pulumi.set(self, "template_configuration", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgsDict(TypedDict):
+        text: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgsDict']]
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs:
+    def __init__(__self__, *,
+                 text: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs']] = None):
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs']]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs']]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgsDict(TypedDict):
+        max_tokens: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Maximum number of tokens to return in the response.
+        """
+        stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        List of strings that define sequences after which the model will stop generating.
+        """
+        temperature: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+        """
+        top_p: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Percentage of most-likely candidates that the model considers for the next token.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs:
+    def __init__(__self__, *,
+                 max_tokens: Optional[pulumi.Input[builtins.int]] = None,
+                 stop_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 temperature: Optional[pulumi.Input[builtins.float]] = None,
+                 top_p: Optional[pulumi.Input[builtins.float]] = None):
+        """
+        :param pulumi.Input[builtins.int] max_tokens: Maximum number of tokens to return in the response.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] stop_sequences: List of strings that define sequences after which the model will stop generating.
+        :param pulumi.Input[builtins.float] temperature: Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+        :param pulumi.Input[builtins.float] top_p: Percentage of most-likely candidates that the model considers for the next token.
+        """
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if stop_sequences is not None:
+            pulumi.set(__self__, "stop_sequences", stop_sequences)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Maximum number of tokens to return in the response.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_tokens", value)
+
+    @property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        List of strings that define sequences after which the model will stop generating.
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @stop_sequences.setter
+    def stop_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "stop_sequences", value)
+
+    @property
+    @pulumi.getter
+    def temperature(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+        """
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "temperature", value)
+
+    @property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Percentage of most-likely candidates that the model considers for the next token.
+        """
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "top_p", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgsDict(TypedDict):
+        chat: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgsDict']]
+        """
+        Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        """
+        text: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgsDict']]
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 chat: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs']] = None,
+                 text: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs'] chat: Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        """
+        if chat is not None:
+            pulumi.set(__self__, "chat", chat)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def chat(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs']]:
+        """
+        Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        """
+        return pulumi.get(self, "chat")
+
+    @chat.setter
+    def chat(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs']]):
+        pulumi.set(self, "chat", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs']]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs']]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgsDict(TypedDict):
+        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgsDict']]]]
+        messages: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgsDict']]]]
+        """
+        A list of messages in the chat for the prompt. See Message for more information.
+        """
+        systems: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgsDict']]]]
+        """
+        A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+        """
+        tool_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgsDict']]
+        """
+        Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs:
+    def __init__(__self__, *,
+                 input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs']]]] = None,
+                 messages: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]]] = None,
+                 systems: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs']]]] = None,
+                 tool_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]] messages: A list of messages in the chat for the prompt. See Message for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs']]] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs'] tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        """
+        if input_variables is not None:
+            pulumi.set(__self__, "input_variables", input_variables)
+        if messages is not None:
+            pulumi.set(__self__, "messages", messages)
+        if systems is not None:
+            pulumi.set(__self__, "systems", systems)
+        if tool_configuration is not None:
+            pulumi.set(__self__, "tool_configuration", tool_configuration)
+
+    @property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs']]]]:
+        return pulumi.get(self, "input_variables")
+
+    @input_variables.setter
+    def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs']]]]):
+        pulumi.set(self, "input_variables", value)
+
+    @property
+    @pulumi.getter
+    def messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]]]:
+        """
+        A list of messages in the chat for the prompt. See Message for more information.
+        """
+        return pulumi.get(self, "messages")
+
+    @messages.setter
+    def messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]]]):
+        pulumi.set(self, "messages", value)
+
+    @property
+    @pulumi.getter
+    def systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs']]]]:
+        """
+        A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+        """
+        return pulumi.get(self, "systems")
+
+    @systems.setter
+    def systems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs']]]]):
+        pulumi.set(self, "systems", value)
+
+    @property
+    @pulumi.getter(name="toolConfiguration")
+    def tool_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs']]:
+        """
+        Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        """
+        return pulumi.get(self, "tool_configuration")
+
+    @tool_configuration.setter
+    def tool_configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs']]):
+        pulumi.set(self, "tool_configuration", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        The name of the variable.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] name: The name of the variable.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the variable.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgsDict(TypedDict):
+        role: pulumi.Input[builtins.str]
+        """
+        The role that the message belongs to.
+        """
+        content: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgsDict']]
+        """
+        Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs:
+    def __init__(__self__, *,
+                 role: pulumi.Input[builtins.str],
+                 content: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] role: The role that the message belongs to.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs'] content: Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        """
+        pulumi.set(__self__, "role", role)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def role(self) -> pulumi.Input[builtins.str]:
+        """
+        The role that the message belongs to.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs']]:
+        """
+        Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs']]):
+        pulumi.set(self, "content", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgsDict(TypedDict):
+        cache_point: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgsDict']]
+        text: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs:
+    def __init__(__self__, *,
+                 cache_point: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs']] = None,
+                 text: Optional[pulumi.Input[builtins.str]] = None):
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs']]:
+        return pulumi.get(self, "cache_point")
+
+    @cache_point.setter
+    def cache_point(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs']]):
+        pulumi.set(self, "cache_point", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgsDict(TypedDict):
+        type: pulumi.Input[builtins.str]
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgsDict(TypedDict):
+        cache_point: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgsDict']]
+        """
+        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        """
+        text: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The text in the system prompt.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs:
+    def __init__(__self__, *,
+                 cache_point: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs']] = None,
+                 text: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs'] cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        :param pulumi.Input[builtins.str] text: The text in the system prompt.
+        """
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs']]:
+        """
+        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        """
+        return pulumi.get(self, "cache_point")
+
+    @cache_point.setter
+    def cache_point(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs']]):
+        pulumi.set(self, "cache_point", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The text in the system prompt.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgsDict(TypedDict):
+        type: pulumi.Input[builtins.str]
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgsDict(TypedDict):
+        tool_choice: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgsDict']]
+        """
+        Defines which tools the model should request when invoked. See Tool Choice for more information.
+        """
+        tools: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgsDict']]]]
+        """
+        A list of tools to pass to a model. See Tool for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs:
+    def __init__(__self__, *,
+                 tool_choice: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs']] = None,
+                 tools: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs']]]] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs'] tool_choice: Defines which tools the model should request when invoked. See Tool Choice for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs']]] tools: A list of tools to pass to a model. See Tool for more information.
+        """
+        if tool_choice is not None:
+            pulumi.set(__self__, "tool_choice", tool_choice)
+        if tools is not None:
+            pulumi.set(__self__, "tools", tools)
+
+    @property
+    @pulumi.getter(name="toolChoice")
+    def tool_choice(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs']]:
+        """
+        Defines which tools the model should request when invoked. See Tool Choice for more information.
+        """
+        return pulumi.get(self, "tool_choice")
+
+    @tool_choice.setter
+    def tool_choice(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs']]):
+        pulumi.set(self, "tool_choice", value)
+
+    @property
+    @pulumi.getter
+    def tools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs']]]]:
+        """
+        A list of tools to pass to a model. See Tool for more information.
+        """
+        return pulumi.get(self, "tools")
+
+    @tools.setter
+    def tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs']]]]):
+        pulumi.set(self, "tools", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgsDict(TypedDict):
+        cache_point: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgsDict']]
+        """
+        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        """
+        tool_spec: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgsDict']]
+        """
+        The specification for the tool. See Tool Specification for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs:
+    def __init__(__self__, *,
+                 cache_point: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs']] = None,
+                 tool_spec: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs'] cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs'] tool_spec: The specification for the tool. See Tool Specification for more information.
+        """
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
+        if tool_spec is not None:
+            pulumi.set(__self__, "tool_spec", tool_spec)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs']]:
+        """
+        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        """
+        return pulumi.get(self, "cache_point")
+
+    @cache_point.setter
+    def cache_point(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs']]):
+        pulumi.set(self, "cache_point", value)
+
+    @property
+    @pulumi.getter(name="toolSpec")
+    def tool_spec(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs']]:
+        """
+        The specification for the tool. See Tool Specification for more information.
+        """
+        return pulumi.get(self, "tool_spec")
+
+    @tool_spec.setter
+    def tool_spec(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs']]):
+        pulumi.set(self, "tool_spec", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgsDict(TypedDict):
+        type: pulumi.Input[builtins.str]
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgsDict(TypedDict):
+        any: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgsDict']]
+        """
+        Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+        """
+        auto: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgsDict']]
+        """
+        Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+        """
+        tool: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgsDict']]
+        """
+        Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs:
+    def __init__(__self__, *,
+                 any: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs']] = None,
+                 auto: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs']] = None,
+                 tool: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs'] any: Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs'] auto: Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs'] tool: Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+        """
+        if any is not None:
+            pulumi.set(__self__, "any", any)
+        if auto is not None:
+            pulumi.set(__self__, "auto", auto)
+        if tool is not None:
+            pulumi.set(__self__, "tool", tool)
+
+    @property
+    @pulumi.getter
+    def any(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs']]:
+        """
+        Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+        """
+        return pulumi.get(self, "any")
+
+    @any.setter
+    def any(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs']]):
+        pulumi.set(self, "any", value)
+
+    @property
+    @pulumi.getter
+    def auto(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs']]:
+        """
+        Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+        """
+        return pulumi.get(self, "auto")
+
+    @auto.setter
+    def auto(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs']]):
+        pulumi.set(self, "auto", value)
+
+    @property
+    @pulumi.getter
+    def tool(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs']]:
+        """
+        Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+        """
+        return pulumi.get(self, "tool")
+
+    @tool.setter
+    def tool(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs']]):
+        pulumi.set(self, "tool", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgsDict(TypedDict):
+        pass
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgsDict(TypedDict):
+        pass
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        A name for the flow.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] name: A name for the flow.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        A name for the flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        A name for the flow.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A description for the flow.
+        """
+        input_schema: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgsDict']]
+        """
+        The input schema of the tool. See Tool Input Schema for more information.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 input_schema: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] name: A name for the flow.
+        :param pulumi.Input[builtins.str] description: A description for the flow.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs'] input_schema: The input schema of the tool. See Tool Input Schema for more information.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_schema is not None:
+            pulumi.set(__self__, "input_schema", input_schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        A name for the flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A description for the flow.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs']]:
+        """
+        The input schema of the tool. See Tool Input Schema for more information.
+        """
+        return pulumi.get(self, "input_schema")
+
+    @input_schema.setter
+    def input_schema(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs']]):
+        pulumi.set(self, "input_schema", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgsDict(TypedDict):
+        json: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A JSON object defining the input schema for the tool.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs:
+    def __init__(__self__, *,
+                 json: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] json: A JSON object defining the input schema for the tool.
+        """
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A JSON object defining the input schema for the tool.
+        """
+        return pulumi.get(self, "json")
+
+    @json.setter
+    def json(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "json", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgsDict(TypedDict):
+        text: pulumi.Input[builtins.str]
+        cache_point: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgsDict']]
+        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgsDict']]]]
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[builtins.str],
+                 cache_point: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs']] = None,
+                 input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs']]]] = None):
+        pulumi.set(__self__, "text", text)
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
+        if input_variables is not None:
+            pulumi.set(__self__, "input_variables", input_variables)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs']]:
+        return pulumi.get(self, "cache_point")
+
+    @cache_point.setter
+    def cache_point(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs']]):
+        pulumi.set(self, "cache_point", value)
+
+    @property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs']]]]:
+        return pulumi.get(self, "input_variables")
+
+    @input_variables.setter
+    def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs']]]]):
+        pulumi.set(self, "input_variables", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgsDict(TypedDict):
+        type: pulumi.Input[builtins.str]
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        The name of the variable.
+        """
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] name: The name of the variable.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the variable.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgsDict(TypedDict):
+        resource_arn: pulumi.Input[builtins.str]
+elif False:
+    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs:
+    def __init__(__self__, *,
+                 resource_arn: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "resource_arn", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationRetrievalArgsDict(TypedDict):
+        service_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgsDict']]
+elif False:
+    AgentFlowDefinitionNodeConfigurationRetrievalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationRetrievalArgs:
+    def __init__(__self__, *,
+                 service_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs']] = None):
+        if service_configuration is not None:
+            pulumi.set(__self__, "service_configuration", service_configuration)
+
+    @property
+    @pulumi.getter(name="serviceConfiguration")
+    def service_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs']]:
+        return pulumi.get(self, "service_configuration")
+
+    @service_configuration.setter
+    def service_configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs']]):
+        pulumi.set(self, "service_configuration", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgsDict(TypedDict):
+        s3: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3ArgsDict']]
+elif False:
+    AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs:
+    def __init__(__self__, *,
+                 s3: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args']] = None):
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3ArgsDict(TypedDict):
+        bucket_name: pulumi.Input[builtins.str]
+elif False:
+    AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "bucket_name", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationStorageArgsDict(TypedDict):
+        service_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgsDict']]
+elif False:
+    AgentFlowDefinitionNodeConfigurationStorageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationStorageArgs:
+    def __init__(__self__, *,
+                 service_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs']] = None):
+        if service_configuration is not None:
+            pulumi.set(__self__, "service_configuration", service_configuration)
+
+    @property
+    @pulumi.getter(name="serviceConfiguration")
+    def service_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs']]:
+        return pulumi.get(self, "service_configuration")
+
+    @service_configuration.setter
+    def service_configuration(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs']]):
+        pulumi.set(self, "service_configuration", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgsDict(TypedDict):
+        s3: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3ArgsDict']]
+elif False:
+    AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs:
+    def __init__(__self__, *,
+                 s3: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args']] = None):
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3ArgsDict(TypedDict):
+        bucket_name: pulumi.Input[builtins.str]
+elif False:
+    AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "bucket_name", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeInputArgsDict(TypedDict):
+        expression: pulumi.Input[builtins.str]
+        name: pulumi.Input[builtins.str]
+        """
+        A name for the flow.
+        """
+        type: pulumi.Input[builtins.str]
+        category: NotRequired[pulumi.Input[builtins.str]]
+        """
+        How input data flows between iterations in a DoWhile loop.
+        """
+elif False:
+    AgentFlowDefinitionNodeInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeInputArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[builtins.str],
+                 name: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str],
+                 category: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: A name for the flow.
+        :param pulumi.Input[builtins.str] category: How input data flows between iterations in a DoWhile loop.
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        A name for the flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        How input data flows between iterations in a DoWhile loop.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "category", value)
+
+
+if not MYPY:
+    class AgentFlowDefinitionNodeOutputArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        A name for the flow.
+        """
+        type: pulumi.Input[builtins.str]
+elif False:
+    AgentFlowDefinitionNodeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowDefinitionNodeOutputArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] name: A name for the flow.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        A name for the flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AgentFlowTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AgentFlowTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentFlowTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[builtins.str]] = None,
+                 delete: Optional[pulumi.Input[builtins.str]] = None,
+                 update: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:

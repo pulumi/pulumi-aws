@@ -44,7 +44,7 @@ index 08ea92079f..ad0004ee9e 100644
  			},
  			"etag": {
 diff --git a/internal/service/docdb/cluster_parameter_group.go b/internal/service/docdb/cluster_parameter_group.go
-index 7ceaaae458..d9cc03d4b2 100644
+index d76992a040..245a84586a 100644
 --- a/internal/service/docdb/cluster_parameter_group.go
 +++ b/internal/service/docdb/cluster_parameter_group.go
 @@ -49,7 +49,7 @@ func resourceClusterParameterGroup() *schema.Resource {
@@ -57,7 +57,7 @@ index 7ceaaae458..d9cc03d4b2 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/docdb/subnet_group.go b/internal/service/docdb/subnet_group.go
-index a64cbd8e18..595ca6d58d 100644
+index 96abcbecf9..bfec91c499 100644
 --- a/internal/service/docdb/subnet_group.go
 +++ b/internal/service/docdb/subnet_group.go
 @@ -45,7 +45,7 @@ func resourceSubnetGroup() *schema.Resource {
@@ -70,7 +70,7 @@ index a64cbd8e18..595ca6d58d 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 02aebaf728..832d6ec476 100644
+index 90041e2c7e..745d363e63 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -69,7 +69,7 @@ func resourceSecurityGroup() *schema.Resource {
@@ -239,7 +239,7 @@ index adc7878d25..8e77e7e330 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
-index 59aac340a1..22e59d5705 100644
+index 6d6585687f..1a3ce3438c 100644
 --- a/internal/service/rds/subnet_group.go
 +++ b/internal/service/rds/subnet_group.go
 @@ -47,7 +47,7 @@ func resourceSubnetGroup() *schema.Resource {

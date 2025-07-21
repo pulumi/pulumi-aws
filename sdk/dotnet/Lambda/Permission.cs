@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> EventSourceToken { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Lambda function
+        /// Name or ARN of the Lambda function
         /// </summary>
         [Output("function")]
         public Output<string> Function { get; private set; } = null!;
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? EventSourceToken { get; set; }
 
         /// <summary>
-        /// Name of the Lambda function
+        /// Name or ARN of the Lambda function
         /// </summary>
         [Input("function", required: true)]
         public Input<string> Function { get; set; } = null!;
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? EventSourceToken { get; set; }
 
         /// <summary>
-        /// Name of the Lambda function
+        /// Name or ARN of the Lambda function
         /// </summary>
         [Input("function")]
         public Input<string>? Function { get; set; }

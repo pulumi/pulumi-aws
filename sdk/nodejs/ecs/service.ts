@@ -178,6 +178,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly deploymentCircuitBreaker!: pulumi.Output<outputs.ecs.ServiceDeploymentCircuitBreaker | undefined>;
     /**
+     * Configuration block for deployment settings. See below.
+     */
+    public readonly deploymentConfiguration!: pulumi.Output<outputs.ecs.ServiceDeploymentConfiguration | undefined>;
+    /**
      * Configuration block for deployment controller configuration. See below.
      */
     public readonly deploymentController!: pulumi.Output<outputs.ecs.ServiceDeploymentController | undefined>;
@@ -316,6 +320,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
             resourceInputs["cluster"] = state ? state.cluster : undefined;
             resourceInputs["deploymentCircuitBreaker"] = state ? state.deploymentCircuitBreaker : undefined;
+            resourceInputs["deploymentConfiguration"] = state ? state.deploymentConfiguration : undefined;
             resourceInputs["deploymentController"] = state ? state.deploymentController : undefined;
             resourceInputs["deploymentMaximumPercent"] = state ? state.deploymentMaximumPercent : undefined;
             resourceInputs["deploymentMinimumHealthyPercent"] = state ? state.deploymentMinimumHealthyPercent : undefined;
@@ -352,6 +357,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
             resourceInputs["cluster"] = args ? args.cluster : undefined;
             resourceInputs["deploymentCircuitBreaker"] = args ? args.deploymentCircuitBreaker : undefined;
+            resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
             resourceInputs["deploymentController"] = args ? args.deploymentController : undefined;
             resourceInputs["deploymentMaximumPercent"] = args ? args.deploymentMaximumPercent : undefined;
             resourceInputs["deploymentMinimumHealthyPercent"] = args ? args.deploymentMinimumHealthyPercent : undefined;
@@ -416,6 +422,10 @@ export interface ServiceState {
      * Configuration block for deployment circuit breaker. See below.
      */
     deploymentCircuitBreaker?: pulumi.Input<inputs.ecs.ServiceDeploymentCircuitBreaker>;
+    /**
+     * Configuration block for deployment settings. See below.
+     */
+    deploymentConfiguration?: pulumi.Input<inputs.ecs.ServiceDeploymentConfiguration>;
     /**
      * Configuration block for deployment controller configuration. See below.
      */
@@ -561,6 +571,10 @@ export interface ServiceArgs {
      * Configuration block for deployment circuit breaker. See below.
      */
     deploymentCircuitBreaker?: pulumi.Input<inputs.ecs.ServiceDeploymentCircuitBreaker>;
+    /**
+     * Configuration block for deployment settings. See below.
+     */
+    deploymentConfiguration?: pulumi.Input<inputs.ecs.ServiceDeploymentConfiguration>;
     /**
      * Configuration block for deployment controller configuration. See below.
      */

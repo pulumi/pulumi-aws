@@ -231,7 +231,12 @@ import * as utilities from "../utilities";
  *             "HEAD",
  *             "OPTIONS",
  *         ],
+ *         cachedMethods: [
+ *             "GET",
+ *             "HEAD",
+ *         ],
  *         targetOriginId: s3OriginId,
+ *         viewerProtocolPolicy: "allow-all",
  *     },
  *     restrictions: {
  *         geoRestriction: {
@@ -260,6 +265,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.cloudfront.Distribution("example", {});
  * const exampleLogDeliverySource = new aws.cloudwatch.LogDeliverySource("example", {
+ *     region: "us-east-1",
  *     name: "example",
  *     logType: "ACCESS_LOGS",
  *     resourceArn: example.arn,
@@ -269,6 +275,7 @@ import * as utilities from "../utilities";
  *     forceDestroy: true,
  * });
  * const exampleLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("example", {
+ *     region: "us-east-1",
  *     name: "s3-destination",
  *     outputFormat: "parquet",
  *     deliveryDestinationConfiguration: {
@@ -276,11 +283,48 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {
+ *     region: "us-east-1",
  *     deliverySourceName: exampleLogDeliverySource.name,
  *     deliveryDestinationArn: exampleLogDeliveryDestination.arn,
  *     s3DeliveryConfigurations: [{
  *         suffixPath: "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
  *     }],
+ * });
+ * ```
+ *
+ * ### With V2 logging to Data Firehose
+ *
+ * The example below creates a CloudFront distribution with [standard logging V2 to Data Firehose](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudfront.Distribution("example", {});
+ * const cloudfrontLogs = new aws.kinesis.FirehoseDeliveryStream("cloudfront_logs", {
+ *     region: "us-east-1",
+ *     tags: {
+ *         LogDeliveryEnabled: "true",
+ *     },
+ * });
+ * const exampleLogDeliverySource = new aws.cloudwatch.LogDeliverySource("example", {
+ *     region: "us-east-1",
+ *     name: "cloudfront-logs-source",
+ *     logType: "ACCESS_LOGS",
+ *     resourceArn: example.arn,
+ * });
+ * const exampleLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("example", {
+ *     region: "us-east-1",
+ *     name: "firehose-destination",
+ *     outputFormat: "json",
+ *     deliveryDestinationConfiguration: {
+ *         destinationResourceArn: cloudfrontLogs.arn,
+ *     },
+ * });
+ * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {
+ *     region: "us-east-1",
+ *     deliverySourceName: exampleLogDeliverySource.name,
+ *     deliveryDestinationArn: exampleLogDeliveryDestination.arn,
  * });
  * ```
  *

@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string?> IamServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        /// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         /// </summary>
         [Output("jobConfig")]
         public Output<Outputs.AppJobConfig> JobConfig { get; private set; } = null!;
@@ -609,7 +609,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? IamServiceRoleArn { get; set; }
 
         /// <summary>
-        /// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        /// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         /// </summary>
         [Input("jobConfig")]
         public Input<Inputs.AppJobConfigArgs>? JobConfig { get; set; }
@@ -821,7 +821,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? IamServiceRoleArn { get; set; }
 
         /// <summary>
-        /// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        /// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         /// </summary>
         [Input("jobConfig")]
         public Input<Inputs.AppJobConfigGetArgs>? JobConfig { get; set; }
