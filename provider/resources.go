@@ -4592,14 +4592,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_ebs_volume":                {Tok: awsDataSource(ebsMod, "getVolume")},
 			"aws_ebs_volumes":               {Tok: awsDataSource(ebsMod, "getEbsVolumes")},
 			// Elastic Container Registry
-			"aws_ecr_credentials": {
-				Tok: awsDataSource(ecrMod, "getCredentials"),
-				// aws_ecr_credentials is a custom data source implemented by Pulumi, thus it has no docs in the
-				// upstream provider. We set to a whitespace string so that the build will pass.
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
-			},
 			"aws_ecr_image":               {Tok: awsDataSource(ecrMod, "getImage")},
 			"aws_ecr_repository":          {Tok: awsDataSource(ecrMod, "getRepository")},
 			"aws_ecr_authorization_token": {Tok: awsDataSource(ecrMod, "getAuthorizationToken")},
@@ -4802,7 +4794,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_oam_links": {Tok: awsDataSource(oamMod, "getLinks")},
 			// RedShift
 			"aws_redshift_cluster":             {Tok: awsDataSource(redshiftMod, "getCluster")},
-			"aws_redshift_service_account":     {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
 			"aws_redshift_orderable_cluster":   {Tok: awsDataSource(redshiftMod, "getOrderableCluster")},
 			"aws_redshift_subnet_group":        {Tok: awsDataSource(redshiftMod, "getSubnetGroup")},
 			"aws_redshift_cluster_credentials": {Tok: awsDataSource(redshiftMod, "getClusterCredentials")},
