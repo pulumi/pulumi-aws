@@ -405,7 +405,7 @@ class ApplicationVersion(pulumi.CustomResource):
             application="tf-test-name",
             description="application version",
             bucket=default.id,
-            key=default_bucket_objectv2.id)
+            key=default_bucket_objectv2.key)
         ```
 
         :param str resource_name: The name of the resource.
@@ -460,7 +460,7 @@ class ApplicationVersion(pulumi.CustomResource):
             application="tf-test-name",
             description="application version",
             bucket=default.id,
-            key=default_bucket_objectv2.id)
+            key=default_bucket_objectv2.key)
         ```
 
         :param str resource_name: The name of the resource.

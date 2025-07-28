@@ -55,6 +55,53 @@ import (
 //
 // ```
 //
+// ### Transit Gateway Attached Firewall
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfirewall.NewFirewall(ctx, "example", &networkfirewall.FirewallArgs{
+//				Name:              pulumi.String("example"),
+//				FirewallPolicyArn: pulumi.Any(exampleAwsNetworkfirewallFirewallPolicy.Arn),
+//				TransitGatewayId:  pulumi.Any(exampleAwsEc2TransitGateway.Id),
+//				AvailabilityZoneMappings: networkfirewall.FirewallAvailabilityZoneMappingArray{
+//					&networkfirewall.FirewallAvailabilityZoneMappingArgs{
+//						AvailabilityZoneId: pulumi.String(example.ZoneIds[0]),
+//					},
+//					&networkfirewall.FirewallAvailabilityZoneMappingArgs{
+//						AvailabilityZoneId: pulumi.String(example.ZoneIds[1]),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Transit Gateway Attached Firewall (Cross Account)
+//
+// A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `networkfirewall.Firewall` and `awsNetworkfirewallNetworkFirewallTransitGatewayAttachmentAccepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
+//
 // ## Import
 //
 // Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
@@ -67,6 +114,10 @@ type Firewall struct {
 
 	// The Amazon Resource Name (ARN) that identifies the firewall.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+	AvailabilityZoneChangeProtection pulumi.BoolPtrOutput `pulumi:"availabilityZoneChangeProtection"`
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	AvailabilityZoneMappings FirewallAvailabilityZoneMappingArrayOutput `pulumi:"availabilityZoneMappings"`
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
@@ -87,16 +138,20 @@ type Firewall struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection pulumi.BoolPtrOutput `pulumi:"subnetChangeProtection"`
-	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+	// Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings FirewallSubnetMappingArrayOutput `pulumi:"subnetMappings"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
+	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
+	// The AWS account ID that owns the transit gateway.
+	TransitGatewayOwnerAccountId pulumi.StringOutput `pulumi:"transitGatewayOwnerAccountId"`
 	// A string token used when updating a firewall.
 	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
-	// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	// Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewFirewall registers a new resource with the given unique name, arguments, and options.
@@ -108,12 +163,6 @@ func NewFirewall(ctx *pulumi.Context,
 
 	if args.FirewallPolicyArn == nil {
 		return nil, errors.New("invalid value for required argument 'FirewallPolicyArn'")
-	}
-	if args.SubnetMappings == nil {
-		return nil, errors.New("invalid value for required argument 'SubnetMappings'")
-	}
-	if args.VpcId == nil {
-		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Firewall
@@ -140,6 +189,10 @@ func GetFirewall(ctx *pulumi.Context,
 type firewallState struct {
 	// The Amazon Resource Name (ARN) that identifies the firewall.
 	Arn *string `pulumi:"arn"`
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+	AvailabilityZoneChangeProtection *bool `pulumi:"availabilityZoneChangeProtection"`
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	AvailabilityZoneMappings []FirewallAvailabilityZoneMapping `pulumi:"availabilityZoneMappings"`
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
@@ -160,21 +213,29 @@ type firewallState struct {
 	Region *string `pulumi:"region"`
 	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
-	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+	// Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings []FirewallSubnetMapping `pulumi:"subnetMappings"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// The AWS account ID that owns the transit gateway.
+	TransitGatewayOwnerAccountId *string `pulumi:"transitGatewayOwnerAccountId"`
 	// A string token used when updating a firewall.
 	UpdateToken *string `pulumi:"updateToken"`
-	// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+	// Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type FirewallState struct {
 	// The Amazon Resource Name (ARN) that identifies the firewall.
 	Arn pulumi.StringPtrInput
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+	AvailabilityZoneChangeProtection pulumi.BoolPtrInput
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	AvailabilityZoneMappings FirewallAvailabilityZoneMappingArrayInput
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrInput
 	// A friendly description of the firewall.
@@ -195,15 +256,19 @@ type FirewallState struct {
 	Region pulumi.StringPtrInput
 	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection pulumi.BoolPtrInput
-	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+	// Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings FirewallSubnetMappingArrayInput
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
+	TransitGatewayId pulumi.StringPtrInput
+	// The AWS account ID that owns the transit gateway.
+	TransitGatewayOwnerAccountId pulumi.StringPtrInput
 	// A string token used when updating a firewall.
 	UpdateToken pulumi.StringPtrInput
-	// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+	// Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -212,6 +277,10 @@ func (FirewallState) ElementType() reflect.Type {
 }
 
 type firewallArgs struct {
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+	AvailabilityZoneChangeProtection *bool `pulumi:"availabilityZoneChangeProtection"`
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	AvailabilityZoneMappings []FirewallAvailabilityZoneMapping `pulumi:"availabilityZoneMappings"`
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
@@ -230,16 +299,22 @@ type firewallArgs struct {
 	Region *string `pulumi:"region"`
 	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
-	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+	// Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings []FirewallSubnetMapping `pulumi:"subnetMappings"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-	VpcId string `pulumi:"vpcId"`
+	// . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+	AvailabilityZoneChangeProtection pulumi.BoolPtrInput
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	AvailabilityZoneMappings FirewallAvailabilityZoneMappingArrayInput
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrInput
 	// A friendly description of the firewall.
@@ -258,12 +333,14 @@ type FirewallArgs struct {
 	Region pulumi.StringPtrInput
 	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection pulumi.BoolPtrInput
-	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+	// Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings FirewallSubnetMappingArrayInput
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-	VpcId pulumi.StringInput
+	// . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
+	TransitGatewayId pulumi.StringPtrInput
+	// Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+	VpcId pulumi.StringPtrInput
 }
 
 func (FirewallArgs) ElementType() reflect.Type {
@@ -358,6 +435,16 @@ func (o FirewallOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+func (o FirewallOutput) AvailabilityZoneChangeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.AvailabilityZoneChangeProtection }).(pulumi.BoolPtrOutput)
+}
+
+// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+func (o FirewallOutput) AvailabilityZoneMappings() FirewallAvailabilityZoneMappingArrayOutput {
+	return o.ApplyT(func(v *Firewall) FirewallAvailabilityZoneMappingArrayOutput { return v.AvailabilityZoneMappings }).(FirewallAvailabilityZoneMappingArrayOutput)
+}
+
 // A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 func (o FirewallOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
@@ -408,7 +495,7 @@ func (o FirewallOutput) SubnetChangeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.SubnetChangeProtection }).(pulumi.BoolPtrOutput)
 }
 
-// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+// Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 func (o FirewallOutput) SubnetMappings() FirewallSubnetMappingArrayOutput {
 	return o.ApplyT(func(v *Firewall) FirewallSubnetMappingArrayOutput { return v.SubnetMappings }).(FirewallSubnetMappingArrayOutput)
 }
@@ -423,14 +510,24 @@ func (o FirewallOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
+func (o FirewallOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS account ID that owns the transit gateway.
+func (o FirewallOutput) TransitGatewayOwnerAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.TransitGatewayOwnerAccountId }).(pulumi.StringOutput)
+}
+
 // A string token used when updating a firewall.
 func (o FirewallOutput) UpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.UpdateToken }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-func (o FirewallOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+// Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+func (o FirewallOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type FirewallArrayOutput struct{ *pulumi.OutputState }

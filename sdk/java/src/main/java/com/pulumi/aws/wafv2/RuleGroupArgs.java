@@ -127,6 +127,13 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.rules);
     }
 
+    @Import(name="rulesJson")
+    private @Nullable Output<String> rulesJson;
+
+    public Optional<Output<String>> rulesJson() {
+        return Optional.ofNullable(this.rulesJson);
+    }
+
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
@@ -182,6 +189,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.region = $.region;
         this.rules = $.rules;
+        this.rulesJson = $.rulesJson;
         this.scope = $.scope;
         this.tags = $.tags;
         this.visibilityConfig = $.visibilityConfig;
@@ -370,6 +378,15 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder rules(RuleGroupRuleArgs... rules) {
             return rules(List.of(rules));
+        }
+
+        public Builder rulesJson(@Nullable Output<String> rulesJson) {
+            $.rulesJson = rulesJson;
+            return this;
+        }
+
+        public Builder rulesJson(String rulesJson) {
+            return rulesJson(Output.of(rulesJson));
         }
 
         /**

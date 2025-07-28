@@ -78,6 +78,69 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * With weighted target groups:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.LoadBalancer;
+ * import com.pulumi.aws.lb.TargetGroup;
+ * import com.pulumi.aws.lb.Listener;
+ * import com.pulumi.aws.lb.ListenerArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionForwardArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var frontEnd = new LoadBalancer("frontEnd");
+ * 
+ *         var frontEndBlue = new TargetGroup("frontEndBlue");
+ * 
+ *         var frontEndGreen = new TargetGroup("frontEndGreen");
+ * 
+ *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()
+ *             .loadBalancerArn(frontEnd.arn())
+ *             .port(443)
+ *             .protocol("HTTPS")
+ *             .sslPolicy("ELBSecurityPolicy-2016-08")
+ *             .certificateArn("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4")
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .type("forward")
+ *                 .forward(ListenerDefaultActionForwardArgs.builder()
+ *                     .targetGroups(                    
+ *                         ListenerDefaultActionForwardTargetGroupArgs.builder()
+ *                             .arn(frontEndBlue.arn())
+ *                             .weight(100)
+ *                             .build(),
+ *                         ListenerDefaultActionForwardTargetGroupArgs.builder()
+ *                             .arn(frontEndGreen.arn())
+ *                             .weight(0)
+ *                             .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * To a NLB:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

@@ -32,14 +32,14 @@ public final class ClusterAccessConfigArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Whether or not to bootstrap the access config values to the cluster. Default is `false`.
+     * Whether or not to bootstrap the access config values to the cluster. Default is `true`.
      * 
      */
     @Import(name="bootstrapClusterCreatorAdminPermissions")
     private @Nullable Output<Boolean> bootstrapClusterCreatorAdminPermissions;
 
     /**
-     * @return Whether or not to bootstrap the access config values to the cluster. Default is `false`.
+     * @return Whether or not to bootstrap the access config values to the cluster. Default is `true`.
      * 
      */
     public Optional<Output<Boolean>> bootstrapClusterCreatorAdminPermissions() {
@@ -93,7 +93,7 @@ public final class ClusterAccessConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bootstrapClusterCreatorAdminPermissions Whether or not to bootstrap the access config values to the cluster. Default is `false`.
+         * @param bootstrapClusterCreatorAdminPermissions Whether or not to bootstrap the access config values to the cluster. Default is `true`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterAccessConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bootstrapClusterCreatorAdminPermissions Whether or not to bootstrap the access config values to the cluster. Default is `false`.
+         * @param bootstrapClusterCreatorAdminPermissions Whether or not to bootstrap the access config values to the cluster. Default is `true`.
          * 
          * @return builder
          * 

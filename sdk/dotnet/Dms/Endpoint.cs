@@ -131,6 +131,12 @@ namespace Pulumi.Aws.Dms
         public Output<Outputs.EndpointMongodbSettings?> MongodbSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for Oracle settings. See below.
+        /// </summary>
+        [Output("oracleSettings")]
+        public Output<Outputs.EndpointOracleSettings?> OracleSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Password to be used to login to the endpoint database.
         /// </summary>
         [Output("password")]
@@ -334,6 +340,12 @@ namespace Pulumi.Aws.Dms
         [Input("mongodbSettings")]
         public Input<Inputs.EndpointMongodbSettingsArgs>? MongodbSettings { get; set; }
 
+        /// <summary>
+        /// Configuration block for Oracle settings. See below.
+        /// </summary>
+        [Input("oracleSettings")]
+        public Input<Inputs.EndpointOracleSettingsArgs>? OracleSettings { get; set; }
+
         [Input("password")]
         private Input<string>? _password;
 
@@ -511,6 +523,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("mongodbSettings")]
         public Input<Inputs.EndpointMongodbSettingsGetArgs>? MongodbSettings { get; set; }
+
+        /// <summary>
+        /// Configuration block for Oracle settings. See below.
+        /// </summary>
+        [Input("oracleSettings")]
+        public Input<Inputs.EndpointOracleSettingsGetArgs>? OracleSettings { get; set; }
 
         [Input("password")]
         private Input<string>? _password;

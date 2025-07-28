@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Content Moderation
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +22,18 @@ import * as utilities from "../utilities";
  *     name: "example-project",
  *     autoUpdate: "ENABLED",
  *     feature: "CONTENT_MODERATION",
+ * });
+ * ```
+ *
+ * ### Custom Labels
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.rekognition.Project("example", {
+ *     name: "example-project",
+ *     feature: "CUSTOM_LABELS",
  * });
  * ```
  *
@@ -64,7 +78,7 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+     * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
      */
     public readonly autoUpdate!: pulumi.Output<string>;
     /**
@@ -137,7 +151,7 @@ export interface ProjectState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+     * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
      */
     autoUpdate?: pulumi.Input<string>;
     /**
@@ -170,7 +184,7 @@ export interface ProjectState {
  */
 export interface ProjectArgs {
     /**
-     * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+     * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
      */
     autoUpdate?: pulumi.Input<string>;
     /**

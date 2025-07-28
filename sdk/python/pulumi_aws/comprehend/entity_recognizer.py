@@ -524,10 +524,10 @@ class EntityRecognizer(pulumi.CustomResource):
                     },
                 ],
                 "documents": {
-                    "s3_uri": documents.id.apply(lambda id: f"s3://{documents_aws_s3_bucket['bucket']}/{id}"),
+                    "s3_uri": documents.key.apply(lambda key: f"s3://{documents_aws_s3_bucket['bucket']}/{key}"),
                 },
                 "entity_list": {
-                    "s3_uri": entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
+                    "s3_uri": entities.key.apply(lambda key: f"s3://{entities_aws_s3_bucket['bucket']}/{key}"),
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
@@ -604,10 +604,10 @@ class EntityRecognizer(pulumi.CustomResource):
                     },
                 ],
                 "documents": {
-                    "s3_uri": documents.id.apply(lambda id: f"s3://{documents_aws_s3_bucket['bucket']}/{id}"),
+                    "s3_uri": documents.key.apply(lambda key: f"s3://{documents_aws_s3_bucket['bucket']}/{key}"),
                 },
                 "entity_list": {
-                    "s3_uri": entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
+                    "s3_uri": entities.key.apply(lambda key: f"s3://{entities_aws_s3_bucket['bucket']}/{key}"),
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))

@@ -94,7 +94,7 @@ type Enabler struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
 	// At least one item is required.
 	ResourceTypes pulumi.StringArrayOutput `pulumi:"resourceTypes"`
 }
@@ -141,7 +141,7 @@ type enablerState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
 	// At least one item is required.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
@@ -153,7 +153,7 @@ type EnablerState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
 	// At least one item is required.
 	ResourceTypes pulumi.StringArrayInput
 }
@@ -169,7 +169,7 @@ type enablerArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
 	// At least one item is required.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
@@ -182,7 +182,7 @@ type EnablerArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
 	// At least one item is required.
 	ResourceTypes pulumi.StringArrayInput
 }
@@ -286,7 +286,7 @@ func (o EnablerOutput) Region() pulumi.StringOutput {
 }
 
 // Type of resources to scan.
-// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
 // At least one item is required.
 func (o EnablerOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.ResourceTypes }).(pulumi.StringArrayOutput)

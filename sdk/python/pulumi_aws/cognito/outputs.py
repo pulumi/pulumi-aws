@@ -19,6 +19,10 @@ __all__ = [
     'IdentityPoolCognitoIdentityProvider',
     'IdentityPoolRoleAttachmentRoleMapping',
     'IdentityPoolRoleAttachmentRoleMappingMappingRule',
+    'LogDeliveryConfigurationLogConfiguration',
+    'LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration',
+    'LogDeliveryConfigurationLogConfigurationFirehoseConfiguration',
+    'LogDeliveryConfigurationLogConfigurationS3Configuration',
     'ManagedUserPoolClientAnalyticsConfiguration',
     'ManagedUserPoolClientRefreshTokenRotation',
     'ManagedUserPoolClientTokenValidityUnits',
@@ -290,6 +294,208 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
         A brief string that the claim must match, for example, "paid" or "yes".
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LogDeliveryConfigurationLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventSource":
+            suggest = "event_source"
+        elif key == "logLevel":
+            suggest = "log_level"
+        elif key == "cloudWatchLogsConfiguration":
+            suggest = "cloud_watch_logs_configuration"
+        elif key == "firehoseConfiguration":
+            suggest = "firehose_configuration"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_source: _builtins.str,
+                 log_level: _builtins.str,
+                 cloud_watch_logs_configuration: Optional['outputs.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration'] = None,
+                 firehose_configuration: Optional['outputs.LogDeliveryConfigurationLogConfigurationFirehoseConfiguration'] = None,
+                 s3_configuration: Optional['outputs.LogDeliveryConfigurationLogConfigurationS3Configuration'] = None):
+        """
+        :param _builtins.str event_source: The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
+        :param _builtins.str log_level: The log level to set for the event source. Valid values are `ERROR` and `INFO`.
+        :param 'LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs' cloud_watch_logs_configuration: Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
+        :param 'LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs' firehose_configuration: Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
+        :param 'LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs' s3_configuration: Configuration for S3 delivery. See S3 Configuration below.
+               
+               > **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+        """
+        pulumi.set(__self__, "event_source", event_source)
+        pulumi.set(__self__, "log_level", log_level)
+        if cloud_watch_logs_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_logs_configuration", cloud_watch_logs_configuration)
+        if firehose_configuration is not None:
+            pulumi.set(__self__, "firehose_configuration", firehose_configuration)
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> _builtins.str:
+        """
+        The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
+        """
+        return pulumi.get(self, "event_source")
+
+    @_builtins.property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> _builtins.str:
+        """
+        The log level to set for the event source. Valid values are `ERROR` and `INFO`.
+        """
+        return pulumi.get(self, "log_level")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogsConfiguration")
+    def cloud_watch_logs_configuration(self) -> Optional['outputs.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration']:
+        """
+        Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
+        """
+        return pulumi.get(self, "cloud_watch_logs_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="firehoseConfiguration")
+    def firehose_configuration(self) -> Optional['outputs.LogDeliveryConfigurationLogConfigurationFirehoseConfiguration']:
+        """
+        Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
+        """
+        return pulumi.get(self, "firehose_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional['outputs.LogDeliveryConfigurationLogConfigurationS3Configuration']:
+        """
+        Configuration for S3 delivery. See S3 Configuration below.
+
+        > **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
+class LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupArn":
+            suggest = "log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str log_group_arn: The ARN of the CloudWatch Logs log group to which the logs should be delivered.
+        """
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the CloudWatch Logs log group to which the logs should be delivered.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+
+@pulumi.output_type
+class LogDeliveryConfigurationLogConfigurationFirehoseConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationLogConfigurationFirehoseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationLogConfigurationFirehoseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationLogConfigurationFirehoseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stream_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str stream_arn: The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
+        """
+        if stream_arn is not None:
+            pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
+        """
+        return pulumi.get(self, "stream_arn")
+
+
+@pulumi.output_type
+class LogDeliveryConfigurationLogConfigurationS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationLogConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationLogConfigurationS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationLogConfigurationS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket_arn: The ARN of the S3 bucket to which the logs should be delivered.
+        """
+        if bucket_arn is not None:
+            pulumi.set(__self__, "bucket_arn", bucket_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the S3 bucket to which the logs should be delivered.
+        """
+        return pulumi.get(self, "bucket_arn")
 
 
 @pulumi.output_type

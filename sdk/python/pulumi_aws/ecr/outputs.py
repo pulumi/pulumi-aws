@@ -26,6 +26,7 @@ __all__ = [
     'RepositoryCreationTemplateEncryptionConfiguration',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
+    'GetImagesImageIdResult',
     'GetLifecyclePolicyDocumentRuleResult',
     'GetLifecyclePolicyDocumentRuleActionResult',
     'GetLifecyclePolicyDocumentRuleSelectionResult',
@@ -408,6 +409,35 @@ class RepositoryImageScanningConfiguration(dict):
         Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
         """
         return pulumi.get(self, "scan_on_push")
+
+
+@pulumi.output_type
+class GetImagesImageIdResult(dict):
+    def __init__(__self__, *,
+                 image_digest: _builtins.str,
+                 image_tag: _builtins.str):
+        """
+        :param _builtins.str image_digest: The sha256 digest of the image manifest.
+        :param _builtins.str image_tag: The tag associated with the image.
+        """
+        pulumi.set(__self__, "image_digest", image_digest)
+        pulumi.set(__self__, "image_tag", image_tag)
+
+    @_builtins.property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> _builtins.str:
+        """
+        The sha256 digest of the image manifest.
+        """
+        return pulumi.get(self, "image_digest")
+
+    @_builtins.property
+    @pulumi.getter(name="imageTag")
+    def image_tag(self) -> _builtins.str:
+        """
+        The tag associated with the image.
+        """
+        return pulumi.get(self, "image_tag")
 
 
 @pulumi.output_type

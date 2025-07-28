@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusCapacityUsageSummary;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusSyncState;
+import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusTransitGatewayAttachmentSyncState;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -23,12 +24,21 @@ public final class GetFirewallFirewallStatus {
      * 
      */
     private String configurationSyncStateSummary;
+    /**
+     * @return The current status of the firewall endpoint instantiation in the subnet.
+     * 
+     */
     private String status;
     /**
      * @return Set of subnets configured for use by the firewall.
      * 
      */
     private List<GetFirewallFirewallStatusSyncState> syncStates;
+    /**
+     * @return Set of transit gateway configured for use by the firewall.
+     * 
+     */
+    private List<GetFirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates;
 
     private GetFirewallFirewallStatus() {}
     /**
@@ -45,6 +55,10 @@ public final class GetFirewallFirewallStatus {
     public String configurationSyncStateSummary() {
         return this.configurationSyncStateSummary;
     }
+    /**
+     * @return The current status of the firewall endpoint instantiation in the subnet.
+     * 
+     */
     public String status() {
         return this.status;
     }
@@ -54,6 +68,13 @@ public final class GetFirewallFirewallStatus {
      */
     public List<GetFirewallFirewallStatusSyncState> syncStates() {
         return this.syncStates;
+    }
+    /**
+     * @return Set of transit gateway configured for use by the firewall.
+     * 
+     */
+    public List<GetFirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates() {
+        return this.transitGatewayAttachmentSyncStates;
     }
 
     public static Builder builder() {
@@ -69,6 +90,7 @@ public final class GetFirewallFirewallStatus {
         private String configurationSyncStateSummary;
         private String status;
         private List<GetFirewallFirewallStatusSyncState> syncStates;
+        private List<GetFirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates;
         public Builder() {}
         public Builder(GetFirewallFirewallStatus defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,6 +98,7 @@ public final class GetFirewallFirewallStatus {
     	      this.configurationSyncStateSummary = defaults.configurationSyncStateSummary;
     	      this.status = defaults.status;
     	      this.syncStates = defaults.syncStates;
+    	      this.transitGatewayAttachmentSyncStates = defaults.transitGatewayAttachmentSyncStates;
         }
 
         @CustomType.Setter
@@ -116,12 +139,24 @@ public final class GetFirewallFirewallStatus {
         public Builder syncStates(GetFirewallFirewallStatusSyncState... syncStates) {
             return syncStates(List.of(syncStates));
         }
+        @CustomType.Setter
+        public Builder transitGatewayAttachmentSyncStates(List<GetFirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates) {
+            if (transitGatewayAttachmentSyncStates == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatus", "transitGatewayAttachmentSyncStates");
+            }
+            this.transitGatewayAttachmentSyncStates = transitGatewayAttachmentSyncStates;
+            return this;
+        }
+        public Builder transitGatewayAttachmentSyncStates(GetFirewallFirewallStatusTransitGatewayAttachmentSyncState... transitGatewayAttachmentSyncStates) {
+            return transitGatewayAttachmentSyncStates(List.of(transitGatewayAttachmentSyncStates));
+        }
         public GetFirewallFirewallStatus build() {
             final var _resultValue = new GetFirewallFirewallStatus();
             _resultValue.capacityUsageSummaries = capacityUsageSummaries;
             _resultValue.configurationSyncStateSummary = configurationSyncStateSummary;
             _resultValue.status = status;
             _resultValue.syncStates = syncStates;
+            _resultValue.transitGatewayAttachmentSyncStates = transitGatewayAttachmentSyncStates;
             return _resultValue;
         }
     }

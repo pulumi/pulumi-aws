@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyAsn;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookie;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeader;
@@ -21,6 +22,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementCustomKey {
+    /**
+     * @return Use an Autonomous System Number (ASN) derived from the request&#39;s originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyAsn asn;
     /**
      * @return Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
      * 
@@ -78,6 +84,13 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyUriPath uriPath;
 
     private WebAclRuleStatementRateBasedStatementCustomKey() {}
+    /**
+     * @return Use an Autonomous System Number (ASN) derived from the request&#39;s originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementCustomKeyAsn> asn() {
+        return Optional.ofNullable(this.asn);
+    }
     /**
      * @return Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
      * 
@@ -165,6 +178,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyAsn asn;
         private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyCookie cookie;
         private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp forwardedIp;
         private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyHeader header;
@@ -179,6 +193,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
         public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatementCustomKey defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.asn = defaults.asn;
     	      this.cookie = defaults.cookie;
     	      this.forwardedIp = defaults.forwardedIp;
     	      this.header = defaults.header;
@@ -192,6 +207,12 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
     	      this.uriPath = defaults.uriPath;
         }
 
+        @CustomType.Setter
+        public Builder asn(@Nullable WebAclRuleStatementRateBasedStatementCustomKeyAsn asn) {
+
+            this.asn = asn;
+            return this;
+        }
         @CustomType.Setter
         public Builder cookie(@Nullable WebAclRuleStatementRateBasedStatementCustomKeyCookie cookie) {
 
@@ -260,6 +281,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
         }
         public WebAclRuleStatementRateBasedStatementCustomKey build() {
             final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKey();
+            _resultValue.asn = asn;
             _resultValue.cookie = cookie;
             _resultValue.forwardedIp = forwardedIp;
             _resultValue.header = header;

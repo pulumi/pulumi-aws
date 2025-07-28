@@ -90,6 +90,14 @@ export interface GetFirewallResult {
      */
     readonly arn: string;
     /**
+     * Indicates whether the firewall is protected against changes to its Availability Zone configuration.
+     */
+    readonly availabilityZoneChangeProtection: boolean;
+    /**
+     * Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
+     */
+    readonly availabilityZoneMappings: outputs.networkfirewall.GetFirewallAvailabilityZoneMapping[];
+    /**
      * A flag indicating whether the firewall is protected against deletion.
      */
     readonly deleteProtection: boolean;
@@ -138,6 +146,14 @@ export interface GetFirewallResult {
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The unique identifier of the transit gateway associated with this firewall.
+     */
+    readonly transitGatewayId: string;
+    /**
+     * The AWS account ID that owns the transit gateway.
+     */
+    readonly transitGatewayOwnerAccountId: string;
     /**
      * String token used when updating a firewall.
      */

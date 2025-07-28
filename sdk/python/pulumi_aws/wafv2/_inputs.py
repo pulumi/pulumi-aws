@@ -131,6 +131,8 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementArgsDict',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyArgs',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyArgsDict',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgsDict',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgsDict',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs',
@@ -1275,6 +1277,8 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementArgsDict',
     'WebAclRuleStatementRateBasedStatementCustomKeyArgs',
     'WebAclRuleStatementRateBasedStatementCustomKeyArgsDict',
+    'WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyAsnArgsDict',
     'WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs',
     'WebAclRuleStatementRateBasedStatementCustomKeyCookieArgsDict',
     'WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs',
@@ -4970,6 +4974,7 @@ class RuleGroupRuleStatementRateBasedStatementArgs:
 
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementCustomKeyArgsDict(TypedDict):
+        asn: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgsDict']]
         cookie: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgsDict']]
         """
         (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
@@ -5020,6 +5025,7 @@ elif False:
 @pulumi.input_type
 class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs:
     def __init__(__self__, *,
+                 asn: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs']] = None,
                  cookie: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs']] = None,
                  forwarded_ip: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs']] = None,
                  header: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs']] = None,
@@ -5044,6 +5050,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs:
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs'] query_string: (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs'] uri_path: (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
         if cookie is not None:
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
@@ -5066,6 +5074,15 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs:
             pulumi.set(__self__, "query_string", query_string)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def asn(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs']]:
+        return pulumi.get(self, "asn")
+
+    @asn.setter
+    def asn(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs']]):
+        pulumi.set(self, "asn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -5198,6 +5215,18 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs:
     @uri_path.setter
     def uri_path(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs']]):
         pulumi.set(self, "uri_path", value)
+
+
+if not MYPY:
+    class RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgsDict(TypedDict):
+        pass
+elif False:
+    RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs:
+    def __init__(__self__):
+        pass
 
 
 if not MYPY:
@@ -33675,6 +33704,10 @@ class WebAclRuleStatementRateBasedStatementArgs:
 
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementCustomKeyArgsDict(TypedDict):
+        asn: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyAsnArgsDict']]
+        """
+        Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+        """
         cookie: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieArgsDict']]
         """
         Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
@@ -33725,6 +33758,7 @@ elif False:
 @pulumi.input_type
 class WebAclRuleStatementRateBasedStatementCustomKeyArgs:
     def __init__(__self__, *,
+                 asn: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs']] = None,
                  cookie: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs']] = None,
                  forwarded_ip: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs']] = None,
                  header: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs']] = None,
@@ -33737,6 +33771,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyArgs:
                  query_string: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs']] = None):
         """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs'] asn: Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs'] cookie: Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs'] forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs'] header: Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
@@ -33749,6 +33784,8 @@ class WebAclRuleStatementRateBasedStatementCustomKeyArgs:
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs'] query_string: Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs'] uri_path: Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
         if cookie is not None:
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
@@ -33771,6 +33808,18 @@ class WebAclRuleStatementRateBasedStatementCustomKeyArgs:
             pulumi.set(__self__, "query_string", query_string)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def asn(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs']]:
+        """
+        Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+        """
+        return pulumi.get(self, "asn")
+
+    @asn.setter
+    def asn(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs']]):
+        pulumi.set(self, "asn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -33903,6 +33952,18 @@ class WebAclRuleStatementRateBasedStatementCustomKeyArgs:
     @uri_path.setter
     def uri_path(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs']]):
         pulumi.set(self, "uri_path", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementRateBasedStatementCustomKeyAsnArgsDict(TypedDict):
+        pass
+elif False:
+    WebAclRuleStatementRateBasedStatementCustomKeyAsnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs:
+    def __init__(__self__):
+        pass
 
 
 if not MYPY:

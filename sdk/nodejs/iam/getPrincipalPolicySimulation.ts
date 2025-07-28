@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"}, {
+ * const example = new aws.s3.BucketObjectv2("example", {bucket: "my-test-bucket"}, {
  *     dependsOn: [s3ObjectAccess],
  * });
  * ```
@@ -234,7 +234,7 @@ export interface GetPrincipalPolicySimulationResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"}, {
+ * const example = new aws.s3.BucketObjectv2("example", {bucket: "my-test-bucket"}, {
  *     dependsOn: [s3ObjectAccess],
  * });
  * ```

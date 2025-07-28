@@ -70,10 +70,10 @@ index 96abcbecf9..bfec91c499 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 90041e2c7e..745d363e63 100644
+index 9d9710cdc4..15b4d08469 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
-@@ -69,7 +69,7 @@ func resourceSecurityGroup() *schema.Resource {
+@@ -68,7 +68,7 @@ func resourceSecurityGroup() *schema.Resource {
  				Type:         schema.TypeString,
  				Optional:     true,
  				ForceNew:     true,
@@ -278,10 +278,10 @@ index 7117c8e061..0fa362cf95 100644
  			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index b88a844ac1..280ef73af5 100644
+index 720fa883f3..5a8ac76bf6 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
-@@ -438,7 +438,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -360,7 +360,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta any)
  					ResourceRecordSet: expandResourceRecordSet(d, aws.ToString(zoneRecord.HostedZone.Name)),
  				},
  			},
@@ -290,7 +290,7 @@ index b88a844ac1..280ef73af5 100644
  		},
  		HostedZoneId: aws.String(cleanZoneID(aws.ToString(zoneRecord.HostedZone.Id))),
  	}
-@@ -748,7 +748,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -662,7 +662,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta any)
  					ResourceRecordSet: expandResourceRecordSet(d, aws.ToString(zoneRecord.HostedZone.Name)),
  				},
  			},
@@ -299,7 +299,7 @@ index b88a844ac1..280ef73af5 100644
  		},
  		HostedZoneId: aws.String(cleanZoneID(aws.ToString(zoneRecord.HostedZone.Id))),
  	}
-@@ -815,7 +815,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -720,7 +720,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta any)
  					ResourceRecordSet: rec,
  				},
  			},

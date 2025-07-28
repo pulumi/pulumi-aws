@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall;
 
+import com.pulumi.aws.networkfirewall.inputs.FirewallAvailabilityZoneMappingArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallEncryptionConfigurationArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallSubnetMappingArgs;
 import com.pulumi.core.Output;
@@ -20,6 +21,36 @@ import javax.annotation.Nullable;
 public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FirewallArgs Empty = new FirewallArgs();
+
+    /**
+     * A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+     * 
+     */
+    @Import(name="availabilityZoneChangeProtection")
+    private @Nullable Output<Boolean> availabilityZoneChangeProtection;
+
+    /**
+     * @return A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+     * 
+     */
+    public Optional<Output<Boolean>> availabilityZoneChangeProtection() {
+        return Optional.ofNullable(this.availabilityZoneChangeProtection);
+    }
+
+    /**
+     * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+     * 
+     */
+    @Import(name="availabilityZoneMappings")
+    private @Nullable Output<List<FirewallAvailabilityZoneMappingArgs>> availabilityZoneMappings;
+
+    /**
+     * @return Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+     * 
+     */
+    public Optional<Output<List<FirewallAvailabilityZoneMappingArgs>>> availabilityZoneMappings() {
+        return Optional.ofNullable(this.availabilityZoneMappings);
+    }
 
     /**
      * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
@@ -157,18 +188,18 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+     * Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      * 
      */
-    @Import(name="subnetMappings", required=true)
-    private Output<List<FirewallSubnetMappingArgs>> subnetMappings;
+    @Import(name="subnetMappings")
+    private @Nullable Output<List<FirewallSubnetMappingArgs>> subnetMappings;
 
     /**
-     * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+     * @return Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      * 
      */
-    public Output<List<FirewallSubnetMappingArgs>> subnetMappings() {
-        return this.subnetMappings;
+    public Optional<Output<List<FirewallSubnetMappingArgs>>> subnetMappings() {
+        return Optional.ofNullable(this.subnetMappings);
     }
 
     /**
@@ -187,23 +218,40 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     * . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
      * 
      */
-    @Import(name="vpcId", required=true)
-    private Output<String> vpcId;
+    @Import(name="transitGatewayId")
+    private @Nullable Output<String> transitGatewayId;
 
     /**
-     * @return The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     * @return . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Optional<Output<String>> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
+    }
+
+    /**
+     * Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     * 
+     */
+    @Import(name="vpcId")
+    private @Nullable Output<String> vpcId;
+
+    /**
+     * @return Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     * 
+     */
+    public Optional<Output<String>> vpcId() {
+        return Optional.ofNullable(this.vpcId);
     }
 
     private FirewallArgs() {}
 
     private FirewallArgs(FirewallArgs $) {
+        this.availabilityZoneChangeProtection = $.availabilityZoneChangeProtection;
+        this.availabilityZoneMappings = $.availabilityZoneMappings;
         this.deleteProtection = $.deleteProtection;
         this.description = $.description;
         this.enabledAnalysisTypes = $.enabledAnalysisTypes;
@@ -215,6 +263,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         this.subnetChangeProtection = $.subnetChangeProtection;
         this.subnetMappings = $.subnetMappings;
         this.tags = $.tags;
+        this.transitGatewayId = $.transitGatewayId;
         this.vpcId = $.vpcId;
     }
 
@@ -234,6 +283,58 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(FirewallArgs defaults) {
             $ = new FirewallArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param availabilityZoneChangeProtection A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availabilityZoneChangeProtection(@Nullable Output<Boolean> availabilityZoneChangeProtection) {
+            $.availabilityZoneChangeProtection = availabilityZoneChangeProtection;
+            return this;
+        }
+
+        /**
+         * @param availabilityZoneChangeProtection A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availabilityZoneChangeProtection(Boolean availabilityZoneChangeProtection) {
+            return availabilityZoneChangeProtection(Output.of(availabilityZoneChangeProtection));
+        }
+
+        /**
+         * @param availabilityZoneMappings Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availabilityZoneMappings(@Nullable Output<List<FirewallAvailabilityZoneMappingArgs>> availabilityZoneMappings) {
+            $.availabilityZoneMappings = availabilityZoneMappings;
+            return this;
+        }
+
+        /**
+         * @param availabilityZoneMappings Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availabilityZoneMappings(List<FirewallAvailabilityZoneMappingArgs> availabilityZoneMappings) {
+            return availabilityZoneMappings(Output.of(availabilityZoneMappings));
+        }
+
+        /**
+         * @param availabilityZoneMappings Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availabilityZoneMappings(FirewallAvailabilityZoneMappingArgs... availabilityZoneMappings) {
+            return availabilityZoneMappings(List.of(availabilityZoneMappings));
         }
 
         /**
@@ -436,18 +537,18 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetMappings Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+         * @param subnetMappings Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
          * 
          * @return builder
          * 
          */
-        public Builder subnetMappings(Output<List<FirewallSubnetMappingArgs>> subnetMappings) {
+        public Builder subnetMappings(@Nullable Output<List<FirewallSubnetMappingArgs>> subnetMappings) {
             $.subnetMappings = subnetMappings;
             return this;
         }
 
         /**
-         * @param subnetMappings Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+         * @param subnetMappings Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
          * 
          * @return builder
          * 
@@ -457,7 +558,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetMappings Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+         * @param subnetMappings Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
          * 
          * @return builder
          * 
@@ -488,18 +589,39 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+         * @param transitGatewayId . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
          * 
          * @return builder
          * 
          */
-        public Builder vpcId(Output<String> vpcId) {
+        public Builder transitGatewayId(@Nullable Output<String> transitGatewayId) {
+            $.transitGatewayId = transitGatewayId;
+            return this;
+        }
+
+        /**
+         * @param transitGatewayId . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayId(String transitGatewayId) {
+            return transitGatewayId(Output.of(transitGatewayId));
+        }
+
+        /**
+         * @param vpcId Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
         /**
-         * @param vpcId The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+         * @param vpcId Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
          * 
          * @return builder
          * 
@@ -511,12 +633,6 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         public FirewallArgs build() {
             if ($.firewallPolicyArn == null) {
                 throw new MissingRequiredPropertyException("FirewallArgs", "firewallPolicyArn");
-            }
-            if ($.subnetMappings == null) {
-                throw new MissingRequiredPropertyException("FirewallArgs", "subnetMappings");
-            }
-            if ($.vpcId == null) {
-                throw new MissingRequiredPropertyException("FirewallArgs", "vpcId");
             }
             return $;
         }

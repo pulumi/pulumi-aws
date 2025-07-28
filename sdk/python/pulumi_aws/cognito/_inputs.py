@@ -21,6 +21,14 @@ __all__ = [
     'IdentityPoolRoleAttachmentRoleMappingArgsDict',
     'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs',
     'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict',
+    'LogDeliveryConfigurationLogConfigurationArgs',
+    'LogDeliveryConfigurationLogConfigurationArgsDict',
+    'LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs',
+    'LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgsDict',
+    'LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs',
+    'LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgsDict',
+    'LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs',
+    'LogDeliveryConfigurationLogConfigurationS3ConfigurationArgsDict',
     'ManagedUserPoolClientAnalyticsConfigurationArgs',
     'ManagedUserPoolClientAnalyticsConfigurationArgsDict',
     'ManagedUserPoolClientRefreshTokenRotationArgs',
@@ -359,6 +367,218 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class LogDeliveryConfigurationLogConfigurationArgsDict(TypedDict):
+        event_source: pulumi.Input[_builtins.str]
+        """
+        The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
+        """
+        log_level: pulumi.Input[_builtins.str]
+        """
+        The log level to set for the event source. Valid values are `ERROR` and `INFO`.
+        """
+        cloud_watch_logs_configuration: NotRequired[pulumi.Input['LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgsDict']]
+        """
+        Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
+        """
+        firehose_configuration: NotRequired[pulumi.Input['LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgsDict']]
+        """
+        Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
+        """
+        s3_configuration: NotRequired[pulumi.Input['LogDeliveryConfigurationLogConfigurationS3ConfigurationArgsDict']]
+        """
+        Configuration for S3 delivery. See S3 Configuration below.
+
+        > **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+        """
+elif False:
+    LogDeliveryConfigurationLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogDeliveryConfigurationLogConfigurationArgs:
+    def __init__(__self__, *,
+                 event_source: pulumi.Input[_builtins.str],
+                 log_level: pulumi.Input[_builtins.str],
+                 cloud_watch_logs_configuration: Optional[pulumi.Input['LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs']] = None,
+                 firehose_configuration: Optional[pulumi.Input['LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs']] = None,
+                 s3_configuration: Optional[pulumi.Input['LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] event_source: The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
+        :param pulumi.Input[_builtins.str] log_level: The log level to set for the event source. Valid values are `ERROR` and `INFO`.
+        :param pulumi.Input['LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs'] cloud_watch_logs_configuration: Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
+        :param pulumi.Input['LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs'] firehose_configuration: Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
+        :param pulumi.Input['LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs'] s3_configuration: Configuration for S3 delivery. See S3 Configuration below.
+               
+               > **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+        """
+        pulumi.set(__self__, "event_source", event_source)
+        pulumi.set(__self__, "log_level", log_level)
+        if cloud_watch_logs_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_logs_configuration", cloud_watch_logs_configuration)
+        if firehose_configuration is not None:
+            pulumi.set(__self__, "firehose_configuration", firehose_configuration)
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
+        """
+        return pulumi.get(self, "event_source")
+
+    @event_source.setter
+    def event_source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "event_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> pulumi.Input[_builtins.str]:
+        """
+        The log level to set for the event source. Valid values are `ERROR` and `INFO`.
+        """
+        return pulumi.get(self, "log_level")
+
+    @log_level.setter
+    def log_level(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogsConfiguration")
+    def cloud_watch_logs_configuration(self) -> Optional[pulumi.Input['LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs']]:
+        """
+        Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
+        """
+        return pulumi.get(self, "cloud_watch_logs_configuration")
+
+    @cloud_watch_logs_configuration.setter
+    def cloud_watch_logs_configuration(self, value: Optional[pulumi.Input['LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs']]):
+        pulumi.set(self, "cloud_watch_logs_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firehoseConfiguration")
+    def firehose_configuration(self) -> Optional[pulumi.Input['LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs']]:
+        """
+        Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
+        """
+        return pulumi.get(self, "firehose_configuration")
+
+    @firehose_configuration.setter
+    def firehose_configuration(self, value: Optional[pulumi.Input['LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs']]):
+        pulumi.set(self, "firehose_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional[pulumi.Input['LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs']]:
+        """
+        Configuration for S3 delivery. See S3 Configuration below.
+
+        > **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: Optional[pulumi.Input['LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs']]):
+        pulumi.set(self, "s3_configuration", value)
+
+
+if not MYPY:
+    class LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgsDict(TypedDict):
+        log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the CloudWatch Logs log group to which the logs should be delivered.
+        """
+elif False:
+    LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs:
+    def __init__(__self__, *,
+                 log_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] log_group_arn: The ARN of the CloudWatch Logs log group to which the logs should be delivered.
+        """
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the CloudWatch Logs log group to which the logs should be delivered.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_group_arn", value)
+
+
+if not MYPY:
+    class LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgsDict(TypedDict):
+        stream_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
+        """
+elif False:
+    LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs:
+    def __init__(__self__, *,
+                 stream_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] stream_arn: The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
+        """
+        if stream_arn is not None:
+            pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
+        """
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "stream_arn", value)
+
+
+if not MYPY:
+    class LogDeliveryConfigurationLogConfigurationS3ConfigurationArgsDict(TypedDict):
+        bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the S3 bucket to which the logs should be delivered.
+        """
+elif False:
+    LogDeliveryConfigurationLogConfigurationS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket_arn: The ARN of the S3 bucket to which the logs should be delivered.
+        """
+        if bucket_arn is not None:
+            pulumi.set(__self__, "bucket_arn", bucket_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the S3 bucket to which the logs should be delivered.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket_arn", value)
 
 
 if not MYPY:

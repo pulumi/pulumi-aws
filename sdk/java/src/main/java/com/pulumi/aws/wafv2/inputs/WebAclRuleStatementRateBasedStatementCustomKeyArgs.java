@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs;
@@ -24,6 +25,21 @@ import javax.annotation.Nullable;
 public final class WebAclRuleStatementRateBasedStatementCustomKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleStatementRateBasedStatementCustomKeyArgs Empty = new WebAclRuleStatementRateBasedStatementCustomKeyArgs();
+
+    /**
+     * Use an Autonomous System Number (ASN) derived from the request&#39;s originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+     * 
+     */
+    @Import(name="asn")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs> asn;
+
+    /**
+     * @return Use an Autonomous System Number (ASN) derived from the request&#39;s originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs>> asn() {
+        return Optional.ofNullable(this.asn);
+    }
 
     /**
      * Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
@@ -193,6 +209,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyArgs extends co
     private WebAclRuleStatementRateBasedStatementCustomKeyArgs() {}
 
     private WebAclRuleStatementRateBasedStatementCustomKeyArgs(WebAclRuleStatementRateBasedStatementCustomKeyArgs $) {
+        this.asn = $.asn;
         this.cookie = $.cookie;
         this.forwardedIp = $.forwardedIp;
         this.header = $.header;
@@ -222,6 +239,27 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyArgs extends co
 
         public Builder(WebAclRuleStatementRateBasedStatementCustomKeyArgs defaults) {
             $ = new WebAclRuleStatementRateBasedStatementCustomKeyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param asn Use an Autonomous System Number (ASN) derived from the request&#39;s originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder asn(@Nullable Output<WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs> asn) {
+            $.asn = asn;
+            return this;
+        }
+
+        /**
+         * @param asn Use an Autonomous System Number (ASN) derived from the request&#39;s originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder asn(WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs asn) {
+            return asn(Output.of(asn));
         }
 
         /**

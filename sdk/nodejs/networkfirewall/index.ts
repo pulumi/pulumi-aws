@@ -15,6 +15,11 @@ export type FirewallPolicy = import("./firewallPolicy").FirewallPolicy;
 export const FirewallPolicy: typeof import("./firewallPolicy").FirewallPolicy = null as any;
 utilities.lazyLoad(exports, ["FirewallPolicy"], () => require("./firewallPolicy"));
 
+export { FirewallTransitGatewayAttachmentAccepterArgs, FirewallTransitGatewayAttachmentAccepterState } from "./firewallTransitGatewayAttachmentAccepter";
+export type FirewallTransitGatewayAttachmentAccepter = import("./firewallTransitGatewayAttachmentAccepter").FirewallTransitGatewayAttachmentAccepter;
+export const FirewallTransitGatewayAttachmentAccepter: typeof import("./firewallTransitGatewayAttachmentAccepter").FirewallTransitGatewayAttachmentAccepter = null as any;
+utilities.lazyLoad(exports, ["FirewallTransitGatewayAttachmentAccepter"], () => require("./firewallTransitGatewayAttachmentAccepter"));
+
 export { GetFirewallArgs, GetFirewallResult, GetFirewallOutputArgs } from "./getFirewall";
 export const getFirewall: typeof import("./getFirewall").getFirewall = null as any;
 export const getFirewallOutput: typeof import("./getFirewall").getFirewallOutput = null as any;
@@ -59,6 +64,8 @@ const _module = {
                 return new Firewall(name, <any>undefined, { urn })
             case "aws:networkfirewall/firewallPolicy:FirewallPolicy":
                 return new FirewallPolicy(name, <any>undefined, { urn })
+            case "aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter":
+                return new FirewallTransitGatewayAttachmentAccepter(name, <any>undefined, { urn })
             case "aws:networkfirewall/loggingConfiguration:LoggingConfiguration":
                 return new LoggingConfiguration(name, <any>undefined, { urn })
             case "aws:networkfirewall/resourcePolicy:ResourcePolicy":
@@ -74,6 +81,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/firewall", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/firewallPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "networkfirewall/firewallTransitGatewayAttachmentAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/loggingConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/ruleGroup", _module)

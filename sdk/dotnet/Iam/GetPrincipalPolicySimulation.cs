@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Aws.S3.BucketObject("example", new()
+        ///     var example = new Aws.S3.BucketObjectv2("example", new()
         ///     {
         ///         Bucket = "my-test-bucket",
         ///     }, new CustomResourceOptions
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Aws.S3.BucketObject("example", new()
+        ///     var example = new Aws.S3.BucketObjectv2("example", new()
         ///     {
         ///         Bucket = "my-test-bucket",
         ///     }, new CustomResourceOptions
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Aws.S3.BucketObject("example", new()
+        ///     var example = new Aws.S3.BucketObjectv2("example", new()
         ///     {
         ///         Bucket = "my-test-bucket",
         ///     }, new CustomResourceOptions

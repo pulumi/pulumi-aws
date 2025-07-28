@@ -74,6 +74,7 @@ __all__ = [
     'RuleGroupRuleStatementOrStatement',
     'RuleGroupRuleStatementRateBasedStatement',
     'RuleGroupRuleStatementRateBasedStatementCustomKey',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyAsn',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyCookie',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp',
@@ -646,6 +647,7 @@ __all__ = [
     'WebAclRuleStatementOrStatement',
     'WebAclRuleStatementRateBasedStatement',
     'WebAclRuleStatementRateBasedStatementCustomKey',
+    'WebAclRuleStatementRateBasedStatementCustomKeyAsn',
     'WebAclRuleStatementRateBasedStatementCustomKeyCookie',
     'WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation',
     'WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp',
@@ -3501,6 +3503,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 asn: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyAsn'] = None,
                  cookie: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie'] = None,
                  forwarded_ip: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp'] = None,
                  header: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader'] = None,
@@ -3525,6 +3528,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
         if cookie is not None:
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
@@ -3547,6 +3552,11 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
             pulumi.set(__self__, "query_string", query_string)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def asn(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyAsn']:
+        return pulumi.get(self, "asn")
 
     @_builtins.property
     @pulumi.getter
@@ -3635,6 +3645,12 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
         (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
         return pulumi.get(self, "uri_path")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyAsn(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -26967,6 +26983,7 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 asn: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyAsn'] = None,
                  cookie: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookie'] = None,
                  forwarded_ip: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp'] = None,
                  header: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeader'] = None,
@@ -26979,6 +26996,7 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
                  query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryString'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPath'] = None):
         """
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs' asn: Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs' cookie: Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs' forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs' header: Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
@@ -26991,6 +27009,8 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
         if cookie is not None:
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
@@ -27013,6 +27033,14 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
             pulumi.set(__self__, "query_string", query_string)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def asn(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyAsn']:
+        """
+        Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+        """
+        return pulumi.get(self, "asn")
 
     @_builtins.property
     @pulumi.getter
@@ -27101,6 +27129,12 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
         Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
         return pulumi.get(self, "uri_path")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementCustomKeyAsn(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

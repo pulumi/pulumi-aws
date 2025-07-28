@@ -16,10 +16,12 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'FirewallAvailabilityZoneMapping',
     'FirewallEncryptionConfiguration',
     'FirewallFirewallStatus',
     'FirewallFirewallStatusSyncState',
     'FirewallFirewallStatusSyncStateAttachment',
+    'FirewallFirewallStatusTransitGatewayAttachmentSyncState',
     'FirewallPolicyEncryptionConfiguration',
     'FirewallPolicyFirewallPolicy',
     'FirewallPolicyFirewallPolicyPolicyVariables',
@@ -35,6 +37,7 @@ __all__ = [
     'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension',
     'FirewallPolicyFirewallPolicyStatelessRuleGroupReference',
     'FirewallSubnetMapping',
+    'FirewallTransitGatewayAttachmentAccepterTimeouts',
     'LoggingConfigurationLoggingConfiguration',
     'LoggingConfigurationLoggingConfigurationLogDestinationConfig',
     'RuleGroupEncryptionConfiguration',
@@ -79,6 +82,7 @@ __all__ = [
     'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource',
     'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort',
     'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate',
+    'GetFirewallAvailabilityZoneMappingResult',
     'GetFirewallEncryptionConfigurationResult',
     'GetFirewallFirewallStatusResult',
     'GetFirewallFirewallStatusCapacityUsageSummaryResult',
@@ -86,6 +90,7 @@ __all__ = [
     'GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult',
     'GetFirewallFirewallStatusSyncStateResult',
     'GetFirewallFirewallStatusSyncStateAttachmentResult',
+    'GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult',
     'GetFirewallPolicyFirewallPolicyResult',
     'GetFirewallPolicyFirewallPolicyPolicyVariableResult',
     'GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableResult',
@@ -100,6 +105,41 @@ __all__ = [
     'GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult',
     'GetFirewallSubnetMappingResult',
 ]
+
+@pulumi.output_type
+class FirewallAvailabilityZoneMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZoneId":
+            suggest = "availability_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallAvailabilityZoneMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallAvailabilityZoneMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallAvailabilityZoneMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone_id: _builtins.str):
+        """
+        :param _builtins.str availability_zone_id: The ID of the Availability Zone where the firewall endpoint is located..
+        """
+        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> _builtins.str:
+        """
+        The ID of the Availability Zone where the firewall endpoint is located..
+        """
+        return pulumi.get(self, "availability_zone_id")
+
 
 @pulumi.output_type
 class FirewallEncryptionConfiguration(dict):
@@ -155,6 +195,8 @@ class FirewallFirewallStatus(dict):
         suggest = None
         if key == "syncStates":
             suggest = "sync_states"
+        elif key == "transitGatewayAttachmentSyncStates":
+            suggest = "transit_gateway_attachment_sync_states"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallFirewallStatus. Access the value via the '{suggest}' property getter instead.")
@@ -168,12 +210,16 @@ class FirewallFirewallStatus(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sync_states: Optional[Sequence['outputs.FirewallFirewallStatusSyncState']] = None):
+                 sync_states: Optional[Sequence['outputs.FirewallFirewallStatusSyncState']] = None,
+                 transit_gateway_attachment_sync_states: Optional[Sequence['outputs.FirewallFirewallStatusTransitGatewayAttachmentSyncState']] = None):
         """
         :param Sequence['FirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
+        :param Sequence['FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs'] transit_gateway_attachment_sync_states: Set of transit gateway configured for use by the firewall.
         """
         if sync_states is not None:
             pulumi.set(__self__, "sync_states", sync_states)
+        if transit_gateway_attachment_sync_states is not None:
+            pulumi.set(__self__, "transit_gateway_attachment_sync_states", transit_gateway_attachment_sync_states)
 
     @_builtins.property
     @pulumi.getter(name="syncStates")
@@ -182,6 +228,14 @@ class FirewallFirewallStatus(dict):
         Set of subnets configured for use by the firewall.
         """
         return pulumi.get(self, "sync_states")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentSyncStates")
+    def transit_gateway_attachment_sync_states(self) -> Optional[Sequence['outputs.FirewallFirewallStatusTransitGatewayAttachmentSyncState']]:
+        """
+        Set of transit gateway configured for use by the firewall.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_sync_states")
 
 
 @pulumi.output_type
@@ -280,6 +334,42 @@ class FirewallFirewallStatusSyncStateAttachment(dict):
         The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class FirewallFirewallStatusTransitGatewayAttachmentSyncState(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentId":
+            suggest = "attachment_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallFirewallStatusTransitGatewayAttachmentSyncState. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallFirewallStatusTransitGatewayAttachmentSyncState.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallFirewallStatusTransitGatewayAttachmentSyncState.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attachment_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str attachment_id: The unique identifier of the transit gateway attachment.
+        """
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+
+    @_builtins.property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[_builtins.str]:
+        """
+        The unique identifier of the transit gateway attachment.
+        """
+        return pulumi.get(self, "attachment_id")
 
 
 @pulumi.output_type
@@ -981,6 +1071,37 @@ class FirewallSubnetMapping(dict):
         The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
         """
         return pulumi.get(self, "ip_address_type")
+
+
+@pulumi.output_type
+class FirewallTransitGatewayAttachmentAccepterTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type
@@ -3082,6 +3203,24 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
 
 
 @pulumi.output_type
+class GetFirewallAvailabilityZoneMappingResult(dict):
+    def __init__(__self__, *,
+                 availability_zone_id: _builtins.str):
+        """
+        :param _builtins.str availability_zone_id: The ID of the Availability Zone where the firewall endpoint is located.
+        """
+        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> _builtins.str:
+        """
+        The ID of the Availability Zone where the firewall endpoint is located.
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+
+@pulumi.output_type
 class GetFirewallEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
                  key_id: _builtins.str,
@@ -3116,16 +3255,20 @@ class GetFirewallFirewallStatusResult(dict):
                  capacity_usage_summaries: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult'],
                  configuration_sync_state_summary: _builtins.str,
                  status: _builtins.str,
-                 sync_states: Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']):
+                 sync_states: Sequence['outputs.GetFirewallFirewallStatusSyncStateResult'],
+                 transit_gateway_attachment_sync_states: Sequence['outputs.GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult']):
         """
         :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryArgs'] capacity_usage_summaries: Aggregated count of all resources used by reference sets in a firewall.
         :param _builtins.str configuration_sync_state_summary: Summary of sync states for all availability zones in which the firewall is configured.
+        :param _builtins.str status: The current status of the firewall endpoint instantiation in the subnet.
         :param Sequence['GetFirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
+        :param Sequence['GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs'] transit_gateway_attachment_sync_states: Set of transit gateway configured for use by the firewall.
         """
         pulumi.set(__self__, "capacity_usage_summaries", capacity_usage_summaries)
         pulumi.set(__self__, "configuration_sync_state_summary", configuration_sync_state_summary)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "sync_states", sync_states)
+        pulumi.set(__self__, "transit_gateway_attachment_sync_states", transit_gateway_attachment_sync_states)
 
     @_builtins.property
     @pulumi.getter(name="capacityUsageSummaries")
@@ -3146,6 +3289,9 @@ class GetFirewallFirewallStatusResult(dict):
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        The current status of the firewall endpoint instantiation in the subnet.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -3155,6 +3301,14 @@ class GetFirewallFirewallStatusResult(dict):
         Set of subnets configured for use by the firewall.
         """
         return pulumi.get(self, "sync_states")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentSyncStates")
+    def transit_gateway_attachment_sync_states(self) -> Sequence['outputs.GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult']:
+        """
+        Set of transit gateway configured for use by the firewall.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_sync_states")
 
 
 @pulumi.output_type
@@ -3267,13 +3421,17 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
     def __init__(__self__, *,
                  endpoint_id: _builtins.str,
                  status: _builtins.str,
+                 status_message: _builtins.str,
                  subnet_id: _builtins.str):
         """
         :param _builtins.str endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        :param _builtins.str status: The current status of the firewall endpoint instantiation in the subnet.
+        :param _builtins.str status_message: A message providing additional information about the current status.
         :param _builtins.str subnet_id: The unique identifier for the subnet.
         """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
         pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
         pulumi.set(__self__, "subnet_id", subnet_id)
 
     @_builtins.property
@@ -3287,7 +3445,18 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        The current status of the firewall endpoint instantiation in the subnet.
+        """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> _builtins.str:
+        """
+        A message providing additional information about the current status.
+        """
+        return pulumi.get(self, "status_message")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
@@ -3296,6 +3465,46 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
         The unique identifier for the subnet.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult(dict):
+    def __init__(__self__, *,
+                 attachment_id: _builtins.str,
+                 status_message: _builtins.str,
+                 transit_gateway_attachment_status: _builtins.str):
+        """
+        :param _builtins.str attachment_id: The unique identifier of the transit gateway attachment.
+        :param _builtins.str status_message: A message providing additional information about the current status.
+        :param _builtins.str transit_gateway_attachment_status: The current status of the transit gateway attachment.
+        """
+        pulumi.set(__self__, "attachment_id", attachment_id)
+        pulumi.set(__self__, "status_message", status_message)
+        pulumi.set(__self__, "transit_gateway_attachment_status", transit_gateway_attachment_status)
+
+    @_builtins.property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> _builtins.str:
+        """
+        The unique identifier of the transit gateway attachment.
+        """
+        return pulumi.get(self, "attachment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> _builtins.str:
+        """
+        A message providing additional information about the current status.
+        """
+        return pulumi.get(self, "status_message")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentStatus")
+    def transit_gateway_attachment_status(self) -> _builtins.str:
+        """
+        The current status of the transit gateway attachment.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_status")
 
 
 @pulumi.output_type

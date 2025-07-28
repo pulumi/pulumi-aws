@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.outputs;
 
+import com.pulumi.aws.networkfirewall.outputs.GetFirewallAvailabilityZoneMapping;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallEncryptionConfiguration;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatus;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallSubnetMapping;
@@ -21,6 +22,16 @@ public final class GetFirewallResult {
      * 
      */
     private String arn;
+    /**
+     * @return Indicates whether the firewall is protected against changes to its Availability Zone configuration.
+     * 
+     */
+    private Boolean availabilityZoneChangeProtection;
+    /**
+     * @return Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
+     * 
+     */
+    private List<GetFirewallAvailabilityZoneMapping> availabilityZoneMappings;
     /**
      * @return A flag indicating whether the firewall is protected against deletion.
      * 
@@ -83,6 +94,16 @@ public final class GetFirewallResult {
      */
     private Map<String,String> tags;
     /**
+     * @return The unique identifier of the transit gateway associated with this firewall.
+     * 
+     */
+    private String transitGatewayId;
+    /**
+     * @return The AWS account ID that owns the transit gateway.
+     * 
+     */
+    private String transitGatewayOwnerAccountId;
+    /**
      * @return String token used when updating a firewall.
      * 
      */
@@ -100,6 +121,20 @@ public final class GetFirewallResult {
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Indicates whether the firewall is protected against changes to its Availability Zone configuration.
+     * 
+     */
+    public Boolean availabilityZoneChangeProtection() {
+        return this.availabilityZoneChangeProtection;
+    }
+    /**
+     * @return Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
+     * 
+     */
+    public List<GetFirewallAvailabilityZoneMapping> availabilityZoneMappings() {
+        return this.availabilityZoneMappings;
     }
     /**
      * @return A flag indicating whether the firewall is protected against deletion.
@@ -189,6 +224,20 @@ public final class GetFirewallResult {
         return this.tags;
     }
     /**
+     * @return The unique identifier of the transit gateway associated with this firewall.
+     * 
+     */
+    public String transitGatewayId() {
+        return this.transitGatewayId;
+    }
+    /**
+     * @return The AWS account ID that owns the transit gateway.
+     * 
+     */
+    public String transitGatewayOwnerAccountId() {
+        return this.transitGatewayOwnerAccountId;
+    }
+    /**
      * @return String token used when updating a firewall.
      * 
      */
@@ -213,6 +262,8 @@ public final class GetFirewallResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private Boolean availabilityZoneChangeProtection;
+        private List<GetFirewallAvailabilityZoneMapping> availabilityZoneMappings;
         private Boolean deleteProtection;
         private String description;
         private List<String> enabledAnalysisTypes;
@@ -226,12 +277,16 @@ public final class GetFirewallResult {
         private Boolean subnetChangeProtection;
         private List<GetFirewallSubnetMapping> subnetMappings;
         private Map<String,String> tags;
+        private String transitGatewayId;
+        private String transitGatewayOwnerAccountId;
         private String updateToken;
         private String vpcId;
         public Builder() {}
         public Builder(GetFirewallResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.availabilityZoneChangeProtection = defaults.availabilityZoneChangeProtection;
+    	      this.availabilityZoneMappings = defaults.availabilityZoneMappings;
     	      this.deleteProtection = defaults.deleteProtection;
     	      this.description = defaults.description;
     	      this.enabledAnalysisTypes = defaults.enabledAnalysisTypes;
@@ -245,6 +300,8 @@ public final class GetFirewallResult {
     	      this.subnetChangeProtection = defaults.subnetChangeProtection;
     	      this.subnetMappings = defaults.subnetMappings;
     	      this.tags = defaults.tags;
+    	      this.transitGatewayId = defaults.transitGatewayId;
+    	      this.transitGatewayOwnerAccountId = defaults.transitGatewayOwnerAccountId;
     	      this.updateToken = defaults.updateToken;
     	      this.vpcId = defaults.vpcId;
         }
@@ -256,6 +313,25 @@ public final class GetFirewallResult {
             }
             this.arn = arn;
             return this;
+        }
+        @CustomType.Setter
+        public Builder availabilityZoneChangeProtection(Boolean availabilityZoneChangeProtection) {
+            if (availabilityZoneChangeProtection == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "availabilityZoneChangeProtection");
+            }
+            this.availabilityZoneChangeProtection = availabilityZoneChangeProtection;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder availabilityZoneMappings(List<GetFirewallAvailabilityZoneMapping> availabilityZoneMappings) {
+            if (availabilityZoneMappings == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "availabilityZoneMappings");
+            }
+            this.availabilityZoneMappings = availabilityZoneMappings;
+            return this;
+        }
+        public Builder availabilityZoneMappings(GetFirewallAvailabilityZoneMapping... availabilityZoneMappings) {
+            return availabilityZoneMappings(List.of(availabilityZoneMappings));
         }
         @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
@@ -374,6 +450,22 @@ public final class GetFirewallResult {
             return this;
         }
         @CustomType.Setter
+        public Builder transitGatewayId(String transitGatewayId) {
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder transitGatewayOwnerAccountId(String transitGatewayOwnerAccountId) {
+            if (transitGatewayOwnerAccountId == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "transitGatewayOwnerAccountId");
+            }
+            this.transitGatewayOwnerAccountId = transitGatewayOwnerAccountId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder updateToken(String updateToken) {
             if (updateToken == null) {
               throw new MissingRequiredPropertyException("GetFirewallResult", "updateToken");
@@ -392,6 +484,8 @@ public final class GetFirewallResult {
         public GetFirewallResult build() {
             final var _resultValue = new GetFirewallResult();
             _resultValue.arn = arn;
+            _resultValue.availabilityZoneChangeProtection = availabilityZoneChangeProtection;
+            _resultValue.availabilityZoneMappings = availabilityZoneMappings;
             _resultValue.deleteProtection = deleteProtection;
             _resultValue.description = description;
             _resultValue.enabledAnalysisTypes = enabledAnalysisTypes;
@@ -405,6 +499,8 @@ public final class GetFirewallResult {
             _resultValue.subnetChangeProtection = subnetChangeProtection;
             _resultValue.subnetMappings = subnetMappings;
             _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.transitGatewayOwnerAccountId = transitGatewayOwnerAccountId;
             _resultValue.updateToken = updateToken;
             _resultValue.vpcId = vpcId;
             return _resultValue;

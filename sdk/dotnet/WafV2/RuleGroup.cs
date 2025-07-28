@@ -63,6 +63,9 @@ namespace Pulumi.Aws.WafV2
         [Output("rules")]
         public Output<ImmutableArray<Outputs.RuleGroupRule>> Rules { get; private set; } = null!;
 
+        [Output("rulesJson")]
+        public Output<string?> RulesJson { get; private set; } = null!;
+
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
@@ -187,6 +190,9 @@ namespace Pulumi.Aws.WafV2
             set => _rules = value;
         }
 
+        [Input("rulesJson")]
+        public Input<string>? RulesJson { get; set; }
+
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
@@ -281,6 +287,9 @@ namespace Pulumi.Aws.WafV2
             get => _rules ?? (_rules = new InputList<Inputs.RuleGroupRuleGetArgs>());
             set => _rules = value;
         }
+
+        [Input("rulesJson")]
+        public Input<string>? RulesJson { get; set; }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.

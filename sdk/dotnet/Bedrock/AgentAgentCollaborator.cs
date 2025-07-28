@@ -196,6 +196,11 @@ namespace Pulumi.Aws.Bedrock
         [Output("collaboratorId")]
         public Output<string> CollaboratorId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of this collaborator.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Output("collaboratorName")]
         public Output<string> CollaboratorName { get; private set; } = null!;
 
@@ -284,6 +289,11 @@ namespace Pulumi.Aws.Bedrock
         [Input("collaborationInstruction", required: true)]
         public Input<string> CollaborationInstruction { get; set; } = null!;
 
+        /// <summary>
+        /// Name of this collaborator.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("collaboratorName", required: true)]
         public Input<string> CollaboratorName { get; set; } = null!;
 
@@ -340,6 +350,11 @@ namespace Pulumi.Aws.Bedrock
         [Input("collaboratorId")]
         public Input<string>? CollaboratorId { get; set; }
 
+        /// <summary>
+        /// Name of this collaborator.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("collaboratorName")]
         public Input<string>? CollaboratorName { get; set; }
 

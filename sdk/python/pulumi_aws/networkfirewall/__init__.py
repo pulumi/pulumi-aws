@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .firewall import *
 from .firewall_policy import *
+from .firewall_transit_gateway_attachment_accepter import *
 from .get_firewall import *
 from .get_firewall_policy import *
 from .get_resource_policy import *

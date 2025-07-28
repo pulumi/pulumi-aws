@@ -207,7 +207,7 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[_builtins.st
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.s3.BucketObject("example", bucket="my-test-bucket",
+    example = aws.s3.BucketObjectv2("example", bucket="my-test-bucket",
     opts = pulumi.ResourceOptions(depends_on=[s3_object_access]))
     ```
 
@@ -357,7 +357,7 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.s3.BucketObject("example", bucket="my-test-bucket",
+    example = aws.s3.BucketObjectv2("example", bucket="my-test-bucket",
     opts = pulumi.ResourceOptions(depends_on=[s3_object_access]))
     ```
 

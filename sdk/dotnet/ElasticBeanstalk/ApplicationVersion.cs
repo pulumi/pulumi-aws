@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     ///         Application = "tf-test-name",
     ///         Description = "application version",
     ///         Bucket = @default.Id,
-    ///         Key = defaultBucketObjectv2.Id,
+    ///         Key = defaultBucketObjectv2.Key,
     ///     });
     /// 
     /// });

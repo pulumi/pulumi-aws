@@ -278,7 +278,7 @@ func (o AddonPodIdentityAssociationArrayOutput) Index(i pulumi.IntInput) AddonPo
 type ClusterAccessConfig struct {
 	// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 	AuthenticationMode *string `pulumi:"authenticationMode"`
-	// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
+	// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
 	BootstrapClusterCreatorAdminPermissions *bool `pulumi:"bootstrapClusterCreatorAdminPermissions"`
 }
 
@@ -296,7 +296,7 @@ type ClusterAccessConfigInput interface {
 type ClusterAccessConfigArgs struct {
 	// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
-	// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
+	// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
 	BootstrapClusterCreatorAdminPermissions pulumi.BoolPtrInput `pulumi:"bootstrapClusterCreatorAdminPermissions"`
 }
 
@@ -382,7 +382,7 @@ func (o ClusterAccessConfigOutput) AuthenticationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterAccessConfig) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
+// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
 func (o ClusterAccessConfigOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterAccessConfig) *bool { return v.BootstrapClusterCreatorAdminPermissions }).(pulumi.BoolPtrOutput)
 }
@@ -421,7 +421,7 @@ func (o ClusterAccessConfigPtrOutput) AuthenticationMode() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
+// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
 func (o ClusterAccessConfigPtrOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterAccessConfig) *bool {
 		if v == nil {

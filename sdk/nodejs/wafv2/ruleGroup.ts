@@ -68,6 +68,7 @@ export class RuleGroup extends pulumi.CustomResource {
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
+    public readonly rulesJson!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -107,6 +108,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["rulesJson"] = state ? state.rulesJson : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -129,6 +131,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["rulesJson"] = args ? args.rulesJson : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
@@ -178,6 +181,7 @@ export interface RuleGroupState {
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
+    rulesJson?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -228,6 +232,7 @@ export interface RuleGroupArgs {
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
+    rulesJson?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */

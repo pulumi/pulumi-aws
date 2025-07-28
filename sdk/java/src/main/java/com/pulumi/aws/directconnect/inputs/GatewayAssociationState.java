@@ -165,6 +165,21 @@ public final class GatewayAssociationState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+     * 
+     */
+    @Import(name="transitGatewayAttachmentId")
+    private @Nullable Output<String> transitGatewayAttachmentId;
+
+    /**
+     * @return The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+     * 
+     */
+    public Optional<Output<String>> transitGatewayAttachmentId() {
+        return Optional.ofNullable(this.transitGatewayAttachmentId);
+    }
+
     private GatewayAssociationState() {}
 
     private GatewayAssociationState(GatewayAssociationState $) {
@@ -177,6 +192,7 @@ public final class GatewayAssociationState extends com.pulumi.resources.Resource
         this.dxGatewayOwnerAccountId = $.dxGatewayOwnerAccountId;
         this.proposalId = $.proposalId;
         this.region = $.region;
+        this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
     }
 
     public static Builder builder() {
@@ -412,6 +428,27 @@ public final class GatewayAssociationState extends com.pulumi.resources.Resource
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param transitGatewayAttachmentId The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayAttachmentId(@Nullable Output<String> transitGatewayAttachmentId) {
+            $.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            return this;
+        }
+
+        /**
+         * @param transitGatewayAttachmentId The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
+            return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }
 
         public GatewayAssociationState build() {

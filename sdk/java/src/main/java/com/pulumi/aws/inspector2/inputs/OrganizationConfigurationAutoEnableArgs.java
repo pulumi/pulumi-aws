@@ -17,6 +17,21 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
     public static final OrganizationConfigurationAutoEnableArgs Empty = new OrganizationConfigurationAutoEnableArgs();
 
     /**
+     * Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+     * 
+     */
+    @Import(name="codeRepository")
+    private @Nullable Output<Boolean> codeRepository;
+
+    /**
+     * @return Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+     * 
+     */
+    public Optional<Output<Boolean>> codeRepository() {
+        return Optional.ofNullable(this.codeRepository);
+    }
+
+    /**
      * Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
      * 
      */
@@ -79,6 +94,7 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
     private OrganizationConfigurationAutoEnableArgs() {}
 
     private OrganizationConfigurationAutoEnableArgs(OrganizationConfigurationAutoEnableArgs $) {
+        this.codeRepository = $.codeRepository;
         this.ec2 = $.ec2;
         this.ecr = $.ecr;
         this.lambda = $.lambda;
@@ -101,6 +117,27 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
 
         public Builder(OrganizationConfigurationAutoEnableArgs defaults) {
             $ = new OrganizationConfigurationAutoEnableArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param codeRepository Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepository(@Nullable Output<Boolean> codeRepository) {
+            $.codeRepository = codeRepository;
+            return this;
+        }
+
+        /**
+         * @param codeRepository Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepository(Boolean codeRepository) {
+            return codeRepository(Output.of(codeRepository));
         }
 
         /**

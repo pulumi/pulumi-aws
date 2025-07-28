@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketLogging{}
 	case "aws:s3/bucketLoggingV2:BucketLoggingV2":
 		r = &BucketLoggingV2{}
+	case "aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration":
+		r = &BucketMetadataConfiguration{}
 	case "aws:s3/bucketMetric:BucketMetric":
 		r = &BucketMetric{}
 	case "aws:s3/bucketNotification:BucketNotification":
@@ -181,6 +183,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/bucketLoggingV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketMetadataConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

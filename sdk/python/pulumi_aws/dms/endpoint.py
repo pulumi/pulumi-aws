@@ -32,6 +32,7 @@ class EndpointArgs:
                  kinesis_settings: Optional[pulumi.Input['EndpointKinesisSettingsArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
+                 oracle_settings: Optional[pulumi.Input['EndpointOracleSettingsArgs']] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -61,6 +62,7 @@ class EndpointArgs:
                
                The following arguments are optional:
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
+        :param pulumi.Input['EndpointOracleSettingsArgs'] oracle_settings: Configuration block for Oracle settings. See below.
         :param pulumi.Input[_builtins.str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[_builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
@@ -95,6 +97,8 @@ class EndpointArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if mongodb_settings is not None:
             pulumi.set(__self__, "mongodb_settings", mongodb_settings)
+        if oracle_settings is not None:
+            pulumi.set(__self__, "oracle_settings", oracle_settings)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if pause_replication_tasks is not None:
@@ -257,6 +261,18 @@ class EndpointArgs:
     @mongodb_settings.setter
     def mongodb_settings(self, value: Optional[pulumi.Input['EndpointMongodbSettingsArgs']]):
         pulumi.set(self, "mongodb_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oracleSettings")
+    def oracle_settings(self) -> Optional[pulumi.Input['EndpointOracleSettingsArgs']]:
+        """
+        Configuration block for Oracle settings. See below.
+        """
+        return pulumi.get(self, "oracle_settings")
+
+    @oracle_settings.setter
+    def oracle_settings(self, value: Optional[pulumi.Input['EndpointOracleSettingsArgs']]):
+        pulumi.set(self, "oracle_settings", value)
 
     @_builtins.property
     @pulumi.getter
@@ -438,6 +454,7 @@ class _EndpointState:
                  kinesis_settings: Optional[pulumi.Input['EndpointKinesisSettingsArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
+                 oracle_settings: Optional[pulumi.Input['EndpointOracleSettingsArgs']] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -469,6 +486,7 @@ class _EndpointState:
                
                The following arguments are optional:
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
+        :param pulumi.Input['EndpointOracleSettingsArgs'] oracle_settings: Configuration block for Oracle settings. See below.
         :param pulumi.Input[_builtins.str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[_builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
@@ -509,6 +527,8 @@ class _EndpointState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if mongodb_settings is not None:
             pulumi.set(__self__, "mongodb_settings", mongodb_settings)
+        if oracle_settings is not None:
+            pulumi.set(__self__, "oracle_settings", oracle_settings)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if pause_replication_tasks is not None:
@@ -685,6 +705,18 @@ class _EndpointState:
     @mongodb_settings.setter
     def mongodb_settings(self, value: Optional[pulumi.Input['EndpointMongodbSettingsArgs']]):
         pulumi.set(self, "mongodb_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oracleSettings")
+    def oracle_settings(self) -> Optional[pulumi.Input['EndpointOracleSettingsArgs']]:
+        """
+        Configuration block for Oracle settings. See below.
+        """
+        return pulumi.get(self, "oracle_settings")
+
+    @oracle_settings.setter
+    def oracle_settings(self, value: Optional[pulumi.Input['EndpointOracleSettingsArgs']]):
+        pulumi.set(self, "oracle_settings", value)
 
     @_builtins.property
     @pulumi.getter
@@ -880,6 +912,7 @@ class Endpoint(pulumi.CustomResource):
                  kinesis_settings: Optional[pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  mongodb_settings: Optional[pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
+                 oracle_settings: Optional[pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -945,6 +978,7 @@ class Endpoint(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']] mongodb_settings: Configuration block for MongoDB settings. See below.
+        :param pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']] oracle_settings: Configuration block for Oracle settings. See below.
         :param pulumi.Input[_builtins.str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[_builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']] postgres_settings: Configuration block for Postgres settings. See below.
@@ -1027,6 +1061,7 @@ class Endpoint(pulumi.CustomResource):
                  kinesis_settings: Optional[pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  mongodb_settings: Optional[pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
+                 oracle_settings: Optional[pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1067,6 +1102,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["kinesis_settings"] = kinesis_settings
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["mongodb_settings"] = mongodb_settings
+            __props__.__dict__["oracle_settings"] = oracle_settings
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["pause_replication_tasks"] = pause_replication_tasks
             __props__.__dict__["port"] = port
@@ -1107,6 +1143,7 @@ class Endpoint(pulumi.CustomResource):
             kinesis_settings: Optional[pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
             kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
             mongodb_settings: Optional[pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
+            oracle_settings: Optional[pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
             password: Optional[pulumi.Input[_builtins.str]] = None,
             pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
             port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1143,6 +1180,7 @@ class Endpoint(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']] mongodb_settings: Configuration block for MongoDB settings. See below.
+        :param pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']] oracle_settings: Configuration block for Oracle settings. See below.
         :param pulumi.Input[_builtins.str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[_builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']] postgres_settings: Configuration block for Postgres settings. See below.
@@ -1175,6 +1213,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["kinesis_settings"] = kinesis_settings
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["mongodb_settings"] = mongodb_settings
+        __props__.__dict__["oracle_settings"] = oracle_settings
         __props__.__dict__["password"] = password
         __props__.__dict__["pause_replication_tasks"] = pause_replication_tasks
         __props__.__dict__["port"] = port
@@ -1289,6 +1328,14 @@ class Endpoint(pulumi.CustomResource):
         Configuration block for MongoDB settings. See below.
         """
         return pulumi.get(self, "mongodb_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="oracleSettings")
+    def oracle_settings(self) -> pulumi.Output[Optional['outputs.EndpointOracleSettings']]:
+        """
+        Configuration block for Oracle settings. See below.
+        """
+        return pulumi.get(self, "oracle_settings")
 
     @_builtins.property
     @pulumi.getter

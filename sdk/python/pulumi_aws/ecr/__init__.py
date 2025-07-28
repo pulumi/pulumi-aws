@@ -10,6 +10,7 @@ from ._enums import *
 from .account_setting import *
 from .get_authorization_token import *
 from .get_image import *
+from .get_images import *
 from .get_lifecycle_policy_document import *
 from .get_pull_through_cache_rule import *
 from .get_repositories import *

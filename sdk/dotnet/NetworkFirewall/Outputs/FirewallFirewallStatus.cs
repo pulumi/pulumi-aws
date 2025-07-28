@@ -17,11 +17,19 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// Set of subnets configured for use by the firewall.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallFirewallStatusSyncState> SyncStates;
+        /// <summary>
+        /// Set of transit gateway configured for use by the firewall.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FirewallFirewallStatusTransitGatewayAttachmentSyncState> TransitGatewayAttachmentSyncStates;
 
         [OutputConstructor]
-        private FirewallFirewallStatus(ImmutableArray<Outputs.FirewallFirewallStatusSyncState> syncStates)
+        private FirewallFirewallStatus(
+            ImmutableArray<Outputs.FirewallFirewallStatusSyncState> syncStates,
+
+            ImmutableArray<Outputs.FirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates)
         {
             SyncStates = syncStates;
+            TransitGatewayAttachmentSyncStates = transitGatewayAttachmentSyncStates;
         }
     }
 }

@@ -337,6 +337,20 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+     * 
+     */
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
+    private Output<String> transitGatewayAttachmentId;
+
+    /**
+     * @return The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+     * 
+     */
+    public Output<String> transitGatewayAttachmentId() {
+        return this.transitGatewayAttachmentId;
+    }
 
     /**
      *

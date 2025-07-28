@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'FirewallAvailabilityZoneMappingArgs',
+    'FirewallAvailabilityZoneMappingArgsDict',
     'FirewallEncryptionConfigurationArgs',
     'FirewallEncryptionConfigurationArgsDict',
     'FirewallFirewallStatusArgs',
@@ -23,6 +25,8 @@ __all__ = [
     'FirewallFirewallStatusSyncStateArgsDict',
     'FirewallFirewallStatusSyncStateAttachmentArgs',
     'FirewallFirewallStatusSyncStateAttachmentArgsDict',
+    'FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs',
+    'FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgsDict',
     'FirewallPolicyEncryptionConfigurationArgs',
     'FirewallPolicyEncryptionConfigurationArgsDict',
     'FirewallPolicyFirewallPolicyArgs',
@@ -53,6 +57,8 @@ __all__ = [
     'FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgsDict',
     'FirewallSubnetMappingArgs',
     'FirewallSubnetMappingArgsDict',
+    'FirewallTransitGatewayAttachmentAccepterTimeoutsArgs',
+    'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict',
     'LoggingConfigurationLoggingConfigurationArgs',
     'LoggingConfigurationLoggingConfigurationArgsDict',
     'LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs',
@@ -146,6 +152,37 @@ __all__ = [
 MYPY = False
 
 if not MYPY:
+    class FirewallAvailabilityZoneMappingArgsDict(TypedDict):
+        availability_zone_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the Availability Zone where the firewall endpoint is located..
+        """
+elif False:
+    FirewallAvailabilityZoneMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FirewallAvailabilityZoneMappingArgs:
+    def __init__(__self__, *,
+                 availability_zone_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] availability_zone_id: The ID of the Availability Zone where the firewall endpoint is located..
+        """
+        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Availability Zone where the firewall endpoint is located..
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+    @availability_zone_id.setter
+    def availability_zone_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "availability_zone_id", value)
+
+
+if not MYPY:
     class FirewallEncryptionConfigurationArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
         """
@@ -202,18 +239,26 @@ if not MYPY:
         """
         Set of subnets configured for use by the firewall.
         """
+        transit_gateway_attachment_sync_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgsDict']]]]
+        """
+        Set of transit gateway configured for use by the firewall.
+        """
 elif False:
     FirewallFirewallStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallFirewallStatusArgs:
     def __init__(__self__, *,
-                 sync_states: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgs']]]] = None):
+                 sync_states: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgs']]]] = None,
+                 transit_gateway_attachment_sync_states: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgs']]] sync_states: Set of subnets configured for use by the firewall.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs']]] transit_gateway_attachment_sync_states: Set of transit gateway configured for use by the firewall.
         """
         if sync_states is not None:
             pulumi.set(__self__, "sync_states", sync_states)
+        if transit_gateway_attachment_sync_states is not None:
+            pulumi.set(__self__, "transit_gateway_attachment_sync_states", transit_gateway_attachment_sync_states)
 
     @_builtins.property
     @pulumi.getter(name="syncStates")
@@ -226,6 +271,18 @@ class FirewallFirewallStatusArgs:
     @sync_states.setter
     def sync_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgs']]]]):
         pulumi.set(self, "sync_states", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentSyncStates")
+    def transit_gateway_attachment_sync_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs']]]]:
+        """
+        Set of transit gateway configured for use by the firewall.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_sync_states")
+
+    @transit_gateway_attachment_sync_states.setter
+    def transit_gateway_attachment_sync_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs']]]]):
+        pulumi.set(self, "transit_gateway_attachment_sync_states", value)
 
 
 if not MYPY:
@@ -330,6 +387,38 @@ class FirewallFirewallStatusSyncStateAttachmentArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+if not MYPY:
+    class FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgsDict(TypedDict):
+        attachment_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The unique identifier of the transit gateway attachment.
+        """
+elif False:
+    FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs:
+    def __init__(__self__, *,
+                 attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] attachment_id: The unique identifier of the transit gateway attachment.
+        """
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+
+    @_builtins.property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The unique identifier of the transit gateway attachment.
+        """
+        return pulumi.get(self, "attachment_id")
+
+    @attachment_id.setter
+    def attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "attachment_id", value)
 
 
 if not MYPY:
@@ -1158,6 +1247,58 @@ class FirewallSubnetMappingArgs:
     @ip_address_type.setter
     def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
+
+
+if not MYPY:
+    class FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FirewallTransitGatewayAttachmentAccepterTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
 
 
 if not MYPY:

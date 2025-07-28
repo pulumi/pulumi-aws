@@ -64,7 +64,7 @@ class GetSecretRotationResult:
     @pulumi.getter(name="rotationEnabled")
     def rotation_enabled(self) -> _builtins.bool:
         """
-        ARN of the secret.
+        Specifies whether automatic rotation is enabled for this secret.
         """
         return pulumi.get(self, "rotation_enabled")
 
@@ -72,7 +72,7 @@ class GetSecretRotationResult:
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> _builtins.str:
         """
-        Decrypted part of the protected secret information that was originally provided as a string.
+        Amazon Resource Name (ARN) of the lambda function used for rotation.
         """
         return pulumi.get(self, "rotation_lambda_arn")
 
@@ -80,7 +80,7 @@ class GetSecretRotationResult:
     @pulumi.getter(name="rotationRules")
     def rotation_rules(self) -> Sequence['outputs.GetSecretRotationRotationRuleResult']:
         """
-        Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+        Configuration block for rotation rules. See `rotation_rules` below.
         """
         return pulumi.get(self, "rotation_rules")
 

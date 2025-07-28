@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Dms.Outputs
     public sealed class GetEndpointPostgresSettingResult
     {
         public readonly string AfterConnectScript;
+        public readonly string AuthenticationMethod;
         public readonly string BabelfishDatabaseName;
         public readonly bool CaptureDdls;
         public readonly string DatabaseMode;
@@ -28,11 +29,14 @@ namespace Pulumi.Aws.Dms.Outputs
         public readonly string MapLongVarcharAs;
         public readonly int MaxFileSize;
         public readonly string PluginName;
+        public readonly string ServiceAccessRoleArn;
         public readonly string SlotName;
 
         [OutputConstructor]
         private GetEndpointPostgresSettingResult(
             string afterConnectScript,
+
+            string authenticationMethod,
 
             string babelfishDatabaseName,
 
@@ -62,9 +66,12 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string pluginName,
 
+            string serviceAccessRoleArn,
+
             string slotName)
         {
             AfterConnectScript = afterConnectScript;
+            AuthenticationMethod = authenticationMethod;
             BabelfishDatabaseName = babelfishDatabaseName;
             CaptureDdls = captureDdls;
             DatabaseMode = databaseMode;
@@ -79,6 +86,7 @@ namespace Pulumi.Aws.Dms.Outputs
             MapLongVarcharAs = mapLongVarcharAs;
             MaxFileSize = maxFileSize;
             PluginName = pluginName;
+            ServiceAccessRoleArn = serviceAccessRoleArn;
             SlotName = slotName;
         }
     }

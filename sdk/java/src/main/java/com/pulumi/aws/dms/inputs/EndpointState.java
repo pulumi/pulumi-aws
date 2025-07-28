@@ -7,6 +7,7 @@ import com.pulumi.aws.dms.inputs.EndpointElasticsearchSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointKafkaSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointKinesisSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointMongodbSettingsArgs;
+import com.pulumi.aws.dms.inputs.EndpointOracleSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointPostgresSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointRedisSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointRedshiftSettingsArgs;
@@ -207,6 +208,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<EndpointMongodbSettingsArgs>> mongodbSettings() {
         return Optional.ofNullable(this.mongodbSettings);
+    }
+
+    /**
+     * Configuration block for Oracle settings. See below.
+     * 
+     */
+    @Import(name="oracleSettings")
+    private @Nullable Output<EndpointOracleSettingsArgs> oracleSettings;
+
+    /**
+     * @return Configuration block for Oracle settings. See below.
+     * 
+     */
+    public Optional<Output<EndpointOracleSettingsArgs>> oracleSettings() {
+        return Optional.ofNullable(this.oracleSettings);
     }
 
     /**
@@ -437,6 +453,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.kinesisSettings = $.kinesisSettings;
         this.kmsKeyArn = $.kmsKeyArn;
         this.mongodbSettings = $.mongodbSettings;
+        this.oracleSettings = $.oracleSettings;
         this.password = $.password;
         this.pauseReplicationTasks = $.pauseReplicationTasks;
         this.port = $.port;
@@ -726,6 +743,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder mongodbSettings(EndpointMongodbSettingsArgs mongodbSettings) {
             return mongodbSettings(Output.of(mongodbSettings));
+        }
+
+        /**
+         * @param oracleSettings Configuration block for Oracle settings. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oracleSettings(@Nullable Output<EndpointOracleSettingsArgs> oracleSettings) {
+            $.oracleSettings = oracleSettings;
+            return this;
+        }
+
+        /**
+         * @param oracleSettings Configuration block for Oracle settings. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oracleSettings(EndpointOracleSettingsArgs oracleSettings) {
+            return oracleSettings(Output.of(oracleSettings));
         }
 
         /**

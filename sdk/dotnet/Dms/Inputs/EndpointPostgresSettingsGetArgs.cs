@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? AfterConnectScript { get; set; }
 
         /// <summary>
+        /// Specifies the authentication method. Valid values: `password`, `iam`.
+        /// </summary>
+        [Input("authenticationMethod")]
+        public Input<string>? AuthenticationMethod { get; set; }
+
+        /// <summary>
         /// The Babelfish for Aurora PostgreSQL database name for the endpoint.
         /// </summary>
         [Input("babelfishDatabaseName")]
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.Dms.Inputs
         /// </summary>
         [Input("pluginName")]
         public Input<string>? PluginName { get; set; }
+
+        /// <summary>
+        /// Specifies the IAM role to use to authenticate the connection.
+        /// </summary>
+        [Input("serviceAccessRoleArn")]
+        public Input<string>? ServiceAccessRoleArn { get; set; }
 
         /// <summary>
         /// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.

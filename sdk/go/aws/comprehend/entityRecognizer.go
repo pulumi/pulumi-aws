@@ -55,13 +55,13 @@ import (
 //						},
 //					},
 //					Documents: &comprehend.EntityRecognizerInputDataConfigDocumentsArgs{
-//						S3Uri: documents.ID().ApplyT(func(id string) (string, error) {
-//							return fmt.Sprintf("s3://%v/%v", documentsAwsS3Bucket.Bucket, id), nil
+//						S3Uri: documents.Key.ApplyT(func(key string) (string, error) {
+//							return fmt.Sprintf("s3://%v/%v", documentsAwsS3Bucket.Bucket, key), nil
 //						}).(pulumi.StringOutput),
 //					},
 //					EntityList: &comprehend.EntityRecognizerInputDataConfigEntityListArgs{
-//						S3Uri: entities.ID().ApplyT(func(id string) (string, error) {
-//							return fmt.Sprintf("s3://%v/%v", entitiesAwsS3Bucket.Bucket, id), nil
+//						S3Uri: entities.Key.ApplyT(func(key string) (string, error) {
+//							return fmt.Sprintf("s3://%v/%v", entitiesAwsS3Bucket.Bucket, key), nil
 //						}).(pulumi.StringOutput),
 //					},
 //				},

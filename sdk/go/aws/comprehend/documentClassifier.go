@@ -42,8 +42,8 @@ import (
 //				DataAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				LanguageCode:      pulumi.String("en"),
 //				InputDataConfig: &comprehend.DocumentClassifierInputDataConfigArgs{
-//					S3Uri: documents.ID().ApplyT(func(id string) (string, error) {
-//						return fmt.Sprintf("s3://%v/%v", test.Bucket, id), nil
+//					S3Uri: documents.Key.ApplyT(func(key string) (string, error) {
+//						return fmt.Sprintf("s3://%v/%v", test.Bucket, key), nil
 //					}).(pulumi.StringOutput),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{

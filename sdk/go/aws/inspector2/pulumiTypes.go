@@ -6227,6 +6227,8 @@ func (o FilterFilterCriteriaVulnerablePackageVersionPtrOutput) Value() pulumi.St
 }
 
 type OrganizationConfigurationAutoEnable struct {
+	// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+	CodeRepository *bool `pulumi:"codeRepository"`
 	// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
 	Ec2 bool `pulumi:"ec2"`
 	// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
@@ -6249,6 +6251,8 @@ type OrganizationConfigurationAutoEnableInput interface {
 }
 
 type OrganizationConfigurationAutoEnableArgs struct {
+	// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+	CodeRepository pulumi.BoolPtrInput `pulumi:"codeRepository"`
 	// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
 	Ec2 pulumi.BoolInput `pulumi:"ec2"`
 	// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
@@ -6336,6 +6340,11 @@ func (o OrganizationConfigurationAutoEnableOutput) ToOrganizationConfigurationAu
 	}).(OrganizationConfigurationAutoEnablePtrOutput)
 }
 
+// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+func (o OrganizationConfigurationAutoEnableOutput) CodeRepository() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) *bool { return v.CodeRepository }).(pulumi.BoolPtrOutput)
+}
+
 // Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnableOutput) Ec2() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) bool { return v.Ec2 }).(pulumi.BoolOutput)
@@ -6378,6 +6387,16 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) Elem() OrganizationConfigu
 		var ret OrganizationConfigurationAutoEnable
 		return ret
 	}).(OrganizationConfigurationAutoEnableOutput)
+}
+
+// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+func (o OrganizationConfigurationAutoEnablePtrOutput) CodeRepository() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CodeRepository
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.

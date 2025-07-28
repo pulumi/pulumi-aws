@@ -430,14 +430,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `iam-db-auth-error`, `postgresql` (PostgreSQL).
+     * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
      * 
      */
     @Import(name="enabledCloudwatchLogsExports")
     private @Nullable Output<List<String>> enabledCloudwatchLogsExports;
 
     /**
-     * @return Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `iam-db-auth-error`, `postgresql` (PostgreSQL).
+     * @return Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
      * 
      */
     public Optional<Output<List<String>>> enabledCloudwatchLogsExports() {
@@ -1656,7 +1656,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledCloudwatchLogsExports Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `iam-db-auth-error`, `postgresql` (PostgreSQL).
+         * @param enabledCloudwatchLogsExports Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
          * 
          * @return builder
          * 
@@ -1667,7 +1667,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledCloudwatchLogsExports Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `iam-db-auth-error`, `postgresql` (PostgreSQL).
+         * @param enabledCloudwatchLogsExports Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
          * 
          * @return builder
          * 
@@ -1677,7 +1677,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledCloudwatchLogsExports Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `iam-db-auth-error`, `postgresql` (PostgreSQL).
+         * @param enabledCloudwatchLogsExports Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
          * 
          * @return builder
          * 

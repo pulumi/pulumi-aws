@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? AfterConnectScript;
         /// <summary>
+        /// Specifies the authentication method. Valid values: `password`, `iam`.
+        /// </summary>
+        public readonly string? AuthenticationMethod;
+        /// <summary>
         /// The Babelfish for Aurora PostgreSQL database name for the endpoint.
         /// </summary>
         public readonly string? BabelfishDatabaseName;
@@ -74,6 +78,10 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? PluginName;
         /// <summary>
+        /// Specifies the IAM role to use to authenticate the connection.
+        /// </summary>
+        public readonly string? ServiceAccessRoleArn;
+        /// <summary>
         /// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
         /// </summary>
         public readonly string? SlotName;
@@ -81,6 +89,8 @@ namespace Pulumi.Aws.Dms.Outputs
         [OutputConstructor]
         private EndpointPostgresSettings(
             string? afterConnectScript,
+
+            string? authenticationMethod,
 
             string? babelfishDatabaseName,
 
@@ -110,9 +120,12 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string? pluginName,
 
+            string? serviceAccessRoleArn,
+
             string? slotName)
         {
             AfterConnectScript = afterConnectScript;
+            AuthenticationMethod = authenticationMethod;
             BabelfishDatabaseName = babelfishDatabaseName;
             CaptureDdls = captureDdls;
             DatabaseMode = databaseMode;
@@ -127,6 +140,7 @@ namespace Pulumi.Aws.Dms.Outputs
             MapLongVarcharAs = mapLongVarcharAs;
             MaxFileSize = maxFileSize;
             PluginName = pluginName;
+            ServiceAccessRoleArn = serviceAccessRoleArn;
             SlotName = slotName;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.FirewallFirewallStatusSyncState;
+import com.pulumi.aws.networkfirewall.outputs.FirewallFirewallStatusTransitGatewayAttachmentSyncState;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +17,11 @@ public final class FirewallFirewallStatus {
      * 
      */
     private @Nullable List<FirewallFirewallStatusSyncState> syncStates;
+    /**
+     * @return Set of transit gateway configured for use by the firewall.
+     * 
+     */
+    private @Nullable List<FirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates;
 
     private FirewallFirewallStatus() {}
     /**
@@ -24,6 +30,13 @@ public final class FirewallFirewallStatus {
      */
     public List<FirewallFirewallStatusSyncState> syncStates() {
         return this.syncStates == null ? List.of() : this.syncStates;
+    }
+    /**
+     * @return Set of transit gateway configured for use by the firewall.
+     * 
+     */
+    public List<FirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates() {
+        return this.transitGatewayAttachmentSyncStates == null ? List.of() : this.transitGatewayAttachmentSyncStates;
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class FirewallFirewallStatus {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FirewallFirewallStatusSyncState> syncStates;
+        private @Nullable List<FirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates;
         public Builder() {}
         public Builder(FirewallFirewallStatus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.syncStates = defaults.syncStates;
+    	      this.transitGatewayAttachmentSyncStates = defaults.transitGatewayAttachmentSyncStates;
         }
 
         @CustomType.Setter
@@ -51,9 +66,19 @@ public final class FirewallFirewallStatus {
         public Builder syncStates(FirewallFirewallStatusSyncState... syncStates) {
             return syncStates(List.of(syncStates));
         }
+        @CustomType.Setter
+        public Builder transitGatewayAttachmentSyncStates(@Nullable List<FirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates) {
+
+            this.transitGatewayAttachmentSyncStates = transitGatewayAttachmentSyncStates;
+            return this;
+        }
+        public Builder transitGatewayAttachmentSyncStates(FirewallFirewallStatusTransitGatewayAttachmentSyncState... transitGatewayAttachmentSyncStates) {
+            return transitGatewayAttachmentSyncStates(List.of(transitGatewayAttachmentSyncStates));
+        }
         public FirewallFirewallStatus build() {
             final var _resultValue = new FirewallFirewallStatus();
             _resultValue.syncStates = syncStates;
+            _resultValue.transitGatewayAttachmentSyncStates = transitGatewayAttachmentSyncStates;
             return _resultValue;
         }
     }

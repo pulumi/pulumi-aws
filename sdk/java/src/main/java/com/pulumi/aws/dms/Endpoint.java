@@ -10,6 +10,7 @@ import com.pulumi.aws.dms.outputs.EndpointElasticsearchSettings;
 import com.pulumi.aws.dms.outputs.EndpointKafkaSettings;
 import com.pulumi.aws.dms.outputs.EndpointKinesisSettings;
 import com.pulumi.aws.dms.outputs.EndpointMongodbSettings;
+import com.pulumi.aws.dms.outputs.EndpointOracleSettings;
 import com.pulumi.aws.dms.outputs.EndpointPostgresSettings;
 import com.pulumi.aws.dms.outputs.EndpointRedisSettings;
 import com.pulumi.aws.dms.outputs.EndpointRedshiftSettings;
@@ -257,6 +258,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<EndpointMongodbSettings>> mongodbSettings() {
         return Codegen.optional(this.mongodbSettings);
+    }
+    /**
+     * Configuration block for Oracle settings. See below.
+     * 
+     */
+    @Export(name="oracleSettings", refs={EndpointOracleSettings.class}, tree="[0]")
+    private Output</* @Nullable */ EndpointOracleSettings> oracleSettings;
+
+    /**
+     * @return Configuration block for Oracle settings. See below.
+     * 
+     */
+    public Output<Optional<EndpointOracleSettings>> oracleSettings() {
+        return Codegen.optional(this.oracleSettings);
     }
     /**
      * Password to be used to login to the endpoint database.

@@ -291,6 +291,14 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// Indicates whether the firewall is protected against changes to its Availability Zone configuration.
+        /// </summary>
+        public readonly bool AvailabilityZoneChangeProtection;
+        /// <summary>
+        /// Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFirewallAvailabilityZoneMappingResult> AvailabilityZoneMappings;
+        /// <summary>
         /// A flag indicating whether the firewall is protected against deletion.
         /// </summary>
         public readonly bool DeleteProtection;
@@ -340,6 +348,14 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// The unique identifier of the transit gateway associated with this firewall.
+        /// </summary>
+        public readonly string TransitGatewayId;
+        /// <summary>
+        /// The AWS account ID that owns the transit gateway.
+        /// </summary>
+        public readonly string TransitGatewayOwnerAccountId;
+        /// <summary>
         /// String token used when updating a firewall.
         /// </summary>
         public readonly string UpdateToken;
@@ -351,6 +367,10 @@ namespace Pulumi.Aws.NetworkFirewall
         [OutputConstructor]
         private GetFirewallResult(
             string arn,
+
+            bool availabilityZoneChangeProtection,
+
+            ImmutableArray<Outputs.GetFirewallAvailabilityZoneMappingResult> availabilityZoneMappings,
 
             bool deleteProtection,
 
@@ -378,11 +398,17 @@ namespace Pulumi.Aws.NetworkFirewall
 
             ImmutableDictionary<string, string> tags,
 
+            string transitGatewayId,
+
+            string transitGatewayOwnerAccountId,
+
             string updateToken,
 
             string vpcId)
         {
             Arn = arn;
+            AvailabilityZoneChangeProtection = availabilityZoneChangeProtection;
+            AvailabilityZoneMappings = availabilityZoneMappings;
             DeleteProtection = deleteProtection;
             Description = description;
             EnabledAnalysisTypes = enabledAnalysisTypes;
@@ -396,6 +422,8 @@ namespace Pulumi.Aws.NetworkFirewall
             SubnetChangeProtection = subnetChangeProtection;
             SubnetMappings = subnetMappings;
             Tags = tags;
+            TransitGatewayId = transitGatewayId;
+            TransitGatewayOwnerAccountId = transitGatewayOwnerAccountId;
             UpdateToken = updateToken;
             VpcId = vpcId;
         }

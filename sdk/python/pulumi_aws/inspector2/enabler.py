@@ -27,7 +27,7 @@ class EnablerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: Type of resources to scan.
-               Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+               Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
                At least one item is required.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -54,7 +54,7 @@ class EnablerArgs:
     def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
         Type of resources to scan.
-        Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+        Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
         At least one item is required.
         """
         return pulumi.get(self, "resource_types")
@@ -88,7 +88,7 @@ class _EnablerState:
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: Type of resources to scan.
-               Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+               Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
                At least one item is required.
         """
         if account_ids is not None:
@@ -128,7 +128,7 @@ class _EnablerState:
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Type of resources to scan.
-        Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+        Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
         At least one item is required.
         """
         return pulumi.get(self, "resource_types")
@@ -187,7 +187,7 @@ class Enabler(pulumi.CustomResource):
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: Type of resources to scan.
-               Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+               Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
                At least one item is required.
         """
         ...
@@ -287,7 +287,7 @@ class Enabler(pulumi.CustomResource):
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: Type of resources to scan.
-               Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+               Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
                At least one item is required.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -321,7 +321,7 @@ class Enabler(pulumi.CustomResource):
     def resource_types(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
         Type of resources to scan.
-        Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+        Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
         At least one item is required.
         """
         return pulumi.get(self, "resource_types")

@@ -77,9 +77,21 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.collaboratorId);
     }
 
+    /**
+     * Name of this collaborator.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="collaboratorName")
     private @Nullable Output<String> collaboratorName;
 
+    /**
+     * @return Name of this collaborator.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Optional<Output<String>> collaboratorName() {
         return Optional.ofNullable(this.collaboratorName);
     }
@@ -250,11 +262,27 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
             return collaboratorId(Output.of(collaboratorId));
         }
 
+        /**
+         * @param collaboratorName Name of this collaborator.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder collaboratorName(@Nullable Output<String> collaboratorName) {
             $.collaboratorName = collaboratorName;
             return this;
         }
 
+        /**
+         * @param collaboratorName Name of this collaborator.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder collaboratorName(String collaboratorName) {
             return collaboratorName(Output.of(collaboratorName));
         }

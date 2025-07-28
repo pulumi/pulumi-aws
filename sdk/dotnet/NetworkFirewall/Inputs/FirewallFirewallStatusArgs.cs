@@ -24,6 +24,18 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
             set => _syncStates = value;
         }
 
+        [Input("transitGatewayAttachmentSyncStates")]
+        private InputList<Inputs.FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs>? _transitGatewayAttachmentSyncStates;
+
+        /// <summary>
+        /// Set of transit gateway configured for use by the firewall.
+        /// </summary>
+        public InputList<Inputs.FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs> TransitGatewayAttachmentSyncStates
+        {
+            get => _transitGatewayAttachmentSyncStates ?? (_transitGatewayAttachmentSyncStates = new InputList<Inputs.FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs>());
+            set => _transitGatewayAttachmentSyncStates = value;
+        }
+
         public FirewallFirewallStatusArgs()
         {
         }

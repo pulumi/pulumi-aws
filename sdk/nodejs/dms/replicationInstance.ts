@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -138,9 +141,17 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
+     * A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+     */
+    public readonly dnsNameServers!: pulumi.Output<string | undefined>;
+    /**
      * The engine version number of the replication instance.
      */
     public readonly engineVersion!: pulumi.Output<string>;
+    /**
+     * Configuration block for settings required for Kerberos authentication. See below.
+     */
+    public readonly kerberosAuthenticationSettings!: pulumi.Output<outputs.dms.ReplicationInstanceKerberosAuthenticationSettings | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
@@ -220,7 +231,9 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["dnsNameServers"] = state ? state.dnsNameServers : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["kerberosAuthenticationSettings"] = state ? state.kerberosAuthenticationSettings : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["multiAz"] = state ? state.multiAz : undefined;
             resourceInputs["networkType"] = state ? state.networkType : undefined;
@@ -249,7 +262,9 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["dnsNameServers"] = args ? args.dnsNameServers : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["kerberosAuthenticationSettings"] = args ? args.kerberosAuthenticationSettings : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["multiAz"] = args ? args.multiAz : undefined;
             resourceInputs["networkType"] = args ? args.networkType : undefined;
@@ -296,9 +311,17 @@ export interface ReplicationInstanceState {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
+     * A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+     */
+    dnsNameServers?: pulumi.Input<string>;
+    /**
      * The engine version number of the replication instance.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * Configuration block for settings required for Kerberos authentication. See below.
+     */
+    kerberosAuthenticationSettings?: pulumi.Input<inputs.dms.ReplicationInstanceKerberosAuthenticationSettings>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
@@ -386,9 +409,17 @@ export interface ReplicationInstanceArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
+     * A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+     */
+    dnsNameServers?: pulumi.Input<string>;
+    /**
      * The engine version number of the replication instance.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * Configuration block for settings required for Kerberos authentication. See below.
+     */
+    kerberosAuthenticationSettings?: pulumi.Input<inputs.dms.ReplicationInstanceKerberosAuthenticationSettings>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */

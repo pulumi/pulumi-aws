@@ -13,6 +13,12 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementCustomKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+        /// </summary>
+        [Input("asn")]
+        public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs>? Asn { get; set; }
+
+        /// <summary>
         /// Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
         /// </summary>
         [Input("cookie")]

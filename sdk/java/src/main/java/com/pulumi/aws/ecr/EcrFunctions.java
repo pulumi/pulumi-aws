@@ -8,6 +8,8 @@ import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
 import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenPlainArgs;
 import com.pulumi.aws.ecr.inputs.GetImageArgs;
 import com.pulumi.aws.ecr.inputs.GetImagePlainArgs;
+import com.pulumi.aws.ecr.inputs.GetImagesArgs;
+import com.pulumi.aws.ecr.inputs.GetImagesPlainArgs;
 import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
 import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentPlainArgs;
 import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
@@ -20,6 +22,7 @@ import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplatePlainArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryPlainArgs;
 import com.pulumi.aws.ecr.outputs.GetAuthorizationTokenResult;
 import com.pulumi.aws.ecr.outputs.GetImageResult;
+import com.pulumi.aws.ecr.outputs.GetImagesResult;
 import com.pulumi.aws.ecr.outputs.GetLifecyclePolicyDocumentResult;
 import com.pulumi.aws.ecr.outputs.GetPullThroughCacheRuleResult;
 import com.pulumi.aws.ecr.outputs.GetRepositoriesResult;
@@ -534,6 +537,66 @@ public final class EcrFunctions {
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecr/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Images data source allows the list of images in a specified repository to be retrieved.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetImagesResult> getImages(GetImagesArgs args) {
+        return getImages(args, InvokeOptions.Empty);
+    }
+    /**
+     * The ECR Images data source allows the list of images in a specified repository to be retrieved.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args) {
+        return getImagesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * The ECR Images data source allows the list of images in a specified repository to be retrieved.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ecr/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Images data source allows the list of images in a specified repository to be retrieved.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ecr/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Images data source allows the list of images in a specified repository to be retrieved.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ecr/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `aws.ecr.LifecyclePolicy` resource.

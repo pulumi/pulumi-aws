@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyAsn;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader;
@@ -21,6 +22,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyAsn asn;
     /**
      * @return (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
      * 
@@ -78,6 +80,9 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath uriPath;
 
     private RuleGroupRuleStatementRateBasedStatementCustomKey() {}
+    public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyAsn> asn() {
+        return Optional.ofNullable(this.asn);
+    }
     /**
      * @return (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
      * 
@@ -165,6 +170,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyAsn asn;
         private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyCookie cookie;
         private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp forwardedIp;
         private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHeader header;
@@ -179,6 +185,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
         public Builder() {}
         public Builder(RuleGroupRuleStatementRateBasedStatementCustomKey defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.asn = defaults.asn;
     	      this.cookie = defaults.cookie;
     	      this.forwardedIp = defaults.forwardedIp;
     	      this.header = defaults.header;
@@ -192,6 +199,12 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
     	      this.uriPath = defaults.uriPath;
         }
 
+        @CustomType.Setter
+        public Builder asn(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyAsn asn) {
+
+            this.asn = asn;
+            return this;
+        }
         @CustomType.Setter
         public Builder cookie(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyCookie cookie) {
 
@@ -260,6 +273,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKey build() {
             final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKey();
+            _resultValue.asn = asn;
             _resultValue.cookie = cookie;
             _resultValue.forwardedIp = forwardedIp;
             _resultValue.header = header;
