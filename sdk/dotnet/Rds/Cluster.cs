@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Rds
     ///             "us-west-2b",
     ///             "us-west-2c",
     ///         },
-    ///         Engine = "mysql",
+    ///         Engine = Aws.Rds.EngineType.Mysql,
     ///         DbClusterInstanceClass = "db.r6gd.xlarge",
     ///         StorageType = "io1",
     ///         AllocatedStorage = 100,

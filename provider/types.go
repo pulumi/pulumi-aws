@@ -288,6 +288,8 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			{Name: "Aurora", Value: "aurora"},
 			{Name: "AuroraMysql", Value: "aurora-mysql"},
 			{Name: "AuroraPostgresql", Value: "aurora-postgresql"},
+			{Name: "Mysql", Value: "mysql"},
+			{Name: "Postgres", Value: "postgres"},
 		},
 	},
 	"aws:rds/InstanceType:InstanceType": {

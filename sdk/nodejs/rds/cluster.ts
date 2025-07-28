@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     engine: "mysql",
+ *     engine: aws.rds.EngineType.Mysql,
  *     dbClusterInstanceClass: "db.r6gd.xlarge",
  *     storageType: "io1",
  *     allocatedStorage: 100,
