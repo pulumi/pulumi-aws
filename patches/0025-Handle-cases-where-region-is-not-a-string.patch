@@ -9,10 +9,10 @@ https://github.com/pulumi/pulumi-terraform-bridge/issues/2281. TF sets
 not exist at all in `RawState` or it could be `nil`.
 
 diff --git a/internal/provider/sdkv2/provider.go b/internal/provider/sdkv2/provider.go
-index e98d8fe5f9..def19143b6 100644
+index f6b44b7c2b..79fdfb07e0 100644
 --- a/internal/provider/sdkv2/provider.go
 +++ b/internal/provider/sdkv2/provider.go
-@@ -737,7 +737,9 @@ func (p *sdkProvider) initialize(ctx context.Context) (map[string]conns.ServiceP
+@@ -745,7 +745,9 @@ func (p *sdkProvider) initialize(ctx context.Context) (map[string]conns.ServiceP
  
  					if isRegionOverrideEnabled && getAttribute != nil {
  						if region, ok := getAttribute(names.AttrRegion); ok {
