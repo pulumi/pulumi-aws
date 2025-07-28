@@ -80,6 +80,11 @@ export type BucketLoggingV2 = import("./bucketLoggingV2").BucketLoggingV2;
 export const BucketLoggingV2: typeof import("./bucketLoggingV2").BucketLoggingV2 = null as any;
 utilities.lazyLoad(exports, ["BucketLoggingV2"], () => require("./bucketLoggingV2"));
 
+export { BucketMetadataConfigurationArgs, BucketMetadataConfigurationState } from "./bucketMetadataConfiguration";
+export type BucketMetadataConfiguration = import("./bucketMetadataConfiguration").BucketMetadataConfiguration;
+export const BucketMetadataConfiguration: typeof import("./bucketMetadataConfiguration").BucketMetadataConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketMetadataConfiguration"], () => require("./bucketMetadataConfiguration"));
+
 export { BucketMetricArgs, BucketMetricState } from "./bucketMetric";
 export type BucketMetric = import("./bucketMetric").BucketMetric;
 export const BucketMetric: typeof import("./bucketMetric").BucketMetric = null as any;
@@ -280,6 +285,8 @@ const _module = {
                 return new BucketLogging(name, <any>undefined, { urn })
             case "aws:s3/bucketLoggingV2:BucketLoggingV2":
                 return new BucketLoggingV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration":
+                return new BucketMetadataConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucketMetric:BucketMetric":
                 return new BucketMetric(name, <any>undefined, { urn })
             case "aws:s3/bucketNotification:BucketNotification":
@@ -344,6 +351,7 @@ pulumi.runtime.registerResourceModule("aws", "s3/bucketLifecycleConfiguration", 
 pulumi.runtime.registerResourceModule("aws", "s3/bucketLifecycleConfigurationV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketLogging", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketLoggingV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketMetadataConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketMetric", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketNotification", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketObject", _module)

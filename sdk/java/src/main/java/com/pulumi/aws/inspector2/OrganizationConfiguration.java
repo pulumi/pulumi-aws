@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *             .autoEnable(OrganizationConfigurationAutoEnableArgs.builder()
  *                 .ec2(true)
  *                 .ecr(false)
+ *                 .codeRepository(false)
  *                 .lambda(true)
  *                 .lambdaCode(true)
  *                 .build())

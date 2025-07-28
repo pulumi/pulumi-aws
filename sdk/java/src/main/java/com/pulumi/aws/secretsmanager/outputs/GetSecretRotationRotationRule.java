@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecretRotationRotationRule {
+    /**
+     * @return Number of days between automatic scheduled rotations of the secret.
+     * 
+     */
     private Integer automaticallyAfterDays;
+    /**
+     * @return Length of the rotation window in hours.
+     * 
+     */
     private String duration;
+    /**
+     * @return A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+     * 
+     */
     private String scheduleExpression;
 
     private GetSecretRotationRotationRule() {}
+    /**
+     * @return Number of days between automatic scheduled rotations of the secret.
+     * 
+     */
     public Integer automaticallyAfterDays() {
         return this.automaticallyAfterDays;
     }
+    /**
+     * @return Length of the rotation window in hours.
+     * 
+     */
     public String duration() {
         return this.duration;
     }
+    /**
+     * @return A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+     * 
+     */
     public String scheduleExpression() {
         return this.scheduleExpression;
     }

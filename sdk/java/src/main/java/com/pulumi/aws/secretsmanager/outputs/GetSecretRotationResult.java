@@ -20,17 +20,17 @@ public final class GetSecretRotationResult {
     private String id;
     private String region;
     /**
-     * @return ARN of the secret.
+     * @return Specifies whether automatic rotation is enabled for this secret.
      * 
      */
     private Boolean rotationEnabled;
     /**
-     * @return Decrypted part of the protected secret information that was originally provided as a string.
+     * @return Amazon Resource Name (ARN) of the lambda function used for rotation.
      * 
      */
     private String rotationLambdaArn;
     /**
-     * @return Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+     * @return Configuration block for rotation rules. See `rotation_rules` below.
      * 
      */
     private List<GetSecretRotationRotationRule> rotationRules;
@@ -48,21 +48,21 @@ public final class GetSecretRotationResult {
         return this.region;
     }
     /**
-     * @return ARN of the secret.
+     * @return Specifies whether automatic rotation is enabled for this secret.
      * 
      */
     public Boolean rotationEnabled() {
         return this.rotationEnabled;
     }
     /**
-     * @return Decrypted part of the protected secret information that was originally provided as a string.
+     * @return Amazon Resource Name (ARN) of the lambda function used for rotation.
      * 
      */
     public String rotationLambdaArn() {
         return this.rotationLambdaArn;
     }
     /**
-     * @return Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+     * @return Configuration block for rotation rules. See `rotation_rules` below.
      * 
      */
     public List<GetSecretRotationRotationRule> rotationRules() {

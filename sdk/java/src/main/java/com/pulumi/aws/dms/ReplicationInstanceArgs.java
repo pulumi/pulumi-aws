@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dms;
 
+import com.pulumi.aws.dms.inputs.ReplicationInstanceKerberosAuthenticationSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -96,6 +97,21 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+     * 
+     */
+    @Import(name="dnsNameServers")
+    private @Nullable Output<String> dnsNameServers;
+
+    /**
+     * @return A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+     * 
+     */
+    public Optional<Output<String>> dnsNameServers() {
+        return Optional.ofNullable(this.dnsNameServers);
+    }
+
+    /**
      * The engine version number of the replication instance.
      * 
      */
@@ -108,6 +124,21 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
+    }
+
+    /**
+     * Configuration block for settings required for Kerberos authentication. See below.
+     * 
+     */
+    @Import(name="kerberosAuthenticationSettings")
+    private @Nullable Output<ReplicationInstanceKerberosAuthenticationSettingsArgs> kerberosAuthenticationSettings;
+
+    /**
+     * @return Configuration block for settings required for Kerberos authentication. See below.
+     * 
+     */
+    public Optional<Output<ReplicationInstanceKerberosAuthenticationSettingsArgs>> kerberosAuthenticationSettings() {
+        return Optional.ofNullable(this.kerberosAuthenticationSettings);
     }
 
     /**
@@ -283,7 +314,9 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         this.applyImmediately = $.applyImmediately;
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.availabilityZone = $.availabilityZone;
+        this.dnsNameServers = $.dnsNameServers;
         this.engineVersion = $.engineVersion;
+        this.kerberosAuthenticationSettings = $.kerberosAuthenticationSettings;
         this.kmsKeyArn = $.kmsKeyArn;
         this.multiAz = $.multiAz;
         this.networkType = $.networkType;
@@ -421,6 +454,27 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param dnsNameServers A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsNameServers(@Nullable Output<String> dnsNameServers) {
+            $.dnsNameServers = dnsNameServers;
+            return this;
+        }
+
+        /**
+         * @param dnsNameServers A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsNameServers(String dnsNameServers) {
+            return dnsNameServers(Output.of(dnsNameServers));
+        }
+
+        /**
          * @param engineVersion The engine version number of the replication instance.
          * 
          * @return builder
@@ -439,6 +493,27 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
          */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
+        }
+
+        /**
+         * @param kerberosAuthenticationSettings Configuration block for settings required for Kerberos authentication. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosAuthenticationSettings(@Nullable Output<ReplicationInstanceKerberosAuthenticationSettingsArgs> kerberosAuthenticationSettings) {
+            $.kerberosAuthenticationSettings = kerberosAuthenticationSettings;
+            return this;
+        }
+
+        /**
+         * @param kerberosAuthenticationSettings Configuration block for settings required for Kerberos authentication. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosAuthenticationSettings(ReplicationInstanceKerberosAuthenticationSettingsArgs kerberosAuthenticationSettings) {
+            return kerberosAuthenticationSettings(Output.of(kerberosAuthenticationSettings));
         }
 
         /**

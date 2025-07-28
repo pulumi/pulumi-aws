@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .application("tf-test-name")
  *             .description("application version")
  *             .bucket(default_.id())
- *             .key(defaultBucketObjectv2.id())
+ *             .key(defaultBucketObjectv2.key())
  *             .build());
  * 
  *     }

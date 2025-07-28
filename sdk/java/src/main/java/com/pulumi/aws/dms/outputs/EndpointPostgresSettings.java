@@ -19,6 +19,11 @@ public final class EndpointPostgresSettings {
      */
     private @Nullable String afterConnectScript;
     /**
+     * @return Specifies the authentication method. Valid values: `password`, `iam`.
+     * 
+     */
+    private @Nullable String authenticationMethod;
+    /**
      * @return The Babelfish for Aurora PostgreSQL database name for the endpoint.
      * 
      */
@@ -89,6 +94,11 @@ public final class EndpointPostgresSettings {
      */
     private @Nullable String pluginName;
     /**
+     * @return Specifies the IAM role to use to authenticate the connection.
+     * 
+     */
+    private @Nullable String serviceAccessRoleArn;
+    /**
      * @return Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
      * 
      */
@@ -101,6 +111,13 @@ public final class EndpointPostgresSettings {
      */
     public Optional<String> afterConnectScript() {
         return Optional.ofNullable(this.afterConnectScript);
+    }
+    /**
+     * @return Specifies the authentication method. Valid values: `password`, `iam`.
+     * 
+     */
+    public Optional<String> authenticationMethod() {
+        return Optional.ofNullable(this.authenticationMethod);
     }
     /**
      * @return The Babelfish for Aurora PostgreSQL database name for the endpoint.
@@ -201,6 +218,13 @@ public final class EndpointPostgresSettings {
         return Optional.ofNullable(this.pluginName);
     }
     /**
+     * @return Specifies the IAM role to use to authenticate the connection.
+     * 
+     */
+    public Optional<String> serviceAccessRoleArn() {
+        return Optional.ofNullable(this.serviceAccessRoleArn);
+    }
+    /**
      * @return Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
      * 
      */
@@ -218,6 +242,7 @@ public final class EndpointPostgresSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String afterConnectScript;
+        private @Nullable String authenticationMethod;
         private @Nullable String babelfishDatabaseName;
         private @Nullable Boolean captureDdls;
         private @Nullable String databaseMode;
@@ -232,11 +257,13 @@ public final class EndpointPostgresSettings {
         private @Nullable String mapLongVarcharAs;
         private @Nullable Integer maxFileSize;
         private @Nullable String pluginName;
+        private @Nullable String serviceAccessRoleArn;
         private @Nullable String slotName;
         public Builder() {}
         public Builder(EndpointPostgresSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.afterConnectScript = defaults.afterConnectScript;
+    	      this.authenticationMethod = defaults.authenticationMethod;
     	      this.babelfishDatabaseName = defaults.babelfishDatabaseName;
     	      this.captureDdls = defaults.captureDdls;
     	      this.databaseMode = defaults.databaseMode;
@@ -251,6 +278,7 @@ public final class EndpointPostgresSettings {
     	      this.mapLongVarcharAs = defaults.mapLongVarcharAs;
     	      this.maxFileSize = defaults.maxFileSize;
     	      this.pluginName = defaults.pluginName;
+    	      this.serviceAccessRoleArn = defaults.serviceAccessRoleArn;
     	      this.slotName = defaults.slotName;
         }
 
@@ -258,6 +286,12 @@ public final class EndpointPostgresSettings {
         public Builder afterConnectScript(@Nullable String afterConnectScript) {
 
             this.afterConnectScript = afterConnectScript;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder authenticationMethod(@Nullable String authenticationMethod) {
+
+            this.authenticationMethod = authenticationMethod;
             return this;
         }
         @CustomType.Setter
@@ -345,6 +379,12 @@ public final class EndpointPostgresSettings {
             return this;
         }
         @CustomType.Setter
+        public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder slotName(@Nullable String slotName) {
 
             this.slotName = slotName;
@@ -353,6 +393,7 @@ public final class EndpointPostgresSettings {
         public EndpointPostgresSettings build() {
             final var _resultValue = new EndpointPostgresSettings();
             _resultValue.afterConnectScript = afterConnectScript;
+            _resultValue.authenticationMethod = authenticationMethod;
             _resultValue.babelfishDatabaseName = babelfishDatabaseName;
             _resultValue.captureDdls = captureDdls;
             _resultValue.databaseMode = databaseMode;
@@ -367,6 +408,7 @@ public final class EndpointPostgresSettings {
             _resultValue.mapLongVarcharAs = mapLongVarcharAs;
             _resultValue.maxFileSize = maxFileSize;
             _resultValue.pluginName = pluginName;
+            _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
             _resultValue.slotName = slotName;
             return _resultValue;
         }

@@ -63,9 +63,21 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
         return this.collaborationInstruction;
     }
 
+    /**
+     * Name of this collaborator.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="collaboratorName", required=true)
     private Output<String> collaboratorName;
 
+    /**
+     * @return Name of this collaborator.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<String> collaboratorName() {
         return this.collaboratorName;
     }
@@ -214,11 +226,27 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
             return collaborationInstruction(Output.of(collaborationInstruction));
         }
 
+        /**
+         * @param collaboratorName Name of this collaborator.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder collaboratorName(Output<String> collaboratorName) {
             $.collaboratorName = collaboratorName;
             return this;
         }
 
+        /**
+         * @param collaboratorName Name of this collaborator.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder collaboratorName(String collaboratorName) {
             return collaboratorName(Output.of(collaboratorName));
         }

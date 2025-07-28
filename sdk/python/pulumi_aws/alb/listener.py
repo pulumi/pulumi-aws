@@ -1104,6 +1104,38 @@ class Listener(pulumi.CustomResource):
             }])
         ```
 
+        With weighted target groups:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_blue = aws.lb.TargetGroup("front_end_blue")
+        front_end_green = aws.lb.TargetGroup("front_end_green")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
+            port=443,
+            protocol="HTTPS",
+            ssl_policy="ELBSecurityPolicy-2016-08",
+            certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+            default_actions=[{
+                "type": "forward",
+                "forward": {
+                    "target_groups": [
+                        {
+                            "arn": front_end_blue.arn,
+                            "weight": 100,
+                        },
+                        {
+                            "arn": front_end_green.arn,
+                            "weight": 0,
+                        },
+                    ],
+                },
+            }])
+        ```
+
         To a NLB:
 
         ```python
@@ -1351,6 +1383,38 @@ class Listener(pulumi.CustomResource):
             default_actions=[{
                 "type": "forward",
                 "target_group_arn": front_end_target_group.arn,
+            }])
+        ```
+
+        With weighted target groups:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end = aws.lb.LoadBalancer("front_end")
+        front_end_blue = aws.lb.TargetGroup("front_end_blue")
+        front_end_green = aws.lb.TargetGroup("front_end_green")
+        front_end_listener = aws.lb.Listener("front_end",
+            load_balancer_arn=front_end.arn,
+            port=443,
+            protocol="HTTPS",
+            ssl_policy="ELBSecurityPolicy-2016-08",
+            certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+            default_actions=[{
+                "type": "forward",
+                "forward": {
+                    "target_groups": [
+                        {
+                            "arn": front_end_blue.arn,
+                            "weight": 100,
+                        },
+                        {
+                            "arn": front_end_green.arn,
+                            "weight": 0,
+                        },
+                    ],
+                },
             }])
         ```
 

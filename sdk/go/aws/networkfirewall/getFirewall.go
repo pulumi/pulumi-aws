@@ -121,6 +121,10 @@ type LookupFirewallArgs struct {
 type LookupFirewallResult struct {
 	// ARN of the firewall.
 	Arn string `pulumi:"arn"`
+	// Indicates whether the firewall is protected against changes to its Availability Zone configuration.
+	AvailabilityZoneChangeProtection bool `pulumi:"availabilityZoneChangeProtection"`
+	// Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
+	AvailabilityZoneMappings []GetFirewallAvailabilityZoneMapping `pulumi:"availabilityZoneMappings"`
 	// A flag indicating whether the firewall is protected against deletion.
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// Description of the firewall.
@@ -146,6 +150,10 @@ type LookupFirewallResult struct {
 	SubnetMappings []GetFirewallSubnetMapping `pulumi:"subnetMappings"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique identifier of the transit gateway associated with this firewall.
+	TransitGatewayId string `pulumi:"transitGatewayId"`
+	// The AWS account ID that owns the transit gateway.
+	TransitGatewayOwnerAccountId string `pulumi:"transitGatewayOwnerAccountId"`
 	// String token used when updating a firewall.
 	UpdateToken string `pulumi:"updateToken"`
 	// Unique identifier of the VPC where AWS Network Firewall should create the firewall.
@@ -197,6 +205,16 @@ func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx 
 // ARN of the firewall.
 func (o LookupFirewallResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Indicates whether the firewall is protected against changes to its Availability Zone configuration.
+func (o LookupFirewallResultOutput) AvailabilityZoneChangeProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupFirewallResult) bool { return v.AvailabilityZoneChangeProtection }).(pulumi.BoolOutput)
+}
+
+// Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
+func (o LookupFirewallResultOutput) AvailabilityZoneMappings() GetFirewallAvailabilityZoneMappingArrayOutput {
+	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallAvailabilityZoneMapping { return v.AvailabilityZoneMappings }).(GetFirewallAvailabilityZoneMappingArrayOutput)
 }
 
 // A flag indicating whether the firewall is protected against deletion.
@@ -261,6 +279,16 @@ func (o LookupFirewallResultOutput) SubnetMappings() GetFirewallSubnetMappingArr
 // Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LookupFirewallResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFirewallResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The unique identifier of the transit gateway associated with this firewall.
+func (o LookupFirewallResultOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+// The AWS account ID that owns the transit gateway.
+func (o LookupFirewallResultOutput) TransitGatewayOwnerAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallResult) string { return v.TransitGatewayOwnerAccountId }).(pulumi.StringOutput)
 }
 
 // String token used when updating a firewall.

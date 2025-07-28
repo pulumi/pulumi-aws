@@ -27,10 +27,16 @@ class GetFirewallResult:
     """
     A collection of values returned by getFirewall.
     """
-    def __init__(__self__, arn=None, delete_protection=None, description=None, enabled_analysis_types=None, encryption_configurations=None, firewall_policy_arn=None, firewall_policy_change_protection=None, firewall_statuses=None, id=None, name=None, region=None, subnet_change_protection=None, subnet_mappings=None, tags=None, update_token=None, vpc_id=None):
+    def __init__(__self__, arn=None, availability_zone_change_protection=None, availability_zone_mappings=None, delete_protection=None, description=None, enabled_analysis_types=None, encryption_configurations=None, firewall_policy_arn=None, firewall_policy_change_protection=None, firewall_statuses=None, id=None, name=None, region=None, subnet_change_protection=None, subnet_mappings=None, tags=None, transit_gateway_id=None, transit_gateway_owner_account_id=None, update_token=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if availability_zone_change_protection and not isinstance(availability_zone_change_protection, bool):
+            raise TypeError("Expected argument 'availability_zone_change_protection' to be a bool")
+        pulumi.set(__self__, "availability_zone_change_protection", availability_zone_change_protection)
+        if availability_zone_mappings and not isinstance(availability_zone_mappings, list):
+            raise TypeError("Expected argument 'availability_zone_mappings' to be a list")
+        pulumi.set(__self__, "availability_zone_mappings", availability_zone_mappings)
         if delete_protection and not isinstance(delete_protection, bool):
             raise TypeError("Expected argument 'delete_protection' to be a bool")
         pulumi.set(__self__, "delete_protection", delete_protection)
@@ -70,6 +76,12 @@ class GetFirewallResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if transit_gateway_id and not isinstance(transit_gateway_id, str):
+            raise TypeError("Expected argument 'transit_gateway_id' to be a str")
+        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if transit_gateway_owner_account_id and not isinstance(transit_gateway_owner_account_id, str):
+            raise TypeError("Expected argument 'transit_gateway_owner_account_id' to be a str")
+        pulumi.set(__self__, "transit_gateway_owner_account_id", transit_gateway_owner_account_id)
         if update_token and not isinstance(update_token, str):
             raise TypeError("Expected argument 'update_token' to be a str")
         pulumi.set(__self__, "update_token", update_token)
@@ -84,6 +96,22 @@ class GetFirewallResult:
         ARN of the firewall.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneChangeProtection")
+    def availability_zone_change_protection(self) -> _builtins.bool:
+        """
+        Indicates whether the firewall is protected against changes to its Availability Zone configuration.
+        """
+        return pulumi.get(self, "availability_zone_change_protection")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneMappings")
+    def availability_zone_mappings(self) -> Sequence['outputs.GetFirewallAvailabilityZoneMappingResult']:
+        """
+        Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
+        """
+        return pulumi.get(self, "availability_zone_mappings")
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
@@ -187,6 +215,22 @@ class GetFirewallResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> _builtins.str:
+        """
+        The unique identifier of the transit gateway associated with this firewall.
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayOwnerAccountId")
+    def transit_gateway_owner_account_id(self) -> _builtins.str:
+        """
+        The AWS account ID that owns the transit gateway.
+        """
+        return pulumi.get(self, "transit_gateway_owner_account_id")
+
+    @_builtins.property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> _builtins.str:
         """
@@ -210,6 +254,8 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             yield self
         return GetFirewallResult(
             arn=self.arn,
+            availability_zone_change_protection=self.availability_zone_change_protection,
+            availability_zone_mappings=self.availability_zone_mappings,
             delete_protection=self.delete_protection,
             description=self.description,
             enabled_analysis_types=self.enabled_analysis_types,
@@ -223,6 +269,8 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             subnet_change_protection=self.subnet_change_protection,
             subnet_mappings=self.subnet_mappings,
             tags=self.tags,
+            transit_gateway_id=self.transit_gateway_id,
+            transit_gateway_owner_account_id=self.transit_gateway_owner_account_id,
             update_token=self.update_token,
             vpc_id=self.vpc_id)
 
@@ -283,6 +331,8 @@ def get_firewall(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetFirewallResult(
         arn=pulumi.get(__ret__, 'arn'),
+        availability_zone_change_protection=pulumi.get(__ret__, 'availability_zone_change_protection'),
+        availability_zone_mappings=pulumi.get(__ret__, 'availability_zone_mappings'),
         delete_protection=pulumi.get(__ret__, 'delete_protection'),
         description=pulumi.get(__ret__, 'description'),
         enabled_analysis_types=pulumi.get(__ret__, 'enabled_analysis_types'),
@@ -296,6 +346,8 @@ def get_firewall(arn: Optional[_builtins.str] = None,
         subnet_change_protection=pulumi.get(__ret__, 'subnet_change_protection'),
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        transit_gateway_owner_account_id=pulumi.get(__ret__, 'transit_gateway_owner_account_id'),
         update_token=pulumi.get(__ret__, 'update_token'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_firewall_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -353,6 +405,8 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = N
     __ret__ = pulumi.runtime.invoke_output('aws:networkfirewall/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult)
     return __ret__.apply(lambda __response__: GetFirewallResult(
         arn=pulumi.get(__response__, 'arn'),
+        availability_zone_change_protection=pulumi.get(__response__, 'availability_zone_change_protection'),
+        availability_zone_mappings=pulumi.get(__response__, 'availability_zone_mappings'),
         delete_protection=pulumi.get(__response__, 'delete_protection'),
         description=pulumi.get(__response__, 'description'),
         enabled_analysis_types=pulumi.get(__response__, 'enabled_analysis_types'),
@@ -366,5 +420,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = N
         subnet_change_protection=pulumi.get(__response__, 'subnet_change_protection'),
         subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
         tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
+        transit_gateway_owner_account_id=pulumi.get(__response__, 'transit_gateway_owner_account_id'),
         update_token=pulumi.get(__response__, 'update_token'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

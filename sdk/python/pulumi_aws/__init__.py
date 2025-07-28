@@ -3159,6 +3159,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cognito/logDeliveryConfiguration",
+  "fqn": "pulumi_aws.cognito",
+  "classes": {
+   "aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration": "LogDeliveryConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cognito/managedUserPoolClient",
   "fqn": "pulumi_aws.cognito",
   "classes": {
@@ -8455,6 +8463,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkfirewall/firewallTransitGatewayAttachmentAccepter",
+  "fqn": "pulumi_aws.networkfirewall",
+  "classes": {
+   "aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter": "FirewallTransitGatewayAttachmentAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkfirewall/loggingConfiguration",
   "fqn": "pulumi_aws.networkfirewall",
   "classes": {
@@ -10291,6 +10307,14 @@ _utilities.register(
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucketLoggingV2:BucketLoggingV2": "BucketLoggingV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketMetadataConfiguration",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration": "BucketMetadataConfiguration"
   }
  },
  {

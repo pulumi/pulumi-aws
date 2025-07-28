@@ -13,6 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleStatementRateBasedStatementCustomKey
     {
+        public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyAsn? Asn;
         /// <summary>
         /// (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
         /// </summary>
@@ -60,6 +61,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
         [OutputConstructor]
         private RuleGroupRuleStatementRateBasedStatementCustomKey(
+            Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyAsn? asn,
+
             Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie? cookie,
 
             Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp? forwardedIp,
@@ -82,6 +85,7 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath? uriPath)
         {
+            Asn = asn;
             Cookie = cookie;
             ForwardedIp = forwardedIp;
             Header = header;

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// ## Example Usage
     /// 
+    /// ### Content Moderation
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,6 +29,25 @@ namespace Pulumi.Aws.Rekognition
     ///         Name = "example-project",
     ///         AutoUpdate = "ENABLED",
     ///         Feature = "CONTENT_MODERATION",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Custom Labels
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Rekognition.Project("example", new()
+    ///     {
+    ///         Name = "example-project",
+    ///         Feature = "CUSTOM_LABELS",
     ///     });
     /// 
     /// });
@@ -50,7 +71,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         /// </summary>
         [Output("autoUpdate")]
         public Output<string> AutoUpdate { get; private set; } = null!;
@@ -137,7 +158,7 @@ namespace Pulumi.Aws.Rekognition
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         /// </summary>
         [Input("autoUpdate")]
         public Input<string>? AutoUpdate { get; set; }
@@ -192,7 +213,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         /// </summary>
         [Input("autoUpdate")]
         public Input<string>? AutoUpdate { get; set; }

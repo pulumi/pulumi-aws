@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs;
@@ -24,6 +25,13 @@ import javax.annotation.Nullable;
 public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RuleGroupRuleStatementRateBasedStatementCustomKeyArgs Empty = new RuleGroupRuleStatementRateBasedStatementCustomKeyArgs();
+
+    @Import(name="asn")
+    private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs> asn;
+
+    public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs>> asn() {
+        return Optional.ofNullable(this.asn);
+    }
 
     /**
      * (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
@@ -193,6 +201,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     private RuleGroupRuleStatementRateBasedStatementCustomKeyArgs() {}
 
     private RuleGroupRuleStatementRateBasedStatementCustomKeyArgs(RuleGroupRuleStatementRateBasedStatementCustomKeyArgs $) {
+        this.asn = $.asn;
         this.cookie = $.cookie;
         this.forwardedIp = $.forwardedIp;
         this.header = $.header;
@@ -222,6 +231,15 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
 
         public Builder(RuleGroupRuleStatementRateBasedStatementCustomKeyArgs defaults) {
             $ = new RuleGroupRuleStatementRateBasedStatementCustomKeyArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder asn(@Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs> asn) {
+            $.asn = asn;
+            return this;
+        }
+
+        public Builder asn(RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs asn) {
+            return asn(Output.of(asn));
         }
 
         /**

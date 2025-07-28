@@ -22,6 +22,7 @@ from .bucket_lifecycle_configuration import *
 from .bucket_lifecycle_configuration_v2 import *
 from .bucket_logging import *
 from .bucket_logging_v2 import *
+from .bucket_metadata_configuration import *
 from .bucket_metric import *
 from .bucket_notification import *
 from .bucket_object import *

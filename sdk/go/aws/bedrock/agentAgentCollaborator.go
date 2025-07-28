@@ -187,7 +187,10 @@ type AgentAgentCollaborator struct {
 	// Instruction to give the collaborator.
 	CollaborationInstruction pulumi.StringOutput `pulumi:"collaborationInstruction"`
 	// ID of the Agent Collaborator.
-	CollaboratorId   pulumi.StringOutput `pulumi:"collaboratorId"`
+	CollaboratorId pulumi.StringOutput `pulumi:"collaboratorId"`
+	// Name of this collaborator.
+	//
+	// The following arguments are optional:
 	CollaboratorName pulumi.StringOutput `pulumi:"collaboratorName"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
@@ -244,7 +247,10 @@ type agentAgentCollaboratorState struct {
 	// Instruction to give the collaborator.
 	CollaborationInstruction *string `pulumi:"collaborationInstruction"`
 	// ID of the Agent Collaborator.
-	CollaboratorId   *string `pulumi:"collaboratorId"`
+	CollaboratorId *string `pulumi:"collaboratorId"`
+	// Name of this collaborator.
+	//
+	// The following arguments are optional:
 	CollaboratorName *string `pulumi:"collaboratorName"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
@@ -263,7 +269,10 @@ type AgentAgentCollaboratorState struct {
 	// Instruction to give the collaborator.
 	CollaborationInstruction pulumi.StringPtrInput
 	// ID of the Agent Collaborator.
-	CollaboratorId   pulumi.StringPtrInput
+	CollaboratorId pulumi.StringPtrInput
+	// Name of this collaborator.
+	//
+	// The following arguments are optional:
 	CollaboratorName pulumi.StringPtrInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
@@ -285,7 +294,10 @@ type agentAgentCollaboratorArgs struct {
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Instruction to give the collaborator.
 	CollaborationInstruction string `pulumi:"collaborationInstruction"`
-	CollaboratorName         string `pulumi:"collaboratorName"`
+	// Name of this collaborator.
+	//
+	// The following arguments are optional:
+	CollaboratorName string `pulumi:"collaboratorName"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -303,7 +315,10 @@ type AgentAgentCollaboratorArgs struct {
 	AgentVersion pulumi.StringPtrInput
 	// Instruction to give the collaborator.
 	CollaborationInstruction pulumi.StringInput
-	CollaboratorName         pulumi.StringInput
+	// Name of this collaborator.
+	//
+	// The following arguments are optional:
+	CollaboratorName pulumi.StringInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -425,6 +440,9 @@ func (o AgentAgentCollaboratorOutput) CollaboratorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.CollaboratorId }).(pulumi.StringOutput)
 }
 
+// Name of this collaborator.
+//
+// The following arguments are optional:
 func (o AgentAgentCollaboratorOutput) CollaboratorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.CollaboratorName }).(pulumi.StringOutput)
 }

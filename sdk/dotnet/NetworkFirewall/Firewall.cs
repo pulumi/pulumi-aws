@@ -49,6 +49,46 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// 
+    /// ### Transit Gateway Attached Firewall
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///     });
+    /// 
+    ///     var exampleFirewall = new Aws.NetworkFirewall.Firewall("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         FirewallPolicyArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
+    ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
+    ///         AvailabilityZoneMappings = new[]
+    ///         {
+    ///             new Aws.NetworkFirewall.Inputs.FirewallAvailabilityZoneMappingArgs
+    ///             {
+    ///                 AvailabilityZoneId = example.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.ZoneIds[0]),
+    ///             },
+    ///             new Aws.NetworkFirewall.Inputs.FirewallAvailabilityZoneMappingArgs
+    ///             {
+    ///                 AvailabilityZoneId = example.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.ZoneIds[1]),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Transit Gateway Attached Firewall (Cross Account)
+    /// 
+    /// A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `aws.networkfirewall.Firewall` and `aws_networkfirewall_network_firewall_transit_gateway_attachment_accepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
@@ -65,6 +105,18 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+        /// </summary>
+        [Output("availabilityZoneChangeProtection")]
+        public Output<bool?> AvailabilityZoneChangeProtection { get; private set; } = null!;
+
+        /// <summary>
+        /// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        /// </summary>
+        [Output("availabilityZoneMappings")]
+        public Output<ImmutableArray<Outputs.FirewallAvailabilityZoneMapping>> AvailabilityZoneMappings { get; private set; } = null!;
 
         /// <summary>
         /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
@@ -127,7 +179,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<bool?> SubnetChangeProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        /// Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
         /// </summary>
         [Output("subnetMappings")]
         public Output<ImmutableArray<Outputs.FirewallSubnetMapping>> SubnetMappings { get; private set; } = null!;
@@ -145,16 +197,28 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
+        /// </summary>
+        [Output("transitGatewayId")]
+        public Output<string?> TransitGatewayId { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS account ID that owns the transit gateway.
+        /// </summary>
+        [Output("transitGatewayOwnerAccountId")]
+        public Output<string> TransitGatewayOwnerAccountId { get; private set; } = null!;
+
+        /// <summary>
         /// A string token used when updating a firewall.
         /// </summary>
         [Output("updateToken")]
         public Output<string> UpdateToken { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        /// Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>
@@ -202,6 +266,24 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+        /// </summary>
+        [Input("availabilityZoneChangeProtection")]
+        public Input<bool>? AvailabilityZoneChangeProtection { get; set; }
+
+        [Input("availabilityZoneMappings")]
+        private InputList<Inputs.FirewallAvailabilityZoneMappingArgs>? _availabilityZoneMappings;
+
+        /// <summary>
+        /// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        /// </summary>
+        public InputList<Inputs.FirewallAvailabilityZoneMappingArgs> AvailabilityZoneMappings
+        {
+            get => _availabilityZoneMappings ?? (_availabilityZoneMappings = new InputList<Inputs.FirewallAvailabilityZoneMappingArgs>());
+            set => _availabilityZoneMappings = value;
+        }
+
         /// <summary>
         /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         /// </summary>
@@ -262,11 +344,11 @@ namespace Pulumi.Aws.NetworkFirewall
         [Input("subnetChangeProtection")]
         public Input<bool>? SubnetChangeProtection { get; set; }
 
-        [Input("subnetMappings", required: true)]
+        [Input("subnetMappings")]
         private InputList<Inputs.FirewallSubnetMappingArgs>? _subnetMappings;
 
         /// <summary>
-        /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        /// Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
         /// </summary>
         public InputList<Inputs.FirewallSubnetMappingArgs> SubnetMappings
         {
@@ -287,10 +369,16 @@ namespace Pulumi.Aws.NetworkFirewall
         }
 
         /// <summary>
-        /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        /// . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
         /// </summary>
-        [Input("vpcId", required: true)]
-        public Input<string> VpcId { get; set; } = null!;
+        [Input("transitGatewayId")]
+        public Input<string>? TransitGatewayId { get; set; }
+
+        /// <summary>
+        /// Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
 
         public FirewallArgs()
         {
@@ -305,6 +393,24 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
+        /// </summary>
+        [Input("availabilityZoneChangeProtection")]
+        public Input<bool>? AvailabilityZoneChangeProtection { get; set; }
+
+        [Input("availabilityZoneMappings")]
+        private InputList<Inputs.FirewallAvailabilityZoneMappingGetArgs>? _availabilityZoneMappings;
+
+        /// <summary>
+        /// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        /// </summary>
+        public InputList<Inputs.FirewallAvailabilityZoneMappingGetArgs> AvailabilityZoneMappings
+        {
+            get => _availabilityZoneMappings ?? (_availabilityZoneMappings = new InputList<Inputs.FirewallAvailabilityZoneMappingGetArgs>());
+            set => _availabilityZoneMappings = value;
+        }
 
         /// <summary>
         /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
@@ -382,7 +488,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputList<Inputs.FirewallSubnetMappingGetArgs>? _subnetMappings;
 
         /// <summary>
-        /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        /// Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
         /// </summary>
         public InputList<Inputs.FirewallSubnetMappingGetArgs> SubnetMappings
         {
@@ -415,13 +521,25 @@ namespace Pulumi.Aws.NetworkFirewall
         }
 
         /// <summary>
+        /// . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
+        /// </summary>
+        [Input("transitGatewayId")]
+        public Input<string>? TransitGatewayId { get; set; }
+
+        /// <summary>
+        /// The AWS account ID that owns the transit gateway.
+        /// </summary>
+        [Input("transitGatewayOwnerAccountId")]
+        public Input<string>? TransitGatewayOwnerAccountId { get; set; }
+
+        /// <summary>
         /// A string token used when updating a firewall.
         /// </summary>
         [Input("updateToken")]
         public Input<string>? UpdateToken { get; set; }
 
         /// <summary>
-        /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        /// Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

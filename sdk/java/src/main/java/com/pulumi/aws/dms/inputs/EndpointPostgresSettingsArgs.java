@@ -33,6 +33,21 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Specifies the authentication method. Valid values: `password`, `iam`.
+     * 
+     */
+    @Import(name="authenticationMethod")
+    private @Nullable Output<String> authenticationMethod;
+
+    /**
+     * @return Specifies the authentication method. Valid values: `password`, `iam`.
+     * 
+     */
+    public Optional<Output<String>> authenticationMethod() {
+        return Optional.ofNullable(this.authenticationMethod);
+    }
+
+    /**
      * The Babelfish for Aurora PostgreSQL database name for the endpoint.
      * 
      */
@@ -243,6 +258,21 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Specifies the IAM role to use to authenticate the connection.
+     * 
+     */
+    @Import(name="serviceAccessRoleArn")
+    private @Nullable Output<String> serviceAccessRoleArn;
+
+    /**
+     * @return Specifies the IAM role to use to authenticate the connection.
+     * 
+     */
+    public Optional<Output<String>> serviceAccessRoleArn() {
+        return Optional.ofNullable(this.serviceAccessRoleArn);
+    }
+
+    /**
      * Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
      * 
      */
@@ -261,6 +291,7 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
 
     private EndpointPostgresSettingsArgs(EndpointPostgresSettingsArgs $) {
         this.afterConnectScript = $.afterConnectScript;
+        this.authenticationMethod = $.authenticationMethod;
         this.babelfishDatabaseName = $.babelfishDatabaseName;
         this.captureDdls = $.captureDdls;
         this.databaseMode = $.databaseMode;
@@ -275,6 +306,7 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
         this.mapLongVarcharAs = $.mapLongVarcharAs;
         this.maxFileSize = $.maxFileSize;
         this.pluginName = $.pluginName;
+        this.serviceAccessRoleArn = $.serviceAccessRoleArn;
         this.slotName = $.slotName;
     }
 
@@ -315,6 +347,27 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
          */
         public Builder afterConnectScript(String afterConnectScript) {
             return afterConnectScript(Output.of(afterConnectScript));
+        }
+
+        /**
+         * @param authenticationMethod Specifies the authentication method. Valid values: `password`, `iam`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMethod(@Nullable Output<String> authenticationMethod) {
+            $.authenticationMethod = authenticationMethod;
+            return this;
+        }
+
+        /**
+         * @param authenticationMethod Specifies the authentication method. Valid values: `password`, `iam`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMethod(String authenticationMethod) {
+            return authenticationMethod(Output.of(authenticationMethod));
         }
 
         /**
@@ -609,6 +662,27 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
          */
         public Builder pluginName(String pluginName) {
             return pluginName(Output.of(pluginName));
+        }
+
+        /**
+         * @param serviceAccessRoleArn Specifies the IAM role to use to authenticate the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceAccessRoleArn(@Nullable Output<String> serviceAccessRoleArn) {
+            $.serviceAccessRoleArn = serviceAccessRoleArn;
+            return this;
+        }
+
+        /**
+         * @param serviceAccessRoleArn Specifies the IAM role to use to authenticate the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
+            return serviceAccessRoleArn(Output.of(serviceAccessRoleArn));
         }
 
         /**

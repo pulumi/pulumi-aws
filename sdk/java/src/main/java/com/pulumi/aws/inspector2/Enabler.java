@@ -135,7 +135,7 @@ public class Enabler extends com.pulumi.resources.CustomResource {
     }
     /**
      * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
      * At least one item is required.
      * 
      */
@@ -144,7 +144,7 @@ public class Enabler extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
      * At least one item is required.
      * 
      */

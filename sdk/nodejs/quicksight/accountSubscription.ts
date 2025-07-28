@@ -25,7 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * You cannot import this resource.
+ * Using `pulumi import`, import a QuickSight Account Subscription using `aws_account_id`. For example:
+ *
+ * ```sh
+ * $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example "012345678901"
+ * ```
  */
 export class AccountSubscription extends pulumi.CustomResource {
     /**

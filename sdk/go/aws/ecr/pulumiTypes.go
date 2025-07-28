@@ -1610,6 +1610,112 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetImagesImageId struct {
+	// The sha256 digest of the image manifest.
+	ImageDigest string `pulumi:"imageDigest"`
+	// The tag associated with the image.
+	ImageTag string `pulumi:"imageTag"`
+}
+
+// GetImagesImageIdInput is an input type that accepts GetImagesImageIdArgs and GetImagesImageIdOutput values.
+// You can construct a concrete instance of `GetImagesImageIdInput` via:
+//
+//	GetImagesImageIdArgs{...}
+type GetImagesImageIdInput interface {
+	pulumi.Input
+
+	ToGetImagesImageIdOutput() GetImagesImageIdOutput
+	ToGetImagesImageIdOutputWithContext(context.Context) GetImagesImageIdOutput
+}
+
+type GetImagesImageIdArgs struct {
+	// The sha256 digest of the image manifest.
+	ImageDigest pulumi.StringInput `pulumi:"imageDigest"`
+	// The tag associated with the image.
+	ImageTag pulumi.StringInput `pulumi:"imageTag"`
+}
+
+func (GetImagesImageIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImageId)(nil)).Elem()
+}
+
+func (i GetImagesImageIdArgs) ToGetImagesImageIdOutput() GetImagesImageIdOutput {
+	return i.ToGetImagesImageIdOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageIdArgs) ToGetImagesImageIdOutputWithContext(ctx context.Context) GetImagesImageIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageIdOutput)
+}
+
+// GetImagesImageIdArrayInput is an input type that accepts GetImagesImageIdArray and GetImagesImageIdArrayOutput values.
+// You can construct a concrete instance of `GetImagesImageIdArrayInput` via:
+//
+//	GetImagesImageIdArray{ GetImagesImageIdArgs{...} }
+type GetImagesImageIdArrayInput interface {
+	pulumi.Input
+
+	ToGetImagesImageIdArrayOutput() GetImagesImageIdArrayOutput
+	ToGetImagesImageIdArrayOutputWithContext(context.Context) GetImagesImageIdArrayOutput
+}
+
+type GetImagesImageIdArray []GetImagesImageIdInput
+
+func (GetImagesImageIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImageId)(nil)).Elem()
+}
+
+func (i GetImagesImageIdArray) ToGetImagesImageIdArrayOutput() GetImagesImageIdArrayOutput {
+	return i.ToGetImagesImageIdArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageIdArray) ToGetImagesImageIdArrayOutputWithContext(ctx context.Context) GetImagesImageIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageIdArrayOutput)
+}
+
+type GetImagesImageIdOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImageId)(nil)).Elem()
+}
+
+func (o GetImagesImageIdOutput) ToGetImagesImageIdOutput() GetImagesImageIdOutput {
+	return o
+}
+
+func (o GetImagesImageIdOutput) ToGetImagesImageIdOutputWithContext(ctx context.Context) GetImagesImageIdOutput {
+	return o
+}
+
+// The sha256 digest of the image manifest.
+func (o GetImagesImageIdOutput) ImageDigest() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageId) string { return v.ImageDigest }).(pulumi.StringOutput)
+}
+
+// The tag associated with the image.
+func (o GetImagesImageIdOutput) ImageTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageId) string { return v.ImageTag }).(pulumi.StringOutput)
+}
+
+type GetImagesImageIdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImageId)(nil)).Elem()
+}
+
+func (o GetImagesImageIdArrayOutput) ToGetImagesImageIdArrayOutput() GetImagesImageIdArrayOutput {
+	return o
+}
+
+func (o GetImagesImageIdArrayOutput) ToGetImagesImageIdArrayOutputWithContext(ctx context.Context) GetImagesImageIdArrayOutput {
+	return o
+}
+
+func (o GetImagesImageIdArrayOutput) Index(i pulumi.IntInput) GetImagesImageIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagesImageId {
+		return vs[0].([]GetImagesImageId)[vs[1].(int)]
+	}).(GetImagesImageIdOutput)
+}
+
 type GetLifecyclePolicyDocumentRule struct {
 	// Specifies the action type.
 	Action *GetLifecyclePolicyDocumentRuleAction `pulumi:"action"`
@@ -2439,6 +2545,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), RepositoryEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationPtrInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageIdInput)(nil)).Elem(), GetImagesImageIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageIdArrayInput)(nil)).Elem(), GetImagesImageIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleArrayInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleActionInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleActionArgs{})
@@ -2477,6 +2585,8 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetImagesImageIdOutput{})
+	pulumi.RegisterOutputType(GetImagesImageIdArrayOutput{})
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleOutput{})
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleActionOutput{})

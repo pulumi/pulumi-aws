@@ -65,7 +65,7 @@ import (
 //				Application: pulumi.Any("tf-test-name"),
 //				Description: pulumi.String("application version"),
 //				Bucket:      _default.ID(),
-//				Key:         defaultBucketObjectv2.ID(),
+//				Key:         defaultBucketObjectv2.Key,
 //			})
 //			if err != nil {
 //				return err

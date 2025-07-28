@@ -34,6 +34,7 @@ namespace Pulumi.Aws.Inspector2
     ///         {
     ///             Ec2 = true,
     ///             Ecr = false,
+    ///             CodeRepository = false,
     ///             Lambda = true,
     ///             LambdaCode = true,
     ///         },

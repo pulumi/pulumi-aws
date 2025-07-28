@@ -3636,6 +3636,10 @@ if not MYPY:
         """
         Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
         """
+        code_repository: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+        """
         lambda_: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
@@ -3652,16 +3656,20 @@ class OrganizationConfigurationAutoEnableArgs:
     def __init__(__self__, *,
                  ec2: pulumi.Input[_builtins.bool],
                  ecr: pulumi.Input[_builtins.bool],
+                 code_repository: Optional[pulumi.Input[_builtins.bool]] = None,
                  lambda_: Optional[pulumi.Input[_builtins.bool]] = None,
                  lambda_code: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] ec2: Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
         :param pulumi.Input[_builtins.bool] ecr: Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
+        :param pulumi.Input[_builtins.bool] code_repository: Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
         :param pulumi.Input[_builtins.bool] lambda_: Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
         :param pulumi.Input[_builtins.bool] lambda_code: Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
         """
         pulumi.set(__self__, "ec2", ec2)
         pulumi.set(__self__, "ecr", ecr)
+        if code_repository is not None:
+            pulumi.set(__self__, "code_repository", code_repository)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
         if lambda_code is not None:
@@ -3690,6 +3698,18 @@ class OrganizationConfigurationAutoEnableArgs:
     @ecr.setter
     def ecr(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "ecr", value)
+
+    @_builtins.property
+    @pulumi.getter(name="codeRepository")
+    def code_repository(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+        """
+        return pulumi.get(self, "code_repository")
+
+    @code_repository.setter
+    def code_repository(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "code_repository", value)
 
     @_builtins.property
     @pulumi.getter(name="lambda")

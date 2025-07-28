@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Firewall{}
 	case "aws:networkfirewall/firewallPolicy:FirewallPolicy":
 		r = &FirewallPolicy{}
+	case "aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter":
+		r = &FirewallTransitGatewayAttachmentAccepter{}
 	case "aws:networkfirewall/loggingConfiguration:LoggingConfiguration":
 		r = &LoggingConfiguration{}
 	case "aws:networkfirewall/resourcePolicy:ResourcePolicy":
@@ -54,6 +56,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networkfirewall/firewallPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkfirewall/firewallTransitGatewayAttachmentAccepter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

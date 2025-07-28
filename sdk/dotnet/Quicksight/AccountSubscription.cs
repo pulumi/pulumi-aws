@@ -37,7 +37,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// You cannot import this resource.
+    /// Using `pulumi import`, import a QuickSight Account Subscription using `aws_account_id`. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example "012345678901"
+    /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/accountSubscription:AccountSubscription")]
     public partial class AccountSubscription : global::Pulumi.CustomResource

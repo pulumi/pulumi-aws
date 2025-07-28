@@ -12,6 +12,9 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("asn")]
+        public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyAsnArgs>? Asn { get; set; }
+
         /// <summary>
         /// (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
         /// </summary>

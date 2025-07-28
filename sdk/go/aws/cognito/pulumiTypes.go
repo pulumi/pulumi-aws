@@ -378,6 +378,564 @@ func (o IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput) Index(i pul
 	}).(IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput)
 }
 
+type LogDeliveryConfigurationLogConfiguration struct {
+	// Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
+	CloudWatchLogsConfiguration *LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration `pulumi:"cloudWatchLogsConfiguration"`
+	// The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
+	EventSource string `pulumi:"eventSource"`
+	// Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
+	FirehoseConfiguration *LogDeliveryConfigurationLogConfigurationFirehoseConfiguration `pulumi:"firehoseConfiguration"`
+	// The log level to set for the event source. Valid values are `ERROR` and `INFO`.
+	LogLevel string `pulumi:"logLevel"`
+	// Configuration for S3 delivery. See S3 Configuration below.
+	//
+	// > **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
+	S3Configuration *LogDeliveryConfigurationLogConfigurationS3Configuration `pulumi:"s3Configuration"`
+}
+
+// LogDeliveryConfigurationLogConfigurationInput is an input type that accepts LogDeliveryConfigurationLogConfigurationArgs and LogDeliveryConfigurationLogConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationInput` via:
+//
+//	LogDeliveryConfigurationLogConfigurationArgs{...}
+type LogDeliveryConfigurationLogConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationOutput() LogDeliveryConfigurationLogConfigurationOutput
+	ToLogDeliveryConfigurationLogConfigurationOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationOutput
+}
+
+type LogDeliveryConfigurationLogConfigurationArgs struct {
+	// Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
+	CloudWatchLogsConfiguration LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrInput `pulumi:"cloudWatchLogsConfiguration"`
+	// The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
+	EventSource pulumi.StringInput `pulumi:"eventSource"`
+	// Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
+	FirehoseConfiguration LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrInput `pulumi:"firehoseConfiguration"`
+	// The log level to set for the event source. Valid values are `ERROR` and `INFO`.
+	LogLevel pulumi.StringInput `pulumi:"logLevel"`
+	// Configuration for S3 delivery. See S3 Configuration below.
+	//
+	// > **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
+	S3Configuration LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
+}
+
+func (LogDeliveryConfigurationLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationOutput() LogDeliveryConfigurationLogConfigurationOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationOutput)
+}
+
+// LogDeliveryConfigurationLogConfigurationArrayInput is an input type that accepts LogDeliveryConfigurationLogConfigurationArray and LogDeliveryConfigurationLogConfigurationArrayOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationArrayInput` via:
+//
+//	LogDeliveryConfigurationLogConfigurationArray{ LogDeliveryConfigurationLogConfigurationArgs{...} }
+type LogDeliveryConfigurationLogConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationArrayOutput() LogDeliveryConfigurationLogConfigurationArrayOutput
+	ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationArrayOutput
+}
+
+type LogDeliveryConfigurationLogConfigurationArray []LogDeliveryConfigurationLogConfigurationInput
+
+func (LogDeliveryConfigurationLogConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogDeliveryConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArray) ToLogDeliveryConfigurationLogConfigurationArrayOutput() LogDeliveryConfigurationLogConfigurationArrayOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationArray) ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationArrayOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationOutput() LogDeliveryConfigurationLogConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationOutput {
+	return o
+}
+
+// Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
+func (o LogDeliveryConfigurationLogConfigurationOutput) CloudWatchLogsConfiguration() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration {
+		return v.CloudWatchLogsConfiguration
+	}).(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput)
+}
+
+// The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
+func (o LogDeliveryConfigurationLogConfigurationOutput) EventSource() pulumi.StringOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) string { return v.EventSource }).(pulumi.StringOutput)
+}
+
+// Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
+func (o LogDeliveryConfigurationLogConfigurationOutput) FirehoseConfiguration() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *LogDeliveryConfigurationLogConfigurationFirehoseConfiguration {
+		return v.FirehoseConfiguration
+	}).(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput)
+}
+
+// The log level to set for the event source. Valid values are `ERROR` and `INFO`.
+func (o LogDeliveryConfigurationLogConfigurationOutput) LogLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) string { return v.LogLevel }).(pulumi.StringOutput)
+}
+
+// Configuration for S3 delivery. See S3 Configuration below.
+//
+// > **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
+func (o LogDeliveryConfigurationLogConfigurationOutput) S3Configuration() LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfiguration) *LogDeliveryConfigurationLogConfigurationS3Configuration {
+		return v.S3Configuration
+	}).(LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogDeliveryConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationArrayOutput) ToLogDeliveryConfigurationLogConfigurationArrayOutput() LogDeliveryConfigurationLogConfigurationArrayOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationArrayOutput) ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationArrayOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationArrayOutput) Index(i pulumi.IntInput) LogDeliveryConfigurationLogConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogDeliveryConfigurationLogConfiguration {
+		return vs[0].([]LogDeliveryConfigurationLogConfiguration)[vs[1].(int)]
+	}).(LogDeliveryConfigurationLogConfigurationOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration struct {
+	// The ARN of the CloudWatch Logs log group to which the logs should be delivered.
+	LogGroupArn *string `pulumi:"logGroupArn"`
+}
+
+// LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationInput is an input type that accepts LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs and LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationInput` via:
+//
+//	LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs{...}
+type LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput
+	ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput
+}
+
+type LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs struct {
+	// The ARN of the CloudWatch Logs log group to which the logs should be delivered.
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+}
+
+func (LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput)
+}
+
+func (i LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput).ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrInput is an input type that accepts LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs, LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtr and LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrInput` via:
+//
+//	        LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput
+	ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput
+}
+
+type logDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrType LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs
+
+func LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtr(v *LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrInput {
+	return (*logDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrType)(v)
+}
+
+func (*logDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i *logDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrType) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrType) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o.ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration) *LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration {
+		return &v
+	}).(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput)
+}
+
+// The ARN of the CloudWatch Logs log group to which the logs should be delivered.
+func (o LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration) *string {
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput) ToLogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput) Elem() LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration) LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration
+		return ret
+	}).(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput)
+}
+
+// The ARN of the CloudWatch Logs log group to which the logs should be delivered.
+func (o LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationFirehoseConfiguration struct {
+	// The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
+	StreamArn *string `pulumi:"streamArn"`
+}
+
+// LogDeliveryConfigurationLogConfigurationFirehoseConfigurationInput is an input type that accepts LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs and LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationFirehoseConfigurationInput` via:
+//
+//	LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs{...}
+type LogDeliveryConfigurationLogConfigurationFirehoseConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput
+	ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput
+}
+
+type LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs struct {
+	// The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
+	StreamArn pulumi.StringPtrInput `pulumi:"streamArn"`
+}
+
+func (LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationFirehoseConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput)
+}
+
+func (i LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput).ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrInput is an input type that accepts LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs, LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtr and LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrInput` via:
+//
+//	        LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput
+	ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput
+}
+
+type logDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrType LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs
+
+func LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtr(v *LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs) LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrInput {
+	return (*logDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrType)(v)
+}
+
+func (*logDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationLogConfigurationFirehoseConfiguration)(nil)).Elem()
+}
+
+func (i *logDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrType) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrType) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationFirehoseConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput {
+	return o.ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDeliveryConfigurationLogConfigurationFirehoseConfiguration) *LogDeliveryConfigurationLogConfigurationFirehoseConfiguration {
+		return &v
+	}).(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput)
+}
+
+// The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
+func (o LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfigurationFirehoseConfiguration) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationLogConfigurationFirehoseConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput) ToLogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput) Elem() LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationLogConfigurationFirehoseConfiguration) LogDeliveryConfigurationLogConfigurationFirehoseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LogDeliveryConfigurationLogConfigurationFirehoseConfiguration
+		return ret
+	}).(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput)
+}
+
+// The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
+func (o LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationLogConfigurationFirehoseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationS3Configuration struct {
+	// The ARN of the S3 bucket to which the logs should be delivered.
+	BucketArn *string `pulumi:"bucketArn"`
+}
+
+// LogDeliveryConfigurationLogConfigurationS3ConfigurationInput is an input type that accepts LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs and LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationS3ConfigurationInput` via:
+//
+//	LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs{...}
+type LogDeliveryConfigurationLogConfigurationS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationS3ConfigurationOutput() LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput
+	ToLogDeliveryConfigurationLogConfigurationS3ConfigurationOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput
+}
+
+type LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs struct {
+	// The ARN of the S3 bucket to which the logs should be delivered.
+	BucketArn pulumi.StringPtrInput `pulumi:"bucketArn"`
+}
+
+func (LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationOutput() LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput)
+}
+
+func (i LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput).ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrInput is an input type that accepts LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs, LogDeliveryConfigurationLogConfigurationS3ConfigurationPtr and LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrInput` via:
+//
+//	        LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput
+	ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutputWithContext(context.Context) LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput
+}
+
+type logDeliveryConfigurationLogConfigurationS3ConfigurationPtrType LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs
+
+func LogDeliveryConfigurationLogConfigurationS3ConfigurationPtr(v *LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs) LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrInput {
+	return (*logDeliveryConfigurationLogConfigurationS3ConfigurationPtrType)(v)
+}
+
+func (*logDeliveryConfigurationLogConfigurationS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationLogConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i *logDeliveryConfigurationLogConfigurationS3ConfigurationPtrType) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput {
+	return i.ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryConfigurationLogConfigurationS3ConfigurationPtrType) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationOutput() LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput {
+	return o.ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDeliveryConfigurationLogConfigurationS3Configuration) *LogDeliveryConfigurationLogConfigurationS3Configuration {
+		return &v
+	}).(LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput)
+}
+
+// The ARN of the S3 bucket to which the logs should be delivered.
+func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationLogConfigurationS3Configuration) *string { return v.BucketArn }).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationLogConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput() LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput) ToLogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput) Elem() LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationLogConfigurationS3Configuration) LogDeliveryConfigurationLogConfigurationS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret LogDeliveryConfigurationLogConfigurationS3Configuration
+		return ret
+	}).(LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput)
+}
+
+// The ARN of the S3 bucket to which the logs should be delivered.
+func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationLogConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ManagedUserPoolClientAnalyticsConfiguration struct {
 	// Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
 	ApplicationArn *string `pulumi:"applicationArn"`
@@ -10032,6 +10590,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingArrayInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingMappingRuleInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingMappingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationArrayInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationFirehoseConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationS3ConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), ManagedUserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfigurationPtrInput)(nil)).Elem(), ManagedUserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientRefreshTokenRotationInput)(nil)).Elem(), ManagedUserPoolClientRefreshTokenRotationArgs{})
@@ -10164,6 +10730,14 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingArrayOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientAnalyticsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientRefreshTokenRotationOutput{})

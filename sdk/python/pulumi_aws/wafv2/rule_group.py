@@ -30,6 +30,7 @@ class RuleGroupArgs:
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
+                 rules_json: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
@@ -59,6 +60,8 @@ class RuleGroupArgs:
             pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
+        if rules_json is not None:
+            pulumi.set(__self__, "rules_json", rules_json)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -171,6 +174,15 @@ class RuleGroupArgs:
         pulumi.set(self, "rules", value)
 
     @_builtins.property
+    @pulumi.getter(name="rulesJson")
+    def rules_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "rules_json")
+
+    @rules_json.setter
+    def rules_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "rules_json", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -195,6 +207,7 @@ class _RuleGroupState:
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
+                 rules_json: Optional[pulumi.Input[_builtins.str]] = None,
                  scope: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -232,6 +245,8 @@ class _RuleGroupState:
             pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
+        if rules_json is not None:
+            pulumi.set(__self__, "rules_json", rules_json)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if tags is not None:
@@ -347,6 +362,15 @@ class _RuleGroupState:
         pulumi.set(self, "rules", value)
 
     @_builtins.property
+    @pulumi.getter(name="rulesJson")
+    def rules_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "rules_json")
+
+    @rules_json.setter
+    def rules_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "rules_json", value)
+
+    @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -408,6 +432,7 @@ class RuleGroup(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+                 rules_json: Optional[pulumi.Input[_builtins.str]] = None,
                  scope: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  visibility_config: Optional[pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
@@ -457,6 +482,7 @@ class RuleGroup(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+                 rules_json: Optional[pulumi.Input[_builtins.str]] = None,
                  scope: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  visibility_config: Optional[pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
@@ -478,6 +504,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["region"] = region
             __props__.__dict__["rules"] = rules
+            __props__.__dict__["rules_json"] = rules_json
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
@@ -507,6 +534,7 @@ class RuleGroup(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+            rules_json: Optional[pulumi.Input[_builtins.str]] = None,
             scope: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -544,6 +572,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["region"] = region
         __props__.__dict__["rules"] = rules
+        __props__.__dict__["rules_json"] = rules_json
         __props__.__dict__["scope"] = scope
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -618,6 +647,11 @@ class RuleGroup(pulumi.CustomResource):
         The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         """
         return pulumi.get(self, "rules")
+
+    @_builtins.property
+    @pulumi.getter(name="rulesJson")
+    def rules_json(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "rules_json")
 
     @_builtins.property
     @pulumi.getter

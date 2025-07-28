@@ -150,6 +150,11 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
      * ID of the Agent Collaborator.
      */
     public /*out*/ readonly collaboratorId!: pulumi.Output<string>;
+    /**
+     * Name of this collaborator.
+     *
+     * The following arguments are optional:
+     */
     public readonly collaboratorName!: pulumi.Output<string>;
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
@@ -233,6 +238,11 @@ export interface AgentAgentCollaboratorState {
      * ID of the Agent Collaborator.
      */
     collaboratorId?: pulumi.Input<string>;
+    /**
+     * Name of this collaborator.
+     *
+     * The following arguments are optional:
+     */
     collaboratorName?: pulumi.Input<string>;
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
@@ -263,6 +273,11 @@ export interface AgentAgentCollaboratorArgs {
      * Instruction to give the collaborator.
      */
     collaborationInstruction: pulumi.Input<string>;
+    /**
+     * Name of this collaborator.
+     *
+     * The following arguments are optional:
+     */
     collaboratorName: pulumi.Input<string>;
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.

@@ -34,6 +34,9 @@ class AgentAgentCollaboratorArgs:
         The set of arguments for constructing a AgentAgentCollaborator resource.
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
+        :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
@@ -81,6 +84,11 @@ class AgentAgentCollaboratorArgs:
     @_builtins.property
     @pulumi.getter(name="collaboratorName")
     def collaborator_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of this collaborator.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "collaborator_name")
 
     @collaborator_name.setter
@@ -169,6 +177,9 @@ class _AgentAgentCollaboratorState:
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_id: ID of the Agent Collaborator.
+        :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
@@ -251,6 +262,11 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter(name="collaboratorName")
     def collaborator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of this collaborator.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "collaborator_name")
 
     @collaborator_name.setter
@@ -414,6 +430,9 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
+        :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
@@ -594,6 +613,9 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_id: ID of the Agent Collaborator.
+        :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
@@ -651,6 +673,11 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="collaboratorName")
     def collaborator_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        Name of this collaborator.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "collaborator_name")
 
     @_builtins.property

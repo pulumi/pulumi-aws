@@ -141,15 +141,15 @@ namespace Pulumi.Aws.SecretsManager
         public readonly string Id;
         public readonly string Region;
         /// <summary>
-        /// ARN of the secret.
+        /// Specifies whether automatic rotation is enabled for this secret.
         /// </summary>
         public readonly bool RotationEnabled;
         /// <summary>
-        /// Decrypted part of the protected secret information that was originally provided as a string.
+        /// Amazon Resource Name (ARN) of the lambda function used for rotation.
         /// </summary>
         public readonly string RotationLambdaArn;
         /// <summary>
-        /// Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+        /// Configuration block for rotation rules. See `rotation_rules` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecretRotationRotationRuleResult> RotationRules;
         public readonly string SecretId;

@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ReplicationInstanceArgs', 'ReplicationInstance']
 
@@ -26,7 +28,9 @@ class ReplicationInstanceArgs:
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_name_servers: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 kerberos_authentication_settings: Optional[pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -45,7 +49,9 @@ class ReplicationInstanceArgs:
         :param pulumi.Input[_builtins.bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
+        :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
+        :param pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs'] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
@@ -68,8 +74,12 @@ class ReplicationInstanceArgs:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if dns_name_servers is not None:
+            pulumi.set(__self__, "dns_name_servers", dns_name_servers)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if kerberos_authentication_settings is not None:
+            pulumi.set(__self__, "kerberos_authentication_settings", kerberos_authentication_settings)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if multi_az is not None:
@@ -174,6 +184,18 @@ class ReplicationInstanceArgs:
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
+    @pulumi.getter(name="dnsNameServers")
+    def dns_name_servers(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+        """
+        return pulumi.get(self, "dns_name_servers")
+
+    @dns_name_servers.setter
+    def dns_name_servers(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "dns_name_servers", value)
+
+    @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -184,6 +206,18 @@ class ReplicationInstanceArgs:
     @engine_version.setter
     def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kerberosAuthenticationSettings")
+    def kerberos_authentication_settings(self) -> Optional[pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs']]:
+        """
+        Configuration block for settings required for Kerberos authentication. See below.
+        """
+        return pulumi.get(self, "kerberos_authentication_settings")
+
+    @kerberos_authentication_settings.setter
+    def kerberos_authentication_settings(self, value: Optional[pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs']]):
+        pulumi.set(self, "kerberos_authentication_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
@@ -302,7 +336,9 @@ class _ReplicationInstanceState:
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_name_servers: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 kerberos_authentication_settings: Optional[pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -325,7 +361,9 @@ class _ReplicationInstanceState:
         :param pulumi.Input[_builtins.bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
+        :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
+        :param pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs'] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
@@ -352,8 +390,12 @@ class _ReplicationInstanceState:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if dns_name_servers is not None:
+            pulumi.set(__self__, "dns_name_servers", dns_name_servers)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if kerberos_authentication_settings is not None:
+            pulumi.set(__self__, "kerberos_authentication_settings", kerberos_authentication_settings)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if multi_az is not None:
@@ -446,6 +488,18 @@ class _ReplicationInstanceState:
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
+    @pulumi.getter(name="dnsNameServers")
+    def dns_name_servers(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+        """
+        return pulumi.get(self, "dns_name_servers")
+
+    @dns_name_servers.setter
+    def dns_name_servers(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "dns_name_servers", value)
+
+    @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -456,6 +510,18 @@ class _ReplicationInstanceState:
     @engine_version.setter
     def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kerberosAuthenticationSettings")
+    def kerberos_authentication_settings(self) -> Optional[pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs']]:
+        """
+        Configuration block for settings required for Kerberos authentication. See below.
+        """
+        return pulumi.get(self, "kerberos_authentication_settings")
+
+    @kerberos_authentication_settings.setter
+    def kerberos_authentication_settings(self, value: Optional[pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs']]):
+        pulumi.set(self, "kerberos_authentication_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
@@ -649,7 +715,9 @@ class ReplicationInstance(pulumi.CustomResource):
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_name_servers: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 kerberos_authentication_settings: Optional[pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -744,7 +812,9 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
+        :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
+        :param pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
@@ -858,7 +928,9 @@ class ReplicationInstance(pulumi.CustomResource):
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_name_servers: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 kerberos_authentication_settings: Optional[pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -884,7 +956,9 @@ class ReplicationInstance(pulumi.CustomResource):
             __props__.__dict__["apply_immediately"] = apply_immediately
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["dns_name_servers"] = dns_name_servers
             __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["kerberos_authentication_settings"] = kerberos_authentication_settings
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["multi_az"] = multi_az
             __props__.__dict__["network_type"] = network_type
@@ -919,7 +993,9 @@ class ReplicationInstance(pulumi.CustomResource):
             apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
             auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
             availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+            dns_name_servers: Optional[pulumi.Input[_builtins.str]] = None,
             engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+            kerberos_authentication_settings: Optional[pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']]] = None,
             kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
             multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
             network_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -947,7 +1023,9 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
+        :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
+        :param pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
@@ -973,7 +1051,9 @@ class ReplicationInstance(pulumi.CustomResource):
         __props__.__dict__["apply_immediately"] = apply_immediately
         __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["dns_name_servers"] = dns_name_servers
         __props__.__dict__["engine_version"] = engine_version
+        __props__.__dict__["kerberos_authentication_settings"] = kerberos_authentication_settings
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["multi_az"] = multi_az
         __props__.__dict__["network_type"] = network_type
@@ -1032,12 +1112,28 @@ class ReplicationInstance(pulumi.CustomResource):
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
+    @pulumi.getter(name="dnsNameServers")
+    def dns_name_servers(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+        """
+        return pulumi.get(self, "dns_name_servers")
+
+    @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
         """
         The engine version number of the replication instance.
         """
         return pulumi.get(self, "engine_version")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberosAuthenticationSettings")
+    def kerberos_authentication_settings(self) -> pulumi.Output[Optional['outputs.ReplicationInstanceKerberosAuthenticationSettings']]:
+        """
+        Configuration block for settings required for Kerberos authentication. See below.
+        """
+        return pulumi.get(self, "kerberos_authentication_settings")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")

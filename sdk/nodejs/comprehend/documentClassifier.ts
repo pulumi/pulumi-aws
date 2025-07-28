@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     dataAccessRoleArn: exampleAwsIamRole.arn,
  *     languageCode: "en",
  *     inputDataConfig: {
- *         s3Uri: pulumi.interpolate`s3://${test.bucket}/${documents.id}`,
+ *         s3Uri: pulumi.interpolate`s3://${test.bucket}/${documents.key}`,
  *     },
  * }, {
  *     dependsOn: [exampleAwsIamRolePolicy],

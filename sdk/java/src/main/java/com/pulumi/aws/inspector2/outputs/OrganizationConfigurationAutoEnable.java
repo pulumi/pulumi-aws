@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationConfigurationAutoEnable {
     /**
+     * @return Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+     * 
+     */
+    private @Nullable Boolean codeRepository;
+    /**
      * @return Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
      * 
      */
@@ -34,6 +39,13 @@ public final class OrganizationConfigurationAutoEnable {
     private @Nullable Boolean lambdaCode;
 
     private OrganizationConfigurationAutoEnable() {}
+    /**
+     * @return Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+     * 
+     */
+    public Optional<Boolean> codeRepository() {
+        return Optional.ofNullable(this.codeRepository);
+    }
     /**
      * @return Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
      * 
@@ -72,6 +84,7 @@ public final class OrganizationConfigurationAutoEnable {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean codeRepository;
         private Boolean ec2;
         private Boolean ecr;
         private @Nullable Boolean lambda;
@@ -79,12 +92,19 @@ public final class OrganizationConfigurationAutoEnable {
         public Builder() {}
         public Builder(OrganizationConfigurationAutoEnable defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.codeRepository = defaults.codeRepository;
     	      this.ec2 = defaults.ec2;
     	      this.ecr = defaults.ecr;
     	      this.lambda = defaults.lambda;
     	      this.lambdaCode = defaults.lambdaCode;
         }
 
+        @CustomType.Setter
+        public Builder codeRepository(@Nullable Boolean codeRepository) {
+
+            this.codeRepository = codeRepository;
+            return this;
+        }
         @CustomType.Setter
         public Builder ec2(Boolean ec2) {
             if (ec2 == null) {
@@ -115,6 +135,7 @@ public final class OrganizationConfigurationAutoEnable {
         }
         public OrganizationConfigurationAutoEnable build() {
             final var _resultValue = new OrganizationConfigurationAutoEnable();
+            _resultValue.codeRepository = codeRepository;
             _resultValue.ec2 = ec2;
             _resultValue.ecr = ecr;
             _resultValue.lambda = lambda;

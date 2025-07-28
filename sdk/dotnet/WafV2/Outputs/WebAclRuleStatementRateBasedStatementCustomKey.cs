@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatementCustomKey
     {
         /// <summary>
+        /// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyAsn? Asn;
+        /// <summary>
         /// Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookie? Cookie;
@@ -60,6 +64,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
         [OutputConstructor]
         private WebAclRuleStatementRateBasedStatementCustomKey(
+            Outputs.WebAclRuleStatementRateBasedStatementCustomKeyAsn? asn,
+
             Outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookie? cookie,
 
             Outputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp? forwardedIp,
@@ -82,6 +88,7 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPath? uriPath)
         {
+            Asn = asn;
             Cookie = cookie;
             ForwardedIp = forwardedIp;
             Header = header;

@@ -1245,9 +1245,148 @@ func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointOracleSettings struct {
+	// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+	AuthenticationMethod *string `pulumi:"authenticationMethod"`
+}
+
+// EndpointOracleSettingsInput is an input type that accepts EndpointOracleSettingsArgs and EndpointOracleSettingsOutput values.
+// You can construct a concrete instance of `EndpointOracleSettingsInput` via:
+//
+//	EndpointOracleSettingsArgs{...}
+type EndpointOracleSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointOracleSettingsOutput() EndpointOracleSettingsOutput
+	ToEndpointOracleSettingsOutputWithContext(context.Context) EndpointOracleSettingsOutput
+}
+
+type EndpointOracleSettingsArgs struct {
+	// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
+}
+
+func (EndpointOracleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointOracleSettings)(nil)).Elem()
+}
+
+func (i EndpointOracleSettingsArgs) ToEndpointOracleSettingsOutput() EndpointOracleSettingsOutput {
+	return i.ToEndpointOracleSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointOracleSettingsArgs) ToEndpointOracleSettingsOutputWithContext(ctx context.Context) EndpointOracleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointOracleSettingsOutput)
+}
+
+func (i EndpointOracleSettingsArgs) ToEndpointOracleSettingsPtrOutput() EndpointOracleSettingsPtrOutput {
+	return i.ToEndpointOracleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointOracleSettingsArgs) ToEndpointOracleSettingsPtrOutputWithContext(ctx context.Context) EndpointOracleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointOracleSettingsOutput).ToEndpointOracleSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointOracleSettingsPtrInput is an input type that accepts EndpointOracleSettingsArgs, EndpointOracleSettingsPtr and EndpointOracleSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointOracleSettingsPtrInput` via:
+//
+//	        EndpointOracleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointOracleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointOracleSettingsPtrOutput() EndpointOracleSettingsPtrOutput
+	ToEndpointOracleSettingsPtrOutputWithContext(context.Context) EndpointOracleSettingsPtrOutput
+}
+
+type endpointOracleSettingsPtrType EndpointOracleSettingsArgs
+
+func EndpointOracleSettingsPtr(v *EndpointOracleSettingsArgs) EndpointOracleSettingsPtrInput {
+	return (*endpointOracleSettingsPtrType)(v)
+}
+
+func (*endpointOracleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointOracleSettings)(nil)).Elem()
+}
+
+func (i *endpointOracleSettingsPtrType) ToEndpointOracleSettingsPtrOutput() EndpointOracleSettingsPtrOutput {
+	return i.ToEndpointOracleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointOracleSettingsPtrType) ToEndpointOracleSettingsPtrOutputWithContext(ctx context.Context) EndpointOracleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointOracleSettingsPtrOutput)
+}
+
+type EndpointOracleSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointOracleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointOracleSettings)(nil)).Elem()
+}
+
+func (o EndpointOracleSettingsOutput) ToEndpointOracleSettingsOutput() EndpointOracleSettingsOutput {
+	return o
+}
+
+func (o EndpointOracleSettingsOutput) ToEndpointOracleSettingsOutputWithContext(ctx context.Context) EndpointOracleSettingsOutput {
+	return o
+}
+
+func (o EndpointOracleSettingsOutput) ToEndpointOracleSettingsPtrOutput() EndpointOracleSettingsPtrOutput {
+	return o.ToEndpointOracleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointOracleSettingsOutput) ToEndpointOracleSettingsPtrOutputWithContext(ctx context.Context) EndpointOracleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointOracleSettings) *EndpointOracleSettings {
+		return &v
+	}).(EndpointOracleSettingsPtrOutput)
+}
+
+// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+func (o EndpointOracleSettingsOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+type EndpointOracleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointOracleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointOracleSettings)(nil)).Elem()
+}
+
+func (o EndpointOracleSettingsPtrOutput) ToEndpointOracleSettingsPtrOutput() EndpointOracleSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointOracleSettingsPtrOutput) ToEndpointOracleSettingsPtrOutputWithContext(ctx context.Context) EndpointOracleSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointOracleSettingsPtrOutput) Elem() EndpointOracleSettingsOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) EndpointOracleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointOracleSettings
+		return ret
+	}).(EndpointOracleSettingsOutput)
+}
+
+// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+func (o EndpointOracleSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointPostgresSettings struct {
 	// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
 	AfterConnectScript *string `pulumi:"afterConnectScript"`
+	// Specifies the authentication method. Valid values: `password`, `iam`.
+	AuthenticationMethod *string `pulumi:"authenticationMethod"`
 	// The Babelfish for Aurora PostgreSQL database name for the endpoint.
 	BabelfishDatabaseName *string `pulumi:"babelfishDatabaseName"`
 	// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
@@ -1276,6 +1415,8 @@ type EndpointPostgresSettings struct {
 	MaxFileSize *int `pulumi:"maxFileSize"`
 	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
 	PluginName *string `pulumi:"pluginName"`
+	// Specifies the IAM role to use to authenticate the connection.
+	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 	// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
 	SlotName *string `pulumi:"slotName"`
 }
@@ -1294,6 +1435,8 @@ type EndpointPostgresSettingsInput interface {
 type EndpointPostgresSettingsArgs struct {
 	// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
 	AfterConnectScript pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	// Specifies the authentication method. Valid values: `password`, `iam`.
+	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
 	// The Babelfish for Aurora PostgreSQL database name for the endpoint.
 	BabelfishDatabaseName pulumi.StringPtrInput `pulumi:"babelfishDatabaseName"`
 	// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
@@ -1322,6 +1465,8 @@ type EndpointPostgresSettingsArgs struct {
 	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
 	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
 	PluginName pulumi.StringPtrInput `pulumi:"pluginName"`
+	// Specifies the IAM role to use to authenticate the connection.
+	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 	// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
 	SlotName pulumi.StringPtrInput `pulumi:"slotName"`
 }
@@ -1408,6 +1553,11 @@ func (o EndpointPostgresSettingsOutput) AfterConnectScript() pulumi.StringPtrOut
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the authentication method. Valid values: `password`, `iam`.
+func (o EndpointPostgresSettingsOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
 // The Babelfish for Aurora PostgreSQL database name for the endpoint.
 func (o EndpointPostgresSettingsOutput) BabelfishDatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.BabelfishDatabaseName }).(pulumi.StringPtrOutput)
@@ -1478,6 +1628,11 @@ func (o EndpointPostgresSettingsOutput) PluginName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.PluginName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the IAM role to use to authenticate the connection.
+func (o EndpointPostgresSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
 func (o EndpointPostgresSettingsOutput) SlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.SlotName }).(pulumi.StringPtrOutput)
@@ -1514,6 +1669,16 @@ func (o EndpointPostgresSettingsPtrOutput) AfterConnectScript() pulumi.StringPtr
 			return nil
 		}
 		return v.AfterConnectScript
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the authentication method. Valid values: `password`, `iam`.
+func (o EndpointPostgresSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMethod
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1654,6 +1819,16 @@ func (o EndpointPostgresSettingsPtrOutput) PluginName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PluginName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the IAM role to use to authenticate the connection.
+func (o EndpointPostgresSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccessRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2440,6 +2615,181 @@ func (o ReplicationConfigComputeConfigPtrOutput) VpcSecurityGroupIds() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+type ReplicationInstanceKerberosAuthenticationSettings struct {
+	// ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+	KeyCacheSecretIamArn string `pulumi:"keyCacheSecretIamArn"`
+	// Secret ID that stores the key cache file required for Kerberos authentication.
+	KeyCacheSecretId string `pulumi:"keyCacheSecretId"`
+	// Contents of krb5 configuration file required for Kerberos authentication.
+	Krb5FileContents string `pulumi:"krb5FileContents"`
+}
+
+// ReplicationInstanceKerberosAuthenticationSettingsInput is an input type that accepts ReplicationInstanceKerberosAuthenticationSettingsArgs and ReplicationInstanceKerberosAuthenticationSettingsOutput values.
+// You can construct a concrete instance of `ReplicationInstanceKerberosAuthenticationSettingsInput` via:
+//
+//	ReplicationInstanceKerberosAuthenticationSettingsArgs{...}
+type ReplicationInstanceKerberosAuthenticationSettingsInput interface {
+	pulumi.Input
+
+	ToReplicationInstanceKerberosAuthenticationSettingsOutput() ReplicationInstanceKerberosAuthenticationSettingsOutput
+	ToReplicationInstanceKerberosAuthenticationSettingsOutputWithContext(context.Context) ReplicationInstanceKerberosAuthenticationSettingsOutput
+}
+
+type ReplicationInstanceKerberosAuthenticationSettingsArgs struct {
+	// ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+	KeyCacheSecretIamArn pulumi.StringInput `pulumi:"keyCacheSecretIamArn"`
+	// Secret ID that stores the key cache file required for Kerberos authentication.
+	KeyCacheSecretId pulumi.StringInput `pulumi:"keyCacheSecretId"`
+	// Contents of krb5 configuration file required for Kerberos authentication.
+	Krb5FileContents pulumi.StringInput `pulumi:"krb5FileContents"`
+}
+
+func (ReplicationInstanceKerberosAuthenticationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationInstanceKerberosAuthenticationSettings)(nil)).Elem()
+}
+
+func (i ReplicationInstanceKerberosAuthenticationSettingsArgs) ToReplicationInstanceKerberosAuthenticationSettingsOutput() ReplicationInstanceKerberosAuthenticationSettingsOutput {
+	return i.ToReplicationInstanceKerberosAuthenticationSettingsOutputWithContext(context.Background())
+}
+
+func (i ReplicationInstanceKerberosAuthenticationSettingsArgs) ToReplicationInstanceKerberosAuthenticationSettingsOutputWithContext(ctx context.Context) ReplicationInstanceKerberosAuthenticationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceKerberosAuthenticationSettingsOutput)
+}
+
+func (i ReplicationInstanceKerberosAuthenticationSettingsArgs) ToReplicationInstanceKerberosAuthenticationSettingsPtrOutput() ReplicationInstanceKerberosAuthenticationSettingsPtrOutput {
+	return i.ToReplicationInstanceKerberosAuthenticationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationInstanceKerberosAuthenticationSettingsArgs) ToReplicationInstanceKerberosAuthenticationSettingsPtrOutputWithContext(ctx context.Context) ReplicationInstanceKerberosAuthenticationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceKerberosAuthenticationSettingsOutput).ToReplicationInstanceKerberosAuthenticationSettingsPtrOutputWithContext(ctx)
+}
+
+// ReplicationInstanceKerberosAuthenticationSettingsPtrInput is an input type that accepts ReplicationInstanceKerberosAuthenticationSettingsArgs, ReplicationInstanceKerberosAuthenticationSettingsPtr and ReplicationInstanceKerberosAuthenticationSettingsPtrOutput values.
+// You can construct a concrete instance of `ReplicationInstanceKerberosAuthenticationSettingsPtrInput` via:
+//
+//	        ReplicationInstanceKerberosAuthenticationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicationInstanceKerberosAuthenticationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToReplicationInstanceKerberosAuthenticationSettingsPtrOutput() ReplicationInstanceKerberosAuthenticationSettingsPtrOutput
+	ToReplicationInstanceKerberosAuthenticationSettingsPtrOutputWithContext(context.Context) ReplicationInstanceKerberosAuthenticationSettingsPtrOutput
+}
+
+type replicationInstanceKerberosAuthenticationSettingsPtrType ReplicationInstanceKerberosAuthenticationSettingsArgs
+
+func ReplicationInstanceKerberosAuthenticationSettingsPtr(v *ReplicationInstanceKerberosAuthenticationSettingsArgs) ReplicationInstanceKerberosAuthenticationSettingsPtrInput {
+	return (*replicationInstanceKerberosAuthenticationSettingsPtrType)(v)
+}
+
+func (*replicationInstanceKerberosAuthenticationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationInstanceKerberosAuthenticationSettings)(nil)).Elem()
+}
+
+func (i *replicationInstanceKerberosAuthenticationSettingsPtrType) ToReplicationInstanceKerberosAuthenticationSettingsPtrOutput() ReplicationInstanceKerberosAuthenticationSettingsPtrOutput {
+	return i.ToReplicationInstanceKerberosAuthenticationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationInstanceKerberosAuthenticationSettingsPtrType) ToReplicationInstanceKerberosAuthenticationSettingsPtrOutputWithContext(ctx context.Context) ReplicationInstanceKerberosAuthenticationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceKerberosAuthenticationSettingsPtrOutput)
+}
+
+type ReplicationInstanceKerberosAuthenticationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ReplicationInstanceKerberosAuthenticationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationInstanceKerberosAuthenticationSettings)(nil)).Elem()
+}
+
+func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) ToReplicationInstanceKerberosAuthenticationSettingsOutput() ReplicationInstanceKerberosAuthenticationSettingsOutput {
+	return o
+}
+
+func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) ToReplicationInstanceKerberosAuthenticationSettingsOutputWithContext(ctx context.Context) ReplicationInstanceKerberosAuthenticationSettingsOutput {
+	return o
+}
+
+func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) ToReplicationInstanceKerberosAuthenticationSettingsPtrOutput() ReplicationInstanceKerberosAuthenticationSettingsPtrOutput {
+	return o.ToReplicationInstanceKerberosAuthenticationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) ToReplicationInstanceKerberosAuthenticationSettingsPtrOutputWithContext(ctx context.Context) ReplicationInstanceKerberosAuthenticationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationInstanceKerberosAuthenticationSettings) *ReplicationInstanceKerberosAuthenticationSettings {
+		return &v
+	}).(ReplicationInstanceKerberosAuthenticationSettingsPtrOutput)
+}
+
+// ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) KeyCacheSecretIamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationInstanceKerberosAuthenticationSettings) string { return v.KeyCacheSecretIamArn }).(pulumi.StringOutput)
+}
+
+// Secret ID that stores the key cache file required for Kerberos authentication.
+func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) KeyCacheSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationInstanceKerberosAuthenticationSettings) string { return v.KeyCacheSecretId }).(pulumi.StringOutput)
+}
+
+// Contents of krb5 configuration file required for Kerberos authentication.
+func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) Krb5FileContents() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationInstanceKerberosAuthenticationSettings) string { return v.Krb5FileContents }).(pulumi.StringOutput)
+}
+
+type ReplicationInstanceKerberosAuthenticationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationInstanceKerberosAuthenticationSettings)(nil)).Elem()
+}
+
+func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) ToReplicationInstanceKerberosAuthenticationSettingsPtrOutput() ReplicationInstanceKerberosAuthenticationSettingsPtrOutput {
+	return o
+}
+
+func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) ToReplicationInstanceKerberosAuthenticationSettingsPtrOutputWithContext(ctx context.Context) ReplicationInstanceKerberosAuthenticationSettingsPtrOutput {
+	return o
+}
+
+func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) Elem() ReplicationInstanceKerberosAuthenticationSettingsOutput {
+	return o.ApplyT(func(v *ReplicationInstanceKerberosAuthenticationSettings) ReplicationInstanceKerberosAuthenticationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationInstanceKerberosAuthenticationSettings
+		return ret
+	}).(ReplicationInstanceKerberosAuthenticationSettingsOutput)
+}
+
+// ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) KeyCacheSecretIamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstanceKerberosAuthenticationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyCacheSecretIamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret ID that stores the key cache file required for Kerberos authentication.
+func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) KeyCacheSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstanceKerberosAuthenticationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyCacheSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contents of krb5 configuration file required for Kerberos authentication.
+func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) Krb5FileContents() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstanceKerberosAuthenticationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Krb5FileContents
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetEndpointElasticsearchSetting struct {
 	EndpointUri             string `pulumi:"endpointUri"`
 	ErrorRetryDuration      int    `pulumi:"errorRetryDuration"`
@@ -3028,6 +3378,7 @@ func (o GetEndpointMongodbSettingArrayOutput) Index(i pulumi.IntInput) GetEndpoi
 
 type GetEndpointPostgresSetting struct {
 	AfterConnectScript       string `pulumi:"afterConnectScript"`
+	AuthenticationMethod     string `pulumi:"authenticationMethod"`
 	BabelfishDatabaseName    string `pulumi:"babelfishDatabaseName"`
 	CaptureDdls              bool   `pulumi:"captureDdls"`
 	DatabaseMode             string `pulumi:"databaseMode"`
@@ -3042,6 +3393,7 @@ type GetEndpointPostgresSetting struct {
 	MapLongVarcharAs         string `pulumi:"mapLongVarcharAs"`
 	MaxFileSize              int    `pulumi:"maxFileSize"`
 	PluginName               string `pulumi:"pluginName"`
+	ServiceAccessRoleArn     string `pulumi:"serviceAccessRoleArn"`
 	SlotName                 string `pulumi:"slotName"`
 }
 
@@ -3058,6 +3410,7 @@ type GetEndpointPostgresSettingInput interface {
 
 type GetEndpointPostgresSettingArgs struct {
 	AfterConnectScript       pulumi.StringInput `pulumi:"afterConnectScript"`
+	AuthenticationMethod     pulumi.StringInput `pulumi:"authenticationMethod"`
 	BabelfishDatabaseName    pulumi.StringInput `pulumi:"babelfishDatabaseName"`
 	CaptureDdls              pulumi.BoolInput   `pulumi:"captureDdls"`
 	DatabaseMode             pulumi.StringInput `pulumi:"databaseMode"`
@@ -3072,6 +3425,7 @@ type GetEndpointPostgresSettingArgs struct {
 	MapLongVarcharAs         pulumi.StringInput `pulumi:"mapLongVarcharAs"`
 	MaxFileSize              pulumi.IntInput    `pulumi:"maxFileSize"`
 	PluginName               pulumi.StringInput `pulumi:"pluginName"`
+	ServiceAccessRoleArn     pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
 	SlotName                 pulumi.StringInput `pulumi:"slotName"`
 }
 
@@ -3130,6 +3484,10 @@ func (o GetEndpointPostgresSettingOutput) AfterConnectScript() pulumi.StringOutp
 	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.AfterConnectScript }).(pulumi.StringOutput)
 }
 
+func (o GetEndpointPostgresSettingOutput) AuthenticationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.AuthenticationMethod }).(pulumi.StringOutput)
+}
+
 func (o GetEndpointPostgresSettingOutput) BabelfishDatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.BabelfishDatabaseName }).(pulumi.StringOutput)
 }
@@ -3184,6 +3542,10 @@ func (o GetEndpointPostgresSettingOutput) MaxFileSize() pulumi.IntOutput {
 
 func (o GetEndpointPostgresSettingOutput) PluginName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.PluginName }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
 }
 
 func (o GetEndpointPostgresSettingOutput) SlotName() pulumi.StringOutput {
@@ -3789,6 +4151,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKinesisSettingsPtrInput)(nil)).Elem(), EndpointKinesisSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsPtrInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOracleSettingsInput)(nil)).Elem(), EndpointOracleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOracleSettingsPtrInput)(nil)).Elem(), EndpointOracleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPostgresSettingsInput)(nil)).Elem(), EndpointPostgresSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPostgresSettingsPtrInput)(nil)).Elem(), EndpointPostgresSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedisSettingsInput)(nil)).Elem(), EndpointRedisSettingsArgs{})
@@ -3797,6 +4161,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsPtrInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigPtrInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceKerberosAuthenticationSettingsInput)(nil)).Elem(), ReplicationInstanceKerberosAuthenticationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceKerberosAuthenticationSettingsPtrInput)(nil)).Elem(), ReplicationInstanceKerberosAuthenticationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointElasticsearchSettingInput)(nil)).Elem(), GetEndpointElasticsearchSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointElasticsearchSettingArrayInput)(nil)).Elem(), GetEndpointElasticsearchSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointKafkaSettingInput)(nil)).Elem(), GetEndpointKafkaSettingArgs{})
@@ -3821,6 +4187,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointKinesisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointOracleSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointOracleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPostgresSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointPostgresSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRedisSettingsOutput{})
@@ -3829,6 +4197,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigComputeConfigOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigComputeConfigPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationInstanceKerberosAuthenticationSettingsOutput{})
+	pulumi.RegisterOutputType(ReplicationInstanceKerberosAuthenticationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetEndpointElasticsearchSettingOutput{})
 	pulumi.RegisterOutputType(GetEndpointElasticsearchSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointKafkaSettingOutput{})

@@ -48,11 +48,11 @@ namespace Pulumi.Aws.Comprehend
     ///             },
     ///             Documents = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigDocumentsArgs
     ///             {
-    ///                 S3Uri = documents.Id.Apply(id =&gt; $"s3://{documentsAwsS3Bucket.Bucket}/{id}"),
+    ///                 S3Uri = documents.Key.Apply(key =&gt; $"s3://{documentsAwsS3Bucket.Bucket}/{key}"),
     ///             },
     ///             EntityList = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityListArgs
     ///             {
-    ///                 S3Uri = entities.Id.Apply(id =&gt; $"s3://{entitiesAwsS3Bucket.Bucket}/{id}"),
+    ///                 S3Uri = entities.Key.Apply(key =&gt; $"s3://{entitiesAwsS3Bucket.Bucket}/{key}"),
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

@@ -15,7 +15,16 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
      * 
      */
     private String endpointId;
+    /**
+     * @return The current status of the firewall endpoint instantiation in the subnet.
+     * 
+     */
     private String status;
+    /**
+     * @return A message providing additional information about the current status.
+     * 
+     */
+    private String statusMessage;
     /**
      * @return The unique identifier for the subnet.
      * 
@@ -30,8 +39,19 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
     public String endpointId() {
         return this.endpointId;
     }
+    /**
+     * @return The current status of the firewall endpoint instantiation in the subnet.
+     * 
+     */
     public String status() {
         return this.status;
+    }
+    /**
+     * @return A message providing additional information about the current status.
+     * 
+     */
+    public String statusMessage() {
+        return this.statusMessage;
     }
     /**
      * @return The unique identifier for the subnet.
@@ -52,12 +72,14 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
     public static final class Builder {
         private String endpointId;
         private String status;
+        private String statusMessage;
         private String subnetId;
         public Builder() {}
         public Builder(GetFirewallFirewallStatusSyncStateAttachment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointId = defaults.endpointId;
     	      this.status = defaults.status;
+    	      this.statusMessage = defaults.statusMessage;
     	      this.subnetId = defaults.subnetId;
         }
 
@@ -78,6 +100,14 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
             return this;
         }
         @CustomType.Setter
+        public Builder statusMessage(String statusMessage) {
+            if (statusMessage == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusSyncStateAttachment", "statusMessage");
+            }
+            this.statusMessage = statusMessage;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             if (subnetId == null) {
               throw new MissingRequiredPropertyException("GetFirewallFirewallStatusSyncStateAttachment", "subnetId");
@@ -89,6 +119,7 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
             final var _resultValue = new GetFirewallFirewallStatusSyncStateAttachment();
             _resultValue.endpointId = endpointId;
             _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
             _resultValue.subnetId = subnetId;
             return _resultValue;
         }

@@ -60,7 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You cannot import this resource.
+ * Using `pulumi import`, import a QuickSight Account Subscription using `aws_account_id`. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example &#34;012345678901&#34;
+ * ```
  * 
  */
 @ResourceType(type="aws:quicksight/accountSubscription:AccountSubscription")

@@ -169,10 +169,22 @@ namespace Pulumi.Aws.Dms
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
+        /// A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+        /// </summary>
+        [Output("dnsNameServers")]
+        public Output<string?> DnsNameServers { get; private set; } = null!;
+
+        /// <summary>
         /// The engine version number of the replication instance.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for settings required for Kerberos authentication. See below.
+        /// </summary>
+        [Output("kerberosAuthenticationSettings")]
+        public Output<Outputs.ReplicationInstanceKerberosAuthenticationSettings?> KerberosAuthenticationSettings { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -341,10 +353,22 @@ namespace Pulumi.Aws.Dms
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+        /// </summary>
+        [Input("dnsNameServers")]
+        public Input<string>? DnsNameServers { get; set; }
+
+        /// <summary>
         /// The engine version number of the replication instance.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// Configuration block for settings required for Kerberos authentication. See below.
+        /// </summary>
+        [Input("kerberosAuthenticationSettings")]
+        public Input<Inputs.ReplicationInstanceKerberosAuthenticationSettingsArgs>? KerberosAuthenticationSettings { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -463,10 +487,22 @@ namespace Pulumi.Aws.Dms
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+        /// </summary>
+        [Input("dnsNameServers")]
+        public Input<string>? DnsNameServers { get; set; }
+
+        /// <summary>
         /// The engine version number of the replication instance.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// Configuration block for settings required for Kerberos authentication. See below.
+        /// </summary>
+        [Input("kerberosAuthenticationSettings")]
+        public Input<Inputs.ReplicationInstanceKerberosAuthenticationSettingsGetArgs>? KerberosAuthenticationSettings { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.

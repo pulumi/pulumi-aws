@@ -23,6 +23,8 @@ __all__ = [
     'EndpointKinesisSettingsArgsDict',
     'EndpointMongodbSettingsArgs',
     'EndpointMongodbSettingsArgsDict',
+    'EndpointOracleSettingsArgs',
+    'EndpointOracleSettingsArgsDict',
     'EndpointPostgresSettingsArgs',
     'EndpointPostgresSettingsArgsDict',
     'EndpointRedisSettingsArgs',
@@ -31,6 +33,8 @@ __all__ = [
     'EndpointRedshiftSettingsArgsDict',
     'ReplicationConfigComputeConfigArgs',
     'ReplicationConfigComputeConfigArgsDict',
+    'ReplicationInstanceKerberosAuthenticationSettingsArgs',
+    'ReplicationInstanceKerberosAuthenticationSettingsArgsDict',
 ]
 
 MYPY = False
@@ -881,10 +885,46 @@ class EndpointMongodbSettingsArgs:
 
 
 if not MYPY:
+    class EndpointOracleSettingsArgsDict(TypedDict):
+        authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+        """
+elif False:
+    EndpointOracleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointOracleSettingsArgs:
+    def __init__(__self__, *,
+                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] authentication_method: Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+        """
+        if authentication_method is not None:
+            pulumi.set(__self__, "authentication_method", authentication_method)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationMethod")
+    def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+        """
+        return pulumi.get(self, "authentication_method")
+
+    @authentication_method.setter
+    def authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "authentication_method", value)
+
+
+if not MYPY:
     class EndpointPostgresSettingsArgsDict(TypedDict):
         after_connect_script: NotRequired[pulumi.Input[_builtins.str]]
         """
         For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+        """
+        authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the authentication method. Valid values: `password`, `iam`.
         """
         babelfish_database_name: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -942,6 +982,10 @@ if not MYPY:
         """
         Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
         """
+        service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the IAM role to use to authenticate the connection.
+        """
         slot_name: NotRequired[pulumi.Input[_builtins.str]]
         """
         Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
@@ -953,6 +997,7 @@ elif False:
 class EndpointPostgresSettingsArgs:
     def __init__(__self__, *,
                  after_connect_script: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
                  babelfish_database_name: Optional[pulumi.Input[_builtins.str]] = None,
                  capture_ddls: Optional[pulumi.Input[_builtins.bool]] = None,
                  database_mode: Optional[pulumi.Input[_builtins.str]] = None,
@@ -967,9 +1012,11 @@ class EndpointPostgresSettingsArgs:
                  map_long_varchar_as: Optional[pulumi.Input[_builtins.str]] = None,
                  max_file_size: Optional[pulumi.Input[_builtins.int]] = None,
                  plugin_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  slot_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] after_connect_script: For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+        :param pulumi.Input[_builtins.str] authentication_method: Specifies the authentication method. Valid values: `password`, `iam`.
         :param pulumi.Input[_builtins.str] babelfish_database_name: The Babelfish for Aurora PostgreSQL database name for the endpoint.
         :param pulumi.Input[_builtins.bool] capture_ddls: To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
         :param pulumi.Input[_builtins.str] database_mode: Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
@@ -984,10 +1031,13 @@ class EndpointPostgresSettingsArgs:
         :param pulumi.Input[_builtins.str] map_long_varchar_as: Optional When true, DMS migrates LONG values as VARCHAR.
         :param pulumi.Input[_builtins.int] max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         :param pulumi.Input[_builtins.str] plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        :param pulumi.Input[_builtins.str] service_access_role_arn: Specifies the IAM role to use to authenticate the connection.
         :param pulumi.Input[_builtins.str] slot_name: Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
         """
         if after_connect_script is not None:
             pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if authentication_method is not None:
+            pulumi.set(__self__, "authentication_method", authentication_method)
         if babelfish_database_name is not None:
             pulumi.set(__self__, "babelfish_database_name", babelfish_database_name)
         if capture_ddls is not None:
@@ -1016,6 +1066,8 @@ class EndpointPostgresSettingsArgs:
             pulumi.set(__self__, "max_file_size", max_file_size)
         if plugin_name is not None:
             pulumi.set(__self__, "plugin_name", plugin_name)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
         if slot_name is not None:
             pulumi.set(__self__, "slot_name", slot_name)
 
@@ -1030,6 +1082,18 @@ class EndpointPostgresSettingsArgs:
     @after_connect_script.setter
     def after_connect_script(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "after_connect_script", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationMethod")
+    def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the authentication method. Valid values: `password`, `iam`.
+        """
+        return pulumi.get(self, "authentication_method")
+
+    @authentication_method.setter
+    def authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "authentication_method", value)
 
     @_builtins.property
     @pulumi.getter(name="babelfishDatabaseName")
@@ -1198,6 +1262,18 @@ class EndpointPostgresSettingsArgs:
     @plugin_name.setter
     def plugin_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "plugin_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the IAM role to use to authenticate the connection.
+        """
+        return pulumi.get(self, "service_access_role_arn")
+
+    @service_access_role_arn.setter
+    def service_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="slotName")
@@ -1677,5 +1753,74 @@ class ReplicationConfigComputeConfigArgs:
     @vpc_security_group_ids.setter
     def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
+
+
+if not MYPY:
+    class ReplicationInstanceKerberosAuthenticationSettingsArgsDict(TypedDict):
+        key_cache_secret_iam_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+        """
+        key_cache_secret_id: pulumi.Input[_builtins.str]
+        """
+        Secret ID that stores the key cache file required for Kerberos authentication.
+        """
+        krb5_file_contents: pulumi.Input[_builtins.str]
+        """
+        Contents of krb5 configuration file required for Kerberos authentication.
+        """
+elif False:
+    ReplicationInstanceKerberosAuthenticationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReplicationInstanceKerberosAuthenticationSettingsArgs:
+    def __init__(__self__, *,
+                 key_cache_secret_iam_arn: pulumi.Input[_builtins.str],
+                 key_cache_secret_id: pulumi.Input[_builtins.str],
+                 krb5_file_contents: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key_cache_secret_iam_arn: ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+        :param pulumi.Input[_builtins.str] key_cache_secret_id: Secret ID that stores the key cache file required for Kerberos authentication.
+        :param pulumi.Input[_builtins.str] krb5_file_contents: Contents of krb5 configuration file required for Kerberos authentication.
+        """
+        pulumi.set(__self__, "key_cache_secret_iam_arn", key_cache_secret_iam_arn)
+        pulumi.set(__self__, "key_cache_secret_id", key_cache_secret_id)
+        pulumi.set(__self__, "krb5_file_contents", krb5_file_contents)
+
+    @_builtins.property
+    @pulumi.getter(name="keyCacheSecretIamArn")
+    def key_cache_secret_iam_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+        """
+        return pulumi.get(self, "key_cache_secret_iam_arn")
+
+    @key_cache_secret_iam_arn.setter
+    def key_cache_secret_iam_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_cache_secret_iam_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyCacheSecretId")
+    def key_cache_secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Secret ID that stores the key cache file required for Kerberos authentication.
+        """
+        return pulumi.get(self, "key_cache_secret_id")
+
+    @key_cache_secret_id.setter
+    def key_cache_secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_cache_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="krb5FileContents")
+    def krb5_file_contents(self) -> pulumi.Input[_builtins.str]:
+        """
+        Contents of krb5 configuration file required for Kerberos authentication.
+        """
+        return pulumi.get(self, "krb5_file_contents")
+
+    @krb5_file_contents.setter
+    def krb5_file_contents(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "krb5_file_contents", value)
 
 

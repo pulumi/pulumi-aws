@@ -90,6 +90,8 @@ type Endpoint struct {
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrOutput `pulumi:"mongodbSettings"`
+	// Configuration block for Oracle settings. See below.
+	OracleSettings EndpointOracleSettingsPtrOutput `pulumi:"oracleSettings"`
 	// Password to be used to login to the endpoint database.
 	Password              pulumi.StringPtrOutput `pulumi:"password"`
 	PauseReplicationTasks pulumi.BoolPtrOutput   `pulumi:"pauseReplicationTasks"`
@@ -194,6 +196,8 @@ type endpointState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
+	// Configuration block for Oracle settings. See below.
+	OracleSettings *EndpointOracleSettings `pulumi:"oracleSettings"`
 	// Password to be used to login to the endpoint database.
 	Password              *string `pulumi:"password"`
 	PauseReplicationTasks *bool   `pulumi:"pauseReplicationTasks"`
@@ -253,6 +257,8 @@ type EndpointState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrInput
+	// Configuration block for Oracle settings. See below.
+	OracleSettings EndpointOracleSettingsPtrInput
 	// Password to be used to login to the endpoint database.
 	Password              pulumi.StringPtrInput
 	PauseReplicationTasks pulumi.BoolPtrInput
@@ -314,6 +320,8 @@ type endpointArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
+	// Configuration block for Oracle settings. See below.
+	OracleSettings *EndpointOracleSettings `pulumi:"oracleSettings"`
 	// Password to be used to login to the endpoint database.
 	Password              *string `pulumi:"password"`
 	PauseReplicationTasks *bool   `pulumi:"pauseReplicationTasks"`
@@ -370,6 +378,8 @@ type EndpointArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrInput
+	// Configuration block for Oracle settings. See below.
+	OracleSettings EndpointOracleSettingsPtrInput
 	// Password to be used to login to the endpoint database.
 	Password              pulumi.StringPtrInput
 	PauseReplicationTasks pulumi.BoolPtrInput
@@ -547,6 +557,11 @@ func (o EndpointOutput) KmsKeyArn() pulumi.StringOutput {
 // Configuration block for MongoDB settings. See below.
 func (o EndpointOutput) MongodbSettings() EndpointMongodbSettingsPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointMongodbSettingsPtrOutput { return v.MongodbSettings }).(EndpointMongodbSettingsPtrOutput)
+}
+
+// Configuration block for Oracle settings. See below.
+func (o EndpointOutput) OracleSettings() EndpointOracleSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointOracleSettingsPtrOutput { return v.OracleSettings }).(EndpointOracleSettingsPtrOutput)
 }
 
 // Password to be used to login to the endpoint database.

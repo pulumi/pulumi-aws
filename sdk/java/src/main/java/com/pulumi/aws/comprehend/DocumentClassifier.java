@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .dataAccessRoleArn(exampleAwsIamRole.arn())
  *             .languageCode("en")
  *             .inputDataConfig(DocumentClassifierInputDataConfigArgs.builder()
- *                 .s3Uri(documents.id().applyValue(_id -> String.format("s3://%s/%s", test.bucket(),_id)))
+ *                 .s3Uri(documents.key().applyValue(_key -> String.format("s3://%s/%s", test.bucket(),_key)))
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicy)

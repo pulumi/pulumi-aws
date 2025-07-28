@@ -223,9 +223,21 @@ public class AgentAgentCollaborator extends com.pulumi.resources.CustomResource 
     public Output<String> collaboratorId() {
         return this.collaboratorId;
     }
+    /**
+     * Name of this collaborator.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Export(name="collaboratorName", refs={String.class}, tree="[0]")
     private Output<String> collaboratorName;
 
+    /**
+     * @return Name of this collaborator.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<String> collaboratorName() {
         return this.collaboratorName;
     }

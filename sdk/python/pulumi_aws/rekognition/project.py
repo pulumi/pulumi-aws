@@ -29,7 +29,7 @@ class ProjectArgs:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
         :param pulumi.Input[_builtins.str] name: Desired name of the project.
                
@@ -54,7 +54,7 @@ class ProjectArgs:
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         """
         return pulumi.get(self, "auto_update")
 
@@ -136,7 +136,7 @@ class _ProjectState:
         """
         Input properties used for looking up and filtering Project resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the Project.
-        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
         :param pulumi.Input[_builtins.str] name: Desired name of the project.
                
@@ -178,7 +178,7 @@ class _ProjectState:
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         """
         return pulumi.get(self, "auto_update")
 
@@ -276,6 +276,8 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Content Moderation
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,6 +286,17 @@ class Project(pulumi.CustomResource):
             name="example-project",
             auto_update="ENABLED",
             feature="CONTENT_MODERATION")
+        ```
+
+        ### Custom Labels
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rekognition.Project("example",
+            name="example-project",
+            feature="CUSTOM_LABELS")
         ```
 
         ## Import
@@ -296,7 +309,7 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
         :param pulumi.Input[_builtins.str] name: Desired name of the project.
                
@@ -315,6 +328,8 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Content Moderation
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,6 +338,17 @@ class Project(pulumi.CustomResource):
             name="example-project",
             auto_update="ENABLED",
             feature="CONTENT_MODERATION")
+        ```
+
+        ### Custom Labels
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rekognition.Project("example",
+            name="example-project",
+            feature="CUSTOM_LABELS")
         ```
 
         ## Import
@@ -397,7 +423,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Project.
-        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
         :param pulumi.Input[_builtins.str] name: Desired name of the project.
                
@@ -432,7 +458,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> pulumi.Output[_builtins.str]:
         """
-        Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+        Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         """
         return pulumi.get(self, "auto_update")
 

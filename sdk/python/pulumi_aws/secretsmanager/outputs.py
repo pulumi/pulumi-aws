@@ -177,6 +177,11 @@ class GetSecretRotationRotationRuleResult(dict):
                  automatically_after_days: _builtins.int,
                  duration: _builtins.str,
                  schedule_expression: _builtins.str):
+        """
+        :param _builtins.int automatically_after_days: Number of days between automatic scheduled rotations of the secret.
+        :param _builtins.str duration: Length of the rotation window in hours.
+        :param _builtins.str schedule_expression: A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+        """
         pulumi.set(__self__, "automatically_after_days", automatically_after_days)
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -184,16 +189,25 @@ class GetSecretRotationRotationRuleResult(dict):
     @_builtins.property
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> _builtins.int:
+        """
+        Number of days between automatic scheduled rotations of the secret.
+        """
         return pulumi.get(self, "automatically_after_days")
 
     @_builtins.property
     @pulumi.getter
     def duration(self) -> _builtins.str:
+        """
+        Length of the rotation window in hours.
+        """
         return pulumi.get(self, "duration")
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> _builtins.str:
+        """
+        A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+        """
         return pulumi.get(self, "schedule_expression")
 
 

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Inspector2.Outputs
     public sealed class OrganizationConfigurationAutoEnable
     {
         /// <summary>
+        /// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+        /// </summary>
+        public readonly bool? CodeRepository;
+        /// <summary>
         /// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
         /// </summary>
         public readonly bool Ec2;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.Inspector2.Outputs
 
         [OutputConstructor]
         private OrganizationConfigurationAutoEnable(
+            bool? codeRepository,
+
             bool ec2,
 
             bool ecr,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.Inspector2.Outputs
 
             bool? lambdaCode)
         {
+            CodeRepository = codeRepository;
             Ec2 = ec2;
             Ecr = ecr;
             Lambda = lambda;

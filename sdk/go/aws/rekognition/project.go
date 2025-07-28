@@ -15,6 +15,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Content Moderation
+//
 // ```go
 // package main
 //
@@ -41,6 +43,33 @@ import (
 //
 // ```
 //
+// ### Custom Labels
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rekognition"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rekognition.NewProject(ctx, "example", &rekognition.ProjectArgs{
+//				Name:    pulumi.String("example-project"),
+//				Feature: pulumi.String("CUSTOM_LABELS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Rekognition Project using the `name`. For example:
@@ -53,7 +82,7 @@ type Project struct {
 
 	// ARN of the Project.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
 	AutoUpdate pulumi.StringOutput `pulumi:"autoUpdate"`
 	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature pulumi.StringPtrOutput `pulumi:"feature"`
@@ -102,7 +131,7 @@ func GetProject(ctx *pulumi.Context,
 type projectState struct {
 	// ARN of the Project.
 	Arn *string `pulumi:"arn"`
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
 	AutoUpdate *string `pulumi:"autoUpdate"`
 	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature *string `pulumi:"feature"`
@@ -122,7 +151,7 @@ type projectState struct {
 type ProjectState struct {
 	// ARN of the Project.
 	Arn pulumi.StringPtrInput
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
 	AutoUpdate pulumi.StringPtrInput
 	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature pulumi.StringPtrInput
@@ -144,7 +173,7 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
 	AutoUpdate *string `pulumi:"autoUpdate"`
 	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature *string `pulumi:"feature"`
@@ -161,7 +190,7 @@ type projectArgs struct {
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
 	AutoUpdate pulumi.StringPtrInput
 	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature pulumi.StringPtrInput
@@ -268,7 +297,7 @@ func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
+// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
 func (o ProjectOutput) AutoUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.AutoUpdate }).(pulumi.StringOutput)
 }

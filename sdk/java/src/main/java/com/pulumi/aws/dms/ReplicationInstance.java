@@ -6,6 +6,7 @@ package com.pulumi.aws.dms;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.dms.ReplicationInstanceArgs;
 import com.pulumi.aws.dms.inputs.ReplicationInstanceState;
+import com.pulumi.aws.dms.outputs.ReplicationInstanceKerberosAuthenticationSettings;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -212,6 +213,20 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
         return this.availabilityZone;
     }
     /**
+     * A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+     * 
+     */
+    @Export(name="dnsNameServers", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> dnsNameServers;
+
+    /**
+     * @return A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
+     * 
+     */
+    public Output<Optional<String>> dnsNameServers() {
+        return Codegen.optional(this.dnsNameServers);
+    }
+    /**
      * The engine version number of the replication instance.
      * 
      */
@@ -224,6 +239,20 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> engineVersion() {
         return this.engineVersion;
+    }
+    /**
+     * Configuration block for settings required for Kerberos authentication. See below.
+     * 
+     */
+    @Export(name="kerberosAuthenticationSettings", refs={ReplicationInstanceKerberosAuthenticationSettings.class}, tree="[0]")
+    private Output</* @Nullable */ ReplicationInstanceKerberosAuthenticationSettings> kerberosAuthenticationSettings;
+
+    /**
+     * @return Configuration block for settings required for Kerberos authentication. See below.
+     * 
+     */
+    public Output<Optional<ReplicationInstanceKerberosAuthenticationSettings>> kerberosAuthenticationSettings() {
+        return Codegen.optional(this.kerberosAuthenticationSettings);
     }
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.

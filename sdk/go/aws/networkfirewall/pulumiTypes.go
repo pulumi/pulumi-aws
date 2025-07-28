@@ -13,6 +13,103 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type FirewallAvailabilityZoneMapping struct {
+	// The ID of the Availability Zone where the firewall endpoint is located..
+	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+}
+
+// FirewallAvailabilityZoneMappingInput is an input type that accepts FirewallAvailabilityZoneMappingArgs and FirewallAvailabilityZoneMappingOutput values.
+// You can construct a concrete instance of `FirewallAvailabilityZoneMappingInput` via:
+//
+//	FirewallAvailabilityZoneMappingArgs{...}
+type FirewallAvailabilityZoneMappingInput interface {
+	pulumi.Input
+
+	ToFirewallAvailabilityZoneMappingOutput() FirewallAvailabilityZoneMappingOutput
+	ToFirewallAvailabilityZoneMappingOutputWithContext(context.Context) FirewallAvailabilityZoneMappingOutput
+}
+
+type FirewallAvailabilityZoneMappingArgs struct {
+	// The ID of the Availability Zone where the firewall endpoint is located..
+	AvailabilityZoneId pulumi.StringInput `pulumi:"availabilityZoneId"`
+}
+
+func (FirewallAvailabilityZoneMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallAvailabilityZoneMapping)(nil)).Elem()
+}
+
+func (i FirewallAvailabilityZoneMappingArgs) ToFirewallAvailabilityZoneMappingOutput() FirewallAvailabilityZoneMappingOutput {
+	return i.ToFirewallAvailabilityZoneMappingOutputWithContext(context.Background())
+}
+
+func (i FirewallAvailabilityZoneMappingArgs) ToFirewallAvailabilityZoneMappingOutputWithContext(ctx context.Context) FirewallAvailabilityZoneMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallAvailabilityZoneMappingOutput)
+}
+
+// FirewallAvailabilityZoneMappingArrayInput is an input type that accepts FirewallAvailabilityZoneMappingArray and FirewallAvailabilityZoneMappingArrayOutput values.
+// You can construct a concrete instance of `FirewallAvailabilityZoneMappingArrayInput` via:
+//
+//	FirewallAvailabilityZoneMappingArray{ FirewallAvailabilityZoneMappingArgs{...} }
+type FirewallAvailabilityZoneMappingArrayInput interface {
+	pulumi.Input
+
+	ToFirewallAvailabilityZoneMappingArrayOutput() FirewallAvailabilityZoneMappingArrayOutput
+	ToFirewallAvailabilityZoneMappingArrayOutputWithContext(context.Context) FirewallAvailabilityZoneMappingArrayOutput
+}
+
+type FirewallAvailabilityZoneMappingArray []FirewallAvailabilityZoneMappingInput
+
+func (FirewallAvailabilityZoneMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallAvailabilityZoneMapping)(nil)).Elem()
+}
+
+func (i FirewallAvailabilityZoneMappingArray) ToFirewallAvailabilityZoneMappingArrayOutput() FirewallAvailabilityZoneMappingArrayOutput {
+	return i.ToFirewallAvailabilityZoneMappingArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallAvailabilityZoneMappingArray) ToFirewallAvailabilityZoneMappingArrayOutputWithContext(ctx context.Context) FirewallAvailabilityZoneMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallAvailabilityZoneMappingArrayOutput)
+}
+
+type FirewallAvailabilityZoneMappingOutput struct{ *pulumi.OutputState }
+
+func (FirewallAvailabilityZoneMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallAvailabilityZoneMapping)(nil)).Elem()
+}
+
+func (o FirewallAvailabilityZoneMappingOutput) ToFirewallAvailabilityZoneMappingOutput() FirewallAvailabilityZoneMappingOutput {
+	return o
+}
+
+func (o FirewallAvailabilityZoneMappingOutput) ToFirewallAvailabilityZoneMappingOutputWithContext(ctx context.Context) FirewallAvailabilityZoneMappingOutput {
+	return o
+}
+
+// The ID of the Availability Zone where the firewall endpoint is located..
+func (o FirewallAvailabilityZoneMappingOutput) AvailabilityZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallAvailabilityZoneMapping) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+}
+
+type FirewallAvailabilityZoneMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallAvailabilityZoneMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallAvailabilityZoneMapping)(nil)).Elem()
+}
+
+func (o FirewallAvailabilityZoneMappingArrayOutput) ToFirewallAvailabilityZoneMappingArrayOutput() FirewallAvailabilityZoneMappingArrayOutput {
+	return o
+}
+
+func (o FirewallAvailabilityZoneMappingArrayOutput) ToFirewallAvailabilityZoneMappingArrayOutputWithContext(ctx context.Context) FirewallAvailabilityZoneMappingArrayOutput {
+	return o
+}
+
+func (o FirewallAvailabilityZoneMappingArrayOutput) Index(i pulumi.IntInput) FirewallAvailabilityZoneMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallAvailabilityZoneMapping {
+		return vs[0].([]FirewallAvailabilityZoneMapping)[vs[1].(int)]
+	}).(FirewallAvailabilityZoneMappingOutput)
+}
+
 type FirewallEncryptionConfiguration struct {
 	// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
 	KeyId *string `pulumi:"keyId"`
@@ -172,6 +269,8 @@ func (o FirewallEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput 
 type FirewallFirewallStatus struct {
 	// Set of subnets configured for use by the firewall.
 	SyncStates []FirewallFirewallStatusSyncState `pulumi:"syncStates"`
+	// Set of transit gateway configured for use by the firewall.
+	TransitGatewayAttachmentSyncStates []FirewallFirewallStatusTransitGatewayAttachmentSyncState `pulumi:"transitGatewayAttachmentSyncStates"`
 }
 
 // FirewallFirewallStatusInput is an input type that accepts FirewallFirewallStatusArgs and FirewallFirewallStatusOutput values.
@@ -188,6 +287,8 @@ type FirewallFirewallStatusInput interface {
 type FirewallFirewallStatusArgs struct {
 	// Set of subnets configured for use by the firewall.
 	SyncStates FirewallFirewallStatusSyncStateArrayInput `pulumi:"syncStates"`
+	// Set of transit gateway configured for use by the firewall.
+	TransitGatewayAttachmentSyncStates FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput `pulumi:"transitGatewayAttachmentSyncStates"`
 }
 
 func (FirewallFirewallStatusArgs) ElementType() reflect.Type {
@@ -244,6 +345,13 @@ func (o FirewallFirewallStatusOutput) ToFirewallFirewallStatusOutputWithContext(
 // Set of subnets configured for use by the firewall.
 func (o FirewallFirewallStatusOutput) SyncStates() FirewallFirewallStatusSyncStateArrayOutput {
 	return o.ApplyT(func(v FirewallFirewallStatus) []FirewallFirewallStatusSyncState { return v.SyncStates }).(FirewallFirewallStatusSyncStateArrayOutput)
+}
+
+// Set of transit gateway configured for use by the firewall.
+func (o FirewallFirewallStatusOutput) TransitGatewayAttachmentSyncStates() FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return o.ApplyT(func(v FirewallFirewallStatus) []FirewallFirewallStatusTransitGatewayAttachmentSyncState {
+		return v.TransitGatewayAttachmentSyncStates
+	}).(FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput)
 }
 
 type FirewallFirewallStatusArrayOutput struct{ *pulumi.OutputState }
@@ -478,6 +586,103 @@ func (o FirewallFirewallStatusSyncStateAttachmentArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallFirewallStatusSyncStateAttachment {
 		return vs[0].([]FirewallFirewallStatusSyncStateAttachment)[vs[1].(int)]
 	}).(FirewallFirewallStatusSyncStateAttachmentOutput)
+}
+
+type FirewallFirewallStatusTransitGatewayAttachmentSyncState struct {
+	// The unique identifier of the transit gateway attachment.
+	AttachmentId *string `pulumi:"attachmentId"`
+}
+
+// FirewallFirewallStatusTransitGatewayAttachmentSyncStateInput is an input type that accepts FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs and FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput values.
+// You can construct a concrete instance of `FirewallFirewallStatusTransitGatewayAttachmentSyncStateInput` via:
+//
+//	FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs{...}
+type FirewallFirewallStatusTransitGatewayAttachmentSyncStateInput interface {
+	pulumi.Input
+
+	ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput() FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput
+	ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutputWithContext(context.Context) FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput
+}
+
+type FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs struct {
+	// The unique identifier of the transit gateway attachment.
+	AttachmentId pulumi.StringPtrInput `pulumi:"attachmentId"`
+}
+
+func (FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallFirewallStatusTransitGatewayAttachmentSyncState)(nil)).Elem()
+}
+
+func (i FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs) ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput() FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return i.ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutputWithContext(context.Background())
+}
+
+func (i FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs) ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutputWithContext(ctx context.Context) FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput)
+}
+
+// FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput is an input type that accepts FirewallFirewallStatusTransitGatewayAttachmentSyncStateArray and FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput values.
+// You can construct a concrete instance of `FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput` via:
+//
+//	FirewallFirewallStatusTransitGatewayAttachmentSyncStateArray{ FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs{...} }
+type FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput interface {
+	pulumi.Input
+
+	ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput() FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput
+	ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutputWithContext(context.Context) FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput
+}
+
+type FirewallFirewallStatusTransitGatewayAttachmentSyncStateArray []FirewallFirewallStatusTransitGatewayAttachmentSyncStateInput
+
+func (FirewallFirewallStatusTransitGatewayAttachmentSyncStateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallFirewallStatusTransitGatewayAttachmentSyncState)(nil)).Elem()
+}
+
+func (i FirewallFirewallStatusTransitGatewayAttachmentSyncStateArray) ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput() FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return i.ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallFirewallStatusTransitGatewayAttachmentSyncStateArray) ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput)
+}
+
+type FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput struct{ *pulumi.OutputState }
+
+func (FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallFirewallStatusTransitGatewayAttachmentSyncState)(nil)).Elem()
+}
+
+func (o FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput() FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutputWithContext(ctx context.Context) FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return o
+}
+
+// The unique identifier of the transit gateway attachment.
+func (o FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) AttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallFirewallStatusTransitGatewayAttachmentSyncState) *string { return v.AttachmentId }).(pulumi.StringPtrOutput)
+}
+
+type FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallFirewallStatusTransitGatewayAttachmentSyncState)(nil)).Elem()
+}
+
+func (o FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput() FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) ToFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) Index(i pulumi.IntInput) FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallFirewallStatusTransitGatewayAttachmentSyncState {
+		return vs[0].([]FirewallFirewallStatusTransitGatewayAttachmentSyncState)[vs[1].(int)]
+	}).(FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput)
 }
 
 type FirewallPolicyEncryptionConfiguration struct {
@@ -2348,6 +2553,162 @@ func (o FirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) FirewallSubne
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallSubnetMapping {
 		return vs[0].([]FirewallSubnetMapping)[vs[1].(int)]
 	}).(FirewallSubnetMappingOutput)
+}
+
+type FirewallTransitGatewayAttachmentAccepterTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// FirewallTransitGatewayAttachmentAccepterTimeoutsInput is an input type that accepts FirewallTransitGatewayAttachmentAccepterTimeoutsArgs and FirewallTransitGatewayAttachmentAccepterTimeoutsOutput values.
+// You can construct a concrete instance of `FirewallTransitGatewayAttachmentAccepterTimeoutsInput` via:
+//
+//	FirewallTransitGatewayAttachmentAccepterTimeoutsArgs{...}
+type FirewallTransitGatewayAttachmentAccepterTimeoutsInput interface {
+	pulumi.Input
+
+	ToFirewallTransitGatewayAttachmentAccepterTimeoutsOutput() FirewallTransitGatewayAttachmentAccepterTimeoutsOutput
+	ToFirewallTransitGatewayAttachmentAccepterTimeoutsOutputWithContext(context.Context) FirewallTransitGatewayAttachmentAccepterTimeoutsOutput
+}
+
+type FirewallTransitGatewayAttachmentAccepterTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (FirewallTransitGatewayAttachmentAccepterTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallTransitGatewayAttachmentAccepterTimeouts)(nil)).Elem()
+}
+
+func (i FirewallTransitGatewayAttachmentAccepterTimeoutsArgs) ToFirewallTransitGatewayAttachmentAccepterTimeoutsOutput() FirewallTransitGatewayAttachmentAccepterTimeoutsOutput {
+	return i.ToFirewallTransitGatewayAttachmentAccepterTimeoutsOutputWithContext(context.Background())
+}
+
+func (i FirewallTransitGatewayAttachmentAccepterTimeoutsArgs) ToFirewallTransitGatewayAttachmentAccepterTimeoutsOutputWithContext(ctx context.Context) FirewallTransitGatewayAttachmentAccepterTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallTransitGatewayAttachmentAccepterTimeoutsOutput)
+}
+
+func (i FirewallTransitGatewayAttachmentAccepterTimeoutsArgs) ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput() FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput {
+	return i.ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallTransitGatewayAttachmentAccepterTimeoutsArgs) ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutputWithContext(ctx context.Context) FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallTransitGatewayAttachmentAccepterTimeoutsOutput).ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutputWithContext(ctx)
+}
+
+// FirewallTransitGatewayAttachmentAccepterTimeoutsPtrInput is an input type that accepts FirewallTransitGatewayAttachmentAccepterTimeoutsArgs, FirewallTransitGatewayAttachmentAccepterTimeoutsPtr and FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput values.
+// You can construct a concrete instance of `FirewallTransitGatewayAttachmentAccepterTimeoutsPtrInput` via:
+//
+//	        FirewallTransitGatewayAttachmentAccepterTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallTransitGatewayAttachmentAccepterTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput() FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput
+	ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutputWithContext(context.Context) FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput
+}
+
+type firewallTransitGatewayAttachmentAccepterTimeoutsPtrType FirewallTransitGatewayAttachmentAccepterTimeoutsArgs
+
+func FirewallTransitGatewayAttachmentAccepterTimeoutsPtr(v *FirewallTransitGatewayAttachmentAccepterTimeoutsArgs) FirewallTransitGatewayAttachmentAccepterTimeoutsPtrInput {
+	return (*firewallTransitGatewayAttachmentAccepterTimeoutsPtrType)(v)
+}
+
+func (*firewallTransitGatewayAttachmentAccepterTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallTransitGatewayAttachmentAccepterTimeouts)(nil)).Elem()
+}
+
+func (i *firewallTransitGatewayAttachmentAccepterTimeoutsPtrType) ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput() FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput {
+	return i.ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallTransitGatewayAttachmentAccepterTimeoutsPtrType) ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutputWithContext(ctx context.Context) FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput)
+}
+
+type FirewallTransitGatewayAttachmentAccepterTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (FirewallTransitGatewayAttachmentAccepterTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallTransitGatewayAttachmentAccepterTimeouts)(nil)).Elem()
+}
+
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsOutput) ToFirewallTransitGatewayAttachmentAccepterTimeoutsOutput() FirewallTransitGatewayAttachmentAccepterTimeoutsOutput {
+	return o
+}
+
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsOutput) ToFirewallTransitGatewayAttachmentAccepterTimeoutsOutputWithContext(ctx context.Context) FirewallTransitGatewayAttachmentAccepterTimeoutsOutput {
+	return o
+}
+
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsOutput) ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput() FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput {
+	return o.ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsOutput) ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutputWithContext(ctx context.Context) FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallTransitGatewayAttachmentAccepterTimeouts) *FirewallTransitGatewayAttachmentAccepterTimeouts {
+		return &v
+	}).(FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallTransitGatewayAttachmentAccepterTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallTransitGatewayAttachmentAccepterTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallTransitGatewayAttachmentAccepterTimeouts)(nil)).Elem()
+}
+
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput) ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput() FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput {
+	return o
+}
+
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput) ToFirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutputWithContext(ctx context.Context) FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput {
+	return o
+}
+
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput) Elem() FirewallTransitGatewayAttachmentAccepterTimeoutsOutput {
+	return o.ApplyT(func(v *FirewallTransitGatewayAttachmentAccepterTimeouts) FirewallTransitGatewayAttachmentAccepterTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallTransitGatewayAttachmentAccepterTimeouts
+		return ret
+	}).(FirewallTransitGatewayAttachmentAccepterTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallTransitGatewayAttachmentAccepterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallTransitGatewayAttachmentAccepterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
 }
 
 type LoggingConfigurationLoggingConfiguration struct {
@@ -7592,6 +7953,103 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateCon
 	}).(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateOutput)
 }
 
+type GetFirewallAvailabilityZoneMapping struct {
+	// The ID of the Availability Zone where the firewall endpoint is located.
+	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+}
+
+// GetFirewallAvailabilityZoneMappingInput is an input type that accepts GetFirewallAvailabilityZoneMappingArgs and GetFirewallAvailabilityZoneMappingOutput values.
+// You can construct a concrete instance of `GetFirewallAvailabilityZoneMappingInput` via:
+//
+//	GetFirewallAvailabilityZoneMappingArgs{...}
+type GetFirewallAvailabilityZoneMappingInput interface {
+	pulumi.Input
+
+	ToGetFirewallAvailabilityZoneMappingOutput() GetFirewallAvailabilityZoneMappingOutput
+	ToGetFirewallAvailabilityZoneMappingOutputWithContext(context.Context) GetFirewallAvailabilityZoneMappingOutput
+}
+
+type GetFirewallAvailabilityZoneMappingArgs struct {
+	// The ID of the Availability Zone where the firewall endpoint is located.
+	AvailabilityZoneId pulumi.StringInput `pulumi:"availabilityZoneId"`
+}
+
+func (GetFirewallAvailabilityZoneMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallAvailabilityZoneMapping)(nil)).Elem()
+}
+
+func (i GetFirewallAvailabilityZoneMappingArgs) ToGetFirewallAvailabilityZoneMappingOutput() GetFirewallAvailabilityZoneMappingOutput {
+	return i.ToGetFirewallAvailabilityZoneMappingOutputWithContext(context.Background())
+}
+
+func (i GetFirewallAvailabilityZoneMappingArgs) ToGetFirewallAvailabilityZoneMappingOutputWithContext(ctx context.Context) GetFirewallAvailabilityZoneMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallAvailabilityZoneMappingOutput)
+}
+
+// GetFirewallAvailabilityZoneMappingArrayInput is an input type that accepts GetFirewallAvailabilityZoneMappingArray and GetFirewallAvailabilityZoneMappingArrayOutput values.
+// You can construct a concrete instance of `GetFirewallAvailabilityZoneMappingArrayInput` via:
+//
+//	GetFirewallAvailabilityZoneMappingArray{ GetFirewallAvailabilityZoneMappingArgs{...} }
+type GetFirewallAvailabilityZoneMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallAvailabilityZoneMappingArrayOutput() GetFirewallAvailabilityZoneMappingArrayOutput
+	ToGetFirewallAvailabilityZoneMappingArrayOutputWithContext(context.Context) GetFirewallAvailabilityZoneMappingArrayOutput
+}
+
+type GetFirewallAvailabilityZoneMappingArray []GetFirewallAvailabilityZoneMappingInput
+
+func (GetFirewallAvailabilityZoneMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallAvailabilityZoneMapping)(nil)).Elem()
+}
+
+func (i GetFirewallAvailabilityZoneMappingArray) ToGetFirewallAvailabilityZoneMappingArrayOutput() GetFirewallAvailabilityZoneMappingArrayOutput {
+	return i.ToGetFirewallAvailabilityZoneMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallAvailabilityZoneMappingArray) ToGetFirewallAvailabilityZoneMappingArrayOutputWithContext(ctx context.Context) GetFirewallAvailabilityZoneMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallAvailabilityZoneMappingArrayOutput)
+}
+
+type GetFirewallAvailabilityZoneMappingOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallAvailabilityZoneMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallAvailabilityZoneMapping)(nil)).Elem()
+}
+
+func (o GetFirewallAvailabilityZoneMappingOutput) ToGetFirewallAvailabilityZoneMappingOutput() GetFirewallAvailabilityZoneMappingOutput {
+	return o
+}
+
+func (o GetFirewallAvailabilityZoneMappingOutput) ToGetFirewallAvailabilityZoneMappingOutputWithContext(ctx context.Context) GetFirewallAvailabilityZoneMappingOutput {
+	return o
+}
+
+// The ID of the Availability Zone where the firewall endpoint is located.
+func (o GetFirewallAvailabilityZoneMappingOutput) AvailabilityZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallAvailabilityZoneMapping) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+}
+
+type GetFirewallAvailabilityZoneMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallAvailabilityZoneMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallAvailabilityZoneMapping)(nil)).Elem()
+}
+
+func (o GetFirewallAvailabilityZoneMappingArrayOutput) ToGetFirewallAvailabilityZoneMappingArrayOutput() GetFirewallAvailabilityZoneMappingArrayOutput {
+	return o
+}
+
+func (o GetFirewallAvailabilityZoneMappingArrayOutput) ToGetFirewallAvailabilityZoneMappingArrayOutputWithContext(ctx context.Context) GetFirewallAvailabilityZoneMappingArrayOutput {
+	return o
+}
+
+func (o GetFirewallAvailabilityZoneMappingArrayOutput) Index(i pulumi.IntInput) GetFirewallAvailabilityZoneMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallAvailabilityZoneMapping {
+		return vs[0].([]GetFirewallAvailabilityZoneMapping)[vs[1].(int)]
+	}).(GetFirewallAvailabilityZoneMappingOutput)
+}
+
 type GetFirewallEncryptionConfiguration struct {
 	// The ID of the AWS Key Management Service (AWS KMS) customer managed key.
 	KeyId string `pulumi:"keyId"`
@@ -7703,9 +8161,12 @@ type GetFirewallFirewallStatus struct {
 	CapacityUsageSummaries []GetFirewallFirewallStatusCapacityUsageSummary `pulumi:"capacityUsageSummaries"`
 	// Summary of sync states for all availability zones in which the firewall is configured.
 	ConfigurationSyncStateSummary string `pulumi:"configurationSyncStateSummary"`
-	Status                        string `pulumi:"status"`
+	// The current status of the firewall endpoint instantiation in the subnet.
+	Status string `pulumi:"status"`
 	// Set of subnets configured for use by the firewall.
 	SyncStates []GetFirewallFirewallStatusSyncState `pulumi:"syncStates"`
+	// Set of transit gateway configured for use by the firewall.
+	TransitGatewayAttachmentSyncStates []GetFirewallFirewallStatusTransitGatewayAttachmentSyncState `pulumi:"transitGatewayAttachmentSyncStates"`
 }
 
 // GetFirewallFirewallStatusInput is an input type that accepts GetFirewallFirewallStatusArgs and GetFirewallFirewallStatusOutput values.
@@ -7724,9 +8185,12 @@ type GetFirewallFirewallStatusArgs struct {
 	CapacityUsageSummaries GetFirewallFirewallStatusCapacityUsageSummaryArrayInput `pulumi:"capacityUsageSummaries"`
 	// Summary of sync states for all availability zones in which the firewall is configured.
 	ConfigurationSyncStateSummary pulumi.StringInput `pulumi:"configurationSyncStateSummary"`
-	Status                        pulumi.StringInput `pulumi:"status"`
+	// The current status of the firewall endpoint instantiation in the subnet.
+	Status pulumi.StringInput `pulumi:"status"`
 	// Set of subnets configured for use by the firewall.
 	SyncStates GetFirewallFirewallStatusSyncStateArrayInput `pulumi:"syncStates"`
+	// Set of transit gateway configured for use by the firewall.
+	TransitGatewayAttachmentSyncStates GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput `pulumi:"transitGatewayAttachmentSyncStates"`
 }
 
 func (GetFirewallFirewallStatusArgs) ElementType() reflect.Type {
@@ -7792,6 +8256,7 @@ func (o GetFirewallFirewallStatusOutput) ConfigurationSyncStateSummary() pulumi.
 	return o.ApplyT(func(v GetFirewallFirewallStatus) string { return v.ConfigurationSyncStateSummary }).(pulumi.StringOutput)
 }
 
+// The current status of the firewall endpoint instantiation in the subnet.
 func (o GetFirewallFirewallStatusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallFirewallStatus) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -7799,6 +8264,13 @@ func (o GetFirewallFirewallStatusOutput) Status() pulumi.StringOutput {
 // Set of subnets configured for use by the firewall.
 func (o GetFirewallFirewallStatusOutput) SyncStates() GetFirewallFirewallStatusSyncStateArrayOutput {
 	return o.ApplyT(func(v GetFirewallFirewallStatus) []GetFirewallFirewallStatusSyncState { return v.SyncStates }).(GetFirewallFirewallStatusSyncStateArrayOutput)
+}
+
+// Set of transit gateway configured for use by the firewall.
+func (o GetFirewallFirewallStatusOutput) TransitGatewayAttachmentSyncStates() GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatus) []GetFirewallFirewallStatusTransitGatewayAttachmentSyncState {
+		return v.TransitGatewayAttachmentSyncStates
+	}).(GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput)
 }
 
 type GetFirewallFirewallStatusArrayOutput struct{ *pulumi.OutputState }
@@ -8247,7 +8719,10 @@ func (o GetFirewallFirewallStatusSyncStateArrayOutput) Index(i pulumi.IntInput) 
 type GetFirewallFirewallStatusSyncStateAttachment struct {
 	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
 	EndpointId string `pulumi:"endpointId"`
-	Status     string `pulumi:"status"`
+	// The current status of the firewall endpoint instantiation in the subnet.
+	Status string `pulumi:"status"`
+	// A message providing additional information about the current status.
+	StatusMessage string `pulumi:"statusMessage"`
 	// The unique identifier for the subnet.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -8266,7 +8741,10 @@ type GetFirewallFirewallStatusSyncStateAttachmentInput interface {
 type GetFirewallFirewallStatusSyncStateAttachmentArgs struct {
 	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
 	EndpointId pulumi.StringInput `pulumi:"endpointId"`
-	Status     pulumi.StringInput `pulumi:"status"`
+	// The current status of the firewall endpoint instantiation in the subnet.
+	Status pulumi.StringInput `pulumi:"status"`
+	// A message providing additional information about the current status.
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
 	// The unique identifier for the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -8327,8 +8805,14 @@ func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) EndpointId() pulumi.
 	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) string { return v.EndpointId }).(pulumi.StringOutput)
 }
 
+// The current status of the firewall endpoint instantiation in the subnet.
 func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the current status.
+func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) string { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
 // The unique identifier for the subnet.
@@ -8354,6 +8838,123 @@ func (o GetFirewallFirewallStatusSyncStateAttachmentArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallFirewallStatusSyncStateAttachment {
 		return vs[0].([]GetFirewallFirewallStatusSyncStateAttachment)[vs[1].(int)]
 	}).(GetFirewallFirewallStatusSyncStateAttachmentOutput)
+}
+
+type GetFirewallFirewallStatusTransitGatewayAttachmentSyncState struct {
+	// The unique identifier of the transit gateway attachment.
+	AttachmentId string `pulumi:"attachmentId"`
+	// A message providing additional information about the current status.
+	StatusMessage string `pulumi:"statusMessage"`
+	// The current status of the transit gateway attachment.
+	TransitGatewayAttachmentStatus string `pulumi:"transitGatewayAttachmentStatus"`
+}
+
+// GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateInput is an input type that accepts GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs and GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput values.
+// You can construct a concrete instance of `GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateInput` via:
+//
+//	GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs{...}
+type GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateInput interface {
+	pulumi.Input
+
+	ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput() GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput
+	ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutputWithContext(context.Context) GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput
+}
+
+type GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs struct {
+	// The unique identifier of the transit gateway attachment.
+	AttachmentId pulumi.StringInput `pulumi:"attachmentId"`
+	// A message providing additional information about the current status.
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+	// The current status of the transit gateway attachment.
+	TransitGatewayAttachmentStatus pulumi.StringInput `pulumi:"transitGatewayAttachmentStatus"`
+}
+
+func (GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallFirewallStatusTransitGatewayAttachmentSyncState)(nil)).Elem()
+}
+
+func (i GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs) ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput() GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return i.ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutputWithContext(context.Background())
+}
+
+func (i GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs) ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutputWithContext(ctx context.Context) GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput)
+}
+
+// GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput is an input type that accepts GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArray and GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput values.
+// You can construct a concrete instance of `GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput` via:
+//
+//	GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArray{ GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs{...} }
+type GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput() GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput
+	ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutputWithContext(context.Context) GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput
+}
+
+type GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArray []GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateInput
+
+func (GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallFirewallStatusTransitGatewayAttachmentSyncState)(nil)).Elem()
+}
+
+func (i GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArray) ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput() GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return i.ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArray) ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput)
+}
+
+type GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallFirewallStatusTransitGatewayAttachmentSyncState)(nil)).Elem()
+}
+
+func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput() GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutputWithContext(ctx context.Context) GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return o
+}
+
+// The unique identifier of the transit gateway attachment.
+func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) AttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusTransitGatewayAttachmentSyncState) string { return v.AttachmentId }).(pulumi.StringOutput)
+}
+
+// A message providing additional information about the current status.
+func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusTransitGatewayAttachmentSyncState) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// The current status of the transit gateway attachment.
+func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput) TransitGatewayAttachmentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusTransitGatewayAttachmentSyncState) string {
+		return v.TransitGatewayAttachmentStatus
+	}).(pulumi.StringOutput)
+}
+
+type GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallFirewallStatusTransitGatewayAttachmentSyncState)(nil)).Elem()
+}
+
+func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput() GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) ToGetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallFirewallStatusTransitGatewayAttachmentSyncState {
+		return vs[0].([]GetFirewallFirewallStatusTransitGatewayAttachmentSyncState)[vs[1].(int)]
+	}).(GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput)
 }
 
 type GetFirewallPolicyFirewallPolicy struct {
@@ -9698,6 +10299,8 @@ func (o GetFirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) GetFirewal
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAvailabilityZoneMappingInput)(nil)).Elem(), FirewallAvailabilityZoneMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAvailabilityZoneMappingArrayInput)(nil)).Elem(), FirewallAvailabilityZoneMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEncryptionConfigurationInput)(nil)).Elem(), FirewallEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEncryptionConfigurationPtrInput)(nil)).Elem(), FirewallEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusInput)(nil)).Elem(), FirewallFirewallStatusArgs{})
@@ -9706,6 +10309,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateArrayInput)(nil)).Elem(), FirewallFirewallStatusSyncStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateAttachmentInput)(nil)).Elem(), FirewallFirewallStatusSyncStateAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateAttachmentArrayInput)(nil)).Elem(), FirewallFirewallStatusSyncStateAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusTransitGatewayAttachmentSyncStateInput)(nil)).Elem(), FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput)(nil)).Elem(), FirewallFirewallStatusTransitGatewayAttachmentSyncStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyEncryptionConfigurationInput)(nil)).Elem(), FirewallPolicyEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyEncryptionConfigurationPtrInput)(nil)).Elem(), FirewallPolicyEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyInput)(nil)).Elem(), FirewallPolicyFirewallPolicyArgs{})
@@ -9733,6 +10338,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallSubnetMappingInput)(nil)).Elem(), FirewallSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallSubnetMappingArrayInput)(nil)).Elem(), FirewallSubnetMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallTransitGatewayAttachmentAccepterTimeoutsInput)(nil)).Elem(), FirewallTransitGatewayAttachmentAccepterTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallTransitGatewayAttachmentAccepterTimeoutsPtrInput)(nil)).Elem(), FirewallTransitGatewayAttachmentAccepterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationPtrInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationLogDestinationConfigInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{})
@@ -9814,6 +10421,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArrayInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArrayInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallAvailabilityZoneMappingInput)(nil)).Elem(), GetFirewallAvailabilityZoneMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallAvailabilityZoneMappingArrayInput)(nil)).Elem(), GetFirewallAvailabilityZoneMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallEncryptionConfigurationInput)(nil)).Elem(), GetFirewallEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallEncryptionConfigurationArrayInput)(nil)).Elem(), GetFirewallEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusInput)(nil)).Elem(), GetFirewallFirewallStatusArgs{})
@@ -9828,6 +10437,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusSyncStateArrayInput)(nil)).Elem(), GetFirewallFirewallStatusSyncStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusSyncStateAttachmentInput)(nil)).Elem(), GetFirewallFirewallStatusSyncStateAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusSyncStateAttachmentArrayInput)(nil)).Elem(), GetFirewallFirewallStatusSyncStateAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateInput)(nil)).Elem(), GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayInput)(nil)).Elem(), GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableArgs{})
@@ -9854,6 +10465,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallSubnetMappingInput)(nil)).Elem(), GetFirewallSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallSubnetMappingArrayInput)(nil)).Elem(), GetFirewallSubnetMappingArray{})
+	pulumi.RegisterOutputType(FirewallAvailabilityZoneMappingOutput{})
+	pulumi.RegisterOutputType(FirewallAvailabilityZoneMappingArrayOutput{})
 	pulumi.RegisterOutputType(FirewallEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(FirewallEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusOutput{})
@@ -9862,6 +10475,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateArrayOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateAttachmentOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(FirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput{})
+	pulumi.RegisterOutputType(FirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyOutput{})
@@ -9889,6 +10504,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput{})
 	pulumi.RegisterOutputType(FirewallSubnetMappingOutput{})
 	pulumi.RegisterOutputType(FirewallSubnetMappingArrayOutput{})
+	pulumi.RegisterOutputType(FirewallTransitGatewayAttachmentAccepterTimeoutsOutput{})
+	pulumi.RegisterOutputType(FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput{})
@@ -9970,6 +10587,8 @@ func init() {
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArrayOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallAvailabilityZoneMappingOutput{})
+	pulumi.RegisterOutputType(GetFirewallAvailabilityZoneMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(GetFirewallEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusOutput{})
@@ -9984,6 +10603,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusSyncStateArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusSyncStateAttachmentOutput{})
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusSyncStateAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateOutput{})
+	pulumi.RegisterOutputType(GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableOutput{})

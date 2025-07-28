@@ -19,10 +19,12 @@ __all__ = [
     'EndpointKafkaSettings',
     'EndpointKinesisSettings',
     'EndpointMongodbSettings',
+    'EndpointOracleSettings',
     'EndpointPostgresSettings',
     'EndpointRedisSettings',
     'EndpointRedshiftSettings',
     'ReplicationConfigComputeConfig',
+    'ReplicationInstanceKerberosAuthenticationSettings',
     'GetEndpointElasticsearchSettingResult',
     'GetEndpointKafkaSettingResult',
     'GetEndpointKinesisSettingResult',
@@ -675,12 +677,50 @@ class EndpointMongodbSettings(dict):
 
 
 @pulumi.output_type
+class EndpointOracleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationMethod":
+            suggest = "authentication_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointOracleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointOracleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointOracleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_method: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str authentication_method: Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+        """
+        if authentication_method is not None:
+            pulumi.set(__self__, "authentication_method", authentication_method)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationMethod")
+    def authentication_method(self) -> Optional[_builtins.str]:
+        """
+        Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+        """
+        return pulumi.get(self, "authentication_method")
+
+
+@pulumi.output_type
 class EndpointPostgresSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "afterConnectScript":
             suggest = "after_connect_script"
+        elif key == "authenticationMethod":
+            suggest = "authentication_method"
         elif key == "babelfishDatabaseName":
             suggest = "babelfish_database_name"
         elif key == "captureDdls":
@@ -709,6 +749,8 @@ class EndpointPostgresSettings(dict):
             suggest = "max_file_size"
         elif key == "pluginName":
             suggest = "plugin_name"
+        elif key == "serviceAccessRoleArn":
+            suggest = "service_access_role_arn"
         elif key == "slotName":
             suggest = "slot_name"
 
@@ -725,6 +767,7 @@ class EndpointPostgresSettings(dict):
 
     def __init__(__self__, *,
                  after_connect_script: Optional[_builtins.str] = None,
+                 authentication_method: Optional[_builtins.str] = None,
                  babelfish_database_name: Optional[_builtins.str] = None,
                  capture_ddls: Optional[_builtins.bool] = None,
                  database_mode: Optional[_builtins.str] = None,
@@ -739,9 +782,11 @@ class EndpointPostgresSettings(dict):
                  map_long_varchar_as: Optional[_builtins.str] = None,
                  max_file_size: Optional[_builtins.int] = None,
                  plugin_name: Optional[_builtins.str] = None,
+                 service_access_role_arn: Optional[_builtins.str] = None,
                  slot_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str after_connect_script: For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+        :param _builtins.str authentication_method: Specifies the authentication method. Valid values: `password`, `iam`.
         :param _builtins.str babelfish_database_name: The Babelfish for Aurora PostgreSQL database name for the endpoint.
         :param _builtins.bool capture_ddls: To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
         :param _builtins.str database_mode: Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
@@ -756,10 +801,13 @@ class EndpointPostgresSettings(dict):
         :param _builtins.str map_long_varchar_as: Optional When true, DMS migrates LONG values as VARCHAR.
         :param _builtins.int max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         :param _builtins.str plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        :param _builtins.str service_access_role_arn: Specifies the IAM role to use to authenticate the connection.
         :param _builtins.str slot_name: Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
         """
         if after_connect_script is not None:
             pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if authentication_method is not None:
+            pulumi.set(__self__, "authentication_method", authentication_method)
         if babelfish_database_name is not None:
             pulumi.set(__self__, "babelfish_database_name", babelfish_database_name)
         if capture_ddls is not None:
@@ -788,6 +836,8 @@ class EndpointPostgresSettings(dict):
             pulumi.set(__self__, "max_file_size", max_file_size)
         if plugin_name is not None:
             pulumi.set(__self__, "plugin_name", plugin_name)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
         if slot_name is not None:
             pulumi.set(__self__, "slot_name", slot_name)
 
@@ -798,6 +848,14 @@ class EndpointPostgresSettings(dict):
         For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
         """
         return pulumi.get(self, "after_connect_script")
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationMethod")
+    def authentication_method(self) -> Optional[_builtins.str]:
+        """
+        Specifies the authentication method. Valid values: `password`, `iam`.
+        """
+        return pulumi.get(self, "authentication_method")
 
     @_builtins.property
     @pulumi.getter(name="babelfishDatabaseName")
@@ -910,6 +968,14 @@ class EndpointPostgresSettings(dict):
         Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
         """
         return pulumi.get(self, "plugin_name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> Optional[_builtins.str]:
+        """
+        Specifies the IAM role to use to authenticate the connection.
+        """
+        return pulumi.get(self, "service_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="slotName")
@@ -1285,6 +1351,67 @@ class ReplicationConfigComputeConfig(dict):
 
 
 @pulumi.output_type
+class ReplicationInstanceKerberosAuthenticationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyCacheSecretIamArn":
+            suggest = "key_cache_secret_iam_arn"
+        elif key == "keyCacheSecretId":
+            suggest = "key_cache_secret_id"
+        elif key == "krb5FileContents":
+            suggest = "krb5_file_contents"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationInstanceKerberosAuthenticationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationInstanceKerberosAuthenticationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationInstanceKerberosAuthenticationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_cache_secret_iam_arn: _builtins.str,
+                 key_cache_secret_id: _builtins.str,
+                 krb5_file_contents: _builtins.str):
+        """
+        :param _builtins.str key_cache_secret_iam_arn: ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+        :param _builtins.str key_cache_secret_id: Secret ID that stores the key cache file required for Kerberos authentication.
+        :param _builtins.str krb5_file_contents: Contents of krb5 configuration file required for Kerberos authentication.
+        """
+        pulumi.set(__self__, "key_cache_secret_iam_arn", key_cache_secret_iam_arn)
+        pulumi.set(__self__, "key_cache_secret_id", key_cache_secret_id)
+        pulumi.set(__self__, "krb5_file_contents", krb5_file_contents)
+
+    @_builtins.property
+    @pulumi.getter(name="keyCacheSecretIamArn")
+    def key_cache_secret_iam_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+        """
+        return pulumi.get(self, "key_cache_secret_iam_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="keyCacheSecretId")
+    def key_cache_secret_id(self) -> _builtins.str:
+        """
+        Secret ID that stores the key cache file required for Kerberos authentication.
+        """
+        return pulumi.get(self, "key_cache_secret_id")
+
+    @_builtins.property
+    @pulumi.getter(name="krb5FileContents")
+    def krb5_file_contents(self) -> _builtins.str:
+        """
+        Contents of krb5 configuration file required for Kerberos authentication.
+        """
+        return pulumi.get(self, "krb5_file_contents")
+
+
+@pulumi.output_type
 class GetEndpointElasticsearchSettingResult(dict):
     def __init__(__self__, *,
                  endpoint_uri: _builtins.str,
@@ -1581,6 +1708,7 @@ class GetEndpointMongodbSettingResult(dict):
 class GetEndpointPostgresSettingResult(dict):
     def __init__(__self__, *,
                  after_connect_script: _builtins.str,
+                 authentication_method: _builtins.str,
                  babelfish_database_name: _builtins.str,
                  capture_ddls: _builtins.bool,
                  database_mode: _builtins.str,
@@ -1595,8 +1723,10 @@ class GetEndpointPostgresSettingResult(dict):
                  map_long_varchar_as: _builtins.str,
                  max_file_size: _builtins.int,
                  plugin_name: _builtins.str,
+                 service_access_role_arn: _builtins.str,
                  slot_name: _builtins.str):
         pulumi.set(__self__, "after_connect_script", after_connect_script)
+        pulumi.set(__self__, "authentication_method", authentication_method)
         pulumi.set(__self__, "babelfish_database_name", babelfish_database_name)
         pulumi.set(__self__, "capture_ddls", capture_ddls)
         pulumi.set(__self__, "database_mode", database_mode)
@@ -1611,12 +1741,18 @@ class GetEndpointPostgresSettingResult(dict):
         pulumi.set(__self__, "map_long_varchar_as", map_long_varchar_as)
         pulumi.set(__self__, "max_file_size", max_file_size)
         pulumi.set(__self__, "plugin_name", plugin_name)
+        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
         pulumi.set(__self__, "slot_name", slot_name)
 
     @_builtins.property
     @pulumi.getter(name="afterConnectScript")
     def after_connect_script(self) -> _builtins.str:
         return pulumi.get(self, "after_connect_script")
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationMethod")
+    def authentication_method(self) -> _builtins.str:
+        return pulumi.get(self, "authentication_method")
 
     @_builtins.property
     @pulumi.getter(name="babelfishDatabaseName")
@@ -1687,6 +1823,11 @@ class GetEndpointPostgresSettingResult(dict):
     @pulumi.getter(name="pluginName")
     def plugin_name(self) -> _builtins.str:
         return pulumi.get(self, "plugin_name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "service_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="slotName")

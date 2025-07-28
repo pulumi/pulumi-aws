@@ -35,6 +35,39 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * With weighted target groups:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const frontEnd = new aws.lb.LoadBalancer("front_end", {});
+ * const frontEndBlue = new aws.lb.TargetGroup("front_end_blue", {});
+ * const frontEndGreen = new aws.lb.TargetGroup("front_end_green", {});
+ * const frontEndListener = new aws.lb.Listener("front_end", {
+ *     loadBalancerArn: frontEnd.arn,
+ *     port: 443,
+ *     protocol: "HTTPS",
+ *     sslPolicy: "ELBSecurityPolicy-2016-08",
+ *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+ *     defaultActions: [{
+ *         type: "forward",
+ *         forward: {
+ *             targetGroups: [
+ *                 {
+ *                     arn: frontEndBlue.arn,
+ *                     weight: 100,
+ *                 },
+ *                 {
+ *                     arn: frontEndGreen.arn,
+ *                     weight: 0,
+ *                 },
+ *             ],
+ *         },
+ *     }],
+ * });
+ * ```
+ *
  * To a NLB:
  *
  * ```typescript

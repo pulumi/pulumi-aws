@@ -122,6 +122,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly mongodbSettings!: pulumi.Output<outputs.dms.EndpointMongodbSettings | undefined>;
     /**
+     * Configuration block for Oracle settings. See below.
+     */
+    public readonly oracleSettings!: pulumi.Output<outputs.dms.EndpointOracleSettings | undefined>;
+    /**
      * Password to be used to login to the endpoint database.
      */
     public readonly password!: pulumi.Output<string | undefined>;
@@ -203,6 +207,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["kinesisSettings"] = state ? state.kinesisSettings : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["mongodbSettings"] = state ? state.mongodbSettings : undefined;
+            resourceInputs["oracleSettings"] = state ? state.oracleSettings : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["pauseReplicationTasks"] = state ? state.pauseReplicationTasks : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
@@ -240,6 +245,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["kinesisSettings"] = args ? args.kinesisSettings : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["mongodbSettings"] = args ? args.mongodbSettings : undefined;
+            resourceInputs["oracleSettings"] = args ? args.oracleSettings : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["pauseReplicationTasks"] = args ? args.pauseReplicationTasks : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
@@ -318,6 +324,10 @@ export interface EndpointState {
      * Configuration block for MongoDB settings. See below.
      */
     mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
+    /**
+     * Configuration block for Oracle settings. See below.
+     */
+    oracleSettings?: pulumi.Input<inputs.dms.EndpointOracleSettings>;
     /**
      * Password to be used to login to the endpoint database.
      */
@@ -426,6 +436,10 @@ export interface EndpointArgs {
      * Configuration block for MongoDB settings. See below.
      */
     mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
+    /**
+     * Configuration block for Oracle settings. See below.
+     */
+    oracleSettings?: pulumi.Input<inputs.dms.EndpointOracleSettings>;
     /**
      * Password to be used to login to the endpoint database.
      */

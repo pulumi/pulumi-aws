@@ -153,6 +153,10 @@ export class GatewayAssociation extends pulumi.CustomResource {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
+    /**
+     * The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+     */
+    public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
 
     /**
      * Create a GatewayAssociation resource with the given unique name, arguments, and options.
@@ -176,6 +180,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
             resourceInputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
             resourceInputs["proposalId"] = state ? state.proposalId : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
         } else {
             const args = argsOrState as GatewayAssociationArgs | undefined;
             if ((!args || args.dxGatewayId === undefined) && !opts.urn) {
@@ -190,6 +195,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
             resourceInputs["associatedGatewayType"] = undefined /*out*/;
             resourceInputs["dxGatewayAssociationId"] = undefined /*out*/;
             resourceInputs["dxGatewayOwnerAccountId"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GatewayAssociation.__pulumiType, name, resourceInputs, opts);
@@ -243,6 +249,10 @@ export interface GatewayAssociationState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+     */
+    transitGatewayAttachmentId?: pulumi.Input<string>;
 }
 
 /**

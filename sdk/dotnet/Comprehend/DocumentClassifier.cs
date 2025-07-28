@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Comprehend
     ///         LanguageCode = "en",
     ///         InputDataConfig = new Aws.Comprehend.Inputs.DocumentClassifierInputDataConfigArgs
     ///         {
-    ///             S3Uri = documents.Id.Apply(id =&gt; $"s3://{test.Bucket}/{id}"),
+    ///             S3Uri = documents.Key.Apply(key =&gt; $"s3://{test.Bucket}/{key}"),
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

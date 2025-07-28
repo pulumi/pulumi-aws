@@ -196,6 +196,8 @@ type GatewayAssociation struct {
 	ProposalId pulumi.StringPtrOutput `pulumi:"proposalId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 }
 
 // NewGatewayAssociation registers a new resource with the given unique name, arguments, and options.
@@ -256,6 +258,8 @@ type gatewayAssociationState struct {
 	ProposalId *string `pulumi:"proposalId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 }
 
 type GatewayAssociationState struct {
@@ -284,6 +288,8 @@ type GatewayAssociationState struct {
 	ProposalId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+	TransitGatewayAttachmentId pulumi.StringPtrInput
 }
 
 func (GatewayAssociationState) ElementType() reflect.Type {
@@ -472,6 +478,11 @@ func (o GatewayAssociationOutput) ProposalId() pulumi.StringPtrOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GatewayAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+func (o GatewayAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
 type GatewayAssociationArrayOutput struct{ *pulumi.OutputState }

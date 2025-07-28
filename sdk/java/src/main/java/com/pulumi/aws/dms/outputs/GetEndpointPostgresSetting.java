@@ -13,6 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetEndpointPostgresSetting {
     private String afterConnectScript;
+    private String authenticationMethod;
     private String babelfishDatabaseName;
     private Boolean captureDdls;
     private String databaseMode;
@@ -27,11 +28,15 @@ public final class GetEndpointPostgresSetting {
     private String mapLongVarcharAs;
     private Integer maxFileSize;
     private String pluginName;
+    private String serviceAccessRoleArn;
     private String slotName;
 
     private GetEndpointPostgresSetting() {}
     public String afterConnectScript() {
         return this.afterConnectScript;
+    }
+    public String authenticationMethod() {
+        return this.authenticationMethod;
     }
     public String babelfishDatabaseName() {
         return this.babelfishDatabaseName;
@@ -75,6 +80,9 @@ public final class GetEndpointPostgresSetting {
     public String pluginName() {
         return this.pluginName;
     }
+    public String serviceAccessRoleArn() {
+        return this.serviceAccessRoleArn;
+    }
     public String slotName() {
         return this.slotName;
     }
@@ -89,6 +97,7 @@ public final class GetEndpointPostgresSetting {
     @CustomType.Builder
     public static final class Builder {
         private String afterConnectScript;
+        private String authenticationMethod;
         private String babelfishDatabaseName;
         private Boolean captureDdls;
         private String databaseMode;
@@ -103,11 +112,13 @@ public final class GetEndpointPostgresSetting {
         private String mapLongVarcharAs;
         private Integer maxFileSize;
         private String pluginName;
+        private String serviceAccessRoleArn;
         private String slotName;
         public Builder() {}
         public Builder(GetEndpointPostgresSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.afterConnectScript = defaults.afterConnectScript;
+    	      this.authenticationMethod = defaults.authenticationMethod;
     	      this.babelfishDatabaseName = defaults.babelfishDatabaseName;
     	      this.captureDdls = defaults.captureDdls;
     	      this.databaseMode = defaults.databaseMode;
@@ -122,6 +133,7 @@ public final class GetEndpointPostgresSetting {
     	      this.mapLongVarcharAs = defaults.mapLongVarcharAs;
     	      this.maxFileSize = defaults.maxFileSize;
     	      this.pluginName = defaults.pluginName;
+    	      this.serviceAccessRoleArn = defaults.serviceAccessRoleArn;
     	      this.slotName = defaults.slotName;
         }
 
@@ -131,6 +143,14 @@ public final class GetEndpointPostgresSetting {
               throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "afterConnectScript");
             }
             this.afterConnectScript = afterConnectScript;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder authenticationMethod(String authenticationMethod) {
+            if (authenticationMethod == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "authenticationMethod");
+            }
+            this.authenticationMethod = authenticationMethod;
             return this;
         }
         @CustomType.Setter
@@ -246,6 +266,14 @@ public final class GetEndpointPostgresSetting {
             return this;
         }
         @CustomType.Setter
+        public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
+            if (serviceAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "serviceAccessRoleArn");
+            }
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder slotName(String slotName) {
             if (slotName == null) {
               throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "slotName");
@@ -256,6 +284,7 @@ public final class GetEndpointPostgresSetting {
         public GetEndpointPostgresSetting build() {
             final var _resultValue = new GetEndpointPostgresSetting();
             _resultValue.afterConnectScript = afterConnectScript;
+            _resultValue.authenticationMethod = authenticationMethod;
             _resultValue.babelfishDatabaseName = babelfishDatabaseName;
             _resultValue.captureDdls = captureDdls;
             _resultValue.databaseMode = databaseMode;
@@ -270,6 +299,7 @@ public final class GetEndpointPostgresSetting {
             _resultValue.mapLongVarcharAs = mapLongVarcharAs;
             _resultValue.maxFileSize = maxFileSize;
             _resultValue.pluginName = pluginName;
+            _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
             _resultValue.slotName = slotName;
             return _resultValue;
         }

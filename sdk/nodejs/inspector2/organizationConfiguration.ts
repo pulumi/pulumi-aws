@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  * const example = new aws.inspector2.OrganizationConfiguration("example", {autoEnable: {
  *     ec2: true,
  *     ecr: false,
+ *     codeRepository: false,
  *     lambda: true,
  *     lambdaCode: true,
  * }});

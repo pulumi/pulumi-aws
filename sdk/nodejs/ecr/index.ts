@@ -20,6 +20,11 @@ export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
 utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
 
+export { GetImagesArgs, GetImagesResult, GetImagesOutputArgs } from "./getImages";
+export const getImages: typeof import("./getImages").getImages = null as any;
+export const getImagesOutput: typeof import("./getImages").getImagesOutput = null as any;
+utilities.lazyLoad(exports, ["getImages","getImagesOutput"], () => require("./getImages"));
+
 export { GetLifecyclePolicyDocumentArgs, GetLifecyclePolicyDocumentResult, GetLifecyclePolicyDocumentOutputArgs } from "./getLifecyclePolicyDocument";
 export const getLifecyclePolicyDocument: typeof import("./getLifecyclePolicyDocument").getLifecyclePolicyDocument = null as any;
 export const getLifecyclePolicyDocumentOutput: typeof import("./getLifecyclePolicyDocument").getLifecyclePolicyDocumentOutput = null as any;

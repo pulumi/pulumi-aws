@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Eks.Inputs
         public Input<string>? AuthenticationMode { get; set; }
 
         /// <summary>
-        /// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
+        /// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
         /// </summary>
         [Input("bootstrapClusterCreatorAdminPermissions")]
         public Input<bool>? BootstrapClusterCreatorAdminPermissions { get; set; }

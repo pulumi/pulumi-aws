@@ -34,10 +34,10 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *         documents: {
- *             s3Uri: pulumi.interpolate`s3://${documentsAwsS3Bucket.bucket}/${documents.id}`,
+ *             s3Uri: pulumi.interpolate`s3://${documentsAwsS3Bucket.bucket}/${documents.key}`,
  *         },
  *         entityList: {
- *             s3Uri: pulumi.interpolate`s3://${entitiesAwsS3Bucket.bucket}/${entities.id}`,
+ *             s3Uri: pulumi.interpolate`s3://${entitiesAwsS3Bucket.bucket}/${entities.key}`,
  *         },
  *     },
  * }, {

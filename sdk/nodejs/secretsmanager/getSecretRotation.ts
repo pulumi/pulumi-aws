@@ -55,15 +55,15 @@ export interface GetSecretRotationResult {
     readonly id: string;
     readonly region: string;
     /**
-     * ARN of the secret.
+     * Specifies whether automatic rotation is enabled for this secret.
      */
     readonly rotationEnabled: boolean;
     /**
-     * Decrypted part of the protected secret information that was originally provided as a string.
+     * Amazon Resource Name (ARN) of the lambda function used for rotation.
      */
     readonly rotationLambdaArn: string;
     /**
-     * Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+     * Configuration block for rotation rules. See `rotationRules` below.
      */
     readonly rotationRules: outputs.secretsmanager.GetSecretRotationRotationRule[];
     readonly secretId: string;

@@ -36,10 +36,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := inspector2.NewOrganizationConfiguration(ctx, "example", &inspector2.OrganizationConfigurationArgs{
 //				AutoEnable: &inspector2.OrganizationConfigurationAutoEnableArgs{
-//					Ec2:        pulumi.Bool(true),
-//					Ecr:        pulumi.Bool(false),
-//					Lambda:     pulumi.Bool(true),
-//					LambdaCode: pulumi.Bool(true),
+//					Ec2:            pulumi.Bool(true),
+//					Ecr:            pulumi.Bool(false),
+//					CodeRepository: pulumi.Bool(false),
+//					Lambda:         pulumi.Bool(true),
+//					LambdaCode:     pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {

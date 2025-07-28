@@ -144,7 +144,8 @@ class _GatewayAssociationState:
                  dx_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  dx_gateway_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  proposal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GatewayAssociation resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -163,6 +164,7 @@ class _GatewayAssociationState:
         :param pulumi.Input[_builtins.str] proposal_id: The ID of the Direct Connect gateway association proposal.
                Used for cross-account Direct Connect gateway associations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The ID of the Transit Gateway Attachment when the type is `transitGateway`.
         """
         if allowed_prefixes is not None:
             pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
@@ -182,6 +184,8 @@ class _GatewayAssociationState:
             pulumi.set(__self__, "proposal_id", proposal_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if transit_gateway_attachment_id is not None:
+            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
 
     @_builtins.property
     @pulumi.getter(name="allowedPrefixes")
@@ -297,6 +301,18 @@ class _GatewayAssociationState:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_id")
+
+    @transit_gateway_attachment_id.setter
+    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
 @pulumi.type_token("aws:directconnect/gatewayAssociation:GatewayAssociation")
@@ -519,6 +535,7 @@ class GatewayAssociation(pulumi.CustomResource):
             __props__.__dict__["associated_gateway_type"] = None
             __props__.__dict__["dx_gateway_association_id"] = None
             __props__.__dict__["dx_gateway_owner_account_id"] = None
+            __props__.__dict__["transit_gateway_attachment_id"] = None
         super(GatewayAssociation, __self__).__init__(
             'aws:directconnect/gatewayAssociation:GatewayAssociation',
             resource_name,
@@ -537,7 +554,8 @@ class GatewayAssociation(pulumi.CustomResource):
             dx_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
             dx_gateway_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             proposal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'GatewayAssociation':
+            region: Optional[pulumi.Input[_builtins.str]] = None,
+            transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'GatewayAssociation':
         """
         Get an existing GatewayAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -561,6 +579,7 @@ class GatewayAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] proposal_id: The ID of the Direct Connect gateway association proposal.
                Used for cross-account Direct Connect gateway associations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The ID of the Transit Gateway Attachment when the type is `transitGateway`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -575,6 +594,7 @@ class GatewayAssociation(pulumi.CustomResource):
         __props__.__dict__["dx_gateway_owner_account_id"] = dx_gateway_owner_account_id
         __props__.__dict__["proposal_id"] = proposal_id
         __props__.__dict__["region"] = region
+        __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         return GatewayAssociation(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -655,4 +675,12 @@ class GatewayAssociation(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_id")
 

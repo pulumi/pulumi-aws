@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Inspector2.Inputs
     public sealed class OrganizationConfigurationAutoEnableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
+        /// </summary>
+        [Input("codeRepository")]
+        public Input<bool>? CodeRepository { get; set; }
+
+        /// <summary>
         /// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
         /// </summary>
         [Input("ec2", required: true)]

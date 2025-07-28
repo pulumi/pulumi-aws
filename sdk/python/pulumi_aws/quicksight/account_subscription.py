@@ -640,7 +640,11 @@ class AccountSubscription(pulumi.CustomResource):
 
         ## Import
 
-        You cannot import this resource.
+        Using `pulumi import`, import a QuickSight Account Subscription using `aws_account_id`. For example:
+
+        ```sh
+        $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example "012345678901"
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -690,7 +694,11 @@ class AccountSubscription(pulumi.CustomResource):
 
         ## Import
 
-        You cannot import this resource.
+        Using `pulumi import`, import a QuickSight Account Subscription using `aws_account_id`. For example:
+
+        ```sh
+        $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example "012345678901"
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountSubscriptionArgs args: The arguments to use to populate this resource's properties.

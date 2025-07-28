@@ -5967,8 +5967,8 @@ public final class IamFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.s3.BucketObject;
-     * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import com.pulumi.aws.s3.BucketObjectv2;
+     * import com.pulumi.aws.s3.BucketObjectv2Args;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -5983,7 +5983,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject("example", BucketObjectArgs.builder()
+     *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
      *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
@@ -6167,8 +6167,8 @@ public final class IamFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.s3.BucketObject;
-     * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import com.pulumi.aws.s3.BucketObjectv2;
+     * import com.pulumi.aws.s3.BucketObjectv2Args;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -6183,7 +6183,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject("example", BucketObjectArgs.builder()
+     *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
      *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
@@ -6367,8 +6367,8 @@ public final class IamFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.s3.BucketObject;
-     * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import com.pulumi.aws.s3.BucketObjectv2;
+     * import com.pulumi.aws.s3.BucketObjectv2Args;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -6383,7 +6383,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject("example", BucketObjectArgs.builder()
+     *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
      *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
@@ -6567,8 +6567,8 @@ public final class IamFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.s3.BucketObject;
-     * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import com.pulumi.aws.s3.BucketObjectv2;
+     * import com.pulumi.aws.s3.BucketObjectv2Args;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -6583,7 +6583,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject("example", BucketObjectArgs.builder()
+     *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
      *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
@@ -6767,8 +6767,8 @@ public final class IamFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.s3.BucketObject;
-     * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import com.pulumi.aws.s3.BucketObjectv2;
+     * import com.pulumi.aws.s3.BucketObjectv2Args;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -6783,7 +6783,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject("example", BucketObjectArgs.builder()
+     *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
      *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)

@@ -197,6 +197,12 @@ namespace Pulumi.Aws.DirectConnect
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+        /// </summary>
+        [Output("transitGatewayAttachmentId")]
+        public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a GatewayAssociation resource with the given unique name, arguments, and options.
@@ -366,6 +372,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// The ID of the Transit Gateway Attachment when the type is `transitGateway`.
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        public Input<string>? TransitGatewayAttachmentId { get; set; }
 
         public GatewayAssociationState()
         {

@@ -50,6 +50,57 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// 
+    /// With weighted target groups:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var frontEnd = new Aws.LB.LoadBalancer("front_end");
+    /// 
+    ///     var frontEndBlue = new Aws.LB.TargetGroup("front_end_blue");
+    /// 
+    ///     var frontEndGreen = new Aws.LB.TargetGroup("front_end_green");
+    /// 
+    ///     var frontEndListener = new Aws.LB.Listener("front_end", new()
+    ///     {
+    ///         LoadBalancerArn = frontEnd.Arn,
+    ///         Port = 443,
+    ///         Protocol = "HTTPS",
+    ///         SslPolicy = "ELBSecurityPolicy-2016-08",
+    ///         CertificateArn = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+    ///         DefaultActions = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///             {
+    ///                 Type = "forward",
+    ///                 Forward = new Aws.LB.Inputs.ListenerDefaultActionForwardArgs
+    ///                 {
+    ///                     TargetGroups = new[]
+    ///                     {
+    ///                         new Aws.LB.Inputs.ListenerDefaultActionForwardTargetGroupArgs
+    ///                         {
+    ///                             Arn = frontEndBlue.Arn,
+    ///                             Weight = 100,
+    ///                         },
+    ///                         new Aws.LB.Inputs.ListenerDefaultActionForwardTargetGroupArgs
+    ///                         {
+    ///                             Arn = frontEndGreen.Arn,
+    ///                             Weight = 0,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// To a NLB:
     /// 
     /// ```csharp

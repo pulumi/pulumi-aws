@@ -50,7 +50,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
      * At least one item is required.
      * 
      */
@@ -59,7 +59,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
      * At least one item is required.
      * 
      */
@@ -150,7 +150,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param resourceTypes Type of resources to scan.
-         * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+         * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
          * At least one item is required.
          * 
          * @return builder
@@ -163,7 +163,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param resourceTypes Type of resources to scan.
-         * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+         * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
          * At least one item is required.
          * 
          * @return builder
@@ -175,7 +175,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param resourceTypes Type of resources to scan.
-         * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+         * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
          * At least one item is required.
          * 
          * @return builder

@@ -41,7 +41,7 @@ import {Application} from "./index";
  *     application: "tf-test-name",
  *     description: "application version",
  *     bucket: _default.id,
- *     key: defaultBucketObjectv2.id,
+ *     key: defaultBucketObjectv2.key,
  * });
  * ```
  */
