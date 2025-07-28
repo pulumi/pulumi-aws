@@ -164,13 +164,6 @@ func TestTagsCombinationsGo(t *testing.T) {
 	}
 }
 
-// TestTagsCombinationsGoSingle runs just one test case to verify basic functionality
-func TestTagsCombinationsGoSingle(t *testing.T) {
-	s1 := tagsState{ResourceTags: map[string]string{"x": "s"}}
-	s2 := tagsState{ResourceTags: map[string]string{"x": "s"}}
-	s1.validateTransitionTo(t, 0, s2)
-}
-
 func TestRandomTagsCombinationsGo(t *testing.T) {
 	t.Skipf("Skipping for now until related issues are resolved")
 	tagValues := []string{"", "s"} // empty values are conflated with unknowns in TF internals, must test
