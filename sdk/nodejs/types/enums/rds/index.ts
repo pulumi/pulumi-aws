@@ -15,6 +15,8 @@ export const EngineType = {
     Aurora: "aurora",
     AuroraMysql: "aurora-mysql",
     AuroraPostgresql: "aurora-postgresql",
+    Mysql: "mysql",
+    Postgres: "postgres",
 } as const;
 
 export type EngineType = (typeof EngineType)[keyof typeof EngineType];

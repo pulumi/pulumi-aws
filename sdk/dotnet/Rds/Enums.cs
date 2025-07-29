@@ -50,6 +50,8 @@ namespace Pulumi.Aws.Rds
         public static EngineType Aurora { get; } = new EngineType("aurora");
         public static EngineType AuroraMysql { get; } = new EngineType("aurora-mysql");
         public static EngineType AuroraPostgresql { get; } = new EngineType("aurora-postgresql");
+        public static EngineType Mysql { get; } = new EngineType("mysql");
+        public static EngineType Postgres { get; } = new EngineType("postgres");
 
         public static bool operator ==(EngineType left, EngineType right) => left.Equals(right);
         public static bool operator !=(EngineType left, EngineType right) => !left.Equals(right);

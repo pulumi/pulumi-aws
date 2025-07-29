@@ -165,7 +165,7 @@ import (
 //					pulumi.String("us-west-2b"),
 //					pulumi.String("us-west-2c"),
 //				},
-//				Engine:                 pulumi.String("mysql"),
+//				Engine:                 pulumi.String(rds.EngineTypeMysql),
 //				DbClusterInstanceClass: pulumi.String("db.r6gd.xlarge"),
 //				StorageType:            pulumi.String("io1"),
 //				AllocatedStorage:       pulumi.Int(100),

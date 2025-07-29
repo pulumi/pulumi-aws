@@ -27,6 +27,8 @@ class EngineType(_builtins.str, Enum):
     AURORA = "aurora"
     AURORA_MYSQL = "aurora-mysql"
     AURORA_POSTGRESQL = "aurora-postgresql"
+    MYSQL = "mysql"
+    POSTGRES = "postgres"
 
 
 @pulumi.type_token("aws:rds/InstanceType:InstanceType")

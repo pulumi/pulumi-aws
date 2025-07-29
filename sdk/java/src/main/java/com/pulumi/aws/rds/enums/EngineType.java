@@ -12,7 +12,9 @@ import java.util.StringJoiner;
     public enum EngineType {
         Aurora("aurora"),
         AuroraMysql("aurora-mysql"),
-        AuroraPostgresql("aurora-postgresql");
+        AuroraPostgresql("aurora-postgresql"),
+        Mysql("mysql"),
+        Postgres("postgres");
 
         private final String value;
 

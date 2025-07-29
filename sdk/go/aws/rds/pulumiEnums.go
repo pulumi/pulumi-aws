@@ -185,6 +185,8 @@ const (
 	EngineTypeAurora           = EngineType("aurora")
 	EngineTypeAuroraMysql      = EngineType("aurora-mysql")
 	EngineTypeAuroraPostgresql = EngineType("aurora-postgresql")
+	EngineTypeMysql            = EngineType("mysql")
+	EngineTypePostgres         = EngineType("postgres")
 )
 
 func (EngineType) ElementType() reflect.Type {
@@ -312,6 +314,8 @@ func (o EngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 //	EngineTypeAurora
 //	EngineTypeAuroraMysql
 //	EngineTypeAuroraPostgresql
+//	EngineTypeMysql
+//	EngineTypePostgres
 type EngineTypeInput interface {
 	pulumi.Input
 
