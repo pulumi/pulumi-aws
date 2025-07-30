@@ -672,7 +672,7 @@ func TestRegress3421Update(t *testing.T) {
 	test.Up(t)
 }
 
-func TestGlobalRegionResource(t *testing.T) {
+func TestGlobalResourcesUseSeparateRegionArgument(t *testing.T) {
 	skipIfShort(t)
 	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "test-programs/global-region-res",

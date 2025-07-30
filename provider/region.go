@@ -21,7 +21,7 @@ func applyRegionPreCheckCallback(
 ) {
 	// global resources have a separate region argument (e.g. `stack_set_instance_region`)
 	// and have deprecated the `region` argument if they had one
-	if r, ok := res.Schema().GetOk("region"); !ok || r.Deprecated() != "" {
+	if region, ok := res.Schema().GetOk("region"); !ok || region.Deprecated() != "" {
 		return
 	}
 	if callback := prov.Resources[key].PreCheckCallback; callback != nil {
