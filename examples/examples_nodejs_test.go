@@ -672,6 +672,18 @@ func TestRegress3421Update(t *testing.T) {
 	test.Up(t)
 }
 
+func TestGlobalRegionResource(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
+	test := pulumitest.NewPulumiTest(t, "test-programs/global-region-res",
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	)
+
+	// only preview is needed to verify this
+	test.Preview(t)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	baseJS := integration.ProgramTestOptions{
