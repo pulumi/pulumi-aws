@@ -354,6 +354,8 @@ class ComputeEnvironmentComputeResourcesEc2Configuration(dict):
         suggest = None
         if key == "imageIdOverride":
             suggest = "image_id_override"
+        elif key == "imageKubernetesVersion":
+            suggest = "image_kubernetes_version"
         elif key == "imageType":
             suggest = "image_type"
 
@@ -370,13 +372,17 @@ class ComputeEnvironmentComputeResourcesEc2Configuration(dict):
 
     def __init__(__self__, *,
                  image_id_override: Optional[_builtins.str] = None,
+                 image_kubernetes_version: Optional[_builtins.str] = None,
                  image_type: Optional[_builtins.str] = None):
         """
         :param _builtins.str image_id_override: The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
+        :param _builtins.str image_kubernetes_version: The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
         :param _builtins.str image_type: The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
         """
         if image_id_override is not None:
             pulumi.set(__self__, "image_id_override", image_id_override)
+        if image_kubernetes_version is not None:
+            pulumi.set(__self__, "image_kubernetes_version", image_kubernetes_version)
         if image_type is not None:
             pulumi.set(__self__, "image_type", image_type)
 
@@ -387,6 +393,14 @@ class ComputeEnvironmentComputeResourcesEc2Configuration(dict):
         The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
         """
         return pulumi.get(self, "image_id_override")
+
+    @_builtins.property
+    @pulumi.getter(name="imageKubernetesVersion")
+    def image_kubernetes_version(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+        """
+        return pulumi.get(self, "image_kubernetes_version")
 
     @_builtins.property
     @pulumi.getter(name="imageType")

@@ -97,6 +97,21 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+     * 
+     */
+    @Import(name="availableSecurityUpdatesComplianceStatus")
+    private @Nullable Output<String> availableSecurityUpdatesComplianceStatus;
+
+    /**
+     * @return Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+     * 
+     */
+    public Optional<Output<String>> availableSecurityUpdatesComplianceStatus() {
+        return Optional.ofNullable(this.availableSecurityUpdatesComplianceStatus);
+    }
+
+    /**
      * Description of the patch baseline.
      * 
      */
@@ -273,6 +288,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         this.approvedPatchesComplianceLevel = $.approvedPatchesComplianceLevel;
         this.approvedPatchesEnableNonSecurity = $.approvedPatchesEnableNonSecurity;
         this.arn = $.arn;
+        this.availableSecurityUpdatesComplianceStatus = $.availableSecurityUpdatesComplianceStatus;
         this.description = $.description;
         this.globalFilters = $.globalFilters;
         this.json = $.json;
@@ -427,6 +443,27 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param availableSecurityUpdatesComplianceStatus Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availableSecurityUpdatesComplianceStatus(@Nullable Output<String> availableSecurityUpdatesComplianceStatus) {
+            $.availableSecurityUpdatesComplianceStatus = availableSecurityUpdatesComplianceStatus;
+            return this;
+        }
+
+        /**
+         * @param availableSecurityUpdatesComplianceStatus Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availableSecurityUpdatesComplianceStatus(String availableSecurityUpdatesComplianceStatus) {
+            return availableSecurityUpdatesComplianceStatus(Output.of(availableSecurityUpdatesComplianceStatus));
         }
 
         /**

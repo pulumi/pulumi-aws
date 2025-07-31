@@ -14,6 +14,8 @@ import (
 
 // Provides a resource to create a VPC NAT Gateway.
 //
+// !> **WARNING:** You should not use the `ec2.NatGateway` resource that has `secondaryAllocationIds` in conjunction with an `ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
+//
 // ## Example Usage
 //
 // ### Public NAT
@@ -160,11 +162,11 @@ type NatGateway struct {
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A list of secondary allocation EIP IDs for this NAT Gateway.
+	// A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
 	SecondaryAllocationIds pulumi.StringArrayOutput `pulumi:"secondaryAllocationIds"`
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
 	SecondaryPrivateIpAddressCount pulumi.IntOutput `pulumi:"secondaryPrivateIpAddressCount"`
-	// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+	// A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
 	SecondaryPrivateIpAddresses pulumi.StringArrayOutput `pulumi:"secondaryPrivateIpAddresses"`
 	// The Subnet ID of the subnet in which to place the NAT Gateway.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -221,11 +223,11 @@ type natGatewayState struct {
 	PublicIp *string `pulumi:"publicIp"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A list of secondary allocation EIP IDs for this NAT Gateway.
+	// A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
 	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
 	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
-	// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+	// A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
 	SecondaryPrivateIpAddresses []string `pulumi:"secondaryPrivateIpAddresses"`
 	// The Subnet ID of the subnet in which to place the NAT Gateway.
 	SubnetId *string `pulumi:"subnetId"`
@@ -250,11 +252,11 @@ type NatGatewayState struct {
 	PublicIp pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A list of secondary allocation EIP IDs for this NAT Gateway.
+	// A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
 	SecondaryAllocationIds pulumi.StringArrayInput
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
 	SecondaryPrivateIpAddressCount pulumi.IntPtrInput
-	// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+	// A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
 	SecondaryPrivateIpAddresses pulumi.StringArrayInput
 	// The Subnet ID of the subnet in which to place the NAT Gateway.
 	SubnetId pulumi.StringPtrInput
@@ -277,11 +279,11 @@ type natGatewayArgs struct {
 	PrivateIp *string `pulumi:"privateIp"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A list of secondary allocation EIP IDs for this NAT Gateway.
+	// A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
 	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
 	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
-	// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+	// A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
 	SecondaryPrivateIpAddresses []string `pulumi:"secondaryPrivateIpAddresses"`
 	// The Subnet ID of the subnet in which to place the NAT Gateway.
 	SubnetId string `pulumi:"subnetId"`
@@ -299,11 +301,11 @@ type NatGatewayArgs struct {
 	PrivateIp pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A list of secondary allocation EIP IDs for this NAT Gateway.
+	// A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
 	SecondaryAllocationIds pulumi.StringArrayInput
 	// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
 	SecondaryPrivateIpAddressCount pulumi.IntPtrInput
-	// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+	// A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
 	SecondaryPrivateIpAddresses pulumi.StringArrayInput
 	// The Subnet ID of the subnet in which to place the NAT Gateway.
 	SubnetId pulumi.StringInput
@@ -433,7 +435,7 @@ func (o NatGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of secondary allocation EIP IDs for this NAT Gateway.
+// A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
 func (o NatGatewayOutput) SecondaryAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringArrayOutput { return v.SecondaryAllocationIds }).(pulumi.StringArrayOutput)
 }
@@ -443,7 +445,7 @@ func (o NatGatewayOutput) SecondaryPrivateIpAddressCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.IntOutput { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntOutput)
 }
 
-// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+// A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
 func (o NatGatewayOutput) SecondaryPrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringArrayOutput { return v.SecondaryPrivateIpAddresses }).(pulumi.StringArrayOutput)
 }

@@ -46,14 +46,14 @@ public final class ServiceSettingState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * ID of the service setting.
+     * ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
      * 
      */
     @Import(name="settingId")
     private @Nullable Output<String> settingId;
 
     /**
-     * @return ID of the service setting.
+     * @return ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
      * 
      */
     public Optional<Output<String>> settingId() {
@@ -161,7 +161,7 @@ public final class ServiceSettingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param settingId ID of the service setting.
+         * @param settingId ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ServiceSettingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param settingId ID of the service setting.
+         * @param settingId ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
          * 
          * @return builder
          * 

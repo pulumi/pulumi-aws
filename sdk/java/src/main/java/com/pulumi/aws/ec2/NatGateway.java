@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource to create a VPC NAT Gateway.
  * 
+ * !&gt; **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
+ * 
  * ## Example Usage
  * 
  * ### Public NAT
@@ -283,18 +285,18 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
      * 
      */
     @Export(name="secondaryAllocationIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> secondaryAllocationIds;
+    private Output<List<String>> secondaryAllocationIds;
 
     /**
-     * @return A list of secondary allocation EIP IDs for this NAT Gateway.
+     * @return A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
      * 
      */
-    public Output<Optional<List<String>>> secondaryAllocationIds() {
-        return Codegen.optional(this.secondaryAllocationIds);
+    public Output<List<String>> secondaryAllocationIds() {
+        return this.secondaryAllocationIds;
     }
     /**
      * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
@@ -311,14 +313,14 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return this.secondaryPrivateIpAddressCount;
     }
     /**
-     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
      * 
      */
     @Export(name="secondaryPrivateIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> secondaryPrivateIpAddresses;
 
     /**
-     * @return A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * @return A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
      * 
      */
     public Output<List<String>> secondaryPrivateIpAddresses() {

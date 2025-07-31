@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.GuardrailTopicPolicyConfigTierConfigArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailTopicPolicyConfigTopicsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GuardrailTopicPolicyConfigArgs Empty = new GuardrailTopicPolicyConfigArgs();
+
+    /**
+     * Configuration block for the topic policy tier. See Tier Config for more information.
+     * 
+     */
+    @Import(name="tierConfigs")
+    private @Nullable Output<List<GuardrailTopicPolicyConfigTierConfigArgs>> tierConfigs;
+
+    /**
+     * @return Configuration block for the topic policy tier. See Tier Config for more information.
+     * 
+     */
+    public Optional<Output<List<GuardrailTopicPolicyConfigTierConfigArgs>>> tierConfigs() {
+        return Optional.ofNullable(this.tierConfigs);
+    }
 
     /**
      * List of topic configs in topic policy. See Topics Config for more information.
@@ -34,6 +50,7 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
     private GuardrailTopicPolicyConfigArgs() {}
 
     private GuardrailTopicPolicyConfigArgs(GuardrailTopicPolicyConfigArgs $) {
+        this.tierConfigs = $.tierConfigs;
         this.topicsConfigs = $.topicsConfigs;
     }
 
@@ -53,6 +70,37 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
 
         public Builder(GuardrailTopicPolicyConfigArgs defaults) {
             $ = new GuardrailTopicPolicyConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param tierConfigs Configuration block for the topic policy tier. See Tier Config for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierConfigs(@Nullable Output<List<GuardrailTopicPolicyConfigTierConfigArgs>> tierConfigs) {
+            $.tierConfigs = tierConfigs;
+            return this;
+        }
+
+        /**
+         * @param tierConfigs Configuration block for the topic policy tier. See Tier Config for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierConfigs(List<GuardrailTopicPolicyConfigTierConfigArgs> tierConfigs) {
+            return tierConfigs(Output.of(tierConfigs));
+        }
+
+        /**
+         * @param tierConfigs Configuration block for the topic policy tier. See Tier Config for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierConfigs(GuardrailTopicPolicyConfigTierConfigArgs... tierConfigs) {
+            return tierConfigs(List.of(tierConfigs));
         }
 
         /**

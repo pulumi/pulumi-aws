@@ -70,8 +70,10 @@ type LookupEventBusResult struct {
 	Id string `pulumi:"id"`
 	// Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
 	KmsKeyIdentifier string `pulumi:"kmsKeyIdentifier"`
-	Name             string `pulumi:"name"`
-	Region           string `pulumi:"region"`
+	// Block for logging configuration settings for the event bus.
+	LogConfigs []GetEventBusLogConfig `pulumi:"logConfigs"`
+	Name       string                 `pulumi:"name"`
+	Region     string                 `pulumi:"region"`
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
@@ -133,6 +135,11 @@ func (o LookupEventBusResultOutput) Id() pulumi.StringOutput {
 // Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
 func (o LookupEventBusResultOutput) KmsKeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.KmsKeyIdentifier }).(pulumi.StringOutput)
+}
+
+// Block for logging configuration settings for the event bus.
+func (o LookupEventBusResultOutput) LogConfigs() GetEventBusLogConfigArrayOutput {
+	return o.ApplyT(func(v LookupEventBusResult) []GetEventBusLogConfig { return v.LogConfigs }).(GetEventBusLogConfigArrayOutput)
 }
 
 func (o LookupEventBusResultOutput) Name() pulumi.StringOutput {

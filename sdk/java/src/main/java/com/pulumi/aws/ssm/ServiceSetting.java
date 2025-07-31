@@ -92,14 +92,14 @@ public class ServiceSetting extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * ID of the service setting.
+     * ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
      * 
      */
     @Export(name="settingId", refs={String.class}, tree="[0]")
     private Output<String> settingId;
 
     /**
-     * @return ID of the service setting.
+     * @return ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
      * 
      */
     public Output<String> settingId() {

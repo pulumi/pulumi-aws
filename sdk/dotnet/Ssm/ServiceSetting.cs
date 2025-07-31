@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the service setting.
+        /// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         /// </summary>
         [Output("settingId")]
         public Output<string> SettingId { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID of the service setting.
+        /// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         /// </summary>
         [Input("settingId", required: true)]
         public Input<string> SettingId { get; set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID of the service setting.
+        /// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         /// </summary>
         [Input("settingId")]
         public Input<string>? SettingId { get; set; }

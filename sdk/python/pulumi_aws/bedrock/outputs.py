@@ -188,13 +188,16 @@ __all__ = [
     'CustomModelVpcConfig',
     'GuardrailContentPolicyConfig',
     'GuardrailContentPolicyConfigFiltersConfig',
+    'GuardrailContentPolicyConfigTierConfig',
     'GuardrailContextualGroundingPolicyConfig',
     'GuardrailContextualGroundingPolicyConfigFiltersConfig',
+    'GuardrailCrossRegionConfig',
     'GuardrailSensitiveInformationPolicyConfig',
     'GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig',
     'GuardrailSensitiveInformationPolicyConfigRegexesConfig',
     'GuardrailTimeouts',
     'GuardrailTopicPolicyConfig',
+    'GuardrailTopicPolicyConfigTierConfig',
     'GuardrailTopicPolicyConfigTopicsConfig',
     'GuardrailVersionTimeouts',
     'GuardrailWordPolicyConfig',
@@ -7409,6 +7412,8 @@ class GuardrailContentPolicyConfig(dict):
         suggest = None
         if key == "filtersConfigs":
             suggest = "filters_configs"
+        elif key == "tierConfigs":
+            suggest = "tier_configs"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GuardrailContentPolicyConfig. Access the value via the '{suggest}' property getter instead.")
@@ -7422,13 +7427,17 @@ class GuardrailContentPolicyConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 filters_configs: Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']] = None):
+                 filters_configs: Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']] = None,
+                 tier_configs: Optional[Sequence['outputs.GuardrailContentPolicyConfigTierConfig']] = None):
         """
         :param Sequence['GuardrailContentPolicyConfigFiltersConfigArgs'] filters_configs: Set of content filter configs in content policy.
                See Filters Config for more information.
+        :param Sequence['GuardrailContentPolicyConfigTierConfigArgs'] tier_configs: Configuration block for the content policy tier. See Tier Config for more information.
         """
         if filters_configs is not None:
             pulumi.set(__self__, "filters_configs", filters_configs)
+        if tier_configs is not None:
+            pulumi.set(__self__, "tier_configs", tier_configs)
 
     @_builtins.property
     @pulumi.getter(name="filtersConfigs")
@@ -7438,6 +7447,14 @@ class GuardrailContentPolicyConfig(dict):
         See Filters Config for more information.
         """
         return pulumi.get(self, "filters_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="tierConfigs")
+    def tier_configs(self) -> Optional[Sequence['outputs.GuardrailContentPolicyConfigTierConfig']]:
+        """
+        Configuration block for the content policy tier. See Tier Config for more information.
+        """
+        return pulumi.get(self, "tier_configs")
 
 
 @pulumi.output_type
@@ -7497,6 +7514,41 @@ class GuardrailContentPolicyConfigFiltersConfig(dict):
         Type of contextual grounding filter.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailContentPolicyConfigTierConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tierName":
+            suggest = "tier_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailContentPolicyConfigTierConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailContentPolicyConfigTierConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailContentPolicyConfigTierConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tier_name: _builtins.str):
+        """
+        :param _builtins.str tier_name: The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+        pulumi.set(__self__, "tier_name", tier_name)
+
+    @_builtins.property
+    @pulumi.getter(name="tierName")
+    def tier_name(self) -> _builtins.str:
+        """
+        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+        return pulumi.get(self, "tier_name")
 
 
 @pulumi.output_type
@@ -7562,6 +7614,41 @@ class GuardrailContextualGroundingPolicyConfigFiltersConfig(dict):
         Type of contextual grounding filter.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailCrossRegionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guardrailProfileIdentifier":
+            suggest = "guardrail_profile_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailCrossRegionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailCrossRegionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailCrossRegionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guardrail_profile_identifier: _builtins.str):
+        """
+        :param _builtins.str guardrail_profile_identifier: Guardrail profile ARN.
+        """
+        pulumi.set(__self__, "guardrail_profile_identifier", guardrail_profile_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="guardrailProfileIdentifier")
+    def guardrail_profile_identifier(self) -> _builtins.str:
+        """
+        Guardrail profile ARN.
+        """
+        return pulumi.get(self, "guardrail_profile_identifier")
 
 
 @pulumi.output_type
@@ -7743,7 +7830,9 @@ class GuardrailTopicPolicyConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "topicsConfigs":
+        if key == "tierConfigs":
+            suggest = "tier_configs"
+        elif key == "topicsConfigs":
             suggest = "topics_configs"
 
         if suggest:
@@ -7758,12 +7847,24 @@ class GuardrailTopicPolicyConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 tier_configs: Optional[Sequence['outputs.GuardrailTopicPolicyConfigTierConfig']] = None,
                  topics_configs: Optional[Sequence['outputs.GuardrailTopicPolicyConfigTopicsConfig']] = None):
         """
+        :param Sequence['GuardrailTopicPolicyConfigTierConfigArgs'] tier_configs: Configuration block for the topic policy tier. See Tier Config for more information.
         :param Sequence['GuardrailTopicPolicyConfigTopicsConfigArgs'] topics_configs: List of topic configs in topic policy. See Topics Config for more information.
         """
+        if tier_configs is not None:
+            pulumi.set(__self__, "tier_configs", tier_configs)
         if topics_configs is not None:
             pulumi.set(__self__, "topics_configs", topics_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="tierConfigs")
+    def tier_configs(self) -> Optional[Sequence['outputs.GuardrailTopicPolicyConfigTierConfig']]:
+        """
+        Configuration block for the topic policy tier. See Tier Config for more information.
+        """
+        return pulumi.get(self, "tier_configs")
 
     @_builtins.property
     @pulumi.getter(name="topicsConfigs")
@@ -7772,6 +7873,41 @@ class GuardrailTopicPolicyConfig(dict):
         List of topic configs in topic policy. See Topics Config for more information.
         """
         return pulumi.get(self, "topics_configs")
+
+
+@pulumi.output_type
+class GuardrailTopicPolicyConfigTierConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tierName":
+            suggest = "tier_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailTopicPolicyConfigTierConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailTopicPolicyConfigTierConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailTopicPolicyConfigTierConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tier_name: _builtins.str):
+        """
+        :param _builtins.str tier_name: The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+        pulumi.set(__self__, "tier_name", tier_name)
+
+    @_builtins.property
+    @pulumi.getter(name="tierName")
+    def tier_name(self) -> _builtins.str:
+        """
+        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+        return pulumi.get(self, "tier_name")
 
 
 @pulumi.output_type

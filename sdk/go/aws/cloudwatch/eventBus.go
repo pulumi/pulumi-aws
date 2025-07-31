@@ -17,6 +17,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usages
+//
 // ```go
 // package main
 //
@@ -73,6 +75,358 @@ import (
 //
 // ```
 //
+// ### Logging to CloudWatch Logs, S3, and Data Firehose
+//
+// See [Configuring logs for Amazon EventBridge event buses](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html) for more details.
+//
+// #### Required Resources
+//
+// * EventBridge Event Bus with `logConfig` configured
+// * Log destinations:
+//
+//   - CloudWatch Logs log group
+//   - S3 bucket
+//   - Data Firehose delivery stream
+//
+// * Resource-based policy or tagging for the service-linked role:
+//
+//   - CloudWatch Logs log group - `cloudwatch.LogResourcePolicy` to allow `delivery.logs.amazonaws.com` to put logs into the log group
+//   - S3 bucket - `s3.BucketPolicy` to allow `delivery.logs.amazonaws.com` to put logs into the bucket
+//   - Data Firehose delivery stream - tagging the delivery stream with `LogDeliveryEnabled = "true"` to allow the service-linked role `AWSServiceRoleForLogDelivery` to deliver logs
+//
+// * CloudWatch Logs Delivery:
+//
+//   - `cloudwatch.LogDeliverySource` for each log type (INFO, ERROR, TRACE)
+//   - `cloudwatch.LogDeliveryDestination` for the log destination (S3 bucket, CloudWatch Logs log group, or Data Firehose delivery stream)
+//   - `cloudwatch.LogDelivery` to link each log type’s delivery source to the delivery destination
+//
+// ### Example Usage
+//
+// The following example demonstrates how to set up logging for an EventBridge event bus to all three destinations: CloudWatch Logs, S3, and Data Firehose.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// example, err := cloudwatch.NewEventBus(ctx, "example", &cloudwatch.EventBusArgs{
+// Name: pulumi.String("example-event-bus"),
+// LogConfig: &cloudwatch.EventBusLogConfigArgs{
+// IncludeDetail: pulumi.String("FULL"),
+// Level: pulumi.String("TRACE"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// // CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
+// infoLogs, err := cloudwatch.NewLogDeliverySource(ctx, "info_logs", &cloudwatch.LogDeliverySourceArgs{
+// Name: example.Name.ApplyT(func(name string) (string, error) {
+// return fmt.Sprintf("EventBusSource-%v-INFO_LOGS", name), nil
+// }).(pulumi.StringOutput),
+// LogType: pulumi.String("INFO_LOGS"),
+// ResourceArn: example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// errorLogs, err := cloudwatch.NewLogDeliverySource(ctx, "error_logs", &cloudwatch.LogDeliverySourceArgs{
+// Name: example.Name.ApplyT(func(name string) (string, error) {
+// return fmt.Sprintf("EventBusSource-%v-ERROR_LOGS", name), nil
+// }).(pulumi.StringOutput),
+// LogType: pulumi.String("ERROR_LOGS"),
+// ResourceArn: example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// traceLogs, err := cloudwatch.NewLogDeliverySource(ctx, "trace_logs", &cloudwatch.LogDeliverySourceArgs{
+// Name: example.Name.ApplyT(func(name string) (string, error) {
+// return fmt.Sprintf("EventBusSource-%v-TRACE_LOGS", name), nil
+// }).(pulumi.StringOutput),
+// LogType: pulumi.String("TRACE_LOGS"),
+// ResourceArn: example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// // Logging to S3 Bucket
+// exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
+// Bucket: pulumi.String("example-event-bus-logs"),
+// })
+// if err != nil {
+// return err
+// }
+// bucket := pulumi.All(exampleBucket.Arn,infoLogs.Arn,errorLogs.Arn,traceLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// exampleBucketArn := _args[0].(string)
+// infoLogsArn := _args[1].(string)
+// errorLogsArn := _args[2].(string)
+// traceLogsArn := _args[3].(string)
+// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "delivery.logs.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "s3:PutObject",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v/AWSLogs/%v/EventBusLogs/*", exampleBucketArn, current.AccountId),
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "s3:x-amz-acl",
+// Values: []string{
+// "bucket-owner-full-control",
+// },
+// },
+// {
+// Test: "StringEquals",
+// Variable: "aws:SourceAccount",
+// Values: interface{}{
+// current.AccountId,
+// },
+// },
+// {
+// Test: "ArnLike",
+// Variable: "aws:SourceArn",
+// Values: []string{
+// infoLogsArn,
+// errorLogsArn,
+// traceLogsArn,
+// },
+// },
+// },
+// },
+// },
+// }, nil)), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+// Bucket: exampleBucket.Bucket,
+// Policy: pulumi.String(bucket.Json),
+// })
+// if err != nil {
+// return err
+// }
+// s3, err := cloudwatch.NewLogDeliveryDestination(ctx, "s3", &cloudwatch.LogDeliveryDestinationArgs{
+// Name: example.Name.ApplyT(func(name string) (string, error) {
+// return fmt.Sprintf("EventsDeliveryDestination-%v-S3", name), nil
+// }).(pulumi.StringOutput),
+// DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
+// DestinationResourceArn: exampleBucket.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// s3InfoLogs, err := cloudwatch.NewLogDelivery(ctx, "s3_info_logs", &cloudwatch.LogDeliveryArgs{
+// DeliveryDestinationArn: s3.Arn,
+// DeliverySourceName: infoLogs.Name,
+// })
+// if err != nil {
+// return err
+// }
+// s3ErrorLogs, err := cloudwatch.NewLogDelivery(ctx, "s3_error_logs", &cloudwatch.LogDeliveryArgs{
+// DeliveryDestinationArn: s3.Arn,
+// DeliverySourceName: errorLogs.Name,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// s3InfoLogs,
+// }))
+// if err != nil {
+// return err
+// }
+// s3TraceLogs, err := cloudwatch.NewLogDelivery(ctx, "s3_trace_logs", &cloudwatch.LogDeliveryArgs{
+// DeliveryDestinationArn: s3.Arn,
+// DeliverySourceName: traceLogs.Name,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// s3ErrorLogs,
+// }))
+// if err != nil {
+// return err
+// }
+// // Logging to CloudWatch Log Group
+// eventBusLogs, err := cloudwatch.NewLogGroup(ctx, "event_bus_logs", &cloudwatch.LogGroupArgs{
+// Name: example.Name.ApplyT(func(name string) (string, error) {
+// return fmt.Sprintf("/aws/vendedlogs/events/event-bus/%v", name), nil
+// }).(pulumi.StringOutput),
+// })
+// if err != nil {
+// return err
+// }
+// cwlogs := pulumi.All(eventBusLogs.Arn,infoLogs.Arn,errorLogs.Arn,traceLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// eventBusLogsArn := _args[0].(string)
+// infoLogsArn := _args[1].(string)
+// errorLogsArn := _args[2].(string)
+// traceLogsArn := _args[3].(string)
+// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "delivery.logs.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "logs:CreateLogStream",
+// "logs:PutLogEvents",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v:log-stream:*", eventBusLogsArn),
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "aws:SourceAccount",
+// Values: interface{}{
+// current.AccountId,
+// },
+// },
+// {
+// Test: "ArnLike",
+// Variable: "aws:SourceArn",
+// Values: []string{
+// infoLogsArn,
+// errorLogsArn,
+// traceLogsArn,
+// },
+// },
+// },
+// },
+// },
+// }, nil)), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
+// PolicyDocument: pulumi.String(cwlogs.Json),
+// PolicyName: example.Name.ApplyT(func(name string) (string, error) {
+// return fmt.Sprintf("AWSLogDeliveryWrite-%v", name), nil
+// }).(pulumi.StringOutput),
+// })
+// if err != nil {
+// return err
+// }
+// cwlogsLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "cwlogs", &cloudwatch.LogDeliveryDestinationArgs{
+// Name: example.Name.ApplyT(func(name string) (string, error) {
+// return fmt.Sprintf("EventsDeliveryDestination-%v-CWLogs", name), nil
+// }).(pulumi.StringOutput),
+// DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
+// DestinationResourceArn: eventBusLogs.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// cwlogsInfoLogs, err := cloudwatch.NewLogDelivery(ctx, "cwlogs_info_logs", &cloudwatch.LogDeliveryArgs{
+// DeliveryDestinationArn: cwlogsLogDeliveryDestination.Arn,
+// DeliverySourceName: infoLogs.Name,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// s3InfoLogs,
+// }))
+// if err != nil {
+// return err
+// }
+// cwlogsErrorLogs, err := cloudwatch.NewLogDelivery(ctx, "cwlogs_error_logs", &cloudwatch.LogDeliveryArgs{
+// DeliveryDestinationArn: cwlogsLogDeliveryDestination.Arn,
+// DeliverySourceName: errorLogs.Name,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// s3ErrorLogs,
+// cwlogsInfoLogs,
+// }))
+// if err != nil {
+// return err
+// }
+// cwlogsTraceLogs, err := cloudwatch.NewLogDelivery(ctx, "cwlogs_trace_logs", &cloudwatch.LogDeliveryArgs{
+// DeliveryDestinationArn: cwlogsLogDeliveryDestination.Arn,
+// DeliverySourceName: traceLogs.Name,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// s3TraceLogs,
+// cwlogsErrorLogs,
+// }))
+// if err != nil {
+// return err
+// }
+// // Logging to Data Firehose
+// cloudfrontLogs, err := kinesis.NewFirehoseDeliveryStream(ctx, "cloudfront_logs", &kinesis.FirehoseDeliveryStreamArgs{
+// Tags: pulumi.StringMap{
+// "LogDeliveryEnabled": pulumi.String("true"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// firehose, err := cloudwatch.NewLogDeliveryDestination(ctx, "firehose", &cloudwatch.LogDeliveryDestinationArgs{
+// Name: example.Name.ApplyT(func(name string) (string, error) {
+// return fmt.Sprintf("EventsDeliveryDestination-%v-Firehose", name), nil
+// }).(pulumi.StringOutput),
+// DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
+// DestinationResourceArn: cloudfrontLogs.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// firehoseInfoLogs, err := cloudwatch.NewLogDelivery(ctx, "firehose_info_logs", &cloudwatch.LogDeliveryArgs{
+// DeliveryDestinationArn: firehose.Arn,
+// DeliverySourceName: infoLogs.Name,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// cwlogsInfoLogs,
+// }))
+// if err != nil {
+// return err
+// }
+// firehoseErrorLogs, err := cloudwatch.NewLogDelivery(ctx, "firehose_error_logs", &cloudwatch.LogDeliveryArgs{
+// DeliveryDestinationArn: firehose.Arn,
+// DeliverySourceName: errorLogs.Name,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// cwlogsErrorLogs,
+// firehoseInfoLogs,
+// }))
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch.NewLogDelivery(ctx, "firehose_trace_logs", &cloudwatch.LogDeliveryArgs{
+// DeliveryDestinationArn: firehose.Arn,
+// DeliverySourceName: traceLogs.Name,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// cwlogsTraceLogs,
+// firehoseErrorLogs,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import EventBridge event buses using the name of the event bus (which can also be a partner event source name). For example:
@@ -93,6 +447,8 @@ type EventBus struct {
 	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
+	// Block for logging configuration settings for the event bus.
+	LogConfig EventBusLogConfigPtrOutput `pulumi:"logConfig"`
 	// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
 	//
 	// The following arguments are optional:
@@ -145,6 +501,8 @@ type eventBusState struct {
 	EventSourceName *string `pulumi:"eventSourceName"`
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
+	// Block for logging configuration settings for the event bus.
+	LogConfig *EventBusLogConfig `pulumi:"logConfig"`
 	// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
 	//
 	// The following arguments are optional:
@@ -168,6 +526,8 @@ type EventBusState struct {
 	EventSourceName pulumi.StringPtrInput
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrInput
+	// Block for logging configuration settings for the event bus.
+	LogConfig EventBusLogConfigPtrInput
 	// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
 	//
 	// The following arguments are optional:
@@ -193,6 +553,8 @@ type eventBusArgs struct {
 	EventSourceName *string `pulumi:"eventSourceName"`
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
+	// Block for logging configuration settings for the event bus.
+	LogConfig *EventBusLogConfig `pulumi:"logConfig"`
 	// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
 	//
 	// The following arguments are optional:
@@ -213,6 +575,8 @@ type EventBusArgs struct {
 	EventSourceName pulumi.StringPtrInput
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrInput
+	// Block for logging configuration settings for the event bus.
+	LogConfig EventBusLogConfigPtrInput
 	// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
 	//
 	// The following arguments are optional:
@@ -333,6 +697,11 @@ func (o EventBusOutput) EventSourceName() pulumi.StringPtrOutput {
 // Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 func (o EventBusOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Block for logging configuration settings for the event bus.
+func (o EventBusOutput) LogConfig() EventBusLogConfigPtrOutput {
+	return o.ApplyT(func(v *EventBus) EventBusLogConfigPtrOutput { return v.LogConfig }).(EventBusLogConfigPtrOutput)
 }
 
 // Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.

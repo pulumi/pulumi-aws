@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.GuardrailTopicPolicyConfigTierConfig;
 import com.pulumi.aws.bedrock.outputs.GuardrailTopicPolicyConfigTopicsConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -12,12 +13,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GuardrailTopicPolicyConfig {
     /**
+     * @return Configuration block for the topic policy tier. See Tier Config for more information.
+     * 
+     */
+    private @Nullable List<GuardrailTopicPolicyConfigTierConfig> tierConfigs;
+    /**
      * @return List of topic configs in topic policy. See Topics Config for more information.
      * 
      */
     private @Nullable List<GuardrailTopicPolicyConfigTopicsConfig> topicsConfigs;
 
     private GuardrailTopicPolicyConfig() {}
+    /**
+     * @return Configuration block for the topic policy tier. See Tier Config for more information.
+     * 
+     */
+    public List<GuardrailTopicPolicyConfigTierConfig> tierConfigs() {
+        return this.tierConfigs == null ? List.of() : this.tierConfigs;
+    }
     /**
      * @return List of topic configs in topic policy. See Topics Config for more information.
      * 
@@ -35,13 +48,24 @@ public final class GuardrailTopicPolicyConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<GuardrailTopicPolicyConfigTierConfig> tierConfigs;
         private @Nullable List<GuardrailTopicPolicyConfigTopicsConfig> topicsConfigs;
         public Builder() {}
         public Builder(GuardrailTopicPolicyConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.tierConfigs = defaults.tierConfigs;
     	      this.topicsConfigs = defaults.topicsConfigs;
         }
 
+        @CustomType.Setter
+        public Builder tierConfigs(@Nullable List<GuardrailTopicPolicyConfigTierConfig> tierConfigs) {
+
+            this.tierConfigs = tierConfigs;
+            return this;
+        }
+        public Builder tierConfigs(GuardrailTopicPolicyConfigTierConfig... tierConfigs) {
+            return tierConfigs(List.of(tierConfigs));
+        }
         @CustomType.Setter
         public Builder topicsConfigs(@Nullable List<GuardrailTopicPolicyConfigTopicsConfig> topicsConfigs) {
 
@@ -53,6 +77,7 @@ public final class GuardrailTopicPolicyConfig {
         }
         public GuardrailTopicPolicyConfig build() {
             final var _resultValue = new GuardrailTopicPolicyConfig();
+            _resultValue.tierConfigs = tierConfigs;
             _resultValue.topicsConfigs = topicsConfigs;
             return _resultValue;
         }

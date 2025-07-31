@@ -16,6 +16,8 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usages
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,6 +52,362 @@ namespace Pulumi.Aws.CloudWatch
     ///         Name = examplepartner.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
     ///         Description = "Event bus for example partner events",
     ///         EventSourceName = examplepartner.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Logging to CloudWatch Logs, S3, and Data Firehose
+    /// 
+    /// See [Configuring logs for Amazon EventBridge event buses](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html) for more details.
+    /// 
+    /// #### Required Resources
+    /// 
+    /// * EventBridge Event Bus with `log_config` configured
+    /// * Log destinations:
+    ///   
+    ///     * CloudWatch Logs log group
+    ///     * S3 bucket
+    ///     * Data Firehose delivery stream
+    /// 
+    /// * Resource-based policy or tagging for the service-linked role:
+    ///   
+    ///     * CloudWatch Logs log group - `aws.cloudwatch.LogResourcePolicy` to allow `delivery.logs.amazonaws.com` to put logs into the log group
+    ///     * S3 bucket - `aws.s3.BucketPolicy` to allow `delivery.logs.amazonaws.com` to put logs into the bucket
+    ///     * Data Firehose delivery stream - tagging the delivery stream with `LogDeliveryEnabled = "true"` to allow the service-linked role `AWSServiceRoleForLogDelivery` to deliver logs
+    /// 
+    /// * CloudWatch Logs Delivery:
+    ///   
+    ///     * `aws.cloudwatch.LogDeliverySource` for each log type (INFO, ERROR, TRACE)
+    ///     * `aws.cloudwatch.LogDeliveryDestination` for the log destination (S3 bucket, CloudWatch Logs log group, or Data Firehose delivery stream)
+    ///     * `aws.cloudwatch.LogDelivery` to link each log type’s delivery source to the delivery destination
+    /// 
+    /// ### Example Usage
+    /// 
+    /// The following example demonstrates how to set up logging for an EventBridge event bus to all three destinations: CloudWatch Logs, S3, and Data Firehose.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var example = new Aws.CloudWatch.EventBus("example", new()
+    ///     {
+    ///         Name = "example-event-bus",
+    ///         LogConfig = new Aws.CloudWatch.Inputs.EventBusLogConfigArgs
+    ///         {
+    ///             IncludeDetail = "FULL",
+    ///             Level = "TRACE",
+    ///         },
+    ///     });
+    /// 
+    ///     // CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
+    ///     var infoLogs = new Aws.CloudWatch.LogDeliverySource("info_logs", new()
+    ///     {
+    ///         Name = example.Name.Apply(name =&gt; $"EventBusSource-{name}-INFO_LOGS"),
+    ///         LogType = "INFO_LOGS",
+    ///         ResourceArn = example.Arn,
+    ///     });
+    /// 
+    ///     var errorLogs = new Aws.CloudWatch.LogDeliverySource("error_logs", new()
+    ///     {
+    ///         Name = example.Name.Apply(name =&gt; $"EventBusSource-{name}-ERROR_LOGS"),
+    ///         LogType = "ERROR_LOGS",
+    ///         ResourceArn = example.Arn,
+    ///     });
+    /// 
+    ///     var traceLogs = new Aws.CloudWatch.LogDeliverySource("trace_logs", new()
+    ///     {
+    ///         Name = example.Name.Apply(name =&gt; $"EventBusSource-{name}-TRACE_LOGS"),
+    ///         LogType = "TRACE_LOGS",
+    ///         ResourceArn = example.Arn,
+    ///     });
+    /// 
+    ///     // Logging to S3 Bucket
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
+    ///     {
+    ///         BucketName = "example-event-bus-logs",
+    ///     });
+    /// 
+    ///     var bucket = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "delivery.logs.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{exampleBucket.Arn}/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/EventBusLogs/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "s3:x-amz-acl",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "bucket-owner-full-control",
+    ///                         },
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:SourceAccount",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnLike",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             infoLogs.Arn,
+    ///                             errorLogs.Arn,
+    ///                             traceLogs.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
+    ///     {
+    ///         Bucket = exampleBucket.BucketName,
+    ///         Policy = bucket.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var s3 = new Aws.CloudWatch.LogDeliveryDestination("s3", new()
+    ///     {
+    ///         Name = example.Name.Apply(name =&gt; $"EventsDeliveryDestination-{name}-S3"),
+    ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
+    ///         {
+    ///             DestinationResourceArn = exampleBucket.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var s3InfoLogs = new Aws.CloudWatch.LogDelivery("s3_info_logs", new()
+    ///     {
+    ///         DeliveryDestinationArn = s3.Arn,
+    ///         DeliverySourceName = infoLogs.Name,
+    ///     });
+    /// 
+    ///     var s3ErrorLogs = new Aws.CloudWatch.LogDelivery("s3_error_logs", new()
+    ///     {
+    ///         DeliveryDestinationArn = s3.Arn,
+    ///         DeliverySourceName = errorLogs.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             s3InfoLogs,
+    ///         },
+    ///     });
+    /// 
+    ///     var s3TraceLogs = new Aws.CloudWatch.LogDelivery("s3_trace_logs", new()
+    ///     {
+    ///         DeliveryDestinationArn = s3.Arn,
+    ///         DeliverySourceName = traceLogs.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             s3ErrorLogs,
+    ///         },
+    ///     });
+    /// 
+    ///     // Logging to CloudWatch Log Group
+    ///     var eventBusLogs = new Aws.CloudWatch.LogGroup("event_bus_logs", new()
+    ///     {
+    ///         Name = example.Name.Apply(name =&gt; $"/aws/vendedlogs/events/event-bus/{name}"),
+    ///     });
+    /// 
+    ///     var cwlogs = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "delivery.logs.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{eventBusLogs.Arn}:log-stream:*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:SourceAccount",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnLike",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             infoLogs.Arn,
+    ///                             errorLogs.Arn,
+    ///                             traceLogs.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("example", new()
+    ///     {
+    ///         PolicyDocument = cwlogs.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         PolicyName = example.Name.Apply(name =&gt; $"AWSLogDeliveryWrite-{name}"),
+    ///     });
+    /// 
+    ///     var cwlogsLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("cwlogs", new()
+    ///     {
+    ///         Name = example.Name.Apply(name =&gt; $"EventsDeliveryDestination-{name}-CWLogs"),
+    ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
+    ///         {
+    ///             DestinationResourceArn = eventBusLogs.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var cwlogsInfoLogs = new Aws.CloudWatch.LogDelivery("cwlogs_info_logs", new()
+    ///     {
+    ///         DeliveryDestinationArn = cwlogsLogDeliveryDestination.Arn,
+    ///         DeliverySourceName = infoLogs.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             s3InfoLogs,
+    ///         },
+    ///     });
+    /// 
+    ///     var cwlogsErrorLogs = new Aws.CloudWatch.LogDelivery("cwlogs_error_logs", new()
+    ///     {
+    ///         DeliveryDestinationArn = cwlogsLogDeliveryDestination.Arn,
+    ///         DeliverySourceName = errorLogs.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             s3ErrorLogs,
+    ///             cwlogsInfoLogs,
+    ///         },
+    ///     });
+    /// 
+    ///     var cwlogsTraceLogs = new Aws.CloudWatch.LogDelivery("cwlogs_trace_logs", new()
+    ///     {
+    ///         DeliveryDestinationArn = cwlogsLogDeliveryDestination.Arn,
+    ///         DeliverySourceName = traceLogs.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             s3TraceLogs,
+    ///             cwlogsErrorLogs,
+    ///         },
+    ///     });
+    /// 
+    ///     // Logging to Data Firehose
+    ///     var cloudfrontLogs = new Aws.Kinesis.FirehoseDeliveryStream("cloudfront_logs", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "LogDeliveryEnabled", "true" },
+    ///         },
+    ///     });
+    /// 
+    ///     var firehose = new Aws.CloudWatch.LogDeliveryDestination("firehose", new()
+    ///     {
+    ///         Name = example.Name.Apply(name =&gt; $"EventsDeliveryDestination-{name}-Firehose"),
+    ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
+    ///         {
+    ///             DestinationResourceArn = cloudfrontLogs.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var firehoseInfoLogs = new Aws.CloudWatch.LogDelivery("firehose_info_logs", new()
+    ///     {
+    ///         DeliveryDestinationArn = firehose.Arn,
+    ///         DeliverySourceName = infoLogs.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             cwlogsInfoLogs,
+    ///         },
+    ///     });
+    /// 
+    ///     var firehoseErrorLogs = new Aws.CloudWatch.LogDelivery("firehose_error_logs", new()
+    ///     {
+    ///         DeliveryDestinationArn = firehose.Arn,
+    ///         DeliverySourceName = errorLogs.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             cwlogsErrorLogs,
+    ///             firehoseInfoLogs,
+    ///         },
+    ///     });
+    /// 
+    ///     var firehoseTraceLogs = new Aws.CloudWatch.LogDelivery("firehose_trace_logs", new()
+    ///     {
+    ///         DeliveryDestinationArn = firehose.Arn,
+    ///         DeliverySourceName = traceLogs.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             cwlogsTraceLogs,
+    ///             firehoseErrorLogs,
+    ///         },
     ///     });
     /// 
     /// });
@@ -95,6 +453,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("kmsKeyIdentifier")]
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Block for logging configuration settings for the event bus.
+        /// </summary>
+        [Output("logConfig")]
+        public Output<Outputs.EventBusLogConfig?> LogConfig { get; private set; } = null!;
 
         /// <summary>
         /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
@@ -193,6 +557,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
+        /// Block for logging configuration settings for the event bus.
+        /// </summary>
+        [Input("logConfig")]
+        public Input<Inputs.EventBusLogConfigArgs>? LogConfig { get; set; }
+
+        /// <summary>
         /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
         /// 
         /// The following arguments are optional:
@@ -255,6 +625,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
+
+        /// <summary>
+        /// Block for logging configuration settings for the event bus.
+        /// </summary>
+        [Input("logConfig")]
+        public Input<Inputs.EventBusLogConfigGetArgs>? LogConfig { get; set; }
 
         /// <summary>
         /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.

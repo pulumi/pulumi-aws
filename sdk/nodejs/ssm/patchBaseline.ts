@@ -236,6 +236,10 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+     */
+    public readonly availableSecurityUpdatesComplianceStatus!: pulumi.Output<string>;
+    /**
      * Description of the patch baseline.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -300,6 +304,7 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["approvedPatchesComplianceLevel"] = state ? state.approvedPatchesComplianceLevel : undefined;
             resourceInputs["approvedPatchesEnableNonSecurity"] = state ? state.approvedPatchesEnableNonSecurity : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availableSecurityUpdatesComplianceStatus"] = state ? state.availableSecurityUpdatesComplianceStatus : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["globalFilters"] = state ? state.globalFilters : undefined;
             resourceInputs["json"] = state ? state.json : undefined;
@@ -317,6 +322,7 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["approvedPatches"] = args ? args.approvedPatches : undefined;
             resourceInputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
             resourceInputs["approvedPatchesEnableNonSecurity"] = args ? args.approvedPatchesEnableNonSecurity : undefined;
+            resourceInputs["availableSecurityUpdatesComplianceStatus"] = args ? args.availableSecurityUpdatesComplianceStatus : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["globalFilters"] = args ? args.globalFilters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -359,6 +365,10 @@ export interface PatchBaselineState {
      * ARN of the baseline.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+     */
+    availableSecurityUpdatesComplianceStatus?: pulumi.Input<string>;
     /**
      * Description of the patch baseline.
      */
@@ -427,6 +437,10 @@ export interface PatchBaselineArgs {
      * Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      */
     approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
+    /**
+     * Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+     */
+    availableSecurityUpdatesComplianceStatus?: pulumi.Input<string>;
     /**
      * Description of the patch baseline.
      */

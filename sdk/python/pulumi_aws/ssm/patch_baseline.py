@@ -25,6 +25,7 @@ class PatchBaselineArgs:
                  approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
                  approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
+                 available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  global_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -40,6 +41,7 @@ class PatchBaselineArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approved_patches: List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         :param pulumi.Input[_builtins.str] approved_patches_compliance_level: Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         :param pulumi.Input[_builtins.bool] approved_patches_enable_non_security: Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+        :param pulumi.Input[_builtins.str] available_security_updates_compliance_status: Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
         :param pulumi.Input[_builtins.str] description: Description of the patch baseline.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]] global_filters: Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         :param pulumi.Input[_builtins.str] name: Name of the patch baseline.
@@ -60,6 +62,8 @@ class PatchBaselineArgs:
             pulumi.set(__self__, "approved_patches_compliance_level", approved_patches_compliance_level)
         if approved_patches_enable_non_security is not None:
             pulumi.set(__self__, "approved_patches_enable_non_security", approved_patches_enable_non_security)
+        if available_security_updates_compliance_status is not None:
+            pulumi.set(__self__, "available_security_updates_compliance_status", available_security_updates_compliance_status)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if global_filters is not None:
@@ -126,6 +130,18 @@ class PatchBaselineArgs:
     @approved_patches_enable_non_security.setter
     def approved_patches_enable_non_security(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "approved_patches_enable_non_security", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availableSecurityUpdatesComplianceStatus")
+    def available_security_updates_compliance_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+        """
+        return pulumi.get(self, "available_security_updates_compliance_status")
+
+    @available_security_updates_compliance_status.setter
+    def available_security_updates_compliance_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "available_security_updates_compliance_status", value)
 
     @_builtins.property
     @pulumi.getter
@@ -246,6 +262,7 @@ class _PatchBaselineState:
                  approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
                  approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  global_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]] = None,
                  json: Optional[pulumi.Input[_builtins.str]] = None,
@@ -264,6 +281,7 @@ class _PatchBaselineState:
         :param pulumi.Input[_builtins.str] approved_patches_compliance_level: Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         :param pulumi.Input[_builtins.bool] approved_patches_enable_non_security: Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         :param pulumi.Input[_builtins.str] arn: ARN of the baseline.
+        :param pulumi.Input[_builtins.str] available_security_updates_compliance_status: Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
         :param pulumi.Input[_builtins.str] description: Description of the patch baseline.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]] global_filters: Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         :param pulumi.Input[_builtins.str] json: JSON definition of the baseline.
@@ -288,6 +306,8 @@ class _PatchBaselineState:
             pulumi.set(__self__, "approved_patches_enable_non_security", approved_patches_enable_non_security)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if available_security_updates_compliance_status is not None:
+            pulumi.set(__self__, "available_security_updates_compliance_status", available_security_updates_compliance_status)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if global_filters is not None:
@@ -370,6 +390,18 @@ class _PatchBaselineState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availableSecurityUpdatesComplianceStatus")
+    def available_security_updates_compliance_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+        """
+        return pulumi.get(self, "available_security_updates_compliance_status")
+
+    @available_security_updates_compliance_status.setter
+    def available_security_updates_compliance_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "available_security_updates_compliance_status", value)
 
     @_builtins.property
     @pulumi.getter
@@ -516,6 +548,7 @@ class PatchBaseline(pulumi.CustomResource):
                  approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
                  approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
+                 available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  global_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -708,6 +741,7 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approved_patches: List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         :param pulumi.Input[_builtins.str] approved_patches_compliance_level: Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         :param pulumi.Input[_builtins.bool] approved_patches_enable_non_security: Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+        :param pulumi.Input[_builtins.str] available_security_updates_compliance_status: Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
         :param pulumi.Input[_builtins.str] description: Description of the patch baseline.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]] global_filters: Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         :param pulumi.Input[_builtins.str] name: Name of the patch baseline.
@@ -921,6 +955,7 @@ class PatchBaseline(pulumi.CustomResource):
                  approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
                  approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
+                 available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  global_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -943,6 +978,7 @@ class PatchBaseline(pulumi.CustomResource):
             __props__.__dict__["approved_patches"] = approved_patches
             __props__.__dict__["approved_patches_compliance_level"] = approved_patches_compliance_level
             __props__.__dict__["approved_patches_enable_non_security"] = approved_patches_enable_non_security
+            __props__.__dict__["available_security_updates_compliance_status"] = available_security_updates_compliance_status
             __props__.__dict__["description"] = description
             __props__.__dict__["global_filters"] = global_filters
             __props__.__dict__["name"] = name
@@ -970,6 +1006,7 @@ class PatchBaseline(pulumi.CustomResource):
             approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
             approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
+            available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             global_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
             json: Optional[pulumi.Input[_builtins.str]] = None,
@@ -993,6 +1030,7 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] approved_patches_compliance_level: Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         :param pulumi.Input[_builtins.bool] approved_patches_enable_non_security: Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         :param pulumi.Input[_builtins.str] arn: ARN of the baseline.
+        :param pulumi.Input[_builtins.str] available_security_updates_compliance_status: Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
         :param pulumi.Input[_builtins.str] description: Description of the patch baseline.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]] global_filters: Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         :param pulumi.Input[_builtins.str] json: JSON definition of the baseline.
@@ -1016,6 +1054,7 @@ class PatchBaseline(pulumi.CustomResource):
         __props__.__dict__["approved_patches_compliance_level"] = approved_patches_compliance_level
         __props__.__dict__["approved_patches_enable_non_security"] = approved_patches_enable_non_security
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["available_security_updates_compliance_status"] = available_security_updates_compliance_status
         __props__.__dict__["description"] = description
         __props__.__dict__["global_filters"] = global_filters
         __props__.__dict__["json"] = json
@@ -1068,6 +1107,14 @@ class PatchBaseline(pulumi.CustomResource):
         ARN of the baseline.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="availableSecurityUpdatesComplianceStatus")
+    def available_security_updates_compliance_status(self) -> pulumi.Output[_builtins.str]:
+        """
+        Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+        """
+        return pulumi.get(self, "available_security_updates_compliance_status")
 
     @_builtins.property
     @pulumi.getter

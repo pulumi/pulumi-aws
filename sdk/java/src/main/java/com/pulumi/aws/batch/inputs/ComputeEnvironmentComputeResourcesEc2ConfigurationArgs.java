@@ -31,6 +31,21 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
     }
 
     /**
+     * The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+     * 
+     */
+    @Import(name="imageKubernetesVersion")
+    private @Nullable Output<String> imageKubernetesVersion;
+
+    /**
+     * @return The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+     * 
+     */
+    public Optional<Output<String>> imageKubernetesVersion() {
+        return Optional.ofNullable(this.imageKubernetesVersion);
+    }
+
+    /**
      * The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
      * 
      */
@@ -49,6 +64,7 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
 
     private ComputeEnvironmentComputeResourcesEc2ConfigurationArgs(ComputeEnvironmentComputeResourcesEc2ConfigurationArgs $) {
         this.imageIdOverride = $.imageIdOverride;
+        this.imageKubernetesVersion = $.imageKubernetesVersion;
         this.imageType = $.imageType;
     }
 
@@ -89,6 +105,27 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
          */
         public Builder imageIdOverride(String imageIdOverride) {
             return imageIdOverride(Output.of(imageIdOverride));
+        }
+
+        /**
+         * @param imageKubernetesVersion The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageKubernetesVersion(@Nullable Output<String> imageKubernetesVersion) {
+            $.imageKubernetesVersion = imageKubernetesVersion;
+            return this;
+        }
+
+        /**
+         * @param imageKubernetesVersion The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageKubernetesVersion(String imageKubernetesVersion) {
+            return imageKubernetesVersion(Output.of(imageKubernetesVersion));
         }
 
         /**

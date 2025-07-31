@@ -288,6 +288,8 @@ type PatchBaseline struct {
 	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrOutput `pulumi:"approvedPatchesEnableNonSecurity"`
 	// ARN of the baseline.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+	AvailableSecurityUpdatesComplianceStatus pulumi.StringOutput `pulumi:"availableSecurityUpdatesComplianceStatus"`
 	// Description of the patch baseline.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
@@ -354,6 +356,8 @@ type patchBaselineState struct {
 	ApprovedPatchesEnableNonSecurity *bool `pulumi:"approvedPatchesEnableNonSecurity"`
 	// ARN of the baseline.
 	Arn *string `pulumi:"arn"`
+	// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+	AvailableSecurityUpdatesComplianceStatus *string `pulumi:"availableSecurityUpdatesComplianceStatus"`
 	// Description of the patch baseline.
 	Description *string `pulumi:"description"`
 	// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
@@ -391,6 +395,8 @@ type PatchBaselineState struct {
 	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrInput
 	// ARN of the baseline.
 	Arn pulumi.StringPtrInput
+	// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+	AvailableSecurityUpdatesComplianceStatus pulumi.StringPtrInput
 	// Description of the patch baseline.
 	Description pulumi.StringPtrInput
 	// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
@@ -430,6 +436,8 @@ type patchBaselineArgs struct {
 	ApprovedPatchesComplianceLevel *string `pulumi:"approvedPatchesComplianceLevel"`
 	// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
 	ApprovedPatchesEnableNonSecurity *bool `pulumi:"approvedPatchesEnableNonSecurity"`
+	// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+	AvailableSecurityUpdatesComplianceStatus *string `pulumi:"availableSecurityUpdatesComplianceStatus"`
 	// Description of the patch baseline.
 	Description *string `pulumi:"description"`
 	// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
@@ -462,6 +470,8 @@ type PatchBaselineArgs struct {
 	ApprovedPatchesComplianceLevel pulumi.StringPtrInput
 	// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
 	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrInput
+	// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+	AvailableSecurityUpdatesComplianceStatus pulumi.StringPtrInput
 	// Description of the patch baseline.
 	Description pulumi.StringPtrInput
 	// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
@@ -594,6 +604,11 @@ func (o PatchBaselineOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolPtrOu
 // ARN of the baseline.
 func (o PatchBaselineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+func (o PatchBaselineOutput) AvailableSecurityUpdatesComplianceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringOutput { return v.AvailableSecurityUpdatesComplianceStatus }).(pulumi.StringOutput)
 }
 
 // Description of the patch baseline.

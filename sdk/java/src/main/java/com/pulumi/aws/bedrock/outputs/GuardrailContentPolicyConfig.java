@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.GuardrailContentPolicyConfigFiltersConfig;
+import com.pulumi.aws.bedrock.outputs.GuardrailContentPolicyConfigTierConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +18,11 @@ public final class GuardrailContentPolicyConfig {
      * 
      */
     private @Nullable List<GuardrailContentPolicyConfigFiltersConfig> filtersConfigs;
+    /**
+     * @return Configuration block for the content policy tier. See Tier Config for more information.
+     * 
+     */
+    private @Nullable List<GuardrailContentPolicyConfigTierConfig> tierConfigs;
 
     private GuardrailContentPolicyConfig() {}
     /**
@@ -26,6 +32,13 @@ public final class GuardrailContentPolicyConfig {
      */
     public List<GuardrailContentPolicyConfigFiltersConfig> filtersConfigs() {
         return this.filtersConfigs == null ? List.of() : this.filtersConfigs;
+    }
+    /**
+     * @return Configuration block for the content policy tier. See Tier Config for more information.
+     * 
+     */
+    public List<GuardrailContentPolicyConfigTierConfig> tierConfigs() {
+        return this.tierConfigs == null ? List.of() : this.tierConfigs;
     }
 
     public static Builder builder() {
@@ -38,10 +51,12 @@ public final class GuardrailContentPolicyConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GuardrailContentPolicyConfigFiltersConfig> filtersConfigs;
+        private @Nullable List<GuardrailContentPolicyConfigTierConfig> tierConfigs;
         public Builder() {}
         public Builder(GuardrailContentPolicyConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filtersConfigs = defaults.filtersConfigs;
+    	      this.tierConfigs = defaults.tierConfigs;
         }
 
         @CustomType.Setter
@@ -53,9 +68,19 @@ public final class GuardrailContentPolicyConfig {
         public Builder filtersConfigs(GuardrailContentPolicyConfigFiltersConfig... filtersConfigs) {
             return filtersConfigs(List.of(filtersConfigs));
         }
+        @CustomType.Setter
+        public Builder tierConfigs(@Nullable List<GuardrailContentPolicyConfigTierConfig> tierConfigs) {
+
+            this.tierConfigs = tierConfigs;
+            return this;
+        }
+        public Builder tierConfigs(GuardrailContentPolicyConfigTierConfig... tierConfigs) {
+            return tierConfigs(List.of(tierConfigs));
+        }
         public GuardrailContentPolicyConfig build() {
             final var _resultValue = new GuardrailContentPolicyConfig();
             _resultValue.filtersConfigs = filtersConfigs;
+            _resultValue.tierConfigs = tierConfigs;
             return _resultValue;
         }
     }

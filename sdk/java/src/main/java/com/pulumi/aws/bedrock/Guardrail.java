@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.GuardrailArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailState;
 import com.pulumi.aws.bedrock.outputs.GuardrailContentPolicyConfig;
 import com.pulumi.aws.bedrock.outputs.GuardrailContextualGroundingPolicyConfig;
+import com.pulumi.aws.bedrock.outputs.GuardrailCrossRegionConfig;
 import com.pulumi.aws.bedrock.outputs.GuardrailSensitiveInformationPolicyConfig;
 import com.pulumi.aws.bedrock.outputs.GuardrailTimeouts;
 import com.pulumi.aws.bedrock.outputs.GuardrailTopicPolicyConfig;
@@ -66,6 +67,9 @@ import javax.annotation.Nullable;
  *                     .outputStrength("MEDIUM")
  *                     .type("HATE")
  *                     .build())
+ *                 .tierConfigs(GuardrailContentPolicyConfigTierConfigArgs.builder()
+ *                     .tierName("STANDARD")
+ *                     .build())
  *                 .build())
  *             .sensitiveInformationPolicyConfig(GuardrailSensitiveInformationPolicyConfigArgs.builder()
  *                 .piiEntitiesConfigs(GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs.builder()
@@ -85,6 +89,9 @@ import javax.annotation.Nullable;
  *                     .examples("Where should I invest my money ?")
  *                     .type("DENY")
  *                     .definition("Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .")
+ *                     .build())
+ *                 .tierConfigs(GuardrailTopicPolicyConfigTierConfigArgs.builder()
+ *                     .tierName("CLASSIC")
  *                     .build())
  *                 .build())
  *             .wordPolicyConfig(GuardrailWordPolicyConfigArgs.builder()
@@ -183,6 +190,12 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
      */
     public Output<String> createdAt() {
         return this.createdAt;
+    }
+    @Export(name="crossRegionConfig", refs={GuardrailCrossRegionConfig.class}, tree="[0]")
+    private Output</* @Nullable */ GuardrailCrossRegionConfig> crossRegionConfig;
+
+    public Output<Optional<GuardrailCrossRegionConfig>> crossRegionConfig() {
+        return Codegen.optional(this.crossRegionConfig);
     }
     /**
      * Description of the guardrail or its version.

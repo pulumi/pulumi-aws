@@ -365,6 +365,20 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+     * 
+     */
+    @Export(name="availableSecurityUpdatesComplianceStatus", refs={String.class}, tree="[0]")
+    private Output<String> availableSecurityUpdatesComplianceStatus;
+
+    /**
+     * @return Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+     * 
+     */
+    public Output<String> availableSecurityUpdatesComplianceStatus() {
+        return this.availableSecurityUpdatesComplianceStatus;
+    }
+    /**
      * Description of the patch baseline.
      * 
      */

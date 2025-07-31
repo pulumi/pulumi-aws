@@ -154,6 +154,21 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Name of the workgroup.
+     * 
+     */
+    @Import(name="workgroup")
+    private @Nullable Output<String> workgroup;
+
+    /**
+     * @return Name of the workgroup.
+     * 
+     */
+    public Optional<Output<String>> workgroup() {
+        return Optional.ofNullable(this.workgroup);
+    }
+
     private DatabaseState() {}
 
     private DatabaseState(DatabaseState $) {
@@ -166,6 +181,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.properties = $.properties;
         this.region = $.region;
+        this.workgroup = $.workgroup;
     }
 
     public static Builder builder() {
@@ -373,6 +389,27 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param workgroup Name of the workgroup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workgroup(@Nullable Output<String> workgroup) {
+            $.workgroup = workgroup;
+            return this;
+        }
+
+        /**
+         * @param workgroup Name of the workgroup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workgroup(String workgroup) {
+            return workgroup(Output.of(workgroup));
         }
 
         public DatabaseState build() {

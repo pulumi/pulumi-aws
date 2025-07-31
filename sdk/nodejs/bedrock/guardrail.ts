@@ -29,6 +29,9 @@ import * as utilities from "../utilities";
  *             outputStrength: "MEDIUM",
  *             type: "HATE",
  *         }],
+ *         tierConfigs: [{
+ *             tierName: "STANDARD",
+ *         }],
  *     },
  *     sensitiveInformationPolicyConfig: {
  *         piiEntitiesConfigs: [{
@@ -48,6 +51,9 @@ import * as utilities from "../utilities";
  *             examples: ["Where should I invest my money ?"],
  *             type: "DENY",
  *             definition: "Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .",
+ *         }],
+ *         tierConfigs: [{
+ *             tierName: "CLASSIC",
  *         }],
  *     },
  *     wordPolicyConfig: {
@@ -117,6 +123,7 @@ export class Guardrail extends pulumi.CustomResource {
      * Unix epoch timestamp in seconds for when the Guardrail was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly crossRegionConfig!: pulumi.Output<outputs.bedrock.GuardrailCrossRegionConfig | undefined>;
     /**
      * Description of the guardrail or its version.
      */
@@ -188,6 +195,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["contentPolicyConfig"] = state ? state.contentPolicyConfig : undefined;
             resourceInputs["contextualGroundingPolicyConfig"] = state ? state.contextualGroundingPolicyConfig : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["crossRegionConfig"] = state ? state.crossRegionConfig : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["guardrailArn"] = state ? state.guardrailArn : undefined;
             resourceInputs["guardrailId"] = state ? state.guardrailId : undefined;
@@ -214,6 +222,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["blockedOutputsMessaging"] = args ? args.blockedOutputsMessaging : undefined;
             resourceInputs["contentPolicyConfig"] = args ? args.contentPolicyConfig : undefined;
             resourceInputs["contextualGroundingPolicyConfig"] = args ? args.contextualGroundingPolicyConfig : undefined;
+            resourceInputs["crossRegionConfig"] = args ? args.crossRegionConfig : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -259,6 +268,7 @@ export interface GuardrailState {
      * Unix epoch timestamp in seconds for when the Guardrail was created.
      */
     createdAt?: pulumi.Input<string>;
+    crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfig>;
     /**
      * Description of the guardrail or its version.
      */
@@ -333,6 +343,7 @@ export interface GuardrailArgs {
      * Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
      */
     contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfig>;
+    crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfig>;
     /**
      * Description of the guardrail or its version.
      */

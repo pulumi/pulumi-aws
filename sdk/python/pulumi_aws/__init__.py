@@ -3343,6 +3343,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "connect/phoneNumberContactFlowAssociation",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation": "PhoneNumberContactFlowAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/queue",
   "fqn": "pulumi_aws.connect",
   "classes": {
@@ -4675,6 +4683,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/natGateway:NatGateway": "NatGateway"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/natGatewayEipAssociation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation": "NatGatewayEipAssociation"
   }
  },
  {

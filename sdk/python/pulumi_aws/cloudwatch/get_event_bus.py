@@ -27,7 +27,7 @@ class GetEventBusResult:
     """
     A collection of values returned by getEventBus.
     """
-    def __init__(__self__, arn=None, dead_letter_configs=None, description=None, id=None, kms_key_identifier=None, name=None, region=None):
+    def __init__(__self__, arn=None, dead_letter_configs=None, description=None, id=None, kms_key_identifier=None, log_configs=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetEventBusResult:
         if kms_key_identifier and not isinstance(kms_key_identifier, str):
             raise TypeError("Expected argument 'kms_key_identifier' to be a str")
         pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
+        if log_configs and not isinstance(log_configs, list):
+            raise TypeError("Expected argument 'log_configs' to be a list")
+        pulumi.set(__self__, "log_configs", log_configs)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -91,6 +94,14 @@ class GetEventBusResult:
         return pulumi.get(self, "kms_key_identifier")
 
     @_builtins.property
+    @pulumi.getter(name="logConfigs")
+    def log_configs(self) -> Sequence['outputs.GetEventBusLogConfigResult']:
+        """
+        Block for logging configuration settings for the event bus.
+        """
+        return pulumi.get(self, "log_configs")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
@@ -112,6 +123,7 @@ class AwaitableGetEventBusResult(GetEventBusResult):
             description=self.description,
             id=self.id,
             kms_key_identifier=self.kms_key_identifier,
+            log_configs=self.log_configs,
             name=self.name,
             region=self.region)
 
@@ -149,6 +161,7 @@ def get_event_bus(name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
+        log_configs=pulumi.get(__ret__, 'log_configs'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'))
 def get_event_bus_output(name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -183,5 +196,6 @@ def get_event_bus_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
+        log_configs=pulumi.get(__response__, 'log_configs'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region')))

@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string>? ImageIdOverride { get; set; }
 
         /// <summary>
+        /// The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+        /// </summary>
+        [Input("imageKubernetesVersion")]
+        public Input<string>? ImageKubernetesVersion { get; set; }
+
+        /// <summary>
         /// The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
         /// </summary>
         [Input("imageType")]

@@ -18,6 +18,7 @@ from . import outputs
 __all__ = [
     'CompositeAlarmActionsSuppressor',
     'EventBusDeadLetterConfig',
+    'EventBusLogConfig',
     'EventConnectionAuthParameters',
     'EventConnectionAuthParametersApiKey',
     'EventConnectionAuthParametersBasic',
@@ -72,6 +73,7 @@ __all__ = [
     'GetContributorManagedInsightRulesManagedRuleResult',
     'GetContributorManagedInsightRulesManagedRuleRuleStateResult',
     'GetEventBusDeadLetterConfigResult',
+    'GetEventBusLogConfigResult',
     'GetEventBusesEventBusResult',
     'GetLogDataProtectionPolicyDocumentConfigurationResult',
     'GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult',
@@ -162,6 +164,54 @@ class EventBusDeadLetterConfig(dict):
         The ARN of the SQS queue specified as the target for the dead-letter queue.
         """
         return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class EventBusLogConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeDetail":
+            suggest = "include_detail"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventBusLogConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventBusLogConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventBusLogConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_detail: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str include_detail: Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+        :param _builtins.str level: Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+        """
+        if include_detail is not None:
+            pulumi.set(__self__, "include_detail", include_detail)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @_builtins.property
+    @pulumi.getter(name="includeDetail")
+    def include_detail(self) -> Optional[_builtins.str]:
+        """
+        Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+        """
+        return pulumi.get(self, "include_detail")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        """
+        Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+        """
+        return pulumi.get(self, "level")
 
 
 @pulumi.output_type
@@ -2936,6 +2986,35 @@ class GetEventBusDeadLetterConfigResult(dict):
         The ARN of the SQS queue specified as the target for the dead-letter queue.
         """
         return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class GetEventBusLogConfigResult(dict):
+    def __init__(__self__, *,
+                 include_detail: _builtins.str,
+                 level: _builtins.str):
+        """
+        :param _builtins.str include_detail: Whether EventBridge include detailed event information in the records it generates.
+        :param _builtins.str level: Level of logging detail to include.
+        """
+        pulumi.set(__self__, "include_detail", include_detail)
+        pulumi.set(__self__, "level", level)
+
+    @_builtins.property
+    @pulumi.getter(name="includeDetail")
+    def include_detail(self) -> _builtins.str:
+        """
+        Whether EventBridge include detailed event information in the records it generates.
+        """
+        return pulumi.get(self, "include_detail")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        """
+        Level of logging detail to include.
+        """
+        return pulumi.get(self, "level")
 
 
 @pulumi.output_type

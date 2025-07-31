@@ -69,6 +69,10 @@ export interface GetEventBusResult {
      * Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
      */
     readonly kmsKeyIdentifier: string;
+    /**
+     * Block for logging configuration settings for the event bus.
+     */
+    readonly logConfigs: outputs.cloudwatch.GetEventBusLogConfig[];
     readonly name: string;
     readonly region: string;
 }

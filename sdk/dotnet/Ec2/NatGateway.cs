@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to create a VPC NAT Gateway.
     /// 
+    /// !&gt; **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Public NAT
@@ -163,7 +165,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A list of secondary allocation EIP IDs for this NAT Gateway.
+        /// A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         /// </summary>
         [Output("secondaryAllocationIds")]
         public Output<ImmutableArray<string>> SecondaryAllocationIds { get; private set; } = null!;
@@ -175,7 +177,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int> SecondaryPrivateIpAddressCount { get; private set; } = null!;
 
         /// <summary>
-        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         /// </summary>
         [Output("secondaryPrivateIpAddresses")]
         public Output<ImmutableArray<string>> SecondaryPrivateIpAddresses { get; private set; } = null!;
@@ -272,7 +274,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _secondaryAllocationIds;
 
         /// <summary>
-        /// A list of secondary allocation EIP IDs for this NAT Gateway.
+        /// A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         /// </summary>
         public InputList<string> SecondaryAllocationIds
         {
@@ -290,7 +292,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _secondaryPrivateIpAddresses;
 
         /// <summary>
-        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         /// </summary>
         public InputList<string> SecondaryPrivateIpAddresses
         {
@@ -370,7 +372,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _secondaryAllocationIds;
 
         /// <summary>
-        /// A list of secondary allocation EIP IDs for this NAT Gateway.
+        /// A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         /// </summary>
         public InputList<string> SecondaryAllocationIds
         {
@@ -388,7 +390,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _secondaryPrivateIpAddresses;
 
         /// <summary>
-        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         /// </summary>
         public InputList<string> SecondaryPrivateIpAddresses
         {

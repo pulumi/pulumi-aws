@@ -201,6 +201,20 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Name of the workgroup.
+     * 
+     */
+    @Export(name="workgroup", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> workgroup;
+
+    /**
+     * @return Name of the workgroup.
+     * 
+     */
+    public Output<Optional<String>> workgroup() {
+        return Codegen.optional(this.workgroup);
+    }
 
     /**
      *

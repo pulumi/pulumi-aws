@@ -95,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedPrefixListEntry{}
 	case "aws:ec2/natGateway:NatGateway":
 		r = &NatGateway{}
+	case "aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation":
+		r = &NatGatewayEipAssociation{}
 	case "aws:ec2/networkAcl:NetworkAcl":
 		r = &NetworkAcl{}
 	case "aws:ec2/networkAclAssociation:NetworkAclAssociation":
@@ -417,6 +419,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/natGateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/natGatewayEipAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

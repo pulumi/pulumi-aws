@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.EventBusArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventBusState;
 import com.pulumi.aws.cloudwatch.outputs.EventBusDeadLetterConfig;
+import com.pulumi.aws.cloudwatch.outputs.EventBusLogConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -22,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Usages
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -90,6 +93,303 @@ import javax.annotation.Nullable;
  *             .description("Event bus for example partner events")
  *             .eventSourceName(examplepartner.name())
  *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Logging to CloudWatch Logs, S3, and Data Firehose
+ * 
+ * See [Configuring logs for Amazon EventBridge event buses](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html) for more details.
+ * 
+ * #### Required Resources
+ * 
+ * * EventBridge Event Bus with `log_config` configured
+ * * Log destinations:
+ *   
+ *     * CloudWatch Logs log group
+ *     * S3 bucket
+ *     * Data Firehose delivery stream
+ * 
+ * * Resource-based policy or tagging for the service-linked role:
+ *   
+ *     * CloudWatch Logs log group - `aws.cloudwatch.LogResourcePolicy` to allow `delivery.logs.amazonaws.com` to put logs into the log group
+ *     * S3 bucket - `aws.s3.BucketPolicy` to allow `delivery.logs.amazonaws.com` to put logs into the bucket
+ *     * Data Firehose delivery stream - tagging the delivery stream with `LogDeliveryEnabled = &#34;true&#34;` to allow the service-linked role `AWSServiceRoleForLogDelivery` to deliver logs
+ * 
+ * * CloudWatch Logs Delivery:
+ *   
+ *     * `aws.cloudwatch.LogDeliverySource` for each log type (INFO, ERROR, TRACE)
+ *     * `aws.cloudwatch.LogDeliveryDestination` for the log destination (S3 bucket, CloudWatch Logs log group, or Data Firehose delivery stream)
+ *     * `aws.cloudwatch.LogDelivery` to link each log type’s delivery source to the delivery destination
+ * 
+ * ### Example Usage
+ * 
+ * The following example demonstrates how to set up logging for an EventBridge event bus to all three destinations: CloudWatch Logs, S3, and Data Firehose.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventBusArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventBusLogConfigArgs;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySource;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySourceArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs;
+ * import com.pulumi.aws.cloudwatch.LogDelivery;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryArgs;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         var example = new EventBus("example", EventBusArgs.builder()
+ *             .name("example-event-bus")
+ *             .logConfig(EventBusLogConfigArgs.builder()
+ *                 .includeDetail("FULL")
+ *                 .level("TRACE")
+ *                 .build())
+ *             .build());
+ * 
+ *         // CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
+ *         var infoLogs = new LogDeliverySource("infoLogs", LogDeliverySourceArgs.builder()
+ *             .name(example.name().applyValue(_name -> String.format("EventBusSource-%s-INFO_LOGS", _name)))
+ *             .logType("INFO_LOGS")
+ *             .resourceArn(example.arn())
+ *             .build());
+ * 
+ *         var errorLogs = new LogDeliverySource("errorLogs", LogDeliverySourceArgs.builder()
+ *             .name(example.name().applyValue(_name -> String.format("EventBusSource-%s-ERROR_LOGS", _name)))
+ *             .logType("ERROR_LOGS")
+ *             .resourceArn(example.arn())
+ *             .build());
+ * 
+ *         var traceLogs = new LogDeliverySource("traceLogs", LogDeliverySourceArgs.builder()
+ *             .name(example.name().applyValue(_name -> String.format("EventBusSource-%s-TRACE_LOGS", _name)))
+ *             .logType("TRACE_LOGS")
+ *             .resourceArn(example.arn())
+ *             .build());
+ * 
+ *         // Logging to S3 Bucket
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
+ *             .bucket("example-event-bus-logs")
+ *             .build());
+ * 
+ *         final var bucket = Output.tuple(exampleBucket.arn(), infoLogs.arn(), errorLogs.arn(), traceLogs.arn()).applyValue(values -> {
+ *             var exampleBucketArn = values.t1;
+ *             var infoLogsArn = values.t2;
+ *             var errorLogsArn = values.t3;
+ *             var traceLogsArn = values.t4;
+ *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *                 .statements(GetPolicyDocumentStatementArgs.builder()
+ *                     .effect("Allow")
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("Service")
+ *                         .identifiers("delivery.logs.amazonaws.com")
+ *                         .build())
+ *                     .actions("s3:PutObject")
+ *                     .resources(String.format("%s/AWSLogs/%s/EventBusLogs/*", exampleBucketArn,current.accountId()))
+ *                     .conditions(                    
+ *                         GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test("StringEquals")
+ *                             .variable("s3:x-amz-acl")
+ *                             .values("bucket-owner-full-control")
+ *                             .build(),
+ *                         GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test("StringEquals")
+ *                             .variable("aws:SourceAccount")
+ *                             .values(current.accountId())
+ *                             .build(),
+ *                         GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test("ArnLike")
+ *                             .variable("aws:SourceArn")
+ *                             .values(                            
+ *                                 infoLogsArn,
+ *                                 errorLogsArn,
+ *                                 traceLogsArn)
+ *                             .build())
+ *                     .build())
+ *                 .build());
+ *         });
+ * 
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
+ *             .bucket(exampleBucket.bucket())
+ *             .policy(bucket.json())
+ *             .build());
+ * 
+ *         var s3 = new LogDeliveryDestination("s3", LogDeliveryDestinationArgs.builder()
+ *             .name(example.name().applyValue(_name -> String.format("EventsDeliveryDestination-%s-S3", _name)))
+ *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
+ *                 .destinationResourceArn(exampleBucket.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var s3InfoLogs = new LogDelivery("s3InfoLogs", LogDeliveryArgs.builder()
+ *             .deliveryDestinationArn(s3.arn())
+ *             .deliverySourceName(infoLogs.name())
+ *             .build());
+ * 
+ *         var s3ErrorLogs = new LogDelivery("s3ErrorLogs", LogDeliveryArgs.builder()
+ *             .deliveryDestinationArn(s3.arn())
+ *             .deliverySourceName(errorLogs.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(s3InfoLogs)
+ *                 .build());
+ * 
+ *         var s3TraceLogs = new LogDelivery("s3TraceLogs", LogDeliveryArgs.builder()
+ *             .deliveryDestinationArn(s3.arn())
+ *             .deliverySourceName(traceLogs.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(s3ErrorLogs)
+ *                 .build());
+ * 
+ *         // Logging to CloudWatch Log Group
+ *         var eventBusLogs = new LogGroup("eventBusLogs", LogGroupArgs.builder()
+ *             .name(example.name().applyValue(_name -> String.format("/aws/vendedlogs/events/event-bus/%s", _name)))
+ *             .build());
+ * 
+ *         final var cwlogs = Output.tuple(eventBusLogs.arn(), infoLogs.arn(), errorLogs.arn(), traceLogs.arn()).applyValue(values -> {
+ *             var eventBusLogsArn = values.t1;
+ *             var infoLogsArn = values.t2;
+ *             var errorLogsArn = values.t3;
+ *             var traceLogsArn = values.t4;
+ *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *                 .statements(GetPolicyDocumentStatementArgs.builder()
+ *                     .effect("Allow")
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("Service")
+ *                         .identifiers("delivery.logs.amazonaws.com")
+ *                         .build())
+ *                     .actions(                    
+ *                         "logs:CreateLogStream",
+ *                         "logs:PutLogEvents")
+ *                     .resources(String.format("%s:log-stream:*", eventBusLogsArn))
+ *                     .conditions(                    
+ *                         GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test("StringEquals")
+ *                             .variable("aws:SourceAccount")
+ *                             .values(current.accountId())
+ *                             .build(),
+ *                         GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test("ArnLike")
+ *                             .variable("aws:SourceArn")
+ *                             .values(                            
+ *                                 infoLogsArn,
+ *                                 errorLogsArn,
+ *                                 traceLogsArn)
+ *                             .build())
+ *                     .build())
+ *                 .build());
+ *         });
+ * 
+ *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()
+ *             .policyDocument(cwlogs.json())
+ *             .policyName(example.name().applyValue(_name -> String.format("AWSLogDeliveryWrite-%s", _name)))
+ *             .build());
+ * 
+ *         var cwlogsLogDeliveryDestination = new LogDeliveryDestination("cwlogsLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
+ *             .name(example.name().applyValue(_name -> String.format("EventsDeliveryDestination-%s-CWLogs", _name)))
+ *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
+ *                 .destinationResourceArn(eventBusLogs.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var cwlogsInfoLogs = new LogDelivery("cwlogsInfoLogs", LogDeliveryArgs.builder()
+ *             .deliveryDestinationArn(cwlogsLogDeliveryDestination.arn())
+ *             .deliverySourceName(infoLogs.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(s3InfoLogs)
+ *                 .build());
+ * 
+ *         var cwlogsErrorLogs = new LogDelivery("cwlogsErrorLogs", LogDeliveryArgs.builder()
+ *             .deliveryDestinationArn(cwlogsLogDeliveryDestination.arn())
+ *             .deliverySourceName(errorLogs.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     s3ErrorLogs,
+ *                     cwlogsInfoLogs)
+ *                 .build());
+ * 
+ *         var cwlogsTraceLogs = new LogDelivery("cwlogsTraceLogs", LogDeliveryArgs.builder()
+ *             .deliveryDestinationArn(cwlogsLogDeliveryDestination.arn())
+ *             .deliverySourceName(traceLogs.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     s3TraceLogs,
+ *                     cwlogsErrorLogs)
+ *                 .build());
+ * 
+ *         // Logging to Data Firehose
+ *         var cloudfrontLogs = new FirehoseDeliveryStream("cloudfrontLogs", FirehoseDeliveryStreamArgs.builder()
+ *             .tags(Map.of("LogDeliveryEnabled", "true"))
+ *             .build());
+ * 
+ *         var firehose = new LogDeliveryDestination("firehose", LogDeliveryDestinationArgs.builder()
+ *             .name(example.name().applyValue(_name -> String.format("EventsDeliveryDestination-%s-Firehose", _name)))
+ *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
+ *                 .destinationResourceArn(cloudfrontLogs.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var firehoseInfoLogs = new LogDelivery("firehoseInfoLogs", LogDeliveryArgs.builder()
+ *             .deliveryDestinationArn(firehose.arn())
+ *             .deliverySourceName(infoLogs.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(cwlogsInfoLogs)
+ *                 .build());
+ * 
+ *         var firehoseErrorLogs = new LogDelivery("firehoseErrorLogs", LogDeliveryArgs.builder()
+ *             .deliveryDestinationArn(firehose.arn())
+ *             .deliverySourceName(errorLogs.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     cwlogsErrorLogs,
+ *                     firehoseInfoLogs)
+ *                 .build());
+ * 
+ *         var firehoseTraceLogs = new LogDelivery("firehoseTraceLogs", LogDeliveryArgs.builder()
+ *             .deliveryDestinationArn(firehose.arn())
+ *             .deliverySourceName(traceLogs.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     cwlogsTraceLogs,
+ *                     firehoseErrorLogs)
+ *                 .build());
  * 
  *     }
  * }
@@ -177,6 +477,20 @@ public class EventBus extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> kmsKeyIdentifier() {
         return Codegen.optional(this.kmsKeyIdentifier);
+    }
+    /**
+     * Block for logging configuration settings for the event bus.
+     * 
+     */
+    @Export(name="logConfig", refs={EventBusLogConfig.class}, tree="[0]")
+    private Output</* @Nullable */ EventBusLogConfig> logConfig;
+
+    /**
+     * @return Block for logging configuration settings for the event bus.
+     * 
+     */
+    public Output<Optional<EventBusLogConfig>> logConfig() {
+        return Codegen.optional(this.logConfig);
     }
     /**
      * Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.

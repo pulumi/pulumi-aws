@@ -505,6 +505,11 @@ export type NatGateway = import("./natGateway").NatGateway;
 export const NatGateway: typeof import("./natGateway").NatGateway = null as any;
 utilities.lazyLoad(exports, ["NatGateway"], () => require("./natGateway"));
 
+export { NatGatewayEipAssociationArgs, NatGatewayEipAssociationState } from "./natGatewayEipAssociation";
+export type NatGatewayEipAssociation = import("./natGatewayEipAssociation").NatGatewayEipAssociation;
+export const NatGatewayEipAssociation: typeof import("./natGatewayEipAssociation").NatGatewayEipAssociation = null as any;
+utilities.lazyLoad(exports, ["NatGatewayEipAssociation"], () => require("./natGatewayEipAssociation"));
+
 export { NetworkAclArgs, NetworkAclState } from "./networkAcl";
 export type NetworkAcl = import("./networkAcl").NetworkAcl;
 export const NetworkAcl: typeof import("./networkAcl").NetworkAcl = null as any;
@@ -902,6 +907,8 @@ const _module = {
                 return new ManagedPrefixListEntry(name, <any>undefined, { urn })
             case "aws:ec2/natGateway:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
+            case "aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation":
+                return new NatGatewayEipAssociation(name, <any>undefined, { urn })
             case "aws:ec2/networkAcl:NetworkAcl":
                 return new NetworkAcl(name, <any>undefined, { urn })
             case "aws:ec2/networkAclAssociation:NetworkAclAssociation":
@@ -1070,6 +1077,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/mainRouteTableAssociation", _m
 pulumi.runtime.registerResourceModule("aws", "ec2/managedPrefixList", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/managedPrefixListEntry", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/natGateway", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/natGatewayEipAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAcl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclRule", _module)
