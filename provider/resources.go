@@ -1940,7 +1940,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					Source: "main_route_table_assoc.html.markdown",
 				},
 			},
-			"aws_nat_gateway": {Tok: awsResource(ec2Mod, "NatGateway")},
+			"aws_nat_gateway":                 {Tok: awsResource(ec2Mod, "NatGateway")},
+			"aws_nat_gateway_eip_association": {Tok: awsResource(ec2Mod, "NatGatewayEipAssociation")},
 			"aws_network_acl": {
 				Tok: awsResource(ec2Mod, "NetworkAcl"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -6008,6 +6009,13 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_vpc_route_server_vpc_association"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attrWithSeparator(state, ",", "routeServerId", "vpcId"), nil
 	}
+	prov.Resources["aws_connect_phone_number_contact_flow_association"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "phoneNumberId", "instanceId", "contractFlowId"), nil
+	}
+
+	prov.Resources["aws_nat_gateway_eip_association"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "natGatewayId", "allocationId"), nil
+	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
 		"aws_cloudwatch_log_index_policy":                                  {"logGroupName"},
@@ -6045,6 +6053,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_cognito_log_delivery_configuration":                           {"userPoolId"},
 		"aws_s3_bucket_metadata_configuration":                             {"bucket"},
 		"aws_networkfirewall_firewall_transit_gateway_attachment_accepter": {"id"},
+		"aws_connect_phone_number_contact_flow_association":                {"phoneNumberId", "instanceId", "contractFlowId"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
