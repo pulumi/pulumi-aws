@@ -135,7 +135,7 @@ index cbb54366b0..77c5ef1c30 100644
  				"engine_patch_version": {
  					Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/parameter_group.go b/internal/service/memorydb/parameter_group.go
-index 4811d0cbb1..4f5d87d21b 100644
+index 9976f6de38..3a993a3948 100644
 --- a/internal/service/memorydb/parameter_group.go
 +++ b/internal/service/memorydb/parameter_group.go
 @@ -51,7 +51,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -174,7 +174,7 @@ index 5d4d3b06a1..10c61ec591 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
-index 9cade76bc1..327d35b284 100644
+index 5ff105eec1..b67e6b51ea 100644
 --- a/internal/service/neptune/parameter_group.go
 +++ b/internal/service/neptune/parameter_group.go
 @@ -54,7 +54,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -200,7 +200,7 @@ index d756af75db..d448de5134 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index 2b67e7a4c2..df7f071d7f 100644
+index 956c92fe3c..3ffe853168 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -50,7 +50,7 @@ func resourceClusterParameterGroup() *schema.Resource {
