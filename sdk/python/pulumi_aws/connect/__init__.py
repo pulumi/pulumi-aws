@@ -30,6 +30,7 @@ from .instance import *
 from .instance_storage_config import *
 from .lambda_function_association import *
 from .phone_number import *
+from .phone_number_contact_flow_association import *
 from .queue import *
 from .quick_connect import *
 from .routing_profile import *

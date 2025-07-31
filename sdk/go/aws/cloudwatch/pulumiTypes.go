@@ -326,6 +326,162 @@ func (o EventBusDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventBusLogConfig struct {
+	// Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+	IncludeDetail *string `pulumi:"includeDetail"`
+	// Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+	Level *string `pulumi:"level"`
+}
+
+// EventBusLogConfigInput is an input type that accepts EventBusLogConfigArgs and EventBusLogConfigOutput values.
+// You can construct a concrete instance of `EventBusLogConfigInput` via:
+//
+//	EventBusLogConfigArgs{...}
+type EventBusLogConfigInput interface {
+	pulumi.Input
+
+	ToEventBusLogConfigOutput() EventBusLogConfigOutput
+	ToEventBusLogConfigOutputWithContext(context.Context) EventBusLogConfigOutput
+}
+
+type EventBusLogConfigArgs struct {
+	// Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+	IncludeDetail pulumi.StringPtrInput `pulumi:"includeDetail"`
+	// Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+}
+
+func (EventBusLogConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusLogConfig)(nil)).Elem()
+}
+
+func (i EventBusLogConfigArgs) ToEventBusLogConfigOutput() EventBusLogConfigOutput {
+	return i.ToEventBusLogConfigOutputWithContext(context.Background())
+}
+
+func (i EventBusLogConfigArgs) ToEventBusLogConfigOutputWithContext(ctx context.Context) EventBusLogConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusLogConfigOutput)
+}
+
+func (i EventBusLogConfigArgs) ToEventBusLogConfigPtrOutput() EventBusLogConfigPtrOutput {
+	return i.ToEventBusLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventBusLogConfigArgs) ToEventBusLogConfigPtrOutputWithContext(ctx context.Context) EventBusLogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusLogConfigOutput).ToEventBusLogConfigPtrOutputWithContext(ctx)
+}
+
+// EventBusLogConfigPtrInput is an input type that accepts EventBusLogConfigArgs, EventBusLogConfigPtr and EventBusLogConfigPtrOutput values.
+// You can construct a concrete instance of `EventBusLogConfigPtrInput` via:
+//
+//	        EventBusLogConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventBusLogConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventBusLogConfigPtrOutput() EventBusLogConfigPtrOutput
+	ToEventBusLogConfigPtrOutputWithContext(context.Context) EventBusLogConfigPtrOutput
+}
+
+type eventBusLogConfigPtrType EventBusLogConfigArgs
+
+func EventBusLogConfigPtr(v *EventBusLogConfigArgs) EventBusLogConfigPtrInput {
+	return (*eventBusLogConfigPtrType)(v)
+}
+
+func (*eventBusLogConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventBusLogConfig)(nil)).Elem()
+}
+
+func (i *eventBusLogConfigPtrType) ToEventBusLogConfigPtrOutput() EventBusLogConfigPtrOutput {
+	return i.ToEventBusLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventBusLogConfigPtrType) ToEventBusLogConfigPtrOutputWithContext(ctx context.Context) EventBusLogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusLogConfigPtrOutput)
+}
+
+type EventBusLogConfigOutput struct{ *pulumi.OutputState }
+
+func (EventBusLogConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusLogConfig)(nil)).Elem()
+}
+
+func (o EventBusLogConfigOutput) ToEventBusLogConfigOutput() EventBusLogConfigOutput {
+	return o
+}
+
+func (o EventBusLogConfigOutput) ToEventBusLogConfigOutputWithContext(ctx context.Context) EventBusLogConfigOutput {
+	return o
+}
+
+func (o EventBusLogConfigOutput) ToEventBusLogConfigPtrOutput() EventBusLogConfigPtrOutput {
+	return o.ToEventBusLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventBusLogConfigOutput) ToEventBusLogConfigPtrOutputWithContext(ctx context.Context) EventBusLogConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventBusLogConfig) *EventBusLogConfig {
+		return &v
+	}).(EventBusLogConfigPtrOutput)
+}
+
+// Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+func (o EventBusLogConfigOutput) IncludeDetail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventBusLogConfig) *string { return v.IncludeDetail }).(pulumi.StringPtrOutput)
+}
+
+// Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+func (o EventBusLogConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventBusLogConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+type EventBusLogConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventBusLogConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventBusLogConfig)(nil)).Elem()
+}
+
+func (o EventBusLogConfigPtrOutput) ToEventBusLogConfigPtrOutput() EventBusLogConfigPtrOutput {
+	return o
+}
+
+func (o EventBusLogConfigPtrOutput) ToEventBusLogConfigPtrOutputWithContext(ctx context.Context) EventBusLogConfigPtrOutput {
+	return o
+}
+
+func (o EventBusLogConfigPtrOutput) Elem() EventBusLogConfigOutput {
+	return o.ApplyT(func(v *EventBusLogConfig) EventBusLogConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventBusLogConfig
+		return ret
+	}).(EventBusLogConfigOutput)
+}
+
+// Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+func (o EventBusLogConfigPtrOutput) IncludeDetail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBusLogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDetail
+	}).(pulumi.StringPtrOutput)
+}
+
+// Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+func (o EventBusLogConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBusLogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventConnectionAuthParameters struct {
 	// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
 	ApiKey *EventConnectionAuthParametersApiKey `pulumi:"apiKey"`
@@ -8471,6 +8627,112 @@ func (o GetEventBusDeadLetterConfigArrayOutput) Index(i pulumi.IntInput) GetEven
 	}).(GetEventBusDeadLetterConfigOutput)
 }
 
+type GetEventBusLogConfig struct {
+	// Whether EventBridge include detailed event information in the records it generates.
+	IncludeDetail string `pulumi:"includeDetail"`
+	// Level of logging detail to include.
+	Level string `pulumi:"level"`
+}
+
+// GetEventBusLogConfigInput is an input type that accepts GetEventBusLogConfigArgs and GetEventBusLogConfigOutput values.
+// You can construct a concrete instance of `GetEventBusLogConfigInput` via:
+//
+//	GetEventBusLogConfigArgs{...}
+type GetEventBusLogConfigInput interface {
+	pulumi.Input
+
+	ToGetEventBusLogConfigOutput() GetEventBusLogConfigOutput
+	ToGetEventBusLogConfigOutputWithContext(context.Context) GetEventBusLogConfigOutput
+}
+
+type GetEventBusLogConfigArgs struct {
+	// Whether EventBridge include detailed event information in the records it generates.
+	IncludeDetail pulumi.StringInput `pulumi:"includeDetail"`
+	// Level of logging detail to include.
+	Level pulumi.StringInput `pulumi:"level"`
+}
+
+func (GetEventBusLogConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventBusLogConfig)(nil)).Elem()
+}
+
+func (i GetEventBusLogConfigArgs) ToGetEventBusLogConfigOutput() GetEventBusLogConfigOutput {
+	return i.ToGetEventBusLogConfigOutputWithContext(context.Background())
+}
+
+func (i GetEventBusLogConfigArgs) ToGetEventBusLogConfigOutputWithContext(ctx context.Context) GetEventBusLogConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventBusLogConfigOutput)
+}
+
+// GetEventBusLogConfigArrayInput is an input type that accepts GetEventBusLogConfigArray and GetEventBusLogConfigArrayOutput values.
+// You can construct a concrete instance of `GetEventBusLogConfigArrayInput` via:
+//
+//	GetEventBusLogConfigArray{ GetEventBusLogConfigArgs{...} }
+type GetEventBusLogConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetEventBusLogConfigArrayOutput() GetEventBusLogConfigArrayOutput
+	ToGetEventBusLogConfigArrayOutputWithContext(context.Context) GetEventBusLogConfigArrayOutput
+}
+
+type GetEventBusLogConfigArray []GetEventBusLogConfigInput
+
+func (GetEventBusLogConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventBusLogConfig)(nil)).Elem()
+}
+
+func (i GetEventBusLogConfigArray) ToGetEventBusLogConfigArrayOutput() GetEventBusLogConfigArrayOutput {
+	return i.ToGetEventBusLogConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventBusLogConfigArray) ToGetEventBusLogConfigArrayOutputWithContext(ctx context.Context) GetEventBusLogConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventBusLogConfigArrayOutput)
+}
+
+type GetEventBusLogConfigOutput struct{ *pulumi.OutputState }
+
+func (GetEventBusLogConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventBusLogConfig)(nil)).Elem()
+}
+
+func (o GetEventBusLogConfigOutput) ToGetEventBusLogConfigOutput() GetEventBusLogConfigOutput {
+	return o
+}
+
+func (o GetEventBusLogConfigOutput) ToGetEventBusLogConfigOutputWithContext(ctx context.Context) GetEventBusLogConfigOutput {
+	return o
+}
+
+// Whether EventBridge include detailed event information in the records it generates.
+func (o GetEventBusLogConfigOutput) IncludeDetail() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusLogConfig) string { return v.IncludeDetail }).(pulumi.StringOutput)
+}
+
+// Level of logging detail to include.
+func (o GetEventBusLogConfigOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusLogConfig) string { return v.Level }).(pulumi.StringOutput)
+}
+
+type GetEventBusLogConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventBusLogConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventBusLogConfig)(nil)).Elem()
+}
+
+func (o GetEventBusLogConfigArrayOutput) ToGetEventBusLogConfigArrayOutput() GetEventBusLogConfigArrayOutput {
+	return o
+}
+
+func (o GetEventBusLogConfigArrayOutput) ToGetEventBusLogConfigArrayOutputWithContext(ctx context.Context) GetEventBusLogConfigArrayOutput {
+	return o
+}
+
+func (o GetEventBusLogConfigArrayOutput) Index(i pulumi.IntInput) GetEventBusLogConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventBusLogConfig {
+		return vs[0].([]GetEventBusLogConfig)[vs[1].(int)]
+	}).(GetEventBusLogConfigOutput)
+}
+
 type GetEventBusesEventBus struct {
 	// The ARN of the event bus.
 	Arn string `pulumi:"arn"`
@@ -10045,6 +10307,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionsSuppressorPtrInput)(nil)).Elem(), CompositeAlarmActionsSuppressorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusDeadLetterConfigInput)(nil)).Elem(), EventBusDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusDeadLetterConfigPtrInput)(nil)).Elem(), EventBusDeadLetterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusLogConfigInput)(nil)).Elem(), EventBusLogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusLogConfigPtrInput)(nil)).Elem(), EventBusLogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersPtrInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersApiKeyInput)(nil)).Elem(), EventConnectionAuthParametersApiKeyArgs{})
@@ -10155,6 +10419,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleStateArrayInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleRuleStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusDeadLetterConfigInput)(nil)).Elem(), GetEventBusDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusDeadLetterConfigArrayInput)(nil)).Elem(), GetEventBusDeadLetterConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusLogConfigInput)(nil)).Elem(), GetEventBusLogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusLogConfigArrayInput)(nil)).Elem(), GetEventBusLogConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusInput)(nil)).Elem(), GetEventBusesEventBusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusArrayInput)(nil)).Elem(), GetEventBusesEventBusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfigurationInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentConfigurationArgs{})
@@ -10182,6 +10448,8 @@ func init() {
 	pulumi.RegisterOutputType(CompositeAlarmActionsSuppressorPtrOutput{})
 	pulumi.RegisterOutputType(EventBusDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(EventBusDeadLetterConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventBusLogConfigOutput{})
+	pulumi.RegisterOutputType(EventBusLogConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyOutput{})
@@ -10292,6 +10560,8 @@ func init() {
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput{})
 	pulumi.RegisterOutputType(GetEventBusDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(GetEventBusDeadLetterConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetEventBusLogConfigOutput{})
+	pulumi.RegisterOutputType(GetEventBusLogConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetEventBusesEventBusOutput{})
 	pulumi.RegisterOutputType(GetEventBusesEventBusArrayOutput{})
 	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentConfigurationOutput{})

@@ -25,6 +25,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _filtersConfigs = value;
         }
 
+        [Input("tierConfigs")]
+        private InputList<Inputs.GuardrailContentPolicyConfigTierConfigGetArgs>? _tierConfigs;
+
+        /// <summary>
+        /// Configuration block for the content policy tier. See Tier Config for more information.
+        /// </summary>
+        public InputList<Inputs.GuardrailContentPolicyConfigTierConfigGetArgs> TierConfigs
+        {
+            get => _tierConfigs ?? (_tierConfigs = new InputList<Inputs.GuardrailContentPolicyConfigTierConfigGetArgs>());
+            set => _tierConfigs = value;
+        }
+
         public GuardrailContentPolicyConfigGetArgs()
         {
         }

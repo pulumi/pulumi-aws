@@ -14,13 +14,21 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailTopicPolicyConfig
     {
         /// <summary>
+        /// Configuration block for the topic policy tier. See Tier Config for more information.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GuardrailTopicPolicyConfigTierConfig> TierConfigs;
+        /// <summary>
         /// List of topic configs in topic policy. See Topics Config for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailTopicPolicyConfigTopicsConfig> TopicsConfigs;
 
         [OutputConstructor]
-        private GuardrailTopicPolicyConfig(ImmutableArray<Outputs.GuardrailTopicPolicyConfigTopicsConfig> topicsConfigs)
+        private GuardrailTopicPolicyConfig(
+            ImmutableArray<Outputs.GuardrailTopicPolicyConfigTierConfig> tierConfigs,
+
+            ImmutableArray<Outputs.GuardrailTopicPolicyConfigTopicsConfig> topicsConfigs)
         {
+            TierConfigs = tierConfigs;
             TopicsConfigs = topicsConfigs;
         }
     }

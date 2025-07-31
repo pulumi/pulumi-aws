@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.aws.cloudwatch.inputs.EventBusDeadLetterConfigArgs;
+import com.pulumi.aws.cloudwatch.inputs.EventBusLogConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -78,6 +79,21 @@ public final class EventBusArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Block for logging configuration settings for the event bus.
+     * 
+     */
+    @Import(name="logConfig")
+    private @Nullable Output<EventBusLogConfigArgs> logConfig;
+
+    /**
+     * @return Block for logging configuration settings for the event bus.
+     * 
+     */
+    public Optional<Output<EventBusLogConfigArgs>> logConfig() {
+        return Optional.ofNullable(this.logConfig);
+    }
+
+    /**
      * Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
      * 
      * The following arguments are optional:
@@ -133,6 +149,7 @@ public final class EventBusArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.eventSourceName = $.eventSourceName;
         this.kmsKeyIdentifier = $.kmsKeyIdentifier;
+        this.logConfig = $.logConfig;
         this.name = $.name;
         this.region = $.region;
         this.tags = $.tags;
@@ -238,6 +255,27 @@ public final class EventBusArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
             return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
+        }
+
+        /**
+         * @param logConfig Block for logging configuration settings for the event bus.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logConfig(@Nullable Output<EventBusLogConfigArgs> logConfig) {
+            $.logConfig = logConfig;
+            return this;
+        }
+
+        /**
+         * @param logConfig Block for logging configuration settings for the event bus.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logConfig(EventBusLogConfigArgs logConfig) {
+            return logConfig(Output.of(logConfig));
         }
 
         /**

@@ -35,9 +35,9 @@ class NatGatewayArgs:
         :param pulumi.Input[_builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -122,7 +122,7 @@ class NatGatewayArgs:
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of secondary allocation EIP IDs for this NAT Gateway.
+        A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         """
         return pulumi.get(self, "secondary_allocation_ids")
 
@@ -146,7 +146,7 @@ class NatGatewayArgs:
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
@@ -192,9 +192,9 @@ class _NatGatewayState:
         :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         :param pulumi.Input[_builtins.str] public_ip: The Elastic IP address associated with the NAT Gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         :param pulumi.Input[_builtins.str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -314,7 +314,7 @@ class _NatGatewayState:
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of secondary allocation EIP IDs for this NAT Gateway.
+        A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         """
         return pulumi.get(self, "secondary_allocation_ids")
 
@@ -338,7 +338,7 @@ class _NatGatewayState:
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
@@ -401,6 +401,8 @@ class NatGateway(pulumi.CustomResource):
                  __props__=None):
         """
         Provides a resource to create a VPC NAT Gateway.
+
+        !> **WARNING:** You should not use the `ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
 
         ## Example Usage
 
@@ -469,9 +471,9 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         :param pulumi.Input[_builtins.str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -483,6 +485,8 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to create a VPC NAT Gateway.
+
+        !> **WARNING:** You should not use the `ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
 
         ## Example Usage
 
@@ -630,9 +634,9 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         :param pulumi.Input[_builtins.str] public_ip: The Elastic IP address associated with the NAT Gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         :param pulumi.Input[_builtins.str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -714,9 +718,9 @@ class NatGateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="secondaryAllocationIds")
-    def secondary_allocation_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    def secondary_allocation_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of secondary allocation EIP IDs for this NAT Gateway.
+        A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         """
         return pulumi.get(self, "secondary_allocation_ids")
 
@@ -732,7 +736,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
         """
         return pulumi.get(self, "secondary_private_ip_addresses")
 

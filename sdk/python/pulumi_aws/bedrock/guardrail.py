@@ -25,6 +25,7 @@ class GuardrailArgs:
                  blocked_outputs_messaging: pulumi.Input[_builtins.str],
                  content_policy_config: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']] = None,
                  contextual_grounding_policy_config: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']] = None,
+                 cross_region_config: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -57,6 +58,8 @@ class GuardrailArgs:
             pulumi.set(__self__, "content_policy_config", content_policy_config)
         if contextual_grounding_policy_config is not None:
             pulumi.set(__self__, "contextual_grounding_policy_config", contextual_grounding_policy_config)
+        if cross_region_config is not None:
+            pulumi.set(__self__, "cross_region_config", cross_region_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_arn is not None:
@@ -123,6 +126,15 @@ class GuardrailArgs:
     @contextual_grounding_policy_config.setter
     def contextual_grounding_policy_config(self, value: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']]):
         pulumi.set(self, "contextual_grounding_policy_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionConfig")
+    def cross_region_config(self) -> Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]:
+        return pulumi.get(self, "cross_region_config")
+
+    @cross_region_config.setter
+    def cross_region_config(self, value: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]):
+        pulumi.set(self, "cross_region_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -240,6 +252,7 @@ class _GuardrailState:
                  content_policy_config: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']] = None,
                  contextual_grounding_policy_config: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']] = None,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 cross_region_config: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  guardrail_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -286,6 +299,8 @@ class _GuardrailState:
             pulumi.set(__self__, "contextual_grounding_policy_config", contextual_grounding_policy_config)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if cross_region_config is not None:
+            pulumi.set(__self__, "cross_region_config", cross_region_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if guardrail_arn is not None:
@@ -374,6 +389,15 @@ class _GuardrailState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionConfig")
+    def cross_region_config(self) -> Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]:
+        return pulumi.get(self, "cross_region_config")
+
+    @cross_region_config.setter
+    def cross_region_config(self, value: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]):
+        pulumi.set(self, "cross_region_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -550,6 +574,7 @@ class Guardrail(pulumi.CustomResource):
                  blocked_outputs_messaging: Optional[pulumi.Input[_builtins.str]] = None,
                  content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
                  contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
+                 cross_region_config: Optional[pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -582,6 +607,9 @@ class Guardrail(pulumi.CustomResource):
                     "output_strength": "MEDIUM",
                     "type": "HATE",
                 }],
+                "tier_configs": [{
+                    "tier_name": "STANDARD",
+                }],
             },
             sensitive_information_policy_config={
                 "pii_entities_configs": [{
@@ -601,6 +629,9 @@ class Guardrail(pulumi.CustomResource):
                     "examples": ["Where should I invest my money ?"],
                     "type": "DENY",
                     "definition": "Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .",
+                }],
+                "tier_configs": [{
+                    "tier_name": "CLASSIC",
                 }],
             },
             word_policy_config={
@@ -666,6 +697,9 @@ class Guardrail(pulumi.CustomResource):
                     "output_strength": "MEDIUM",
                     "type": "HATE",
                 }],
+                "tier_configs": [{
+                    "tier_name": "STANDARD",
+                }],
             },
             sensitive_information_policy_config={
                 "pii_entities_configs": [{
@@ -685,6 +719,9 @@ class Guardrail(pulumi.CustomResource):
                     "examples": ["Where should I invest my money ?"],
                     "type": "DENY",
                     "definition": "Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .",
+                }],
+                "tier_configs": [{
+                    "tier_name": "CLASSIC",
                 }],
             },
             word_policy_config={
@@ -724,6 +761,7 @@ class Guardrail(pulumi.CustomResource):
                  blocked_outputs_messaging: Optional[pulumi.Input[_builtins.str]] = None,
                  content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
                  contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
+                 cross_region_config: Optional[pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -750,6 +788,7 @@ class Guardrail(pulumi.CustomResource):
             __props__.__dict__["blocked_outputs_messaging"] = blocked_outputs_messaging
             __props__.__dict__["content_policy_config"] = content_policy_config
             __props__.__dict__["contextual_grounding_policy_config"] = contextual_grounding_policy_config
+            __props__.__dict__["cross_region_config"] = cross_region_config
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
@@ -780,6 +819,7 @@ class Guardrail(pulumi.CustomResource):
             content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
             contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
+            cross_region_config: Optional[pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             guardrail_arn: Optional[pulumi.Input[_builtins.str]] = None,
             guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -830,6 +870,7 @@ class Guardrail(pulumi.CustomResource):
         __props__.__dict__["content_policy_config"] = content_policy_config
         __props__.__dict__["contextual_grounding_policy_config"] = contextual_grounding_policy_config
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["cross_region_config"] = cross_region_config
         __props__.__dict__["description"] = description
         __props__.__dict__["guardrail_arn"] = guardrail_arn
         __props__.__dict__["guardrail_id"] = guardrail_id
@@ -885,6 +926,11 @@ class Guardrail(pulumi.CustomResource):
         Unix epoch timestamp in seconds for when the Guardrail was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionConfig")
+    def cross_region_config(self) -> pulumi.Output[Optional['outputs.GuardrailCrossRegionConfig']]:
+        return pulumi.get(self, "cross_region_config")
 
     @_builtins.property
     @pulumi.getter

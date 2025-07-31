@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.GuardrailContentPolicyConfigFiltersConfigArgs;
+import com.pulumi.aws.bedrock.inputs.GuardrailContentPolicyConfigTierConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -33,10 +34,26 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         return Optional.ofNullable(this.filtersConfigs);
     }
 
+    /**
+     * Configuration block for the content policy tier. See Tier Config for more information.
+     * 
+     */
+    @Import(name="tierConfigs")
+    private @Nullable Output<List<GuardrailContentPolicyConfigTierConfigArgs>> tierConfigs;
+
+    /**
+     * @return Configuration block for the content policy tier. See Tier Config for more information.
+     * 
+     */
+    public Optional<Output<List<GuardrailContentPolicyConfigTierConfigArgs>>> tierConfigs() {
+        return Optional.ofNullable(this.tierConfigs);
+    }
+
     private GuardrailContentPolicyConfigArgs() {}
 
     private GuardrailContentPolicyConfigArgs(GuardrailContentPolicyConfigArgs $) {
         this.filtersConfigs = $.filtersConfigs;
+        this.tierConfigs = $.tierConfigs;
     }
 
     public static Builder builder() {
@@ -89,6 +106,37 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
          */
         public Builder filtersConfigs(GuardrailContentPolicyConfigFiltersConfigArgs... filtersConfigs) {
             return filtersConfigs(List.of(filtersConfigs));
+        }
+
+        /**
+         * @param tierConfigs Configuration block for the content policy tier. See Tier Config for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierConfigs(@Nullable Output<List<GuardrailContentPolicyConfigTierConfigArgs>> tierConfigs) {
+            $.tierConfigs = tierConfigs;
+            return this;
+        }
+
+        /**
+         * @param tierConfigs Configuration block for the content policy tier. See Tier Config for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierConfigs(List<GuardrailContentPolicyConfigTierConfigArgs> tierConfigs) {
+            return tierConfigs(Output.of(tierConfigs));
+        }
+
+        /**
+         * @param tierConfigs Configuration block for the content policy tier. See Tier Config for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierConfigs(GuardrailContentPolicyConfigTierConfigArgs... tierConfigs) {
+            return tierConfigs(List.of(tierConfigs));
         }
 
         public GuardrailContentPolicyConfigArgs build() {

@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -108,14 +107,14 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="atRestEncryptionEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> atRestEncryptionEnabled;
+    private Output<Boolean> atRestEncryptionEnabled;
 
     /**
      * @return At-rest encryption flag for cache. You cannot update this setting after creation.
      * 
      */
-    public Output<Optional<Boolean>> atRestEncryptionEnabled() {
-        return Codegen.optional(this.atRestEncryptionEnabled);
+    public Output<Boolean> atRestEncryptionEnabled() {
+        return this.atRestEncryptionEnabled;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -136,14 +135,14 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> transitEncryptionEnabled;
+    private Output<Boolean> transitEncryptionEnabled;
 
     /**
      * @return Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      * 
      */
-    public Output<Optional<Boolean>> transitEncryptionEnabled() {
-        return Codegen.optional(this.transitEncryptionEnabled);
+    public Output<Boolean> transitEncryptionEnabled() {
+        return this.transitEncryptionEnabled;
     }
     /**
      * TTL in seconds for cache entries.

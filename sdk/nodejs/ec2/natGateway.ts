@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create a VPC NAT Gateway.
  *
+ * !> **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `secondaryAllocationIds` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
+ *
  * ## Example Usage
  *
  * ### Public NAT
@@ -130,15 +132,15 @@ export class NatGateway extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
      */
-    public readonly secondaryAllocationIds!: pulumi.Output<string[] | undefined>;
+    public readonly secondaryAllocationIds!: pulumi.Output<string[]>;
     /**
      * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
      */
     public readonly secondaryPrivateIpAddressCount!: pulumi.Output<number>;
     /**
-     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
      */
     public readonly secondaryPrivateIpAddresses!: pulumi.Output<string[]>;
     /**
@@ -237,7 +239,7 @@ export interface NatGatewayState {
      */
     region?: pulumi.Input<string>;
     /**
-     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
      */
     secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -245,7 +247,7 @@ export interface NatGatewayState {
      */
     secondaryPrivateIpAddressCount?: pulumi.Input<number>;
     /**
-     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
      */
     secondaryPrivateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -283,7 +285,7 @@ export interface NatGatewayArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
      */
     secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -291,7 +293,7 @@ export interface NatGatewayArgs {
      */
     secondaryPrivateIpAddressCount?: pulumi.Input<number>;
     /**
-     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
      */
     secondaryPrivateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock;
 
 import com.pulumi.aws.bedrock.inputs.GuardrailContentPolicyConfigArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailContextualGroundingPolicyConfigArgs;
+import com.pulumi.aws.bedrock.inputs.GuardrailCrossRegionConfigArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailSensitiveInformationPolicyConfigArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailTimeoutsArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailTopicPolicyConfigArgs;
@@ -81,6 +82,13 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<GuardrailContextualGroundingPolicyConfigArgs>> contextualGroundingPolicyConfig() {
         return Optional.ofNullable(this.contextualGroundingPolicyConfig);
+    }
+
+    @Import(name="crossRegionConfig")
+    private @Nullable Output<GuardrailCrossRegionConfigArgs> crossRegionConfig;
+
+    public Optional<Output<GuardrailCrossRegionConfigArgs>> crossRegionConfig() {
+        return Optional.ofNullable(this.crossRegionConfig);
     }
 
     /**
@@ -221,6 +229,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         this.blockedOutputsMessaging = $.blockedOutputsMessaging;
         this.contentPolicyConfig = $.contentPolicyConfig;
         this.contextualGroundingPolicyConfig = $.contextualGroundingPolicyConfig;
+        this.crossRegionConfig = $.crossRegionConfig;
         this.description = $.description;
         this.kmsKeyArn = $.kmsKeyArn;
         this.name = $.name;
@@ -332,6 +341,15 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder contextualGroundingPolicyConfig(GuardrailContextualGroundingPolicyConfigArgs contextualGroundingPolicyConfig) {
             return contextualGroundingPolicyConfig(Output.of(contextualGroundingPolicyConfig));
+        }
+
+        public Builder crossRegionConfig(@Nullable Output<GuardrailCrossRegionConfigArgs> crossRegionConfig) {
+            $.crossRegionConfig = crossRegionConfig;
+            return this;
+        }
+
+        public Builder crossRegionConfig(GuardrailCrossRegionConfigArgs crossRegionConfig) {
+            return crossRegionConfig(Output.of(crossRegionConfig));
         }
 
         /**

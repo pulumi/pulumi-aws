@@ -37,6 +37,11 @@ public final class GetPatchBaselineResult {
      * 
      */
     private Boolean approvedPatchesEnableNonSecurity;
+    /**
+     * @return Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only.
+     * 
+     */
+    private String availableSecurityUpdatesComplianceStatus;
     private @Nullable Boolean defaultBaseline;
     /**
      * @return Description of the baseline.
@@ -111,6 +116,13 @@ public final class GetPatchBaselineResult {
      */
     public Boolean approvedPatchesEnableNonSecurity() {
         return this.approvedPatchesEnableNonSecurity;
+    }
+    /**
+     * @return Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only.
+     * 
+     */
+    public String availableSecurityUpdatesComplianceStatus() {
+        return this.availableSecurityUpdatesComplianceStatus;
     }
     public Optional<Boolean> defaultBaseline() {
         return Optional.ofNullable(this.defaultBaseline);
@@ -197,6 +209,7 @@ public final class GetPatchBaselineResult {
         private List<String> approvedPatches;
         private String approvedPatchesComplianceLevel;
         private Boolean approvedPatchesEnableNonSecurity;
+        private String availableSecurityUpdatesComplianceStatus;
         private @Nullable Boolean defaultBaseline;
         private String description;
         private List<GetPatchBaselineGlobalFilter> globalFilters;
@@ -217,6 +230,7 @@ public final class GetPatchBaselineResult {
     	      this.approvedPatches = defaults.approvedPatches;
     	      this.approvedPatchesComplianceLevel = defaults.approvedPatchesComplianceLevel;
     	      this.approvedPatchesEnableNonSecurity = defaults.approvedPatchesEnableNonSecurity;
+    	      this.availableSecurityUpdatesComplianceStatus = defaults.availableSecurityUpdatesComplianceStatus;
     	      this.defaultBaseline = defaults.defaultBaseline;
     	      this.description = defaults.description;
     	      this.globalFilters = defaults.globalFilters;
@@ -268,6 +282,14 @@ public final class GetPatchBaselineResult {
               throw new MissingRequiredPropertyException("GetPatchBaselineResult", "approvedPatchesEnableNonSecurity");
             }
             this.approvedPatchesEnableNonSecurity = approvedPatchesEnableNonSecurity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder availableSecurityUpdatesComplianceStatus(String availableSecurityUpdatesComplianceStatus) {
+            if (availableSecurityUpdatesComplianceStatus == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "availableSecurityUpdatesComplianceStatus");
+            }
+            this.availableSecurityUpdatesComplianceStatus = availableSecurityUpdatesComplianceStatus;
             return this;
         }
         @CustomType.Setter
@@ -383,6 +405,7 @@ public final class GetPatchBaselineResult {
             _resultValue.approvedPatches = approvedPatches;
             _resultValue.approvedPatchesComplianceLevel = approvedPatchesComplianceLevel;
             _resultValue.approvedPatchesEnableNonSecurity = approvedPatchesEnableNonSecurity;
+            _resultValue.availableSecurityUpdatesComplianceStatus = availableSecurityUpdatesComplianceStatus;
             _resultValue.defaultBaseline = defaultBaseline;
             _resultValue.description = description;
             _resultValue.globalFilters = globalFilters;

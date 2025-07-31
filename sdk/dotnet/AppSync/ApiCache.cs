@@ -66,7 +66,7 @@ namespace Pulumi.Aws.AppSync
         /// At-rest encryption flag for cache. You cannot update this setting after creation.
         /// </summary>
         [Output("atRestEncryptionEnabled")]
-        public Output<bool?> AtRestEncryptionEnabled { get; private set; } = null!;
+        public Output<bool> AtRestEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.AppSync
         /// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         /// </summary>
         [Output("transitEncryptionEnabled")]
-        public Output<bool?> TransitEncryptionEnabled { get; private set; } = null!;
+        public Output<bool> TransitEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// TTL in seconds for cache entries.

@@ -64,7 +64,7 @@ export class ServiceSetting extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * ID of the service setting.
+     * ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
      */
     public readonly settingId!: pulumi.Output<string>;
     /**
@@ -126,7 +126,7 @@ export interface ServiceSettingState {
      */
     region?: pulumi.Input<string>;
     /**
-     * ID of the service setting.
+     * ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
      */
     settingId?: pulumi.Input<string>;
     /**
@@ -148,7 +148,7 @@ export interface ServiceSettingArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * ID of the service setting.
+     * ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
      */
     settingId: pulumi.Input<string>;
     /**

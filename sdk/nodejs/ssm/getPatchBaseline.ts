@@ -98,6 +98,10 @@ export interface GetPatchBaselineResult {
      * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
      */
     readonly approvedPatchesEnableNonSecurity: boolean;
+    /**
+     * Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only.
+     */
+    readonly availableSecurityUpdatesComplianceStatus: string;
     readonly defaultBaseline?: boolean;
     /**
      * Description of the baseline.

@@ -106,8 +106,10 @@ type LookupPatchBaselineResult struct {
 	// Compliance level for approved patches.
 	ApprovedPatchesComplianceLevel string `pulumi:"approvedPatchesComplianceLevel"`
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-	ApprovedPatchesEnableNonSecurity bool  `pulumi:"approvedPatchesEnableNonSecurity"`
-	DefaultBaseline                  *bool `pulumi:"defaultBaseline"`
+	ApprovedPatchesEnableNonSecurity bool `pulumi:"approvedPatchesEnableNonSecurity"`
+	// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only.
+	AvailableSecurityUpdatesComplianceStatus string `pulumi:"availableSecurityUpdatesComplianceStatus"`
+	DefaultBaseline                          *bool  `pulumi:"defaultBaseline"`
 	// Description of the baseline.
 	Description string `pulumi:"description"`
 	// Set of global filters used to exclude patches from the baseline.
@@ -192,6 +194,11 @@ func (o LookupPatchBaselineResultOutput) ApprovedPatchesComplianceLevel() pulumi
 // Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
 func (o LookupPatchBaselineResultOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) bool { return v.ApprovedPatchesEnableNonSecurity }).(pulumi.BoolOutput)
+}
+
+// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only.
+func (o LookupPatchBaselineResultOutput) AvailableSecurityUpdatesComplianceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.AvailableSecurityUpdatesComplianceStatus }).(pulumi.StringOutput)
 }
 
 func (o LookupPatchBaselineResultOutput) DefaultBaseline() pulumi.BoolPtrOutput {

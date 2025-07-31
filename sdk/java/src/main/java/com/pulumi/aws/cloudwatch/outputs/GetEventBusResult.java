@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.aws.cloudwatch.outputs.GetEventBusDeadLetterConfig;
+import com.pulumi.aws.cloudwatch.outputs.GetEventBusLogConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -37,6 +38,11 @@ public final class GetEventBusResult {
      * 
      */
     private String kmsKeyIdentifier;
+    /**
+     * @return Block for logging configuration settings for the event bus.
+     * 
+     */
+    private List<GetEventBusLogConfig> logConfigs;
     private String name;
     private String region;
 
@@ -76,6 +82,13 @@ public final class GetEventBusResult {
     public String kmsKeyIdentifier() {
         return this.kmsKeyIdentifier;
     }
+    /**
+     * @return Block for logging configuration settings for the event bus.
+     * 
+     */
+    public List<GetEventBusLogConfig> logConfigs() {
+        return this.logConfigs;
+    }
     public String name() {
         return this.name;
     }
@@ -97,6 +110,7 @@ public final class GetEventBusResult {
         private String description;
         private String id;
         private String kmsKeyIdentifier;
+        private List<GetEventBusLogConfig> logConfigs;
         private String name;
         private String region;
         public Builder() {}
@@ -107,6 +121,7 @@ public final class GetEventBusResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
+    	      this.logConfigs = defaults.logConfigs;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
         }
@@ -155,6 +170,17 @@ public final class GetEventBusResult {
             return this;
         }
         @CustomType.Setter
+        public Builder logConfigs(List<GetEventBusLogConfig> logConfigs) {
+            if (logConfigs == null) {
+              throw new MissingRequiredPropertyException("GetEventBusResult", "logConfigs");
+            }
+            this.logConfigs = logConfigs;
+            return this;
+        }
+        public Builder logConfigs(GetEventBusLogConfig... logConfigs) {
+            return logConfigs(List.of(logConfigs));
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetEventBusResult", "name");
@@ -177,6 +203,7 @@ public final class GetEventBusResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;
+            _resultValue.logConfigs = logConfigs;
             _resultValue.name = name;
             _resultValue.region = region;
             return _resultValue;

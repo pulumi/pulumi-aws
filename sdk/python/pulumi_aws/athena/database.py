@@ -29,7 +29,8 @@ class DatabaseArgs:
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Database resource.
         :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -41,6 +42,7 @@ class DatabaseArgs:
         :param pulumi.Input[_builtins.str] name: Name of the database to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Key-value map of custom metadata properties for the database definition.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] workgroup: Name of the workgroup.
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -60,6 +62,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "properties", properties)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if workgroup is not None:
+            pulumi.set(__self__, "workgroup", workgroup)
 
     @_builtins.property
     @pulumi.getter(name="aclConfiguration")
@@ -168,6 +172,18 @@ class DatabaseArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def workgroup(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the workgroup.
+        """
+        return pulumi.get(self, "workgroup")
+
+    @workgroup.setter
+    def workgroup(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "workgroup", value)
 
 
 @pulumi.input_type
@@ -181,7 +197,8 @@ class _DatabaseState:
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Database resources.
         :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -193,6 +210,7 @@ class _DatabaseState:
         :param pulumi.Input[_builtins.str] name: Name of the database to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Key-value map of custom metadata properties for the database definition.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] workgroup: Name of the workgroup.
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -212,6 +230,8 @@ class _DatabaseState:
             pulumi.set(__self__, "properties", properties)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if workgroup is not None:
+            pulumi.set(__self__, "workgroup", workgroup)
 
     @_builtins.property
     @pulumi.getter(name="aclConfiguration")
@@ -320,6 +340,18 @@ class _DatabaseState:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def workgroup(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the workgroup.
+        """
+        return pulumi.get(self, "workgroup")
+
+    @workgroup.setter
+    def workgroup(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "workgroup", value)
 
 
 @pulumi.type_token("aws:athena/database:Database")
@@ -337,6 +369,7 @@ class Database(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 workgroup: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Athena database.
@@ -373,6 +406,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the database to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Key-value map of custom metadata properties for the database definition.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] workgroup: Name of the workgroup.
         """
         ...
     @overload
@@ -428,6 +462,7 @@ class Database(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 workgroup: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -446,6 +481,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["region"] = region
+            __props__.__dict__["workgroup"] = workgroup
         super(Database, __self__).__init__(
             'aws:athena/database:Database',
             resource_name,
@@ -464,7 +500,8 @@ class Database(pulumi.CustomResource):
             force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Database':
+            region: Optional[pulumi.Input[_builtins.str]] = None,
+            workgroup: Optional[pulumi.Input[_builtins.str]] = None) -> 'Database':
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -481,6 +518,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the database to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Key-value map of custom metadata properties for the database definition.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] workgroup: Name of the workgroup.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -495,6 +533,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["properties"] = properties
         __props__.__dict__["region"] = region
+        __props__.__dict__["workgroup"] = workgroup
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -568,4 +607,12 @@ class Database(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def workgroup(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Name of the workgroup.
+        """
+        return pulumi.get(self, "workgroup")
 

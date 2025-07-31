@@ -72,7 +72,7 @@ export class ApiCache extends pulumi.CustomResource {
     /**
      * At-rest encryption flag for cache. You cannot update this setting after creation.
      */
-    public readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -80,7 +80,7 @@ export class ApiCache extends pulumi.CustomResource {
     /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      */
-    public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
     /**
      * TTL in seconds for cache entries.
      */

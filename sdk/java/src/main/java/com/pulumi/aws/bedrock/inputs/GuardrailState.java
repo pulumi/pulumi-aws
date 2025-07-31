@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.GuardrailContentPolicyConfigArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailContextualGroundingPolicyConfigArgs;
+import com.pulumi.aws.bedrock.inputs.GuardrailCrossRegionConfigArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailSensitiveInformationPolicyConfigArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailTimeoutsArgs;
 import com.pulumi.aws.bedrock.inputs.GuardrailTopicPolicyConfigArgs;
@@ -95,6 +96,13 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
+    }
+
+    @Import(name="crossRegionConfig")
+    private @Nullable Output<GuardrailCrossRegionConfigArgs> crossRegionConfig;
+
+    public Optional<Output<GuardrailCrossRegionConfigArgs>> crossRegionConfig() {
+        return Optional.ofNullable(this.crossRegionConfig);
     }
 
     /**
@@ -303,6 +311,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         this.contentPolicyConfig = $.contentPolicyConfig;
         this.contextualGroundingPolicyConfig = $.contextualGroundingPolicyConfig;
         this.createdAt = $.createdAt;
+        this.crossRegionConfig = $.crossRegionConfig;
         this.description = $.description;
         this.guardrailArn = $.guardrailArn;
         this.guardrailId = $.guardrailId;
@@ -440,6 +449,15 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
+        }
+
+        public Builder crossRegionConfig(@Nullable Output<GuardrailCrossRegionConfigArgs> crossRegionConfig) {
+            $.crossRegionConfig = crossRegionConfig;
+            return this;
+        }
+
+        public Builder crossRegionConfig(GuardrailCrossRegionConfigArgs crossRegionConfig) {
+            return crossRegionConfig(Output.of(crossRegionConfig));
         }
 
         /**

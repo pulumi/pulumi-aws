@@ -445,7 +445,7 @@ class ApiCache(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="atRestEncryptionEnabled")
-    def at_rest_encryption_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def at_rest_encryption_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
         At-rest encryption flag for cache. You cannot update this setting after creation.
         """
@@ -461,7 +461,7 @@ class ApiCache(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="transitEncryptionEnabled")
-    def transit_encryption_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def transit_encryption_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
         Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         """

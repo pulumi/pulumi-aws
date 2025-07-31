@@ -80,14 +80,14 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
      * 
      */
     @Import(name="secondaryAllocationIds")
     private @Nullable Output<List<String>> secondaryAllocationIds;
 
     /**
-     * @return A list of secondary allocation EIP IDs for this NAT Gateway.
+     * @return A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
      * 
      */
     public Optional<Output<List<String>>> secondaryAllocationIds() {
@@ -110,14 +110,14 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
      * 
      */
     @Import(name="secondaryPrivateIpAddresses")
     private @Nullable Output<List<String>> secondaryPrivateIpAddresses;
 
     /**
-     * @return A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * @return A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
      * 
      */
     public Optional<Output<List<String>>> secondaryPrivateIpAddresses() {
@@ -271,7 +271,7 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryAllocationIds A list of secondary allocation EIP IDs for this NAT Gateway.
+         * @param secondaryAllocationIds A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryAllocationIds A list of secondary allocation EIP IDs for this NAT Gateway.
+         * @param secondaryAllocationIds A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryAllocationIds A list of secondary allocation EIP IDs for this NAT Gateway.
+         * @param secondaryAllocationIds A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryPrivateIpAddresses A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+         * @param secondaryPrivateIpAddresses A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryPrivateIpAddresses A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+         * @param secondaryPrivateIpAddresses A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryPrivateIpAddresses A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+         * @param secondaryPrivateIpAddresses A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
          * 
          * @return builder
          * 

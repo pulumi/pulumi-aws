@@ -14,6 +14,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usages
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,6 +34,225 @@ import * as utilities from "../utilities";
  *     name: examplepartner.then(examplepartner => examplepartner.name),
  *     description: "Event bus for example partner events",
  *     eventSourceName: examplepartner.then(examplepartner => examplepartner.name),
+ * });
+ * ```
+ *
+ * ### Logging to CloudWatch Logs, S3, and Data Firehose
+ *
+ * See [Configuring logs for Amazon EventBridge event buses](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html) for more details.
+ *
+ * #### Required Resources
+ *
+ * * EventBridge Event Bus with `logConfig` configured
+ * * Log destinations:
+ *   
+ *     * CloudWatch Logs log group
+ *     * S3 bucket
+ *     * Data Firehose delivery stream
+ *
+ * * Resource-based policy or tagging for the service-linked role:
+ *   
+ *     * CloudWatch Logs log group - `aws.cloudwatch.LogResourcePolicy` to allow `delivery.logs.amazonaws.com` to put logs into the log group
+ *     * S3 bucket - `aws.s3.BucketPolicy` to allow `delivery.logs.amazonaws.com` to put logs into the bucket
+ *     * Data Firehose delivery stream - tagging the delivery stream with `LogDeliveryEnabled = "true"` to allow the service-linked role `AWSServiceRoleForLogDelivery` to deliver logs
+ *
+ * * CloudWatch Logs Delivery:
+ *   
+ *     * `aws.cloudwatch.LogDeliverySource` for each log type (INFO, ERROR, TRACE)
+ *     * `aws.cloudwatch.LogDeliveryDestination` for the log destination (S3 bucket, CloudWatch Logs log group, or Data Firehose delivery stream)
+ *     * `aws.cloudwatch.LogDelivery` to link each log type’s delivery source to the delivery destination
+ *
+ * ### Example Usage
+ *
+ * The following example demonstrates how to set up logging for an EventBridge event bus to all three destinations: CloudWatch Logs, S3, and Data Firehose.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const example = new aws.cloudwatch.EventBus("example", {
+ *     name: "example-event-bus",
+ *     logConfig: {
+ *         includeDetail: "FULL",
+ *         level: "TRACE",
+ *     },
+ * });
+ * // CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
+ * const infoLogs = new aws.cloudwatch.LogDeliverySource("info_logs", {
+ *     name: pulumi.interpolate`EventBusSource-${example.name}-INFO_LOGS`,
+ *     logType: "INFO_LOGS",
+ *     resourceArn: example.arn,
+ * });
+ * const errorLogs = new aws.cloudwatch.LogDeliverySource("error_logs", {
+ *     name: pulumi.interpolate`EventBusSource-${example.name}-ERROR_LOGS`,
+ *     logType: "ERROR_LOGS",
+ *     resourceArn: example.arn,
+ * });
+ * const traceLogs = new aws.cloudwatch.LogDeliverySource("trace_logs", {
+ *     name: pulumi.interpolate`EventBusSource-${example.name}-TRACE_LOGS`,
+ *     logType: "TRACE_LOGS",
+ *     resourceArn: example.arn,
+ * });
+ * // Logging to S3 Bucket
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example-event-bus-logs"});
+ * const bucket = pulumi.all([exampleBucket.arn, current, current, infoLogs.arn, errorLogs.arn, traceLogs.arn]).apply(([exampleBucketArn, current, current1, infoLogsArn, errorLogsArn, traceLogsArn]) => aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["delivery.logs.amazonaws.com"],
+ *         }],
+ *         actions: ["s3:PutObject"],
+ *         resources: [`${exampleBucketArn}/AWSLogs/${current.accountId}/EventBusLogs/*`],
+ *         conditions: [
+ *             {
+ *                 test: "StringEquals",
+ *                 variable: "s3:x-amz-acl",
+ *                 values: ["bucket-owner-full-control"],
+ *             },
+ *             {
+ *                 test: "StringEquals",
+ *                 variable: "aws:SourceAccount",
+ *                 values: [current1.accountId],
+ *             },
+ *             {
+ *                 test: "ArnLike",
+ *                 variable: "aws:SourceArn",
+ *                 values: [
+ *                     infoLogsArn,
+ *                     errorLogsArn,
+ *                     traceLogsArn,
+ *                 ],
+ *             },
+ *         ],
+ *     }],
+ * }));
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
+ *     bucket: exampleBucket.bucket,
+ *     policy: bucket.apply(bucket => bucket.json),
+ * });
+ * const s3 = new aws.cloudwatch.LogDeliveryDestination("s3", {
+ *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-S3`,
+ *     deliveryDestinationConfiguration: {
+ *         destinationResourceArn: exampleBucket.arn,
+ *     },
+ * });
+ * const s3InfoLogs = new aws.cloudwatch.LogDelivery("s3_info_logs", {
+ *     deliveryDestinationArn: s3.arn,
+ *     deliverySourceName: infoLogs.name,
+ * });
+ * const s3ErrorLogs = new aws.cloudwatch.LogDelivery("s3_error_logs", {
+ *     deliveryDestinationArn: s3.arn,
+ *     deliverySourceName: errorLogs.name,
+ * }, {
+ *     dependsOn: [s3InfoLogs],
+ * });
+ * const s3TraceLogs = new aws.cloudwatch.LogDelivery("s3_trace_logs", {
+ *     deliveryDestinationArn: s3.arn,
+ *     deliverySourceName: traceLogs.name,
+ * }, {
+ *     dependsOn: [s3ErrorLogs],
+ * });
+ * // Logging to CloudWatch Log Group
+ * const eventBusLogs = new aws.cloudwatch.LogGroup("event_bus_logs", {name: pulumi.interpolate`/aws/vendedlogs/events/event-bus/${example.name}`});
+ * const cwlogs = pulumi.all([eventBusLogs.arn, current, infoLogs.arn, errorLogs.arn, traceLogs.arn]).apply(([eventBusLogsArn, current, infoLogsArn, errorLogsArn, traceLogsArn]) => aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["delivery.logs.amazonaws.com"],
+ *         }],
+ *         actions: [
+ *             "logs:CreateLogStream",
+ *             "logs:PutLogEvents",
+ *         ],
+ *         resources: [`${eventBusLogsArn}:log-stream:*`],
+ *         conditions: [
+ *             {
+ *                 test: "StringEquals",
+ *                 variable: "aws:SourceAccount",
+ *                 values: [current.accountId],
+ *             },
+ *             {
+ *                 test: "ArnLike",
+ *                 variable: "aws:SourceArn",
+ *                 values: [
+ *                     infoLogsArn,
+ *                     errorLogsArn,
+ *                     traceLogsArn,
+ *                 ],
+ *             },
+ *         ],
+ *     }],
+ * }));
+ * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
+ *     policyDocument: cwlogs.apply(cwlogs => cwlogs.json),
+ *     policyName: pulumi.interpolate`AWSLogDeliveryWrite-${example.name}`,
+ * });
+ * const cwlogsLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("cwlogs", {
+ *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-CWLogs`,
+ *     deliveryDestinationConfiguration: {
+ *         destinationResourceArn: eventBusLogs.arn,
+ *     },
+ * });
+ * const cwlogsInfoLogs = new aws.cloudwatch.LogDelivery("cwlogs_info_logs", {
+ *     deliveryDestinationArn: cwlogsLogDeliveryDestination.arn,
+ *     deliverySourceName: infoLogs.name,
+ * }, {
+ *     dependsOn: [s3InfoLogs],
+ * });
+ * const cwlogsErrorLogs = new aws.cloudwatch.LogDelivery("cwlogs_error_logs", {
+ *     deliveryDestinationArn: cwlogsLogDeliveryDestination.arn,
+ *     deliverySourceName: errorLogs.name,
+ * }, {
+ *     dependsOn: [
+ *         s3ErrorLogs,
+ *         cwlogsInfoLogs,
+ *     ],
+ * });
+ * const cwlogsTraceLogs = new aws.cloudwatch.LogDelivery("cwlogs_trace_logs", {
+ *     deliveryDestinationArn: cwlogsLogDeliveryDestination.arn,
+ *     deliverySourceName: traceLogs.name,
+ * }, {
+ *     dependsOn: [
+ *         s3TraceLogs,
+ *         cwlogsErrorLogs,
+ *     ],
+ * });
+ * // Logging to Data Firehose
+ * const cloudfrontLogs = new aws.kinesis.FirehoseDeliveryStream("cloudfront_logs", {tags: {
+ *     LogDeliveryEnabled: "true",
+ * }});
+ * const firehose = new aws.cloudwatch.LogDeliveryDestination("firehose", {
+ *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-Firehose`,
+ *     deliveryDestinationConfiguration: {
+ *         destinationResourceArn: cloudfrontLogs.arn,
+ *     },
+ * });
+ * const firehoseInfoLogs = new aws.cloudwatch.LogDelivery("firehose_info_logs", {
+ *     deliveryDestinationArn: firehose.arn,
+ *     deliverySourceName: infoLogs.name,
+ * }, {
+ *     dependsOn: [cwlogsInfoLogs],
+ * });
+ * const firehoseErrorLogs = new aws.cloudwatch.LogDelivery("firehose_error_logs", {
+ *     deliveryDestinationArn: firehose.arn,
+ *     deliverySourceName: errorLogs.name,
+ * }, {
+ *     dependsOn: [
+ *         cwlogsErrorLogs,
+ *         firehoseInfoLogs,
+ *     ],
+ * });
+ * const firehoseTraceLogs = new aws.cloudwatch.LogDelivery("firehose_trace_logs", {
+ *     deliveryDestinationArn: firehose.arn,
+ *     deliverySourceName: traceLogs.name,
+ * }, {
+ *     dependsOn: [
+ *         cwlogsTraceLogs,
+ *         firehoseErrorLogs,
+ *     ],
  * });
  * ```
  *
@@ -92,6 +313,10 @@ export class EventBus extends pulumi.CustomResource {
      */
     public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * Block for logging configuration settings for the event bus.
+     */
+    public readonly logConfig!: pulumi.Output<outputs.cloudwatch.EventBusLogConfig | undefined>;
+    /**
      * Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
      *
      * The following arguments are optional:
@@ -128,6 +353,7 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["eventSourceName"] = state ? state.eventSourceName : undefined;
             resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
+            resourceInputs["logConfig"] = state ? state.logConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -138,6 +364,7 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
+            resourceInputs["logConfig"] = args ? args.logConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -173,6 +400,10 @@ export interface EventBusState {
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
+    /**
+     * Block for logging configuration settings for the event bus.
+     */
+    logConfig?: pulumi.Input<inputs.cloudwatch.EventBusLogConfig>;
     /**
      * Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
      *
@@ -213,6 +444,10 @@ export interface EventBusArgs {
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
+    /**
+     * Block for logging configuration settings for the event bus.
+     */
+    logConfig?: pulumi.Input<inputs.cloudwatch.EventBusLogConfig>;
     /**
      * Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
      *

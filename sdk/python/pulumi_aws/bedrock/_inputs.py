@@ -359,10 +359,14 @@ __all__ = [
     'GuardrailContentPolicyConfigArgsDict',
     'GuardrailContentPolicyConfigFiltersConfigArgs',
     'GuardrailContentPolicyConfigFiltersConfigArgsDict',
+    'GuardrailContentPolicyConfigTierConfigArgs',
+    'GuardrailContentPolicyConfigTierConfigArgsDict',
     'GuardrailContextualGroundingPolicyConfigArgs',
     'GuardrailContextualGroundingPolicyConfigArgsDict',
     'GuardrailContextualGroundingPolicyConfigFiltersConfigArgs',
     'GuardrailContextualGroundingPolicyConfigFiltersConfigArgsDict',
+    'GuardrailCrossRegionConfigArgs',
+    'GuardrailCrossRegionConfigArgsDict',
     'GuardrailSensitiveInformationPolicyConfigArgs',
     'GuardrailSensitiveInformationPolicyConfigArgsDict',
     'GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs',
@@ -373,6 +377,8 @@ __all__ = [
     'GuardrailTimeoutsArgsDict',
     'GuardrailTopicPolicyConfigArgs',
     'GuardrailTopicPolicyConfigArgsDict',
+    'GuardrailTopicPolicyConfigTierConfigArgs',
+    'GuardrailTopicPolicyConfigTierConfigArgsDict',
     'GuardrailTopicPolicyConfigTopicsConfigArgs',
     'GuardrailTopicPolicyConfigTopicsConfigArgsDict',
     'GuardrailVersionTimeoutsArgs',
@@ -9259,19 +9265,27 @@ if not MYPY:
         Set of content filter configs in content policy.
         See Filters Config for more information.
         """
+        tier_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailContentPolicyConfigTierConfigArgsDict']]]]
+        """
+        Configuration block for the content policy tier. See Tier Config for more information.
+        """
 elif False:
     GuardrailContentPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GuardrailContentPolicyConfigArgs:
     def __init__(__self__, *,
-                 filters_configs: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailContentPolicyConfigFiltersConfigArgs']]]] = None):
+                 filters_configs: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailContentPolicyConfigFiltersConfigArgs']]]] = None,
+                 tier_configs: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailContentPolicyConfigTierConfigArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['GuardrailContentPolicyConfigFiltersConfigArgs']]] filters_configs: Set of content filter configs in content policy.
                See Filters Config for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailContentPolicyConfigTierConfigArgs']]] tier_configs: Configuration block for the content policy tier. See Tier Config for more information.
         """
         if filters_configs is not None:
             pulumi.set(__self__, "filters_configs", filters_configs)
+        if tier_configs is not None:
+            pulumi.set(__self__, "tier_configs", tier_configs)
 
     @_builtins.property
     @pulumi.getter(name="filtersConfigs")
@@ -9285,6 +9299,18 @@ class GuardrailContentPolicyConfigArgs:
     @filters_configs.setter
     def filters_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailContentPolicyConfigFiltersConfigArgs']]]]):
         pulumi.set(self, "filters_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tierConfigs")
+    def tier_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailContentPolicyConfigTierConfigArgs']]]]:
+        """
+        Configuration block for the content policy tier. See Tier Config for more information.
+        """
+        return pulumi.get(self, "tier_configs")
+
+    @tier_configs.setter
+    def tier_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailContentPolicyConfigTierConfigArgs']]]]):
+        pulumi.set(self, "tier_configs", value)
 
 
 if not MYPY:
@@ -9354,6 +9380,37 @@ class GuardrailContentPolicyConfigFiltersConfigArgs:
     @type.setter
     def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class GuardrailContentPolicyConfigTierConfigArgsDict(TypedDict):
+        tier_name: pulumi.Input[_builtins.str]
+        """
+        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+elif False:
+    GuardrailContentPolicyConfigTierConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GuardrailContentPolicyConfigTierConfigArgs:
+    def __init__(__self__, *,
+                 tier_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] tier_name: The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+        pulumi.set(__self__, "tier_name", tier_name)
+
+    @_builtins.property
+    @pulumi.getter(name="tierName")
+    def tier_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+        return pulumi.get(self, "tier_name")
+
+    @tier_name.setter
+    def tier_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tier_name", value)
 
 
 if not MYPY:
@@ -9436,6 +9493,37 @@ class GuardrailContextualGroundingPolicyConfigFiltersConfigArgs:
     @type.setter
     def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class GuardrailCrossRegionConfigArgsDict(TypedDict):
+        guardrail_profile_identifier: pulumi.Input[_builtins.str]
+        """
+        Guardrail profile ARN.
+        """
+elif False:
+    GuardrailCrossRegionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GuardrailCrossRegionConfigArgs:
+    def __init__(__self__, *,
+                 guardrail_profile_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] guardrail_profile_identifier: Guardrail profile ARN.
+        """
+        pulumi.set(__self__, "guardrail_profile_identifier", guardrail_profile_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="guardrailProfileIdentifier")
+    def guardrail_profile_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Guardrail profile ARN.
+        """
+        return pulumi.get(self, "guardrail_profile_identifier")
+
+    @guardrail_profile_identifier.setter
+    def guardrail_profile_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "guardrail_profile_identifier", value)
 
 
 if not MYPY:
@@ -9703,6 +9791,10 @@ class GuardrailTimeoutsArgs:
 
 if not MYPY:
     class GuardrailTopicPolicyConfigArgsDict(TypedDict):
+        tier_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTierConfigArgsDict']]]]
+        """
+        Configuration block for the topic policy tier. See Tier Config for more information.
+        """
         topics_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTopicsConfigArgsDict']]]]
         """
         List of topic configs in topic policy. See Topics Config for more information.
@@ -9713,12 +9805,28 @@ elif False:
 @pulumi.input_type
 class GuardrailTopicPolicyConfigArgs:
     def __init__(__self__, *,
+                 tier_configs: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTierConfigArgs']]]] = None,
                  topics_configs: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTopicsConfigArgs']]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTierConfigArgs']]] tier_configs: Configuration block for the topic policy tier. See Tier Config for more information.
         :param pulumi.Input[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTopicsConfigArgs']]] topics_configs: List of topic configs in topic policy. See Topics Config for more information.
         """
+        if tier_configs is not None:
+            pulumi.set(__self__, "tier_configs", tier_configs)
         if topics_configs is not None:
             pulumi.set(__self__, "topics_configs", topics_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="tierConfigs")
+    def tier_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTierConfigArgs']]]]:
+        """
+        Configuration block for the topic policy tier. See Tier Config for more information.
+        """
+        return pulumi.get(self, "tier_configs")
+
+    @tier_configs.setter
+    def tier_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTierConfigArgs']]]]):
+        pulumi.set(self, "tier_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="topicsConfigs")
@@ -9731,6 +9839,37 @@ class GuardrailTopicPolicyConfigArgs:
     @topics_configs.setter
     def topics_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTopicsConfigArgs']]]]):
         pulumi.set(self, "topics_configs", value)
+
+
+if not MYPY:
+    class GuardrailTopicPolicyConfigTierConfigArgsDict(TypedDict):
+        tier_name: pulumi.Input[_builtins.str]
+        """
+        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+elif False:
+    GuardrailTopicPolicyConfigTierConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GuardrailTopicPolicyConfigTierConfigArgs:
+    def __init__(__self__, *,
+                 tier_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] tier_name: The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+        pulumi.set(__self__, "tier_name", tier_name)
+
+    @_builtins.property
+    @pulumi.getter(name="tierName")
+    def tier_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        """
+        return pulumi.get(self, "tier_name")
+
+    @tier_name.setter
+    def tier_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tier_name", value)
 
 
 if not MYPY:

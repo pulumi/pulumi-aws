@@ -107,6 +107,7 @@ from .main_route_table_association import *
 from .managed_prefix_list import *
 from .managed_prefix_list_entry import *
 from .nat_gateway import *
+from .nat_gateway_eip_association import *
 from .network_acl import *
 from .network_acl_association import *
 from .network_acl_rule import *

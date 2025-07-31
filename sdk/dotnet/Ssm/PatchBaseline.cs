@@ -315,6 +315,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+        /// </summary>
+        [Output("availableSecurityUpdatesComplianceStatus")]
+        public Output<string> AvailableSecurityUpdatesComplianceStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the patch baseline.
         /// </summary>
         [Output("description")]
@@ -465,6 +471,12 @@ namespace Pulumi.Aws.Ssm
         public Input<bool>? ApprovedPatchesEnableNonSecurity { get; set; }
 
         /// <summary>
+        /// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+        /// </summary>
+        [Input("availableSecurityUpdatesComplianceStatus")]
+        public Input<string>? AvailableSecurityUpdatesComplianceStatus { get; set; }
+
+        /// <summary>
         /// Description of the patch baseline.
         /// </summary>
         [Input("description")]
@@ -593,6 +605,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
+        /// </summary>
+        [Input("availableSecurityUpdatesComplianceStatus")]
+        public Input<string>? AvailableSecurityUpdatesComplianceStatus { get; set; }
 
         /// <summary>
         /// Description of the patch baseline.

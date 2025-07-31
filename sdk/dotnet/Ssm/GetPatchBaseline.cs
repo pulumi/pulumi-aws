@@ -260,6 +260,10 @@ namespace Pulumi.Aws.Ssm
         /// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
         /// </summary>
         public readonly bool ApprovedPatchesEnableNonSecurity;
+        /// <summary>
+        /// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only.
+        /// </summary>
+        public readonly string AvailableSecurityUpdatesComplianceStatus;
         public readonly bool? DefaultBaseline;
         /// <summary>
         /// Description of the baseline.
@@ -308,6 +312,8 @@ namespace Pulumi.Aws.Ssm
 
             bool approvedPatchesEnableNonSecurity,
 
+            string availableSecurityUpdatesComplianceStatus,
+
             bool? defaultBaseline,
 
             string description,
@@ -338,6 +344,7 @@ namespace Pulumi.Aws.Ssm
             ApprovedPatches = approvedPatches;
             ApprovedPatchesComplianceLevel = approvedPatchesComplianceLevel;
             ApprovedPatchesEnableNonSecurity = approvedPatchesEnableNonSecurity;
+            AvailableSecurityUpdatesComplianceStatus = availableSecurityUpdatesComplianceStatus;
             DefaultBaseline = defaultBaseline;
             Description = description;
             GlobalFilters = globalFilters;

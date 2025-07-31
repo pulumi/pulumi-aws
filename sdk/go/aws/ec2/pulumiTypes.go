@@ -15470,6 +15470,162 @@ func (o ManagedPrefixListEntryTypeArrayOutput) Index(i pulumi.IntInput) ManagedP
 	}).(ManagedPrefixListEntryTypeOutput)
 }
 
+type NatGatewayEipAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// NatGatewayEipAssociationTimeoutsInput is an input type that accepts NatGatewayEipAssociationTimeoutsArgs and NatGatewayEipAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `NatGatewayEipAssociationTimeoutsInput` via:
+//
+//	NatGatewayEipAssociationTimeoutsArgs{...}
+type NatGatewayEipAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToNatGatewayEipAssociationTimeoutsOutput() NatGatewayEipAssociationTimeoutsOutput
+	ToNatGatewayEipAssociationTimeoutsOutputWithContext(context.Context) NatGatewayEipAssociationTimeoutsOutput
+}
+
+type NatGatewayEipAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (NatGatewayEipAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayEipAssociationTimeouts)(nil)).Elem()
+}
+
+func (i NatGatewayEipAssociationTimeoutsArgs) ToNatGatewayEipAssociationTimeoutsOutput() NatGatewayEipAssociationTimeoutsOutput {
+	return i.ToNatGatewayEipAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i NatGatewayEipAssociationTimeoutsArgs) ToNatGatewayEipAssociationTimeoutsOutputWithContext(ctx context.Context) NatGatewayEipAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayEipAssociationTimeoutsOutput)
+}
+
+func (i NatGatewayEipAssociationTimeoutsArgs) ToNatGatewayEipAssociationTimeoutsPtrOutput() NatGatewayEipAssociationTimeoutsPtrOutput {
+	return i.ToNatGatewayEipAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i NatGatewayEipAssociationTimeoutsArgs) ToNatGatewayEipAssociationTimeoutsPtrOutputWithContext(ctx context.Context) NatGatewayEipAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayEipAssociationTimeoutsOutput).ToNatGatewayEipAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// NatGatewayEipAssociationTimeoutsPtrInput is an input type that accepts NatGatewayEipAssociationTimeoutsArgs, NatGatewayEipAssociationTimeoutsPtr and NatGatewayEipAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `NatGatewayEipAssociationTimeoutsPtrInput` via:
+//
+//	        NatGatewayEipAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type NatGatewayEipAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToNatGatewayEipAssociationTimeoutsPtrOutput() NatGatewayEipAssociationTimeoutsPtrOutput
+	ToNatGatewayEipAssociationTimeoutsPtrOutputWithContext(context.Context) NatGatewayEipAssociationTimeoutsPtrOutput
+}
+
+type natGatewayEipAssociationTimeoutsPtrType NatGatewayEipAssociationTimeoutsArgs
+
+func NatGatewayEipAssociationTimeoutsPtr(v *NatGatewayEipAssociationTimeoutsArgs) NatGatewayEipAssociationTimeoutsPtrInput {
+	return (*natGatewayEipAssociationTimeoutsPtrType)(v)
+}
+
+func (*natGatewayEipAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NatGatewayEipAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *natGatewayEipAssociationTimeoutsPtrType) ToNatGatewayEipAssociationTimeoutsPtrOutput() NatGatewayEipAssociationTimeoutsPtrOutput {
+	return i.ToNatGatewayEipAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *natGatewayEipAssociationTimeoutsPtrType) ToNatGatewayEipAssociationTimeoutsPtrOutputWithContext(ctx context.Context) NatGatewayEipAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayEipAssociationTimeoutsPtrOutput)
+}
+
+type NatGatewayEipAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayEipAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayEipAssociationTimeouts)(nil)).Elem()
+}
+
+func (o NatGatewayEipAssociationTimeoutsOutput) ToNatGatewayEipAssociationTimeoutsOutput() NatGatewayEipAssociationTimeoutsOutput {
+	return o
+}
+
+func (o NatGatewayEipAssociationTimeoutsOutput) ToNatGatewayEipAssociationTimeoutsOutputWithContext(ctx context.Context) NatGatewayEipAssociationTimeoutsOutput {
+	return o
+}
+
+func (o NatGatewayEipAssociationTimeoutsOutput) ToNatGatewayEipAssociationTimeoutsPtrOutput() NatGatewayEipAssociationTimeoutsPtrOutput {
+	return o.ToNatGatewayEipAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o NatGatewayEipAssociationTimeoutsOutput) ToNatGatewayEipAssociationTimeoutsPtrOutputWithContext(ctx context.Context) NatGatewayEipAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NatGatewayEipAssociationTimeouts) *NatGatewayEipAssociationTimeouts {
+		return &v
+	}).(NatGatewayEipAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o NatGatewayEipAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayEipAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o NatGatewayEipAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayEipAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type NatGatewayEipAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayEipAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NatGatewayEipAssociationTimeouts)(nil)).Elem()
+}
+
+func (o NatGatewayEipAssociationTimeoutsPtrOutput) ToNatGatewayEipAssociationTimeoutsPtrOutput() NatGatewayEipAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o NatGatewayEipAssociationTimeoutsPtrOutput) ToNatGatewayEipAssociationTimeoutsPtrOutputWithContext(ctx context.Context) NatGatewayEipAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o NatGatewayEipAssociationTimeoutsPtrOutput) Elem() NatGatewayEipAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *NatGatewayEipAssociationTimeouts) NatGatewayEipAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret NatGatewayEipAssociationTimeouts
+		return ret
+	}).(NatGatewayEipAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o NatGatewayEipAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGatewayEipAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o NatGatewayEipAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGatewayEipAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type NetworkAclEgress struct {
 	// The action to take.
 	Action string `pulumi:"action"`
@@ -60766,6 +60922,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagSpecificationArrayInput)(nil)).Elem(), LaunchTemplateTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListEntryTypeInput)(nil)).Elem(), ManagedPrefixListEntryTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListEntryTypeArrayInput)(nil)).Elem(), ManagedPrefixListEntryTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayEipAssociationTimeoutsInput)(nil)).Elem(), NatGatewayEipAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayEipAssociationTimeoutsPtrInput)(nil)).Elem(), NatGatewayEipAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEgressInput)(nil)).Elem(), NetworkAclEgressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEgressArrayInput)(nil)).Elem(), NetworkAclEgressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclIngressInput)(nil)).Elem(), NetworkAclIngressArgs{})
@@ -61655,6 +61813,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ManagedPrefixListEntryTypeOutput{})
 	pulumi.RegisterOutputType(ManagedPrefixListEntryTypeArrayOutput{})
+	pulumi.RegisterOutputType(NatGatewayEipAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(NatGatewayEipAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclIngressOutput{})

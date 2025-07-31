@@ -18,11 +18,19 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// See Filters Config for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailContentPolicyConfigFiltersConfig> FiltersConfigs;
+        /// <summary>
+        /// Configuration block for the content policy tier. See Tier Config for more information.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GuardrailContentPolicyConfigTierConfig> TierConfigs;
 
         [OutputConstructor]
-        private GuardrailContentPolicyConfig(ImmutableArray<Outputs.GuardrailContentPolicyConfigFiltersConfig> filtersConfigs)
+        private GuardrailContentPolicyConfig(
+            ImmutableArray<Outputs.GuardrailContentPolicyConfigFiltersConfig> filtersConfigs,
+
+            ImmutableArray<Outputs.GuardrailContentPolicyConfigTierConfig> tierConfigs)
         {
             FiltersConfigs = filtersConfigs;
+            TierConfigs = tierConfigs;
         }
     }
 }

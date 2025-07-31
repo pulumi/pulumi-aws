@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Athena
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the workgroup.
+        /// </summary>
+        [Output("workgroup")]
+        public Output<string?> Workgroup { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Database resource with the given unique name, arguments, and options.
@@ -208,6 +214,12 @@ namespace Pulumi.Aws.Athena
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Name of the workgroup.
+        /// </summary>
+        [Input("workgroup")]
+        public Input<string>? Workgroup { get; set; }
+
         public DatabaseArgs()
         {
         }
@@ -275,6 +287,12 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Name of the workgroup.
+        /// </summary>
+        [Input("workgroup")]
+        public Input<string>? Workgroup { get; set; }
 
         public DatabaseState()
         {

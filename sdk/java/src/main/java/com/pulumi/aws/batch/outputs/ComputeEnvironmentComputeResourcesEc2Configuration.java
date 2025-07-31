@@ -17,6 +17,11 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
      */
     private @Nullable String imageIdOverride;
     /**
+     * @return The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+     * 
+     */
+    private @Nullable String imageKubernetesVersion;
+    /**
      * @return The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
      * 
      */
@@ -29,6 +34,13 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
      */
     public Optional<String> imageIdOverride() {
         return Optional.ofNullable(this.imageIdOverride);
+    }
+    /**
+     * @return The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+     * 
+     */
+    public Optional<String> imageKubernetesVersion() {
+        return Optional.ofNullable(this.imageKubernetesVersion);
     }
     /**
      * @return The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
@@ -48,11 +60,13 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String imageIdOverride;
+        private @Nullable String imageKubernetesVersion;
         private @Nullable String imageType;
         public Builder() {}
         public Builder(ComputeEnvironmentComputeResourcesEc2Configuration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.imageIdOverride = defaults.imageIdOverride;
+    	      this.imageKubernetesVersion = defaults.imageKubernetesVersion;
     	      this.imageType = defaults.imageType;
         }
 
@@ -60,6 +74,12 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
         public Builder imageIdOverride(@Nullable String imageIdOverride) {
 
             this.imageIdOverride = imageIdOverride;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder imageKubernetesVersion(@Nullable String imageKubernetesVersion) {
+
+            this.imageKubernetesVersion = imageKubernetesVersion;
             return this;
         }
         @CustomType.Setter
@@ -71,6 +91,7 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
         public ComputeEnvironmentComputeResourcesEc2Configuration build() {
             final var _resultValue = new ComputeEnvironmentComputeResourcesEc2Configuration();
             _resultValue.imageIdOverride = imageIdOverride;
+            _resultValue.imageKubernetesVersion = imageKubernetesVersion;
             _resultValue.imageType = imageType;
             return _resultValue;
         }

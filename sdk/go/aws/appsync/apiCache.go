@@ -65,11 +65,11 @@ type ApiCache struct {
 	// GraphQL API ID.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
-	AtRestEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
+	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
 	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
@@ -288,8 +288,8 @@ func (o ApiCacheOutput) ApiId() pulumi.StringOutput {
 }
 
 // At-rest encryption flag for cache. You cannot update this setting after creation.
-func (o ApiCacheOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
+func (o ApiCacheOutput) AtRestEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.BoolOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -298,8 +298,8 @@ func (o ApiCacheOutput) Region() pulumi.StringOutput {
 }
 
 // Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-func (o ApiCacheOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
+func (o ApiCacheOutput) TransitEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.BoolOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
 // TTL in seconds for cache entries.

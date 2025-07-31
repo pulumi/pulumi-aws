@@ -24,7 +24,7 @@ class ServiceSettingArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceSetting resource.
-        :param pulumi.Input[_builtins.str] setting_id: ID of the service setting.
+        :param pulumi.Input[_builtins.str] setting_id: ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         :param pulumi.Input[_builtins.str] setting_value: Value of the service setting.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -37,7 +37,7 @@ class ServiceSettingArgs:
     @pulumi.getter(name="settingId")
     def setting_id(self) -> pulumi.Input[_builtins.str]:
         """
-        ID of the service setting.
+        ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         """
         return pulumi.get(self, "setting_id")
 
@@ -82,7 +82,7 @@ class _ServiceSettingState:
         Input properties used for looking up and filtering ServiceSetting resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the service setting.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] setting_id: ID of the service setting.
+        :param pulumi.Input[_builtins.str] setting_id: ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         :param pulumi.Input[_builtins.str] setting_value: Value of the service setting.
         :param pulumi.Input[_builtins.str] status: Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
         """
@@ -125,7 +125,7 @@ class _ServiceSettingState:
     @pulumi.getter(name="settingId")
     def setting_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ID of the service setting.
+        ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         """
         return pulumi.get(self, "setting_id")
 
@@ -193,7 +193,7 @@ class ServiceSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] setting_id: ID of the service setting.
+        :param pulumi.Input[_builtins.str] setting_id: ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         :param pulumi.Input[_builtins.str] setting_value: Value of the service setting.
         """
         ...
@@ -284,7 +284,7 @@ class ServiceSetting(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the service setting.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] setting_id: ID of the service setting.
+        :param pulumi.Input[_builtins.str] setting_id: ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         :param pulumi.Input[_builtins.str] setting_value: Value of the service setting.
         :param pulumi.Input[_builtins.str] status: Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
         """
@@ -319,7 +319,7 @@ class ServiceSetting(pulumi.CustomResource):
     @pulumi.getter(name="settingId")
     def setting_id(self) -> pulumi.Output[_builtins.str]:
         """
-        ID of the service setting.
+        ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         """
         return pulumi.get(self, "setting_id")
 

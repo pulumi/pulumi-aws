@@ -43,6 +43,11 @@ import (
 //							Type:           pulumi.String("HATE"),
 //						},
 //					},
+//					TierConfigs: bedrock.GuardrailContentPolicyConfigTierConfigArray{
+//						&bedrock.GuardrailContentPolicyConfigTierConfigArgs{
+//							TierName: pulumi.String("STANDARD"),
+//						},
+//					},
 //				},
 //				SensitiveInformationPolicyConfig: &bedrock.GuardrailSensitiveInformationPolicyConfigArgs{
 //					PiiEntitiesConfigs: bedrock.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArray{
@@ -69,6 +74,11 @@ import (
 //							},
 //							Type:       pulumi.String("DENY"),
 //							Definition: pulumi.String("Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns ."),
+//						},
+//					},
+//					TierConfigs: bedrock.GuardrailTopicPolicyConfigTierConfigArray{
+//						&bedrock.GuardrailTopicPolicyConfigTierConfigArgs{
+//							TierName: pulumi.String("CLASSIC"),
 //						},
 //					},
 //				},
@@ -113,7 +123,8 @@ type Guardrail struct {
 	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
 	ContextualGroundingPolicyConfig GuardrailContextualGroundingPolicyConfigPtrOutput `pulumi:"contextualGroundingPolicyConfig"`
 	// Unix epoch timestamp in seconds for when the Guardrail was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt         pulumi.StringOutput                 `pulumi:"createdAt"`
+	CrossRegionConfig GuardrailCrossRegionConfigPtrOutput `pulumi:"crossRegionConfig"`
 	// Description of the guardrail or its version.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// ARN of the Guardrail.
@@ -189,7 +200,8 @@ type guardrailState struct {
 	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
 	ContextualGroundingPolicyConfig *GuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
 	// Unix epoch timestamp in seconds for when the Guardrail was created.
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt         *string                     `pulumi:"createdAt"`
+	CrossRegionConfig *GuardrailCrossRegionConfig `pulumi:"crossRegionConfig"`
 	// Description of the guardrail or its version.
 	Description *string `pulumi:"description"`
 	// ARN of the Guardrail.
@@ -230,7 +242,8 @@ type GuardrailState struct {
 	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
 	ContextualGroundingPolicyConfig GuardrailContextualGroundingPolicyConfigPtrInput
 	// Unix epoch timestamp in seconds for when the Guardrail was created.
-	CreatedAt pulumi.StringPtrInput
+	CreatedAt         pulumi.StringPtrInput
+	CrossRegionConfig GuardrailCrossRegionConfigPtrInput
 	// Description of the guardrail or its version.
 	Description pulumi.StringPtrInput
 	// ARN of the Guardrail.
@@ -274,6 +287,7 @@ type guardrailArgs struct {
 	ContentPolicyConfig *GuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
 	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
 	ContextualGroundingPolicyConfig *GuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
+	CrossRegionConfig               *GuardrailCrossRegionConfig               `pulumi:"crossRegionConfig"`
 	// Description of the guardrail or its version.
 	Description *string `pulumi:"description"`
 	// The KMS key with which the guardrail was encrypted at rest.
@@ -305,6 +319,7 @@ type GuardrailArgs struct {
 	ContentPolicyConfig GuardrailContentPolicyConfigPtrInput
 	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
 	ContextualGroundingPolicyConfig GuardrailContextualGroundingPolicyConfigPtrInput
+	CrossRegionConfig               GuardrailCrossRegionConfigPtrInput
 	// Description of the guardrail or its version.
 	Description pulumi.StringPtrInput
 	// The KMS key with which the guardrail was encrypted at rest.
@@ -438,6 +453,10 @@ func (o GuardrailOutput) ContextualGroundingPolicyConfig() GuardrailContextualGr
 // Unix epoch timestamp in seconds for when the Guardrail was created.
 func (o GuardrailOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o GuardrailOutput) CrossRegionConfig() GuardrailCrossRegionConfigPtrOutput {
+	return o.ApplyT(func(v *Guardrail) GuardrailCrossRegionConfigPtrOutput { return v.CrossRegionConfig }).(GuardrailCrossRegionConfigPtrOutput)
 }
 
 // Description of the guardrail or its version.

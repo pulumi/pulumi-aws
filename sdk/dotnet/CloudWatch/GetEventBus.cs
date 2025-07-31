@@ -155,6 +155,10 @@ namespace Pulumi.Aws.CloudWatch
         /// Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
         /// </summary>
         public readonly string KmsKeyIdentifier;
+        /// <summary>
+        /// Block for logging configuration settings for the event bus.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetEventBusLogConfigResult> LogConfigs;
         public readonly string Name;
         public readonly string Region;
 
@@ -170,6 +174,8 @@ namespace Pulumi.Aws.CloudWatch
 
             string kmsKeyIdentifier,
 
+            ImmutableArray<Outputs.GetEventBusLogConfigResult> logConfigs,
+
             string name,
 
             string region)
@@ -179,6 +185,7 @@ namespace Pulumi.Aws.CloudWatch
             Description = description;
             Id = id;
             KmsKeyIdentifier = kmsKeyIdentifier;
+            LogConfigs = logConfigs;
             Name = name;
             Region = region;
         }

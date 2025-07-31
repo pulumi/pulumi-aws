@@ -96,6 +96,10 @@ export class Database extends pulumi.CustomResource {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
+    /**
+     * Name of the workgroup.
+     */
+    public readonly workgroup!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -119,6 +123,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["workgroup"] = state ? state.workgroup : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
             resourceInputs["aclConfiguration"] = args ? args.aclConfiguration : undefined;
@@ -130,6 +135,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Database.__pulumiType, name, resourceInputs, opts);
@@ -176,6 +182,10 @@ export interface DatabaseState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Name of the workgroup.
+     */
+    workgroup?: pulumi.Input<string>;
 }
 
 /**
@@ -218,4 +228,8 @@ export interface DatabaseArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Name of the workgroup.
+     */
+    workgroup?: pulumi.Input<string>;
 }

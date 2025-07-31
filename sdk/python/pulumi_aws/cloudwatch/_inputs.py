@@ -21,6 +21,8 @@ __all__ = [
     'CompositeAlarmActionsSuppressorArgsDict',
     'EventBusDeadLetterConfigArgs',
     'EventBusDeadLetterConfigArgsDict',
+    'EventBusLogConfigArgs',
+    'EventBusLogConfigArgsDict',
     'EventConnectionAuthParametersArgs',
     'EventConnectionAuthParametersArgsDict',
     'EventConnectionAuthParametersApiKeyArgs',
@@ -250,6 +252,58 @@ class EventBusDeadLetterConfigArgs:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "arn", value)
+
+
+if not MYPY:
+    class EventBusLogConfigArgsDict(TypedDict):
+        include_detail: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+        """
+        level: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+        """
+elif False:
+    EventBusLogConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventBusLogConfigArgs:
+    def __init__(__self__, *,
+                 include_detail: Optional[pulumi.Input[_builtins.str]] = None,
+                 level: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] include_detail: Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+        :param pulumi.Input[_builtins.str] level: Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+        """
+        if include_detail is not None:
+            pulumi.set(__self__, "include_detail", include_detail)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @_builtins.property
+    @pulumi.getter(name="includeDetail")
+    def include_detail(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+        """
+        return pulumi.get(self, "include_detail")
+
+    @include_detail.setter
+    def include_detail(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "include_detail", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "level", value)
 
 
 if not MYPY:

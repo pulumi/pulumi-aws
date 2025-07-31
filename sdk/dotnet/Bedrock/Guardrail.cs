@@ -41,6 +41,13 @@ namespace Pulumi.Aws.Bedrock
     ///                     Type = "HATE",
     ///                 },
     ///             },
+    ///             TierConfigs = new[]
+    ///             {
+    ///                 new Aws.Bedrock.Inputs.GuardrailContentPolicyConfigTierConfigArgs
+    ///                 {
+    ///                     TierName = "STANDARD",
+    ///                 },
+    ///             },
     ///         },
     ///         SensitiveInformationPolicyConfig = new Aws.Bedrock.Inputs.GuardrailSensitiveInformationPolicyConfigArgs
     ///         {
@@ -76,6 +83,13 @@ namespace Pulumi.Aws.Bedrock
     ///                     },
     ///                     Type = "DENY",
     ///                     Definition = "Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .",
+    ///                 },
+    ///             },
+    ///             TierConfigs = new[]
+    ///             {
+    ///                 new Aws.Bedrock.Inputs.GuardrailTopicPolicyConfigTierConfigArgs
+    ///                 {
+    ///                     TierName = "CLASSIC",
     ///                 },
     ///             },
     ///         },
@@ -141,6 +155,9 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
+
+        [Output("crossRegionConfig")]
+        public Output<Outputs.GuardrailCrossRegionConfig?> CrossRegionConfig { get; private set; } = null!;
 
         /// <summary>
         /// Description of the guardrail or its version.
@@ -292,6 +309,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("contextualGroundingPolicyConfig")]
         public Input<Inputs.GuardrailContextualGroundingPolicyConfigArgs>? ContextualGroundingPolicyConfig { get; set; }
 
+        [Input("crossRegionConfig")]
+        public Input<Inputs.GuardrailCrossRegionConfigArgs>? CrossRegionConfig { get; set; }
+
         /// <summary>
         /// Description of the guardrail or its version.
         /// </summary>
@@ -388,6 +408,9 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
+
+        [Input("crossRegionConfig")]
+        public Input<Inputs.GuardrailCrossRegionConfigGetArgs>? CrossRegionConfig { get; set; }
 
         /// <summary>
         /// Description of the guardrail or its version.

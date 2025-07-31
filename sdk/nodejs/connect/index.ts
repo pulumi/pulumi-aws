@@ -125,6 +125,11 @@ export type PhoneNumber = import("./phoneNumber").PhoneNumber;
 export const PhoneNumber: typeof import("./phoneNumber").PhoneNumber = null as any;
 utilities.lazyLoad(exports, ["PhoneNumber"], () => require("./phoneNumber"));
 
+export { PhoneNumberContactFlowAssociationArgs, PhoneNumberContactFlowAssociationState } from "./phoneNumberContactFlowAssociation";
+export type PhoneNumberContactFlowAssociation = import("./phoneNumberContactFlowAssociation").PhoneNumberContactFlowAssociation;
+export const PhoneNumberContactFlowAssociation: typeof import("./phoneNumberContactFlowAssociation").PhoneNumberContactFlowAssociation = null as any;
+utilities.lazyLoad(exports, ["PhoneNumberContactFlowAssociation"], () => require("./phoneNumberContactFlowAssociation"));
+
 export { QueueArgs, QueueState } from "./queue";
 export type Queue = import("./queue").Queue;
 export const Queue: typeof import("./queue").Queue = null as any;
@@ -186,6 +191,8 @@ const _module = {
                 return new LambdaFunctionAssociation(name, <any>undefined, { urn })
             case "aws:connect/phoneNumber:PhoneNumber":
                 return new PhoneNumber(name, <any>undefined, { urn })
+            case "aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation":
+                return new PhoneNumberContactFlowAssociation(name, <any>undefined, { urn })
             case "aws:connect/queue:Queue":
                 return new Queue(name, <any>undefined, { urn })
             case "aws:connect/quickConnect:QuickConnect":
@@ -215,6 +222,7 @@ pulumi.runtime.registerResourceModule("aws", "connect/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/instanceStorageConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/lambdaFunctionAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/phoneNumber", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/phoneNumberContactFlowAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/queue", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/quickConnect", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/routingProfile", _module)

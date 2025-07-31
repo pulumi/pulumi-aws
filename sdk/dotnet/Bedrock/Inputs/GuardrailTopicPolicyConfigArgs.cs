@@ -12,6 +12,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class GuardrailTopicPolicyConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("tierConfigs")]
+        private InputList<Inputs.GuardrailTopicPolicyConfigTierConfigArgs>? _tierConfigs;
+
+        /// <summary>
+        /// Configuration block for the topic policy tier. See Tier Config for more information.
+        /// </summary>
+        public InputList<Inputs.GuardrailTopicPolicyConfigTierConfigArgs> TierConfigs
+        {
+            get => _tierConfigs ?? (_tierConfigs = new InputList<Inputs.GuardrailTopicPolicyConfigTierConfigArgs>());
+            set => _tierConfigs = value;
+        }
+
         [Input("topicsConfigs")]
         private InputList<Inputs.GuardrailTopicPolicyConfigTopicsConfigArgs>? _topicsConfigs;
 

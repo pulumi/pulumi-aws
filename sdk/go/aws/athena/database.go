@@ -76,6 +76,8 @@ type Database struct {
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Name of the workgroup.
+	Workgroup pulumi.StringPtrOutput `pulumi:"workgroup"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -126,6 +128,8 @@ type databaseState struct {
 	Properties map[string]string `pulumi:"properties"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Name of the workgroup.
+	Workgroup *string `pulumi:"workgroup"`
 }
 
 type DatabaseState struct {
@@ -147,6 +151,8 @@ type DatabaseState struct {
 	Properties pulumi.StringMapInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Name of the workgroup.
+	Workgroup pulumi.StringPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -172,6 +178,8 @@ type databaseArgs struct {
 	Properties map[string]string `pulumi:"properties"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Name of the workgroup.
+	Workgroup *string `pulumi:"workgroup"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -194,6 +202,8 @@ type DatabaseArgs struct {
 	Properties pulumi.StringMapInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Name of the workgroup.
+	Workgroup pulumi.StringPtrInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {
@@ -326,6 +336,11 @@ func (o DatabaseOutput) Properties() pulumi.StringMapOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DatabaseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Name of the workgroup.
+func (o DatabaseOutput) Workgroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Workgroup }).(pulumi.StringPtrOutput)
 }
 
 type DatabaseArrayOutput struct{ *pulumi.OutputState }
