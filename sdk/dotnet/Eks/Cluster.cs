@@ -483,6 +483,9 @@ namespace Pulumi.Aws.Eks
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("defaultAddonsToRemoves")]
+        public Output<ImmutableArray<string>> DefaultAddonsToRemoves { get; private set; } = null!;
+
         /// <summary>
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         /// </summary>
@@ -669,6 +672,15 @@ namespace Pulumi.Aws.Eks
         [Input("computeConfig")]
         public Input<Inputs.ClusterComputeConfigArgs>? ComputeConfig { get; set; }
 
+        [Input("defaultAddonsToRemoves")]
+        private InputList<string>? _defaultAddonsToRemoves;
+        [Obsolete(@"Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider")]
+        public InputList<string> DefaultAddonsToRemoves
+        {
+            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
+            set => _defaultAddonsToRemoves = value;
+        }
+
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;
 
@@ -822,6 +834,15 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
+
+        [Input("defaultAddonsToRemoves")]
+        private InputList<string>? _defaultAddonsToRemoves;
+        [Obsolete(@"Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider")]
+        public InputList<string> DefaultAddonsToRemoves
+        {
+            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
+            set => _defaultAddonsToRemoves = value;
+        }
 
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;
