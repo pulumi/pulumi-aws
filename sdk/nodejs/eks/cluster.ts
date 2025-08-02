@@ -344,6 +344,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
+     */
+    public readonly defaultAddonsToRemove!: pulumi.Output<string[] | undefined>;
+    /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
     public readonly enabledClusterLogTypes!: pulumi.Output<string[] | undefined>;
@@ -446,6 +450,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["computeConfig"] = state ? state.computeConfig : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["defaultAddonsToRemove"] = state ? state.defaultAddonsToRemove : undefined;
             resourceInputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
@@ -477,6 +482,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
             resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
+            resourceInputs["defaultAddonsToRemove"] = args ? args.defaultAddonsToRemove : undefined;
             resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             resourceInputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
@@ -539,6 +545,10 @@ export interface ClusterState {
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     createdAt?: pulumi.Input<string>;
+    /**
+     * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
+     */
+    defaultAddonsToRemove?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
@@ -639,6 +649,10 @@ export interface ClusterArgs {
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      */
     computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfig>;
+    /**
+     * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
+     */
+    defaultAddonsToRemove?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */

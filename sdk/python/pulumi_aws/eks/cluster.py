@@ -26,6 +26,7 @@ class ClusterArgs:
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
+                 default_addons_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -70,6 +71,11 @@ class ClusterArgs:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
         if compute_config is not None:
             pulumi.set(__self__, "compute_config", compute_config)
+        if default_addons_to_remove is not None:
+            warnings.warn("""Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""", DeprecationWarning)
+            pulumi.log.warn("""default_addons_to_remove is deprecated: Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""")
+        if default_addons_to_remove is not None:
+            pulumi.set(__self__, "default_addons_to_remove", default_addons_to_remove)
         if enabled_cluster_log_types is not None:
             pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
@@ -158,6 +164,16 @@ class ClusterArgs:
     @compute_config.setter
     def compute_config(self, value: Optional[pulumi.Input['ClusterComputeConfigArgs']]):
         pulumi.set(self, "compute_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultAddonsToRemove")
+    @_utilities.deprecated("""Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""")
+    def default_addons_to_remove(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "default_addons_to_remove")
+
+    @default_addons_to_remove.setter
+    def default_addons_to_remove(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "default_addons_to_remove", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledClusterLogTypes")
@@ -326,6 +342,7 @@ class _ClusterState:
                  cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_addons_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None,
@@ -392,6 +409,11 @@ class _ClusterState:
             pulumi.set(__self__, "compute_config", compute_config)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if default_addons_to_remove is not None:
+            warnings.warn("""Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""", DeprecationWarning)
+            pulumi.log.warn("""default_addons_to_remove is deprecated: Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""")
+        if default_addons_to_remove is not None:
+            pulumi.set(__self__, "default_addons_to_remove", default_addons_to_remove)
         if enabled_cluster_log_types is not None:
             pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
@@ -516,6 +538,16 @@ class _ClusterState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultAddonsToRemove")
+    @_utilities.deprecated("""Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""")
+    def default_addons_to_remove(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "default_addons_to_remove")
+
+    @default_addons_to_remove.setter
+    def default_addons_to_remove(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "default_addons_to_remove", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledClusterLogTypes")
@@ -769,6 +801,7 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
+                 default_addons_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1350,6 +1383,7 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
+                 default_addons_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1377,6 +1411,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["access_config"] = access_config
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["compute_config"] = compute_config
+            __props__.__dict__["default_addons_to_remove"] = default_addons_to_remove
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["force_update_version"] = force_update_version
@@ -1422,6 +1457,7 @@ class Cluster(pulumi.CustomResource):
             cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
             compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
+            default_addons_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
             endpoint: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1490,6 +1526,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_id"] = cluster_id
         __props__.__dict__["compute_config"] = compute_config
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["default_addons_to_remove"] = default_addons_to_remove
         __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
         __props__.__dict__["encryption_config"] = encryption_config
         __props__.__dict__["endpoint"] = endpoint
@@ -1567,6 +1604,12 @@ class Cluster(pulumi.CustomResource):
         Unix epoch timestamp in seconds for when the cluster was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultAddonsToRemove")
+    @_utilities.deprecated("""Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""")
+    def default_addons_to_remove(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        return pulumi.get(self, "default_addons_to_remove")
 
     @_builtins.property
     @pulumi.getter(name="enabledClusterLogTypes")
