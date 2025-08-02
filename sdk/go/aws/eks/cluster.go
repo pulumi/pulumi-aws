@@ -472,7 +472,7 @@ type Cluster struct {
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
-	DefaultAddonsToRemoves pulumi.StringArrayOutput `pulumi:"defaultAddonsToRemoves"`
+	DefaultAddonsToRemove pulumi.StringArrayOutput `pulumi:"defaultAddonsToRemove"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayOutput `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -568,7 +568,7 @@ type clusterState struct {
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
-	DefaultAddonsToRemoves []string `pulumi:"defaultAddonsToRemoves"`
+	DefaultAddonsToRemove []string `pulumi:"defaultAddonsToRemove"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -629,7 +629,7 @@ type ClusterState struct {
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt pulumi.StringPtrInput
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
-	DefaultAddonsToRemoves pulumi.StringArrayInput
+	DefaultAddonsToRemove pulumi.StringArrayInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -686,7 +686,7 @@ type clusterArgs struct {
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
-	DefaultAddonsToRemoves []string `pulumi:"defaultAddonsToRemoves"`
+	DefaultAddonsToRemove []string `pulumi:"defaultAddonsToRemove"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -730,7 +730,7 @@ type ClusterArgs struct {
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig ClusterComputeConfigPtrInput
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
-	DefaultAddonsToRemoves pulumi.StringArrayInput
+	DefaultAddonsToRemove pulumi.StringArrayInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -888,8 +888,8 @@ func (o ClusterOutput) CreatedAt() pulumi.StringOutput {
 }
 
 // Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
-func (o ClusterOutput) DefaultAddonsToRemoves() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.DefaultAddonsToRemoves }).(pulumi.StringArrayOutput)
+func (o ClusterOutput) DefaultAddonsToRemove() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.DefaultAddonsToRemove }).(pulumi.StringArrayOutput)
 }
 
 // List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).

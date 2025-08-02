@@ -2270,6 +2270,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			},
 			"aws_eks_cluster": {
 				Fields: map[string]*info.Schema{
+					"default_addons_to_remove": {
+						Name: "defaultAddonsToRemove",
+					},
 					"certificate_authority": {
 						Name: "certificateAuthority",
 						// The upstream API only returns a single item

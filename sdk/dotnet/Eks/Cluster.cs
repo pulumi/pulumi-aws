@@ -483,8 +483,8 @@ namespace Pulumi.Aws.Eks
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        [Output("defaultAddonsToRemoves")]
-        public Output<ImmutableArray<string>> DefaultAddonsToRemoves { get; private set; } = null!;
+        [Output("defaultAddonsToRemove")]
+        public Output<ImmutableArray<string>> DefaultAddonsToRemove { get; private set; } = null!;
 
         /// <summary>
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -672,13 +672,13 @@ namespace Pulumi.Aws.Eks
         [Input("computeConfig")]
         public Input<Inputs.ClusterComputeConfigArgs>? ComputeConfig { get; set; }
 
-        [Input("defaultAddonsToRemoves")]
-        private InputList<string>? _defaultAddonsToRemoves;
+        [Input("defaultAddonsToRemove")]
+        private InputList<string>? _defaultAddonsToRemove;
         [Obsolete(@"Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider")]
-        public InputList<string> DefaultAddonsToRemoves
+        public InputList<string> DefaultAddonsToRemove
         {
-            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
-            set => _defaultAddonsToRemoves = value;
+            get => _defaultAddonsToRemove ?? (_defaultAddonsToRemove = new InputList<string>());
+            set => _defaultAddonsToRemove = value;
         }
 
         [Input("enabledClusterLogTypes")]
@@ -835,13 +835,13 @@ namespace Pulumi.Aws.Eks
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        [Input("defaultAddonsToRemoves")]
-        private InputList<string>? _defaultAddonsToRemoves;
+        [Input("defaultAddonsToRemove")]
+        private InputList<string>? _defaultAddonsToRemove;
         [Obsolete(@"Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider")]
-        public InputList<string> DefaultAddonsToRemoves
+        public InputList<string> DefaultAddonsToRemove
         {
-            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
-            set => _defaultAddonsToRemoves = value;
+            get => _defaultAddonsToRemove ?? (_defaultAddonsToRemove = new InputList<string>());
+            set => _defaultAddonsToRemove = value;
         }
 
         [Input("enabledClusterLogTypes")]
