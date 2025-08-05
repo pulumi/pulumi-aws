@@ -153,9 +153,17 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> authorGroups() {
         return Codegen.optional(this.authorGroups);
     }
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
+     * 
+     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
+    /**
+     * @return AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
+     * 
+     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }

@@ -83,6 +83,9 @@ export class AccountSubscription extends pulumi.CustomResource {
      * Author group associated with your Active Directory or IAM Identity Center account.
      */
     public readonly authorGroups!: pulumi.Output<string[] | undefined>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
+     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -228,6 +231,9 @@ export interface AccountSubscriptionState {
      * Author group associated with your Active Directory or IAM Identity Center account.
      */
     authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -301,6 +307,9 @@ export interface AccountSubscriptionArgs {
      * Author group associated with your Active Directory or IAM Identity Center account.
      */
     authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.

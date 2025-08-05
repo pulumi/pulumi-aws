@@ -1762,7 +1762,7 @@
     },
     {
       "old": "* `aws_account_id` - (Optional, Forces new resource) AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.\n",
-      "new": "* `aws_account_id` - (Optional, Forces new resource) AWS account ID. Defaults to automatically determined account ID of the TODO AWS provider.\n"
+      "new": "* `aws_account_id` - (Optional, Forces new resource) AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.\n"
     }
   ],
   "ram_resource_share_accepter.html.markdown": [
