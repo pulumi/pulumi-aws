@@ -12,8 +12,11 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("resourceArn", required: true)]
-        public Input<string> ResourceArn { get; set; } = null!;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the prompt from Prompt management.
+        /// </summary>
+        [Input("promptArn", required: true)]
+        public Input<string> PromptArn { get; set; } = null!;
 
         public AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceGetArgs()
         {

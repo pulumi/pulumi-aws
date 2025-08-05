@@ -64,8 +64,10 @@ type LookupPolicyStoreResult struct {
 	Arn string `pulumi:"arn"`
 	// The date the Policy Store was created.
 	CreatedDate string `pulumi:"createdDate"`
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
+	// Whether the policy store can be deleted.
+	DeletionProtection string `pulumi:"deletionProtection"`
+	Description        string `pulumi:"description"`
+	Id                 string `pulumi:"id"`
 	// The date the Policy Store was last updated.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	Region          string `pulumi:"region"`
@@ -119,6 +121,11 @@ func (o LookupPolicyStoreResultOutput) Arn() pulumi.StringOutput {
 // The date the Policy Store was created.
 func (o LookupPolicyStoreResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Whether the policy store can be deleted.
+func (o LookupPolicyStoreResultOutput) DeletionProtection() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.DeletionProtection }).(pulumi.StringOutput)
 }
 
 func (o LookupPolicyStoreResultOutput) Description() pulumi.StringOutput {

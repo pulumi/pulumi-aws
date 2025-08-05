@@ -103,9 +103,6 @@ export class VpcConnection extends pulumi.CustomResource {
      * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      */
     public /*out*/ readonly availabilityStatus!: pulumi.Output<string>;
-    /**
-     * AWS account ID.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.
@@ -218,9 +215,6 @@ export interface VpcConnectionState {
      * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      */
     availabilityStatus?: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.
@@ -267,9 +261,6 @@ export interface VpcConnectionState {
  * The set of arguments for constructing a VpcConnection resource.
  */
 export interface VpcConnectionArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.

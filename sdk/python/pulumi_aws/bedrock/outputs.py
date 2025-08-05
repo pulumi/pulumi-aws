@@ -4941,8 +4941,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource(dict
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceArn":
-            suggest = "resource_arn"
+        if key == "promptArn":
+            suggest = "prompt_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource. Access the value via the '{suggest}' property getter instead.")
@@ -4956,13 +4956,19 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource(dict
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_arn: _builtins.str):
-        pulumi.set(__self__, "resource_arn", resource_arn)
+                 prompt_arn: _builtins.str):
+        """
+        :param _builtins.str prompt_arn: The Amazon Resource Name (ARN) of the prompt from Prompt management.
+        """
+        pulumi.set(__self__, "prompt_arn", prompt_arn)
 
     @_builtins.property
-    @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> _builtins.str:
-        return pulumi.get(self, "resource_arn")
+    @pulumi.getter(name="promptArn")
+    def prompt_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the prompt from Prompt management.
+        """
+        return pulumi.get(self, "prompt_arn")
 
 
 @pulumi.output_type

@@ -62,7 +62,9 @@ class FleetComputeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "machineType":
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "machineType":
             suggest = "machine_type"
 
         if suggest:
@@ -78,17 +80,21 @@ class FleetComputeConfiguration(dict):
 
     def __init__(__self__, *,
                  disk: Optional[_builtins.int] = None,
+                 instance_type: Optional[_builtins.str] = None,
                  machine_type: Optional[_builtins.str] = None,
                  memory: Optional[_builtins.int] = None,
                  vcpu: Optional[_builtins.int] = None):
         """
         :param _builtins.int disk: Amount of disk space of the instance type included in the fleet.
-        :param _builtins.str machine_type: Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
-        :param _builtins.int memory: Amount of memory of the instance type included in the fleet.
-        :param _builtins.int vcpu: Number of vCPUs of the instance type included in the fleet.
+        :param _builtins.str instance_type: EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+        :param _builtins.str machine_type: Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
+        :param _builtins.int memory: Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
+        :param _builtins.int vcpu: Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         """
         if disk is not None:
             pulumi.set(__self__, "disk", disk)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
         if machine_type is not None:
             pulumi.set(__self__, "machine_type", machine_type)
         if memory is not None:
@@ -105,10 +111,18 @@ class FleetComputeConfiguration(dict):
         return pulumi.get(self, "disk")
 
     @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
     @pulumi.getter(name="machineType")
     def machine_type(self) -> Optional[_builtins.str]:
         """
-        Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+        Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         """
         return pulumi.get(self, "machine_type")
 
@@ -116,7 +130,7 @@ class FleetComputeConfiguration(dict):
     @pulumi.getter
     def memory(self) -> Optional[_builtins.int]:
         """
-        Amount of memory of the instance type included in the fleet.
+        Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         """
         return pulumi.get(self, "memory")
 
@@ -124,7 +138,7 @@ class FleetComputeConfiguration(dict):
     @pulumi.getter
     def vcpu(self) -> Optional[_builtins.int]:
         """
-        Number of vCPUs of the instance type included in the fleet.
+        Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         """
         return pulumi.get(self, "vcpu")
 
@@ -2487,16 +2501,19 @@ class WebhookScopeConfiguration(dict):
 class GetFleetComputeConfigurationResult(dict):
     def __init__(__self__, *,
                  disk: _builtins.int,
+                 instance_type: _builtins.str,
                  machine_type: _builtins.str,
                  memory: _builtins.int,
                  vcpu: _builtins.int):
         """
         :param _builtins.int disk: Amount of disk space of the instance type included in the fleet.
+        :param _builtins.str instance_type: EC2 instance type in the fleet.
         :param _builtins.str machine_type: Machine type of the instance type included in the fleet.
         :param _builtins.int memory: Amount of memory of the instance type included in the fleet.
         :param _builtins.int vcpu: Number of vCPUs of the instance type included in the fleet.
         """
         pulumi.set(__self__, "disk", disk)
+        pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "machine_type", machine_type)
         pulumi.set(__self__, "memory", memory)
         pulumi.set(__self__, "vcpu", vcpu)
@@ -2508,6 +2525,14 @@ class GetFleetComputeConfigurationResult(dict):
         Amount of disk space of the instance type included in the fleet.
         """
         return pulumi.get(self, "disk")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        EC2 instance type in the fleet.
+        """
+        return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="machineType")

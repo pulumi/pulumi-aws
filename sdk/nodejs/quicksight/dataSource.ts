@@ -155,9 +155,6 @@ export class DataSource extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the data source
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
@@ -270,9 +267,6 @@ export interface DataSourceState {
      * Amazon Resource Name (ARN) of the data source
      */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
@@ -326,9 +320,6 @@ export interface DataSourceState {
  * The set of arguments for constructing a DataSource resource.
  */
 export interface DataSourceArgs {
-    /**
-     * The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.

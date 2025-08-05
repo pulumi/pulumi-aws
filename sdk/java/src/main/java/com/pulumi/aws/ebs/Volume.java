@@ -281,10 +281,6 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      * 
-     * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
-     * 
-     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
@@ -292,13 +288,31 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * @return Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      * 
+     */
+    public Output<String> type() {
+        return this.type;
+    }
+    /**
+     * EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
+     * 
      * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
      * 
      * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    @Export(name="volumeInitializationRate", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> volumeInitializationRate;
+
+    /**
+     * @return EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
+     * 
+     * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
+     * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * 
+     */
+    public Output<Optional<Integer>> volumeInitializationRate() {
+        return Codegen.optional(this.volumeInitializationRate);
     }
 
     /**

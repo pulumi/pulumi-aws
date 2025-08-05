@@ -16,6 +16,11 @@ import * as utilities from "../utilities";
  * const example = new aws.networkmanager.TransitGatewayPeering("example", {
  *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
  *     transitGatewayArn: exampleAwsEc2TransitGateway.arn,
+ * }, {
+ *     dependsOn: [
+ *         exampleAwsEc2TransitGatewayPolicyTable,
+ *         exampleAwsNetworkmanagerCoreNetworkPolicyAttachment,
+ *     ],
  * });
  * ```
  *

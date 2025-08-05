@@ -246,10 +246,6 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      * 
-     * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
-     * 
-     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
@@ -257,13 +253,32 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      * 
+     */
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
+     * 
      * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
      * 
      * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
-    public Optional<Output<String>> type() {
-        return Optional.ofNullable(this.type);
+    @Import(name="volumeInitializationRate")
+    private @Nullable Output<Integer> volumeInitializationRate;
+
+    /**
+     * @return EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
+     * 
+     * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
+     * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * 
+     */
+    public Optional<Output<Integer>> volumeInitializationRate() {
+        return Optional.ofNullable(this.volumeInitializationRate);
     }
 
     private VolumeState() {}
@@ -285,6 +300,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         this.tagsAll = $.tagsAll;
         this.throughput = $.throughput;
         this.type = $.type;
+        this.volumeInitializationRate = $.volumeInitializationRate;
     }
 
     public static Builder builder() {
@@ -623,10 +639,6 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
          * 
-         * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
-         * 
-         * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-         * 
          * @return builder
          * 
          */
@@ -638,6 +650,16 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
          * 
+         * @return builder
+         * 
+         */
+        public Builder type(String type) {
+            return type(Output.of(type));
+        }
+
+        /**
+         * @param volumeInitializationRate EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
+         * 
          * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
          * 
          * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
@@ -645,8 +667,23 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder type(String type) {
-            return type(Output.of(type));
+        public Builder volumeInitializationRate(@Nullable Output<Integer> volumeInitializationRate) {
+            $.volumeInitializationRate = volumeInitializationRate;
+            return this;
+        }
+
+        /**
+         * @param volumeInitializationRate EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
+         * 
+         * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
+         * 
+         * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeInitializationRate(Integer volumeInitializationRate) {
+            return volumeInitializationRate(Output.of(volumeInitializationRate));
         }
 
         public VolumeState build() {

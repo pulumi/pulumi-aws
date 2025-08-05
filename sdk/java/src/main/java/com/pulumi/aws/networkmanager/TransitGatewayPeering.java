@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkmanager.TransitGatewayPeering;
  * import com.pulumi.aws.networkmanager.TransitGatewayPeeringArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,7 +47,11 @@ import javax.annotation.Nullable;
  *         var example = new TransitGatewayPeering("example", TransitGatewayPeeringArgs.builder()
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .transitGatewayArn(exampleAwsEc2TransitGateway.arn())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleAwsEc2TransitGatewayPolicyTable,
+ *                     exampleAwsNetworkmanagerCoreNetworkPolicyAttachment)
+ *                 .build());
  * 
  *     }
  * }

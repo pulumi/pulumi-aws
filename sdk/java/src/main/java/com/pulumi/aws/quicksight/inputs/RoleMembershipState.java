@@ -15,17 +15,9 @@ public final class RoleMembershipState extends com.pulumi.resources.ResourceArgs
 
     public static final RoleMembershipState Empty = new RoleMembershipState();
 
-    /**
-     * AWS account ID. Defaults to the account of the caller identity if not configured.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID. Defaults to the account of the caller identity if not configured.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -122,23 +114,11 @@ public final class RoleMembershipState extends com.pulumi.resources.ResourceArgs
             $ = new RoleMembershipState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId AWS account ID. Defaults to the account of the caller identity if not configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId AWS account ID. Defaults to the account of the caller identity if not configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }

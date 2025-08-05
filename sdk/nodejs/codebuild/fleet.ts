@@ -87,7 +87,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly baseCapacity!: pulumi.Output<number>;
     /**
-     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      */
     public readonly computeConfiguration!: pulumi.Output<outputs.codebuild.FleetComputeConfiguration | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface FleetState {
      */
     baseCapacity?: pulumi.Input<number>;
     /**
-     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      */
     computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfiguration>;
     /**
@@ -292,7 +292,7 @@ export interface FleetArgs {
      */
     baseCapacity: pulumi.Input<number>;
     /**
-     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      */
     computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfiguration>;
     /**

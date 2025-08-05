@@ -53,8 +53,7 @@ type Namespace struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Namespace.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// AWS account ID.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Namespace AWS Region.
 	CapacityRegion pulumi.StringOutput `pulumi:"capacityRegion"`
@@ -109,8 +108,7 @@ func GetNamespace(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
 	// ARN of the Namespace.
-	Arn *string `pulumi:"arn"`
-	// AWS account ID.
+	Arn          *string `pulumi:"arn"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Namespace AWS Region.
 	CapacityRegion *string `pulumi:"capacityRegion"`
@@ -133,8 +131,7 @@ type namespaceState struct {
 
 type NamespaceState struct {
 	// ARN of the Namespace.
-	Arn pulumi.StringPtrInput
-	// AWS account ID.
+	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
 	// Namespace AWS Region.
 	CapacityRegion pulumi.StringPtrInput
@@ -160,7 +157,6 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
 	IdentityStore *string `pulumi:"identityStore"`
@@ -177,7 +173,6 @@ type namespaceArgs struct {
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
 	// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
 	IdentityStore pulumi.StringPtrInput
@@ -284,7 +279,6 @@ func (o NamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// AWS account ID.
 func (o NamespaceOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

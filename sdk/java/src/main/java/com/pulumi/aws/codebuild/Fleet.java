@@ -147,14 +147,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.baseCapacity;
     }
     /**
-     * The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+     * The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
      * 
      */
     @Export(name="computeConfiguration", refs={FleetComputeConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FleetComputeConfiguration> computeConfiguration;
 
     /**
-     * @return The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+     * @return The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
      * 
      */
     public Output<Optional<FleetComputeConfiguration>> computeConfiguration() {

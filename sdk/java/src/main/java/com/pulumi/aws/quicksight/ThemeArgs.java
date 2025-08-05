@@ -20,17 +20,9 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ThemeArgs Empty = new ThemeArgs();
 
-    /**
-     * AWS account ID.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -53,16 +45,12 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="configuration")
     private @Nullable Output<ThemeConfigurationArgs> configuration;
 
     /**
      * @return The theme configuration, which contains the theme display properties. See configuration.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<ThemeConfigurationArgs>> configuration() {
@@ -132,12 +120,16 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier of the theme.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="themeId", required=true)
     private Output<String> themeId;
 
     /**
      * @return Identifier of the theme.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> themeId() {
@@ -191,23 +183,11 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ThemeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }
@@ -236,8 +216,6 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param configuration The theme configuration, which contains the theme display properties. See configuration.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -248,8 +226,6 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param configuration The theme configuration, which contains the theme display properties. See configuration.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -355,6 +331,8 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param themeId Identifier of the theme.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -365,6 +343,8 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param themeId Identifier of the theme.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

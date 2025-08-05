@@ -65,9 +65,6 @@ export class AccountSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountSettings.__pulumiType;
     }
 
-    /**
-     * The ID for the AWS account that contains the settings.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
@@ -112,9 +109,6 @@ export class AccountSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountSettings resources.
  */
 export interface AccountSettingsState {
-    /**
-     * The ID for the AWS account that contains the settings.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
@@ -131,9 +125,6 @@ export interface AccountSettingsState {
  * The set of arguments for constructing a AccountSettings resource.
  */
 export interface AccountSettingsArgs {
-    /**
-     * The ID for the AWS account that contains the settings.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.

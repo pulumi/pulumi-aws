@@ -14705,6 +14705,112 @@ func (o IamPolicyAssignmentIdentitiesPtrOutput) Users() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+type KeyRegistrationKeyRegistration struct {
+	// Whether the key is set as the default key for encryption and decryption use.
+	DefaultKey *bool `pulumi:"defaultKey"`
+	// ARN of the AWS KMS key that is registered for encryption and decryption use.
+	KeyArn string `pulumi:"keyArn"`
+}
+
+// KeyRegistrationKeyRegistrationInput is an input type that accepts KeyRegistrationKeyRegistrationArgs and KeyRegistrationKeyRegistrationOutput values.
+// You can construct a concrete instance of `KeyRegistrationKeyRegistrationInput` via:
+//
+//	KeyRegistrationKeyRegistrationArgs{...}
+type KeyRegistrationKeyRegistrationInput interface {
+	pulumi.Input
+
+	ToKeyRegistrationKeyRegistrationOutput() KeyRegistrationKeyRegistrationOutput
+	ToKeyRegistrationKeyRegistrationOutputWithContext(context.Context) KeyRegistrationKeyRegistrationOutput
+}
+
+type KeyRegistrationKeyRegistrationArgs struct {
+	// Whether the key is set as the default key for encryption and decryption use.
+	DefaultKey pulumi.BoolPtrInput `pulumi:"defaultKey"`
+	// ARN of the AWS KMS key that is registered for encryption and decryption use.
+	KeyArn pulumi.StringInput `pulumi:"keyArn"`
+}
+
+func (KeyRegistrationKeyRegistrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyRegistrationKeyRegistration)(nil)).Elem()
+}
+
+func (i KeyRegistrationKeyRegistrationArgs) ToKeyRegistrationKeyRegistrationOutput() KeyRegistrationKeyRegistrationOutput {
+	return i.ToKeyRegistrationKeyRegistrationOutputWithContext(context.Background())
+}
+
+func (i KeyRegistrationKeyRegistrationArgs) ToKeyRegistrationKeyRegistrationOutputWithContext(ctx context.Context) KeyRegistrationKeyRegistrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyRegistrationKeyRegistrationOutput)
+}
+
+// KeyRegistrationKeyRegistrationArrayInput is an input type that accepts KeyRegistrationKeyRegistrationArray and KeyRegistrationKeyRegistrationArrayOutput values.
+// You can construct a concrete instance of `KeyRegistrationKeyRegistrationArrayInput` via:
+//
+//	KeyRegistrationKeyRegistrationArray{ KeyRegistrationKeyRegistrationArgs{...} }
+type KeyRegistrationKeyRegistrationArrayInput interface {
+	pulumi.Input
+
+	ToKeyRegistrationKeyRegistrationArrayOutput() KeyRegistrationKeyRegistrationArrayOutput
+	ToKeyRegistrationKeyRegistrationArrayOutputWithContext(context.Context) KeyRegistrationKeyRegistrationArrayOutput
+}
+
+type KeyRegistrationKeyRegistrationArray []KeyRegistrationKeyRegistrationInput
+
+func (KeyRegistrationKeyRegistrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyRegistrationKeyRegistration)(nil)).Elem()
+}
+
+func (i KeyRegistrationKeyRegistrationArray) ToKeyRegistrationKeyRegistrationArrayOutput() KeyRegistrationKeyRegistrationArrayOutput {
+	return i.ToKeyRegistrationKeyRegistrationArrayOutputWithContext(context.Background())
+}
+
+func (i KeyRegistrationKeyRegistrationArray) ToKeyRegistrationKeyRegistrationArrayOutputWithContext(ctx context.Context) KeyRegistrationKeyRegistrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyRegistrationKeyRegistrationArrayOutput)
+}
+
+type KeyRegistrationKeyRegistrationOutput struct{ *pulumi.OutputState }
+
+func (KeyRegistrationKeyRegistrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyRegistrationKeyRegistration)(nil)).Elem()
+}
+
+func (o KeyRegistrationKeyRegistrationOutput) ToKeyRegistrationKeyRegistrationOutput() KeyRegistrationKeyRegistrationOutput {
+	return o
+}
+
+func (o KeyRegistrationKeyRegistrationOutput) ToKeyRegistrationKeyRegistrationOutputWithContext(ctx context.Context) KeyRegistrationKeyRegistrationOutput {
+	return o
+}
+
+// Whether the key is set as the default key for encryption and decryption use.
+func (o KeyRegistrationKeyRegistrationOutput) DefaultKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyRegistrationKeyRegistration) *bool { return v.DefaultKey }).(pulumi.BoolPtrOutput)
+}
+
+// ARN of the AWS KMS key that is registered for encryption and decryption use.
+func (o KeyRegistrationKeyRegistrationOutput) KeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyRegistrationKeyRegistration) string { return v.KeyArn }).(pulumi.StringOutput)
+}
+
+type KeyRegistrationKeyRegistrationArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyRegistrationKeyRegistrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyRegistrationKeyRegistration)(nil)).Elem()
+}
+
+func (o KeyRegistrationKeyRegistrationArrayOutput) ToKeyRegistrationKeyRegistrationArrayOutput() KeyRegistrationKeyRegistrationArrayOutput {
+	return o
+}
+
+func (o KeyRegistrationKeyRegistrationArrayOutput) ToKeyRegistrationKeyRegistrationArrayOutputWithContext(ctx context.Context) KeyRegistrationKeyRegistrationArrayOutput {
+	return o
+}
+
+func (o KeyRegistrationKeyRegistrationArrayOutput) Index(i pulumi.IntInput) KeyRegistrationKeyRegistrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyRegistrationKeyRegistration {
+		return vs[0].([]KeyRegistrationKeyRegistration)[vs[1].(int)]
+	}).(KeyRegistrationKeyRegistrationOutput)
+}
+
 type NamespaceTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -23384,6 +23490,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderPermissionArrayInput)(nil)).Elem(), FolderPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IamPolicyAssignmentIdentitiesInput)(nil)).Elem(), IamPolicyAssignmentIdentitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IamPolicyAssignmentIdentitiesPtrInput)(nil)).Elem(), IamPolicyAssignmentIdentitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyRegistrationKeyRegistrationInput)(nil)).Elem(), KeyRegistrationKeyRegistrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyRegistrationKeyRegistrationArrayInput)(nil)).Elem(), KeyRegistrationKeyRegistrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTimeoutsInput)(nil)).Elem(), NamespaceTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTimeoutsPtrInput)(nil)).Elem(), NamespaceTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleScheduleInput)(nil)).Elem(), RefreshScheduleScheduleArgs{})
@@ -23715,6 +23823,8 @@ func init() {
 	pulumi.RegisterOutputType(FolderPermissionArrayOutput{})
 	pulumi.RegisterOutputType(IamPolicyAssignmentIdentitiesOutput{})
 	pulumi.RegisterOutputType(IamPolicyAssignmentIdentitiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyRegistrationKeyRegistrationOutput{})
+	pulumi.RegisterOutputType(KeyRegistrationKeyRegistrationArrayOutput{})
 	pulumi.RegisterOutputType(NamespaceTimeoutsOutput{})
 	pulumi.RegisterOutputType(NamespaceTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleScheduleOutput{})

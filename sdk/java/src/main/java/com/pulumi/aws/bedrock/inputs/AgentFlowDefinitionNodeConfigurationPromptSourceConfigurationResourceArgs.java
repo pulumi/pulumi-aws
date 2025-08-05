@@ -14,17 +14,25 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs();
 
-    @Import(name="resourceArn", required=true)
-    private Output<String> resourceArn;
+    /**
+     * The Amazon Resource Name (ARN) of the prompt from Prompt management.
+     * 
+     */
+    @Import(name="promptArn", required=true)
+    private Output<String> promptArn;
 
-    public Output<String> resourceArn() {
-        return this.resourceArn;
+    /**
+     * @return The Amazon Resource Name (ARN) of the prompt from Prompt management.
+     * 
+     */
+    public Output<String> promptArn() {
+        return this.promptArn;
     }
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs() {}
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs $) {
-        this.resourceArn = $.resourceArn;
+        this.promptArn = $.promptArn;
     }
 
     public static Builder builder() {
@@ -45,18 +53,30 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder resourceArn(Output<String> resourceArn) {
-            $.resourceArn = resourceArn;
+        /**
+         * @param promptArn The Amazon Resource Name (ARN) of the prompt from Prompt management.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder promptArn(Output<String> promptArn) {
+            $.promptArn = promptArn;
             return this;
         }
 
-        public Builder resourceArn(String resourceArn) {
-            return resourceArn(Output.of(resourceArn));
+        /**
+         * @param promptArn The Amazon Resource Name (ARN) of the prompt from Prompt management.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder promptArn(String promptArn) {
+            return promptArn(Output.of(promptArn));
         }
 
         public AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs build() {
-            if ($.resourceArn == null) {
-                throw new MissingRequiredPropertyException("AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs", "resourceArn");
+            if ($.promptArn == null) {
+                throw new MissingRequiredPropertyException("AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs", "promptArn");
             }
             return $;
         }

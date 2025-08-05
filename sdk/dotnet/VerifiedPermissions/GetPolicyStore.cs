@@ -143,6 +143,10 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// The date the Policy Store was created.
         /// </summary>
         public readonly string CreatedDate;
+        /// <summary>
+        /// Whether the policy store can be deleted.
+        /// </summary>
+        public readonly string DeletionProtection;
         public readonly string Description;
         public readonly string Id;
         /// <summary>
@@ -165,6 +169,8 @@ namespace Pulumi.Aws.VerifiedPermissions
 
             string createdDate,
 
+            string deletionProtection,
+
             string description,
 
             string id,
@@ -179,6 +185,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         {
             Arn = arn;
             CreatedDate = createdDate;
+            DeletionProtection = deletionProtection;
             Description = description;
             Id = id;
             LastUpdatedDate = lastUpdatedDate;

@@ -57,9 +57,6 @@ namespace Pulumi.Aws.Quicksight
     [AwsResourceType("aws:quicksight/accountSettings:AccountSettings")]
     public partial class AccountSettings : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID for the AWS account that contains the settings.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -124,9 +121,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class AccountSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID for the AWS account that contains the settings.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -153,9 +147,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class AccountSettingsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID for the AWS account that contains the settings.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

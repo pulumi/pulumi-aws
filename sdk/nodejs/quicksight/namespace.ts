@@ -61,9 +61,6 @@ export class Namespace extends pulumi.CustomResource {
      * ARN of the Namespace.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * AWS account ID.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Namespace AWS Region.
@@ -149,9 +146,6 @@ export interface NamespaceState {
      * ARN of the Namespace.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Namespace AWS Region.
@@ -190,9 +184,6 @@ export interface NamespaceState {
  * The set of arguments for constructing a Namespace resource.
  */
 export interface NamespaceArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.

@@ -35,17 +35,9 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * AWS account ID.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -68,16 +60,12 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="configuration")
     private @Nullable Output<ThemeConfigurationArgs> configuration;
 
     /**
      * @return The theme configuration, which contains the theme display properties. See configuration.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<ThemeConfigurationArgs>> configuration() {
@@ -207,12 +195,16 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier of the theme.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="themeId")
     private @Nullable Output<String> themeId;
 
     /**
      * @return Identifier of the theme.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> themeId() {
@@ -308,23 +300,11 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param awsAccountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }
@@ -353,8 +333,6 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param configuration The theme configuration, which contains the theme display properties. See configuration.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -365,8 +343,6 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param configuration The theme configuration, which contains the theme display properties. See configuration.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -556,6 +532,8 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param themeId Identifier of the theme.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -566,6 +544,8 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param themeId Identifier of the theme.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

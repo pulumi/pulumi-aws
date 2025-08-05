@@ -120,12 +120,16 @@ export class Volume extends pulumi.CustomResource {
     public readonly throughput!: pulumi.Output<number>;
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     */
+    public readonly type!: pulumi.Output<string>;
+    /**
+     * EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
      *
      * > **NOTE:** At least one of `size` or `snapshotId` is required.
      *
      * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly volumeInitializationRate!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -156,6 +160,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["throughput"] = state ? state.throughput : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["volumeInitializationRate"] = state ? state.volumeInitializationRate : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
@@ -174,6 +179,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throughput"] = args ? args.throughput : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["volumeInitializationRate"] = args ? args.volumeInitializationRate : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -249,12 +255,16 @@ export interface VolumeState {
     throughput?: pulumi.Input<number>;
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
      *
      * > **NOTE:** At least one of `size` or `snapshotId` is required.
      *
      * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
-    type?: pulumi.Input<string>;
+    volumeInitializationRate?: pulumi.Input<number>;
 }
 
 /**
@@ -311,10 +321,14 @@ export interface VolumeArgs {
     throughput?: pulumi.Input<number>;
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
      *
      * > **NOTE:** At least one of `size` or `snapshotId` is required.
      *
      * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
-    type?: pulumi.Input<string>;
+    volumeInitializationRate?: pulumi.Input<number>;
 }

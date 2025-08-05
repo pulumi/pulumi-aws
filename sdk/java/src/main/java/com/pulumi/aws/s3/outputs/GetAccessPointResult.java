@@ -68,6 +68,11 @@ public final class GetAccessPointResult {
     private List<GetAccessPointPublicAccessBlockConfiguration> publicAccessBlockConfigurations;
     private String region;
     /**
+     * @return Tags assigned to the access point.
+     * 
+     */
+    private Map<String,String> tags;
+    /**
      * @return VPC configuration for the access point.
      * 
      */
@@ -154,6 +159,13 @@ public final class GetAccessPointResult {
         return this.region;
     }
     /**
+     * @return Tags assigned to the access point.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
+    /**
      * @return VPC configuration for the access point.
      * 
      */
@@ -183,6 +195,7 @@ public final class GetAccessPointResult {
         private String networkOrigin;
         private List<GetAccessPointPublicAccessBlockConfiguration> publicAccessBlockConfigurations;
         private String region;
+        private Map<String,String> tags;
         private List<GetAccessPointVpcConfiguration> vpcConfigurations;
         public Builder() {}
         public Builder(GetAccessPointResult defaults) {
@@ -200,6 +213,7 @@ public final class GetAccessPointResult {
     	      this.networkOrigin = defaults.networkOrigin;
     	      this.publicAccessBlockConfigurations = defaults.publicAccessBlockConfigurations;
     	      this.region = defaults.region;
+    	      this.tags = defaults.tags;
     	      this.vpcConfigurations = defaults.vpcConfigurations;
         }
 
@@ -311,6 +325,14 @@ public final class GetAccessPointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpcConfigurations(List<GetAccessPointVpcConfiguration> vpcConfigurations) {
             if (vpcConfigurations == null) {
               throw new MissingRequiredPropertyException("GetAccessPointResult", "vpcConfigurations");
@@ -336,6 +358,7 @@ public final class GetAccessPointResult {
             _resultValue.networkOrigin = networkOrigin;
             _resultValue.publicAccessBlockConfigurations = publicAccessBlockConfigurations;
             _resultValue.region = region;
+            _resultValue.tags = tags;
             _resultValue.vpcConfigurations = vpcConfigurations;
             return _resultValue;
         }

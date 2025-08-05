@@ -21,17 +21,21 @@ __all__ = ['PolicyStoreArgs', 'PolicyStore']
 @pulumi.input_type
 class PolicyStoreArgs:
     def __init__(__self__, *,
+                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  validation_settings: Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
+        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store.
         """
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if region is not None:
@@ -40,6 +44,18 @@ class PolicyStoreArgs:
             pulumi.set(__self__, "tags", tags)
         if validation_settings is not None:
             pulumi.set(__self__, "validation_settings", validation_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter
@@ -94,6 +110,7 @@ class PolicyStoreArgs:
 class _PolicyStoreState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -103,6 +120,7 @@ class _PolicyStoreState:
         """
         Input properties used for looking up and filtering PolicyStore resources.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Policy Store.
+        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
         :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -112,6 +130,8 @@ class _PolicyStoreState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if policy_store_id is not None:
@@ -136,6 +156,18 @@ class _PolicyStoreState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter
@@ -216,6 +248,7 @@ class PolicyStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -245,6 +278,7 @@ class PolicyStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -293,6 +327,7 @@ class PolicyStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -306,6 +341,7 @@ class PolicyStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyStoreArgs.__new__(PolicyStoreArgs)
 
+            __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["description"] = description
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
@@ -324,6 +360,7 @@ class PolicyStore(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
+            deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -338,6 +375,7 @@ class PolicyStore(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Policy Store.
+        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
         :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -350,6 +388,7 @@ class PolicyStore(pulumi.CustomResource):
         __props__ = _PolicyStoreState.__new__(_PolicyStoreState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["description"] = description
         __props__.__dict__["policy_store_id"] = policy_store_id
         __props__.__dict__["region"] = region
@@ -365,6 +404,14 @@ class PolicyStore(pulumi.CustomResource):
         The ARN of the Policy Store.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        """
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter

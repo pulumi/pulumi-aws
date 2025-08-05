@@ -16,11 +16,13 @@ var _ = internal.GetEnvOrDefault
 type FleetComputeConfiguration struct {
 	// Amount of disk space of the instance type included in the fleet.
 	Disk *int `pulumi:"disk"`
-	// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+	// EC2 instance type to be launched in the fleet. Specify only if `computeType` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+	InstanceType *string `pulumi:"instanceType"`
+	// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 	MachineType *string `pulumi:"machineType"`
-	// Amount of memory of the instance type included in the fleet.
+	// Amount of memory of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 	Memory *int `pulumi:"memory"`
-	// Number of vCPUs of the instance type included in the fleet.
+	// Number of vCPUs of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 	Vcpu *int `pulumi:"vcpu"`
 }
 
@@ -38,11 +40,13 @@ type FleetComputeConfigurationInput interface {
 type FleetComputeConfigurationArgs struct {
 	// Amount of disk space of the instance type included in the fleet.
 	Disk pulumi.IntPtrInput `pulumi:"disk"`
-	// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+	// EC2 instance type to be launched in the fleet. Specify only if `computeType` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 	MachineType pulumi.StringPtrInput `pulumi:"machineType"`
-	// Amount of memory of the instance type included in the fleet.
+	// Amount of memory of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 	Memory pulumi.IntPtrInput `pulumi:"memory"`
-	// Number of vCPUs of the instance type included in the fleet.
+	// Number of vCPUs of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 	Vcpu pulumi.IntPtrInput `pulumi:"vcpu"`
 }
 
@@ -128,17 +132,22 @@ func (o FleetComputeConfigurationOutput) Disk() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.Disk }).(pulumi.IntPtrOutput)
 }
 
-// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+// EC2 instance type to be launched in the fleet. Specify only if `computeType` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+func (o FleetComputeConfigurationOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetComputeConfiguration) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 func (o FleetComputeConfigurationOutput) MachineType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *string { return v.MachineType }).(pulumi.StringPtrOutput)
 }
 
-// Amount of memory of the instance type included in the fleet.
+// Amount of memory of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 func (o FleetComputeConfigurationOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.Memory }).(pulumi.IntPtrOutput)
 }
 
-// Number of vCPUs of the instance type included in the fleet.
+// Number of vCPUs of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 func (o FleetComputeConfigurationOutput) Vcpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.Vcpu }).(pulumi.IntPtrOutput)
 }
@@ -177,7 +186,17 @@ func (o FleetComputeConfigurationPtrOutput) Disk() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+// EC2 instance type to be launched in the fleet. Specify only if `computeType` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+func (o FleetComputeConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetComputeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 func (o FleetComputeConfigurationPtrOutput) MachineType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetComputeConfiguration) *string {
 		if v == nil {
@@ -187,7 +206,7 @@ func (o FleetComputeConfigurationPtrOutput) MachineType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amount of memory of the instance type included in the fleet.
+// Amount of memory of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 func (o FleetComputeConfigurationPtrOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeConfiguration) *int {
 		if v == nil {
@@ -197,7 +216,7 @@ func (o FleetComputeConfigurationPtrOutput) Memory() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of vCPUs of the instance type included in the fleet.
+// Number of vCPUs of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
 func (o FleetComputeConfigurationPtrOutput) Vcpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeConfiguration) *int {
 		if v == nil {
@@ -6005,6 +6024,8 @@ func (o WebhookScopeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
 type GetFleetComputeConfiguration struct {
 	// Amount of disk space of the instance type included in the fleet.
 	Disk int `pulumi:"disk"`
+	// EC2 instance type in the fleet.
+	InstanceType string `pulumi:"instanceType"`
 	// Machine type of the instance type included in the fleet.
 	MachineType string `pulumi:"machineType"`
 	// Amount of memory of the instance type included in the fleet.
@@ -6027,6 +6048,8 @@ type GetFleetComputeConfigurationInput interface {
 type GetFleetComputeConfigurationArgs struct {
 	// Amount of disk space of the instance type included in the fleet.
 	Disk pulumi.IntInput `pulumi:"disk"`
+	// EC2 instance type in the fleet.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Machine type of the instance type included in the fleet.
 	MachineType pulumi.StringInput `pulumi:"machineType"`
 	// Amount of memory of the instance type included in the fleet.
@@ -6089,6 +6112,11 @@ func (o GetFleetComputeConfigurationOutput) ToGetFleetComputeConfigurationOutput
 // Amount of disk space of the instance type included in the fleet.
 func (o GetFleetComputeConfigurationOutput) Disk() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFleetComputeConfiguration) int { return v.Disk }).(pulumi.IntOutput)
+}
+
+// EC2 instance type in the fleet.
+func (o GetFleetComputeConfigurationOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetComputeConfiguration) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
 // Machine type of the instance type included in the fleet.

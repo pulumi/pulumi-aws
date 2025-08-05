@@ -91,6 +91,11 @@ public final class GetVolumeResult {
      */
     private String volumeId;
     /**
+     * @return EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
+     * 
+     */
+    private Integer volumeInitializationRate;
+    /**
      * @return Type of EBS volume.
      * 
      */
@@ -205,6 +210,13 @@ public final class GetVolumeResult {
         return this.volumeId;
     }
     /**
+     * @return EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
+     * 
+     */
+    public Integer volumeInitializationRate() {
+        return this.volumeInitializationRate;
+    }
+    /**
      * @return Type of EBS volume.
      * 
      */
@@ -238,6 +250,7 @@ public final class GetVolumeResult {
         private Map<String,String> tags;
         private Integer throughput;
         private String volumeId;
+        private Integer volumeInitializationRate;
         private String volumeType;
         public Builder() {}
         public Builder(GetVolumeResult defaults) {
@@ -259,6 +272,7 @@ public final class GetVolumeResult {
     	      this.tags = defaults.tags;
     	      this.throughput = defaults.throughput;
     	      this.volumeId = defaults.volumeId;
+    	      this.volumeInitializationRate = defaults.volumeInitializationRate;
     	      this.volumeType = defaults.volumeType;
         }
 
@@ -398,6 +412,14 @@ public final class GetVolumeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder volumeInitializationRate(Integer volumeInitializationRate) {
+            if (volumeInitializationRate == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "volumeInitializationRate");
+            }
+            this.volumeInitializationRate = volumeInitializationRate;
+            return this;
+        }
+        @CustomType.Setter
         public Builder volumeType(String volumeType) {
             if (volumeType == null) {
               throw new MissingRequiredPropertyException("GetVolumeResult", "volumeType");
@@ -424,6 +446,7 @@ public final class GetVolumeResult {
             _resultValue.tags = tags;
             _resultValue.throughput = throughput;
             _resultValue.volumeId = volumeId;
+            _resultValue.volumeInitializationRate = volumeInitializationRate;
             _resultValue.volumeType = volumeType;
             return _resultValue;
         }

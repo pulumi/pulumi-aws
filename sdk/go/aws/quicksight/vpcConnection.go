@@ -118,8 +118,7 @@ type VpcConnection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 	AvailabilityStatus pulumi.StringOutput `pulumi:"availabilityStatus"`
-	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId       pulumi.StringOutput `pulumi:"awsAccountId"`
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayOutput `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
@@ -189,8 +188,7 @@ type vpcConnectionState struct {
 	Arn *string `pulumi:"arn"`
 	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 	AvailabilityStatus *string `pulumi:"availabilityStatus"`
-	// AWS account ID.
-	AwsAccountId *string `pulumi:"awsAccountId"`
+	AwsAccountId       *string `pulumi:"awsAccountId"`
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers []string `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
@@ -219,8 +217,7 @@ type VpcConnectionState struct {
 	Arn pulumi.StringPtrInput
 	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 	AvailabilityStatus pulumi.StringPtrInput
-	// AWS account ID.
-	AwsAccountId pulumi.StringPtrInput
+	AwsAccountId       pulumi.StringPtrInput
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayInput
 	// The display name for the VPC connection.
@@ -249,7 +246,6 @@ func (VpcConnectionState) ElementType() reflect.Type {
 }
 
 type vpcConnectionArgs struct {
-	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers []string `pulumi:"dnsResolvers"`
@@ -274,7 +270,6 @@ type vpcConnectionArgs struct {
 
 // The set of arguments for constructing a VpcConnection resource.
 type VpcConnectionArgs struct {
-	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayInput
@@ -394,7 +389,6 @@ func (o VpcConnectionOutput) AvailabilityStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.AvailabilityStatus }).(pulumi.StringOutput)
 }
 
-// AWS account ID.
 func (o VpcConnectionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

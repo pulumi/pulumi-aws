@@ -31,7 +31,10 @@ import (
 //			_, err := networkmanager.NewTransitGatewayPeering(ctx, "example", &networkmanager.TransitGatewayPeeringArgs{
 //				CoreNetworkId:     pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
 //				TransitGatewayArn: pulumi.Any(exampleAwsEc2TransitGateway.Arn),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsEc2TransitGatewayPolicyTable,
+//				exampleAwsNetworkmanagerCoreNetworkPolicyAttachment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

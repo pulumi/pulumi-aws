@@ -67,8 +67,7 @@ type Analysis struct {
 	// Identifier for the analysis.
 	AnalysisId pulumi.StringOutput `pulumi:"analysisId"`
 	// ARN of the analysis.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// AWS account ID.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The time that the analysis was created.
 	CreatedTime       pulumi.StringOutput `pulumi:"createdTime"`
@@ -135,8 +134,7 @@ type analysisState struct {
 	// Identifier for the analysis.
 	AnalysisId *string `pulumi:"analysisId"`
 	// ARN of the analysis.
-	Arn *string `pulumi:"arn"`
-	// AWS account ID.
+	Arn          *string `pulumi:"arn"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The time that the analysis was created.
 	CreatedTime       *string `pulumi:"createdTime"`
@@ -171,8 +169,7 @@ type AnalysisState struct {
 	// Identifier for the analysis.
 	AnalysisId pulumi.StringPtrInput
 	// ARN of the analysis.
-	Arn pulumi.StringPtrInput
-	// AWS account ID.
+	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
 	// The time that the analysis was created.
 	CreatedTime       pulumi.StringPtrInput
@@ -209,8 +206,7 @@ func (AnalysisState) ElementType() reflect.Type {
 
 type analysisArgs struct {
 	// Identifier for the analysis.
-	AnalysisId string `pulumi:"analysisId"`
-	// AWS account ID.
+	AnalysisId   string  `pulumi:"analysisId"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Display name for the analysis.
 	//
@@ -235,8 +231,7 @@ type analysisArgs struct {
 // The set of arguments for constructing a Analysis resource.
 type AnalysisArgs struct {
 	// Identifier for the analysis.
-	AnalysisId pulumi.StringInput
-	// AWS account ID.
+	AnalysisId   pulumi.StringInput
 	AwsAccountId pulumi.StringPtrInput
 	// Display name for the analysis.
 	//
@@ -355,7 +350,6 @@ func (o AnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// AWS account ID.
 func (o AnalysisOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

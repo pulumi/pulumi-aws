@@ -17,6 +17,11 @@ public final class GetFleetComputeConfiguration {
      */
     private Integer disk;
     /**
+     * @return EC2 instance type in the fleet.
+     * 
+     */
+    private String instanceType;
+    /**
      * @return Machine type of the instance type included in the fleet.
      * 
      */
@@ -39,6 +44,13 @@ public final class GetFleetComputeConfiguration {
      */
     public Integer disk() {
         return this.disk;
+    }
+    /**
+     * @return EC2 instance type in the fleet.
+     * 
+     */
+    public String instanceType() {
+        return this.instanceType;
     }
     /**
      * @return Machine type of the instance type included in the fleet.
@@ -72,6 +84,7 @@ public final class GetFleetComputeConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private Integer disk;
+        private String instanceType;
         private String machineType;
         private Integer memory;
         private Integer vcpu;
@@ -79,6 +92,7 @@ public final class GetFleetComputeConfiguration {
         public Builder(GetFleetComputeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disk = defaults.disk;
+    	      this.instanceType = defaults.instanceType;
     	      this.machineType = defaults.machineType;
     	      this.memory = defaults.memory;
     	      this.vcpu = defaults.vcpu;
@@ -90,6 +104,14 @@ public final class GetFleetComputeConfiguration {
               throw new MissingRequiredPropertyException("GetFleetComputeConfiguration", "disk");
             }
             this.disk = disk;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder instanceType(String instanceType) {
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GetFleetComputeConfiguration", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
@@ -119,6 +141,7 @@ public final class GetFleetComputeConfiguration {
         public GetFleetComputeConfiguration build() {
             final var _resultValue = new GetFleetComputeConfiguration();
             _resultValue.disk = disk;
+            _resultValue.instanceType = instanceType;
             _resultValue.machineType = machineType;
             _resultValue.memory = memory;
             _resultValue.vcpu = vcpu;

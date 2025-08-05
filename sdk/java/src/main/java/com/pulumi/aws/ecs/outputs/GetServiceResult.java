@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.GetServiceLoadBalancer;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -34,6 +36,11 @@ public final class GetServiceResult {
      * 
      */
     private String launchType;
+    /**
+     * @return Load balancers for the ECS Service. See `load_balancer` Block for details.
+     * 
+     */
+    private List<GetServiceLoadBalancer> loadBalancers;
     private String region;
     /**
      * @return Scheduling strategy for the ECS Service
@@ -87,6 +94,13 @@ public final class GetServiceResult {
     public String launchType() {
         return this.launchType;
     }
+    /**
+     * @return Load balancers for the ECS Service. See `load_balancer` Block for details.
+     * 
+     */
+    public List<GetServiceLoadBalancer> loadBalancers() {
+        return this.loadBalancers;
+    }
     public String region() {
         return this.region;
     }
@@ -130,6 +144,7 @@ public final class GetServiceResult {
         private Integer desiredCount;
         private String id;
         private String launchType;
+        private List<GetServiceLoadBalancer> loadBalancers;
         private String region;
         private String schedulingStrategy;
         private String serviceName;
@@ -144,6 +159,7 @@ public final class GetServiceResult {
     	      this.desiredCount = defaults.desiredCount;
     	      this.id = defaults.id;
     	      this.launchType = defaults.launchType;
+    	      this.loadBalancers = defaults.loadBalancers;
     	      this.region = defaults.region;
     	      this.schedulingStrategy = defaults.schedulingStrategy;
     	      this.serviceName = defaults.serviceName;
@@ -200,6 +216,17 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder loadBalancers(List<GetServiceLoadBalancer> loadBalancers) {
+            if (loadBalancers == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "loadBalancers");
+            }
+            this.loadBalancers = loadBalancers;
+            return this;
+        }
+        public Builder loadBalancers(GetServiceLoadBalancer... loadBalancers) {
+            return loadBalancers(List.of(loadBalancers));
+        }
+        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "region");
@@ -247,6 +274,7 @@ public final class GetServiceResult {
             _resultValue.desiredCount = desiredCount;
             _resultValue.id = id;
             _resultValue.launchType = launchType;
+            _resultValue.loadBalancers = loadBalancers;
             _resultValue.region = region;
             _resultValue.schedulingStrategy = schedulingStrategy;
             _resultValue.serviceName = serviceName;

@@ -51,8 +51,7 @@ import (
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The name of the group in which the member will be added.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
@@ -100,8 +99,7 @@ func GetGroupMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupMembership resources.
 type groupMembershipState struct {
-	Arn *string `pulumi:"arn"`
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          *string `pulumi:"arn"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The name of the group in which the member will be added.
 	GroupName *string `pulumi:"groupName"`
@@ -114,8 +112,7 @@ type groupMembershipState struct {
 }
 
 type GroupMembershipState struct {
-	Arn pulumi.StringPtrInput
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
 	// The name of the group in which the member will be added.
 	GroupName pulumi.StringPtrInput
@@ -132,7 +129,6 @@ func (GroupMembershipState) ElementType() reflect.Type {
 }
 
 type groupMembershipArgs struct {
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The name of the group in which the member will be added.
 	GroupName string `pulumi:"groupName"`
@@ -146,7 +142,6 @@ type groupMembershipArgs struct {
 
 // The set of arguments for constructing a GroupMembership resource.
 type GroupMembershipArgs struct {
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
 	// The name of the group in which the member will be added.
 	GroupName pulumi.StringInput
@@ -249,7 +244,6 @@ func (o GroupMembershipOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 func (o GroupMembershipOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

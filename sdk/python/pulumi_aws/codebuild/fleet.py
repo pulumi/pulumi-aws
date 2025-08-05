@@ -40,7 +40,7 @@ class FleetArgs:
         :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
                
                The following arguments are optional:
-        :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet.
         :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[_builtins.str] name: Fleet name.
@@ -114,7 +114,7 @@ class FleetArgs:
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> Optional[pulumi.Input['FleetComputeConfigurationArgs']]:
         """
-        The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         """
         return pulumi.get(self, "compute_configuration")
 
@@ -243,7 +243,7 @@ class _FleetState:
         Input properties used for looking up and filtering Fleet resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the Fleet.
         :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
-        :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         :param pulumi.Input[_builtins.str] created: Creation time of the fleet.
         :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
@@ -323,7 +323,7 @@ class _FleetState:
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> Optional[pulumi.Input['FleetComputeConfigurationArgs']]:
         """
-        The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         """
         return pulumi.get(self, "compute_configuration")
 
@@ -563,7 +563,7 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
-        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
                
@@ -720,7 +720,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Fleet.
         :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
-        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         :param pulumi.Input[_builtins.str] created: Creation time of the fleet.
         :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
@@ -780,7 +780,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> pulumi.Output[Optional['outputs.FleetComputeConfiguration']]:
         """
-        The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         """
         return pulumi.get(self, "compute_configuration")
 

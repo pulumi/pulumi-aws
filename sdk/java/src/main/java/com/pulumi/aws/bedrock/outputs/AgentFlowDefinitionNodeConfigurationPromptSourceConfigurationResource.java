@@ -10,11 +10,19 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource {
-    private String resourceArn;
+    /**
+     * @return The Amazon Resource Name (ARN) of the prompt from Prompt management.
+     * 
+     */
+    private String promptArn;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource() {}
-    public String resourceArn() {
-        return this.resourceArn;
+    /**
+     * @return The Amazon Resource Name (ARN) of the prompt from Prompt management.
+     * 
+     */
+    public String promptArn() {
+        return this.promptArn;
     }
 
     public static Builder builder() {
@@ -26,24 +34,24 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
     @CustomType.Builder
     public static final class Builder {
-        private String resourceArn;
+        private String promptArn;
         public Builder() {}
         public Builder(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.resourceArn = defaults.resourceArn;
+    	      this.promptArn = defaults.promptArn;
         }
 
         @CustomType.Setter
-        public Builder resourceArn(String resourceArn) {
-            if (resourceArn == null) {
-              throw new MissingRequiredPropertyException("AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource", "resourceArn");
+        public Builder promptArn(String promptArn) {
+            if (promptArn == null) {
+              throw new MissingRequiredPropertyException("AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource", "promptArn");
             }
-            this.resourceArn = resourceArn;
+            this.promptArn = promptArn;
             return this;
         }
         public AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource build() {
             final var _resultValue = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource();
-            _resultValue.resourceArn = resourceArn;
+            _resultValue.promptArn = promptArn;
             return _resultValue;
         }
     }

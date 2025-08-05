@@ -38,7 +38,6 @@ class DashboardArgs:
         :param pulumi.Input[_builtins.str] version_description: A description of the current dashboard version being created/updated.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input['DashboardDashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
         :param pulumi.Input[_builtins.str] name: Display name for the dashboard.
         :param pulumi.Input['DashboardParametersArgs'] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
@@ -98,9 +97,6 @@ class DashboardArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -229,7 +225,6 @@ class _DashboardState:
         """
         Input properties used for looking up and filtering Dashboard resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the dashboard.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] created_time: The time that the dashboard was created.
         :param pulumi.Input[_builtins.str] dashboard_id: Identifier for the dashboard.
         :param pulumi.Input['DashboardDashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
@@ -303,9 +298,6 @@ class _DashboardState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -570,7 +562,6 @@ class Dashboard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] dashboard_id: Identifier for the dashboard.
         :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
         :param pulumi.Input[_builtins.str] name: Display name for the dashboard.
@@ -719,7 +710,6 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the dashboard.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] created_time: The time that the dashboard was created.
         :param pulumi.Input[_builtins.str] dashboard_id: Identifier for the dashboard.
         :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
@@ -775,9 +765,6 @@ class Dashboard(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

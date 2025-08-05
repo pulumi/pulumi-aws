@@ -185,6 +185,10 @@ namespace Pulumi.Aws.S3
         public readonly ImmutableArray<Outputs.GetAccessPointPublicAccessBlockConfigurationResult> PublicAccessBlockConfigurations;
         public readonly string Region;
         /// <summary>
+        /// Tags assigned to the access point.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// VPC configuration for the access point.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointVpcConfigurationResult> VpcConfigurations;
@@ -217,6 +221,8 @@ namespace Pulumi.Aws.S3
 
             string region,
 
+            ImmutableDictionary<string, string> tags,
+
             ImmutableArray<Outputs.GetAccessPointVpcConfigurationResult> vpcConfigurations)
         {
             AccountId = accountId;
@@ -232,6 +238,7 @@ namespace Pulumi.Aws.S3
             NetworkOrigin = networkOrigin;
             PublicAccessBlockConfigurations = publicAccessBlockConfigurations;
             Region = region;
+            Tags = tags;
             VpcConfigurations = vpcConfigurations;
         }
     }

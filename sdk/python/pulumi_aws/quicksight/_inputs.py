@@ -211,6 +211,8 @@ __all__ = [
     'FolderPermissionArgsDict',
     'IamPolicyAssignmentIdentitiesArgs',
     'IamPolicyAssignmentIdentitiesArgsDict',
+    'KeyRegistrationKeyRegistrationArgs',
+    'KeyRegistrationKeyRegistrationArgsDict',
     'NamespaceTimeoutsArgs',
     'NamespaceTimeoutsArgsDict',
     'RefreshScheduleScheduleArgs',
@@ -6186,6 +6188,57 @@ class IamPolicyAssignmentIdentitiesArgs:
     @users.setter
     def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users", value)
+
+
+if not MYPY:
+    class KeyRegistrationKeyRegistrationArgsDict(TypedDict):
+        key_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the AWS KMS key that is registered for encryption and decryption use.
+        """
+        default_key: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the key is set as the default key for encryption and decryption use.
+        """
+elif False:
+    KeyRegistrationKeyRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyRegistrationKeyRegistrationArgs:
+    def __init__(__self__, *,
+                 key_arn: pulumi.Input[_builtins.str],
+                 default_key: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key_arn: ARN of the AWS KMS key that is registered for encryption and decryption use.
+        :param pulumi.Input[_builtins.bool] default_key: Whether the key is set as the default key for encryption and decryption use.
+        """
+        pulumi.set(__self__, "key_arn", key_arn)
+        if default_key is not None:
+            pulumi.set(__self__, "default_key", default_key)
+
+    @_builtins.property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AWS KMS key that is registered for encryption and decryption use.
+        """
+        return pulumi.get(self, "key_arn")
+
+    @key_arn.setter
+    def key_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultKey")
+    def default_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the key is set as the default key for encryption and decryption use.
+        """
+        return pulumi.get(self, "default_key")
+
+    @default_key.setter
+    def default_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "default_key", value)
 
 
 if not MYPY:

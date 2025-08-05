@@ -19,19 +19,25 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<int>? Disk { get; set; }
 
         /// <summary>
-        /// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+        /// EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+        /// </summary>
+        [Input("instanceType")]
+        public Input<string>? InstanceType { get; set; }
+
+        /// <summary>
+        /// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         /// </summary>
         [Input("machineType")]
         public Input<string>? MachineType { get; set; }
 
         /// <summary>
-        /// Amount of memory of the instance type included in the fleet.
+        /// Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         /// </summary>
         [Input("memory")]
         public Input<int>? Memory { get; set; }
 
         /// <summary>
-        /// Number of vCPUs of the instance type included in the fleet.
+        /// Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         /// </summary>
         [Input("vcpu")]
         public Input<int>? Vcpu { get; set; }

@@ -27,7 +27,7 @@ class GetAccessPointResult:
     """
     A collection of values returned by getAccessPoint.
     """
-    def __init__(__self__, account_id=None, alias=None, arn=None, bucket=None, bucket_account_id=None, data_source_id=None, data_source_type=None, endpoints=None, id=None, name=None, network_origin=None, public_access_block_configurations=None, region=None, vpc_configurations=None):
+    def __init__(__self__, account_id=None, alias=None, arn=None, bucket=None, bucket_account_id=None, data_source_id=None, data_source_type=None, endpoints=None, id=None, name=None, network_origin=None, public_access_block_configurations=None, region=None, tags=None, vpc_configurations=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -67,6 +67,9 @@ class GetAccessPointResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if vpc_configurations and not isinstance(vpc_configurations, list):
             raise TypeError("Expected argument 'vpc_configurations' to be a list")
         pulumi.set(__self__, "vpc_configurations", vpc_configurations)
@@ -167,6 +170,14 @@ class GetAccessPointResult:
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Tags assigned to the access point.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="vpcConfigurations")
     def vpc_configurations(self) -> Sequence['outputs.GetAccessPointVpcConfigurationResult']:
         """
@@ -194,6 +205,7 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             network_origin=self.network_origin,
             public_access_block_configurations=self.public_access_block_configurations,
             region=self.region,
+            tags=self.tags,
             vpc_configurations=self.vpc_configurations)
 
 
@@ -239,6 +251,7 @@ def get_access_point(account_id: Optional[_builtins.str] = None,
         network_origin=pulumi.get(__ret__, 'network_origin'),
         public_access_block_configurations=pulumi.get(__ret__, 'public_access_block_configurations'),
         region=pulumi.get(__ret__, 'region'),
+        tags=pulumi.get(__ret__, 'tags'),
         vpc_configurations=pulumi.get(__ret__, 'vpc_configurations'))
 def get_access_point_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -281,4 +294,5 @@ def get_access_point_output(account_id: Optional[pulumi.Input[Optional[_builtins
         network_origin=pulumi.get(__response__, 'network_origin'),
         public_access_block_configurations=pulumi.get(__response__, 'public_access_block_configurations'),
         region=pulumi.get(__response__, 'region'),
+        tags=pulumi.get(__response__, 'tags'),
         vpc_configurations=pulumi.get(__response__, 'vpc_configurations')))

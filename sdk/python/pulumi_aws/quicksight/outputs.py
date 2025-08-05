@@ -114,6 +114,7 @@ __all__ = [
     'DataSourceVpcConnectionProperties',
     'FolderPermission',
     'IamPolicyAssignmentIdentities',
+    'KeyRegistrationKeyRegistration',
     'NamespaceTimeouts',
     'RefreshScheduleSchedule',
     'RefreshScheduleScheduleScheduleFrequency',
@@ -4856,6 +4857,55 @@ class IamPolicyAssignmentIdentities(dict):
         Array of Quicksight user names to assign the policy to.
         """
         return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class KeyRegistrationKeyRegistration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyArn":
+            suggest = "key_arn"
+        elif key == "defaultKey":
+            suggest = "default_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyRegistrationKeyRegistration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyRegistrationKeyRegistration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyRegistrationKeyRegistration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_arn: _builtins.str,
+                 default_key: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str key_arn: ARN of the AWS KMS key that is registered for encryption and decryption use.
+        :param _builtins.bool default_key: Whether the key is set as the default key for encryption and decryption use.
+        """
+        pulumi.set(__self__, "key_arn", key_arn)
+        if default_key is not None:
+            pulumi.set(__self__, "default_key", default_key)
+
+    @_builtins.property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS KMS key that is registered for encryption and decryption use.
+        """
+        return pulumi.get(self, "key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultKey")
+    def default_key(self) -> Optional[_builtins.bool]:
+        """
+        Whether the key is set as the default key for encryption and decryption use.
+        """
+        return pulumi.get(self, "default_key")
 
 
 @pulumi.output_type

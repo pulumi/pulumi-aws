@@ -77,9 +77,6 @@ export class Analysis extends pulumi.CustomResource {
      * ARN of the analysis.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * AWS account ID.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The time that the analysis was created.
@@ -201,9 +198,6 @@ export interface AnalysisState {
      * ARN of the analysis.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The time that the analysis was created.
@@ -266,9 +260,6 @@ export interface AnalysisArgs {
      * Identifier for the analysis.
      */
     analysisId: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Display name for the analysis.

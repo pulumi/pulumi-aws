@@ -18,21 +18,27 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly int? Disk;
         /// <summary>
-        /// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+        /// EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+        /// </summary>
+        public readonly string? InstanceType;
+        /// <summary>
+        /// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         /// </summary>
         public readonly string? MachineType;
         /// <summary>
-        /// Amount of memory of the instance type included in the fleet.
+        /// Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         /// </summary>
         public readonly int? Memory;
         /// <summary>
-        /// Number of vCPUs of the instance type included in the fleet.
+        /// Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
         /// </summary>
         public readonly int? Vcpu;
 
         [OutputConstructor]
         private FleetComputeConfiguration(
             int? disk,
+
+            string? instanceType,
 
             string? machineType,
 
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
             int? vcpu)
         {
             Disk = disk;
+            InstanceType = instanceType;
             MachineType = machineType;
             Memory = memory;
             Vcpu = vcpu;

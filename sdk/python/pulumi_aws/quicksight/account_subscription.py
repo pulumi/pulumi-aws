@@ -47,7 +47,7 @@ class AccountSubscriptionArgs:
         :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID hosting the QuickSight account. Default to provider account.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -179,7 +179,7 @@ class AccountSubscriptionArgs:
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        AWS account ID hosting the QuickSight account. Default to provider account.
+        AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
@@ -325,7 +325,7 @@ class _AccountSubscriptionState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID hosting the QuickSight account. Default to provider account.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
@@ -453,7 +453,7 @@ class _AccountSubscriptionState:
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        AWS account ID hosting the QuickSight account. Default to provider account.
+        AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
@@ -653,7 +653,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID hosting the QuickSight account. Default to provider account.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
@@ -808,7 +808,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID hosting the QuickSight account. Default to provider account.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
@@ -899,7 +899,7 @@ class AccountSubscription(pulumi.CustomResource):
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        AWS account ID hosting the QuickSight account. Default to provider account.
+        AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 

@@ -84,7 +84,7 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     public readonly authorGroups!: pulumi.Output<string[] | undefined>;
     /**
-     * AWS account ID hosting the QuickSight account. Default to provider account.
+     * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
@@ -232,7 +232,7 @@ export interface AccountSubscriptionState {
      */
     authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * AWS account ID hosting the QuickSight account. Default to provider account.
+     * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      */
     awsAccountId?: pulumi.Input<string>;
     /**
@@ -308,7 +308,7 @@ export interface AccountSubscriptionArgs {
      */
     authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * AWS account ID hosting the QuickSight account. Default to provider account.
+     * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      */
     awsAccountId?: pulumi.Input<string>;
     /**

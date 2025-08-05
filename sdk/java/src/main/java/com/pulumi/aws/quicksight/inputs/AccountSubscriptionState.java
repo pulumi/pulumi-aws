@@ -107,14 +107,14 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * AWS account ID hosting the QuickSight account. Default to provider account.
+     * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      * 
      */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
     /**
-     * @return AWS account ID hosting the QuickSight account. Default to provider account.
+     * @return AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      * 
      */
     public Optional<Output<String>> awsAccountId() {
@@ -478,7 +478,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsAccountId AWS account ID hosting the QuickSight account. Default to provider account.
+         * @param awsAccountId AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsAccountId AWS account ID hosting the QuickSight account. Default to provider account.
+         * @param awsAccountId AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
          * 
          * @return builder
          * 

@@ -224,8 +224,7 @@ type DataSource struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the data source
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials DataSourceCredentialsPtrOutput `pulumi:"credentials"`
@@ -293,8 +292,7 @@ func GetDataSource(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DataSource resources.
 type dataSourceState struct {
 	// Amazon Resource Name (ARN) of the data source
-	Arn *string `pulumi:"arn"`
-	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          *string `pulumi:"arn"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials *DataSourceCredentials `pulumi:"credentials"`
@@ -324,8 +322,7 @@ type dataSourceState struct {
 
 type DataSourceState struct {
 	// Amazon Resource Name (ARN) of the data source
-	Arn pulumi.StringPtrInput
-	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials DataSourceCredentialsPtrInput
@@ -358,7 +355,6 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials *DataSourceCredentials `pulumi:"credentials"`
@@ -386,7 +382,6 @@ type dataSourceArgs struct {
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
-	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials DataSourceCredentialsPtrInput
@@ -504,7 +499,6 @@ func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 func (o DataSourceOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

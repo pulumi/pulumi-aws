@@ -31,7 +31,8 @@ class VolumeArgs:
                  snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[_builtins.str] availability_zone: Availability zone where the EBS volume will exist.
@@ -47,6 +48,7 @@ class VolumeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[_builtins.str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        :param pulumi.Input[_builtins.int] volume_initialization_rate: EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
                
                > **NOTE:** At least one of `size` or `snapshot_id` is required.
                
@@ -77,6 +79,8 @@ class VolumeArgs:
             pulumi.set(__self__, "throughput", throughput)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
@@ -227,16 +231,28 @@ class VolumeArgs:
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
-
-        > **NOTE:** At least one of `size` or `snapshot_id` is required.
-
-        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
+
+        > **NOTE:** At least one of `size` or `snapshot_id` is required.
+
+        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+        """
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @volume_initialization_rate.setter
+    def volume_initialization_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "volume_initialization_rate", value)
 
 
 @pulumi.input_type
@@ -257,7 +273,8 @@ class _VolumeState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
         :param pulumi.Input[_builtins.str] arn: Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
@@ -276,6 +293,7 @@ class _VolumeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[_builtins.str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        :param pulumi.Input[_builtins.int] volume_initialization_rate: EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
                
                > **NOTE:** At least one of `size` or `snapshot_id` is required.
                
@@ -313,6 +331,8 @@ class _VolumeState:
             pulumi.set(__self__, "throughput", throughput)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
 
     @_builtins.property
     @pulumi.getter
@@ -499,16 +519,28 @@ class _VolumeState:
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
-
-        > **NOTE:** At least one of `size` or `snapshot_id` is required.
-
-        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
+
+        > **NOTE:** At least one of `size` or `snapshot_id` is required.
+
+        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+        """
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @volume_initialization_rate.setter
+    def volume_initialization_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "volume_initialization_rate", value)
 
 
 @pulumi.type_token("aws:ebs/volume:Volume")
@@ -530,6 +562,7 @@ class Volume(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput: Optional[pulumi.Input[_builtins.int]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a single EBS volume.
@@ -571,6 +604,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[_builtins.str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        :param pulumi.Input[_builtins.int] volume_initialization_rate: EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
                
                > **NOTE:** At least one of `size` or `snapshot_id` is required.
                
@@ -635,6 +669,7 @@ class Volume(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput: Optional[pulumi.Input[_builtins.int]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -659,6 +694,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throughput"] = throughput
             __props__.__dict__["type"] = type
+            __props__.__dict__["volume_initialization_rate"] = volume_initialization_rate
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_time"] = None
             __props__.__dict__["tags_all"] = None
@@ -687,7 +723,8 @@ class Volume(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             throughput: Optional[pulumi.Input[_builtins.int]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Volume':
+            type: Optional[pulumi.Input[_builtins.str]] = None,
+            volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None) -> 'Volume':
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -711,6 +748,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[_builtins.str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        :param pulumi.Input[_builtins.int] volume_initialization_rate: EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
                
                > **NOTE:** At least one of `size` or `snapshot_id` is required.
                
@@ -736,6 +774,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["throughput"] = throughput
         __props__.__dict__["type"] = type
+        __props__.__dict__["volume_initialization_rate"] = volume_initialization_rate
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -863,10 +902,18 @@ class Volume(pulumi.CustomResource):
     def type(self) -> pulumi.Output[_builtins.str]:
         """
         Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
 
         > **NOTE:** At least one of `size` or `snapshot_id` is required.
 
         > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "volume_initialization_rate")
 

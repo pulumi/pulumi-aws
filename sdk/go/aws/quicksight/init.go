@@ -45,6 +45,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IamPolicyAssignment{}
 	case "aws:quicksight/ingestion:Ingestion":
 		r = &Ingestion{}
+	case "aws:quicksight/ipRestriction:IpRestriction":
+		r = &IpRestriction{}
+	case "aws:quicksight/keyRegistration:KeyRegistration":
+		r = &KeyRegistration{}
 	case "aws:quicksight/namespace:Namespace":
 		r = &Namespace{}
 	case "aws:quicksight/refreshSchedule:RefreshSchedule":
@@ -132,6 +136,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/ingestion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/ipRestriction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/keyRegistration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

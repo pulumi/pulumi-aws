@@ -33,6 +33,21 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * 
+     */
+    @Import(name="deletionProtection")
+    private @Nullable Output<String> deletionProtection;
+
+    /**
+     * @return Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * 
+     */
+    public Optional<Output<String>> deletionProtection() {
+        return Optional.ofNullable(this.deletionProtection);
+    }
+
+    /**
      * A description of the Policy Store.
      * 
      */
@@ -126,6 +141,7 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
 
     private PolicyStoreState(PolicyStoreState $) {
         this.arn = $.arn;
+        this.deletionProtection = $.deletionProtection;
         this.description = $.description;
         this.policyStoreId = $.policyStoreId;
         this.region = $.region;
@@ -171,6 +187,27 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param deletionProtection Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtection(@Nullable Output<String> deletionProtection) {
+            $.deletionProtection = deletionProtection;
+            return this;
+        }
+
+        /**
+         * @param deletionProtection Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtection(String deletionProtection) {
+            return deletionProtection(Output.of(deletionProtection));
         }
 
         /**

@@ -76,14 +76,11 @@ type Theme struct {
 	pulumi.CustomResourceState
 
 	// ARN of the theme.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// AWS account ID.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringOutput `pulumi:"baseThemeId"`
 	// The theme configuration, which contains the theme display properties. See configuration.
-	//
-	// The following arguments are optional:
 	Configuration ThemeConfigurationPtrOutput `pulumi:"configuration"`
 	// The time that the theme was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -102,6 +99,8 @@ type Theme struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of the theme.
+	//
+	// The following arguments are optional:
 	ThemeId pulumi.StringOutput `pulumi:"themeId"`
 	// A description of the current theme version being created/updated.
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
@@ -146,14 +145,11 @@ func GetTheme(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Theme resources.
 type themeState struct {
 	// ARN of the theme.
-	Arn *string `pulumi:"arn"`
-	// AWS account ID.
+	Arn          *string `pulumi:"arn"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId *string `pulumi:"baseThemeId"`
 	// The theme configuration, which contains the theme display properties. See configuration.
-	//
-	// The following arguments are optional:
 	Configuration *ThemeConfiguration `pulumi:"configuration"`
 	// The time that the theme was created.
 	CreatedTime *string `pulumi:"createdTime"`
@@ -172,6 +168,8 @@ type themeState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of the theme.
+	//
+	// The following arguments are optional:
 	ThemeId *string `pulumi:"themeId"`
 	// A description of the current theme version being created/updated.
 	VersionDescription *string `pulumi:"versionDescription"`
@@ -181,14 +179,11 @@ type themeState struct {
 
 type ThemeState struct {
 	// ARN of the theme.
-	Arn pulumi.StringPtrInput
-	// AWS account ID.
+	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringPtrInput
 	// The theme configuration, which contains the theme display properties. See configuration.
-	//
-	// The following arguments are optional:
 	Configuration ThemeConfigurationPtrInput
 	// The time that the theme was created.
 	CreatedTime pulumi.StringPtrInput
@@ -207,6 +202,8 @@ type ThemeState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Identifier of the theme.
+	//
+	// The following arguments are optional:
 	ThemeId pulumi.StringPtrInput
 	// A description of the current theme version being created/updated.
 	VersionDescription pulumi.StringPtrInput
@@ -219,13 +216,10 @@ func (ThemeState) ElementType() reflect.Type {
 }
 
 type themeArgs struct {
-	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId string `pulumi:"baseThemeId"`
 	// The theme configuration, which contains the theme display properties. See configuration.
-	//
-	// The following arguments are optional:
 	Configuration *ThemeConfiguration `pulumi:"configuration"`
 	// Display name of the theme.
 	Name *string `pulumi:"name"`
@@ -236,6 +230,8 @@ type themeArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the theme.
+	//
+	// The following arguments are optional:
 	ThemeId string `pulumi:"themeId"`
 	// A description of the current theme version being created/updated.
 	VersionDescription *string `pulumi:"versionDescription"`
@@ -243,13 +239,10 @@ type themeArgs struct {
 
 // The set of arguments for constructing a Theme resource.
 type ThemeArgs struct {
-	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringInput
 	// The theme configuration, which contains the theme display properties. See configuration.
-	//
-	// The following arguments are optional:
 	Configuration ThemeConfigurationPtrInput
 	// Display name of the theme.
 	Name pulumi.StringPtrInput
@@ -260,6 +253,8 @@ type ThemeArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Identifier of the theme.
+	//
+	// The following arguments are optional:
 	ThemeId pulumi.StringInput
 	// A description of the current theme version being created/updated.
 	VersionDescription pulumi.StringPtrInput
@@ -357,7 +352,6 @@ func (o ThemeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// AWS account ID.
 func (o ThemeOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
@@ -368,8 +362,6 @@ func (o ThemeOutput) BaseThemeId() pulumi.StringOutput {
 }
 
 // The theme configuration, which contains the theme display properties. See configuration.
-//
-// The following arguments are optional:
 func (o ThemeOutput) Configuration() ThemeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Theme) ThemeConfigurationPtrOutput { return v.Configuration }).(ThemeConfigurationPtrOutput)
 }
@@ -415,6 +407,8 @@ func (o ThemeOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Identifier of the theme.
+//
+// The following arguments are optional:
 func (o ThemeOutput) ThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.ThemeId }).(pulumi.StringOutput)
 }

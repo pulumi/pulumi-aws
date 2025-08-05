@@ -28,7 +28,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, arn=None, availability_zone=None, create_time=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, multi_attach_enabled=None, outpost_arn=None, region=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_type=None):
+    def __init__(__self__, arn=None, availability_zone=None, create_time=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, multi_attach_enabled=None, outpost_arn=None, region=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_initialization_rate=None, volume_type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -80,6 +80,9 @@ class GetVolumeResult:
         if volume_id and not isinstance(volume_id, str):
             raise TypeError("Expected argument 'volume_id' to be a str")
         pulumi.set(__self__, "volume_id", volume_id)
+        if volume_initialization_rate and not isinstance(volume_initialization_rate, int):
+            raise TypeError("Expected argument 'volume_initialization_rate' to be a int")
+        pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type and not isinstance(volume_type, str):
             raise TypeError("Expected argument 'volume_type' to be a str")
         pulumi.set(__self__, "volume_type", volume_type)
@@ -212,6 +215,14 @@ class GetVolumeResult:
         return pulumi.get(self, "volume_id")
 
     @_builtins.property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> _builtins.int:
+        """
+        EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
+        """
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @_builtins.property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> _builtins.str:
         """
@@ -243,6 +254,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             tags=self.tags,
             throughput=self.throughput,
             volume_id=self.volume_id,
+            volume_initialization_rate=self.volume_initialization_rate,
             volume_type=self.volume_type)
 
 
@@ -309,6 +321,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
         tags=pulumi.get(__ret__, 'tags'),
         throughput=pulumi.get(__ret__, 'throughput'),
         volume_id=pulumi.get(__ret__, 'volume_id'),
+        volume_initialization_rate=pulumi.get(__ret__, 'volume_initialization_rate'),
         volume_type=pulumi.get(__ret__, 'volume_type'))
 def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']]]]] = None,
                       most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
@@ -372,4 +385,5 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['Ge
         tags=pulumi.get(__response__, 'tags'),
         throughput=pulumi.get(__response__, 'throughput'),
         volume_id=pulumi.get(__response__, 'volume_id'),
+        volume_initialization_rate=pulumi.get(__response__, 'volume_initialization_rate'),
         volume_type=pulumi.get(__response__, 'volume_type')))

@@ -22,17 +22,9 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardArgs Empty = new DashboardArgs();
 
-    /**
-     * AWS account ID.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -225,23 +217,11 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DashboardArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }

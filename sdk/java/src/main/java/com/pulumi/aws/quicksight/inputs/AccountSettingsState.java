@@ -17,17 +17,9 @@ public final class AccountSettingsState extends com.pulumi.resources.ResourceArg
 
     public static final AccountSettingsState Empty = new AccountSettingsState();
 
-    /**
-     * The ID for the AWS account that contains the settings.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return The ID for the AWS account that contains the settings.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -96,23 +88,11 @@ public final class AccountSettingsState extends com.pulumi.resources.ResourceArg
             $ = new AccountSettingsState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId The ID for the AWS account that contains the settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId The ID for the AWS account that contains the settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }

@@ -32,7 +32,6 @@ class NamespaceArgs:
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] identity_store: User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -66,9 +65,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -137,7 +133,6 @@ class _NamespaceState:
         """
         Input properties used for looking up and filtering Namespace resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the Namespace.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] capacity_region: Namespace AWS Region.
         :param pulumi.Input[_builtins.str] creation_status: Creation status of the namespace.
         :param pulumi.Input[_builtins.str] identity_store: User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
@@ -184,9 +179,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -326,7 +318,6 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] identity_store: User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
                
@@ -432,7 +423,6 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Namespace.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] capacity_region: Namespace AWS Region.
         :param pulumi.Input[_builtins.str] creation_status: Creation status of the namespace.
         :param pulumi.Input[_builtins.str] identity_store: User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
@@ -470,9 +460,6 @@ class Namespace(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

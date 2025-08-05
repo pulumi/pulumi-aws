@@ -72,9 +72,6 @@ namespace Pulumi.Aws.Quicksight
         [Output("assignmentStatus")]
         public Output<string> AssignmentStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -162,9 +159,6 @@ namespace Pulumi.Aws.Quicksight
         [Input("assignmentStatus", required: true)]
         public Input<string> AssignmentStatus { get; set; } = null!;
 
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -220,9 +214,6 @@ namespace Pulumi.Aws.Quicksight
         [Input("assignmentStatus")]
         public Input<string>? AssignmentStatus { get; set; }
 
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

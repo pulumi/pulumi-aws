@@ -67,17 +67,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:quicksight/roleMembership:RoleMembership")
 public class RoleMembership extends com.pulumi.resources.CustomResource {
-    /**
-     * AWS account ID. Defaults to the account of the caller identity if not configured.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID. Defaults to the account of the caller identity if not configured.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }

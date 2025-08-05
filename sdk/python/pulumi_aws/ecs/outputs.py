@@ -69,6 +69,8 @@ __all__ = [
     'TaskSetServiceRegistries',
     'GetClusterServiceConnectDefaultResult',
     'GetClusterSettingResult',
+    'GetServiceLoadBalancerResult',
+    'GetServiceLoadBalancerAdvancedConfigurationResult',
     'GetTaskDefinitionEphemeralStorageResult',
     'GetTaskDefinitionPlacementConstraintResult',
     'GetTaskDefinitionProxyConfigurationResult',
@@ -3125,6 +3127,119 @@ class GetClusterSettingResult(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetServiceLoadBalancerResult(dict):
+    def __init__(__self__, *,
+                 advanced_configurations: Sequence['outputs.GetServiceLoadBalancerAdvancedConfigurationResult'],
+                 container_name: _builtins.str,
+                 container_port: _builtins.int,
+                 elb_name: _builtins.str,
+                 target_group_arn: _builtins.str):
+        """
+        :param Sequence['GetServiceLoadBalancerAdvancedConfigurationArgs'] advanced_configurations: Settings for Blue/Green deployment. See `advanced_configuration` Block for details.
+        :param _builtins.str container_name: Name of the container to associate with the load balancer.
+        :param _builtins.int container_port: Port on the container to associate with the load balancer.
+        :param _builtins.str elb_name: Name of the load balancer.
+        :param _builtins.str target_group_arn: ARN of the target group to associate with the load balancer.
+        """
+        pulumi.set(__self__, "advanced_configurations", advanced_configurations)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "container_port", container_port)
+        pulumi.set(__self__, "elb_name", elb_name)
+        pulumi.set(__self__, "target_group_arn", target_group_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="advancedConfigurations")
+    def advanced_configurations(self) -> Sequence['outputs.GetServiceLoadBalancerAdvancedConfigurationResult']:
+        """
+        Settings for Blue/Green deployment. See `advanced_configuration` Block for details.
+        """
+        return pulumi.get(self, "advanced_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> _builtins.str:
+        """
+        Name of the container to associate with the load balancer.
+        """
+        return pulumi.get(self, "container_name")
+
+    @_builtins.property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> _builtins.int:
+        """
+        Port on the container to associate with the load balancer.
+        """
+        return pulumi.get(self, "container_port")
+
+    @_builtins.property
+    @pulumi.getter(name="elbName")
+    def elb_name(self) -> _builtins.str:
+        """
+        Name of the load balancer.
+        """
+        return pulumi.get(self, "elb_name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetGroupArn")
+    def target_group_arn(self) -> _builtins.str:
+        """
+        ARN of the target group to associate with the load balancer.
+        """
+        return pulumi.get(self, "target_group_arn")
+
+
+@pulumi.output_type
+class GetServiceLoadBalancerAdvancedConfigurationResult(dict):
+    def __init__(__self__, *,
+                 alternate_target_group_arn: _builtins.str,
+                 production_listener_rule: _builtins.str,
+                 role_arn: _builtins.str,
+                 test_listener_rule: _builtins.str):
+        """
+        :param _builtins.str alternate_target_group_arn: ARN of the alternate target group to use for Blue/Green deployments.
+        :param _builtins.str production_listener_rule: ARN of the listener rule that routes production traffic.
+        :param _builtins.str role_arn: ARN of the IAM role that allows ECS to manage the target groups.
+        :param _builtins.str test_listener_rule: ARN of the listener rule that routes test traffic.
+        """
+        pulumi.set(__self__, "alternate_target_group_arn", alternate_target_group_arn)
+        pulumi.set(__self__, "production_listener_rule", production_listener_rule)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "test_listener_rule", test_listener_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="alternateTargetGroupArn")
+    def alternate_target_group_arn(self) -> _builtins.str:
+        """
+        ARN of the alternate target group to use for Blue/Green deployments.
+        """
+        return pulumi.get(self, "alternate_target_group_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="productionListenerRule")
+    def production_listener_rule(self) -> _builtins.str:
+        """
+        ARN of the listener rule that routes production traffic.
+        """
+        return pulumi.get(self, "production_listener_rule")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that allows ECS to manage the target groups.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="testListenerRule")
+    def test_listener_rule(self) -> _builtins.str:
+        """
+        ARN of the listener rule that routes test traffic.
+        """
+        return pulumi.get(self, "test_listener_rule")
 
 
 @pulumi.output_type

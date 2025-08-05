@@ -62,7 +62,6 @@ import (
 type AccountSettings struct {
 	pulumi.CustomResourceState
 
-	// The ID for the AWS account that contains the settings.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace pulumi.StringOutput `pulumi:"defaultNamespace"`
@@ -101,7 +100,6 @@ func GetAccountSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSettings resources.
 type accountSettingsState struct {
-	// The ID for the AWS account that contains the settings.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
@@ -111,7 +109,6 @@ type accountSettingsState struct {
 }
 
 type AccountSettingsState struct {
-	// The ID for the AWS account that contains the settings.
 	AwsAccountId pulumi.StringPtrInput
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace pulumi.StringPtrInput
@@ -125,7 +122,6 @@ func (AccountSettingsState) ElementType() reflect.Type {
 }
 
 type accountSettingsArgs struct {
-	// The ID for the AWS account that contains the settings.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
@@ -136,7 +132,6 @@ type accountSettingsArgs struct {
 
 // The set of arguments for constructing a AccountSettings resource.
 type AccountSettingsArgs struct {
-	// The ID for the AWS account that contains the settings.
 	AwsAccountId pulumi.StringPtrInput
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace pulumi.StringPtrInput
@@ -232,7 +227,6 @@ func (o AccountSettingsOutput) ToAccountSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
-// The ID for the AWS account that contains the settings.
 func (o AccountSettingsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettings) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

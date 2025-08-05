@@ -4,6 +4,7 @@
 package com.pulumi.aws.athena.outputs;
 
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationEngineVersion;
+import com.pulumi.aws.athena.outputs.WorkgroupConfigurationIdentityCenterConfiguration;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationResultConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -31,10 +32,15 @@ public final class WorkgroupConfiguration {
      */
     private @Nullable WorkgroupConfigurationEngineVersion engineVersion;
     /**
-     * @return Role used in a notebook session for accessing the user&#39;s resources.
+     * @return Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
      * 
      */
     private @Nullable String executionRole;
+    /**
+     * @return Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+     * 
+     */
+    private @Nullable WorkgroupConfigurationIdentityCenterConfiguration identityCenterConfiguration;
     /**
      * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
@@ -74,11 +80,18 @@ public final class WorkgroupConfiguration {
         return Optional.ofNullable(this.engineVersion);
     }
     /**
-     * @return Role used in a notebook session for accessing the user&#39;s resources.
+     * @return Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
      * 
      */
     public Optional<String> executionRole() {
         return Optional.ofNullable(this.executionRole);
+    }
+    /**
+     * @return Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+     * 
+     */
+    public Optional<WorkgroupConfigurationIdentityCenterConfiguration> identityCenterConfiguration() {
+        return Optional.ofNullable(this.identityCenterConfiguration);
     }
     /**
      * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
@@ -115,6 +128,7 @@ public final class WorkgroupConfiguration {
         private @Nullable Boolean enforceWorkgroupConfiguration;
         private @Nullable WorkgroupConfigurationEngineVersion engineVersion;
         private @Nullable String executionRole;
+        private @Nullable WorkgroupConfigurationIdentityCenterConfiguration identityCenterConfiguration;
         private @Nullable Boolean publishCloudwatchMetricsEnabled;
         private @Nullable Boolean requesterPaysEnabled;
         private @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration;
@@ -125,6 +139,7 @@ public final class WorkgroupConfiguration {
     	      this.enforceWorkgroupConfiguration = defaults.enforceWorkgroupConfiguration;
     	      this.engineVersion = defaults.engineVersion;
     	      this.executionRole = defaults.executionRole;
+    	      this.identityCenterConfiguration = defaults.identityCenterConfiguration;
     	      this.publishCloudwatchMetricsEnabled = defaults.publishCloudwatchMetricsEnabled;
     	      this.requesterPaysEnabled = defaults.requesterPaysEnabled;
     	      this.resultConfiguration = defaults.resultConfiguration;
@@ -155,6 +170,12 @@ public final class WorkgroupConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder identityCenterConfiguration(@Nullable WorkgroupConfigurationIdentityCenterConfiguration identityCenterConfiguration) {
+
+            this.identityCenterConfiguration = identityCenterConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder publishCloudwatchMetricsEnabled(@Nullable Boolean publishCloudwatchMetricsEnabled) {
 
             this.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
@@ -178,6 +199,7 @@ public final class WorkgroupConfiguration {
             _resultValue.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
             _resultValue.engineVersion = engineVersion;
             _resultValue.executionRole = executionRole;
+            _resultValue.identityCenterConfiguration = identityCenterConfiguration;
             _resultValue.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             _resultValue.requesterPaysEnabled = requesterPaysEnabled;
             _resultValue.resultConfiguration = resultConfiguration;

@@ -23,6 +23,8 @@ from .group import *
 from .group_membership import *
 from .iam_policy_assignment import *
 from .ingestion import *
+from .ip_restriction import *
+from .key_registration import *
 from .namespace import *
 from .refresh_schedule import *
 from .role_membership import *

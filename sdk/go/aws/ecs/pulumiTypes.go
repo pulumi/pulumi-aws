@@ -8265,6 +8265,265 @@ func (o GetClusterSettingArrayOutput) Index(i pulumi.IntInput) GetClusterSetting
 	}).(GetClusterSettingOutput)
 }
 
+type GetServiceLoadBalancer struct {
+	// Settings for Blue/Green deployment. See `advancedConfiguration` Block for details.
+	AdvancedConfigurations []GetServiceLoadBalancerAdvancedConfiguration `pulumi:"advancedConfigurations"`
+	// Name of the container to associate with the load balancer.
+	ContainerName string `pulumi:"containerName"`
+	// Port on the container to associate with the load balancer.
+	ContainerPort int `pulumi:"containerPort"`
+	// Name of the load balancer.
+	ElbName string `pulumi:"elbName"`
+	// ARN of the target group to associate with the load balancer.
+	TargetGroupArn string `pulumi:"targetGroupArn"`
+}
+
+// GetServiceLoadBalancerInput is an input type that accepts GetServiceLoadBalancerArgs and GetServiceLoadBalancerOutput values.
+// You can construct a concrete instance of `GetServiceLoadBalancerInput` via:
+//
+//	GetServiceLoadBalancerArgs{...}
+type GetServiceLoadBalancerInput interface {
+	pulumi.Input
+
+	ToGetServiceLoadBalancerOutput() GetServiceLoadBalancerOutput
+	ToGetServiceLoadBalancerOutputWithContext(context.Context) GetServiceLoadBalancerOutput
+}
+
+type GetServiceLoadBalancerArgs struct {
+	// Settings for Blue/Green deployment. See `advancedConfiguration` Block for details.
+	AdvancedConfigurations GetServiceLoadBalancerAdvancedConfigurationArrayInput `pulumi:"advancedConfigurations"`
+	// Name of the container to associate with the load balancer.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Port on the container to associate with the load balancer.
+	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
+	// Name of the load balancer.
+	ElbName pulumi.StringInput `pulumi:"elbName"`
+	// ARN of the target group to associate with the load balancer.
+	TargetGroupArn pulumi.StringInput `pulumi:"targetGroupArn"`
+}
+
+func (GetServiceLoadBalancerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLoadBalancer)(nil)).Elem()
+}
+
+func (i GetServiceLoadBalancerArgs) ToGetServiceLoadBalancerOutput() GetServiceLoadBalancerOutput {
+	return i.ToGetServiceLoadBalancerOutputWithContext(context.Background())
+}
+
+func (i GetServiceLoadBalancerArgs) ToGetServiceLoadBalancerOutputWithContext(ctx context.Context) GetServiceLoadBalancerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLoadBalancerOutput)
+}
+
+// GetServiceLoadBalancerArrayInput is an input type that accepts GetServiceLoadBalancerArray and GetServiceLoadBalancerArrayOutput values.
+// You can construct a concrete instance of `GetServiceLoadBalancerArrayInput` via:
+//
+//	GetServiceLoadBalancerArray{ GetServiceLoadBalancerArgs{...} }
+type GetServiceLoadBalancerArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceLoadBalancerArrayOutput() GetServiceLoadBalancerArrayOutput
+	ToGetServiceLoadBalancerArrayOutputWithContext(context.Context) GetServiceLoadBalancerArrayOutput
+}
+
+type GetServiceLoadBalancerArray []GetServiceLoadBalancerInput
+
+func (GetServiceLoadBalancerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLoadBalancer)(nil)).Elem()
+}
+
+func (i GetServiceLoadBalancerArray) ToGetServiceLoadBalancerArrayOutput() GetServiceLoadBalancerArrayOutput {
+	return i.ToGetServiceLoadBalancerArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceLoadBalancerArray) ToGetServiceLoadBalancerArrayOutputWithContext(ctx context.Context) GetServiceLoadBalancerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLoadBalancerArrayOutput)
+}
+
+type GetServiceLoadBalancerOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLoadBalancerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLoadBalancer)(nil)).Elem()
+}
+
+func (o GetServiceLoadBalancerOutput) ToGetServiceLoadBalancerOutput() GetServiceLoadBalancerOutput {
+	return o
+}
+
+func (o GetServiceLoadBalancerOutput) ToGetServiceLoadBalancerOutputWithContext(ctx context.Context) GetServiceLoadBalancerOutput {
+	return o
+}
+
+// Settings for Blue/Green deployment. See `advancedConfiguration` Block for details.
+func (o GetServiceLoadBalancerOutput) AdvancedConfigurations() GetServiceLoadBalancerAdvancedConfigurationArrayOutput {
+	return o.ApplyT(func(v GetServiceLoadBalancer) []GetServiceLoadBalancerAdvancedConfiguration {
+		return v.AdvancedConfigurations
+	}).(GetServiceLoadBalancerAdvancedConfigurationArrayOutput)
+}
+
+// Name of the container to associate with the load balancer.
+func (o GetServiceLoadBalancerOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLoadBalancer) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Port on the container to associate with the load balancer.
+func (o GetServiceLoadBalancerOutput) ContainerPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceLoadBalancer) int { return v.ContainerPort }).(pulumi.IntOutput)
+}
+
+// Name of the load balancer.
+func (o GetServiceLoadBalancerOutput) ElbName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLoadBalancer) string { return v.ElbName }).(pulumi.StringOutput)
+}
+
+// ARN of the target group to associate with the load balancer.
+func (o GetServiceLoadBalancerOutput) TargetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLoadBalancer) string { return v.TargetGroupArn }).(pulumi.StringOutput)
+}
+
+type GetServiceLoadBalancerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLoadBalancerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLoadBalancer)(nil)).Elem()
+}
+
+func (o GetServiceLoadBalancerArrayOutput) ToGetServiceLoadBalancerArrayOutput() GetServiceLoadBalancerArrayOutput {
+	return o
+}
+
+func (o GetServiceLoadBalancerArrayOutput) ToGetServiceLoadBalancerArrayOutputWithContext(ctx context.Context) GetServiceLoadBalancerArrayOutput {
+	return o
+}
+
+func (o GetServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) GetServiceLoadBalancerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceLoadBalancer {
+		return vs[0].([]GetServiceLoadBalancer)[vs[1].(int)]
+	}).(GetServiceLoadBalancerOutput)
+}
+
+type GetServiceLoadBalancerAdvancedConfiguration struct {
+	// ARN of the alternate target group to use for Blue/Green deployments.
+	AlternateTargetGroupArn string `pulumi:"alternateTargetGroupArn"`
+	// ARN of the listener rule that routes production traffic.
+	ProductionListenerRule string `pulumi:"productionListenerRule"`
+	// ARN of the IAM role that allows ECS to manage the target groups.
+	RoleArn string `pulumi:"roleArn"`
+	// ARN of the listener rule that routes test traffic.
+	TestListenerRule string `pulumi:"testListenerRule"`
+}
+
+// GetServiceLoadBalancerAdvancedConfigurationInput is an input type that accepts GetServiceLoadBalancerAdvancedConfigurationArgs and GetServiceLoadBalancerAdvancedConfigurationOutput values.
+// You can construct a concrete instance of `GetServiceLoadBalancerAdvancedConfigurationInput` via:
+//
+//	GetServiceLoadBalancerAdvancedConfigurationArgs{...}
+type GetServiceLoadBalancerAdvancedConfigurationInput interface {
+	pulumi.Input
+
+	ToGetServiceLoadBalancerAdvancedConfigurationOutput() GetServiceLoadBalancerAdvancedConfigurationOutput
+	ToGetServiceLoadBalancerAdvancedConfigurationOutputWithContext(context.Context) GetServiceLoadBalancerAdvancedConfigurationOutput
+}
+
+type GetServiceLoadBalancerAdvancedConfigurationArgs struct {
+	// ARN of the alternate target group to use for Blue/Green deployments.
+	AlternateTargetGroupArn pulumi.StringInput `pulumi:"alternateTargetGroupArn"`
+	// ARN of the listener rule that routes production traffic.
+	ProductionListenerRule pulumi.StringInput `pulumi:"productionListenerRule"`
+	// ARN of the IAM role that allows ECS to manage the target groups.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// ARN of the listener rule that routes test traffic.
+	TestListenerRule pulumi.StringInput `pulumi:"testListenerRule"`
+}
+
+func (GetServiceLoadBalancerAdvancedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLoadBalancerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceLoadBalancerAdvancedConfigurationArgs) ToGetServiceLoadBalancerAdvancedConfigurationOutput() GetServiceLoadBalancerAdvancedConfigurationOutput {
+	return i.ToGetServiceLoadBalancerAdvancedConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetServiceLoadBalancerAdvancedConfigurationArgs) ToGetServiceLoadBalancerAdvancedConfigurationOutputWithContext(ctx context.Context) GetServiceLoadBalancerAdvancedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLoadBalancerAdvancedConfigurationOutput)
+}
+
+// GetServiceLoadBalancerAdvancedConfigurationArrayInput is an input type that accepts GetServiceLoadBalancerAdvancedConfigurationArray and GetServiceLoadBalancerAdvancedConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetServiceLoadBalancerAdvancedConfigurationArrayInput` via:
+//
+//	GetServiceLoadBalancerAdvancedConfigurationArray{ GetServiceLoadBalancerAdvancedConfigurationArgs{...} }
+type GetServiceLoadBalancerAdvancedConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceLoadBalancerAdvancedConfigurationArrayOutput() GetServiceLoadBalancerAdvancedConfigurationArrayOutput
+	ToGetServiceLoadBalancerAdvancedConfigurationArrayOutputWithContext(context.Context) GetServiceLoadBalancerAdvancedConfigurationArrayOutput
+}
+
+type GetServiceLoadBalancerAdvancedConfigurationArray []GetServiceLoadBalancerAdvancedConfigurationInput
+
+func (GetServiceLoadBalancerAdvancedConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLoadBalancerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceLoadBalancerAdvancedConfigurationArray) ToGetServiceLoadBalancerAdvancedConfigurationArrayOutput() GetServiceLoadBalancerAdvancedConfigurationArrayOutput {
+	return i.ToGetServiceLoadBalancerAdvancedConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceLoadBalancerAdvancedConfigurationArray) ToGetServiceLoadBalancerAdvancedConfigurationArrayOutputWithContext(ctx context.Context) GetServiceLoadBalancerAdvancedConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLoadBalancerAdvancedConfigurationArrayOutput)
+}
+
+type GetServiceLoadBalancerAdvancedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLoadBalancerAdvancedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLoadBalancerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceLoadBalancerAdvancedConfigurationOutput) ToGetServiceLoadBalancerAdvancedConfigurationOutput() GetServiceLoadBalancerAdvancedConfigurationOutput {
+	return o
+}
+
+func (o GetServiceLoadBalancerAdvancedConfigurationOutput) ToGetServiceLoadBalancerAdvancedConfigurationOutputWithContext(ctx context.Context) GetServiceLoadBalancerAdvancedConfigurationOutput {
+	return o
+}
+
+// ARN of the alternate target group to use for Blue/Green deployments.
+func (o GetServiceLoadBalancerAdvancedConfigurationOutput) AlternateTargetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLoadBalancerAdvancedConfiguration) string { return v.AlternateTargetGroupArn }).(pulumi.StringOutput)
+}
+
+// ARN of the listener rule that routes production traffic.
+func (o GetServiceLoadBalancerAdvancedConfigurationOutput) ProductionListenerRule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLoadBalancerAdvancedConfiguration) string { return v.ProductionListenerRule }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role that allows ECS to manage the target groups.
+func (o GetServiceLoadBalancerAdvancedConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLoadBalancerAdvancedConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// ARN of the listener rule that routes test traffic.
+func (o GetServiceLoadBalancerAdvancedConfigurationOutput) TestListenerRule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLoadBalancerAdvancedConfiguration) string { return v.TestListenerRule }).(pulumi.StringOutput)
+}
+
+type GetServiceLoadBalancerAdvancedConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLoadBalancerAdvancedConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLoadBalancerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceLoadBalancerAdvancedConfigurationArrayOutput) ToGetServiceLoadBalancerAdvancedConfigurationArrayOutput() GetServiceLoadBalancerAdvancedConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceLoadBalancerAdvancedConfigurationArrayOutput) ToGetServiceLoadBalancerAdvancedConfigurationArrayOutputWithContext(ctx context.Context) GetServiceLoadBalancerAdvancedConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceLoadBalancerAdvancedConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceLoadBalancerAdvancedConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceLoadBalancerAdvancedConfiguration {
+		return vs[0].([]GetServiceLoadBalancerAdvancedConfiguration)[vs[1].(int)]
+	}).(GetServiceLoadBalancerAdvancedConfigurationOutput)
+}
+
 type GetTaskDefinitionEphemeralStorage struct {
 	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 	SizeInGib int `pulumi:"sizeInGib"`
@@ -10648,6 +10907,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterServiceConnectDefaultArrayInput)(nil)).Elem(), GetClusterServiceConnectDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingInput)(nil)).Elem(), GetClusterSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingArrayInput)(nil)).Elem(), GetClusterSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLoadBalancerInput)(nil)).Elem(), GetServiceLoadBalancerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLoadBalancerArrayInput)(nil)).Elem(), GetServiceLoadBalancerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLoadBalancerAdvancedConfigurationInput)(nil)).Elem(), GetServiceLoadBalancerAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLoadBalancerAdvancedConfigurationArrayInput)(nil)).Elem(), GetServiceLoadBalancerAdvancedConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionEphemeralStorageInput)(nil)).Elem(), GetTaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionEphemeralStorageArrayInput)(nil)).Elem(), GetTaskDefinitionEphemeralStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionPlacementConstraintInput)(nil)).Elem(), GetTaskDefinitionPlacementConstraintArgs{})
@@ -10790,6 +11053,10 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterServiceConnectDefaultArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceLoadBalancerOutput{})
+	pulumi.RegisterOutputType(GetServiceLoadBalancerArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceLoadBalancerAdvancedConfigurationOutput{})
+	pulumi.RegisterOutputType(GetServiceLoadBalancerAdvancedConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionEphemeralStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionPlacementConstraintOutput{})

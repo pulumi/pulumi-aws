@@ -21,6 +21,21 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
     public static final CollaborationArgs Empty = new CollaborationArgs();
 
     /**
+     * Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+     * 
+     */
+    @Import(name="analyticsEngine")
+    private @Nullable Output<String> analyticsEngine;
+
+    /**
+     * @return Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+     * 
+     */
+    public Optional<Output<String>> analyticsEngine() {
+        return Optional.ofNullable(this.analyticsEngine);
+    }
+
+    /**
      * The name for the member record for the collaboration creator.
      * 
      */
@@ -136,6 +151,8 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
      * Determines if members of the collaboration can enable query logs within their own.
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="queryLogStatus", required=true)
     private Output<String> queryLogStatus;
@@ -143,6 +160,8 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Determines if members of the collaboration can enable query logs within their own.
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> queryLogStatus() {
@@ -182,6 +201,7 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
     private CollaborationArgs() {}
 
     private CollaborationArgs(CollaborationArgs $) {
+        this.analyticsEngine = $.analyticsEngine;
         this.creatorDisplayName = $.creatorDisplayName;
         this.creatorMemberAbilities = $.creatorMemberAbilities;
         this.dataEncryptionMetadata = $.dataEncryptionMetadata;
@@ -209,6 +229,27 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(CollaborationArgs defaults) {
             $ = new CollaborationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param analyticsEngine Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analyticsEngine(@Nullable Output<String> analyticsEngine) {
+            $.analyticsEngine = analyticsEngine;
+            return this;
+        }
+
+        /**
+         * @param analyticsEngine Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analyticsEngine(String analyticsEngine) {
+            return analyticsEngine(Output.of(analyticsEngine));
         }
 
         /**
@@ -386,6 +427,8 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
          * @param queryLogStatus Determines if members of the collaboration can enable query logs within their own.
          * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -397,6 +440,8 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param queryLogStatus Determines if members of the collaboration can enable query logs within their own.
          * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

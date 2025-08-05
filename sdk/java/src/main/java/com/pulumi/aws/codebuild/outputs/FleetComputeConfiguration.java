@@ -18,17 +18,22 @@ public final class FleetComputeConfiguration {
      */
     private @Nullable Integer disk;
     /**
-     * @return Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+     * @return EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+     * 
+     */
+    private @Nullable String instanceType;
+    /**
+     * @return Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     private @Nullable String machineType;
     /**
-     * @return Amount of memory of the instance type included in the fleet.
+     * @return Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     private @Nullable Integer memory;
     /**
-     * @return Number of vCPUs of the instance type included in the fleet.
+     * @return Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     private @Nullable Integer vcpu;
@@ -42,21 +47,28 @@ public final class FleetComputeConfiguration {
         return Optional.ofNullable(this.disk);
     }
     /**
-     * @return Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+     * @return EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+     * 
+     */
+    public Optional<String> instanceType() {
+        return Optional.ofNullable(this.instanceType);
+    }
+    /**
+     * @return Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     public Optional<String> machineType() {
         return Optional.ofNullable(this.machineType);
     }
     /**
-     * @return Amount of memory of the instance type included in the fleet.
+     * @return Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     public Optional<Integer> memory() {
         return Optional.ofNullable(this.memory);
     }
     /**
-     * @return Number of vCPUs of the instance type included in the fleet.
+     * @return Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     public Optional<Integer> vcpu() {
@@ -73,6 +85,7 @@ public final class FleetComputeConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer disk;
+        private @Nullable String instanceType;
         private @Nullable String machineType;
         private @Nullable Integer memory;
         private @Nullable Integer vcpu;
@@ -80,6 +93,7 @@ public final class FleetComputeConfiguration {
         public Builder(FleetComputeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disk = defaults.disk;
+    	      this.instanceType = defaults.instanceType;
     	      this.machineType = defaults.machineType;
     	      this.memory = defaults.memory;
     	      this.vcpu = defaults.vcpu;
@@ -89,6 +103,12 @@ public final class FleetComputeConfiguration {
         public Builder disk(@Nullable Integer disk) {
 
             this.disk = disk;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder instanceType(@Nullable String instanceType) {
+
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
@@ -112,6 +132,7 @@ public final class FleetComputeConfiguration {
         public FleetComputeConfiguration build() {
             final var _resultValue = new FleetComputeConfiguration();
             _resultValue.disk = disk;
+            _resultValue.instanceType = instanceType;
             _resultValue.machineType = machineType;
             _resultValue.memory = memory;
             _resultValue.vcpu = vcpu;

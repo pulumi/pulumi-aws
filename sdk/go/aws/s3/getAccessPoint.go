@@ -83,6 +83,8 @@ type LookupAccessPointResult struct {
 	// `PublicAccessBlock` configuration for the access point.
 	PublicAccessBlockConfigurations []GetAccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfigurations"`
 	Region                          string                                         `pulumi:"region"`
+	// Tags assigned to the access point.
+	Tags map[string]string `pulumi:"tags"`
 	// VPC configuration for the access point.
 	VpcConfigurations []GetAccessPointVpcConfiguration `pulumi:"vpcConfigurations"`
 }
@@ -187,6 +189,11 @@ func (o LookupAccessPointResultOutput) PublicAccessBlockConfigurations() GetAcce
 
 func (o LookupAccessPointResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Tags assigned to the access point.
+func (o LookupAccessPointResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // VPC configuration for the access point.

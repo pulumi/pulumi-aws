@@ -23,6 +23,11 @@ public final class GetPolicyStoreResult {
      * 
      */
     private String createdDate;
+    /**
+     * @return Whether the policy store can be deleted.
+     * 
+     */
+    private String deletionProtection;
     private String description;
     private String id;
     /**
@@ -56,6 +61,13 @@ public final class GetPolicyStoreResult {
      */
     public String createdDate() {
         return this.createdDate;
+    }
+    /**
+     * @return Whether the policy store can be deleted.
+     * 
+     */
+    public String deletionProtection() {
+        return this.deletionProtection;
     }
     public String description() {
         return this.description;
@@ -99,6 +111,7 @@ public final class GetPolicyStoreResult {
     public static final class Builder {
         private String arn;
         private String createdDate;
+        private String deletionProtection;
         private String description;
         private String id;
         private String lastUpdatedDate;
@@ -110,6 +123,7 @@ public final class GetPolicyStoreResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.createdDate = defaults.createdDate;
+    	      this.deletionProtection = defaults.deletionProtection;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.lastUpdatedDate = defaults.lastUpdatedDate;
@@ -132,6 +146,14 @@ public final class GetPolicyStoreResult {
               throw new MissingRequiredPropertyException("GetPolicyStoreResult", "createdDate");
             }
             this.createdDate = createdDate;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder deletionProtection(String deletionProtection) {
+            if (deletionProtection == null) {
+              throw new MissingRequiredPropertyException("GetPolicyStoreResult", "deletionProtection");
+            }
+            this.deletionProtection = deletionProtection;
             return this;
         }
         @CustomType.Setter
@@ -189,6 +211,7 @@ public final class GetPolicyStoreResult {
             final var _resultValue = new GetPolicyStoreResult();
             _resultValue.arn = arn;
             _resultValue.createdDate = createdDate;
+            _resultValue.deletionProtection = deletionProtection;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.lastUpdatedDate = lastUpdatedDate;

@@ -18,6 +18,21 @@ public final class PolicyStoreArgs extends com.pulumi.resources.ResourceArgs {
     public static final PolicyStoreArgs Empty = new PolicyStoreArgs();
 
     /**
+     * Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * 
+     */
+    @Import(name="deletionProtection")
+    private @Nullable Output<String> deletionProtection;
+
+    /**
+     * @return Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * 
+     */
+    public Optional<Output<String>> deletionProtection() {
+        return Optional.ofNullable(this.deletionProtection);
+    }
+
+    /**
      * A description of the Policy Store.
      * 
      */
@@ -80,6 +95,7 @@ public final class PolicyStoreArgs extends com.pulumi.resources.ResourceArgs {
     private PolicyStoreArgs() {}
 
     private PolicyStoreArgs(PolicyStoreArgs $) {
+        this.deletionProtection = $.deletionProtection;
         this.description = $.description;
         this.region = $.region;
         this.tags = $.tags;
@@ -102,6 +118,27 @@ public final class PolicyStoreArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(PolicyStoreArgs defaults) {
             $ = new PolicyStoreArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param deletionProtection Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtection(@Nullable Output<String> deletionProtection) {
+            $.deletionProtection = deletionProtection;
+            return this;
+        }
+
+        /**
+         * @param deletionProtection Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtection(String deletionProtection) {
+            return deletionProtection(Output.of(deletionProtection));
         }
 
         /**

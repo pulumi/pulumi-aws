@@ -138,13 +138,19 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// </summary>
+        [Output("type")]
+        public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
         /// 
         /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
         /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
-        [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        [Output("volumeInitializationRate")]
+        public Output<int?> VolumeInitializationRate { get; private set; } = null!;
 
 
         /// <summary>
@@ -272,13 +278,19 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
         /// 
         /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
         /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("volumeInitializationRate")]
+        public Input<int>? VolumeInitializationRate { get; set; }
 
         public VolumeArgs()
         {
@@ -392,13 +404,19 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshot_id` is specified.
         /// 
         /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
         /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("volumeInitializationRate")]
+        public Input<int>? VolumeInitializationRate { get; set; }
 
         public VolumeState()
         {
