@@ -170,6 +170,14 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
     public readonly vpcConfiguration!: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
@@ -200,6 +208,8 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["publicAccessBlockConfiguration"] = state ? state.publicAccessBlockConfiguration : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
@@ -213,6 +223,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -220,6 +231,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["hasPublicAccessPolicy"] = undefined /*out*/;
             resourceInputs["networkOrigin"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccessPoint.__pulumiType, name, resourceInputs, opts);
@@ -286,6 +298,14 @@ export interface AccessPointState {
      */
     region?: pulumi.Input<string>;
     /**
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
     vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
@@ -325,6 +345,10 @@ export interface AccessPointArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */

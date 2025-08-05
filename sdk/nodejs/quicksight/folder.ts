@@ -106,9 +106,6 @@ export class Folder extends pulumi.CustomResource {
      * ARN of the folder.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * AWS account ID.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The time that the folder was created.
@@ -215,9 +212,6 @@ export interface FolderState {
      * ARN of the folder.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The time that the folder was created.
@@ -271,9 +265,6 @@ export interface FolderState {
  * The set of arguments for constructing a Folder resource.
  */
 export interface FolderArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Identifier for the folder.

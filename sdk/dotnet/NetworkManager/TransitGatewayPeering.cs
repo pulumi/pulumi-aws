@@ -26,6 +26,13 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
     ///         TransitGatewayArn = exampleAwsEc2TransitGateway.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsEc2TransitGatewayPolicyTable,
+    ///             exampleAwsNetworkmanagerCoreNetworkPolicyAttachment,
+    ///         },
     ///     });
     /// 
     /// });

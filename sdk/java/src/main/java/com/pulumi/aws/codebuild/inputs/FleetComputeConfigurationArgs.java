@@ -32,14 +32,29 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+     * EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+     * 
+     */
+    @Import(name="instanceType")
+    private @Nullable Output<String> instanceType;
+
+    /**
+     * @return EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+     * 
+     */
+    public Optional<Output<String>> instanceType() {
+        return Optional.ofNullable(this.instanceType);
+    }
+
+    /**
+     * Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     @Import(name="machineType")
     private @Nullable Output<String> machineType;
 
     /**
-     * @return Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+     * @return Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     public Optional<Output<String>> machineType() {
@@ -47,14 +62,14 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Amount of memory of the instance type included in the fleet.
+     * Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<Integer> memory;
 
     /**
-     * @return Amount of memory of the instance type included in the fleet.
+     * @return Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     public Optional<Output<Integer>> memory() {
@@ -62,14 +77,14 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Number of vCPUs of the instance type included in the fleet.
+     * Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     @Import(name="vcpu")
     private @Nullable Output<Integer> vcpu;
 
     /**
-     * @return Number of vCPUs of the instance type included in the fleet.
+     * @return Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
      * 
      */
     public Optional<Output<Integer>> vcpu() {
@@ -80,6 +95,7 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
 
     private FleetComputeConfigurationArgs(FleetComputeConfigurationArgs $) {
         this.disk = $.disk;
+        this.instanceType = $.instanceType;
         this.machineType = $.machineType;
         this.memory = $.memory;
         this.vcpu = $.vcpu;
@@ -125,7 +141,28 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param machineType Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+         * @param instanceType EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceType(@Nullable Output<String> instanceType) {
+            $.instanceType = instanceType;
+            return this;
+        }
+
+        /**
+         * @param instanceType EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceType(String instanceType) {
+            return instanceType(Output.of(instanceType));
+        }
+
+        /**
+         * @param machineType Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
          * 
          * @return builder
          * 
@@ -136,7 +173,7 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param machineType Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+         * @param machineType Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
          * 
          * @return builder
          * 
@@ -146,7 +183,7 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param memory Amount of memory of the instance type included in the fleet.
+         * @param memory Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
          * 
          * @return builder
          * 
@@ -157,7 +194,7 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param memory Amount of memory of the instance type included in the fleet.
+         * @param memory Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
          * 
          * @return builder
          * 
@@ -167,7 +204,7 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcpu Number of vCPUs of the instance type included in the fleet.
+         * @param vcpu Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
          * 
          * @return builder
          * 
@@ -178,7 +215,7 @@ public final class FleetComputeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcpu Number of vCPUs of the instance type included in the fleet.
+         * @param vcpu Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
          * 
          * @return builder
          * 

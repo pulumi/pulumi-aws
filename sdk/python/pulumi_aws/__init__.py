@@ -9199,6 +9199,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/ipRestriction",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/ipRestriction:IpRestriction": "IpRestriction"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/keyRegistration",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/keyRegistration:KeyRegistration": "KeyRegistration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/namespace",
   "fqn": "pulumi_aws.quicksight",
   "classes": {

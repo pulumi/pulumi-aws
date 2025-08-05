@@ -76,9 +76,6 @@ namespace Pulumi.Aws.Quicksight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -90,8 +87,6 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// The theme configuration, which contains the theme display properties. See configuration.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ThemeConfiguration?> Configuration { get; private set; } = null!;
@@ -146,6 +141,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Identifier of the theme.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("themeId")]
         public Output<string> ThemeId { get; private set; } = null!;
@@ -208,9 +205,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class ThemeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -222,8 +216,6 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// The theme configuration, which contains the theme display properties. See configuration.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ThemeConfigurationArgs>? Configuration { get; set; }
@@ -266,6 +258,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Identifier of the theme.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("themeId", required: true)]
         public Input<string> ThemeId { get; set; } = null!;
@@ -290,9 +284,6 @@ namespace Pulumi.Aws.Quicksight
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -304,8 +295,6 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// The theme configuration, which contains the theme display properties. See configuration.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ThemeConfigurationGetArgs>? Configuration { get; set; }
@@ -378,6 +367,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Identifier of the theme.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("themeId")]
         public Input<string>? ThemeId { get; set; }

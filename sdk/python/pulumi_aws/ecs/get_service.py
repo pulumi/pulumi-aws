@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetServiceResult',
@@ -26,7 +27,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, availability_zone_rebalancing=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, region=None, scheduling_strategy=None, service_name=None, tags=None, task_definition=None):
+    def __init__(__self__, arn=None, availability_zone_rebalancing=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, load_balancers=None, region=None, scheduling_strategy=None, service_name=None, tags=None, task_definition=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +46,9 @@ class GetServiceResult:
         if launch_type and not isinstance(launch_type, str):
             raise TypeError("Expected argument 'launch_type' to be a str")
         pulumi.set(__self__, "launch_type", launch_type)
+        if load_balancers and not isinstance(load_balancers, list):
+            raise TypeError("Expected argument 'load_balancers' to be a list")
+        pulumi.set(__self__, "load_balancers", load_balancers)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -104,6 +108,14 @@ class GetServiceResult:
         return pulumi.get(self, "launch_type")
 
     @_builtins.property
+    @pulumi.getter(name="loadBalancers")
+    def load_balancers(self) -> Sequence['outputs.GetServiceLoadBalancerResult']:
+        """
+        Load balancers for the ECS Service. See `load_balancer` Block for details.
+        """
+        return pulumi.get(self, "load_balancers")
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
@@ -150,6 +162,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             desired_count=self.desired_count,
             id=self.id,
             launch_type=self.launch_type,
+            load_balancers=self.load_balancers,
             region=self.region,
             scheduling_strategy=self.scheduling_strategy,
             service_name=self.service_name,
@@ -197,6 +210,7 @@ def get_service(cluster_arn: Optional[_builtins.str] = None,
         desired_count=pulumi.get(__ret__, 'desired_count'),
         id=pulumi.get(__ret__, 'id'),
         launch_type=pulumi.get(__ret__, 'launch_type'),
+        load_balancers=pulumi.get(__ret__, 'load_balancers'),
         region=pulumi.get(__ret__, 'region'),
         scheduling_strategy=pulumi.get(__ret__, 'scheduling_strategy'),
         service_name=pulumi.get(__ret__, 'service_name'),
@@ -241,6 +255,7 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None
         desired_count=pulumi.get(__response__, 'desired_count'),
         id=pulumi.get(__response__, 'id'),
         launch_type=pulumi.get(__response__, 'launch_type'),
+        load_balancers=pulumi.get(__response__, 'load_balancers'),
         region=pulumi.get(__response__, 'region'),
         scheduling_strategy=pulumi.get(__response__, 'scheduling_strategy'),
         service_name=pulumi.get(__response__, 'service_name'),

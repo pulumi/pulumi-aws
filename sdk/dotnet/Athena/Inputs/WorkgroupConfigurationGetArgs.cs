@@ -31,10 +31,16 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<Inputs.WorkgroupConfigurationEngineVersionGetArgs>? EngineVersion { get; set; }
 
         /// <summary>
-        /// Role used in a notebook session for accessing the user's resources.
+        /// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
         /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
+
+        /// <summary>
+        /// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+        /// </summary>
+        [Input("identityCenterConfiguration")]
+        public Input<Inputs.WorkgroupConfigurationIdentityCenterConfigurationGetArgs>? IdentityCenterConfiguration { get; set; }
 
         /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.

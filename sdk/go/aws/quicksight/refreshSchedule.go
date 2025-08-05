@@ -136,8 +136,7 @@ type RefreshSchedule struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the refresh schedule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// AWS account ID.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The ID of the dataset.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
@@ -188,8 +187,7 @@ func GetRefreshSchedule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RefreshSchedule resources.
 type refreshScheduleState struct {
 	// Amazon Resource Name (ARN) of the refresh schedule.
-	Arn *string `pulumi:"arn"`
-	// AWS account ID.
+	Arn          *string `pulumi:"arn"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the dataset.
 	DataSetId *string `pulumi:"dataSetId"`
@@ -205,8 +203,7 @@ type refreshScheduleState struct {
 
 type RefreshScheduleState struct {
 	// Amazon Resource Name (ARN) of the refresh schedule.
-	Arn pulumi.StringPtrInput
-	// AWS account ID.
+	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the dataset.
 	DataSetId pulumi.StringPtrInput
@@ -225,7 +222,6 @@ func (RefreshScheduleState) ElementType() reflect.Type {
 }
 
 type refreshScheduleArgs struct {
-	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the dataset.
 	DataSetId string `pulumi:"dataSetId"`
@@ -241,7 +237,6 @@ type refreshScheduleArgs struct {
 
 // The set of arguments for constructing a RefreshSchedule resource.
 type RefreshScheduleArgs struct {
-	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the dataset.
 	DataSetId pulumi.StringInput
@@ -347,7 +342,6 @@ func (o RefreshScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// AWS account ID.
 func (o RefreshScheduleOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

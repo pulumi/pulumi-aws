@@ -1712,6 +1712,8 @@
         "quicksight/iamPolicyAssignment.ts",
         "quicksight/index.ts",
         "quicksight/ingestion.ts",
+        "quicksight/ipRestriction.ts",
+        "quicksight/keyRegistration.ts",
         "quicksight/namespace.ts",
         "quicksight/refreshSchedule.ts",
         "quicksight/roleMembership.ts",

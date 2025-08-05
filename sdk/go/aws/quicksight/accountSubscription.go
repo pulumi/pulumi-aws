@@ -67,8 +67,7 @@ type AccountSubscription struct {
 	AuthenticationMethod pulumi.StringOutput `pulumi:"authenticationMethod"`
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups pulumi.StringArrayOutput `pulumi:"authorGroups"`
-	// AWS account ID hosting the QuickSight account. Default to provider account.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringOutput      `pulumi:"awsAccountId"`
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrOutput `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
@@ -149,8 +148,7 @@ type accountSubscriptionState struct {
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups []string `pulumi:"authorGroups"`
-	// AWS account ID hosting the QuickSight account. Default to provider account.
-	AwsAccountId *string `pulumi:"awsAccountId"`
+	AwsAccountId *string  `pulumi:"awsAccountId"`
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber *string `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
@@ -190,7 +188,6 @@ type AccountSubscriptionState struct {
 	AuthenticationMethod pulumi.StringPtrInput
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups pulumi.StringArrayInput
-	// AWS account ID hosting the QuickSight account. Default to provider account.
 	AwsAccountId pulumi.StringPtrInput
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrInput
@@ -233,8 +230,7 @@ type accountSubscriptionArgs struct {
 	AuthenticationMethod string `pulumi:"authenticationMethod"`
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups []string `pulumi:"authorGroups"`
-	// AWS account ID hosting the QuickSight account. Default to provider account.
-	AwsAccountId *string `pulumi:"awsAccountId"`
+	AwsAccountId *string  `pulumi:"awsAccountId"`
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber *string `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
@@ -273,7 +269,6 @@ type AccountSubscriptionArgs struct {
 	AuthenticationMethod pulumi.StringInput
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups pulumi.StringArrayInput
-	// AWS account ID hosting the QuickSight account. Default to provider account.
 	AwsAccountId pulumi.StringPtrInput
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrInput
@@ -418,7 +413,6 @@ func (o AccountSubscriptionOutput) AuthorGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.AuthorGroups }).(pulumi.StringArrayOutput)
 }
 
-// AWS account ID hosting the QuickSight account. Default to provider account.
 func (o AccountSubscriptionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

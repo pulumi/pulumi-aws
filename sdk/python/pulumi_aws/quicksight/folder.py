@@ -32,7 +32,6 @@ class FolderArgs:
         """
         The set of arguments for constructing a Folder resource.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         :param pulumi.Input[_builtins.str] name: Display name for the folder.
                
@@ -73,9 +72,6 @@ class FolderArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -176,7 +172,6 @@ class _FolderState:
         """
         Input properties used for looking up and filtering Folder resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the folder.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] created_time: The time that the folder was created.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_paths: An array of ancestor ARN strings for the folder. Empty for root-level folders.
@@ -233,9 +228,6 @@ class _FolderState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -457,7 +449,6 @@ class Folder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
         :param pulumi.Input[_builtins.str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         :param pulumi.Input[_builtins.str] name: Display name for the folder.
@@ -615,7 +606,6 @@ class Folder(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the folder.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] created_time: The time that the folder was created.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_paths: An array of ancestor ARN strings for the folder. Empty for root-level folders.
@@ -660,9 +650,6 @@ class Folder(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

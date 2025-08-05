@@ -57,6 +57,10 @@ export interface GetPolicyStoreResult {
      * The date the Policy Store was created.
      */
     readonly createdDate: string;
+    /**
+     * Whether the policy store can be deleted.
+     */
+    readonly deletionProtection: string;
     readonly description: string;
     readonly id: string;
     /**

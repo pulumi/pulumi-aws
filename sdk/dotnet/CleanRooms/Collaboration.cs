@@ -10,12 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CleanRooms
 {
     /// <summary>
-    /// Provides a AWS Clean Rooms collaboration.  All members included in the definition will be invited to
-    /// join the collaboration and can create memberships.
+    /// Provides a AWS Clean Rooms collaboration.
+    /// All members included in the definition will be invited to join the collaboration and can create memberships.
     /// 
     /// ## Example Usage
-    /// 
-    /// ### Collaboration with tags
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -36,6 +34,7 @@ namespace Pulumi.Aws.CleanRooms
     ///         CreatorDisplayName = "Creator ",
     ///         Description = "I made this collaboration with Pulumi!",
     ///         QueryLogStatus = "DISABLED",
+    ///         AnalyticsEngine = "SPARK",
     ///         DataEncryptionMetadata = new Aws.CleanRooms.Inputs.CollaborationDataEncryptionMetadataArgs
     ///         {
     ///             AllowClearText = true,
@@ -73,13 +72,19 @@ namespace Pulumi.Aws.CleanRooms
     public partial class Collaboration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The arn of the collaboration.
+        /// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+        /// </summary>
+        [Output("analyticsEngine")]
+        public Output<string?> AnalyticsEngine { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the collaboration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time the collaboration was created.
+        /// Date and time the collaboration was created.
         /// * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         /// </summary>
         [Output("createTime")]
@@ -135,6 +140,8 @@ namespace Pulumi.Aws.CleanRooms
         /// <summary>
         /// Determines if members of the collaboration can enable query logs within their own.
         /// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("queryLogStatus")]
         public Output<string> QueryLogStatus { get; private set; } = null!;
@@ -204,6 +211,12 @@ namespace Pulumi.Aws.CleanRooms
     public sealed class CollaborationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+        /// </summary>
+        [Input("analyticsEngine")]
+        public Input<string>? AnalyticsEngine { get; set; }
+
+        /// <summary>
         /// The name for the member record for the collaboration creator.
         /// </summary>
         [Input("creatorDisplayName", required: true)]
@@ -265,6 +278,8 @@ namespace Pulumi.Aws.CleanRooms
         /// <summary>
         /// Determines if members of the collaboration can enable query logs within their own.
         /// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("queryLogStatus", required: true)]
         public Input<string> QueryLogStatus { get; set; } = null!;
@@ -296,13 +311,19 @@ namespace Pulumi.Aws.CleanRooms
     public sealed class CollaborationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The arn of the collaboration.
+        /// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+        /// </summary>
+        [Input("analyticsEngine")]
+        public Input<string>? AnalyticsEngine { get; set; }
+
+        /// <summary>
+        /// ARN of the collaboration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The date and time the collaboration was created.
+        /// Date and time the collaboration was created.
         /// * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         /// </summary>
         [Input("createTime")]
@@ -370,6 +391,8 @@ namespace Pulumi.Aws.CleanRooms
         /// <summary>
         /// Determines if members of the collaboration can enable query logs within their own.
         /// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("queryLogStatus")]
         public Input<string>? QueryLogStatus { get; set; }

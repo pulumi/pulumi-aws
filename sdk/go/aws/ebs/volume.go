@@ -85,11 +85,13 @@ type Volume struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	Type pulumi.StringOutput `pulumi:"type"`
+	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
 	//
 	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-	Type pulumi.StringOutput `pulumi:"type"`
+	VolumeInitializationRate pulumi.IntPtrOutput `pulumi:"volumeInitializationRate"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -156,11 +158,13 @@ type volumeState struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	Type *string `pulumi:"type"`
+	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
 	//
 	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-	Type *string `pulumi:"type"`
+	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 }
 
 type VolumeState struct {
@@ -195,11 +199,13 @@ type VolumeState struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntPtrInput
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	Type pulumi.StringPtrInput
+	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
 	//
 	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-	Type pulumi.StringPtrInput
+	VolumeInitializationRate pulumi.IntPtrInput
 }
 
 func (VolumeState) ElementType() reflect.Type {
@@ -232,11 +238,13 @@ type volumeArgs struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	Type *string `pulumi:"type"`
+	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
 	//
 	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-	Type *string `pulumi:"type"`
+	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 }
 
 // The set of arguments for constructing a Volume resource.
@@ -266,11 +274,13 @@ type VolumeArgs struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntPtrInput
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	Type pulumi.StringPtrInput
+	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
 	//
 	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-	Type pulumi.StringPtrInput
+	VolumeInitializationRate pulumi.IntPtrInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {
@@ -436,12 +446,17 @@ func (o VolumeOutput) Throughput() pulumi.IntOutput {
 }
 
 // Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+func (o VolumeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
 //
 // > **NOTE:** At least one of `size` or `snapshotId` is required.
 //
 // > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-func (o VolumeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o VolumeOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.IntPtrOutput { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
 }
 
 type VolumeArrayOutput struct{ *pulumi.OutputState }

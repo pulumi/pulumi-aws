@@ -26,9 +26,13 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly Outputs.WorkgroupConfigurationEngineVersion? EngineVersion;
         /// <summary>
-        /// Role used in a notebook session for accessing the user's resources.
+        /// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
         /// </summary>
         public readonly string? ExecutionRole;
+        /// <summary>
+        /// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+        /// </summary>
+        public readonly Outputs.WorkgroupConfigurationIdentityCenterConfiguration? IdentityCenterConfiguration;
         /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         /// </summary>
@@ -52,6 +56,8 @@ namespace Pulumi.Aws.Athena.Outputs
 
             string? executionRole,
 
+            Outputs.WorkgroupConfigurationIdentityCenterConfiguration? identityCenterConfiguration,
+
             bool? publishCloudwatchMetricsEnabled,
 
             bool? requesterPaysEnabled,
@@ -62,6 +68,7 @@ namespace Pulumi.Aws.Athena.Outputs
             EnforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
             EngineVersion = engineVersion;
             ExecutionRole = executionRole;
+            IdentityCenterConfiguration = identityCenterConfiguration;
             PublishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;

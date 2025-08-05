@@ -34,10 +34,9 @@ class ThemeArgs:
         The set of arguments for constructing a Theme resource.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
-        :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
                
                The following arguments are optional:
+        :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
         :param pulumi.Input[_builtins.str] name: Display name of the theme.
         :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +77,8 @@ class ThemeArgs:
     def theme_id(self) -> pulumi.Input[_builtins.str]:
         """
         Identifier of the theme.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "theme_id")
 
@@ -88,9 +89,6 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -102,8 +100,6 @@ class ThemeArgs:
     def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArgs']]:
         """
         The theme configuration, which contains the theme display properties. See configuration.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "configuration")
 
@@ -193,11 +189,8 @@ class _ThemeState:
         """
         Input properties used for looking up and filtering Theme resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the theme.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] created_time: The time that the theme was created.
         :param pulumi.Input[_builtins.str] last_updated_time: The time that the theme was last updated.
         :param pulumi.Input[_builtins.str] name: Display name of the theme.
@@ -207,6 +200,8 @@ class _ThemeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] version_description: A description of the current theme version being created/updated.
         :param pulumi.Input[_builtins.int] version_number: The version number of the theme version.
         """
@@ -256,9 +251,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -282,8 +274,6 @@ class _ThemeState:
     def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArgs']]:
         """
         The theme configuration, which contains the theme display properties. See configuration.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "configuration")
 
@@ -392,6 +382,8 @@ class _ThemeState:
     def theme_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Identifier of the theme.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "theme_id")
 
@@ -488,16 +480,15 @@ class Theme(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties. See configuration.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Display name of the theme.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] version_description: A description of the current theme version being created/updated.
         """
         ...
@@ -637,11 +628,8 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the theme.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties. See configuration.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] created_time: The time that the theme was created.
         :param pulumi.Input[_builtins.str] last_updated_time: The time that the theme was last updated.
         :param pulumi.Input[_builtins.str] name: Display name of the theme.
@@ -651,6 +639,8 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] version_description: A description of the current theme version being created/updated.
         :param pulumi.Input[_builtins.int] version_number: The version number of the theme version.
         """
@@ -686,9 +676,6 @@ class Theme(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property
@@ -704,8 +691,6 @@ class Theme(pulumi.CustomResource):
     def configuration(self) -> pulumi.Output[Optional['outputs.ThemeConfiguration']]:
         """
         The theme configuration, which contains the theme display properties. See configuration.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "configuration")
 
@@ -778,6 +763,8 @@ class Theme(pulumi.CustomResource):
     def theme_id(self) -> pulumi.Output[_builtins.str]:
         """
         Identifier of the theme.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "theme_id")
 

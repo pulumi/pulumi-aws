@@ -86,9 +86,6 @@ export class Theme extends pulumi.CustomResource {
      * ARN of the theme.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * AWS account ID.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
@@ -96,8 +93,6 @@ export class Theme extends pulumi.CustomResource {
     public readonly baseThemeId!: pulumi.Output<string>;
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
-     *
-     * The following arguments are optional:
      */
     public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration | undefined>;
     /**
@@ -134,6 +129,8 @@ export class Theme extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of the theme.
+     *
+     * The following arguments are optional:
      */
     public readonly themeId!: pulumi.Output<string>;
     /**
@@ -210,9 +207,6 @@ export interface ThemeState {
      * ARN of the theme.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
@@ -220,8 +214,6 @@ export interface ThemeState {
     baseThemeId?: pulumi.Input<string>;
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
-     *
-     * The following arguments are optional:
      */
     configuration?: pulumi.Input<inputs.quicksight.ThemeConfiguration>;
     /**
@@ -258,6 +250,8 @@ export interface ThemeState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of the theme.
+     *
+     * The following arguments are optional:
      */
     themeId?: pulumi.Input<string>;
     /**
@@ -274,9 +268,6 @@ export interface ThemeState {
  * The set of arguments for constructing a Theme resource.
  */
 export interface ThemeArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
@@ -284,8 +275,6 @@ export interface ThemeArgs {
     baseThemeId: pulumi.Input<string>;
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
-     *
-     * The following arguments are optional:
      */
     configuration?: pulumi.Input<inputs.quicksight.ThemeConfiguration>;
     /**
@@ -306,6 +295,8 @@ export interface ThemeArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of the theme.
+     *
+     * The following arguments are optional:
      */
     themeId: pulumi.Input<string>;
     /**

@@ -74,9 +74,6 @@ export class Dashboard extends pulumi.CustomResource {
      * ARN of the dashboard.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * AWS account ID.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The time that the dashboard was created.
@@ -219,9 +216,6 @@ export interface DashboardState {
      * ARN of the dashboard.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The time that the dashboard was created.
@@ -296,9 +290,6 @@ export interface DashboardState {
  * The set of arguments for constructing a Dashboard resource.
  */
 export interface DashboardArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Identifier for the dashboard.

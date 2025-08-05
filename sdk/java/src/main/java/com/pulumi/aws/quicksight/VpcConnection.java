@@ -138,17 +138,9 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
     public Output<String> availabilityStatus() {
         return this.availabilityStatus;
     }
-    /**
-     * AWS account ID.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }

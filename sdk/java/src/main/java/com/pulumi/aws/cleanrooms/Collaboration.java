@@ -19,12 +19,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a AWS Clean Rooms collaboration.  All members included in the definition will be invited to
- * join the collaboration and can create memberships.
+ * Provides a AWS Clean Rooms collaboration.
+ * All members included in the definition will be invited to join the collaboration and can create memberships.
  * 
  * ## Example Usage
- * 
- * ### Collaboration with tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -59,6 +57,7 @@ import javax.annotation.Nullable;
  *             .creatorDisplayName("Creator ")
  *             .description("I made this collaboration with Pulumi!")
  *             .queryLogStatus("DISABLED")
+ *             .analyticsEngine("SPARK")
  *             .dataEncryptionMetadata(CollaborationDataEncryptionMetadataArgs.builder()
  *                 .allowClearText(true)
  *                 .allowDuplicates(true)
@@ -91,21 +90,35 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cleanrooms/collaboration:Collaboration")
 public class Collaboration extends com.pulumi.resources.CustomResource {
     /**
-     * The arn of the collaboration.
+     * Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+     * 
+     */
+    @Export(name="analyticsEngine", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> analyticsEngine;
+
+    /**
+     * @return Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+     * 
+     */
+    public Output<Optional<String>> analyticsEngine() {
+        return Codegen.optional(this.analyticsEngine);
+    }
+    /**
+     * ARN of the collaboration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The arn of the collaboration.
+     * @return ARN of the collaboration.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The date and time the collaboration was created.
+     * Date and time the collaboration was created.
      * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
@@ -113,7 +126,7 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
     private Output<String> createTime;
 
     /**
-     * @return The date and time the collaboration was created.
+     * @return Date and time the collaboration was created.
      * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
@@ -230,6 +243,8 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
      * Determines if members of the collaboration can enable query logs within their own.
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="queryLogStatus", refs={String.class}, tree="[0]")
     private Output<String> queryLogStatus;
@@ -237,6 +252,8 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
     /**
      * @return Determines if members of the collaboration can enable query logs within their own.
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> queryLogStatus() {

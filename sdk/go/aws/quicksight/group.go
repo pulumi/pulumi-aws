@@ -51,8 +51,7 @@ type Group struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of group
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// A description for the group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -98,8 +97,7 @@ func GetGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
 	// Amazon Resource Name (ARN) of group
-	Arn *string `pulumi:"arn"`
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          *string `pulumi:"arn"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A description for the group.
 	Description *string `pulumi:"description"`
@@ -113,8 +111,7 @@ type groupState struct {
 
 type GroupState struct {
 	// Amazon Resource Name (ARN) of group
-	Arn pulumi.StringPtrInput
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
 	// A description for the group.
 	Description pulumi.StringPtrInput
@@ -131,7 +128,6 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A description for the group.
 	Description *string `pulumi:"description"`
@@ -145,7 +141,6 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
 	// A description for the group.
 	Description pulumi.StringPtrInput
@@ -249,7 +244,6 @@ func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 func (o GroupOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

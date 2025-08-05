@@ -25,6 +25,7 @@ class CollaborationArgs:
                  creator_member_abilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  description: pulumi.Input[_builtins.str],
                  query_log_status: pulumi.Input[_builtins.str],
+                 analytics_engine: Optional[pulumi.Input[_builtins.str]] = None,
                  data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,6 +38,9 @@ class CollaborationArgs:
         :param pulumi.Input[_builtins.str] description: A description for a collaboration.
         :param pulumi.Input[_builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
                emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
         :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
                * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
                field.
@@ -58,6 +62,8 @@ class CollaborationArgs:
         pulumi.set(__self__, "creator_member_abilities", creator_member_abilities)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "query_log_status", query_log_status)
+        if analytics_engine is not None:
+            pulumi.set(__self__, "analytics_engine", analytics_engine)
         if data_encryption_metadata is not None:
             pulumi.set(__self__, "data_encryption_metadata", data_encryption_metadata)
         if members is not None:
@@ -111,12 +117,26 @@ class CollaborationArgs:
         """
         Determines if members of the collaboration can enable query logs within their own.
         emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "query_log_status")
 
     @query_log_status.setter
     def query_log_status(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "query_log_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="analyticsEngine")
+    def analytics_engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+        """
+        return pulumi.get(self, "analytics_engine")
+
+    @analytics_engine.setter
+    def analytics_engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "analytics_engine", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEncryptionMetadata")
@@ -193,6 +213,7 @@ class CollaborationArgs:
 @pulumi.input_type
 class _CollaborationState:
     def __init__(__self__, *,
+                 analytics_engine: Optional[pulumi.Input[_builtins.str]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  create_time: Optional[pulumi.Input[_builtins.str]] = None,
                  creator_display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -208,8 +229,9 @@ class _CollaborationState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Collaboration resources.
-        :param pulumi.Input[_builtins.str] arn: The arn of the collaboration.
-        :param pulumi.Input[_builtins.str] create_time: The date and time the collaboration was created.
+        :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the collaboration.
+        :param pulumi.Input[_builtins.str] create_time: Date and time the collaboration was created.
                * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         :param pulumi.Input[_builtins.str] creator_display_name: The name for the member record for the collaboration creator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
@@ -230,9 +252,13 @@ class _CollaborationState:
         :param pulumi.Input[_builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[_builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
                emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the collaboration.
         """
+        if analytics_engine is not None:
+            pulumi.set(__self__, "analytics_engine", analytics_engine)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if create_time is not None:
@@ -261,10 +287,22 @@ class _CollaborationState:
             pulumi.set(__self__, "update_time", update_time)
 
     @_builtins.property
+    @pulumi.getter(name="analyticsEngine")
+    def analytics_engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+        """
+        return pulumi.get(self, "analytics_engine")
+
+    @analytics_engine.setter
+    def analytics_engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "analytics_engine", value)
+
+    @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The arn of the collaboration.
+        ARN of the collaboration.
         """
         return pulumi.get(self, "arn")
 
@@ -276,7 +314,7 @@ class _CollaborationState:
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The date and time the collaboration was created.
+        Date and time the collaboration was created.
         * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         """
         return pulumi.get(self, "create_time")
@@ -374,6 +412,8 @@ class _CollaborationState:
         """
         Determines if members of the collaboration can enable query logs within their own.
         emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "query_log_status")
 
@@ -430,6 +470,7 @@ class Collaboration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytics_engine: Optional[pulumi.Input[_builtins.str]] = None,
                  creator_display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  data_encryption_metadata: Optional[pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
@@ -441,12 +482,10 @@ class Collaboration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a AWS Clean Rooms collaboration.  All members included in the definition will be invited to
-        join the collaboration and can create memberships.
+        Provides a AWS Clean Rooms collaboration.
+        All members included in the definition will be invited to join the collaboration and can create memberships.
 
         ## Example Usage
-
-        ### Collaboration with tags
 
         ```python
         import pulumi
@@ -461,6 +500,7 @@ class Collaboration(pulumi.CustomResource):
             creator_display_name="Creator ",
             description="I made this collaboration with Pulumi!",
             query_log_status="DISABLED",
+            analytics_engine="SPARK",
             data_encryption_metadata={
                 "allow_clear_text": True,
                 "allow_duplicates": True,
@@ -487,6 +527,7 @@ class Collaboration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
         :param pulumi.Input[_builtins.str] creator_display_name: The name for the member record for the collaboration creator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']] data_encryption_metadata: a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
@@ -506,6 +547,8 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[_builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
                emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the collaboration.
         """
@@ -516,12 +559,10 @@ class Collaboration(pulumi.CustomResource):
                  args: CollaborationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a AWS Clean Rooms collaboration.  All members included in the definition will be invited to
-        join the collaboration and can create memberships.
+        Provides a AWS Clean Rooms collaboration.
+        All members included in the definition will be invited to join the collaboration and can create memberships.
 
         ## Example Usage
-
-        ### Collaboration with tags
 
         ```python
         import pulumi
@@ -536,6 +577,7 @@ class Collaboration(pulumi.CustomResource):
             creator_display_name="Creator ",
             description="I made this collaboration with Pulumi!",
             query_log_status="DISABLED",
+            analytics_engine="SPARK",
             data_encryption_metadata={
                 "allow_clear_text": True,
                 "allow_duplicates": True,
@@ -575,6 +617,7 @@ class Collaboration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytics_engine: Optional[pulumi.Input[_builtins.str]] = None,
                  creator_display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  data_encryption_metadata: Optional[pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
@@ -593,6 +636,7 @@ class Collaboration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CollaborationArgs.__new__(CollaborationArgs)
 
+            __props__.__dict__["analytics_engine"] = analytics_engine
             if creator_display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'creator_display_name'")
             __props__.__dict__["creator_display_name"] = creator_display_name
@@ -624,6 +668,7 @@ class Collaboration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            analytics_engine: Optional[pulumi.Input[_builtins.str]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             create_time: Optional[pulumi.Input[_builtins.str]] = None,
             creator_display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -644,8 +689,9 @@ class Collaboration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The arn of the collaboration.
-        :param pulumi.Input[_builtins.str] create_time: The date and time the collaboration was created.
+        :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the collaboration.
+        :param pulumi.Input[_builtins.str] create_time: Date and time the collaboration was created.
                * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         :param pulumi.Input[_builtins.str] creator_display_name: The name for the member record for the collaboration creator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
@@ -666,6 +712,8 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[_builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
                emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the collaboration.
         """
@@ -673,6 +721,7 @@ class Collaboration(pulumi.CustomResource):
 
         __props__ = _CollaborationState.__new__(_CollaborationState)
 
+        __props__.__dict__["analytics_engine"] = analytics_engine
         __props__.__dict__["arn"] = arn
         __props__.__dict__["create_time"] = create_time
         __props__.__dict__["creator_display_name"] = creator_display_name
@@ -689,10 +738,18 @@ class Collaboration(pulumi.CustomResource):
         return Collaboration(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
+    @pulumi.getter(name="analyticsEngine")
+    def analytics_engine(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+        """
+        return pulumi.get(self, "analytics_engine")
+
+    @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The arn of the collaboration.
+        ARN of the collaboration.
         """
         return pulumi.get(self, "arn")
 
@@ -700,7 +757,7 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time the collaboration was created.
+        Date and time the collaboration was created.
         * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         """
         return pulumi.get(self, "create_time")
@@ -770,6 +827,8 @@ class Collaboration(pulumi.CustomResource):
         """
         Determines if members of the collaboration can enable query logs within their own.
         emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "query_log_status")
 

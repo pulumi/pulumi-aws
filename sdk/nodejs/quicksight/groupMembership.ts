@@ -56,9 +56,6 @@ export class GroupMembership extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The name of the group in which the member will be added.
@@ -121,9 +118,6 @@ export class GroupMembership extends pulumi.CustomResource {
  */
 export interface GroupMembershipState {
     arn?: pulumi.Input<string>;
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The name of the group in which the member will be added.
@@ -147,9 +141,6 @@ export interface GroupMembershipState {
  * The set of arguments for constructing a GroupMembership resource.
  */
 export interface GroupMembershipArgs {
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The name of the group in which the member will be added.

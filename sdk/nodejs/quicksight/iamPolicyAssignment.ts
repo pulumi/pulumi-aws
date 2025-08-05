@@ -78,9 +78,6 @@ export class IamPolicyAssignment extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly assignmentStatus!: pulumi.Output<string>;
-    /**
-     * AWS account ID.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
@@ -160,9 +157,6 @@ export interface IamPolicyAssignmentState {
      * The following arguments are optional:
      */
     assignmentStatus?: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
@@ -196,9 +190,6 @@ export interface IamPolicyAssignmentArgs {
      * The following arguments are optional:
      */
     assignmentStatus: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.

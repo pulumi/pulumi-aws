@@ -53,6 +53,8 @@ type PolicyStore struct {
 
 	// The ARN of the Policy Store.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	DeletionProtection pulumi.StringOutput `pulumi:"deletionProtection"`
 	// A description of the Policy Store.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the Policy Store.
@@ -99,6 +101,8 @@ func GetPolicyStore(ctx *pulumi.Context,
 type policyStoreState struct {
 	// The ARN of the Policy Store.
 	Arn *string `pulumi:"arn"`
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	DeletionProtection *string `pulumi:"deletionProtection"`
 	// A description of the Policy Store.
 	Description *string `pulumi:"description"`
 	// The ID of the Policy Store.
@@ -116,6 +120,8 @@ type policyStoreState struct {
 type PolicyStoreState struct {
 	// The ARN of the Policy Store.
 	Arn pulumi.StringPtrInput
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	DeletionProtection pulumi.StringPtrInput
 	// A description of the Policy Store.
 	Description pulumi.StringPtrInput
 	// The ID of the Policy Store.
@@ -135,6 +141,8 @@ func (PolicyStoreState) ElementType() reflect.Type {
 }
 
 type policyStoreArgs struct {
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	DeletionProtection *string `pulumi:"deletionProtection"`
 	// A description of the Policy Store.
 	Description *string `pulumi:"description"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -147,6 +155,8 @@ type policyStoreArgs struct {
 
 // The set of arguments for constructing a PolicyStore resource.
 type PolicyStoreArgs struct {
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	DeletionProtection pulumi.StringPtrInput
 	// A description of the Policy Store.
 	Description pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -247,6 +257,11 @@ func (o PolicyStoreOutput) ToPolicyStoreOutputWithContext(ctx context.Context) P
 // The ARN of the Policy Store.
 func (o PolicyStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+func (o PolicyStoreOutput) DeletionProtection() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.DeletionProtection }).(pulumi.StringOutput)
 }
 
 // A description of the Policy Store.

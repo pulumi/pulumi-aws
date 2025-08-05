@@ -30,7 +30,6 @@ class RoleMembershipArgs:
         :param pulumi.Input[_builtins.str] role: Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to the account of the caller identity if not configured.
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -72,9 +71,6 @@ class RoleMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID. Defaults to the account of the caller identity if not configured.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -116,7 +112,6 @@ class _RoleMembershipState:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleMembership resources.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to the account of the caller identity if not configured.
         :param pulumi.Input[_builtins.str] member_name: Name of the group to be added to the role.
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -138,9 +133,6 @@ class _RoleMembershipState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID. Defaults to the account of the caller identity if not configured.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -238,7 +230,6 @@ class RoleMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to the account of the caller identity if not configured.
         :param pulumi.Input[_builtins.str] member_name: Name of the group to be added to the role.
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -338,7 +329,6 @@ class RoleMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to the account of the caller identity if not configured.
         :param pulumi.Input[_builtins.str] member_name: Name of the group to be added to the role.
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -360,9 +350,6 @@ class RoleMembership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID. Defaults to the account of the caller identity if not configured.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

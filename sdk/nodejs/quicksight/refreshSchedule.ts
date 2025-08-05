@@ -116,9 +116,6 @@ export class RefreshSchedule extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the refresh schedule.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * AWS account ID.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The ID of the dataset.
@@ -186,9 +183,6 @@ export interface RefreshScheduleState {
      * Amazon Resource Name (ARN) of the refresh schedule.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The ID of the dataset.
@@ -214,9 +208,6 @@ export interface RefreshScheduleState {
  * The set of arguments for constructing a RefreshSchedule resource.
  */
 export interface RefreshScheduleArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The ID of the dataset.

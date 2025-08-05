@@ -34,7 +34,6 @@ class IamPolicyAssignmentArgs:
         :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
@@ -82,9 +81,6 @@ class IamPolicyAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -158,7 +154,6 @@ class _IamPolicyAssignmentState:
         :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
@@ -222,9 +217,6 @@ class _IamPolicyAssignmentState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -328,7 +320,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
@@ -441,7 +432,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
@@ -490,9 +480,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

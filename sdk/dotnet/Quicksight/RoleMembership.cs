@@ -46,9 +46,6 @@ namespace Pulumi.Aws.Quicksight
     [AwsResourceType("aws:quicksight/roleMembership:RoleMembership")]
     public partial class RoleMembership : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// AWS account ID. Defaults to the account of the caller identity if not configured.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -124,9 +121,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class RoleMembershipArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account ID. Defaults to the account of the caller identity if not configured.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -164,9 +158,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class RoleMembershipState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account ID. Defaults to the account of the caller identity if not configured.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

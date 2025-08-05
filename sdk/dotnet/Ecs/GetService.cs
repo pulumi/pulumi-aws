@@ -189,6 +189,10 @@ namespace Pulumi.Aws.Ecs
         /// Launch type for the ECS Service
         /// </summary>
         public readonly string LaunchType;
+        /// <summary>
+        /// Load balancers for the ECS Service. See `load_balancer` Block for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceLoadBalancerResult> LoadBalancers;
         public readonly string Region;
         /// <summary>
         /// Scheduling strategy for the ECS Service
@@ -218,6 +222,8 @@ namespace Pulumi.Aws.Ecs
 
             string launchType,
 
+            ImmutableArray<Outputs.GetServiceLoadBalancerResult> loadBalancers,
+
             string region,
 
             string schedulingStrategy,
@@ -234,6 +240,7 @@ namespace Pulumi.Aws.Ecs
             DesiredCount = desiredCount;
             Id = id;
             LaunchType = launchType;
+            LoadBalancers = loadBalancers;
             Region = region;
             SchedulingStrategy = schedulingStrategy;
             ServiceName = serviceName;

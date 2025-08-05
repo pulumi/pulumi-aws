@@ -156,17 +156,9 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }

@@ -62,6 +62,10 @@ export class PolicyStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     */
+    public readonly deletionProtection!: pulumi.Output<string>;
+    /**
      * A description of the Policy Store.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class PolicyStore extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyStoreState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
@@ -108,6 +113,7 @@ export class PolicyStore extends pulumi.CustomResource {
             resourceInputs["validationSettings"] = state ? state.validationSettings : undefined;
         } else {
             const args = argsOrState as PolicyStoreArgs | undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -129,6 +135,10 @@ export interface PolicyStoreState {
      * The ARN of the Policy Store.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     */
+    deletionProtection?: pulumi.Input<string>;
     /**
      * A description of the Policy Store.
      */
@@ -159,6 +169,10 @@ export interface PolicyStoreState {
  * The set of arguments for constructing a PolicyStore resource.
  */
 export interface PolicyStoreArgs {
+    /**
+     * Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     */
+    deletionProtection?: pulumi.Input<string>;
     /**
      * A description of the Policy Store.
      */

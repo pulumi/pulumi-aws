@@ -107,17 +107,9 @@ public class Theme extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * AWS account ID.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
@@ -138,16 +130,12 @@ public class Theme extends com.pulumi.resources.CustomResource {
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="configuration", refs={ThemeConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ThemeConfiguration> configuration;
 
     /**
      * @return The theme configuration, which contains the theme display properties. See configuration.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Optional<ThemeConfiguration>> configuration() {
@@ -268,12 +256,16 @@ public class Theme extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of the theme.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="themeId", refs={String.class}, tree="[0]")
     private Output<String> themeId;
 
     /**
      * @return Identifier of the theme.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> themeId() {

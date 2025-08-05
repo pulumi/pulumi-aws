@@ -16,17 +16,9 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupArgs Empty = new GroupArgs();
 
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -119,23 +111,11 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }

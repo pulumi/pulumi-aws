@@ -20,14 +20,29 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
     public static final CollaborationState Empty = new CollaborationState();
 
     /**
-     * The arn of the collaboration.
+     * Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+     * 
+     */
+    @Import(name="analyticsEngine")
+    private @Nullable Output<String> analyticsEngine;
+
+    /**
+     * @return Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+     * 
+     */
+    public Optional<Output<String>> analyticsEngine() {
+        return Optional.ofNullable(this.analyticsEngine);
+    }
+
+    /**
+     * ARN of the collaboration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The arn of the collaboration.
+     * @return ARN of the collaboration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -35,7 +50,7 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The date and time the collaboration was created.
+     * Date and time the collaboration was created.
      * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
@@ -43,7 +58,7 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<String> createTime;
 
     /**
-     * @return The date and time the collaboration was created.
+     * @return Date and time the collaboration was created.
      * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
@@ -167,6 +182,8 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
      * Determines if members of the collaboration can enable query logs within their own.
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="queryLogStatus")
     private @Nullable Output<String> queryLogStatus;
@@ -174,6 +191,8 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Determines if members of the collaboration can enable query logs within their own.
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> queryLogStatus() {
@@ -227,6 +246,7 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
     private CollaborationState() {}
 
     private CollaborationState(CollaborationState $) {
+        this.analyticsEngine = $.analyticsEngine;
         this.arn = $.arn;
         this.createTime = $.createTime;
         this.creatorDisplayName = $.creatorDisplayName;
@@ -261,7 +281,28 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The arn of the collaboration.
+         * @param analyticsEngine Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analyticsEngine(@Nullable Output<String> analyticsEngine) {
+            $.analyticsEngine = analyticsEngine;
+            return this;
+        }
+
+        /**
+         * @param analyticsEngine Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analyticsEngine(String analyticsEngine) {
+            return analyticsEngine(Output.of(analyticsEngine));
+        }
+
+        /**
+         * @param arn ARN of the collaboration.
          * 
          * @return builder
          * 
@@ -272,7 +313,7 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The arn of the collaboration.
+         * @param arn ARN of the collaboration.
          * 
          * @return builder
          * 
@@ -282,7 +323,7 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createTime The date and time the collaboration was created.
+         * @param createTime Date and time the collaboration was created.
          * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
          * 
          * @return builder
@@ -294,7 +335,7 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createTime The date and time the collaboration was created.
+         * @param createTime Date and time the collaboration was created.
          * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
          * 
          * @return builder
@@ -479,6 +520,8 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
          * @param queryLogStatus Determines if members of the collaboration can enable query logs within their own.
          * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -490,6 +533,8 @@ public final class CollaborationState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param queryLogStatus Determines if members of the collaboration can enable query logs within their own.
          * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

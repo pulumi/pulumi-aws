@@ -106,17 +106,9 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.authorGroups);
     }
 
-    /**
-     * AWS account ID hosting the QuickSight account. Default to provider account.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID hosting the QuickSight account. Default to provider account.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -477,23 +469,11 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
             return authorGroups(List.of(authorGroups));
         }
 
-        /**
-         * @param awsAccountId AWS account ID hosting the QuickSight account. Default to provider account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId AWS account ID hosting the QuickSight account. Default to provider account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }

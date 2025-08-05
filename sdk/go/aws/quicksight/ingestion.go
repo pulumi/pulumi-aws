@@ -55,8 +55,7 @@ type Ingestion struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Ingestion.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// AWS account ID.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// ID of the dataset used in the ingestion.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
@@ -112,8 +111,7 @@ func GetIngestion(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Ingestion resources.
 type ingestionState struct {
 	// ARN of the Ingestion.
-	Arn *string `pulumi:"arn"`
-	// AWS account ID.
+	Arn          *string `pulumi:"arn"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// ID of the dataset used in the ingestion.
 	DataSetId *string `pulumi:"dataSetId"`
@@ -131,8 +129,7 @@ type ingestionState struct {
 
 type IngestionState struct {
 	// ARN of the Ingestion.
-	Arn pulumi.StringPtrInput
-	// AWS account ID.
+	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
 	// ID of the dataset used in the ingestion.
 	DataSetId pulumi.StringPtrInput
@@ -153,7 +150,6 @@ func (IngestionState) ElementType() reflect.Type {
 }
 
 type ingestionArgs struct {
-	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// ID of the dataset used in the ingestion.
 	DataSetId string `pulumi:"dataSetId"`
@@ -169,7 +165,6 @@ type ingestionArgs struct {
 
 // The set of arguments for constructing a Ingestion resource.
 type IngestionArgs struct {
-	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
 	// ID of the dataset used in the ingestion.
 	DataSetId pulumi.StringInput
@@ -275,7 +270,6 @@ func (o IngestionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// AWS account ID.
 func (o IngestionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

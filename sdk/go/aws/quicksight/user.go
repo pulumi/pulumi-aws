@@ -112,8 +112,7 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) for the user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Email address of the user that you want to register.
 	Email pulumi.StringOutput `pulumi:"email"`
@@ -177,8 +176,7 @@ func GetUser(ctx *pulumi.Context,
 // Input properties used for looking up and filtering User resources.
 type userState struct {
 	// Amazon Resource Name (ARN) for the user.
-	Arn *string `pulumi:"arn"`
-	// ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          *string `pulumi:"arn"`
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Email address of the user that you want to register.
 	Email *string `pulumi:"email"`
@@ -204,8 +202,7 @@ type userState struct {
 
 type UserState struct {
 	// Amazon Resource Name (ARN) for the user.
-	Arn pulumi.StringPtrInput
-	// ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
+	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
 	// Email address of the user that you want to register.
 	Email pulumi.StringPtrInput
@@ -234,7 +231,6 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Email address of the user that you want to register.
 	Email string `pulumi:"email"`
@@ -258,7 +254,6 @@ type userArgs struct {
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
 	// Email address of the user that you want to register.
 	Email pulumi.StringInput
@@ -372,7 +367,6 @@ func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
 func (o UserOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

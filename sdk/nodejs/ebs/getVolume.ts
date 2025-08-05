@@ -132,6 +132,10 @@ export interface GetVolumeResult {
      */
     readonly volumeId: string;
     /**
+     * EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
+     */
+    readonly volumeInitializationRate: number;
+    /**
      * Type of EBS volume.
      */
     readonly volumeType: string;

@@ -56,9 +56,6 @@ export class Group extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of group
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * A description for the group.
@@ -121,9 +118,6 @@ export interface GroupState {
      * Amazon Resource Name (ARN) of group
      */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * A description for the group.
@@ -147,9 +141,6 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * A description for the group.

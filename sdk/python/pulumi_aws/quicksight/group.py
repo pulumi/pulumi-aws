@@ -27,7 +27,6 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[_builtins.str] group_name: A name for the group.
-        :param pulumi.Input[_builtins.str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] description: A description for the group.
         :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -57,9 +56,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -115,7 +111,6 @@ class _GroupState:
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of group
-        :param pulumi.Input[_builtins.str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] description: A description for the group.
         :param pulumi.Input[_builtins.str] group_name: A name for the group.
         :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
@@ -149,9 +144,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -241,7 +233,6 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] description: A description for the group.
         :param pulumi.Input[_builtins.str] group_name: A name for the group.
         :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
@@ -334,7 +325,6 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of group
-        :param pulumi.Input[_builtins.str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] description: A description for the group.
         :param pulumi.Input[_builtins.str] group_name: A name for the group.
         :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
@@ -363,9 +353,6 @@ class Group(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

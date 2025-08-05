@@ -45,9 +45,6 @@ namespace Pulumi.Aws.Quicksight
     [AwsResourceType("aws:quicksight/folderMembership:FolderMembership")]
     public partial class FolderMembership : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -123,9 +120,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class FolderMembershipArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -163,9 +157,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class FolderMembershipState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

@@ -59,9 +59,6 @@ export class RoleMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleMembership.__pulumiType;
     }
 
-    /**
-     * AWS account ID. Defaults to the account of the caller identity if not configured.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Name of the group to be added to the role.
@@ -123,9 +120,6 @@ export class RoleMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RoleMembership resources.
  */
 export interface RoleMembershipState {
-    /**
-     * AWS account ID. Defaults to the account of the caller identity if not configured.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Name of the group to be added to the role.
@@ -151,9 +145,6 @@ export interface RoleMembershipState {
  * The set of arguments for constructing a RoleMembership resource.
  */
 export interface RoleMembershipArgs {
-    /**
-     * AWS account ID. Defaults to the account of the caller identity if not configured.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Name of the group to be added to the role.

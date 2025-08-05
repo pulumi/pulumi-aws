@@ -6216,24 +6216,33 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 
 if not MYPY:
     class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgsDict(TypedDict):
-        resource_arn: pulumi.Input[_builtins.str]
+        prompt_arn: pulumi.Input[_builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the prompt from Prompt management.
+        """
 elif False:
     AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs:
     def __init__(__self__, *,
-                 resource_arn: pulumi.Input[_builtins.str]):
-        pulumi.set(__self__, "resource_arn", resource_arn)
+                 prompt_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] prompt_arn: The Amazon Resource Name (ARN) of the prompt from Prompt management.
+        """
+        pulumi.set(__self__, "prompt_arn", prompt_arn)
 
     @_builtins.property
-    @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "resource_arn")
+    @pulumi.getter(name="promptArn")
+    def prompt_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the prompt from Prompt management.
+        """
+        return pulumi.get(self, "prompt_arn")
 
-    @resource_arn.setter
-    def resource_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_arn", value)
+    @prompt_arn.setter
+    def prompt_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "prompt_arn", value)
 
 
 if not MYPY:

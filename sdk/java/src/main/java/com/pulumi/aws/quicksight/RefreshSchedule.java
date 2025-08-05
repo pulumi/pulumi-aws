@@ -189,17 +189,9 @@ public class RefreshSchedule extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * AWS account ID.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }

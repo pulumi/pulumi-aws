@@ -82,9 +82,6 @@ namespace Pulumi.Aws.Quicksight
         [Output("authorGroups")]
         public Output<ImmutableArray<string>> AuthorGroups { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS account ID hosting the QuickSight account. Default to provider account.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -244,9 +241,6 @@ namespace Pulumi.Aws.Quicksight
             set => _authorGroups = value;
         }
 
-        /// <summary>
-        /// AWS account ID hosting the QuickSight account. Default to provider account.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -380,9 +374,6 @@ namespace Pulumi.Aws.Quicksight
             set => _authorGroups = value;
         }
 
-        /// <summary>
-        /// AWS account ID hosting the QuickSight account. Default to provider account.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

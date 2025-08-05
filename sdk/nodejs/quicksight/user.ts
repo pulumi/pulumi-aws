@@ -89,9 +89,6 @@ export class User extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) for the user.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Email address of the user that you want to register.
@@ -192,9 +189,6 @@ export interface UserState {
      * Amazon Resource Name (ARN) for the user.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Email address of the user that you want to register.
@@ -240,9 +234,6 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
-    /**
-     * ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Email address of the user that you want to register.

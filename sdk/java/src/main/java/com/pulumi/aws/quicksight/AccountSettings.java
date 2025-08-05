@@ -79,17 +79,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:quicksight/accountSettings:AccountSettings")
 public class AccountSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID for the AWS account that contains the settings.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return The ID for the AWS account that contains the settings.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }

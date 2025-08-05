@@ -20,17 +20,9 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TemplateArgs Empty = new TemplateArgs();
 
-    /**
-     * AWS account ID.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -175,23 +167,11 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }

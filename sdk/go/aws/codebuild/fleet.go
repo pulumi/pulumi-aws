@@ -94,7 +94,7 @@ type Fleet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity pulumi.IntOutput `pulumi:"baseCapacity"`
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
 	ComputeConfiguration FleetComputeConfigurationPtrOutput `pulumi:"computeConfiguration"`
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType pulumi.StringOutput `pulumi:"computeType"`
@@ -170,7 +170,7 @@ type fleetState struct {
 	Arn *string `pulumi:"arn"`
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity *int `pulumi:"baseCapacity"`
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
 	ComputeConfiguration *FleetComputeConfiguration `pulumi:"computeConfiguration"`
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType *string `pulumi:"computeType"`
@@ -208,7 +208,7 @@ type FleetState struct {
 	Arn pulumi.StringPtrInput
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity pulumi.IntPtrInput
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
 	ComputeConfiguration FleetComputeConfigurationPtrInput
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType pulumi.StringPtrInput
@@ -248,7 +248,7 @@ func (FleetState) ElementType() reflect.Type {
 type fleetArgs struct {
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity int `pulumi:"baseCapacity"`
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
 	ComputeConfiguration *FleetComputeConfiguration `pulumi:"computeConfiguration"`
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType string `pulumi:"computeType"`
@@ -278,7 +278,7 @@ type fleetArgs struct {
 type FleetArgs struct {
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity pulumi.IntInput
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
 	ComputeConfiguration FleetComputeConfigurationPtrInput
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType pulumi.StringInput
@@ -401,7 +401,7 @@ func (o FleetOutput) BaseCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntOutput { return v.BaseCapacity }).(pulumi.IntOutput)
 }
 
-// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
 func (o FleetOutput) ComputeConfiguration() FleetComputeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetComputeConfigurationPtrOutput { return v.ComputeConfiguration }).(FleetComputeConfigurationPtrOutput)
 }

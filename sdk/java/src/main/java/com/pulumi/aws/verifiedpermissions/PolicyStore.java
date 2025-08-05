@@ -83,6 +83,20 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * 
+     */
+    @Export(name="deletionProtection", refs={String.class}, tree="[0]")
+    private Output<String> deletionProtection;
+
+    /**
+     * @return Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * 
+     */
+    public Output<String> deletionProtection() {
+        return this.deletionProtection;
+    }
+    /**
      * A description of the Policy Store.
      * 
      */

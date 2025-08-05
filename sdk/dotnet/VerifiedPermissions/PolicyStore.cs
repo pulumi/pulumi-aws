@@ -51,6 +51,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        /// </summary>
+        [Output("deletionProtection")]
+        public Output<string> DeletionProtection { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the Policy Store.
         /// </summary>
         [Output("description")]
@@ -133,6 +139,12 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class PolicyStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<string>? DeletionProtection { get; set; }
+
+        /// <summary>
         /// A description of the Policy Store.
         /// </summary>
         [Input("description")]
@@ -175,6 +187,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<string>? DeletionProtection { get; set; }
 
         /// <summary>
         /// A description of the Policy Store.

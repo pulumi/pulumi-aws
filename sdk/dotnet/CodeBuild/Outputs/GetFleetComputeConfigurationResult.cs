@@ -18,6 +18,10 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly int Disk;
         /// <summary>
+        /// EC2 instance type in the fleet.
+        /// </summary>
+        public readonly string InstanceType;
+        /// <summary>
         /// Machine type of the instance type included in the fleet.
         /// </summary>
         public readonly string MachineType;
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         private GetFleetComputeConfigurationResult(
             int disk,
 
+            string instanceType,
+
             string machineType,
 
             int memory,
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
             int vcpu)
         {
             Disk = disk;
+            InstanceType = instanceType;
             MachineType = machineType;
             Memory = memory;
             Vcpu = vcpu;

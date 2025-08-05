@@ -153,17 +153,9 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> authorGroups() {
         return Codegen.optional(this.authorGroups);
     }
-    /**
-     * AWS account ID hosting the QuickSight account. Default to provider account.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID hosting the QuickSight account. Default to provider account.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }

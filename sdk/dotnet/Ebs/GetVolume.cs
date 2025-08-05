@@ -303,6 +303,10 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string VolumeId;
         /// <summary>
+        /// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
+        /// </summary>
+        public readonly int VolumeInitializationRate;
+        /// <summary>
         /// Type of EBS volume.
         /// </summary>
         public readonly string VolumeType;
@@ -343,6 +347,8 @@ namespace Pulumi.Aws.Ebs
 
             string volumeId,
 
+            int volumeInitializationRate,
+
             string volumeType)
         {
             Arn = arn;
@@ -362,6 +368,7 @@ namespace Pulumi.Aws.Ebs
             Tags = tags;
             Throughput = throughput;
             VolumeId = volumeId;
+            VolumeInitializationRate = volumeInitializationRate;
             VolumeType = volumeType;
         }
     }

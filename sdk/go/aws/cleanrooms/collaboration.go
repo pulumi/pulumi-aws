@@ -12,12 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a AWS Clean Rooms collaboration.  All members included in the definition will be invited to
-// join the collaboration and can create memberships.
+// Provides a AWS Clean Rooms collaboration.
+// All members included in the definition will be invited to join the collaboration and can create memberships.
 //
 // ## Example Usage
-//
-// ### Collaboration with tags
 //
 // ```go
 // package main
@@ -40,6 +38,7 @@ import (
 //				CreatorDisplayName: pulumi.String("Creator "),
 //				Description:        pulumi.String("I made this collaboration with Pulumi!"),
 //				QueryLogStatus:     pulumi.String("DISABLED"),
+//				AnalyticsEngine:    pulumi.String("SPARK"),
 //				DataEncryptionMetadata: &cleanrooms.CollaborationDataEncryptionMetadataArgs{
 //					AllowClearText:                        pulumi.Bool(true),
 //					AllowDuplicates:                       pulumi.Bool(true),
@@ -76,9 +75,11 @@ import (
 type Collaboration struct {
 	pulumi.CustomResourceState
 
-	// The arn of the collaboration.
+	// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+	AnalyticsEngine pulumi.StringPtrOutput `pulumi:"analyticsEngine"`
+	// ARN of the collaboration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date and time the collaboration was created.
+	// Date and time the collaboration was created.
 	// * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// The name for the member record for the collaboration creator.
@@ -106,6 +107,8 @@ type Collaboration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+	//
+	// The following arguments are optional:
 	QueryLogStatus pulumi.StringOutput `pulumi:"queryLogStatus"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -157,9 +160,11 @@ func GetCollaboration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Collaboration resources.
 type collaborationState struct {
-	// The arn of the collaboration.
+	// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+	AnalyticsEngine *string `pulumi:"analyticsEngine"`
+	// ARN of the collaboration.
 	Arn *string `pulumi:"arn"`
-	// The date and time the collaboration was created.
+	// Date and time the collaboration was created.
 	// * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
 	CreateTime *string `pulumi:"createTime"`
 	// The name for the member record for the collaboration creator.
@@ -187,6 +192,8 @@ type collaborationState struct {
 	Name *string `pulumi:"name"`
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+	//
+	// The following arguments are optional:
 	QueryLogStatus *string `pulumi:"queryLogStatus"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -197,9 +204,11 @@ type collaborationState struct {
 }
 
 type CollaborationState struct {
-	// The arn of the collaboration.
+	// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+	AnalyticsEngine pulumi.StringPtrInput
+	// ARN of the collaboration.
 	Arn pulumi.StringPtrInput
-	// The date and time the collaboration was created.
+	// Date and time the collaboration was created.
 	// * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
 	CreateTime pulumi.StringPtrInput
 	// The name for the member record for the collaboration creator.
@@ -227,6 +236,8 @@ type CollaborationState struct {
 	Name pulumi.StringPtrInput
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+	//
+	// The following arguments are optional:
 	QueryLogStatus pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -241,6 +252,8 @@ func (CollaborationState) ElementType() reflect.Type {
 }
 
 type collaborationArgs struct {
+	// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+	AnalyticsEngine *string `pulumi:"analyticsEngine"`
 	// The name for the member record for the collaboration creator.
 	CreatorDisplayName string `pulumi:"creatorDisplayName"`
 	// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
@@ -266,6 +279,8 @@ type collaborationArgs struct {
 	Name *string `pulumi:"name"`
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+	//
+	// The following arguments are optional:
 	QueryLogStatus string `pulumi:"queryLogStatus"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -275,6 +290,8 @@ type collaborationArgs struct {
 
 // The set of arguments for constructing a Collaboration resource.
 type CollaborationArgs struct {
+	// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+	AnalyticsEngine pulumi.StringPtrInput
 	// The name for the member record for the collaboration creator.
 	CreatorDisplayName pulumi.StringInput
 	// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
@@ -300,6 +317,8 @@ type CollaborationArgs struct {
 	Name pulumi.StringPtrInput
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+	//
+	// The following arguments are optional:
 	QueryLogStatus pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -394,12 +413,17 @@ func (o CollaborationOutput) ToCollaborationOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The arn of the collaboration.
+// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
+func (o CollaborationOutput) AnalyticsEngine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Collaboration) pulumi.StringPtrOutput { return v.AnalyticsEngine }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the collaboration.
 func (o CollaborationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time the collaboration was created.
+// Date and time the collaboration was created.
 // * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
 func (o CollaborationOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
@@ -448,6 +472,8 @@ func (o CollaborationOutput) Name() pulumi.StringOutput {
 
 // Determines if members of the collaboration can enable query logs within their own.
 // emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+//
+// The following arguments are optional:
 func (o CollaborationOutput) QueryLogStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.QueryLogStatus }).(pulumi.StringOutput)
 }

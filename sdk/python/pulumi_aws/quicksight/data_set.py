@@ -41,7 +41,6 @@ class DataSetArgs:
         The set of arguments for constructing a DataSet resource.
         :param pulumi.Input[_builtins.str] data_set_id: Identifier for the data set.
         :param pulumi.Input[_builtins.str] import_mode: Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
         :param pulumi.Input['DataSetDataSetUsageConfigurationArgs'] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
@@ -116,9 +115,6 @@ class DataSetArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -309,7 +305,6 @@ class _DataSetState:
         """
         Input properties used for looking up and filtering DataSet resources.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data set.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
         :param pulumi.Input[_builtins.str] data_set_id: Identifier for the data set.
@@ -383,9 +378,6 @@ class _DataSetState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -787,7 +779,6 @@ class DataSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
         :param pulumi.Input[_builtins.str] data_set_id: Identifier for the data set.
@@ -1078,7 +1069,6 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data set.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
         :param pulumi.Input[_builtins.str] data_set_id: Identifier for the data set.
@@ -1134,9 +1124,6 @@ class DataSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

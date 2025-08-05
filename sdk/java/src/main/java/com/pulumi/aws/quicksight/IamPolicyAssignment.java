@@ -118,17 +118,9 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
     public Output<String> assignmentStatus() {
         return this.assignmentStatus;
     }
-    /**
-     * AWS account ID.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }

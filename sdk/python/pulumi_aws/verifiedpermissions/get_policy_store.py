@@ -27,13 +27,16 @@ class GetPolicyStoreResult:
     """
     A collection of values returned by getPolicyStore.
     """
-    def __init__(__self__, arn=None, created_date=None, description=None, id=None, last_updated_date=None, region=None, tags=None, validation_settings=None):
+    def __init__(__self__, arn=None, created_date=None, deletion_protection=None, description=None, id=None, last_updated_date=None, region=None, tags=None, validation_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
+        if deletion_protection and not isinstance(deletion_protection, str):
+            raise TypeError("Expected argument 'deletion_protection' to be a str")
+        pulumi.set(__self__, "deletion_protection", deletion_protection)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -68,6 +71,14 @@ class GetPolicyStoreResult:
         The date the Policy Store was created.
         """
         return pulumi.get(self, "created_date")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> _builtins.str:
+        """
+        Whether the policy store can be deleted.
+        """
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter
@@ -117,6 +128,7 @@ class AwaitableGetPolicyStoreResult(GetPolicyStoreResult):
         return GetPolicyStoreResult(
             arn=self.arn,
             created_date=self.created_date,
+            deletion_protection=self.deletion_protection,
             description=self.description,
             id=self.id,
             last_updated_date=self.last_updated_date,
@@ -155,6 +167,7 @@ def get_policy_store(id: Optional[_builtins.str] = None,
     return AwaitableGetPolicyStoreResult(
         arn=pulumi.get(__ret__, 'arn'),
         created_date=pulumi.get(__ret__, 'created_date'),
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
@@ -190,6 +203,7 @@ def get_policy_store_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetPolicyStoreResult(
         arn=pulumi.get(__response__, 'arn'),
         created_date=pulumi.get(__response__, 'created_date'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),

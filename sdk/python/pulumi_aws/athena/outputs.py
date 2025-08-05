@@ -21,6 +21,7 @@ __all__ = [
     'DatabaseEncryptionConfiguration',
     'WorkgroupConfiguration',
     'WorkgroupConfigurationEngineVersion',
+    'WorkgroupConfigurationIdentityCenterConfiguration',
     'WorkgroupConfigurationResultConfiguration',
     'WorkgroupConfigurationResultConfigurationAclConfiguration',
     'WorkgroupConfigurationResultConfigurationEncryptionConfiguration',
@@ -170,6 +171,8 @@ class WorkgroupConfiguration(dict):
             suggest = "engine_version"
         elif key == "executionRole":
             suggest = "execution_role"
+        elif key == "identityCenterConfiguration":
+            suggest = "identity_center_configuration"
         elif key == "publishCloudwatchMetricsEnabled":
             suggest = "publish_cloudwatch_metrics_enabled"
         elif key == "requesterPaysEnabled":
@@ -193,6 +196,7 @@ class WorkgroupConfiguration(dict):
                  enforce_workgroup_configuration: Optional[_builtins.bool] = None,
                  engine_version: Optional['outputs.WorkgroupConfigurationEngineVersion'] = None,
                  execution_role: Optional[_builtins.str] = None,
+                 identity_center_configuration: Optional['outputs.WorkgroupConfigurationIdentityCenterConfiguration'] = None,
                  publish_cloudwatch_metrics_enabled: Optional[_builtins.bool] = None,
                  requester_pays_enabled: Optional[_builtins.bool] = None,
                  result_configuration: Optional['outputs.WorkgroupConfigurationResultConfiguration'] = None):
@@ -200,7 +204,8 @@ class WorkgroupConfiguration(dict):
         :param _builtins.int bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         :param _builtins.bool enforce_workgroup_configuration: Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
         :param 'WorkgroupConfigurationEngineVersionArgs' engine_version: Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
-        :param _builtins.str execution_role: Role used in a notebook session for accessing the user's resources.
+        :param _builtins.str execution_role: Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
+        :param 'WorkgroupConfigurationIdentityCenterConfigurationArgs' identity_center_configuration: Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
         :param _builtins.bool publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         :param _builtins.bool requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param 'WorkgroupConfigurationResultConfigurationArgs' result_configuration: Configuration block with result settings. See Result Configuration below.
@@ -213,6 +218,8 @@ class WorkgroupConfiguration(dict):
             pulumi.set(__self__, "engine_version", engine_version)
         if execution_role is not None:
             pulumi.set(__self__, "execution_role", execution_role)
+        if identity_center_configuration is not None:
+            pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
         if publish_cloudwatch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
         if requester_pays_enabled is not None:
@@ -248,9 +255,17 @@ class WorkgroupConfiguration(dict):
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[_builtins.str]:
         """
-        Role used in a notebook session for accessing the user's resources.
+        Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
         """
         return pulumi.get(self, "execution_role")
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> Optional['outputs.WorkgroupConfigurationIdentityCenterConfiguration']:
+        """
+        Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+        """
+        return pulumi.get(self, "identity_center_configuration")
 
     @_builtins.property
     @pulumi.getter(name="publishCloudwatchMetricsEnabled")
@@ -325,6 +340,56 @@ class WorkgroupConfigurationEngineVersion(dict):
         Requested engine version. Defaults to `AUTO`.
         """
         return pulumi.get(self, "selected_engine_version")
+
+
+@pulumi.output_type
+class WorkgroupConfigurationIdentityCenterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableIdentityCenter":
+            suggest = "enable_identity_center"
+        elif key == "identityCenterInstanceArn":
+            suggest = "identity_center_instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigurationIdentityCenterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigurationIdentityCenterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigurationIdentityCenterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_identity_center: Optional[_builtins.bool] = None,
+                 identity_center_instance_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enable_identity_center: Specifies whether the workgroup is IAM Identity Center supported.
+        :param _builtins.str identity_center_instance_arn: The IAM Identity Center instance ARN that the workgroup associates to.
+        """
+        if enable_identity_center is not None:
+            pulumi.set(__self__, "enable_identity_center", enable_identity_center)
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="enableIdentityCenter")
+    def enable_identity_center(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether the workgroup is IAM Identity Center supported.
+        """
+        return pulumi.get(self, "enable_identity_center")
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[_builtins.str]:
+        """
+        The IAM Identity Center instance ARN that the workgroup associates to.
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
 
 
 @pulumi.output_type

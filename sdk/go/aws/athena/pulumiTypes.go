@@ -496,8 +496,10 @@ type WorkgroupConfiguration struct {
 	EnforceWorkgroupConfiguration *bool `pulumi:"enforceWorkgroupConfiguration"`
 	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 	EngineVersion *WorkgroupConfigurationEngineVersion `pulumi:"engineVersion"`
-	// Role used in a notebook session for accessing the user's resources.
+	// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
 	ExecutionRole *string `pulumi:"executionRole"`
+	// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+	IdentityCenterConfiguration *WorkgroupConfigurationIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -524,8 +526,10 @@ type WorkgroupConfigurationArgs struct {
 	EnforceWorkgroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkgroupConfiguration"`
 	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 	EngineVersion WorkgroupConfigurationEngineVersionPtrInput `pulumi:"engineVersion"`
-	// Role used in a notebook session for accessing the user's resources.
+	// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
 	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
+	// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+	IdentityCenterConfiguration WorkgroupConfigurationIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -626,9 +630,16 @@ func (o WorkgroupConfigurationOutput) EngineVersion() WorkgroupConfigurationEngi
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationEngineVersion { return v.EngineVersion }).(WorkgroupConfigurationEngineVersionPtrOutput)
 }
 
-// Role used in a notebook session for accessing the user's resources.
+// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
 func (o WorkgroupConfigurationOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+func (o WorkgroupConfigurationOutput) IdentityCenterConfiguration() WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationIdentityCenterConfiguration {
+		return v.IdentityCenterConfiguration
+	}).(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput)
 }
 
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
@@ -702,7 +713,7 @@ func (o WorkgroupConfigurationPtrOutput) EngineVersion() WorkgroupConfigurationE
 	}).(WorkgroupConfigurationEngineVersionPtrOutput)
 }
 
-// Role used in a notebook session for accessing the user's resources.
+// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
 func (o WorkgroupConfigurationPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *string {
 		if v == nil {
@@ -710,6 +721,16 @@ func (o WorkgroupConfigurationPtrOutput) ExecutionRole() pulumi.StringPtrOutput 
 		}
 		return v.ExecutionRole
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+func (o WorkgroupConfigurationPtrOutput) IdentityCenterConfiguration() WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationIdentityCenterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterConfiguration
+	}).(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput)
 }
 
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
@@ -895,6 +916,162 @@ func (o WorkgroupConfigurationEngineVersionPtrOutput) SelectedEngineVersion() pu
 			return nil
 		}
 		return v.SelectedEngineVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkgroupConfigurationIdentityCenterConfiguration struct {
+	// Specifies whether the workgroup is IAM Identity Center supported.
+	EnableIdentityCenter *bool `pulumi:"enableIdentityCenter"`
+	// The IAM Identity Center instance ARN that the workgroup associates to.
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+}
+
+// WorkgroupConfigurationIdentityCenterConfigurationInput is an input type that accepts WorkgroupConfigurationIdentityCenterConfigurationArgs and WorkgroupConfigurationIdentityCenterConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationIdentityCenterConfigurationInput` via:
+//
+//	WorkgroupConfigurationIdentityCenterConfigurationArgs{...}
+type WorkgroupConfigurationIdentityCenterConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationIdentityCenterConfigurationOutput() WorkgroupConfigurationIdentityCenterConfigurationOutput
+	ToWorkgroupConfigurationIdentityCenterConfigurationOutputWithContext(context.Context) WorkgroupConfigurationIdentityCenterConfigurationOutput
+}
+
+type WorkgroupConfigurationIdentityCenterConfigurationArgs struct {
+	// Specifies whether the workgroup is IAM Identity Center supported.
+	EnableIdentityCenter pulumi.BoolPtrInput `pulumi:"enableIdentityCenter"`
+	// The IAM Identity Center instance ARN that the workgroup associates to.
+	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
+}
+
+func (WorkgroupConfigurationIdentityCenterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i WorkgroupConfigurationIdentityCenterConfigurationArgs) ToWorkgroupConfigurationIdentityCenterConfigurationOutput() WorkgroupConfigurationIdentityCenterConfigurationOutput {
+	return i.ToWorkgroupConfigurationIdentityCenterConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationIdentityCenterConfigurationArgs) ToWorkgroupConfigurationIdentityCenterConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationIdentityCenterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationIdentityCenterConfigurationOutput)
+}
+
+func (i WorkgroupConfigurationIdentityCenterConfigurationArgs) ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutput() WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationIdentityCenterConfigurationArgs) ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationIdentityCenterConfigurationOutput).ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkgroupConfigurationIdentityCenterConfigurationPtrInput is an input type that accepts WorkgroupConfigurationIdentityCenterConfigurationArgs, WorkgroupConfigurationIdentityCenterConfigurationPtr and WorkgroupConfigurationIdentityCenterConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationIdentityCenterConfigurationPtrInput` via:
+//
+//	        WorkgroupConfigurationIdentityCenterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkgroupConfigurationIdentityCenterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutput() WorkgroupConfigurationIdentityCenterConfigurationPtrOutput
+	ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Context) WorkgroupConfigurationIdentityCenterConfigurationPtrOutput
+}
+
+type workgroupConfigurationIdentityCenterConfigurationPtrType WorkgroupConfigurationIdentityCenterConfigurationArgs
+
+func WorkgroupConfigurationIdentityCenterConfigurationPtr(v *WorkgroupConfigurationIdentityCenterConfigurationArgs) WorkgroupConfigurationIdentityCenterConfigurationPtrInput {
+	return (*workgroupConfigurationIdentityCenterConfigurationPtrType)(v)
+}
+
+func (*workgroupConfigurationIdentityCenterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i *workgroupConfigurationIdentityCenterConfigurationPtrType) ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutput() WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupConfigurationIdentityCenterConfigurationPtrType) ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+type WorkgroupConfigurationIdentityCenterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationIdentityCenterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationIdentityCenterConfigurationOutput) ToWorkgroupConfigurationIdentityCenterConfigurationOutput() WorkgroupConfigurationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationIdentityCenterConfigurationOutput) ToWorkgroupConfigurationIdentityCenterConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationIdentityCenterConfigurationOutput) ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutput() WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupConfigurationIdentityCenterConfigurationOutput) ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationIdentityCenterConfiguration) *WorkgroupConfigurationIdentityCenterConfiguration {
+		return &v
+	}).(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+// Specifies whether the workgroup is IAM Identity Center supported.
+func (o WorkgroupConfigurationIdentityCenterConfigurationOutput) EnableIdentityCenter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationIdentityCenterConfiguration) *bool { return v.EnableIdentityCenter }).(pulumi.BoolPtrOutput)
+}
+
+// The IAM Identity Center instance ARN that the workgroup associates to.
+func (o WorkgroupConfigurationIdentityCenterConfigurationOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationIdentityCenterConfiguration) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+type WorkgroupConfigurationIdentityCenterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutput() WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) ToWorkgroupConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) Elem() WorkgroupConfigurationIdentityCenterConfigurationOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationIdentityCenterConfiguration) WorkgroupConfigurationIdentityCenterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupConfigurationIdentityCenterConfiguration
+		return ret
+	}).(WorkgroupConfigurationIdentityCenterConfigurationOutput)
+}
+
+// Specifies whether the workgroup is IAM Identity Center supported.
+func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) EnableIdentityCenter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationIdentityCenterConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableIdentityCenter
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The IAM Identity Center instance ARN that the workgroup associates to.
+func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationIdentityCenterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterInstanceArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1402,6 +1579,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationEngineVersionInput)(nil)).Elem(), WorkgroupConfigurationEngineVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationEngineVersionPtrInput)(nil)).Elem(), WorkgroupConfigurationEngineVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationIdentityCenterConfigurationInput)(nil)).Elem(), WorkgroupConfigurationIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationIdentityCenterConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationAclConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationAclConfigurationArgs{})
@@ -1418,6 +1597,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkgroupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationEngineVersionOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationEngineVersionPtrOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationIdentityCenterConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationAclConfigurationOutput{})

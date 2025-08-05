@@ -62,9 +62,6 @@ export class Ingestion extends pulumi.CustomResource {
      * ARN of the Ingestion.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * AWS account ID.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * ID of the dataset used in the ingestion.
@@ -141,9 +138,6 @@ export interface IngestionState {
      * ARN of the Ingestion.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * ID of the dataset used in the ingestion.
@@ -173,9 +167,6 @@ export interface IngestionState {
  * The set of arguments for constructing a Ingestion resource.
  */
 export interface IngestionArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * ID of the dataset used in the ingestion.

@@ -4,6 +4,7 @@
 package com.pulumi.aws.athena.inputs;
 
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationEngineVersionArgs;
+import com.pulumi.aws.athena.inputs.WorkgroupConfigurationIdentityCenterConfigurationArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -65,18 +66,33 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Role used in a notebook session for accessing the user&#39;s resources.
+     * Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
      * 
      */
     @Import(name="executionRole")
     private @Nullable Output<String> executionRole;
 
     /**
-     * @return Role used in a notebook session for accessing the user&#39;s resources.
+     * @return Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
      * 
      */
     public Optional<Output<String>> executionRole() {
         return Optional.ofNullable(this.executionRole);
+    }
+
+    /**
+     * Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+     * 
+     */
+    @Import(name="identityCenterConfiguration")
+    private @Nullable Output<WorkgroupConfigurationIdentityCenterConfigurationArgs> identityCenterConfiguration;
+
+    /**
+     * @return Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+     * 
+     */
+    public Optional<Output<WorkgroupConfigurationIdentityCenterConfigurationArgs>> identityCenterConfiguration() {
+        return Optional.ofNullable(this.identityCenterConfiguration);
     }
 
     /**
@@ -131,6 +147,7 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
         this.enforceWorkgroupConfiguration = $.enforceWorkgroupConfiguration;
         this.engineVersion = $.engineVersion;
         this.executionRole = $.executionRole;
+        this.identityCenterConfiguration = $.identityCenterConfiguration;
         this.publishCloudwatchMetricsEnabled = $.publishCloudwatchMetricsEnabled;
         this.requesterPaysEnabled = $.requesterPaysEnabled;
         this.resultConfiguration = $.resultConfiguration;
@@ -218,7 +235,7 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param executionRole Role used in a notebook session for accessing the user&#39;s resources.
+         * @param executionRole Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
          * 
          * @return builder
          * 
@@ -229,13 +246,34 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param executionRole Role used in a notebook session for accessing the user&#39;s resources.
+         * @param executionRole Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
          * 
          * @return builder
          * 
          */
         public Builder executionRole(String executionRole) {
             return executionRole(Output.of(executionRole));
+        }
+
+        /**
+         * @param identityCenterConfiguration Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityCenterConfiguration(@Nullable Output<WorkgroupConfigurationIdentityCenterConfigurationArgs> identityCenterConfiguration) {
+            $.identityCenterConfiguration = identityCenterConfiguration;
+            return this;
+        }
+
+        /**
+         * @param identityCenterConfiguration Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityCenterConfiguration(WorkgroupConfigurationIdentityCenterConfigurationArgs identityCenterConfiguration) {
+            return identityCenterConfiguration(Output.of(identityCenterConfiguration));
         }
 
         /**

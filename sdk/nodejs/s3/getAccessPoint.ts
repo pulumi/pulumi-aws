@@ -96,6 +96,10 @@ export interface GetAccessPointResult {
     readonly publicAccessBlockConfigurations: outputs.s3.GetAccessPointPublicAccessBlockConfiguration[];
     readonly region: string;
     /**
+     * Tags assigned to the access point.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * VPC configuration for the access point.
      */
     readonly vpcConfigurations: outputs.s3.GetAccessPointVpcConfiguration[];

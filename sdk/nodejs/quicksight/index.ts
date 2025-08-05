@@ -90,6 +90,16 @@ export type Ingestion = import("./ingestion").Ingestion;
 export const Ingestion: typeof import("./ingestion").Ingestion = null as any;
 utilities.lazyLoad(exports, ["Ingestion"], () => require("./ingestion"));
 
+export { IpRestrictionArgs, IpRestrictionState } from "./ipRestriction";
+export type IpRestriction = import("./ipRestriction").IpRestriction;
+export const IpRestriction: typeof import("./ipRestriction").IpRestriction = null as any;
+utilities.lazyLoad(exports, ["IpRestriction"], () => require("./ipRestriction"));
+
+export { KeyRegistrationArgs, KeyRegistrationState } from "./keyRegistration";
+export type KeyRegistration = import("./keyRegistration").KeyRegistration;
+export const KeyRegistration: typeof import("./keyRegistration").KeyRegistration = null as any;
+utilities.lazyLoad(exports, ["KeyRegistration"], () => require("./keyRegistration"));
+
 export { NamespaceArgs, NamespaceState } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
@@ -159,6 +169,10 @@ const _module = {
                 return new IamPolicyAssignment(name, <any>undefined, { urn })
             case "aws:quicksight/ingestion:Ingestion":
                 return new Ingestion(name, <any>undefined, { urn })
+            case "aws:quicksight/ipRestriction:IpRestriction":
+                return new IpRestriction(name, <any>undefined, { urn })
+            case "aws:quicksight/keyRegistration:KeyRegistration":
+                return new KeyRegistration(name, <any>undefined, { urn })
             case "aws:quicksight/namespace:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
             case "aws:quicksight/refreshSchedule:RefreshSchedule":
@@ -192,6 +206,8 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/group", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/groupMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/iamPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/ingestion", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/ipRestriction", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/keyRegistration", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/namespace", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/refreshSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/roleMembership", _module)

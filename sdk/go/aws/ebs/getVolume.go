@@ -111,6 +111,8 @@ type LookupVolumeResult struct {
 	Throughput int `pulumi:"throughput"`
 	// Volume ID (e.g., vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`
+	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
+	VolumeInitializationRate int `pulumi:"volumeInitializationRate"`
 	// Type of EBS volume.
 	VolumeType string `pulumi:"volumeType"`
 }
@@ -238,6 +240,11 @@ func (o LookupVolumeResultOutput) Throughput() pulumi.IntOutput {
 // Volume ID (e.g., vol-59fcb34e).
 func (o LookupVolumeResultOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
+func (o LookupVolumeResultOutput) VolumeInitializationRate() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupVolumeResult) int { return v.VolumeInitializationRate }).(pulumi.IntOutput)
 }
 
 // Type of EBS volume.

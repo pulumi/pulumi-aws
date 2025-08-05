@@ -16383,7 +16383,8 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource struct {
-	ResourceArn string `pulumi:"resourceArn"`
+	// The Amazon Resource Name (ARN) of the prompt from Prompt management.
+	PromptArn string `pulumi:"promptArn"`
 }
 
 // AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput values.
@@ -16398,7 +16399,8 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceInput 
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs struct {
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	// The Amazon Resource Name (ARN) of the prompt from Prompt management.
+	PromptArn pulumi.StringInput `pulumi:"promptArn"`
 }
 
 func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs) ElementType() reflect.Type {
@@ -16478,9 +16480,10 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOut
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput)
 }
 
-func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput) ResourceArn() pulumi.StringOutput {
+// The Amazon Resource Name (ARN) of the prompt from Prompt management.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput) PromptArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource) string {
-		return v.ResourceArn
+		return v.PromptArn
 	}).(pulumi.StringOutput)
 }
 
@@ -16508,12 +16511,13 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtr
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput)
 }
 
-func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput) ResourceArn() pulumi.StringPtrOutput {
+// The Amazon Resource Name (ARN) of the prompt from Prompt management.
+func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput) PromptArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceArn
+		return &v.PromptArn
 	}).(pulumi.StringPtrOutput)
 }
 
