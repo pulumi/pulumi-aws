@@ -36,14 +36,27 @@ const vpc = new aws.ec2.Vpc('test-vpc', {
     cidrBlock: '10.192.0.0/16'
 });
 
+const azs = aws.getAvailabilityZonesOutput({
+    state: 'available',
+    allAvailabilityZones: false,
+    filters: [
+        {
+            name: 'opt-in-status',
+            values: ['opt-in-not-required'],
+        },
+    ],
+});
+
 const subnet1 = new aws.ec2.Subnet('test-subnet1', {
     vpcId: vpc.id,
     cidrBlock: '10.192.20.0/24',
+    availabilityZone: azs.apply(az => az.names[0]),
     mapPublicIpOnLaunch: false,
 });
 
 const subnet2 = new aws.ec2.Subnet('test-subnet2', {
     vpcId: vpc.id,
+    availabilityZone: azs.apply(az => az.names[1]),
     cidrBlock: '10.192.21.0/24',
     mapPublicIpOnLaunch: false,
 });
