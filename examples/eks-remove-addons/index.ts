@@ -69,31 +69,32 @@ const cluster = new aws.eks.Cluster('test-cluster', {
     bootstrapSelfManagedAddons: false,
 });
 
-const corednsVersion = aws.eks.getAddonVersionOutput({
-  addonName: "coredns",
-  kubernetesVersion: cluster.version,
-  mostRecent: true,
-});
-
-new aws.eks.Addon("coredns", {
-  clusterName: cluster.name,
-  addonName: "coredns",
-  addonVersion: corednsVersion.version,
-  resolveConflictsOnUpdate: "PRESERVE",
-  configurationValues: JSON.stringify({
-    replicaCount: 4,
-    resources: {
-      limits: {
-        cpu: "100m",
-        memory: "150Mi",
-      },
-      requests: {
-        cpu: "100m",
-        memory: "150Mi",
-      },
-    },
-  }),
-});
+// TODO: example needs node group
+// const corednsVersion = aws.eks.getAddonVersionOutput({
+//   addonName: "coredns",
+//   kubernetesVersion: cluster.version,
+//   mostRecent: true,
+// });
+//
+// new aws.eks.Addon("coredns", {
+//   clusterName: cluster.name,
+//   addonName: "coredns",
+//   addonVersion: corednsVersion.version,
+//   resolveConflictsOnUpdate: "PRESERVE",
+//   configurationValues: JSON.stringify({
+//     replicaCount: 4,
+//     resources: {
+//       limits: {
+//         cpu: "100m",
+//         memory: "150Mi",
+//       },
+//       requests: {
+//         cpu: "100m",
+//         memory: "150Mi",
+//       },
+//     },
+//   }),
+// });
 
 const cluster2 = new aws.eks.Cluster('test-cluster2', {
     roleArn: clusterRole.arn,
