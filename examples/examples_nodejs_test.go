@@ -1346,6 +1346,7 @@ func TestUpstreamWarningsPropagated(t *testing.T) {
 }
 
 func TestAccProviderRoleChaining(t *testing.T) {
+	skipIfShort(t)
 	region := getEnvRegion(t)
 	test := integration.ProgramTestOptions{
 		Dir: filepath.Join(getCwd(t), "provider-role-chaining"),
@@ -1355,6 +1356,22 @@ func TestAccProviderRoleChaining(t *testing.T) {
 		Config: map[string]string{
 			"aws-native:region": region,
 			"aws:region":        region,
+		},
+	}
+	skipRefresh(&test)
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccConfigureClusterAddons(t *testing.T) {
+	skipIfShort(t)
+	region := getEnvRegion(t)
+	test := integration.ProgramTestOptions{
+		Dir: filepath.Join(getCwd(t), "eks-remove-addons"),
+		Dependencies: []string{
+			"@pulumi/aws",
+		},
+		Config: map[string]string{
+			"aws:region": region,
 		},
 	}
 	skipRefresh(&test)

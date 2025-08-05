@@ -75,6 +75,25 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * @deprecated
+     * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+     * 
+     */
+    @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+    @Import(name="defaultAddonsToRemove")
+    private @Nullable Output<List<String>> defaultAddonsToRemove;
+
+    /**
+     * @deprecated
+     * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+     * 
+     */
+    @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+    public Optional<Output<List<String>>> defaultAddonsToRemove() {
+        return Optional.ofNullable(this.defaultAddonsToRemove);
+    }
+
+    /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      * 
      */
@@ -309,6 +328,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.accessConfig = $.accessConfig;
         this.bootstrapSelfManagedAddons = $.bootstrapSelfManagedAddons;
         this.computeConfig = $.computeConfig;
+        this.defaultAddonsToRemove = $.defaultAddonsToRemove;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
         this.forceUpdateVersion = $.forceUpdateVersion;
@@ -405,6 +425,43 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder computeConfig(ClusterComputeConfigArgs computeConfig) {
             return computeConfig(Output.of(computeConfig));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+         * 
+         */
+        @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+        public Builder defaultAddonsToRemove(@Nullable Output<List<String>> defaultAddonsToRemove) {
+            $.defaultAddonsToRemove = defaultAddonsToRemove;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+         * 
+         */
+        @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+        public Builder defaultAddonsToRemove(List<String> defaultAddonsToRemove) {
+            return defaultAddonsToRemove(Output.of(defaultAddonsToRemove));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+         * 
+         */
+        @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+        public Builder defaultAddonsToRemove(String... defaultAddonsToRemove) {
+            return defaultAddonsToRemove(List.of(defaultAddonsToRemove));
         }
 
         /**
