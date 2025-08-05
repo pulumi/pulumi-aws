@@ -6054,6 +6054,8 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_s3_bucket_metadata_configuration":                             {"bucket"},
 		"aws_networkfirewall_firewall_transit_gateway_attachment_accepter": {"id"},
 		"aws_connect_phone_number_contact_flow_association":                {"phoneNumberId", "instanceId", "contractFlowId"},
+		"aws_quicksight_ip_restriction":                                    {"awsAccountId"},
+		"aws_quicksight_key_registration":                                  {"awsAccountId"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
