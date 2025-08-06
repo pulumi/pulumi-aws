@@ -14,3 +14,6 @@ java = 'corretto-11'
 pulumi = 'latest'
 "go:github.com/pulumi/pulumictl/cmd/pulumictl" = 'latest'
 gradle = '7.6'
+
+[settings]
+experimental = true # Required for Go binaries (e.g. pulumictl).
