@@ -80,8 +80,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
-    @Import(name="defaultAddonsToRemove")
-    private @Nullable Output<List<String>> defaultAddonsToRemove;
+    @Import(name="defaultAddonsToRemoves")
+    private @Nullable Output<List<String>> defaultAddonsToRemoves;
 
     /**
      * @deprecated
@@ -89,8 +89,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
-    public Optional<Output<List<String>>> defaultAddonsToRemove() {
-        return Optional.ofNullable(this.defaultAddonsToRemove);
+    public Optional<Output<List<String>>> defaultAddonsToRemoves() {
+        return Optional.ofNullable(this.defaultAddonsToRemoves);
     }
 
     /**
@@ -328,7 +328,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.accessConfig = $.accessConfig;
         this.bootstrapSelfManagedAddons = $.bootstrapSelfManagedAddons;
         this.computeConfig = $.computeConfig;
-        this.defaultAddonsToRemove = $.defaultAddonsToRemove;
+        this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
         this.forceUpdateVersion = $.forceUpdateVersion;
@@ -435,8 +435,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
-        public Builder defaultAddonsToRemove(@Nullable Output<List<String>> defaultAddonsToRemove) {
-            $.defaultAddonsToRemove = defaultAddonsToRemove;
+        public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
+            $.defaultAddonsToRemoves = defaultAddonsToRemoves;
             return this;
         }
 
@@ -448,8 +448,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
-        public Builder defaultAddonsToRemove(List<String> defaultAddonsToRemove) {
-            return defaultAddonsToRemove(Output.of(defaultAddonsToRemove));
+        public Builder defaultAddonsToRemoves(List<String> defaultAddonsToRemoves) {
+            return defaultAddonsToRemoves(Output.of(defaultAddonsToRemoves));
         }
 
         /**
@@ -460,8 +460,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
-        public Builder defaultAddonsToRemove(String... defaultAddonsToRemove) {
-            return defaultAddonsToRemove(List.of(defaultAddonsToRemove));
+        public Builder defaultAddonsToRemoves(String... defaultAddonsToRemoves) {
+            return defaultAddonsToRemoves(List.of(defaultAddonsToRemoves));
         }
 
         /**

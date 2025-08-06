@@ -571,11 +571,11 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
-    @Export(name="defaultAddonsToRemove", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> defaultAddonsToRemove;
+    @Export(name="defaultAddonsToRemoves", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> defaultAddonsToRemoves;
 
-    public Output<Optional<List<String>>> defaultAddonsToRemove() {
-        return Codegen.optional(this.defaultAddonsToRemove);
+    public Output<Optional<List<String>>> defaultAddonsToRemoves() {
+        return Codegen.optional(this.defaultAddonsToRemoves);
     }
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
