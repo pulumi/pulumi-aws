@@ -101,5 +101,5 @@ const cluster2 = new aws.eks.Cluster('test-cluster2', {
     vpcConfig: {
         subnetIds: [subnet1.id, subnet2.id],
     },
-    defaultAddonsToRemove: ['vpc-cni', 'kube-proxy'],
+    defaultAddonsToRemoves: ['vpc-cni', 'kube-proxy'],
 });
