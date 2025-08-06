@@ -17,6 +17,7 @@ package provider
 import (
 	"context"
 	_ "embed"
+	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -650,20 +651,17 @@ var noRegionError string
 //go:embed errors/expired_sso.txt
 var expiredSSOError string
 
-func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	config := &awsbase.Config{
-		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
-		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
-		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
-		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
-		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
-
-		CallerName:             "Pulumi AWS Classic",
-		CallerDocumentationURL: "https://www.pulumi.com/registry/packages/aws/installation-configuration/",
-	}
-
+func parseAssumeRoles(vars resource.PropertyMap) ([]awsbase.AssumeRole, error) {
 	assumeRoles := []awsbase.AssumeRole{}
-	if roles, ok := vars["assumeRole"]; ok {
+	// if we don't catch this early it will eventually error in the bridge with something like
+	// could not marshal config state: internal: Pulumi property 'assumeRole' mapped non-uniquely to Terraform attribute 'assume_role' (duplicates Pulumi key 'assumeRoles')
+	if _, ok := vars["assumeRole"]; ok {
+		return assumeRoles, errors.New("invalid config key 'aws:assumeRole', should be 'aws:assumeRoles'")
+	}
+	if roles, ok := vars["assumeRoles"]; ok {
+		if !roles.IsArray() {
+			return assumeRoles, errors.New(fmt.Sprintf("expected aws:assumeRoles to be an array, got %s", roles.TypeString()))
+		}
 		for _, details := range roles.ArrayValue() {
 			assumeRole := awsbase.AssumeRole{
 				RoleARN:           stringValue(details.ObjectValue(), "roleArn", []string{}),
@@ -677,13 +675,36 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 			}
 			duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
 			if err != nil {
-				return err
+				return assumeRoles, err
 			}
 			if duration != nil {
 				assumeRole.Duration = *duration
 			}
 			assumeRoles = append(assumeRoles, assumeRole)
 		}
+	}
+
+	return assumeRoles, nil
+}
+
+func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error {
+	config := &awsbase.Config{
+		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
+		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
+		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
+		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
+		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
+
+		CallerName:             "Pulumi AWS Classic",
+		CallerDocumentationURL: "https://www.pulumi.com/registry/packages/aws/installation-configuration/",
+	}
+
+	assumeRoles, err := parseAssumeRoles(vars)
+	if err != nil {
+		return err
+	}
+	if len(assumeRoles) > 0 {
+		config.AssumeRole = assumeRoles
 	}
 
 	if details, ok := vars["assumeRoleWithWebIdentity"]; ok {

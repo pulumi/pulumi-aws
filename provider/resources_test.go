@@ -9,6 +9,36 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func Test_parseAssumeRoles(t *testing.T) {
+	t.Parallel()
+
+	t.Run("parses correctly", func(t *testing.T) {
+		vars := resource.PropertyMap{
+			"assumeRoles": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"roleArn": resource.NewStringProperty("arn:aws:iam::12345678912:root"),
+				}),
+			}),
+		}
+
+		res, err := parseAssumeRoles(vars)
+		assert.NoError(t, err)
+		assert.Equal(t, 1, len(res))
+		assert.Equal(t, "arn:aws:iam::12345678912:root", res[0].RoleARN)
+	})
+
+	t.Run("handles incorrect type", func(t *testing.T) {
+		vars := resource.PropertyMap{
+			"assumeRoles": resource.NewObjectProperty(resource.PropertyMap{
+				"roleArn": resource.NewStringProperty("arn:aws:iam::12345678912:root"),
+			}),
+		}
+
+		_, err := parseAssumeRoles(vars)
+		assert.ErrorContains(t, err, "expected aws:assumeRoles to be an array, got object")
+	})
+}
+
 func TestParseDuration(t *testing.T) {
 	t.Parallel()
 

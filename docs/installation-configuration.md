@@ -270,8 +270,8 @@ values:
     AWS_REGION: <YOUR_AWS_REGION>
   pulumiConfig: # exposes Pulumi config values to the Pulumi CLI
     project:environment: 'dev'
-    aws:assumeRole:
-      roleArn: 'arn:aws:iam::058111598222:role/OrganizationAccountAccessRole'
+    aws:assumeRoles:
+      - roleArn: 'arn:aws:iam::058111598222:role/OrganizationAccountAccessRole'
     aws:dynamodbEndpoint: 'dynamodb.us-east-2.amazonaws.com'
 ```
 
@@ -292,8 +292,8 @@ values:
     aws:secretKey: ${aws.login.secretAccessKey}
     aws:token: ${aws.login.sessionToken}
     project:environment: 'dev'
-    aws:assumeRole:
-      roleArn: 'arn:aws:iam::058111598222:role/OrganizationAccountAccessRole'
+    aws:assumeRoles:
+      - roleArn: 'arn:aws:iam::058111598222:role/OrganizationAccountAccessRole'
     aws:dynamodbEndpoint: 'dynamodb.us-east-2.amazonaws.com'
 ```
 
@@ -332,7 +332,7 @@ Use `pulumi config set aws:<option>` or pass options to the [constructor of `new
 | `region` | Required | The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc. |
 | `allowedAccountIds` | Optional | List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one (and potentially end up destroying a live environment). Conflicts with `forbiddenAccountIds`. |
 | `accessKey` | Optional | The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console. |
-| `assumeRole` | Optional | A JSON object representing an IAM role to assume.  To set these nested properties, see docs on [structured configuration](/docs/concepts/config#structured-configuration), for example `pulumi config set --path aws:assumeRole.roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
+| `assumeRoles` | Optional | A List of JSON objects representing an IAM role to assume.  To set these nested properties, see docs on [structured configuration](/docs/concepts/config#structured-configuration), for example `pulumi config set --path aws:assumeRoles[0].roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
 | ↳ `durationSeconds` | Optional |  Number of seconds to restrict the assume role session duration. |
 | ↳ `externalId` | Optional | External identifier to use when assuming the role. |
 | ↳ `policy` | Optional | IAM Policy JSON describing further restricting permissions for the IAM Role being assumed. |
