@@ -32,6 +32,7 @@ const (
 	RuntimePython3d9    = Runtime("python3.9")
 	RuntimeRuby3d2      = Runtime("ruby3.2")
 	RuntimeRuby3d3      = Runtime("ruby3.3")
+	RuntimeRuby3d4      = Runtime("ruby3.4")
 	// Deprecated: This runtime is now deprecated
 	RuntimeDotnet5d0 = Runtime("dotnet5.0")
 	// Deprecated: This runtime is now deprecated
@@ -208,6 +209,7 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 //	RuntimePython3d9
 //	RuntimeRuby3d2
 //	RuntimeRuby3d3
+//	RuntimeRuby3d4
 type RuntimeInput interface {
 	pulumi.Input
 

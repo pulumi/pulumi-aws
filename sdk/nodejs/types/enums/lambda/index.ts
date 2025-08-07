@@ -21,6 +21,7 @@ export const Runtime = {
     Python3d9: "python3.9",
     Ruby3d2: "ruby3.2",
     Ruby3d3: "ruby3.3",
+    Ruby3d4: "ruby3.4",
     /**
      * @deprecated This runtime is now deprecated
      */

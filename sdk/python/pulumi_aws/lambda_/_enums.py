@@ -34,6 +34,7 @@ class Runtime(_builtins.str, Enum):
     PYTHON3D9 = "python3.9"
     RUBY3D2 = "ruby3.2"
     RUBY3D3 = "ruby3.3"
+    RUBY3D4 = "ruby3.4"
     DOTNET5D0 = "dotnet5.0"
     DOTNET7 = "dotnet7"
     DOTNET_CORE2D1 = "dotnetcore2.1"
