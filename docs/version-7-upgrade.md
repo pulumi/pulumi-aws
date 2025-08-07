@@ -182,6 +182,23 @@ const provider = new aws.Provider("provider", {
 });
 ```
 
+Similarly, if you are using the `aws:assumeRole` config you will need to update it to match the new type.
+
+**This (v6)**
+
+```yaml
+config:
+  aws:assumeRole:
+    roleArn: arn:aws:iam::12345678912/someRole
+```
+
+**Becomes this (v7)**
+```yaml
+config:
+  aws:assumeRoles:
+    - roleArn: arn:aws:iam::12345678912/someRole
+```
+
 
 ## S3 Bucket/BucketV2 Changes
 

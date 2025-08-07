@@ -30,6 +30,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi-aws/provider/v7/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
@@ -1343,6 +1344,62 @@ func TestUpstreamWarningsPropagated(t *testing.T) {
 		rr.StdErr+rr.StdOut,
 		fmt.Sprintf("warning: S3 Object (%s/index.ts) not found, removing from state", bucketName),
 		"Expected upstream log.Printf to propagate under TF_LOG=DEBUG")
+}
+
+// TestAssumeRolesConfig tests that you can set `aws:assumeRoles` via config
+// Also tests that validateCredentials works
+func TestAssumeRolesConfig(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
+	dir := "assume-role-config"
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+
+	t.Logf("Creating the assumable role")
+	test.Up(t)
+
+	outputs, err := test.CurrentStack().Outputs(test.Context())
+	require.NoError(t, err)
+	roleArn, ok := outputs["roleArn"].Value.(string)
+	require.True(t, ok)
+
+	t.Logf("Creating new stack")
+	test.UpdateSource(t, filepath.Join(dir, "step2"))
+	newStack := test.NewStack(t, "")
+	newStack.SetConfigWithOptions(test.Context(), "aws:assumeRoles[0].roleArn",
+		auto.ConfigValue{Value: roleArn + "invalid"},
+		&auto.ConfigOptions{Path: true},
+	)
+
+	_, err = newStack.Preview(test.Context())
+	assert.ErrorContains(t, err, "unable to validate AWS credentials.")
+	assert.ErrorContains(t, err, "Details: Cannot assume IAM Role.")
+
+	newStack.SetConfigWithOptions(test.Context(), "aws:assumeRole.roleArn",
+		auto.ConfigValue{Value: roleArn + "invalid"},
+		&auto.ConfigOptions{Path: true},
+	)
+	_, err = newStack.Preview(test.Context())
+	assert.ErrorContains(t, err, "invalid config key 'aws:assumeRole', should be 'aws:assumeRoles'")
+
+	err = newStack.RemoveAllConfig(test.Context(), []string{"aws:assumeRole"})
+	assert.NoError(t, err)
+	newStack.SetConfigWithOptions(test.Context(), "aws:assumeRoles[0].roleArn",
+		auto.ConfigValue{Value: roleArn},
+		&auto.ConfigOptions{Path: true},
+	)
+
+	_, err = newStack.Up(test.Context())
+	assert.NoError(t, err)
+
+	// destroy this stack first since it uses the role created in the first stack
+	newStack.Destroy(test.Context())
 }
 
 func TestAccProviderRoleChaining(t *testing.T) {
