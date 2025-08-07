@@ -699,7 +699,162 @@ class GraphQLApi(pulumi.CustomResource):
                  xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Create a GraphQLApi resource with the given unique name, props, and options.
+        Provides an AppSync GraphQL API.
+
+        ## Example Usage
+
+        ### API Key Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        ```
+
+        ### AWS IAM Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_IAM",
+            name="example")
+        ```
+
+        ### AWS Cognito User Pool Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AMAZON_COGNITO_USER_POOLS",
+            name="example",
+            user_pool_config={
+                "aws_region": current["region"],
+                "default_action": "DENY",
+                "user_pool_id": example_aws_cognito_user_pool["id"],
+            })
+        ```
+
+        ### OpenID Connect Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="OPENID_CONNECT",
+            name="example",
+            openid_connect_config={
+                "issuer": "https://example.com",
+            })
+        ```
+
+        ### AWS Lambda Authorizer Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_LAMBDA",
+            name="example",
+            lambda_authorizer_config={
+                "authorizer_uri": "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
+            })
+        appsync_lambda_authorizer = aws.lambda_.Permission("appsync_lambda_authorizer",
+            statement_id="appsync_lambda_authorizer",
+            action="lambda:InvokeFunction",
+            function="custom_lambda_authorizer",
+            principal="appsync.amazonaws.com",
+            source_arn=example.arn)
+        ```
+
+        ### With Multiple Authentication Providers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example",
+            additional_authentication_providers=[{
+                "authentication_type": "AWS_IAM",
+            }])
+        ```
+
+        ### With Schema
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_IAM",
+            name="example",
+            schema=\"\"\"schema {
+        \\x09query: Query
+        }
+        type Query {
+          test: Int
+        }
+        \"\"\")
+        ```
+
+        ### Enabling Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["appsync.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
+        example = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
+            role=example.name)
+        example_graph_ql_api = aws.appsync.GraphQLApi("example", log_config={
+            "cloudwatch_logs_role_arn": example.arn,
+            "field_log_level": "ERROR",
+        })
+        ```
+
+        ### GraphQL run complexity, query depth, and introspection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_IAM",
+            name="example",
+            introspection_config="ENABLED",
+            query_depth_limit=2,
+            resolver_count_limit=2)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import AppSync GraphQL API using the GraphQL API ID. For example:
+
+        ```sh
+        $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
@@ -732,7 +887,162 @@ class GraphQLApi(pulumi.CustomResource):
                  args: GraphQLApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a GraphQLApi resource with the given unique name, props, and options.
+        Provides an AppSync GraphQL API.
+
+        ## Example Usage
+
+        ### API Key Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        ```
+
+        ### AWS IAM Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_IAM",
+            name="example")
+        ```
+
+        ### AWS Cognito User Pool Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AMAZON_COGNITO_USER_POOLS",
+            name="example",
+            user_pool_config={
+                "aws_region": current["region"],
+                "default_action": "DENY",
+                "user_pool_id": example_aws_cognito_user_pool["id"],
+            })
+        ```
+
+        ### OpenID Connect Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="OPENID_CONNECT",
+            name="example",
+            openid_connect_config={
+                "issuer": "https://example.com",
+            })
+        ```
+
+        ### AWS Lambda Authorizer Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_LAMBDA",
+            name="example",
+            lambda_authorizer_config={
+                "authorizer_uri": "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
+            })
+        appsync_lambda_authorizer = aws.lambda_.Permission("appsync_lambda_authorizer",
+            statement_id="appsync_lambda_authorizer",
+            action="lambda:InvokeFunction",
+            function="custom_lambda_authorizer",
+            principal="appsync.amazonaws.com",
+            source_arn=example.arn)
+        ```
+
+        ### With Multiple Authentication Providers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example",
+            additional_authentication_providers=[{
+                "authentication_type": "AWS_IAM",
+            }])
+        ```
+
+        ### With Schema
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_IAM",
+            name="example",
+            schema=\"\"\"schema {
+        \\x09query: Query
+        }
+        type Query {
+          test: Int
+        }
+        \"\"\")
+        ```
+
+        ### Enabling Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["appsync.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
+        example = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
+            role=example.name)
+        example_graph_ql_api = aws.appsync.GraphQLApi("example", log_config={
+            "cloudwatch_logs_role_arn": example.arn,
+            "field_log_level": "ERROR",
+        })
+        ```
+
+        ### GraphQL run complexity, query depth, and introspection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_IAM",
+            name="example",
+            introspection_config="ENABLED",
+            query_depth_limit=2,
+            resolver_count_limit=2)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import AppSync GraphQL API using the GraphQL API ID. For example:
+
+        ```sh
+        $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
+        ```
+
         :param str resource_name: The name of the resource.
         :param GraphQLApiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

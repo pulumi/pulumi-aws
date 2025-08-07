@@ -24,6 +24,418 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AppSync GraphQL API.
+ * 
+ * ## Example Usage
+ * 
+ * ### API Key Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("API_KEY")
+ *             .name("example")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### AWS IAM Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("AWS_IAM")
+ *             .name("example")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### AWS Cognito User Pool Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.appsync.inputs.GraphQLApiUserPoolConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("AMAZON_COGNITO_USER_POOLS")
+ *             .name("example")
+ *             .userPoolConfig(GraphQLApiUserPoolConfigArgs.builder()
+ *                 .awsRegion(current.region())
+ *                 .defaultAction("DENY")
+ *                 .userPoolId(exampleAwsCognitoUserPool.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### OpenID Connect Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.appsync.inputs.GraphQLApiOpenidConnectConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("OPENID_CONNECT")
+ *             .name("example")
+ *             .openidConnectConfig(GraphQLApiOpenidConnectConfigArgs.builder()
+ *                 .issuer("https://example.com")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### AWS Lambda Authorizer Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.appsync.inputs.GraphQLApiLambdaAuthorizerConfigArgs;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("AWS_LAMBDA")
+ *             .name("example")
+ *             .lambdaAuthorizerConfig(GraphQLApiLambdaAuthorizerConfigArgs.builder()
+ *                 .authorizerUri("arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer")
+ *                 .build())
+ *             .build());
+ * 
+ *         var appsyncLambdaAuthorizer = new Permission("appsyncLambdaAuthorizer", PermissionArgs.builder()
+ *             .statementId("appsync_lambda_authorizer")
+ *             .action("lambda:InvokeFunction")
+ *             .function("custom_lambda_authorizer")
+ *             .principal("appsync.amazonaws.com")
+ *             .sourceArn(example.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With Multiple Authentication Providers
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.appsync.inputs.GraphQLApiAdditionalAuthenticationProviderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("API_KEY")
+ *             .name("example")
+ *             .additionalAuthenticationProviders(GraphQLApiAdditionalAuthenticationProviderArgs.builder()
+ *                 .authenticationType("AWS_IAM")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With Schema
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("AWS_IAM")
+ *             .name("example")
+ *             .schema("""
+ * schema {
+ * 	query: Query
+ * }
+ * type Query {
+ *   test: Int
+ * }
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Enabling Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.appsync.inputs.GraphQLApiLogConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("appsync.amazonaws.com")
+ *                     .build())
+ *                 .actions("sts:AssumeRole")
+ *                 .build())
+ *             .build());
+ * 
+ *         var example = new Role("example", RoleArgs.builder()
+ *             .name("example")
+ *             .assumeRolePolicy(assumeRole.json())
+ *             .build());
+ * 
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs")
+ *             .role(example.name())
+ *             .build());
+ * 
+ *         var exampleGraphQLApi = new GraphQLApi("exampleGraphQLApi", GraphQLApiArgs.builder()
+ *             .logConfig(GraphQLApiLogConfigArgs.builder()
+ *                 .cloudwatchLogsRoleArn(example.arn())
+ *                 .fieldLogLevel("ERROR")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Associate Web ACL (v2)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### GraphQL run complexity, query depth, and introspection
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("AWS_IAM")
+ *             .name("example")
+ *             .introspectionConfig("ENABLED")
+ *             .queryDepthLimit(2)
+ *             .resolverCountLimit(2)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import AppSync GraphQL API using the GraphQL API ID. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appsync/graphQLApi:GraphQLApi")
 public class GraphQLApi extends com.pulumi.resources.CustomResource {
     /**
