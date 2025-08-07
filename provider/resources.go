@@ -5651,14 +5651,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		}
 	}
 
-	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
-		// These examples hang on Go generation. Issue tracking to unblock:
-		// https://github.com/pulumi/pulumi-aws/issues/2598
-		return args.ExamplePath == "#/resources/aws:wafv2/ruleGroup:RuleGroup" ||
-			args.ExamplePath == "#/resources/aws:wafv2/webAcl:WebAcl" ||
-			args.ExamplePath == "#/resources/aws:appsync/graphQLApi:GraphQLApi"
-	}
-
 	// TODO[pulumi/pulumi-terraform-bridge#2938]
 	// Currently, the bridge omits write-only attributes from being written to a provider schema.
 	// In this provider, we additionally have some attributes  called things like "has_value_wo" or "version_wo".
