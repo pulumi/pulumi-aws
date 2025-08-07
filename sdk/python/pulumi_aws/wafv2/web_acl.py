@@ -643,7 +643,413 @@ class WebAcl(pulumi.CustomResource):
                  visibility_config: Optional[pulumi.Input[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Create a WebAcl resource with the given unique name, props, and options.
+        Creates a WAFv2 Web ACL resource.
+
+        > **Note** In `field_to_match` blocks, _e.g._, in `byte_match_statement`, the `body` block includes an optional argument `oversize_handling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversize_handling` argument as **required** as soon as possible.
+
+        ## Example Usage
+
+        This resource is based on `wafv2.RuleGroup`, check the documentation of the `wafv2.RuleGroup` resource to see examples of the various available statements.
+
+        ### Managed Rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.WebAcl("example",
+            name="managed-rule-example",
+            description="Example of a managed rule.",
+            scope="REGIONAL",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "override_action": {
+                    "count": {},
+                },
+                "statement": {
+                    "managed_rule_group_statement": {
+                        "name": "AWSManagedRulesCommonRuleSet",
+                        "vendor_name": "AWS",
+                        "rule_action_overrides": [
+                            {
+                                "action_to_use": {
+                                    "count": {},
+                                },
+                                "name": "SizeRestrictions_QUERYSTRING",
+                            },
+                            {
+                                "action_to_use": {
+                                    "count": {},
+                                },
+                                "name": "NoUserAgent_HEADER",
+                            },
+                        ],
+                        "scope_down_statement": {
+                            "geo_match_statement": {
+                                "country_codes": [
+                                    "US",
+                                    "NL",
+                                ],
+                            },
+                        },
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            },
+            token_domains=[
+                "mywebsite.com",
+                "myotherwebsite.com",
+            ],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Account Creation Fraud Prevention
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        acfp_example = aws.wafv2.WebAcl("acfp-example",
+            name="managed-acfp-example",
+            description="Example of a managed ACFP rule.",
+            scope="CLOUDFRONT",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "acfp-rule-1",
+                "priority": 1,
+                "override_action": {
+                    "count": {},
+                },
+                "statement": {
+                    "managed_rule_group_statement": {
+                        "name": "AWSManagedRulesACFPRuleSet",
+                        "vendor_name": "AWS",
+                        "managed_rule_group_configs": [{
+                            "aws_managed_rules_acfp_rule_set": {
+                                "creation_path": "/signin",
+                                "registration_page_path": "/register",
+                                "request_inspection": {
+                                    "email_field": {
+                                        "identifier": "/email",
+                                    },
+                                    "password_field": {
+                                        "identifier": "/password",
+                                    },
+                                    "payload_type": "JSON",
+                                    "username_field": {
+                                        "identifier": "/username",
+                                    },
+                                },
+                                "response_inspection": {
+                                    "status_code": {
+                                        "failure_codes": [403],
+                                        "success_codes": [200],
+                                    },
+                                },
+                            },
+                        }],
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Account Takeover Protection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        atp_example = aws.wafv2.WebAcl("atp-example",
+            name="managed-atp-example",
+            description="Example of a managed ATP rule.",
+            scope="CLOUDFRONT",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "atp-rule-1",
+                "priority": 1,
+                "override_action": {
+                    "count": {},
+                },
+                "statement": {
+                    "managed_rule_group_statement": {
+                        "name": "AWSManagedRulesATPRuleSet",
+                        "vendor_name": "AWS",
+                        "managed_rule_group_configs": [{
+                            "aws_managed_rules_atp_rule_set": {
+                                "login_path": "/api/1/signin",
+                                "request_inspection": {
+                                    "password_field": {
+                                        "identifier": "/password",
+                                    },
+                                    "payload_type": "JSON",
+                                    "username_field": {
+                                        "identifier": "/email",
+                                    },
+                                },
+                                "response_inspection": {
+                                    "status_code": {
+                                        "failure_codes": [403],
+                                        "success_codes": [200],
+                                    },
+                                },
+                            },
+                        }],
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Rate Based
+
+        Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.WebAcl("example",
+            name="rate-based-example",
+            description="Example of a Cloudfront rate based statement.",
+            scope="CLOUDFRONT",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "action": {
+                    "block": {},
+                },
+                "statement": {
+                    "rate_based_statement": {
+                        "limit": 10000,
+                        "aggregate_key_type": "IP",
+                        "scope_down_statement": {
+                            "geo_match_statement": {
+                                "country_codes": [
+                                    "US",
+                                    "NL",
+                                ],
+                            },
+                        },
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            },
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Rule Group Reference
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.RuleGroup("example",
+            capacity=10,
+            name="example-rule-group",
+            scope="REGIONAL",
+            rules=[
+                {
+                    "name": "rule-1",
+                    "priority": 1,
+                    "action": {
+                        "count": {},
+                    },
+                    "statement": {
+                        "geo_match_statement": {
+                            "country_codes": ["NL"],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "friendly-rule-metric-name",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+                {
+                    "name": "rule-to-exclude-a",
+                    "priority": 10,
+                    "action": {
+                        "allow": {},
+                    },
+                    "statement": {
+                        "geo_match_statement": {
+                            "country_codes": ["US"],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "friendly-rule-metric-name",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+                {
+                    "name": "rule-to-exclude-b",
+                    "priority": 15,
+                    "action": {
+                        "allow": {},
+                    },
+                    "statement": {
+                        "geo_match_statement": {
+                            "country_codes": ["GB"],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "friendly-rule-metric-name",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+            ],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        test = aws.wafv2.WebAcl("test",
+            name="rule-group-example",
+            scope="REGIONAL",
+            default_action={
+                "block": {},
+            },
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "override_action": {
+                    "count": {},
+                },
+                "statement": {
+                    "rule_group_reference_statement": {
+                        "arn": example.arn,
+                        "rule_action_overrides": [
+                            {
+                                "action_to_use": {
+                                    "count": {},
+                                },
+                                "name": "rule-to-exclude-b",
+                            },
+                            {
+                                "action_to_use": {
+                                    "count": {},
+                                },
+                                "name": "rule-to-exclude-a",
+                            },
+                        ],
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            },
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Large Request Body Inspections for Regional Resources
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.WebAcl("example",
+            name="large-request-body-example",
+            scope="REGIONAL",
+            default_action={
+                "allow": {},
+            },
+            association_config={
+                "request_bodies": [{
+                    "api_gateway": {
+                        "default_size_inspection_limit": "KB_64",
+                    },
+                    "app_runner_service": {
+                        "default_size_inspection_limit": "KB_64",
+                    },
+                    "cognito_user_pool": {
+                        "default_size_inspection_limit": "KB_64",
+                    },
+                    "verified_access_instance": {
+                        "default_size_inspection_limit": "KB_64",
+                    },
+                }],
+            },
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import WAFv2 Web ACLs using `ID/Name/Scope`. For example:
+
+        ```sh
+        $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
@@ -670,7 +1076,413 @@ class WebAcl(pulumi.CustomResource):
                  args: WebAclArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a WebAcl resource with the given unique name, props, and options.
+        Creates a WAFv2 Web ACL resource.
+
+        > **Note** In `field_to_match` blocks, _e.g._, in `byte_match_statement`, the `body` block includes an optional argument `oversize_handling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversize_handling` argument as **required** as soon as possible.
+
+        ## Example Usage
+
+        This resource is based on `wafv2.RuleGroup`, check the documentation of the `wafv2.RuleGroup` resource to see examples of the various available statements.
+
+        ### Managed Rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.WebAcl("example",
+            name="managed-rule-example",
+            description="Example of a managed rule.",
+            scope="REGIONAL",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "override_action": {
+                    "count": {},
+                },
+                "statement": {
+                    "managed_rule_group_statement": {
+                        "name": "AWSManagedRulesCommonRuleSet",
+                        "vendor_name": "AWS",
+                        "rule_action_overrides": [
+                            {
+                                "action_to_use": {
+                                    "count": {},
+                                },
+                                "name": "SizeRestrictions_QUERYSTRING",
+                            },
+                            {
+                                "action_to_use": {
+                                    "count": {},
+                                },
+                                "name": "NoUserAgent_HEADER",
+                            },
+                        ],
+                        "scope_down_statement": {
+                            "geo_match_statement": {
+                                "country_codes": [
+                                    "US",
+                                    "NL",
+                                ],
+                            },
+                        },
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            },
+            token_domains=[
+                "mywebsite.com",
+                "myotherwebsite.com",
+            ],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Account Creation Fraud Prevention
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        acfp_example = aws.wafv2.WebAcl("acfp-example",
+            name="managed-acfp-example",
+            description="Example of a managed ACFP rule.",
+            scope="CLOUDFRONT",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "acfp-rule-1",
+                "priority": 1,
+                "override_action": {
+                    "count": {},
+                },
+                "statement": {
+                    "managed_rule_group_statement": {
+                        "name": "AWSManagedRulesACFPRuleSet",
+                        "vendor_name": "AWS",
+                        "managed_rule_group_configs": [{
+                            "aws_managed_rules_acfp_rule_set": {
+                                "creation_path": "/signin",
+                                "registration_page_path": "/register",
+                                "request_inspection": {
+                                    "email_field": {
+                                        "identifier": "/email",
+                                    },
+                                    "password_field": {
+                                        "identifier": "/password",
+                                    },
+                                    "payload_type": "JSON",
+                                    "username_field": {
+                                        "identifier": "/username",
+                                    },
+                                },
+                                "response_inspection": {
+                                    "status_code": {
+                                        "failure_codes": [403],
+                                        "success_codes": [200],
+                                    },
+                                },
+                            },
+                        }],
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Account Takeover Protection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        atp_example = aws.wafv2.WebAcl("atp-example",
+            name="managed-atp-example",
+            description="Example of a managed ATP rule.",
+            scope="CLOUDFRONT",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "atp-rule-1",
+                "priority": 1,
+                "override_action": {
+                    "count": {},
+                },
+                "statement": {
+                    "managed_rule_group_statement": {
+                        "name": "AWSManagedRulesATPRuleSet",
+                        "vendor_name": "AWS",
+                        "managed_rule_group_configs": [{
+                            "aws_managed_rules_atp_rule_set": {
+                                "login_path": "/api/1/signin",
+                                "request_inspection": {
+                                    "password_field": {
+                                        "identifier": "/password",
+                                    },
+                                    "payload_type": "JSON",
+                                    "username_field": {
+                                        "identifier": "/email",
+                                    },
+                                },
+                                "response_inspection": {
+                                    "status_code": {
+                                        "failure_codes": [403],
+                                        "success_codes": [200],
+                                    },
+                                },
+                            },
+                        }],
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Rate Based
+
+        Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.WebAcl("example",
+            name="rate-based-example",
+            description="Example of a Cloudfront rate based statement.",
+            scope="CLOUDFRONT",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "action": {
+                    "block": {},
+                },
+                "statement": {
+                    "rate_based_statement": {
+                        "limit": 10000,
+                        "aggregate_key_type": "IP",
+                        "scope_down_statement": {
+                            "geo_match_statement": {
+                                "country_codes": [
+                                    "US",
+                                    "NL",
+                                ],
+                            },
+                        },
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            },
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Rule Group Reference
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.RuleGroup("example",
+            capacity=10,
+            name="example-rule-group",
+            scope="REGIONAL",
+            rules=[
+                {
+                    "name": "rule-1",
+                    "priority": 1,
+                    "action": {
+                        "count": {},
+                    },
+                    "statement": {
+                        "geo_match_statement": {
+                            "country_codes": ["NL"],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "friendly-rule-metric-name",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+                {
+                    "name": "rule-to-exclude-a",
+                    "priority": 10,
+                    "action": {
+                        "allow": {},
+                    },
+                    "statement": {
+                        "geo_match_statement": {
+                            "country_codes": ["US"],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "friendly-rule-metric-name",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+                {
+                    "name": "rule-to-exclude-b",
+                    "priority": 15,
+                    "action": {
+                        "allow": {},
+                    },
+                    "statement": {
+                        "geo_match_statement": {
+                            "country_codes": ["GB"],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "friendly-rule-metric-name",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+            ],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        test = aws.wafv2.WebAcl("test",
+            name="rule-group-example",
+            scope="REGIONAL",
+            default_action={
+                "block": {},
+            },
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "override_action": {
+                    "count": {},
+                },
+                "statement": {
+                    "rule_group_reference_statement": {
+                        "arn": example.arn,
+                        "rule_action_overrides": [
+                            {
+                                "action_to_use": {
+                                    "count": {},
+                                },
+                                "name": "rule-to-exclude-b",
+                            },
+                            {
+                                "action_to_use": {
+                                    "count": {},
+                                },
+                                "name": "rule-to-exclude-a",
+                            },
+                        ],
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            },
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Large Request Body Inspections for Regional Resources
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.WebAcl("example",
+            name="large-request-body-example",
+            scope="REGIONAL",
+            default_action={
+                "allow": {},
+            },
+            association_config={
+                "request_bodies": [{
+                    "api_gateway": {
+                        "default_size_inspection_limit": "KB_64",
+                    },
+                    "app_runner_service": {
+                        "default_size_inspection_limit": "KB_64",
+                    },
+                    "cognito_user_pool": {
+                        "default_size_inspection_limit": "KB_64",
+                    },
+                    "verified_access_instance": {
+                        "default_size_inspection_limit": "KB_64",
+                    },
+                }],
+            },
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import WAFv2 Web ACLs using `ID/Name/Scope`. For example:
+
+        ```sh
+        $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        ```
+
         :param str resource_name: The name of the resource.
         :param WebAclArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

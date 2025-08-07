@@ -7,6 +7,421 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a WAFv2 Web ACL resource.
+ *
+ * > **Note** In `fieldToMatch` blocks, _e.g._, in `byteMatchStatement`, the `body` block includes an optional argument `oversizeHandling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversizeHandling` argument as **required** as soon as possible.
+ *
+ * ## Example Usage
+ *
+ * This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
+ *
+ * ### Managed Rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.wafv2.WebAcl("example", {
+ *     name: "managed-rule-example",
+ *     description: "Example of a managed rule.",
+ *     scope: "REGIONAL",
+ *     defaultAction: {
+ *         allow: {},
+ *     },
+ *     rules: [{
+ *         name: "rule-1",
+ *         priority: 1,
+ *         overrideAction: {
+ *             count: {},
+ *         },
+ *         statement: {
+ *             managedRuleGroupStatement: {
+ *                 name: "AWSManagedRulesCommonRuleSet",
+ *                 vendorName: "AWS",
+ *                 ruleActionOverrides: [
+ *                     {
+ *                         actionToUse: {
+ *                             count: {},
+ *                         },
+ *                         name: "SizeRestrictions_QUERYSTRING",
+ *                     },
+ *                     {
+ *                         actionToUse: {
+ *                             count: {},
+ *                         },
+ *                         name: "NoUserAgent_HEADER",
+ *                     },
+ *                 ],
+ *                 scopeDownStatement: {
+ *                     geoMatchStatement: {
+ *                         countryCodes: [
+ *                             "US",
+ *                             "NL",
+ *                         ],
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         visibilityConfig: {
+ *             cloudwatchMetricsEnabled: false,
+ *             metricName: "friendly-rule-metric-name",
+ *             sampledRequestsEnabled: false,
+ *         },
+ *     }],
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ *     tokenDomains: [
+ *         "mywebsite.com",
+ *         "myotherwebsite.com",
+ *     ],
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * ```
+ *
+ * ### Account Creation Fraud Prevention
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const acfp_example = new aws.wafv2.WebAcl("acfp-example", {
+ *     name: "managed-acfp-example",
+ *     description: "Example of a managed ACFP rule.",
+ *     scope: "CLOUDFRONT",
+ *     defaultAction: {
+ *         allow: {},
+ *     },
+ *     rules: [{
+ *         name: "acfp-rule-1",
+ *         priority: 1,
+ *         overrideAction: {
+ *             count: {},
+ *         },
+ *         statement: {
+ *             managedRuleGroupStatement: {
+ *                 name: "AWSManagedRulesACFPRuleSet",
+ *                 vendorName: "AWS",
+ *                 managedRuleGroupConfigs: [{
+ *                     awsManagedRulesAcfpRuleSet: {
+ *                         creationPath: "/signin",
+ *                         registrationPagePath: "/register",
+ *                         requestInspection: {
+ *                             emailField: {
+ *                                 identifier: "/email",
+ *                             },
+ *                             passwordField: {
+ *                                 identifier: "/password",
+ *                             },
+ *                             payloadType: "JSON",
+ *                             usernameField: {
+ *                                 identifier: "/username",
+ *                             },
+ *                         },
+ *                         responseInspection: {
+ *                             statusCode: {
+ *                                 failureCodes: [403],
+ *                                 successCodes: [200],
+ *                             },
+ *                         },
+ *                     },
+ *                 }],
+ *             },
+ *         },
+ *         visibilityConfig: {
+ *             cloudwatchMetricsEnabled: false,
+ *             metricName: "friendly-rule-metric-name",
+ *             sampledRequestsEnabled: false,
+ *         },
+ *     }],
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * ```
+ *
+ * ### Account Takeover Protection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const atp_example = new aws.wafv2.WebAcl("atp-example", {
+ *     name: "managed-atp-example",
+ *     description: "Example of a managed ATP rule.",
+ *     scope: "CLOUDFRONT",
+ *     defaultAction: {
+ *         allow: {},
+ *     },
+ *     rules: [{
+ *         name: "atp-rule-1",
+ *         priority: 1,
+ *         overrideAction: {
+ *             count: {},
+ *         },
+ *         statement: {
+ *             managedRuleGroupStatement: {
+ *                 name: "AWSManagedRulesATPRuleSet",
+ *                 vendorName: "AWS",
+ *                 managedRuleGroupConfigs: [{
+ *                     awsManagedRulesAtpRuleSet: {
+ *                         loginPath: "/api/1/signin",
+ *                         requestInspection: {
+ *                             passwordField: {
+ *                                 identifier: "/password",
+ *                             },
+ *                             payloadType: "JSON",
+ *                             usernameField: {
+ *                                 identifier: "/email",
+ *                             },
+ *                         },
+ *                         responseInspection: {
+ *                             statusCode: {
+ *                                 failureCodes: [403],
+ *                                 successCodes: [200],
+ *                             },
+ *                         },
+ *                     },
+ *                 }],
+ *             },
+ *         },
+ *         visibilityConfig: {
+ *             cloudwatchMetricsEnabled: false,
+ *             metricName: "friendly-rule-metric-name",
+ *             sampledRequestsEnabled: false,
+ *         },
+ *     }],
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * ```
+ *
+ * ### Rate Based
+ *
+ * Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.wafv2.WebAcl("example", {
+ *     name: "rate-based-example",
+ *     description: "Example of a Cloudfront rate based statement.",
+ *     scope: "CLOUDFRONT",
+ *     defaultAction: {
+ *         allow: {},
+ *     },
+ *     rules: [{
+ *         name: "rule-1",
+ *         priority: 1,
+ *         action: {
+ *             block: {},
+ *         },
+ *         statement: {
+ *             rateBasedStatement: {
+ *                 limit: 10000,
+ *                 aggregateKeyType: "IP",
+ *                 scopeDownStatement: {
+ *                     geoMatchStatement: {
+ *                         countryCodes: [
+ *                             "US",
+ *                             "NL",
+ *                         ],
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         visibilityConfig: {
+ *             cloudwatchMetricsEnabled: false,
+ *             metricName: "friendly-rule-metric-name",
+ *             sampledRequestsEnabled: false,
+ *         },
+ *     }],
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * ```
+ *
+ * ### Rule Group Reference
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.wafv2.RuleGroup("example", {
+ *     capacity: 10,
+ *     name: "example-rule-group",
+ *     scope: "REGIONAL",
+ *     rules: [
+ *         {
+ *             name: "rule-1",
+ *             priority: 1,
+ *             action: {
+ *                 count: {},
+ *             },
+ *             statement: {
+ *                 geoMatchStatement: {
+ *                     countryCodes: ["NL"],
+ *                 },
+ *             },
+ *             visibilityConfig: {
+ *                 cloudwatchMetricsEnabled: false,
+ *                 metricName: "friendly-rule-metric-name",
+ *                 sampledRequestsEnabled: false,
+ *             },
+ *         },
+ *         {
+ *             name: "rule-to-exclude-a",
+ *             priority: 10,
+ *             action: {
+ *                 allow: {},
+ *             },
+ *             statement: {
+ *                 geoMatchStatement: {
+ *                     countryCodes: ["US"],
+ *                 },
+ *             },
+ *             visibilityConfig: {
+ *                 cloudwatchMetricsEnabled: false,
+ *                 metricName: "friendly-rule-metric-name",
+ *                 sampledRequestsEnabled: false,
+ *             },
+ *         },
+ *         {
+ *             name: "rule-to-exclude-b",
+ *             priority: 15,
+ *             action: {
+ *                 allow: {},
+ *             },
+ *             statement: {
+ *                 geoMatchStatement: {
+ *                     countryCodes: ["GB"],
+ *                 },
+ *             },
+ *             visibilityConfig: {
+ *                 cloudwatchMetricsEnabled: false,
+ *                 metricName: "friendly-rule-metric-name",
+ *                 sampledRequestsEnabled: false,
+ *             },
+ *         },
+ *     ],
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * const test = new aws.wafv2.WebAcl("test", {
+ *     name: "rule-group-example",
+ *     scope: "REGIONAL",
+ *     defaultAction: {
+ *         block: {},
+ *     },
+ *     rules: [{
+ *         name: "rule-1",
+ *         priority: 1,
+ *         overrideAction: {
+ *             count: {},
+ *         },
+ *         statement: {
+ *             ruleGroupReferenceStatement: {
+ *                 arn: example.arn,
+ *                 ruleActionOverrides: [
+ *                     {
+ *                         actionToUse: {
+ *                             count: {},
+ *                         },
+ *                         name: "rule-to-exclude-b",
+ *                     },
+ *                     {
+ *                         actionToUse: {
+ *                             count: {},
+ *                         },
+ *                         name: "rule-to-exclude-a",
+ *                     },
+ *                 ],
+ *             },
+ *         },
+ *         visibilityConfig: {
+ *             cloudwatchMetricsEnabled: false,
+ *             metricName: "friendly-rule-metric-name",
+ *             sampledRequestsEnabled: false,
+ *         },
+ *     }],
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * ```
+ *
+ * ### Large Request Body Inspections for Regional Resources
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.wafv2.WebAcl("example", {
+ *     name: "large-request-body-example",
+ *     scope: "REGIONAL",
+ *     defaultAction: {
+ *         allow: {},
+ *     },
+ *     associationConfig: {
+ *         requestBodies: [{
+ *             apiGateway: {
+ *                 defaultSizeInspectionLimit: "KB_64",
+ *             },
+ *             appRunnerService: {
+ *                 defaultSizeInspectionLimit: "KB_64",
+ *             },
+ *             cognitoUserPool: {
+ *                 defaultSizeInspectionLimit: "KB_64",
+ *             },
+ *             verifiedAccessInstance: {
+ *                 defaultSizeInspectionLimit: "KB_64",
+ *             },
+ *         }],
+ *     },
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import WAFv2 Web ACLs using `ID/Name/Scope`. For example:
+ *
+ * ```sh
+ * $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+ * ```
+ */
 export class WebAcl extends pulumi.CustomResource {
     /**
      * Get an existing WebAcl resource's state with the given name, ID, and optional extra
