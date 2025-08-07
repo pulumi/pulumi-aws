@@ -12,6 +12,338 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AppSync GraphQL API.
+//
+// ## Example Usage
+//
+// ### API Key Authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### AWS IAM Authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("AWS_IAM"),
+//				Name:               pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### AWS Cognito User Pool Authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
+//				Name:               pulumi.String("example"),
+//				UserPoolConfig: &appsync.GraphQLApiUserPoolConfigArgs{
+//					AwsRegion:     pulumi.Any(current.Region),
+//					DefaultAction: pulumi.String("DENY"),
+//					UserPoolId:    pulumi.Any(exampleAwsCognitoUserPool.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### OpenID Connect Authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("OPENID_CONNECT"),
+//				Name:               pulumi.String("example"),
+//				OpenidConnectConfig: &appsync.GraphQLApiOpenidConnectConfigArgs{
+//					Issuer: pulumi.String("https://example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### AWS Lambda Authorizer Authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("AWS_LAMBDA"),
+//				Name:               pulumi.String("example"),
+//				LambdaAuthorizerConfig: &appsync.GraphQLApiLambdaAuthorizerConfigArgs{
+//					AuthorizerUri: pulumi.String("arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewPermission(ctx, "appsync_lambda_authorizer", &lambda.PermissionArgs{
+//				StatementId: pulumi.String("appsync_lambda_authorizer"),
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    pulumi.Any("custom_lambda_authorizer"),
+//				Principal:   pulumi.String("appsync.amazonaws.com"),
+//				SourceArn:   example.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### With Multiple Authentication Providers
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("example"),
+//				AdditionalAuthenticationProviders: appsync.GraphQLApiAdditionalAuthenticationProviderArray{
+//					&appsync.GraphQLApiAdditionalAuthenticationProviderArgs{
+//						AuthenticationType: pulumi.String("AWS_IAM"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### With Schema
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("AWS_IAM"),
+//				Name:               pulumi.String("example"),
+//				Schema: pulumi.String(`schema {
+//		query: Query
+//	}
+//
+//	type Query {
+//	  test: Int
+//	}
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Enabling Logging
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"appsync.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs"),
+//				Role:      example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				LogConfig: &appsync.GraphQLApiLogConfigArgs{
+//					CloudwatchLogsRoleArn: example.Arn,
+//					FieldLogLevel:         pulumi.String("ERROR"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### GraphQL run complexity, query depth, and introspection
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				AuthenticationType:  pulumi.String("AWS_IAM"),
+//				Name:                pulumi.String("example"),
+//				IntrospectionConfig: pulumi.String("ENABLED"),
+//				QueryDepthLimit:     pulumi.Int(2),
+//				ResolverCountLimit:  pulumi.Int(2),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Using `pulumi import`, import AppSync GraphQL API using the GraphQL API ID. For example:
+//
+// ```sh
+// $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
+// ```
 type GraphQLApi struct {
 	pulumi.CustomResourceState
 

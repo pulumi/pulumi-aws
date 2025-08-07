@@ -7,6 +7,176 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AppSync GraphQL API.
+ *
+ * ## Example Usage
+ *
+ * ### API Key Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "example",
+ * });
+ * ```
+ *
+ * ### AWS IAM Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AWS_IAM",
+ *     name: "example",
+ * });
+ * ```
+ *
+ * ### AWS Cognito User Pool Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
+ *     name: "example",
+ *     userPoolConfig: {
+ *         awsRegion: current.region,
+ *         defaultAction: "DENY",
+ *         userPoolId: exampleAwsCognitoUserPool.id,
+ *     },
+ * });
+ * ```
+ *
+ * ### OpenID Connect Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "OPENID_CONNECT",
+ *     name: "example",
+ *     openidConnectConfig: {
+ *         issuer: "https://example.com",
+ *     },
+ * });
+ * ```
+ *
+ * ### AWS Lambda Authorizer Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AWS_LAMBDA",
+ *     name: "example",
+ *     lambdaAuthorizerConfig: {
+ *         authorizerUri: "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
+ *     },
+ * });
+ * const appsyncLambdaAuthorizer = new aws.lambda.Permission("appsync_lambda_authorizer", {
+ *     statementId: "appsync_lambda_authorizer",
+ *     action: "lambda:InvokeFunction",
+ *     "function": "custom_lambda_authorizer",
+ *     principal: "appsync.amazonaws.com",
+ *     sourceArn: example.arn,
+ * });
+ * ```
+ *
+ * ### With Multiple Authentication Providers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "example",
+ *     additionalAuthenticationProviders: [{
+ *         authenticationType: "AWS_IAM",
+ *     }],
+ * });
+ * ```
+ *
+ * ### With Schema
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AWS_IAM",
+ *     name: "example",
+ *     schema: `schema {
+ * \x09query: Query
+ * }
+ * type Query {
+ *   test: Int
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ### Enabling Logging
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["appsync.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const example = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
+ *     role: example.name,
+ * });
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {logConfig: {
+ *     cloudwatchLogsRoleArn: example.arn,
+ *     fieldLogLevel: "ERROR",
+ * }});
+ * ```
+ *
+ * ### GraphQL run complexity, query depth, and introspection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AWS_IAM",
+ *     name: "example",
+ *     introspectionConfig: "ENABLED",
+ *     queryDepthLimit: 2,
+ *     resolverCountLimit: 2,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import AppSync GraphQL API using the GraphQL API ID. For example:
+ *
+ * ```sh
+ * $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
+ * ```
+ */
 export class GraphQLApi extends pulumi.CustomResource {
     /**
      * Get an existing GraphQLApi resource's state with the given name, ID, and optional extra

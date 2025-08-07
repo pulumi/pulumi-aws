@@ -9,6 +9,605 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafV2
 {
+    /// <summary>
+    /// Creates a WAFv2 Web ACL resource.
+    /// 
+    /// &gt; **Note** In `field_to_match` blocks, _e.g._, in `byte_match_statement`, the `body` block includes an optional argument `oversize_handling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversize_handling` argument as **required** as soon as possible.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
+    /// 
+    /// ### Managed Rule
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAcl("example", new()
+    ///     {
+    ///         Name = "managed-rule-example",
+    ///         Description = "Example of a managed rule.",
+    ///         Scope = "REGIONAL",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = null,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Count = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     ManagedRuleGroupStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementArgs
+    ///                     {
+    ///                         Name = "AWSManagedRulesCommonRuleSet",
+    ///                         VendorName = "AWS",
+    ///                         RuleActionOverrides = new[]
+    ///                         {
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs
+    ///                             {
+    ///                                 ActionToUse = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs
+    ///                                 {
+    ///                                     Count = null,
+    ///                                 },
+    ///                                 Name = "SizeRestrictions_QUERYSTRING",
+    ///                             },
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs
+    ///                             {
+    ///                                 ActionToUse = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs
+    ///                                 {
+    ///                                     Count = null,
+    ///                                 },
+    ///                                 Name = "NoUserAgent_HEADER",
+    ///                             },
+    ///                         },
+    ///                         ScopeDownStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs
+    ///                         {
+    ///                             GeoMatchStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs
+    ///                             {
+    ///                                 CountryCodes = new[]
+    ///                                 {
+    ///                                     "US",
+    ///                                     "NL",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///         TokenDomains = new[]
+    ///         {
+    ///             "mywebsite.com",
+    ///             "myotherwebsite.com",
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Account Creation Fraud Prevention
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var acfp_example = new Aws.WafV2.WebAcl("acfp-example", new()
+    ///     {
+    ///         Name = "managed-acfp-example",
+    ///         Description = "Example of a managed ACFP rule.",
+    ///         Scope = "CLOUDFRONT",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = null,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "acfp-rule-1",
+    ///                 Priority = 1,
+    ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Count = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     ManagedRuleGroupStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementArgs
+    ///                     {
+    ///                         Name = "AWSManagedRulesACFPRuleSet",
+    ///                         VendorName = "AWS",
+    ///                         ManagedRuleGroupConfigs = new[]
+    ///                         {
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs
+    ///                             {
+    ///                                 AwsManagedRulesAcfpRuleSet = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs
+    ///                                 {
+    ///                                     CreationPath = "/signin",
+    ///                                     RegistrationPagePath = "/register",
+    ///                                     RequestInspection = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs
+    ///                                     {
+    ///                                         EmailField = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs
+    ///                                         {
+    ///                                             Identifier = "/email",
+    ///                                         },
+    ///                                         PasswordField = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs
+    ///                                         {
+    ///                                             Identifier = "/password",
+    ///                                         },
+    ///                                         PayloadType = "JSON",
+    ///                                         UsernameField = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs
+    ///                                         {
+    ///                                             Identifier = "/username",
+    ///                                         },
+    ///                                     },
+    ///                                     ResponseInspection = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs
+    ///                                     {
+    ///                                         StatusCode = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs
+    ///                                         {
+    ///                                             FailureCodes = new[]
+    ///                                             {
+    ///                                                 403,
+    ///                                             },
+    ///                                             SuccessCodes = new[]
+    ///                                             {
+    ///                                                 200,
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Account Takeover Protection
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var atp_example = new Aws.WafV2.WebAcl("atp-example", new()
+    ///     {
+    ///         Name = "managed-atp-example",
+    ///         Description = "Example of a managed ATP rule.",
+    ///         Scope = "CLOUDFRONT",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = null,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "atp-rule-1",
+    ///                 Priority = 1,
+    ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Count = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     ManagedRuleGroupStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementArgs
+    ///                     {
+    ///                         Name = "AWSManagedRulesATPRuleSet",
+    ///                         VendorName = "AWS",
+    ///                         ManagedRuleGroupConfigs = new[]
+    ///                         {
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs
+    ///                             {
+    ///                                 AwsManagedRulesAtpRuleSet = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs
+    ///                                 {
+    ///                                     LoginPath = "/api/1/signin",
+    ///                                     RequestInspection = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs
+    ///                                     {
+    ///                                         PasswordField = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs
+    ///                                         {
+    ///                                             Identifier = "/password",
+    ///                                         },
+    ///                                         PayloadType = "JSON",
+    ///                                         UsernameField = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs
+    ///                                         {
+    ///                                             Identifier = "/email",
+    ///                                         },
+    ///                                     },
+    ///                                     ResponseInspection = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs
+    ///                                     {
+    ///                                         StatusCode = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs
+    ///                                         {
+    ///                                             FailureCodes = new[]
+    ///                                             {
+    ///                                                 403,
+    ///                                             },
+    ///                                             SuccessCodes = new[]
+    ///                                             {
+    ///                                                 200,
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Rate Based
+    /// 
+    /// Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAcl("example", new()
+    ///     {
+    ///         Name = "rate-based-example",
+    ///         Description = "Example of a Cloudfront rate based statement.",
+    ///         Scope = "CLOUDFRONT",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = null,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
+    ///                 {
+    ///                     Block = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     RateBasedStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementArgs
+    ///                     {
+    ///                         Limit = 10000,
+    ///                         AggregateKeyType = "IP",
+    ///                         ScopeDownStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs
+    ///                         {
+    ///                             GeoMatchStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs
+    ///                             {
+    ///                                 CountryCodes = new[]
+    ///                                 {
+    ///                                     "US",
+    ///                                     "NL",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Rule Group Reference
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.RuleGroup("example", new()
+    ///     {
+    ///         Capacity = 10,
+    ///         Name = "example-rule-group",
+    ///         Scope = "REGIONAL",
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                 {
+    ///                     Count = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                     {
+    ///                         CountryCodes = new[]
+    ///                         {
+    ///                             "NL",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///             {
+    ///                 Name = "rule-to-exclude-a",
+    ///                 Priority = 10,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                 {
+    ///                     Allow = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                     {
+    ///                         CountryCodes = new[]
+    ///                         {
+    ///                             "US",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///             {
+    ///                 Name = "rule-to-exclude-b",
+    ///                 Priority = 15,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                 {
+    ///                     Allow = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                     {
+    ///                         CountryCodes = new[]
+    ///                         {
+    ///                             "GB",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var test = new Aws.WafV2.WebAcl("test", new()
+    ///     {
+    ///         Name = "rule-group-example",
+    ///         Scope = "REGIONAL",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Block = null,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Count = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     RuleGroupReferenceStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementArgs
+    ///                     {
+    ///                         Arn = example.Arn,
+    ///                         RuleActionOverrides = new[]
+    ///                         {
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs
+    ///                             {
+    ///                                 ActionToUse = new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs
+    ///                                 {
+    ///                                     Count = null,
+    ///                                 },
+    ///                                 Name = "rule-to-exclude-b",
+    ///                             },
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs
+    ///                             {
+    ///                                 ActionToUse = new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs
+    ///                                 {
+    ///                                     Count = null,
+    ///                                 },
+    ///                                 Name = "rule-to-exclude-a",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Large Request Body Inspections for Regional Resources
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAcl("example", new()
+    ///     {
+    ///         Name = "large-request-body-example",
+    ///         Scope = "REGIONAL",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = null,
+    ///         },
+    ///         AssociationConfig = new Aws.WafV2.Inputs.WebAclAssociationConfigArgs
+    ///         {
+    ///             RequestBodies = new[]
+    ///             {
+    ///                 new Aws.WafV2.Inputs.WebAclAssociationConfigRequestBodyArgs
+    ///                 {
+    ///                     ApiGateway = new Aws.WafV2.Inputs.WebAclAssociationConfigRequestBodyApiGatewayArgs
+    ///                     {
+    ///                         DefaultSizeInspectionLimit = "KB_64",
+    ///                     },
+    ///                     AppRunnerService = new Aws.WafV2.Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceArgs
+    ///                     {
+    ///                         DefaultSizeInspectionLimit = "KB_64",
+    ///                     },
+    ///                     CognitoUserPool = new Aws.WafV2.Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolArgs
+    ///                     {
+    ///                         DefaultSizeInspectionLimit = "KB_64",
+    ///                     },
+    ///                     VerifiedAccessInstance = new Aws.WafV2.Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs
+    ///                     {
+    ///                         DefaultSizeInspectionLimit = "KB_64",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import WAFv2 Web ACLs using `ID/Name/Scope`. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:wafv2/webAcl:WebAcl")]
     public partial class WebAcl : global::Pulumi.CustomResource
     {

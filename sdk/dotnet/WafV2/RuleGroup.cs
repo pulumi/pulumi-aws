@@ -9,6 +9,74 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafV2
 {
+    /// <summary>
+    /// Creates a WAFv2 Rule Group resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Simple
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.RuleGroup("example", new()
+    ///     {
+    ///         Name = "example-rule",
+    ///         Scope = "REGIONAL",
+    ///         Capacity = 2,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                 {
+    ///                     Allow = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                     {
+    ///                         CountryCodes = new[]
+    ///                         {
+    ///                             "US",
+    ///                             "NL",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:wafv2/ruleGroup:RuleGroup")]
     public partial class RuleGroup : global::Pulumi.CustomResource
     {

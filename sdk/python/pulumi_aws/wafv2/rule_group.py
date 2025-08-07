@@ -438,7 +438,55 @@ class RuleGroup(pulumi.CustomResource):
                  visibility_config: Optional[pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Create a RuleGroup resource with the given unique name, props, and options.
+        Creates a WAFv2 Rule Group resource.
+
+        ## Example Usage
+
+        ### Simple
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.RuleGroup("example",
+            name="example-rule",
+            scope="REGIONAL",
+            capacity=2,
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "action": {
+                    "allow": {},
+                },
+                "statement": {
+                    "geo_match_statement": {
+                        "country_codes": [
+                            "US",
+                            "NL",
+                        ],
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
+
+        ```sh
+        $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
@@ -459,7 +507,55 @@ class RuleGroup(pulumi.CustomResource):
                  args: RuleGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RuleGroup resource with the given unique name, props, and options.
+        Creates a WAFv2 Rule Group resource.
+
+        ## Example Usage
+
+        ### Simple
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.RuleGroup("example",
+            name="example-rule",
+            scope="REGIONAL",
+            capacity=2,
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "action": {
+                    "allow": {},
+                },
+                "statement": {
+                    "geo_match_statement": {
+                        "country_codes": [
+                            "US",
+                            "NL",
+                        ],
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
+
+        ```sh
+        $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        ```
+
         :param str resource_name: The name of the resource.
         :param RuleGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
