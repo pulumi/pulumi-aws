@@ -37,7 +37,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     env:
       PROVIDER_VERSION: ${{ inputs.version }}
     steps:

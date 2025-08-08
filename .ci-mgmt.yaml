@@ -9,6 +9,9 @@ providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVer
 
 buildProviderPre: "VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh"
 
+runner:
+  default: pulumi-ubuntu-8core
+
 toolVersions:
   go: "1.23.x"
   java: "11"

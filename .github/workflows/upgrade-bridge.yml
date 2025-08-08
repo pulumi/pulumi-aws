@@ -85,7 +85,7 @@ env:
 jobs:
   upgrade_provider:
     name: upgrade-provider
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     # Run as first step so we don't delete things that have just been installed
     - name: Free Disk Space (Ubuntu)
