@@ -18,7 +18,6 @@ env:
   OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
   PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
   PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
@@ -34,7 +33,7 @@ env:
 jobs:
   build_sdk:
     name: build_sdk
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     strategy:
       # We normally fail fast unless this is a PR from Renovate in which case
       # we'll always build all SDKs in case there are any changes to commit.
@@ -60,7 +59,7 @@ jobs:
           submodules: true
           persist-credentials: false
       - name: Cache examples generation
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
         with:
           path: |
             .pulumi/examples-cache
