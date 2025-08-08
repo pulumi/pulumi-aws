@@ -2,7 +2,7 @@ provider: aws
 lint: false
 major-version: 7
 parallel: 1
-shards: 12
+shards: 8
 timeout: 150
 generate-nightly-test-workflow: true
 providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVersion
@@ -17,7 +17,7 @@ toolVersions:
   java: "11"
   gradle: "7.6"
   nodejs: "20.x"
-  pulumi: "dev"
+  pulumi: "3.186.0"
   python: "3.11.8"
 env:
   PULUMI_MISSING_DOCS_ERROR: true
