@@ -49,7 +49,7 @@ runs:
       if: inputs.tools == 'all' || contains(inputs.tools, 'pulumicli')
       uses: pulumi/actions@cc7494be991dba0978f7ffafaf995b0449a0998e # v6
       with:
-        pulumi-version: "3.188.0-alpha.x18512a9"
+        pulumi-version: "3.187.0"
 
     - name: Install Schema Tools
       if: inputs.tools == 'all' || contains(inputs.tools, 'schema-tools')
