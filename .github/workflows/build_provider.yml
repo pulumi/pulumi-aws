@@ -26,7 +26,7 @@ on:
 jobs:
   build_provider:
     name: Build ${{ matrix.platform.os }}-${{ matrix.platform.arch }}
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     env:
       PROVIDER_VERSION: ${{ inputs.version }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

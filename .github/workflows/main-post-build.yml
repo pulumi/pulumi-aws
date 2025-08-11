@@ -27,7 +27,7 @@ jobs:
   generate_coverage_data:
     continue-on-error: true
     name: generate_coverage_data
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
