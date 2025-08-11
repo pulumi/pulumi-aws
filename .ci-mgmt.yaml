@@ -14,7 +14,7 @@ toolVersions:
   java: "11"
   gradle: "7.6"
   nodejs: "20.x"
-  pulumi: "dev"
+  pulumi: "3.187.0"
   python: "3.11.8"
 env:
   PULUMI_MISSING_DOCS_ERROR: true
