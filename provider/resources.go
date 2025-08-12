@@ -5810,283 +5810,122 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		}
 		return resource.ID(s)
 	}
-	attr := func(state resource.PropertyMap, attrs ...resource.PropertyKey) resource.ID {
-		return attrWithSeparator(state, "__", attrs...)
-	}
-	prov.Resources["aws_lambda_runtime_management_config"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "functionName", "qualifier"), nil
-	}
-	prov.Resources["aws_datazone_environment_blueprint_configuration"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "domainId", "environmentBlueprintId"), nil
-	}
-	prov.Resources["aws_vpc_endpoint_service_private_dns_verification"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "serviceId"), nil
-	}
-	prov.Resources["aws_vpc_endpoint_private_dns"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "vpcEndpointId"), nil
-	}
-	prov.Resources["aws_rekognition_stream_processor"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "name"), nil
-	}
-	prov.Resources["aws_chatbot_slack_channel_configuration"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "configurationName"), nil
-	}
-	prov.Resources["aws_chatbot_teams_channel_configuration"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "configurationName"), nil
-	}
-	prov.Resources["aws_bedrock_guardrail"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "guardrailId", "version"), nil
-	}
-	prov.Resources["aws_datazone_form_type"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "domainIdentifier", "name", "revision"), nil
-	}
-	prov.Resources["aws_pinpoint_email_template"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "templateName"), nil
-	}
-	prov.Resources["aws_glue_catalog_table_optimizer"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "catalogId", "databaseName", "tableName", "type"), nil
-	}
-	prov.Resources["aws_datazone_asset_type"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "domainIdentifier", "name"), nil
-	}
-	prov.Resources["aws_lambda_function_recursion_config"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "functionName"), nil
-	}
-	prov.Resources["aws_iam_role_policies_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "roleName"), nil
-	}
-	prov.Resources["aws_elasticache_reserved_cache_node"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "id"), nil
-	}
-	prov.Resources["aws_bedrock_guardrail_version"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "guardrailArn", "version"), nil
-	}
-	prov.Resources["aws_iam_group_policies_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "groupName"), nil
-	}
-	prov.Resources["aws_iam_user_policies_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "userName"), nil
-	}
-	prov.Resources["aws_backup_restore_testing_plan"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attr(state, "name"), nil
-	}
-	prov.Resources["aws_backup_restore_testing_selection"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		// The ${name}:${restoreTestingPlanName} is the format used by TF import, so we are going to use it for
-		// the Pulumi ID as well.
-		return attrWithSeparator(state, ":", "name", "restoreTestingPlanName"), nil
-	}
-	prov.Resources["aws_iam_role_policy_attachments_exclusive"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "roleName"), nil
-	}
-	prov.Resources["aws_iam_group_policy_attachments_exclusive"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "groupName"), nil
-	}
-	prov.Resources["aws_iam_user_policy_attachments_exclusive"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "userName"), nil
-	}
-	prov.Resources["aws_resiliencehub_resiliency_policy"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "arn"), nil
-	}
-	prov.Resources["aws_ssmquicksetup_configuration_manager"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "managerARN"), nil
-	}
-	prov.Resources["aws_opensearch_authorize_vpc_endpoint_access"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "domainName"), nil
-	}
-	prov.Resources["aws_vpc_security_group_vpc_association"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "id"), nil
-	}
-	prov.Resources["aws_rds_instance_state"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "identifier"), nil
+
+	// Helper function that returns a ComputeID function
+	computeIDWith := func(sep string, attrs ...resource.PropertyKey) func(context.Context, resource.PropertyMap) (resource.ID, error) {
+		return func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+			return attrWithSeparator(state, sep, attrs...), nil
+		}
 	}
 
-	prov.Resources["aws_s3tables_table_bucket"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "arn"), nil
-	}
-	prov.Resources["aws_s3tables_table_policy"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, ";", "tableBucketArn", "namespace", "name"), nil
-	}
-	prov.Resources["aws_s3tables_table"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, ";", "tableBucketArn", "namespace", "name"), nil
-	}
-	prov.Resources["aws_s3tables_namespace"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, ";", "tableBucketArn", "namespace"), nil
-	}
-	prov.Resources["aws_s3tables_table_bucket_policy"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, "tableBucketArn"), nil
+	// Helper for default separator
+	computeID := func(attrs ...resource.PropertyKey) func(context.Context, resource.PropertyMap) (resource.ID, error) {
+		return computeIDWith(",", attrs...)
 	}
 
-	prov.Resources["aws_servicecatalogappregistry_attribute_group_association"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, ",", "applicationId", "attributeGroupId"), nil
+	computeIDConfigs := map[string]func(context.Context, resource.PropertyMap) (resource.ID, error){
+		"aws_cloudwatch_log_index_policy":                                  computeID("logGroupName"),
+		"aws_cloudwatch_log_delivery_source":                               computeID("name"),
+		"aws_cloudwatch_log_delivery_destination_policy":                   computeID("deliveryDestinationName"),
+		"aws_cloudwatch_log_delivery_destination":                          computeID("name"),
+		"aws_media_packagev2_channel_group":                                computeID("name"),
+		"aws_timestreamquery_scheduled_query":                              computeID("arn"),
+		"aws_route53domains_domain":                                        computeID("domainName"),
+		"aws_api_gateway_rest_api_put":                                     computeID("restApiId"),
+		"aws_ec2_default_credit_specification":                             computeID("instanceFamily"),
+		"aws_inspector2_filter":                                            computeID("arn"),
+		"aws_cloudfrontkeyvaluestore_keys_exclusive":                       computeID("keyValueStoreArn"),
+		"aws_workspacesweb_network_settings":                               computeID("networkSettingsArn"),
+		"aws_workspacesweb_browser_settings":                               computeID("browserSettingsArn"),
+		"aws_workspacesweb_user_settings":                                  computeID("userSettingsArn"),
+		"aws_workspacesweb_data_protection_settings":                       computeID("dataProtectionSettingsArn"),
+		"aws_workspacesweb_user_access_logging_settings":                   computeID("userAccessLoggingSettingsArn"),
+		"aws_workspacesweb_ip_access_settings":                             computeID("ipAccessSettingsArn"),
+		"aws_quicksight_account_settings":                                  computeID("awsAccountId"),
+		"aws_notificationscontacts_email_contact":                          computeID("arn"),
+		"aws_notifications_notification_configuration":                     computeID("arn"),
+		"aws_notifications_notification_hub":                               computeID("notificationHubRegion"),
+		"aws_notifications_event_rule":                                     computeID("arn"),
+		"aws_notifications_channel_association":                            computeIDWith("__", "notificationConfigurationArn", "arn"),
+		"aws_prometheus_workspace_configuration":                           computeID("workspaceId"),
+		"aws_vpc_route_server":                                             computeID("routeServerId"),
+		"aws_vpc_route_server_propagation":                                 computeID("routeServerPropagationId"),
+		"aws_vpc_route_server_endpoint":                                    computeID("routeServerEndpointId"),
+		"aws_vpc_route_server_peer":                                        computeID("routeServerPeerId"),
+		"aws_dsql_cluster_peering":                                         computeID("identifier"),
+		"aws_dsql_cluster":                                                 computeID("identifier"),
+		"aws_prometheus_query_logging_configuration":                       computeID("workspaceId"),
+		"aws_fsx_s3_access_point_attachment":                               computeID("name"),
+		"aws_cognito_log_delivery_configuration":                           computeID("userPoolId"),
+		"aws_s3_bucket_metadata_configuration":                             computeID("bucket"),
+		"aws_networkfirewall_firewall_transit_gateway_attachment_accepter": computeID("id"),
+		"aws_connect_phone_number_contact_flow_association":                computeIDWith("__", "phoneNumberId", "instanceId", "contractFlowId"),
+		"aws_quicksight_ip_restriction":                                    computeID("awsAccountId"),
+		"aws_quicksight_key_registration":                                  computeID("awsAccountId"),
+		"aws_nat_gateway_eip_association":                                  computeID("natGatewayId", "allocationId"),
+		"aws_vpc_route_server_vpc_association":                             computeID("routeServerId", "vpcId"),
+		"aws_s3control_directory_bucket_access_point_scope":                computeID("name", "accountId"),
+		"aws_wafv2_api_key":                                                computeID("apiKey", "scope"),
+		"aws_athena_capacity_reservation":                                  computeID("name"),
+		"aws_route53_records_exclusive":                                    computeID("zoneId"),
+		"aws_network_interface_permission":                                 computeID("networkInterfacePermissionId"),
+		"aws_lakeformation_opt_in":                                         computeID("principal.dataLakePrincipalIdentifier"),
+		"aws_rds_shard_group":                                              computeID("dbShardGroupIdentifier"),
+		"aws_macie2_organization_configuration":                            computeID("autoEnable"),
+		"aws_xray_resource_policy":                                         computeID("policyName"),
+		"aws_quicksight_role_membership":                                   computeID("awsAccountId", "namespace", "role", "memberName"),
+		"aws_cloudwatch_contributor_managed_insight_rule":                  computeID("arn"),
+		"aws_cloudwatch_contributor_insight_rule":                          computeID("name"),
+		"aws_guardduty_member_detector_feature":                            computeID("detectorId", "accountId", "name"),
+		"aws_memorydb_multi_region_cluster":                                computeID("multiRegionClusterName"),
+		"aws_cloudwatch_log_anomaly_detector":                              computeID("arn"),
+		"aws_ecr_account_setting":                                          computeID("name"),
+		"aws_servicecatalogappregistry_attribute_group_association":        computeID("applicationId", "attributeGroupId"),
+		"aws_s3tables_table_bucket_policy":                                 computeID("tableBucketArn"),
+		"aws_s3tables_namespace":                                           computeIDWith(";", "tableBucketArn", "namespace"),
+		"aws_s3tables_table":                                               computeIDWith(";", "tableBucketArn", "namespace", "name"),
+		"aws_s3tables_table_policy":                                        computeIDWith(";", "tableBucketArn", "namespace", "name"),
+		"aws_s3tables_table_bucket":                                        computeID("arn"),
+		"aws_rds_instance_state":                                           computeID("identifier"),
+		"aws_vpc_security_group_vpc_association":                           computeID("id"),
+		"aws_opensearch_authorize_vpc_endpoint_access":                     computeID("domainName"),
+		"aws_ssmquicksetup_configuration_manager":                          computeID("managerARN"),
+		"aws_resiliencehub_resiliency_policy":                              computeID("arn"),
+		"aws_iam_user_policy_attachments_exclusive":                        computeID("userName"),
+		"aws_iam_group_policy_attachments_exclusive":                       computeID("groupName"),
+		"aws_iam_role_policy_attachments_exclusive":                        computeID("roleName"),
+		"aws_backup_restore_testing_selection":                             computeIDWith(":", "name", "restoreTestingPlanName"),
+		"aws_backup_restore_testing_plan":                                  computeID("name"),
+		"aws_iam_user_policies_exclusive":                                  computeID("userName"),
+		"aws_iam_group_policies_exclusive":                                 computeID("groupName"),
+		"aws_bedrock_guardrail_version":                                    computeID("guardrailArn", "version"),
+		"aws_elasticache_reserved_cache_node":                              computeID("id"),
+		"aws_iam_role_policies_exclusive":                                  computeID("roleName"),
+		"aws_lambda_function_recursion_config":                             computeID("functionName"),
+		"aws_datazone_asset_type":                                          computeIDWith("__", "domainIdentifier", "name"),
+		"aws_glue_catalog_table_optimizer":                                 computeIDWith("__", "catalogId", "databaseName", "tableName", "type"),
+		"aws_pinpoint_email_template":                                      computeID("templateName"),
+		"aws_datazone_form_type":                                           computeIDWith("__", "domainIdentifier", "name", "revision"),
+		"aws_bedrock_guardrail":                                            computeIDWith("__", "guardrailId", "version"),
+		"aws_chatbot_teams_channel_configuration":                          computeID("configurationName"),
+		"aws_chatbot_slack_channel_configuration":                          computeID("configurationName"),
+		"aws_rekognition_stream_processor":                                 computeID("name"),
+		"aws_vpc_endpoint_private_dns":                                     computeID("vpcEndpointId"),
+		"aws_vpc_endpoint_service_private_dns_verification":                computeID("serviceId"),
+		"aws_datazone_environment_blueprint_configuration":                 computeIDWith("__", "domainId", "environmentBlueprintId"),
+		"aws_lambda_runtime_management_config":                             computeIDWith("__", "functionName", "qualifier"),
+		"aws_quicksight_role_custom_permission":                            computeID("awsAccountId", "namespace", "role"),
+		"aws_wafv2_web_acl_rule_group_association":                         computeID("webAclArn", "ruleGroupArn", "ruleName"),
+		"aws_networkfirewall_vpc_endpoint_association":                     computeID("vpcEndpointAssociationArn"),
+		"aws_quicksight_custom_permissions":                                computeID("awsAccountId", "customPermissionsName"),
+		"aws_quicksight_user_custom_permission":                            computeID("awsAccountId", "namespace", "userName"),
 	}
 
-	prov.Resources["aws_ecr_account_setting"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attr(state, "name"), nil
-	}
-
-	prov.Resources["aws_cloudwatch_log_anomaly_detector"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attr(state, "arn"), nil
-	}
-
-	prov.Resources["aws_memorydb_multi_region_cluster"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attr(state, "multiRegionClusterName"), nil
-	}
-
-	prov.Resources["aws_guardduty_member_detector_feature"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, ",", "detectorId", "accountId", "name"), nil
-	}
-	prov.Resources["aws_cloudwatch_contributor_insight_rule"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attr(state, "name"), nil
-	}
-	prov.Resources["aws_cloudwatch_contributor_managed_insight_rule"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attr(state, "arn"), nil
-	}
-	prov.Resources["aws_quicksight_role_membership"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attrWithSeparator(state, ",", "awsAccountId", "namespace", "role", "memberName"), nil
-	}
-	prov.Resources["aws_xray_resource_policy"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attr(state, "policyName"), nil
-	}
-	prov.Resources["aws_macie2_organization_configuration"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attr(state, "autoEnable"), nil
-	}
-	prov.Resources["aws_rds_shard_group"].ComputeID = func(
-		ctx context.Context, state resource.PropertyMap,
-	) (resource.ID, error) {
-		return attr(state, "dbShardGroupIdentifier"), nil
-	}
-
-	prov.Resources["aws_lakeformation_opt_in"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "principal.dataLakePrincipalIdentifier"), nil
-	}
-
-	prov.Resources["aws_network_interface_permission"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "networkInterfacePermissionId"), nil
-	}
-
-	prov.Resources["aws_route53_records_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "zoneId"), nil
-	}
-	prov.Resources["aws_athena_capacity_reservation"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "name"), nil
-	}
-	prov.Resources["aws_wafv2_api_key"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attrWithSeparator(state, ",", "apiKey", "scope"), nil
-	}
-
-	prov.Resources["aws_s3control_directory_bucket_access_point_scope"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attrWithSeparator(state, ",", "name", "accountId"), nil
-	}
-	prov.Resources["aws_vpc_route_server_vpc_association"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attrWithSeparator(state, ",", "routeServerId", "vpcId"), nil
-	}
-	prov.Resources["aws_connect_phone_number_contact_flow_association"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attrWithSeparator(state, ",", "phoneNumberId", "instanceId", "contractFlowId"), nil
-	}
-
-	prov.Resources["aws_nat_gateway_eip_association"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attrWithSeparator(state, ",", "natGatewayId", "allocationId"), nil
-	}
-
-	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
-		"aws_cloudwatch_log_index_policy":                                  {"logGroupName"},
-		"aws_cloudwatch_log_delivery_source":                               {"name"},
-		"aws_cloudwatch_log_delivery_destination_policy":                   {"deliveryDestinationName"},
-		"aws_cloudwatch_log_delivery_destination":                          {"name"},
-		"aws_media_packagev2_channel_group":                                {"name"},
-		"aws_timestreamquery_scheduled_query":                              {"arn"},
-		"aws_route53domains_domain":                                        {"domainName"},
-		"aws_api_gateway_rest_api_put":                                     {"restApiId"},
-		"aws_ec2_default_credit_specification":                             {"instanceFamily"},
-		"aws_inspector2_filter":                                            {"arn"},
-		"aws_cloudfrontkeyvaluestore_keys_exclusive":                       {"keyValueStoreArn"},
-		"aws_workspacesweb_network_settings":                               {"networkSettingsArn"},
-		"aws_workspacesweb_browser_settings":                               {"browserSettingsArn"},
-		"aws_workspacesweb_user_settings":                                  {"userSettingsArn"},
-		"aws_workspacesweb_data_protection_settings":                       {"dataProtectionSettingsArn"},
-		"aws_workspacesweb_user_access_logging_settings":                   {"userAccessLoggingSettingsArn"},
-		"aws_workspacesweb_ip_access_settings":                             {"ipAccessSettingsArn"},
-		"aws_quicksight_account_settings":                                  {"awsAccountId"},
-		"aws_notificationscontacts_email_contact":                          {"arn"},
-		"aws_notifications_notification_configuration":                     {"arn"},
-		"aws_notifications_notification_hub":                               {"notificationHubRegion"},
-		"aws_notifications_event_rule":                                     {"arn"},
-		"aws_notifications_channel_association":                            {"notificationConfigurationArn", "arn"},
-		"aws_prometheus_workspace_configuration":                           {"workspaceId"},
-		"aws_vpc_route_server":                                             {"routeServerId"},
-		"aws_vpc_route_server_propagation":                                 {"routeServerPropagationId"},
-		"aws_vpc_route_server_endpoint":                                    {"routeServerEndpointId"},
-		"aws_vpc_route_server_peer":                                        {"routeServerPeerId"},
-		"aws_dsql_cluster_peering":                                         {"identifier"},
-		"aws_dsql_cluster":                                                 {"identifier"},
-		"aws_prometheus_query_logging_configuration":                       {"workspaceId"},
-		"aws_fsx_s3_access_point_attachment":                               {"name"},
-		"aws_cognito_log_delivery_configuration":                           {"userPoolId"},
-		"aws_s3_bucket_metadata_configuration":                             {"bucket"},
-		"aws_networkfirewall_firewall_transit_gateway_attachment_accepter": {"id"},
-		"aws_connect_phone_number_contact_flow_association":                {"phoneNumberId", "instanceId", "contractFlowId"},
-		"aws_quicksight_ip_restriction":                                    {"awsAccountId"},
-		"aws_quicksight_key_registration":                                  {"awsAccountId"},
-	}
-
-	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
+	// Apply configurations
+	for tfResourceID, computeIDFunc := range computeIDConfigs {
 		if _, ok := prov.Resources[tfResourceID]; !ok {
 			prov.Resources[tfResourceID] = &info.Resource{}
 		}
-		prov.Resources[tfResourceID].ComputeID = func(
-			ctx context.Context, state resource.PropertyMap,
-		) (resource.ID, error) {
-			return attr(state, computeIDParts...), nil
-		}
+		prov.Resources[tfResourceID].ComputeID = computeIDFunc
 	}
 }
