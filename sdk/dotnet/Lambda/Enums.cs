@@ -38,6 +38,7 @@ namespace Pulumi.Aws.Lambda
         public static Runtime Python3d9 { get; } = new Runtime("python3.9");
         public static Runtime Ruby3d2 { get; } = new Runtime("ruby3.2");
         public static Runtime Ruby3d3 { get; } = new Runtime("ruby3.3");
+        public static Runtime Ruby3d4 { get; } = new Runtime("ruby3.4");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Dotnet5d0 { get; } = new Runtime("dotnet5.0");
         [Obsolete(@"This runtime is now deprecated")]
