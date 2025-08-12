@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Route 53 Profiles Profile using the `example`. For example:
+// Using `pulumi import`, import Route 53 Profiles Profile using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:route53/profilesProfile:ProfilesProfile example rp-12345678

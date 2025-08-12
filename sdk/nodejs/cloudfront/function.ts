@@ -66,7 +66,7 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
      */
     public readonly keyValueStoreAssociations!: pulumi.Output<string[] | undefined>;
     /**
@@ -160,7 +160,7 @@ export interface FunctionState {
      */
     etag?: pulumi.Input<string>;
     /**
-     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
      */
     keyValueStoreAssociations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -200,7 +200,7 @@ export interface FunctionArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
      */
     keyValueStoreAssociations?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -19,14 +19,14 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
     public static final SourceApiAssociationState Empty = new SourceApiAssociationState();
 
     /**
-     * ARN of the Source Api Association.
+     * ARN of the Source API Association.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the Source Api Association.
+     * @return ARN of the Source API Association.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * ID of the Source Api Association.
+     * ID of the Source API Association.
      * 
      */
     @Import(name="associationId")
     private @Nullable Output<String> associationId;
 
     /**
-     * @return ID of the Source Api Association.
+     * @return ID of the Source API Association.
      * 
      */
     public Optional<Output<String>> associationId() {
@@ -186,7 +186,7 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn ARN of the Source Api Association.
+         * @param arn ARN of the Source API Association.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn ARN of the Source Api Association.
+         * @param arn ARN of the Source API Association.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param associationId ID of the Source Api Association.
+         * @param associationId ID of the Source API Association.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param associationId ID of the Source Api Association.
+         * @param associationId ID of the Source API Association.
          * 
          * @return builder
          * 

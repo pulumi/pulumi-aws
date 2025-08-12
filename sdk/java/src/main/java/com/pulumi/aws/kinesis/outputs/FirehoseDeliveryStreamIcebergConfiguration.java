@@ -9,6 +9,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamIcebergConfiguration
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamIcebergConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -18,6 +19,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamIcebergConfiguration {
+    private @Nullable Boolean appendOnly;
     /**
      * @return Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
      * 
@@ -66,6 +68,9 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
     private FirehoseDeliveryStreamIcebergConfigurationS3Configuration s3Configuration;
 
     private FirehoseDeliveryStreamIcebergConfiguration() {}
+    public Optional<Boolean> appendOnly() {
+        return Optional.ofNullable(this.appendOnly);
+    }
     /**
      * @return Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
      * 
@@ -142,6 +147,7 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean appendOnly;
         private @Nullable Integer bufferingInterval;
         private @Nullable Integer bufferingSize;
         private String catalogArn;
@@ -155,6 +161,7 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
         public Builder() {}
         public Builder(FirehoseDeliveryStreamIcebergConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.appendOnly = defaults.appendOnly;
     	      this.bufferingInterval = defaults.bufferingInterval;
     	      this.bufferingSize = defaults.bufferingSize;
     	      this.catalogArn = defaults.catalogArn;
@@ -167,6 +174,12 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
     	      this.s3Configuration = defaults.s3Configuration;
         }
 
+        @CustomType.Setter
+        public Builder appendOnly(@Nullable Boolean appendOnly) {
+
+            this.appendOnly = appendOnly;
+            return this;
+        }
         @CustomType.Setter
         public Builder bufferingInterval(@Nullable Integer bufferingInterval) {
 
@@ -238,6 +251,7 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
         }
         public FirehoseDeliveryStreamIcebergConfiguration build() {
             final var _resultValue = new FirehoseDeliveryStreamIcebergConfiguration();
+            _resultValue.appendOnly = appendOnly;
             _resultValue.bufferingInterval = bufferingInterval;
             _resultValue.bufferingSize = bufferingSize;
             _resultValue.catalogArn = catalogArn;

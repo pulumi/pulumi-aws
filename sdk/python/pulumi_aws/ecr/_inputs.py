@@ -46,6 +46,8 @@ __all__ = [
     'RepositoryEncryptionConfigurationArgsDict',
     'RepositoryImageScanningConfigurationArgs',
     'RepositoryImageScanningConfigurationArgsDict',
+    'RepositoryImageTagMutabilityExclusionFilterArgs',
+    'RepositoryImageTagMutabilityExclusionFilterArgsDict',
     'GetLifecyclePolicyDocumentRuleArgs',
     'GetLifecyclePolicyDocumentRuleArgsDict',
     'GetLifecyclePolicyDocumentRuleActionArgs',
@@ -780,6 +782,56 @@ class RepositoryImageScanningConfigurationArgs:
     @scan_on_push.setter
     def scan_on_push(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "scan_on_push", value)
+
+
+if not MYPY:
+    class RepositoryImageTagMutabilityExclusionFilterArgsDict(TypedDict):
+        filter: pulumi.Input[_builtins.str]
+        """
+        The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
+        """
+        filter_type: pulumi.Input[_builtins.str]
+        """
+        The type of filter to use. Must be `WILDCARD`.
+        """
+elif False:
+    RepositoryImageTagMutabilityExclusionFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RepositoryImageTagMutabilityExclusionFilterArgs:
+    def __init__(__self__, *,
+                 filter: pulumi.Input[_builtins.str],
+                 filter_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] filter: The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
+        :param pulumi.Input[_builtins.str] filter_type: The type of filter to use. Must be `WILDCARD`.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[_builtins.str]:
+        """
+        The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of filter to use. Must be `WILDCARD`.
+        """
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "filter_type", value)
 
 
 if not MYPY:

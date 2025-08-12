@@ -112,7 +112,7 @@ type RecommendationPreferences struct {
 	PreferredResources RecommendationPreferencesPreferredResourceArrayOutput `pulumi:"preferredResources"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
 	SavingsEstimationMode pulumi.StringPtrOutput `pulumi:"savingsEstimationMode"`
@@ -167,7 +167,7 @@ type recommendationPreferencesState struct {
 	PreferredResources []RecommendationPreferencesPreferredResource `pulumi:"preferredResources"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
 	ResourceType *string `pulumi:"resourceType"`
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
 	SavingsEstimationMode *string `pulumi:"savingsEstimationMode"`
@@ -190,7 +190,7 @@ type RecommendationPreferencesState struct {
 	PreferredResources RecommendationPreferencesPreferredResourceArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
 	ResourceType pulumi.StringPtrInput
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
 	SavingsEstimationMode pulumi.StringPtrInput
@@ -217,7 +217,7 @@ type recommendationPreferencesArgs struct {
 	PreferredResources []RecommendationPreferencesPreferredResource `pulumi:"preferredResources"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
 	ResourceType string `pulumi:"resourceType"`
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
 	SavingsEstimationMode *string `pulumi:"savingsEstimationMode"`
@@ -241,7 +241,7 @@ type RecommendationPreferencesArgs struct {
 	PreferredResources RecommendationPreferencesPreferredResourceArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
 	ResourceType pulumi.StringInput
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
 	SavingsEstimationMode pulumi.StringPtrInput
@@ -372,7 +372,7 @@ func (o RecommendationPreferencesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecommendationPreferences) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
 func (o RecommendationPreferencesOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecommendationPreferences) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }

@@ -213,6 +213,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("bedrockagentcore")]
+        public Input<string>? Bedrockagentcore { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("billing")]
         public Input<string>? Billing { get; set; }
 
@@ -1227,6 +1233,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("odb")]
+        public Input<string>? Odb { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("opensearch")]
         public Input<string>? Opensearch { get; set; }
 
@@ -1505,6 +1517,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("s3tables")]
         public Input<string>? S3tables { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("s3vectors")]
+        public Input<string>? S3vectors { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

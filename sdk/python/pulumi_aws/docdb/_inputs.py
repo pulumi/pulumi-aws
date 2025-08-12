@@ -21,6 +21,8 @@ __all__ = [
     'ClusterParameterGroupParameterArgsDict',
     'ClusterRestoreToPointInTimeArgs',
     'ClusterRestoreToPointInTimeArgsDict',
+    'ClusterServerlessV2ScalingConfigurationArgs',
+    'ClusterServerlessV2ScalingConfigurationArgsDict',
     'ElasticClusterTimeoutsArgs',
     'ElasticClusterTimeoutsArgsDict',
     'GlobalClusterGlobalClusterMemberArgs',
@@ -246,6 +248,56 @@ class ClusterRestoreToPointInTimeArgs:
     @use_latest_restorable_time.setter
     def use_latest_restorable_time(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "use_latest_restorable_time", value)
+
+
+if not MYPY:
+    class ClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
+        max_capacity: pulumi.Input[_builtins.float]
+        """
+        Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
+        """
+        min_capacity: pulumi.Input[_builtins.float]
+        """
+        Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
+        """
+elif False:
+    ClusterServerlessV2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterServerlessV2ScalingConfigurationArgs:
+    def __init__(__self__, *,
+                 max_capacity: pulumi.Input[_builtins.float],
+                 min_capacity: pulumi.Input[_builtins.float]):
+        """
+        :param pulumi.Input[_builtins.float] max_capacity: Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
+        :param pulumi.Input[_builtins.float] min_capacity: Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
+        """
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> pulumi.Input[_builtins.float]:
+        """
+        Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "max_capacity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> pulumi.Input[_builtins.float]:
+        """
+        Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    @min_capacity.setter
+    def min_capacity(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "min_capacity", value)
 
 
 if not MYPY:

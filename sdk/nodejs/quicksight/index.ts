@@ -20,6 +20,11 @@ export type Analysis = import("./analysis").Analysis;
 export const Analysis: typeof import("./analysis").Analysis = null as any;
 utilities.lazyLoad(exports, ["Analysis"], () => require("./analysis"));
 
+export { CustomPermissionsArgs, CustomPermissionsState } from "./customPermissions";
+export type CustomPermissions = import("./customPermissions").CustomPermissions;
+export const CustomPermissions: typeof import("./customPermissions").CustomPermissions = null as any;
+utilities.lazyLoad(exports, ["CustomPermissions"], () => require("./customPermissions"));
+
 export { DashboardArgs, DashboardState } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
@@ -110,6 +115,11 @@ export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
 export const RefreshSchedule: typeof import("./refreshSchedule").RefreshSchedule = null as any;
 utilities.lazyLoad(exports, ["RefreshSchedule"], () => require("./refreshSchedule"));
 
+export { RoleCustomPermissionArgs, RoleCustomPermissionState } from "./roleCustomPermission";
+export type RoleCustomPermission = import("./roleCustomPermission").RoleCustomPermission;
+export const RoleCustomPermission: typeof import("./roleCustomPermission").RoleCustomPermission = null as any;
+utilities.lazyLoad(exports, ["RoleCustomPermission"], () => require("./roleCustomPermission"));
+
 export { RoleMembershipArgs, RoleMembershipState } from "./roleMembership";
 export type RoleMembership = import("./roleMembership").RoleMembership;
 export const RoleMembership: typeof import("./roleMembership").RoleMembership = null as any;
@@ -135,6 +145,11 @@ export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
+export { UserCustomPermissionArgs, UserCustomPermissionState } from "./userCustomPermission";
+export type UserCustomPermission = import("./userCustomPermission").UserCustomPermission;
+export const UserCustomPermission: typeof import("./userCustomPermission").UserCustomPermission = null as any;
+utilities.lazyLoad(exports, ["UserCustomPermission"], () => require("./userCustomPermission"));
+
 export { VpcConnectionArgs, VpcConnectionState } from "./vpcConnection";
 export type VpcConnection = import("./vpcConnection").VpcConnection;
 export const VpcConnection: typeof import("./vpcConnection").VpcConnection = null as any;
@@ -151,6 +166,8 @@ const _module = {
                 return new AccountSubscription(name, <any>undefined, { urn })
             case "aws:quicksight/analysis:Analysis":
                 return new Analysis(name, <any>undefined, { urn })
+            case "aws:quicksight/customPermissions:CustomPermissions":
+                return new CustomPermissions(name, <any>undefined, { urn })
             case "aws:quicksight/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
             case "aws:quicksight/dataSet:DataSet":
@@ -177,6 +194,8 @@ const _module = {
                 return new Namespace(name, <any>undefined, { urn })
             case "aws:quicksight/refreshSchedule:RefreshSchedule":
                 return new RefreshSchedule(name, <any>undefined, { urn })
+            case "aws:quicksight/roleCustomPermission:RoleCustomPermission":
+                return new RoleCustomPermission(name, <any>undefined, { urn })
             case "aws:quicksight/roleMembership:RoleMembership":
                 return new RoleMembership(name, <any>undefined, { urn })
             case "aws:quicksight/template:Template":
@@ -187,6 +206,8 @@ const _module = {
                 return new Theme(name, <any>undefined, { urn })
             case "aws:quicksight/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "aws:quicksight/userCustomPermission:UserCustomPermission":
+                return new UserCustomPermission(name, <any>undefined, { urn })
             case "aws:quicksight/vpcConnection:VpcConnection":
                 return new VpcConnection(name, <any>undefined, { urn })
             default:
@@ -197,6 +218,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "quicksight/accountSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/accountSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/analysis", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/customPermissions", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dashboard", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dataSet", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dataSource", _module)
@@ -210,9 +232,11 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/ipRestriction", _module
 pulumi.runtime.registerResourceModule("aws", "quicksight/keyRegistration", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/namespace", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/refreshSchedule", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/roleCustomPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/roleMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/template", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/templateAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/theme", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/user", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/userCustomPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/vpcConnection", _module)

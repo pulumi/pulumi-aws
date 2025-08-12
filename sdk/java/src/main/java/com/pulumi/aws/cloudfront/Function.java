@@ -93,14 +93,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.etag;
     }
     /**
-     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
      * 
      */
     @Export(name="keyValueStoreAssociations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> keyValueStoreAssociations;
 
     /**
-     * @return List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     * @return List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
      * 
      */
     public Output<Optional<List<String>>> keyValueStoreAssociations() {

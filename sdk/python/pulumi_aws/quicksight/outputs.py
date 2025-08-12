@@ -26,6 +26,7 @@ __all__ = [
     'AnalysisSourceEntity',
     'AnalysisSourceEntitySourceTemplate',
     'AnalysisSourceEntitySourceTemplateDataSetReference',
+    'CustomPermissionsCapabilities',
     'DashboardDashboardPublishOptions',
     'DashboardDashboardPublishOptionsAdHocFilteringOption',
     'DashboardDashboardPublishOptionsDataPointDrillUpDownOption',
@@ -567,6 +568,350 @@ class AnalysisSourceEntitySourceTemplateDataSetReference(dict):
         Dataset placeholder.
         """
         return pulumi.get(self, "data_set_placeholder")
+
+
+@pulumi.output_type
+class CustomPermissionsCapabilities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addOrRunAnomalyDetectionForAnalyses":
+            suggest = "add_or_run_anomaly_detection_for_analyses"
+        elif key == "createAndUpdateDashboardEmailReports":
+            suggest = "create_and_update_dashboard_email_reports"
+        elif key == "createAndUpdateDataSources":
+            suggest = "create_and_update_data_sources"
+        elif key == "createAndUpdateDatasets":
+            suggest = "create_and_update_datasets"
+        elif key == "createAndUpdateThemes":
+            suggest = "create_and_update_themes"
+        elif key == "createAndUpdateThresholdAlerts":
+            suggest = "create_and_update_threshold_alerts"
+        elif key == "createSharedFolders":
+            suggest = "create_shared_folders"
+        elif key == "createSpiceDataset":
+            suggest = "create_spice_dataset"
+        elif key == "exportToCsv":
+            suggest = "export_to_csv"
+        elif key == "exportToCsvInScheduledReports":
+            suggest = "export_to_csv_in_scheduled_reports"
+        elif key == "exportToExcel":
+            suggest = "export_to_excel"
+        elif key == "exportToExcelInScheduledReports":
+            suggest = "export_to_excel_in_scheduled_reports"
+        elif key == "exportToPdf":
+            suggest = "export_to_pdf"
+        elif key == "exportToPdfInScheduledReports":
+            suggest = "export_to_pdf_in_scheduled_reports"
+        elif key == "includeContentInScheduledReportsEmail":
+            suggest = "include_content_in_scheduled_reports_email"
+        elif key == "printReports":
+            suggest = "print_reports"
+        elif key == "renameSharedFolders":
+            suggest = "rename_shared_folders"
+        elif key == "shareAnalyses":
+            suggest = "share_analyses"
+        elif key == "shareDashboards":
+            suggest = "share_dashboards"
+        elif key == "shareDataSources":
+            suggest = "share_data_sources"
+        elif key == "shareDatasets":
+            suggest = "share_datasets"
+        elif key == "subscribeDashboardEmailReports":
+            suggest = "subscribe_dashboard_email_reports"
+        elif key == "viewAccountSpiceCapacity":
+            suggest = "view_account_spice_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomPermissionsCapabilities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomPermissionsCapabilities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomPermissionsCapabilities.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_or_run_anomaly_detection_for_analyses: Optional[_builtins.str] = None,
+                 create_and_update_dashboard_email_reports: Optional[_builtins.str] = None,
+                 create_and_update_data_sources: Optional[_builtins.str] = None,
+                 create_and_update_datasets: Optional[_builtins.str] = None,
+                 create_and_update_themes: Optional[_builtins.str] = None,
+                 create_and_update_threshold_alerts: Optional[_builtins.str] = None,
+                 create_shared_folders: Optional[_builtins.str] = None,
+                 create_spice_dataset: Optional[_builtins.str] = None,
+                 export_to_csv: Optional[_builtins.str] = None,
+                 export_to_csv_in_scheduled_reports: Optional[_builtins.str] = None,
+                 export_to_excel: Optional[_builtins.str] = None,
+                 export_to_excel_in_scheduled_reports: Optional[_builtins.str] = None,
+                 export_to_pdf: Optional[_builtins.str] = None,
+                 export_to_pdf_in_scheduled_reports: Optional[_builtins.str] = None,
+                 include_content_in_scheduled_reports_email: Optional[_builtins.str] = None,
+                 print_reports: Optional[_builtins.str] = None,
+                 rename_shared_folders: Optional[_builtins.str] = None,
+                 share_analyses: Optional[_builtins.str] = None,
+                 share_dashboards: Optional[_builtins.str] = None,
+                 share_data_sources: Optional[_builtins.str] = None,
+                 share_datasets: Optional[_builtins.str] = None,
+                 subscribe_dashboard_email_reports: Optional[_builtins.str] = None,
+                 view_account_spice_capacity: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str add_or_run_anomaly_detection_for_analyses: The ability to add or run anomaly detection. Valid values: `DENY`.
+        :param _builtins.str create_and_update_dashboard_email_reports: The ability to create and update email reports. Valid values: `DENY`.
+        :param _builtins.str create_and_update_data_sources: The ability to create and update data sources. Valid values: `DENY`.
+        :param _builtins.str create_and_update_datasets: The ability to create and update datasets. Valid values: `DENY`.
+        :param _builtins.str create_and_update_themes: The ability to export to create and update themes. Valid values: `DENY`.
+        :param _builtins.str create_and_update_threshold_alerts: The ability to create and update threshold alerts. Valid values: `DENY`.
+        :param _builtins.str create_shared_folders: The ability to create shared folders. Valid values: `DENY`.
+        :param _builtins.str create_spice_dataset: The ability to create a SPICE dataset. Valid values: `DENY`.
+        :param _builtins.str export_to_csv: The ability to export to CSV files from the UI. Valid values: `DENY`.
+        :param _builtins.str export_to_csv_in_scheduled_reports: The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+        :param _builtins.str export_to_excel: The ability to export to Excel files from the UI. Valid values: `DENY`.
+        :param _builtins.str export_to_excel_in_scheduled_reports: The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+        :param _builtins.str export_to_pdf: The ability to export to PDF files from the UI. Valid values: `DENY`.
+        :param _builtins.str export_to_pdf_in_scheduled_reports: The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+        :param _builtins.str include_content_in_scheduled_reports_email: The ability to include content in scheduled email reports. Valid values: `DENY`.
+        :param _builtins.str print_reports: The ability to print reports. Valid values: `DENY`.
+        :param _builtins.str rename_shared_folders: The ability to rename shared folders. Valid values: `DENY`.
+        :param _builtins.str share_analyses: The ability to share analyses. Valid values: `DENY`.
+        :param _builtins.str share_dashboards: The ability to share dashboards. Valid values: `DENY`.
+        :param _builtins.str share_data_sources: The ability to share data sources. Valid values: `DENY`.
+        :param _builtins.str share_datasets: The ability to share datasets. Valid values: `DENY`.
+        :param _builtins.str subscribe_dashboard_email_reports: The ability to subscribe to email reports. Valid values: `DENY`.
+        :param _builtins.str view_account_spice_capacity: The ability to view account SPICE capacity. Valid values: `DENY`.
+        """
+        if add_or_run_anomaly_detection_for_analyses is not None:
+            pulumi.set(__self__, "add_or_run_anomaly_detection_for_analyses", add_or_run_anomaly_detection_for_analyses)
+        if create_and_update_dashboard_email_reports is not None:
+            pulumi.set(__self__, "create_and_update_dashboard_email_reports", create_and_update_dashboard_email_reports)
+        if create_and_update_data_sources is not None:
+            pulumi.set(__self__, "create_and_update_data_sources", create_and_update_data_sources)
+        if create_and_update_datasets is not None:
+            pulumi.set(__self__, "create_and_update_datasets", create_and_update_datasets)
+        if create_and_update_themes is not None:
+            pulumi.set(__self__, "create_and_update_themes", create_and_update_themes)
+        if create_and_update_threshold_alerts is not None:
+            pulumi.set(__self__, "create_and_update_threshold_alerts", create_and_update_threshold_alerts)
+        if create_shared_folders is not None:
+            pulumi.set(__self__, "create_shared_folders", create_shared_folders)
+        if create_spice_dataset is not None:
+            pulumi.set(__self__, "create_spice_dataset", create_spice_dataset)
+        if export_to_csv is not None:
+            pulumi.set(__self__, "export_to_csv", export_to_csv)
+        if export_to_csv_in_scheduled_reports is not None:
+            pulumi.set(__self__, "export_to_csv_in_scheduled_reports", export_to_csv_in_scheduled_reports)
+        if export_to_excel is not None:
+            pulumi.set(__self__, "export_to_excel", export_to_excel)
+        if export_to_excel_in_scheduled_reports is not None:
+            pulumi.set(__self__, "export_to_excel_in_scheduled_reports", export_to_excel_in_scheduled_reports)
+        if export_to_pdf is not None:
+            pulumi.set(__self__, "export_to_pdf", export_to_pdf)
+        if export_to_pdf_in_scheduled_reports is not None:
+            pulumi.set(__self__, "export_to_pdf_in_scheduled_reports", export_to_pdf_in_scheduled_reports)
+        if include_content_in_scheduled_reports_email is not None:
+            pulumi.set(__self__, "include_content_in_scheduled_reports_email", include_content_in_scheduled_reports_email)
+        if print_reports is not None:
+            pulumi.set(__self__, "print_reports", print_reports)
+        if rename_shared_folders is not None:
+            pulumi.set(__self__, "rename_shared_folders", rename_shared_folders)
+        if share_analyses is not None:
+            pulumi.set(__self__, "share_analyses", share_analyses)
+        if share_dashboards is not None:
+            pulumi.set(__self__, "share_dashboards", share_dashboards)
+        if share_data_sources is not None:
+            pulumi.set(__self__, "share_data_sources", share_data_sources)
+        if share_datasets is not None:
+            pulumi.set(__self__, "share_datasets", share_datasets)
+        if subscribe_dashboard_email_reports is not None:
+            pulumi.set(__self__, "subscribe_dashboard_email_reports", subscribe_dashboard_email_reports)
+        if view_account_spice_capacity is not None:
+            pulumi.set(__self__, "view_account_spice_capacity", view_account_spice_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="addOrRunAnomalyDetectionForAnalyses")
+    def add_or_run_anomaly_detection_for_analyses(self) -> Optional[_builtins.str]:
+        """
+        The ability to add or run anomaly detection. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "add_or_run_anomaly_detection_for_analyses")
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateDashboardEmailReports")
+    def create_and_update_dashboard_email_reports(self) -> Optional[_builtins.str]:
+        """
+        The ability to create and update email reports. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "create_and_update_dashboard_email_reports")
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateDataSources")
+    def create_and_update_data_sources(self) -> Optional[_builtins.str]:
+        """
+        The ability to create and update data sources. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "create_and_update_data_sources")
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateDatasets")
+    def create_and_update_datasets(self) -> Optional[_builtins.str]:
+        """
+        The ability to create and update datasets. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "create_and_update_datasets")
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateThemes")
+    def create_and_update_themes(self) -> Optional[_builtins.str]:
+        """
+        The ability to export to create and update themes. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "create_and_update_themes")
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateThresholdAlerts")
+    def create_and_update_threshold_alerts(self) -> Optional[_builtins.str]:
+        """
+        The ability to create and update threshold alerts. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "create_and_update_threshold_alerts")
+
+    @_builtins.property
+    @pulumi.getter(name="createSharedFolders")
+    def create_shared_folders(self) -> Optional[_builtins.str]:
+        """
+        The ability to create shared folders. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "create_shared_folders")
+
+    @_builtins.property
+    @pulumi.getter(name="createSpiceDataset")
+    def create_spice_dataset(self) -> Optional[_builtins.str]:
+        """
+        The ability to create a SPICE dataset. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "create_spice_dataset")
+
+    @_builtins.property
+    @pulumi.getter(name="exportToCsv")
+    def export_to_csv(self) -> Optional[_builtins.str]:
+        """
+        The ability to export to CSV files from the UI. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "export_to_csv")
+
+    @_builtins.property
+    @pulumi.getter(name="exportToCsvInScheduledReports")
+    def export_to_csv_in_scheduled_reports(self) -> Optional[_builtins.str]:
+        """
+        The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "export_to_csv_in_scheduled_reports")
+
+    @_builtins.property
+    @pulumi.getter(name="exportToExcel")
+    def export_to_excel(self) -> Optional[_builtins.str]:
+        """
+        The ability to export to Excel files from the UI. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "export_to_excel")
+
+    @_builtins.property
+    @pulumi.getter(name="exportToExcelInScheduledReports")
+    def export_to_excel_in_scheduled_reports(self) -> Optional[_builtins.str]:
+        """
+        The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "export_to_excel_in_scheduled_reports")
+
+    @_builtins.property
+    @pulumi.getter(name="exportToPdf")
+    def export_to_pdf(self) -> Optional[_builtins.str]:
+        """
+        The ability to export to PDF files from the UI. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "export_to_pdf")
+
+    @_builtins.property
+    @pulumi.getter(name="exportToPdfInScheduledReports")
+    def export_to_pdf_in_scheduled_reports(self) -> Optional[_builtins.str]:
+        """
+        The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "export_to_pdf_in_scheduled_reports")
+
+    @_builtins.property
+    @pulumi.getter(name="includeContentInScheduledReportsEmail")
+    def include_content_in_scheduled_reports_email(self) -> Optional[_builtins.str]:
+        """
+        The ability to include content in scheduled email reports. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "include_content_in_scheduled_reports_email")
+
+    @_builtins.property
+    @pulumi.getter(name="printReports")
+    def print_reports(self) -> Optional[_builtins.str]:
+        """
+        The ability to print reports. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "print_reports")
+
+    @_builtins.property
+    @pulumi.getter(name="renameSharedFolders")
+    def rename_shared_folders(self) -> Optional[_builtins.str]:
+        """
+        The ability to rename shared folders. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "rename_shared_folders")
+
+    @_builtins.property
+    @pulumi.getter(name="shareAnalyses")
+    def share_analyses(self) -> Optional[_builtins.str]:
+        """
+        The ability to share analyses. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "share_analyses")
+
+    @_builtins.property
+    @pulumi.getter(name="shareDashboards")
+    def share_dashboards(self) -> Optional[_builtins.str]:
+        """
+        The ability to share dashboards. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "share_dashboards")
+
+    @_builtins.property
+    @pulumi.getter(name="shareDataSources")
+    def share_data_sources(self) -> Optional[_builtins.str]:
+        """
+        The ability to share data sources. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "share_data_sources")
+
+    @_builtins.property
+    @pulumi.getter(name="shareDatasets")
+    def share_datasets(self) -> Optional[_builtins.str]:
+        """
+        The ability to share datasets. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "share_datasets")
+
+    @_builtins.property
+    @pulumi.getter(name="subscribeDashboardEmailReports")
+    def subscribe_dashboard_email_reports(self) -> Optional[_builtins.str]:
+        """
+        The ability to subscribe to email reports. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "subscribe_dashboard_email_reports")
+
+    @_builtins.property
+    @pulumi.getter(name="viewAccountSpiceCapacity")
+    def view_account_spice_capacity(self) -> Optional[_builtins.str]:
+        """
+        The ability to view account SPICE capacity. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "view_account_spice_capacity")
 
 
 @pulumi.output_type

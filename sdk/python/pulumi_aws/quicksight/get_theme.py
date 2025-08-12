@@ -229,7 +229,6 @@ def get_theme(aws_account_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str aws_account_id: AWS account ID.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     :param _builtins.str theme_id: Identifier of the theme.
@@ -280,7 +279,6 @@ def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[_builtins.st
     ```
 
 
-    :param _builtins.str aws_account_id: AWS account ID.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     :param _builtins.str theme_id: Identifier of the theme.

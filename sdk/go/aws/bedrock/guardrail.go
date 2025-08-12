@@ -52,16 +52,24 @@ import (
 //				SensitiveInformationPolicyConfig: &bedrock.GuardrailSensitiveInformationPolicyConfigArgs{
 //					PiiEntitiesConfigs: bedrock.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArray{
 //						&bedrock.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs{
-//							Action: pulumi.String("BLOCK"),
-//							Type:   pulumi.String("NAME"),
+//							Action:        pulumi.String("BLOCK"),
+//							InputAction:   pulumi.String("BLOCK"),
+//							OutputAction:  pulumi.String("ANONYMIZE"),
+//							InputEnabled:  pulumi.Bool(true),
+//							OutputEnabled: pulumi.Bool(true),
+//							Type:          pulumi.String("NAME"),
 //						},
 //					},
 //					RegexesConfigs: bedrock.GuardrailSensitiveInformationPolicyConfigRegexesConfigArray{
 //						&bedrock.GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs{
-//							Action:      pulumi.String("BLOCK"),
-//							Description: pulumi.String("example regex"),
-//							Name:        pulumi.String("regex_example"),
-//							Pattern:     pulumi.String("^\\d{3}-\\d{2}-\\d{4}$"),
+//							Action:        pulumi.String("BLOCK"),
+//							InputAction:   pulumi.String("BLOCK"),
+//							OutputAction:  pulumi.String("BLOCK"),
+//							InputEnabled:  pulumi.Bool(true),
+//							OutputEnabled: pulumi.Bool(false),
+//							Description:   pulumi.String("example regex"),
+//							Name:          pulumi.String("regex_example"),
+//							Pattern:       pulumi.String("^\\d{3}-\\d{2}-\\d{4}$"),
 //						},
 //					},
 //				},

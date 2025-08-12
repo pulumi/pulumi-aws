@@ -8,6 +8,7 @@ import com.pulumi.aws.ecr.RepositoryArgs;
 import com.pulumi.aws.ecr.inputs.RepositoryState;
 import com.pulumi.aws.ecr.outputs.RepositoryEncryptionConfiguration;
 import com.pulumi.aws.ecr.outputs.RepositoryImageScanningConfiguration;
+import com.pulumi.aws.ecr.outputs.RepositoryImageTagMutabilityExclusionFilter;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -54,6 +55,52 @@ import javax.annotation.Nullable;
  *             .imageScanningConfiguration(RepositoryImageScanningConfigurationArgs.builder()
  *                 .scanOnPush(true)
  *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With Image Tag Mutability Exclusion
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecr.Repository;
+ * import com.pulumi.aws.ecr.RepositoryArgs;
+ * import com.pulumi.aws.ecr.inputs.RepositoryImageTagMutabilityExclusionFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Repository("example", RepositoryArgs.builder()
+ *             .name("example-repo")
+ *             .imageTagMutability("IMMUTABLE_WITH_EXCLUSION")
+ *             .imageTagMutabilityExclusionFilters(            
+ *                 RepositoryImageTagMutabilityExclusionFilterArgs.builder()
+ *                     .filter("latest*")
+ *                     .filterType("WILDCARD")
+ *                     .build(),
+ *                 RepositoryImageTagMutabilityExclusionFilterArgs.builder()
+ *                     .filter("dev-*")
+ *                     .filterType("WILDCARD")
+ *                     .build())
  *             .build());
  * 
  *     }
@@ -132,18 +179,32 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.imageScanningConfiguration);
     }
     /**
-     * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      * 
      */
     @Export(name="imageTagMutability", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageTagMutability;
 
     /**
-     * @return The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * @return The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      * 
      */
     public Output<Optional<String>> imageTagMutability() {
         return Codegen.optional(this.imageTagMutability);
+    }
+    /**
+     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+     * 
+     */
+    @Export(name="imageTagMutabilityExclusionFilters", refs={List.class,RepositoryImageTagMutabilityExclusionFilter.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RepositoryImageTagMutabilityExclusionFilter>> imageTagMutabilityExclusionFilters;
+
+    /**
+     * @return Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+     * 
+     */
+    public Output<Optional<List<RepositoryImageTagMutabilityExclusionFilter>>> imageTagMutabilityExclusionFilters() {
+        return Codegen.optional(this.imageTagMutabilityExclusionFilters);
     }
     /**
      * Name of the repository.

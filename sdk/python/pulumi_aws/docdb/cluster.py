@@ -45,6 +45,7 @@ class ClusterArgs:
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
                  skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -85,6 +86,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
@@ -144,6 +146,8 @@ class ClusterArgs:
             pulumi.set(__self__, "region", region)
         if restore_to_point_in_time is not None:
             pulumi.set(__self__, "restore_to_point_in_time", restore_to_point_in_time)
+        if serverless_v2_scaling_configuration is not None:
+            pulumi.set(__self__, "serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
@@ -454,6 +458,18 @@ class ClusterArgs:
         pulumi.set(self, "restore_to_point_in_time", value)
 
     @_builtins.property
+    @pulumi.getter(name="serverlessV2ScalingConfiguration")
+    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]:
+        """
+        Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+        """
+        return pulumi.get(self, "serverless_v2_scaling_configuration")
+
+    @serverless_v2_scaling_configuration.setter
+    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]):
+        pulumi.set(self, "serverless_v2_scaling_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -563,6 +579,7 @@ class _ClusterState:
                  reader_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
                  skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -609,6 +626,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] reader_endpoint: A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
@@ -681,6 +699,8 @@ class _ClusterState:
             pulumi.set(__self__, "region", region)
         if restore_to_point_in_time is not None:
             pulumi.set(__self__, "restore_to_point_in_time", restore_to_point_in_time)
+        if serverless_v2_scaling_configuration is not None:
+            pulumi.set(__self__, "serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
@@ -1062,6 +1082,18 @@ class _ClusterState:
         pulumi.set(self, "restore_to_point_in_time", value)
 
     @_builtins.property
+    @pulumi.getter(name="serverlessV2ScalingConfiguration")
+    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]:
+        """
+        Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+        """
+        return pulumi.get(self, "serverless_v2_scaling_configuration")
+
+    @serverless_v2_scaling_configuration.setter
+    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]):
+        pulumi.set(self, "serverless_v2_scaling_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -1180,6 +1212,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1257,6 +1290,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
@@ -1349,6 +1383,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1388,6 +1423,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["region"] = region
             __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
+            __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
@@ -1443,6 +1479,7 @@ class Cluster(pulumi.CustomResource):
             reader_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             restore_to_point_in_time: Optional[pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
+            serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
             skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
             snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
             storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1494,6 +1531,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] reader_endpoint: A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
@@ -1540,6 +1578,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["reader_endpoint"] = reader_endpoint
         __props__.__dict__["region"] = region
         __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
+        __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
         __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
         __props__.__dict__["snapshot_identifier"] = snapshot_identifier
         __props__.__dict__["storage_encrypted"] = storage_encrypted
@@ -1793,6 +1832,14 @@ class Cluster(pulumi.CustomResource):
         A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         """
         return pulumi.get(self, "restore_to_point_in_time")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessV2ScalingConfiguration")
+    def serverless_v2_scaling_configuration(self) -> pulumi.Output[Optional['outputs.ClusterServerlessV2ScalingConfiguration']]:
+        """
+        Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+        """
+        return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")

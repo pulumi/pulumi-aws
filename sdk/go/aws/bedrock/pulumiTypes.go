@@ -26266,8 +26266,16 @@ func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) RegexesConfigs() Gua
 }
 
 type GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig struct {
-	// Options for sensitive information action.
+	// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	Action string `pulumi:"action"`
+	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+	InputAction *string `pulumi:"inputAction"`
+	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+	InputEnabled *bool `pulumi:"inputEnabled"`
+	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+	OutputAction *string `pulumi:"outputAction"`
+	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// The currently supported PII entities.
 	Type string `pulumi:"type"`
 }
@@ -26284,8 +26292,16 @@ type GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigInput interface {
 }
 
 type GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs struct {
-	// Options for sensitive information action.
+	// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	Action pulumi.StringInput `pulumi:"action"`
+	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+	InputAction pulumi.StringPtrInput `pulumi:"inputAction"`
+	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
+	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
+	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// The currently supported PII entities.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -26341,9 +26357,29 @@ func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigOutput) ToGuar
 	return o
 }
 
-// Options for sensitive information action.
+// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigOutput) InputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig) *string { return v.InputAction }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigOutput) OutputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The currently supported PII entities.
@@ -26372,12 +26408,20 @@ func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArrayOutput) I
 }
 
 type GuardrailSensitiveInformationPolicyConfigRegexesConfig struct {
-	// Options for sensitive information action.
+	// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	Action string `pulumi:"action"`
 	// The regex description.
 	Description *string `pulumi:"description"`
+	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+	InputAction *string `pulumi:"inputAction"`
+	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+	InputEnabled *bool `pulumi:"inputEnabled"`
 	// The regex name.
 	Name string `pulumi:"name"`
+	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+	OutputAction *string `pulumi:"outputAction"`
+	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// The regex pattern.
 	Pattern string `pulumi:"pattern"`
 }
@@ -26394,12 +26438,20 @@ type GuardrailSensitiveInformationPolicyConfigRegexesConfigInput interface {
 }
 
 type GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs struct {
-	// Options for sensitive information action.
+	// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// The regex description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+	InputAction pulumi.StringPtrInput `pulumi:"inputAction"`
+	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
 	// The regex name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
+	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// The regex pattern.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
@@ -26455,7 +26507,7 @@ func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) ToGuardrai
 	return o
 }
 
-// Options for sensitive information action.
+// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -26465,9 +26517,29 @@ func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) Descriptio
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) InputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) *string { return v.InputAction }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The regex name.
 func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) OutputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The regex pattern.

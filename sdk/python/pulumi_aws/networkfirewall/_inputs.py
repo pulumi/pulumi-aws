@@ -147,6 +147,16 @@ __all__ = [
     'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgsDict',
     'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs',
     'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgsDict',
+    'VpcEndpointAssociationSubnetMappingArgs',
+    'VpcEndpointAssociationSubnetMappingArgsDict',
+    'VpcEndpointAssociationTimeoutsArgs',
+    'VpcEndpointAssociationTimeoutsArgsDict',
+    'VpcEndpointAssociationVpcEndpointAssociationStatusArgs',
+    'VpcEndpointAssociationVpcEndpointAssociationStatusArgsDict',
+    'VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs',
+    'VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgsDict',
+    'VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs',
+    'VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgsDict',
 ]
 
 MYPY = False
@@ -3712,5 +3722,254 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     @resource_arn.setter
     def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
+
+
+if not MYPY:
+    class VpcEndpointAssociationSubnetMappingArgsDict(TypedDict):
+        subnet_id: pulumi.Input[_builtins.str]
+        """
+        The unique identifier for the subnet.
+        """
+        ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
+        """
+elif False:
+    VpcEndpointAssociationSubnetMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEndpointAssociationSubnetMappingArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[_builtins.str],
+                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] subnet_id: The unique identifier for the subnet.
+        :param pulumi.Input[_builtins.str] ip_address_type: The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier for the subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
+
+
+if not MYPY:
+    class VpcEndpointAssociationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    VpcEndpointAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEndpointAssociationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+
+if not MYPY:
+    class VpcEndpointAssociationVpcEndpointAssociationStatusArgsDict(TypedDict):
+        association_sync_states: pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgsDict']]]
+elif False:
+    VpcEndpointAssociationVpcEndpointAssociationStatusArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEndpointAssociationVpcEndpointAssociationStatusArgs:
+    def __init__(__self__, *,
+                 association_sync_states: pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs']]]):
+        pulumi.set(__self__, "association_sync_states", association_sync_states)
+
+    @_builtins.property
+    @pulumi.getter(name="associationSyncStates")
+    def association_sync_states(self) -> pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs']]]:
+        return pulumi.get(self, "association_sync_states")
+
+    @association_sync_states.setter
+    def association_sync_states(self, value: pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs']]]):
+        pulumi.set(self, "association_sync_states", value)
+
+
+if not MYPY:
+    class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgsDict(TypedDict):
+        attachments: pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgsDict']]]
+        """
+        Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
+        """
+        availability_zone: pulumi.Input[_builtins.str]
+        """
+        The Availability Zone where the subnet is configured.
+        """
+elif False:
+    VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs:
+    def __init__(__self__, *,
+                 attachments: pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs']]],
+                 availability_zone: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs']]] attachments: Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
+        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where the subnet is configured.
+        """
+        pulumi.set(__self__, "attachments", attachments)
+        pulumi.set(__self__, "availability_zone", availability_zone)
+
+    @_builtins.property
+    @pulumi.getter
+    def attachments(self) -> pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs']]]:
+        """
+        Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
+        """
+        return pulumi.get(self, "attachments")
+
+    @attachments.setter
+    def attachments(self, value: pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs']]]):
+        pulumi.set(self, "attachments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Availability Zone where the subnet is configured.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "availability_zone", value)
+
+
+if not MYPY:
+    class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgsDict(TypedDict):
+        endpoint_id: pulumi.Input[_builtins.str]
+        """
+        The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        """
+        status: pulumi.Input[_builtins.str]
+        status_message: pulumi.Input[_builtins.str]
+        subnet_id: pulumi.Input[_builtins.str]
+        """
+        The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
+        """
+elif False:
+    VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs:
+    def __init__(__self__, *,
+                 endpoint_id: pulumi.Input[_builtins.str],
+                 status: pulumi.Input[_builtins.str],
+                 status_message: pulumi.Input[_builtins.str],
+                 subnet_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] endpoint_id: The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        :param pulumi.Input[_builtins.str] subnet_id: The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
+        """
+        pulumi.set(__self__, "endpoint_id", endpoint_id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointId")
+    def endpoint_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        """
+        return pulumi.get(self, "endpoint_id")
+
+    @endpoint_id.setter
+    def endpoint_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "status_message")
+
+    @status_message.setter
+    def status_message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status_message", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subnet_id", value)
 
 

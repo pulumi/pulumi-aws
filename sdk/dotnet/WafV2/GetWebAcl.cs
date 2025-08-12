@@ -16,6 +16,8 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// ## Example Usage
         /// 
+        /// ### Lookup by name
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,6 +30,31 @@ namespace Pulumi.Aws.WafV2
         ///     {
         ///         Name = "some-web-acl",
         ///         Scope = "REGIONAL",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Lookup by associated resource
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var albExample = Aws.WafV2.GetWebAcl.Invoke(new()
+        ///     {
+        ///         ResourceArn = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx",
+        ///         Scope = "REGIONAL",
+        ///     });
+        /// 
+        ///     var cloudfrontExample = Aws.WafV2.GetWebAcl.Invoke(new()
+        ///     {
+        ///         ResourceArn = "arn:aws:cloudfront::123456789012:distribution/XXX",
+        ///         Scope = "CLOUDFRONT",
         ///     });
         /// 
         /// });
@@ -41,6 +68,8 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// ## Example Usage
         /// 
+        /// ### Lookup by name
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,6 +82,31 @@ namespace Pulumi.Aws.WafV2
         ///     {
         ///         Name = "some-web-acl",
         ///         Scope = "REGIONAL",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Lookup by associated resource
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var albExample = Aws.WafV2.GetWebAcl.Invoke(new()
+        ///     {
+        ///         ResourceArn = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx",
+        ///         Scope = "REGIONAL",
+        ///     });
+        /// 
+        ///     var cloudfrontExample = Aws.WafV2.GetWebAcl.Invoke(new()
+        ///     {
+        ///         ResourceArn = "arn:aws:cloudfront::123456789012:distribution/XXX",
+        ///         Scope = "CLOUDFRONT",
         ///     });
         /// 
         /// });
@@ -66,6 +120,8 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// ## Example Usage
         /// 
+        /// ### Lookup by name
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,6 +138,31 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// });
         /// ```
+        /// 
+        /// ### Lookup by associated resource
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var albExample = Aws.WafV2.GetWebAcl.Invoke(new()
+        ///     {
+        ///         ResourceArn = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx",
+        ///         Scope = "REGIONAL",
+        ///     });
+        /// 
+        ///     var cloudfrontExample = Aws.WafV2.GetWebAcl.Invoke(new()
+        ///     {
+        ///         ResourceArn = "arn:aws:cloudfront::123456789012:distribution/XXX",
+        ///         Scope = "CLOUDFRONT",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());
@@ -91,16 +172,22 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetWebAclArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the WAFv2 Web ACL.
+        /// Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
+
+        /// <summary>
+        /// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+        /// </summary>
+        [Input("resourceArn")]
+        public string? ResourceArn { get; set; }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -117,16 +204,22 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetWebAclInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the WAFv2 Web ACL.
+        /// Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+        /// </summary>
+        [Input("resourceArn")]
+        public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -156,8 +249,9 @@ namespace Pulumi.Aws.WafV2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string Region;
+        public readonly string? ResourceArn;
         public readonly string Scope;
 
         [OutputConstructor]
@@ -168,9 +262,11 @@ namespace Pulumi.Aws.WafV2
 
             string id,
 
-            string name,
+            string? name,
 
             string region,
+
+            string? resourceArn,
 
             string scope)
         {
@@ -179,6 +275,7 @@ namespace Pulumi.Aws.WafV2
             Id = id;
             Name = name;
             Region = region;
+            ResourceArn = resourceArn;
             Scope = scope;
         }
     }

@@ -8519,6 +8519,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkfirewall/vpcEndpointAssociation",
+  "fqn": "pulumi_aws.networkfirewall",
+  "classes": {
+   "aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation": "VpcEndpointAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/attachmentAccepter",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
@@ -9127,6 +9135,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/customPermissions",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/customPermissions:CustomPermissions": "CustomPermissions"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/dashboard",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -9231,6 +9247,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/roleCustomPermission",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/roleCustomPermission:RoleCustomPermission": "RoleCustomPermission"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/roleMembership",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -9267,6 +9291,14 @@ _utilities.register(
   "fqn": "pulumi_aws.quicksight",
   "classes": {
    "aws:quicksight/user:User": "User"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/userCustomPermission",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/userCustomPermission:UserCustomPermission": "UserCustomPermission"
   }
  },
  {
@@ -12795,6 +12827,14 @@ _utilities.register(
   "fqn": "pulumi_aws.wafv2",
   "classes": {
    "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration": "WebAclLoggingConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "wafv2/webAclRuleGroupAssociation",
+  "fqn": "pulumi_aws.wafv2",
+  "classes": {
+   "aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation": "WebAclRuleGroupAssociation"
   }
  },
  {

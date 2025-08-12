@@ -101,14 +101,14 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details.
      * 
      */
     @Import(name="regularExpressions")
     private @Nullable Output<List<RegexPatternSetRegularExpressionArgs>> regularExpressions;
 
     /**
-     * @return One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+     * @return One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details.
      * 
      */
     public Optional<Output<List<RegexPatternSetRegularExpressionArgs>>> regularExpressions() {
@@ -308,7 +308,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param regularExpressions One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+         * @param regularExpressions One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param regularExpressions One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+         * @param regularExpressions One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param regularExpressions One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+         * @param regularExpressions One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details.
          * 
          * @return builder
          * 

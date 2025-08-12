@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamIcebergConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appendOnly")]
+        public Input<bool>? AppendOnly { get; set; }
+
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
         /// </summary>

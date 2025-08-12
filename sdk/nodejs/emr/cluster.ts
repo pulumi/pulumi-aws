@@ -475,6 +475,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly unhealthyNodeReplacement!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+     *
+     * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
      */
     public readonly visibleToAllUsers!: pulumi.Output<boolean | undefined>;
 
@@ -751,6 +753,8 @@ export interface ClusterState {
     unhealthyNodeReplacement?: pulumi.Input<boolean>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+     *
+     * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
      */
     visibleToAllUsers?: pulumi.Input<boolean>;
 }
@@ -914,6 +918,8 @@ export interface ClusterArgs {
     unhealthyNodeReplacement?: pulumi.Input<boolean>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+     *
+     * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
      */
     visibleToAllUsers?: pulumi.Input<boolean>;
 }

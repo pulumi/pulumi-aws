@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Route 53 Profiles Association using the `example_id_arg`. For example:
+ * Using `pulumi import`, import Route 53 Profiles Association using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678

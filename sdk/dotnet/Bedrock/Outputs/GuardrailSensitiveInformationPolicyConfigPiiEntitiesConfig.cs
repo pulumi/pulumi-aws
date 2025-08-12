@@ -14,9 +14,25 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig
     {
         /// <summary>
-        /// Options for sensitive information action.
+        /// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        /// </summary>
+        public readonly string? InputAction;
+        /// <summary>
+        /// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        /// </summary>
+        public readonly bool? InputEnabled;
+        /// <summary>
+        /// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        /// </summary>
+        public readonly string? OutputAction;
+        /// <summary>
+        /// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+        /// </summary>
+        public readonly bool? OutputEnabled;
         /// <summary>
         /// The currently supported PII entities.
         /// </summary>
@@ -26,9 +42,21 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig(
             string action,
 
+            string? inputAction,
+
+            bool? inputEnabled,
+
+            string? outputAction,
+
+            bool? outputEnabled,
+
             string type)
         {
             Action = action;
+            InputAction = inputAction;
+            InputEnabled = inputEnabled;
+            OutputAction = outputAction;
+            OutputEnabled = outputEnabled;
             Type = type;
         }
     }

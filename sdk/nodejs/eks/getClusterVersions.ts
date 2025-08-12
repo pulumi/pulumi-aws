@@ -19,6 +19,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.eks.getClusterVersions({});
+ * export const eksClusterVersions = example.then(example => example.clusterVersions);
+ * export const eksClusterVersionFiltered = example.then(example => .filter(version => version.clusterVersion == "1.33").map(version => (version)));
+ * export const eksClusterVersionList = example.then(example => .map(version => (version.clusterVersion)));
  * ```
  *
  * ### Filter by Cluster Type
@@ -93,6 +96,9 @@ export interface GetClusterVersionsResult {
      * Type of cluster that the version belongs to.
      */
     readonly clusterType?: string;
+    /**
+     * A list of Kubernetes version information.
+     */
     readonly clusterVersions: outputs.eks.GetClusterVersionsClusterVersion[];
     readonly clusterVersionsOnlies?: string[];
     readonly defaultOnly?: boolean;
@@ -119,6 +125,9 @@ export interface GetClusterVersionsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.eks.getClusterVersions({});
+ * export const eksClusterVersions = example.then(example => example.clusterVersions);
+ * export const eksClusterVersionFiltered = example.then(example => .filter(version => version.clusterVersion == "1.33").map(version => (version)));
+ * export const eksClusterVersionList = example.then(example => .map(version => (version.clusterVersion)));
  * ```
  *
  * ### Filter by Cluster Type

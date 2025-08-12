@@ -198,6 +198,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly restoreToPointInTime!: pulumi.Output<outputs.docdb.ClusterRestoreToPointInTime | undefined>;
     /**
+     * Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+     */
+    public readonly serverlessV2ScalingConfiguration!: pulumi.Output<outputs.docdb.ClusterServerlessV2ScalingConfiguration | undefined>;
+    /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
@@ -273,6 +277,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
+            resourceInputs["serverlessV2ScalingConfiguration"] = state ? state.serverlessV2ScalingConfiguration : undefined;
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
@@ -306,6 +311,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
+            resourceInputs["serverlessV2ScalingConfiguration"] = args ? args.serverlessV2ScalingConfiguration : undefined;
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
@@ -457,6 +463,10 @@ export interface ClusterState {
      */
     restoreToPointInTime?: pulumi.Input<inputs.docdb.ClusterRestoreToPointInTime>;
     /**
+     * Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+     */
+    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.docdb.ClusterServerlessV2ScalingConfiguration>;
+    /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
@@ -598,6 +608,10 @@ export interface ClusterArgs {
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      */
     restoreToPointInTime?: pulumi.Input<inputs.docdb.ClusterRestoreToPointInTime>;
+    /**
+     * Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+     */
+    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.docdb.ClusterServerlessV2ScalingConfiguration>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */

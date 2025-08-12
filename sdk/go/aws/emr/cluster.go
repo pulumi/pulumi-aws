@@ -502,6 +502,8 @@ type Cluster struct {
 	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
 	UnhealthyNodeReplacement pulumi.BoolPtrOutput `pulumi:"unhealthyNodeReplacement"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+	//
+	// **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
 	VisibleToAllUsers pulumi.BoolPtrOutput `pulumi:"visibleToAllUsers"`
 }
 
@@ -652,6 +654,8 @@ type clusterState struct {
 	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
 	UnhealthyNodeReplacement *bool `pulumi:"unhealthyNodeReplacement"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+	//
+	// **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
 	VisibleToAllUsers *bool `pulumi:"visibleToAllUsers"`
 }
 
@@ -767,6 +771,8 @@ type ClusterState struct {
 	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
 	UnhealthyNodeReplacement pulumi.BoolPtrInput
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+	//
+	// **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
 	VisibleToAllUsers pulumi.BoolPtrInput
 }
 
@@ -879,6 +885,8 @@ type clusterArgs struct {
 	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
 	UnhealthyNodeReplacement *bool `pulumi:"unhealthyNodeReplacement"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+	//
+	// **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
 	VisibleToAllUsers *bool `pulumi:"visibleToAllUsers"`
 }
 
@@ -988,6 +996,8 @@ type ClusterArgs struct {
 	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
 	UnhealthyNodeReplacement pulumi.BoolPtrInput
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+	//
+	// **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
 	VisibleToAllUsers pulumi.BoolPtrInput
 }
 
@@ -1302,6 +1312,8 @@ func (o ClusterOutput) UnhealthyNodeReplacement() pulumi.BoolPtrOutput {
 }
 
 // Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+//
+// **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
 func (o ClusterOutput) VisibleToAllUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.VisibleToAllUsers }).(pulumi.BoolPtrOutput)
 }

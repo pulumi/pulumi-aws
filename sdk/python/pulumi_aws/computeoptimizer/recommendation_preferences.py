@@ -33,7 +33,7 @@ class RecommendationPreferencesArgs:
                  utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]] = None):
         """
         The set of arguments for constructing a RecommendationPreferences resource.
-        :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         :param pulumi.Input[_builtins.str] enhanced_infrastructure_metrics: The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs'] external_metrics_preference: The provider of the external metrics recommendation preference. See External Metrics Preference below.
         :param pulumi.Input[_builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
@@ -68,7 +68,7 @@ class RecommendationPreferencesArgs:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         """
         return pulumi.get(self, "resource_type")
 
@@ -206,7 +206,7 @@ class _RecommendationPreferencesState:
         :param pulumi.Input[_builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         :param pulumi.Input[_builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input['RecommendationPreferencesScopeArgs'] scope: The scope of the recommendation preferences. See Scope below.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]] utilization_preferences: The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
@@ -308,7 +308,7 @@ class _RecommendationPreferencesState:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         """
         return pulumi.get(self, "resource_type")
 
@@ -431,7 +431,7 @@ class RecommendationPreferences(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         :param pulumi.Input[_builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']] scope: The scope of the recommendation preferences. See Scope below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesUtilizationPreferenceArgs', 'RecommendationPreferencesUtilizationPreferenceArgsDict']]]] utilization_preferences: The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
@@ -574,7 +574,7 @@ class RecommendationPreferences(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         :param pulumi.Input[_builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']] scope: The scope of the recommendation preferences. See Scope below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesUtilizationPreferenceArgs', 'RecommendationPreferencesUtilizationPreferenceArgsDict']]]] utilization_preferences: The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
@@ -647,7 +647,7 @@ class RecommendationPreferences(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         """
         return pulumi.get(self, "resource_type")
 

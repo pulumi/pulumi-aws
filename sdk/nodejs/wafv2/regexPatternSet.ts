@@ -93,7 +93,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
+     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
      */
     public readonly regularExpressions!: pulumi.Output<outputs.wafv2.RegexPatternSetRegularExpression[] | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface RegexPatternSetState {
      */
     region?: pulumi.Input<string>;
     /**
-     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
+     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
      */
     regularExpressions?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetRegularExpression>[]>;
     /**
@@ -217,7 +217,7 @@ export interface RegexPatternSetArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
+     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
      */
     regularExpressions?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetRegularExpression>[]>;
     /**

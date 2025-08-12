@@ -574,6 +574,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Bedrockagentcore { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Billing { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -1250,6 +1254,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Odb { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Opensearch { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -1435,6 +1443,10 @@ namespace Pulumi.Aws
             /// Use this to override the default service endpoint URL
             /// </summary>
                 public string? S3tables { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
+                public string? S3vectors { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>

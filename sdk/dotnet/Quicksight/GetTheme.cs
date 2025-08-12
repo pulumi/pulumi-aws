@@ -93,9 +93,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GetThemeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
@@ -133,9 +130,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GetThemeInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWebAclResult {
@@ -25,8 +27,9 @@ public final class GetWebAclResult {
      * 
      */
     private String id;
-    private String name;
+    private @Nullable String name;
     private String region;
+    private @Nullable String resourceArn;
     private String scope;
 
     private GetWebAclResult() {}
@@ -51,11 +54,14 @@ public final class GetWebAclResult {
     public String id() {
         return this.id;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public String region() {
         return this.region;
+    }
+    public Optional<String> resourceArn() {
+        return Optional.ofNullable(this.resourceArn);
     }
     public String scope() {
         return this.scope;
@@ -73,8 +79,9 @@ public final class GetWebAclResult {
         private String arn;
         private String description;
         private String id;
-        private String name;
+        private @Nullable String name;
         private String region;
+        private @Nullable String resourceArn;
         private String scope;
         public Builder() {}
         public Builder(GetWebAclResult defaults) {
@@ -84,6 +91,7 @@ public final class GetWebAclResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
+    	      this.resourceArn = defaults.resourceArn;
     	      this.scope = defaults.scope;
         }
 
@@ -112,10 +120,8 @@ public final class GetWebAclResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetWebAclResult", "name");
-            }
+        public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
@@ -125,6 +131,12 @@ public final class GetWebAclResult {
               throw new MissingRequiredPropertyException("GetWebAclResult", "region");
             }
             this.region = region;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder resourceArn(@Nullable String resourceArn) {
+
+            this.resourceArn = resourceArn;
             return this;
         }
         @CustomType.Setter
@@ -142,6 +154,7 @@ public final class GetWebAclResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.region = region;
+            _resultValue.resourceArn = resourceArn;
             _resultValue.scope = scope;
             return _resultValue;
         }

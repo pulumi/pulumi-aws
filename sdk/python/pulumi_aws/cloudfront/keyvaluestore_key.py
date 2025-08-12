@@ -171,7 +171,7 @@ class KeyvaluestoreKey(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudFront KeyValueStore Key using the `id`. For example:
+        Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and 'key' separated by `,`. For example:
 
         ```sh
         $ pulumi import aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
@@ -209,7 +209,7 @@ class KeyvaluestoreKey(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudFront KeyValueStore Key using the `id`. For example:
+        Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and 'key' separated by `,`. For example:
 
         ```sh
         $ pulumi import aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey

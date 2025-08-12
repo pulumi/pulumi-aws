@@ -93,9 +93,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GetDataSetArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
@@ -127,9 +124,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GetDataSetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

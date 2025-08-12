@@ -514,6 +514,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="bedrockagentcore")
+    private @Nullable Output<String> bedrockagentcore;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> bedrockagentcore() {
+        return Optional.ofNullable(this.bedrockagentcore);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="billing")
     private @Nullable Output<String> billing;
 
@@ -3049,6 +3064,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="odb")
+    private @Nullable Output<String> odb;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> odb() {
+        return Optional.ofNullable(this.odb);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="opensearch")
     private @Nullable Output<String> opensearch;
 
@@ -3748,6 +3778,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> s3tables() {
         return Optional.ofNullable(this.s3tables);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="s3vectors")
+    private @Nullable Output<String> s3vectors;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> s3vectors() {
+        return Optional.ofNullable(this.s3vectors);
     }
 
     /**
@@ -4506,6 +4551,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.beanstalk = $.beanstalk;
         this.bedrock = $.bedrock;
         this.bedrockagent = $.bedrockagent;
+        this.bedrockagentcore = $.bedrockagentcore;
         this.billing = $.billing;
         this.budgets = $.budgets;
         this.ce = $.ce;
@@ -4675,6 +4721,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.notifications = $.notifications;
         this.notificationscontacts = $.notificationscontacts;
         this.oam = $.oam;
+        this.odb = $.odb;
         this.opensearch = $.opensearch;
         this.opensearchingestion = $.opensearchingestion;
         this.opensearchserverless = $.opensearchserverless;
@@ -4722,6 +4769,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.s3control = $.s3control;
         this.s3outposts = $.s3outposts;
         this.s3tables = $.s3tables;
+        this.s3vectors = $.s3vectors;
         this.sagemaker = $.sagemaker;
         this.scheduler = $.scheduler;
         this.schemas = $.schemas;
@@ -5481,6 +5529,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder bedrockagent(String bedrockagent) {
             return bedrockagent(Output.of(bedrockagent));
+        }
+
+        /**
+         * @param bedrockagentcore Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockagentcore(@Nullable Output<String> bedrockagentcore) {
+            $.bedrockagentcore = bedrockagentcore;
+            return this;
+        }
+
+        /**
+         * @param bedrockagentcore Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockagentcore(String bedrockagentcore) {
+            return bedrockagentcore(Output.of(bedrockagentcore));
         }
 
         /**
@@ -9033,6 +9102,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param odb Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odb(@Nullable Output<String> odb) {
+            $.odb = odb;
+            return this;
+        }
+
+        /**
+         * @param odb Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odb(String odb) {
+            return odb(Output.of(odb));
+        }
+
+        /**
          * @param opensearch Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -10017,6 +10107,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder s3tables(String s3tables) {
             return s3tables(Output.of(s3tables));
+        }
+
+        /**
+         * @param s3vectors Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3vectors(@Nullable Output<String> s3vectors) {
+            $.s3vectors = s3vectors;
+            return this;
+        }
+
+        /**
+         * @param s3vectors Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3vectors(String s3vectors) {
+            return s3vectors(Output.of(s3vectors));
         }
 
         /**

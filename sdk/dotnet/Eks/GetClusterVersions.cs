@@ -28,6 +28,18 @@ namespace Pulumi.Aws.Eks
         /// {
         ///     var example = Aws.Eks.GetClusterVersions.Invoke();
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eksClusterVersions"] = example.Apply(getClusterVersionsResult =&gt; getClusterVersionsResult.ClusterVersions),
+        ///         ["eksClusterVersionFiltered"] = .Where(version =&gt; version.ClusterVersion == "1.33").Select(version =&gt; 
+        ///         {
+        ///             return version;
+        ///         }).ToList(),
+        ///         ["eksClusterVersionList"] = .Select(version =&gt; 
+        ///         {
+        ///             return version.ClusterVersion;
+        ///         }).ToList(),
+        ///     };
         /// });
         /// ```
         /// 
@@ -87,6 +99,18 @@ namespace Pulumi.Aws.Eks
         /// {
         ///     var example = Aws.Eks.GetClusterVersions.Invoke();
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eksClusterVersions"] = example.Apply(getClusterVersionsResult =&gt; getClusterVersionsResult.ClusterVersions),
+        ///         ["eksClusterVersionFiltered"] = .Where(version =&gt; version.ClusterVersion == "1.33").Select(version =&gt; 
+        ///         {
+        ///             return version;
+        ///         }).ToList(),
+        ///         ["eksClusterVersionList"] = .Select(version =&gt; 
+        ///         {
+        ///             return version.ClusterVersion;
+        ///         }).ToList(),
+        ///     };
         /// });
         /// ```
         /// 
@@ -146,6 +170,18 @@ namespace Pulumi.Aws.Eks
         /// {
         ///     var example = Aws.Eks.GetClusterVersions.Invoke();
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eksClusterVersions"] = example.Apply(getClusterVersionsResult =&gt; getClusterVersionsResult.ClusterVersions),
+        ///         ["eksClusterVersionFiltered"] = .Where(version =&gt; version.ClusterVersion == "1.33").Select(version =&gt; 
+        ///         {
+        ///             return version;
+        ///         }).ToList(),
+        ///         ["eksClusterVersionList"] = .Select(version =&gt; 
+        ///         {
+        ///             return version.ClusterVersion;
+        ///         }).ToList(),
+        ///     };
         /// });
         /// ```
         /// 
@@ -294,6 +330,9 @@ namespace Pulumi.Aws.Eks
         /// Type of cluster that the version belongs to.
         /// </summary>
         public readonly string? ClusterType;
+        /// <summary>
+        /// A list of Kubernetes version information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterVersionsClusterVersionResult> ClusterVersions;
         public readonly ImmutableArray<string> ClusterVersionsOnlies;
         public readonly bool? DefaultOnly;

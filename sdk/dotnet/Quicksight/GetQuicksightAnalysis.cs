@@ -99,9 +99,6 @@ namespace Pulumi.Aws.Quicksight
         [Input("analysisId", required: true)]
         public string AnalysisId { get; set; } = null!;
 
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
@@ -133,9 +130,6 @@ namespace Pulumi.Aws.Quicksight
         [Input("analysisId", required: true)]
         public Input<string> AnalysisId { get; set; } = null!;
 
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

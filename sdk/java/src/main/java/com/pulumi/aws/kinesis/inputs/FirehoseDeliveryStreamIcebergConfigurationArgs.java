@@ -10,6 +10,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationS
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -21,6 +22,13 @@ import javax.annotation.Nullable;
 public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FirehoseDeliveryStreamIcebergConfigurationArgs Empty = new FirehoseDeliveryStreamIcebergConfigurationArgs();
+
+    @Import(name="appendOnly")
+    private @Nullable Output<Boolean> appendOnly;
+
+    public Optional<Output<Boolean>> appendOnly() {
+        return Optional.ofNullable(this.appendOnly);
+    }
 
     /**
      * Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
@@ -167,6 +175,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
     private FirehoseDeliveryStreamIcebergConfigurationArgs() {}
 
     private FirehoseDeliveryStreamIcebergConfigurationArgs(FirehoseDeliveryStreamIcebergConfigurationArgs $) {
+        this.appendOnly = $.appendOnly;
         this.bufferingInterval = $.bufferingInterval;
         this.bufferingSize = $.bufferingSize;
         this.catalogArn = $.catalogArn;
@@ -195,6 +204,15 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
 
         public Builder(FirehoseDeliveryStreamIcebergConfigurationArgs defaults) {
             $ = new FirehoseDeliveryStreamIcebergConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder appendOnly(@Nullable Output<Boolean> appendOnly) {
+            $.appendOnly = appendOnly;
+            return this;
+        }
+
+        public Builder appendOnly(Boolean appendOnly) {
+            return appendOnly(Output.of(appendOnly));
         }
 
         /**

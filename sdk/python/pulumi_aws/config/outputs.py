@@ -275,6 +275,7 @@ class Endpoints(dict):
                  beanstalk: Optional[_builtins.str] = None,
                  bedrock: Optional[_builtins.str] = None,
                  bedrockagent: Optional[_builtins.str] = None,
+                 bedrockagentcore: Optional[_builtins.str] = None,
                  billing: Optional[_builtins.str] = None,
                  budgets: Optional[_builtins.str] = None,
                  ce: Optional[_builtins.str] = None,
@@ -444,6 +445,7 @@ class Endpoints(dict):
                  notifications: Optional[_builtins.str] = None,
                  notificationscontacts: Optional[_builtins.str] = None,
                  oam: Optional[_builtins.str] = None,
+                 odb: Optional[_builtins.str] = None,
                  opensearch: Optional[_builtins.str] = None,
                  opensearchingestion: Optional[_builtins.str] = None,
                  opensearchserverless: Optional[_builtins.str] = None,
@@ -491,6 +493,7 @@ class Endpoints(dict):
                  s3control: Optional[_builtins.str] = None,
                  s3outposts: Optional[_builtins.str] = None,
                  s3tables: Optional[_builtins.str] = None,
+                 s3vectors: Optional[_builtins.str] = None,
                  sagemaker: Optional[_builtins.str] = None,
                  scheduler: Optional[_builtins.str] = None,
                  schemas: Optional[_builtins.str] = None,
@@ -573,6 +576,7 @@ class Endpoints(dict):
         :param _builtins.str beanstalk: Use this to override the default service endpoint URL
         :param _builtins.str bedrock: Use this to override the default service endpoint URL
         :param _builtins.str bedrockagent: Use this to override the default service endpoint URL
+        :param _builtins.str bedrockagentcore: Use this to override the default service endpoint URL
         :param _builtins.str billing: Use this to override the default service endpoint URL
         :param _builtins.str budgets: Use this to override the default service endpoint URL
         :param _builtins.str ce: Use this to override the default service endpoint URL
@@ -742,6 +746,7 @@ class Endpoints(dict):
         :param _builtins.str notifications: Use this to override the default service endpoint URL
         :param _builtins.str notificationscontacts: Use this to override the default service endpoint URL
         :param _builtins.str oam: Use this to override the default service endpoint URL
+        :param _builtins.str odb: Use this to override the default service endpoint URL
         :param _builtins.str opensearch: Use this to override the default service endpoint URL
         :param _builtins.str opensearchingestion: Use this to override the default service endpoint URL
         :param _builtins.str opensearchserverless: Use this to override the default service endpoint URL
@@ -789,6 +794,7 @@ class Endpoints(dict):
         :param _builtins.str s3control: Use this to override the default service endpoint URL
         :param _builtins.str s3outposts: Use this to override the default service endpoint URL
         :param _builtins.str s3tables: Use this to override the default service endpoint URL
+        :param _builtins.str s3vectors: Use this to override the default service endpoint URL
         :param _builtins.str sagemaker: Use this to override the default service endpoint URL
         :param _builtins.str scheduler: Use this to override the default service endpoint URL
         :param _builtins.str schemas: Use this to override the default service endpoint URL
@@ -904,6 +910,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "bedrock", bedrock)
         if bedrockagent is not None:
             pulumi.set(__self__, "bedrockagent", bedrockagent)
+        if bedrockagentcore is not None:
+            pulumi.set(__self__, "bedrockagentcore", bedrockagentcore)
         if billing is not None:
             pulumi.set(__self__, "billing", billing)
         if budgets is not None:
@@ -1242,6 +1250,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "notificationscontacts", notificationscontacts)
         if oam is not None:
             pulumi.set(__self__, "oam", oam)
+        if odb is not None:
+            pulumi.set(__self__, "odb", odb)
         if opensearch is not None:
             pulumi.set(__self__, "opensearch", opensearch)
         if opensearchingestion is not None:
@@ -1336,6 +1346,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "s3outposts", s3outposts)
         if s3tables is not None:
             pulumi.set(__self__, "s3tables", s3tables)
+        if s3vectors is not None:
+            pulumi.set(__self__, "s3vectors", s3vectors)
         if sagemaker is not None:
             pulumi.set(__self__, "sagemaker", sagemaker)
         if scheduler is not None:
@@ -1696,6 +1708,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "bedrockagent")
+
+    @_builtins.property
+    @pulumi.getter
+    def bedrockagentcore(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bedrockagentcore")
 
     @_builtins.property
     @pulumi.getter
@@ -3051,6 +3071,14 @@ class Endpoints(dict):
 
     @_builtins.property
     @pulumi.getter
+    def odb(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "odb")
+
+    @_builtins.property
+    @pulumi.getter
     def opensearch(self) -> Optional[_builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3424,6 +3452,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "s3tables")
+
+    @_builtins.property
+    @pulumi.getter
+    def s3vectors(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "s3vectors")
 
     @_builtins.property
     @pulumi.getter

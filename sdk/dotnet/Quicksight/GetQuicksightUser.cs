@@ -99,9 +99,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GetQuicksightUserArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
@@ -133,9 +130,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GetQuicksightUserInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -179,6 +173,10 @@ namespace Pulumi.Aws.Quicksight
         public readonly string Arn;
         public readonly string AwsAccountId;
         /// <summary>
+        /// The custom permissions profile associated with this user.
+        /// </summary>
+        public readonly string CustomPermissionsName;
+        /// <summary>
         /// The user's email address.
         /// </summary>
         public readonly string Email;
@@ -213,6 +211,8 @@ namespace Pulumi.Aws.Quicksight
 
             string awsAccountId,
 
+            string customPermissionsName,
+
             string email,
 
             string id,
@@ -232,6 +232,7 @@ namespace Pulumi.Aws.Quicksight
             Active = active;
             Arn = arn;
             AwsAccountId = awsAccountId;
+            CustomPermissionsName = customPermissionsName;
             Email = email;
             Id = id;
             IdentityType = identityType;

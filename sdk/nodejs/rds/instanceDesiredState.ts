@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `example_id_arg`. For example:
+ * Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `identifier`. For example:
  *
  * ```sh
  * $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678

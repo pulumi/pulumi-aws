@@ -4306,6 +4306,8 @@ class FirehoseDeliveryStreamIcebergConfiguration(dict):
             suggest = "role_arn"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
+        elif key == "appendOnly":
+            suggest = "append_only"
         elif key == "bufferingInterval":
             suggest = "buffering_interval"
         elif key == "bufferingSize":
@@ -4336,6 +4338,7 @@ class FirehoseDeliveryStreamIcebergConfiguration(dict):
                  catalog_arn: _builtins.str,
                  role_arn: _builtins.str,
                  s3_configuration: 'outputs.FirehoseDeliveryStreamIcebergConfigurationS3Configuration',
+                 append_only: Optional[_builtins.bool] = None,
                  buffering_interval: Optional[_builtins.int] = None,
                  buffering_size: Optional[_builtins.int] = None,
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions'] = None,
@@ -4357,6 +4360,8 @@ class FirehoseDeliveryStreamIcebergConfiguration(dict):
         pulumi.set(__self__, "catalog_arn", catalog_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if append_only is not None:
+            pulumi.set(__self__, "append_only", append_only)
         if buffering_interval is not None:
             pulumi.set(__self__, "buffering_interval", buffering_interval)
         if buffering_size is not None:
@@ -4395,6 +4400,11 @@ class FirehoseDeliveryStreamIcebergConfiguration(dict):
         The S3 Configuration. See `s3_configuration` block below for details.
         """
         return pulumi.get(self, "s3_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="appendOnly")
+    def append_only(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "append_only")
 
     @_builtins.property
     @pulumi.getter(name="bufferingInterval")

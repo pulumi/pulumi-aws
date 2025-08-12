@@ -20,6 +20,10 @@ public final class GetClusterVersionsResult {
      * 
      */
     private @Nullable String clusterType;
+    /**
+     * @return A list of Kubernetes version information.
+     * 
+     */
     private List<GetClusterVersionsClusterVersion> clusterVersions;
     private @Nullable List<String> clusterVersionsOnlies;
     private @Nullable Boolean defaultOnly;
@@ -44,6 +48,10 @@ public final class GetClusterVersionsResult {
     public Optional<String> clusterType() {
         return Optional.ofNullable(this.clusterType);
     }
+    /**
+     * @return A list of Kubernetes version information.
+     * 
+     */
     public List<GetClusterVersionsClusterVersion> clusterVersions() {
         return this.clusterVersions;
     }

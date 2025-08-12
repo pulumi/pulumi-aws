@@ -180,6 +180,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String bedrockagentcore;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String billing;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1025,6 +1030,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String odb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String opensearch;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1256,6 +1266,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String s3tables;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String s3vectors;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -1728,6 +1743,13 @@ public final class Endpoints {
      */
     public Optional<String> bedrockagent() {
         return Optional.ofNullable(this.bedrockagent);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> bedrockagentcore() {
+        return Optional.ofNullable(this.bedrockagentcore);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -2916,6 +2938,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> odb() {
+        return Optional.ofNullable(this.odb);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> opensearch() {
         return Optional.ofNullable(this.opensearch);
     }
@@ -3240,6 +3269,13 @@ public final class Endpoints {
      */
     public Optional<String> s3tables() {
         return Optional.ofNullable(this.s3tables);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> s3vectors() {
+        return Optional.ofNullable(this.s3vectors);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3620,6 +3656,7 @@ public final class Endpoints {
         private @Nullable String beanstalk;
         private @Nullable String bedrock;
         private @Nullable String bedrockagent;
+        private @Nullable String bedrockagentcore;
         private @Nullable String billing;
         private @Nullable String budgets;
         private @Nullable String ce;
@@ -3789,6 +3826,7 @@ public final class Endpoints {
         private @Nullable String notifications;
         private @Nullable String notificationscontacts;
         private @Nullable String oam;
+        private @Nullable String odb;
         private @Nullable String opensearch;
         private @Nullable String opensearchingestion;
         private @Nullable String opensearchserverless;
@@ -3836,6 +3874,7 @@ public final class Endpoints {
         private @Nullable String s3control;
         private @Nullable String s3outposts;
         private @Nullable String s3tables;
+        private @Nullable String s3vectors;
         private @Nullable String sagemaker;
         private @Nullable String scheduler;
         private @Nullable String schemas;
@@ -3920,6 +3959,7 @@ public final class Endpoints {
     	      this.beanstalk = defaults.beanstalk;
     	      this.bedrock = defaults.bedrock;
     	      this.bedrockagent = defaults.bedrockagent;
+    	      this.bedrockagentcore = defaults.bedrockagentcore;
     	      this.billing = defaults.billing;
     	      this.budgets = defaults.budgets;
     	      this.ce = defaults.ce;
@@ -4089,6 +4129,7 @@ public final class Endpoints {
     	      this.notifications = defaults.notifications;
     	      this.notificationscontacts = defaults.notificationscontacts;
     	      this.oam = defaults.oam;
+    	      this.odb = defaults.odb;
     	      this.opensearch = defaults.opensearch;
     	      this.opensearchingestion = defaults.opensearchingestion;
     	      this.opensearchserverless = defaults.opensearchserverless;
@@ -4136,6 +4177,7 @@ public final class Endpoints {
     	      this.s3control = defaults.s3control;
     	      this.s3outposts = defaults.s3outposts;
     	      this.s3tables = defaults.s3tables;
+    	      this.s3vectors = defaults.s3vectors;
     	      this.sagemaker = defaults.sagemaker;
     	      this.scheduler = defaults.scheduler;
     	      this.schemas = defaults.schemas;
@@ -4382,6 +4424,12 @@ public final class Endpoints {
         public Builder bedrockagent(@Nullable String bedrockagent) {
 
             this.bedrockagent = bedrockagent;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bedrockagentcore(@Nullable String bedrockagentcore) {
+
+            this.bedrockagentcore = bedrockagentcore;
             return this;
         }
         @CustomType.Setter
@@ -5399,6 +5447,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder odb(@Nullable String odb) {
+
+            this.odb = odb;
+            return this;
+        }
+        @CustomType.Setter
         public Builder opensearch(@Nullable String opensearch) {
 
             this.opensearch = opensearch;
@@ -5678,6 +5732,12 @@ public final class Endpoints {
         public Builder s3tables(@Nullable String s3tables) {
 
             this.s3tables = s3tables;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder s3vectors(@Nullable String s3vectors) {
+
+            this.s3vectors = s3vectors;
             return this;
         }
         @CustomType.Setter
@@ -6003,6 +6063,7 @@ public final class Endpoints {
             _resultValue.beanstalk = beanstalk;
             _resultValue.bedrock = bedrock;
             _resultValue.bedrockagent = bedrockagent;
+            _resultValue.bedrockagentcore = bedrockagentcore;
             _resultValue.billing = billing;
             _resultValue.budgets = budgets;
             _resultValue.ce = ce;
@@ -6172,6 +6233,7 @@ public final class Endpoints {
             _resultValue.notifications = notifications;
             _resultValue.notificationscontacts = notificationscontacts;
             _resultValue.oam = oam;
+            _resultValue.odb = odb;
             _resultValue.opensearch = opensearch;
             _resultValue.opensearchingestion = opensearchingestion;
             _resultValue.opensearchserverless = opensearchserverless;
@@ -6219,6 +6281,7 @@ public final class Endpoints {
             _resultValue.s3control = s3control;
             _resultValue.s3outposts = s3outposts;
             _resultValue.s3tables = s3tables;
+            _resultValue.s3vectors = s3vectors;
             _resultValue.sagemaker = sagemaker;
             _resultValue.scheduler = scheduler;
             _resultValue.schemas = schemas;

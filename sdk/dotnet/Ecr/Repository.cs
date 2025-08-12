@@ -35,6 +35,38 @@ namespace Pulumi.Aws.Ecr
     /// });
     /// ```
     /// 
+    /// ### With Image Tag Mutability Exclusion
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecr.Repository("example", new()
+    ///     {
+    ///         Name = "example-repo",
+    ///         ImageTagMutability = "IMMUTABLE_WITH_EXCLUSION",
+    ///         ImageTagMutabilityExclusionFilters = new[]
+    ///         {
+    ///             new Aws.Ecr.Inputs.RepositoryImageTagMutabilityExclusionFilterArgs
+    ///             {
+    ///                 Filter = "latest*",
+    ///                 FilterType = "WILDCARD",
+    ///             },
+    ///             new Aws.Ecr.Inputs.RepositoryImageTagMutabilityExclusionFilterArgs
+    ///             {
+    ///                 Filter = "dev-*",
+    ///                 FilterType = "WILDCARD",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Repositories using the `name`. For example:
@@ -72,10 +104,16 @@ namespace Pulumi.Aws.Ecr
         public Output<Outputs.RepositoryImageScanningConfiguration?> ImageScanningConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+        /// The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
         /// </summary>
         [Output("imageTagMutability")]
         public Output<string?> ImageTagMutability { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        /// </summary>
+        [Output("imageTagMutabilityExclusionFilters")]
+        public Output<ImmutableArray<Outputs.RepositoryImageTagMutabilityExclusionFilter>> ImageTagMutabilityExclusionFilters { get; private set; } = null!;
 
         /// <summary>
         /// Name of the repository.
@@ -185,10 +223,22 @@ namespace Pulumi.Aws.Ecr
         public Input<Inputs.RepositoryImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }
 
         /// <summary>
-        /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+        /// The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
         /// </summary>
         [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }
+
+        [Input("imageTagMutabilityExclusionFilters")]
+        private InputList<Inputs.RepositoryImageTagMutabilityExclusionFilterArgs>? _imageTagMutabilityExclusionFilters;
+
+        /// <summary>
+        /// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        /// </summary>
+        public InputList<Inputs.RepositoryImageTagMutabilityExclusionFilterArgs> ImageTagMutabilityExclusionFilters
+        {
+            get => _imageTagMutabilityExclusionFilters ?? (_imageTagMutabilityExclusionFilters = new InputList<Inputs.RepositoryImageTagMutabilityExclusionFilterArgs>());
+            set => _imageTagMutabilityExclusionFilters = value;
+        }
 
         /// <summary>
         /// Name of the repository.
@@ -254,10 +304,22 @@ namespace Pulumi.Aws.Ecr
         public Input<Inputs.RepositoryImageScanningConfigurationGetArgs>? ImageScanningConfiguration { get; set; }
 
         /// <summary>
-        /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+        /// The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
         /// </summary>
         [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }
+
+        [Input("imageTagMutabilityExclusionFilters")]
+        private InputList<Inputs.RepositoryImageTagMutabilityExclusionFilterGetArgs>? _imageTagMutabilityExclusionFilters;
+
+        /// <summary>
+        /// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        /// </summary>
+        public InputList<Inputs.RepositoryImageTagMutabilityExclusionFilterGetArgs> ImageTagMutabilityExclusionFilters
+        {
+            get => _imageTagMutabilityExclusionFilters ?? (_imageTagMutabilityExclusionFilters = new InputList<Inputs.RepositoryImageTagMutabilityExclusionFilterGetArgs>());
+            set => _imageTagMutabilityExclusionFilters = value;
+        }
 
         /// <summary>
         /// Name of the repository.

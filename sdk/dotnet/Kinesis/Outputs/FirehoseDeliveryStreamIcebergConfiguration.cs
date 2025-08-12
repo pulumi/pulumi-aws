@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamIcebergConfiguration
     {
+        public readonly bool? AppendOnly;
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
         /// </summary>
@@ -53,6 +54,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
         [OutputConstructor]
         private FirehoseDeliveryStreamIcebergConfiguration(
+            bool? appendOnly,
+
             int? bufferingInterval,
 
             int? bufferingSize,
@@ -73,6 +76,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             Outputs.FirehoseDeliveryStreamIcebergConfigurationS3Configuration s3Configuration)
         {
+            AppendOnly = appendOnly;
             BufferingInterval = bufferingInterval;
             BufferingSize = bufferingSize;
             CatalogArn = catalogArn;

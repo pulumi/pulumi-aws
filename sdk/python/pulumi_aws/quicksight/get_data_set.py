@@ -214,7 +214,6 @@ def get_data_set(aws_account_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str aws_account_id: AWS account ID.
     :param _builtins.str data_set_id: Identifier for the data set.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -264,7 +263,6 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[_builtins
     ```
 
 
-    :param _builtins.str aws_account_id: AWS account ID.
     :param _builtins.str data_set_id: Identifier for the data set.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

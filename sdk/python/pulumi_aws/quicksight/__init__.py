@@ -9,6 +9,7 @@ import typing
 from .account_settings import *
 from .account_subscription import *
 from .analysis import *
+from .custom_permissions import *
 from .dashboard import *
 from .data_set import *
 from .data_source import *
@@ -27,11 +28,13 @@ from .ip_restriction import *
 from .key_registration import *
 from .namespace import *
 from .refresh_schedule import *
+from .role_custom_permission import *
 from .role_membership import *
 from .template import *
 from .template_alias import *
 from .theme import *
 from .user import *
+from .user_custom_permission import *
 from .vpc_connection import *
 from ._inputs import *
 from . import outputs

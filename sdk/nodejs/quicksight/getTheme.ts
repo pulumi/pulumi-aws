@@ -37,9 +37,6 @@ export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getTheme.
  */
 export interface GetThemeArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: string;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -143,9 +140,6 @@ export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOut
  * A collection of arguments for invoking getTheme.
  */
 export interface GetThemeOutputArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

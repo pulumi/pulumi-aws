@@ -126,7 +126,7 @@ namespace Pulumi.Aws.ComputeOptimizer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.ComputeOptimizer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.ComputeOptimizer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }

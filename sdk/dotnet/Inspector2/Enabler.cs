@@ -68,6 +68,14 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import Inspector Enabler using using `account_ids` and `region_types` formatted as `[account_id1]:[account_id2]:...-[resource_type1]:[resource_type2]:...`, where `account_ids` are sorted in ascending order and `resource_types` are sorted in alphabetical order. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:inspector2/enabler:Enabler example 123456789012:234567890123-EC2:ECR
+    /// ```
     /// </summary>
     [AwsResourceType("aws:inspector2/enabler:Enabler")]
     public partial class Enabler : global::Pulumi.CustomResource

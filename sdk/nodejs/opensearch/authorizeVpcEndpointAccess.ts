@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `example_id_arg`. For example:
+ * Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name`. For example:
  *
  * ```sh
  * $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678

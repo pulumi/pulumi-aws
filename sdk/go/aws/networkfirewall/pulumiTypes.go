@@ -7953,6 +7953,650 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateCon
 	}).(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateOutput)
 }
 
+type VpcEndpointAssociationSubnetMapping struct {
+	// The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// The unique identifier for the subnet.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// VpcEndpointAssociationSubnetMappingInput is an input type that accepts VpcEndpointAssociationSubnetMappingArgs and VpcEndpointAssociationSubnetMappingOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationSubnetMappingInput` via:
+//
+//	VpcEndpointAssociationSubnetMappingArgs{...}
+type VpcEndpointAssociationSubnetMappingInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationSubnetMappingOutput() VpcEndpointAssociationSubnetMappingOutput
+	ToVpcEndpointAssociationSubnetMappingOutputWithContext(context.Context) VpcEndpointAssociationSubnetMappingOutput
+}
+
+type VpcEndpointAssociationSubnetMappingArgs struct {
+	// The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	// The unique identifier for the subnet.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (VpcEndpointAssociationSubnetMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationSubnetMapping)(nil)).Elem()
+}
+
+func (i VpcEndpointAssociationSubnetMappingArgs) ToVpcEndpointAssociationSubnetMappingOutput() VpcEndpointAssociationSubnetMappingOutput {
+	return i.ToVpcEndpointAssociationSubnetMappingOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationSubnetMappingArgs) ToVpcEndpointAssociationSubnetMappingOutputWithContext(ctx context.Context) VpcEndpointAssociationSubnetMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationSubnetMappingOutput)
+}
+
+func (i VpcEndpointAssociationSubnetMappingArgs) ToVpcEndpointAssociationSubnetMappingPtrOutput() VpcEndpointAssociationSubnetMappingPtrOutput {
+	return i.ToVpcEndpointAssociationSubnetMappingPtrOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationSubnetMappingArgs) ToVpcEndpointAssociationSubnetMappingPtrOutputWithContext(ctx context.Context) VpcEndpointAssociationSubnetMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationSubnetMappingOutput).ToVpcEndpointAssociationSubnetMappingPtrOutputWithContext(ctx)
+}
+
+// VpcEndpointAssociationSubnetMappingPtrInput is an input type that accepts VpcEndpointAssociationSubnetMappingArgs, VpcEndpointAssociationSubnetMappingPtr and VpcEndpointAssociationSubnetMappingPtrOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationSubnetMappingPtrInput` via:
+//
+//	        VpcEndpointAssociationSubnetMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcEndpointAssociationSubnetMappingPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationSubnetMappingPtrOutput() VpcEndpointAssociationSubnetMappingPtrOutput
+	ToVpcEndpointAssociationSubnetMappingPtrOutputWithContext(context.Context) VpcEndpointAssociationSubnetMappingPtrOutput
+}
+
+type vpcEndpointAssociationSubnetMappingPtrType VpcEndpointAssociationSubnetMappingArgs
+
+func VpcEndpointAssociationSubnetMappingPtr(v *VpcEndpointAssociationSubnetMappingArgs) VpcEndpointAssociationSubnetMappingPtrInput {
+	return (*vpcEndpointAssociationSubnetMappingPtrType)(v)
+}
+
+func (*vpcEndpointAssociationSubnetMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointAssociationSubnetMapping)(nil)).Elem()
+}
+
+func (i *vpcEndpointAssociationSubnetMappingPtrType) ToVpcEndpointAssociationSubnetMappingPtrOutput() VpcEndpointAssociationSubnetMappingPtrOutput {
+	return i.ToVpcEndpointAssociationSubnetMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointAssociationSubnetMappingPtrType) ToVpcEndpointAssociationSubnetMappingPtrOutputWithContext(ctx context.Context) VpcEndpointAssociationSubnetMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationSubnetMappingPtrOutput)
+}
+
+type VpcEndpointAssociationSubnetMappingOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationSubnetMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationSubnetMapping)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationSubnetMappingOutput) ToVpcEndpointAssociationSubnetMappingOutput() VpcEndpointAssociationSubnetMappingOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationSubnetMappingOutput) ToVpcEndpointAssociationSubnetMappingOutputWithContext(ctx context.Context) VpcEndpointAssociationSubnetMappingOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationSubnetMappingOutput) ToVpcEndpointAssociationSubnetMappingPtrOutput() VpcEndpointAssociationSubnetMappingPtrOutput {
+	return o.ToVpcEndpointAssociationSubnetMappingPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointAssociationSubnetMappingOutput) ToVpcEndpointAssociationSubnetMappingPtrOutputWithContext(ctx context.Context) VpcEndpointAssociationSubnetMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointAssociationSubnetMapping) *VpcEndpointAssociationSubnetMapping {
+		return &v
+	}).(VpcEndpointAssociationSubnetMappingPtrOutput)
+}
+
+// The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
+func (o VpcEndpointAssociationSubnetMappingOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationSubnetMapping) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the subnet.
+func (o VpcEndpointAssociationSubnetMappingOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationSubnetMapping) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type VpcEndpointAssociationSubnetMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationSubnetMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointAssociationSubnetMapping)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationSubnetMappingPtrOutput) ToVpcEndpointAssociationSubnetMappingPtrOutput() VpcEndpointAssociationSubnetMappingPtrOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationSubnetMappingPtrOutput) ToVpcEndpointAssociationSubnetMappingPtrOutputWithContext(ctx context.Context) VpcEndpointAssociationSubnetMappingPtrOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationSubnetMappingPtrOutput) Elem() VpcEndpointAssociationSubnetMappingOutput {
+	return o.ApplyT(func(v *VpcEndpointAssociationSubnetMapping) VpcEndpointAssociationSubnetMapping {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointAssociationSubnetMapping
+		return ret
+	}).(VpcEndpointAssociationSubnetMappingOutput)
+}
+
+// The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
+func (o VpcEndpointAssociationSubnetMappingPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointAssociationSubnetMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the subnet.
+func (o VpcEndpointAssociationSubnetMappingPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointAssociationSubnetMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// VpcEndpointAssociationTimeoutsInput is an input type that accepts VpcEndpointAssociationTimeoutsArgs and VpcEndpointAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationTimeoutsInput` via:
+//
+//	VpcEndpointAssociationTimeoutsArgs{...}
+type VpcEndpointAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationTimeoutsOutput() VpcEndpointAssociationTimeoutsOutput
+	ToVpcEndpointAssociationTimeoutsOutputWithContext(context.Context) VpcEndpointAssociationTimeoutsOutput
+}
+
+type VpcEndpointAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (VpcEndpointAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationTimeouts)(nil)).Elem()
+}
+
+func (i VpcEndpointAssociationTimeoutsArgs) ToVpcEndpointAssociationTimeoutsOutput() VpcEndpointAssociationTimeoutsOutput {
+	return i.ToVpcEndpointAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationTimeoutsArgs) ToVpcEndpointAssociationTimeoutsOutputWithContext(ctx context.Context) VpcEndpointAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationTimeoutsOutput)
+}
+
+func (i VpcEndpointAssociationTimeoutsArgs) ToVpcEndpointAssociationTimeoutsPtrOutput() VpcEndpointAssociationTimeoutsPtrOutput {
+	return i.ToVpcEndpointAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationTimeoutsArgs) ToVpcEndpointAssociationTimeoutsPtrOutputWithContext(ctx context.Context) VpcEndpointAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationTimeoutsOutput).ToVpcEndpointAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// VpcEndpointAssociationTimeoutsPtrInput is an input type that accepts VpcEndpointAssociationTimeoutsArgs, VpcEndpointAssociationTimeoutsPtr and VpcEndpointAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationTimeoutsPtrInput` via:
+//
+//	        VpcEndpointAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcEndpointAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationTimeoutsPtrOutput() VpcEndpointAssociationTimeoutsPtrOutput
+	ToVpcEndpointAssociationTimeoutsPtrOutputWithContext(context.Context) VpcEndpointAssociationTimeoutsPtrOutput
+}
+
+type vpcEndpointAssociationTimeoutsPtrType VpcEndpointAssociationTimeoutsArgs
+
+func VpcEndpointAssociationTimeoutsPtr(v *VpcEndpointAssociationTimeoutsArgs) VpcEndpointAssociationTimeoutsPtrInput {
+	return (*vpcEndpointAssociationTimeoutsPtrType)(v)
+}
+
+func (*vpcEndpointAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *vpcEndpointAssociationTimeoutsPtrType) ToVpcEndpointAssociationTimeoutsPtrOutput() VpcEndpointAssociationTimeoutsPtrOutput {
+	return i.ToVpcEndpointAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointAssociationTimeoutsPtrType) ToVpcEndpointAssociationTimeoutsPtrOutputWithContext(ctx context.Context) VpcEndpointAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationTimeoutsPtrOutput)
+}
+
+type VpcEndpointAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationTimeouts)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationTimeoutsOutput) ToVpcEndpointAssociationTimeoutsOutput() VpcEndpointAssociationTimeoutsOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationTimeoutsOutput) ToVpcEndpointAssociationTimeoutsOutputWithContext(ctx context.Context) VpcEndpointAssociationTimeoutsOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationTimeoutsOutput) ToVpcEndpointAssociationTimeoutsPtrOutput() VpcEndpointAssociationTimeoutsPtrOutput {
+	return o.ToVpcEndpointAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointAssociationTimeoutsOutput) ToVpcEndpointAssociationTimeoutsPtrOutputWithContext(ctx context.Context) VpcEndpointAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointAssociationTimeouts) *VpcEndpointAssociationTimeouts {
+		return &v
+	}).(VpcEndpointAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcEndpointAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o VpcEndpointAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointAssociationTimeouts)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationTimeoutsPtrOutput) ToVpcEndpointAssociationTimeoutsPtrOutput() VpcEndpointAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationTimeoutsPtrOutput) ToVpcEndpointAssociationTimeoutsPtrOutputWithContext(ctx context.Context) VpcEndpointAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationTimeoutsPtrOutput) Elem() VpcEndpointAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *VpcEndpointAssociationTimeouts) VpcEndpointAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointAssociationTimeouts
+		return ret
+	}).(VpcEndpointAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcEndpointAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o VpcEndpointAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatus struct {
+	AssociationSyncStates []VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState `pulumi:"associationSyncStates"`
+}
+
+// VpcEndpointAssociationVpcEndpointAssociationStatusInput is an input type that accepts VpcEndpointAssociationVpcEndpointAssociationStatusArgs and VpcEndpointAssociationVpcEndpointAssociationStatusOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationVpcEndpointAssociationStatusInput` via:
+//
+//	VpcEndpointAssociationVpcEndpointAssociationStatusArgs{...}
+type VpcEndpointAssociationVpcEndpointAssociationStatusInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusOutput() VpcEndpointAssociationVpcEndpointAssociationStatusOutput
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusOutputWithContext(context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusOutput
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusArgs struct {
+	AssociationSyncStates VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayInput `pulumi:"associationSyncStates"`
+}
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatus)(nil)).Elem()
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusArgs) ToVpcEndpointAssociationVpcEndpointAssociationStatusOutput() VpcEndpointAssociationVpcEndpointAssociationStatusOutput {
+	return i.ToVpcEndpointAssociationVpcEndpointAssociationStatusOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusArgs) ToVpcEndpointAssociationVpcEndpointAssociationStatusOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationVpcEndpointAssociationStatusOutput)
+}
+
+// VpcEndpointAssociationVpcEndpointAssociationStatusArrayInput is an input type that accepts VpcEndpointAssociationVpcEndpointAssociationStatusArray and VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationVpcEndpointAssociationStatusArrayInput` via:
+//
+//	VpcEndpointAssociationVpcEndpointAssociationStatusArray{ VpcEndpointAssociationVpcEndpointAssociationStatusArgs{...} }
+type VpcEndpointAssociationVpcEndpointAssociationStatusArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput() VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusArrayOutputWithContext(context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusArray []VpcEndpointAssociationVpcEndpointAssociationStatusInput
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointAssociationVpcEndpointAssociationStatus)(nil)).Elem()
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusArray) ToVpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput() VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput {
+	return i.ToVpcEndpointAssociationVpcEndpointAssociationStatusArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusArray) ToVpcEndpointAssociationVpcEndpointAssociationStatusArrayOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput)
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatus)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusOutput() VpcEndpointAssociationVpcEndpointAssociationStatusOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusOutput) AssociationSyncStates() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationVpcEndpointAssociationStatus) []VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState {
+		return v.AssociationSyncStates
+	}).(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput)
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointAssociationVpcEndpointAssociationStatus)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput() VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusArrayOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput) Index(i pulumi.IntInput) VpcEndpointAssociationVpcEndpointAssociationStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointAssociationVpcEndpointAssociationStatus {
+		return vs[0].([]VpcEndpointAssociationVpcEndpointAssociationStatus)[vs[1].(int)]
+	}).(VpcEndpointAssociationVpcEndpointAssociationStatusOutput)
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState struct {
+	// Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
+	Attachments []VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment `pulumi:"attachments"`
+	// The Availability Zone where the subnet is configured.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+}
+
+// VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateInput is an input type that accepts VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs and VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateInput` via:
+//
+//	VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs{...}
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutputWithContext(context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs struct {
+	// Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
+	Attachments VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayInput `pulumi:"attachments"`
+	// The Availability Zone where the subnet is configured.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+}
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState)(nil)).Elem()
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput {
+	return i.ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput)
+}
+
+// VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayInput is an input type that accepts VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArray and VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayInput` via:
+//
+//	VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArray{ VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs{...} }
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutputWithContext(context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArray []VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateInput
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState)(nil)).Elem()
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArray) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput {
+	return i.ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArray) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput)
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput {
+	return o
+}
+
+// Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput) Attachments() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState) []VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment {
+		return v.Attachments
+	}).(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput)
+}
+
+// The Availability Zone where the subnet is configured.
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState) string {
+		return v.AvailabilityZone
+	}).(pulumi.StringOutput)
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput) Index(i pulumi.IntInput) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState {
+		return vs[0].([]VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState)[vs[1].(int)]
+	}).(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput)
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment struct {
+	// The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+	EndpointId    string `pulumi:"endpointId"`
+	Status        string `pulumi:"status"`
+	StatusMessage string `pulumi:"statusMessage"`
+	// The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentInput is an input type that accepts VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs and VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentInput` via:
+//
+//	VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs{...}
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutputWithContext(context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs struct {
+	// The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+	EndpointId    pulumi.StringInput `pulumi:"endpointId"`
+	Status        pulumi.StringInput `pulumi:"status"`
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+	// The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment)(nil)).Elem()
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput {
+	return i.ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput)
+}
+
+// VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayInput is an input type that accepts VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArray and VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayInput` via:
+//
+//	VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArray{ VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs{...} }
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput
+	ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutputWithContext(context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArray []VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentInput
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment)(nil)).Elem()
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArray) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput {
+	return i.ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArray) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput)
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput {
+	return o
+}
+
+// The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput) EndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment) string {
+		return v.EndpointId
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment) string {
+		return v.Status
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment) string {
+		return v.StatusMessage
+	}).(pulumi.StringOutput)
+}
+
+// The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment) string {
+		return v.SubnetId
+	}).(pulumi.StringOutput)
+}
+
+type VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput) ToVpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutputWithContext(ctx context.Context) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput) Index(i pulumi.IntInput) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment {
+		return vs[0].([]VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment)[vs[1].(int)]
+	}).(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput)
+}
+
 type GetFirewallAvailabilityZoneMapping struct {
 	// The ID of the Availability Zone where the firewall endpoint is located.
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
@@ -10421,6 +11065,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArrayInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArrayInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationSubnetMappingInput)(nil)).Elem(), VpcEndpointAssociationSubnetMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationSubnetMappingPtrInput)(nil)).Elem(), VpcEndpointAssociationSubnetMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationTimeoutsInput)(nil)).Elem(), VpcEndpointAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationTimeoutsPtrInput)(nil)).Elem(), VpcEndpointAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusInput)(nil)).Elem(), VpcEndpointAssociationVpcEndpointAssociationStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusArrayInput)(nil)).Elem(), VpcEndpointAssociationVpcEndpointAssociationStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateInput)(nil)).Elem(), VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayInput)(nil)).Elem(), VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentInput)(nil)).Elem(), VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayInput)(nil)).Elem(), VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallAvailabilityZoneMappingInput)(nil)).Elem(), GetFirewallAvailabilityZoneMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallAvailabilityZoneMappingArrayInput)(nil)).Elem(), GetFirewallAvailabilityZoneMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallEncryptionConfigurationInput)(nil)).Elem(), GetFirewallEncryptionConfigurationArgs{})
@@ -10587,6 +11241,16 @@ func init() {
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArrayOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationSubnetMappingOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationSubnetMappingPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationVpcEndpointAssociationStatusOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallAvailabilityZoneMappingOutput{})
 	pulumi.RegisterOutputType(GetFirewallAvailabilityZoneMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallEncryptionConfigurationOutput{})

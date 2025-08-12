@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RuleGroup{}
 	case "aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration":
 		r = &TlsInspectionConfiguration{}
+	case "aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation":
+		r = &VpcEndpointAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networkfirewall/tlsInspectionConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkfirewall/vpcEndpointAssociation",
 		&module{version},
 	)
 }
