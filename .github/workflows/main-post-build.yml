@@ -11,7 +11,6 @@ on:
 
 env:
   AWS_REGION: us-west-2
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..

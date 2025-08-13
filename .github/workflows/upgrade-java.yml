@@ -22,14 +22,6 @@ permissions:
   issues: write
   pull-requests: write
 
-env:
-
-  # upgrade-provider calls into gh CLI tool to open PRs that uses GH_TOKEN env var, which is not obivous.
-  # setting this correctly makes sure the PR has the correct owner and permissions work as expected.
-  GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
-
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   upgrade_java:
     name: upgrade-java
@@ -63,6 +55,8 @@ jobs:
         env:
           V: ${{inputs.version}}
           REPO: ${{github.repository}}
-          GH_TOKEN: ${{env.GH_TOKEN}}
+          # upgrade-provider calls into gh CLI tool to open PRs that uses GH_TOKEN env var, which is not obivous.
+          # setting this correctly makes sure the PR has the correct owner and permissions work as expected.
+          GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           upgrade-provider "$REPO" --kind=java --java-version="$V"

@@ -80,6 +80,8 @@ jobs:
             go-provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}-
       - name: Prepare local workspace before restoring previously built
         run: make prepare_local_workspace
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Restore prerequisites
         uses: ./.github/actions/download-prerequisites
       - name: Restore makefile progress
