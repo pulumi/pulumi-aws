@@ -86,6 +86,6 @@ runs:
 
     - name: Setup Gradle
       if: inputs.tools == 'all' || contains(inputs.tools, 'java')
-      uses: gradle/gradle-build-action@ac2d340dc04d9e1113182899e983b5400c17cda1 # v3
+      uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4.4.2
       with:
         gradle-version: 7.6
