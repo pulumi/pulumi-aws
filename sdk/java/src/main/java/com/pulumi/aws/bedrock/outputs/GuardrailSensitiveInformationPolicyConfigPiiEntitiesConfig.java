@@ -5,16 +5,39 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
     /**
-     * @return Options for sensitive information action.
+     * @return Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
      * 
      */
     private String action;
+    /**
+     * @return Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+     * 
+     */
+    private @Nullable String inputAction;
+    /**
+     * @return Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
+     * 
+     */
+    private @Nullable Boolean inputEnabled;
+    /**
+     * @return Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+     * 
+     */
+    private @Nullable String outputAction;
+    /**
+     * @return Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
+     * 
+     */
+    private @Nullable Boolean outputEnabled;
     /**
      * @return The currently supported PII entities.
      * 
@@ -23,11 +46,39 @@ public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
 
     private GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig() {}
     /**
-     * @return Options for sensitive information action.
+     * @return Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
      * 
      */
     public String action() {
         return this.action;
+    }
+    /**
+     * @return Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+     * 
+     */
+    public Optional<String> inputAction() {
+        return Optional.ofNullable(this.inputAction);
+    }
+    /**
+     * @return Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
+     * 
+     */
+    public Optional<Boolean> inputEnabled() {
+        return Optional.ofNullable(this.inputEnabled);
+    }
+    /**
+     * @return Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+     * 
+     */
+    public Optional<String> outputAction() {
+        return Optional.ofNullable(this.outputAction);
+    }
+    /**
+     * @return Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
+     * 
+     */
+    public Optional<Boolean> outputEnabled() {
+        return Optional.ofNullable(this.outputEnabled);
     }
     /**
      * @return The currently supported PII entities.
@@ -47,11 +98,19 @@ public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
     @CustomType.Builder
     public static final class Builder {
         private String action;
+        private @Nullable String inputAction;
+        private @Nullable Boolean inputEnabled;
+        private @Nullable String outputAction;
+        private @Nullable Boolean outputEnabled;
         private String type;
         public Builder() {}
         public Builder(GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.inputAction = defaults.inputAction;
+    	      this.inputEnabled = defaults.inputEnabled;
+    	      this.outputAction = defaults.outputAction;
+    	      this.outputEnabled = defaults.outputEnabled;
     	      this.type = defaults.type;
         }
 
@@ -61,6 +120,30 @@ public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
               throw new MissingRequiredPropertyException("GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig", "action");
             }
             this.action = action;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inputAction(@Nullable String inputAction) {
+
+            this.inputAction = inputAction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inputEnabled(@Nullable Boolean inputEnabled) {
+
+            this.inputEnabled = inputEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder outputAction(@Nullable String outputAction) {
+
+            this.outputAction = outputAction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder outputEnabled(@Nullable Boolean outputEnabled) {
+
+            this.outputEnabled = outputEnabled;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +157,10 @@ public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
         public GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig build() {
             final var _resultValue = new GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig();
             _resultValue.action = action;
+            _resultValue.inputAction = inputAction;
+            _resultValue.inputEnabled = inputEnabled;
+            _resultValue.outputAction = outputAction;
+            _resultValue.outputEnabled = outputEnabled;
             _resultValue.type = type;
             return _resultValue;
         }

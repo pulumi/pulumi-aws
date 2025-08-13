@@ -99,7 +99,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly iamArn!: pulumi.Output<string | undefined>;
     /**
-     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
      */
     public readonly identityType!: pulumi.Output<string>;
     /**
@@ -121,9 +121,9 @@ export class User extends pulumi.CustomResource {
     /**
      * Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
      */
-    public readonly userName!: pulumi.Output<string | undefined>;
+    public readonly userName!: pulumi.Output<string>;
     /**
-     * Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+     * Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
      *
      * The following arguments are optional:
      */
@@ -199,7 +199,7 @@ export interface UserState {
      */
     iamArn?: pulumi.Input<string>;
     /**
-     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
      */
     identityType?: pulumi.Input<string>;
     /**
@@ -223,7 +223,7 @@ export interface UserState {
      */
     userName?: pulumi.Input<string>;
     /**
-     * Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+     * Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
      *
      * The following arguments are optional:
      */
@@ -244,7 +244,7 @@ export interface UserArgs {
      */
     iamArn?: pulumi.Input<string>;
     /**
-     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
      */
     identityType: pulumi.Input<string>;
     /**
@@ -264,7 +264,7 @@ export interface UserArgs {
      */
     userName?: pulumi.Input<string>;
     /**
-     * Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+     * Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
      *
      * The following arguments are optional:
      */

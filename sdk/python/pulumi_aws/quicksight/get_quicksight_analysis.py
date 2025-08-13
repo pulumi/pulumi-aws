@@ -179,7 +179,6 @@ def get_quicksight_analysis(analysis_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str analysis_id: Identifier for the analysis.
-    :param _builtins.str aws_account_id: AWS account ID.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -225,7 +224,6 @@ def get_quicksight_analysis_output(analysis_id: Optional[pulumi.Input[_builtins.
 
 
     :param _builtins.str analysis_id: Identifier for the analysis.
-    :param _builtins.str aws_account_id: AWS account ID.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

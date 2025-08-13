@@ -36,10 +36,18 @@ import * as utilities from "../utilities";
  *     sensitiveInformationPolicyConfig: {
  *         piiEntitiesConfigs: [{
  *             action: "BLOCK",
+ *             inputAction: "BLOCK",
+ *             outputAction: "ANONYMIZE",
+ *             inputEnabled: true,
+ *             outputEnabled: true,
  *             type: "NAME",
  *         }],
  *         regexesConfigs: [{
  *             action: "BLOCK",
+ *             inputAction: "BLOCK",
+ *             outputAction: "BLOCK",
+ *             inputEnabled: true,
+ *             outputEnabled: false,
  *             description: "example regex",
  *             name: "regex_example",
  *             pattern: "^\\d{3}-\\d{2}-\\d{4}$",

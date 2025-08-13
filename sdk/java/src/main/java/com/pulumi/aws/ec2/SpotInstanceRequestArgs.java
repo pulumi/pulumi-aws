@@ -227,6 +227,21 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+     * 
+     */
+    @Import(name="forceDestroy")
+    private @Nullable Output<Boolean> forceDestroy;
+
+    /**
+     * @return Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDestroy() {
+        return Optional.ofNullable(this.forceDestroy);
+    }
+
+    /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
@@ -843,6 +858,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         this.enablePrimaryIpv6 = $.enablePrimaryIpv6;
         this.enclaveOptions = $.enclaveOptions;
         this.ephemeralBlockDevices = $.ephemeralBlockDevices;
+        this.forceDestroy = $.forceDestroy;
         this.getPasswordData = $.getPasswordData;
         this.hibernation = $.hibernation;
         this.hostId = $.hostId;
@@ -1193,6 +1209,27 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          */
         public Builder ephemeralBlockDevices(SpotInstanceRequestEphemeralBlockDeviceArgs... ephemeralBlockDevices) {
             return ephemeralBlockDevices(List.of(ephemeralBlockDevices));
+        }
+
+        /**
+         * @param forceDestroy Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
+            $.forceDestroy = forceDestroy;
+            return this;
+        }
+
+        /**
+         * @param forceDestroy Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(Boolean forceDestroy) {
+            return forceDestroy(Output.of(forceDestroy));
         }
 
         /**

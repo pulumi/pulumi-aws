@@ -54,7 +54,6 @@ func GetQuicksightUser(ctx *pulumi.Context, args *GetQuicksightUserArgs, opts ..
 
 // A collection of arguments for invoking getQuicksightUser.
 type GetQuicksightUserArgs struct {
-	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -73,6 +72,8 @@ type GetQuicksightUserResult struct {
 	// The Amazon Resource Name (ARN) for the user.
 	Arn          string `pulumi:"arn"`
 	AwsAccountId string `pulumi:"awsAccountId"`
+	// The custom permissions profile associated with this user.
+	CustomPermissionsName string `pulumi:"customPermissionsName"`
 	// The user's email address.
 	Email string `pulumi:"email"`
 	// The provider-assigned unique ID for this managed resource.
@@ -102,7 +103,6 @@ func GetQuicksightUserOutput(ctx *pulumi.Context, args GetQuicksightUserOutputAr
 
 // A collection of arguments for invoking getQuicksightUser.
 type GetQuicksightUserOutputArgs struct {
-	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
@@ -145,6 +145,11 @@ func (o GetQuicksightUserResultOutput) Arn() pulumi.StringOutput {
 
 func (o GetQuicksightUserResultOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+// The custom permissions profile associated with this user.
+func (o GetQuicksightUserResultOutput) CustomPermissionsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.CustomPermissionsName }).(pulumi.StringOutput)
 }
 
 // The user's email address.

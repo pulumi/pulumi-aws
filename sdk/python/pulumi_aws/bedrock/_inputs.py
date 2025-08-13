@@ -9591,11 +9591,27 @@ if not MYPY:
     class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgsDict(TypedDict):
         action: pulumi.Input[_builtins.str]
         """
-        Options for sensitive information action.
+        Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         """
         type: pulumi.Input[_builtins.str]
         """
         The currently supported PII entities.
+        """
+        input_action: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        """
+        input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        """
+        output_action: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        """
+        output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
         """
 elif False:
     GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -9604,19 +9620,35 @@ elif False:
 class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[_builtins.str],
-                 type: pulumi.Input[_builtins.str]):
+                 type: pulumi.Input[_builtins.str],
+                 input_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 input_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 output_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] action: Options for sensitive information action.
+        :param pulumi.Input[_builtins.str] action: Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         :param pulumi.Input[_builtins.str] type: The currently supported PII entities.
+        :param pulumi.Input[_builtins.str] input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        :param pulumi.Input[_builtins.bool] input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        :param pulumi.Input[_builtins.str] output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        :param pulumi.Input[_builtins.bool] output_enabled: Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "type", type)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
 
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
         """
-        Options for sensitive information action.
+        Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         """
         return pulumi.get(self, "action")
 
@@ -9636,12 +9668,60 @@ class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs:
     def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
 
+    @_builtins.property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        """
+        return pulumi.get(self, "input_action")
+
+    @input_action.setter
+    def input_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "input_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        """
+        return pulumi.get(self, "input_enabled")
+
+    @input_enabled.setter
+    def input_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "input_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        """
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "output_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+        """
+        return pulumi.get(self, "output_enabled")
+
+    @output_enabled.setter
+    def output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "output_enabled", value)
+
 
 if not MYPY:
     class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgsDict(TypedDict):
         action: pulumi.Input[_builtins.str]
         """
-        Options for sensitive information action.
+        Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         """
         name: pulumi.Input[_builtins.str]
         """
@@ -9655,6 +9735,22 @@ if not MYPY:
         """
         The regex description.
         """
+        input_action: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        """
+        input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        """
+        output_action: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        """
+        output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+        """
 elif False:
     GuardrailSensitiveInformationPolicyConfigRegexesConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9664,24 +9760,40 @@ class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs:
                  action: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 input_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 input_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 output_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] action: Options for sensitive information action.
+        :param pulumi.Input[_builtins.str] action: Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         :param pulumi.Input[_builtins.str] name: The regex name.
         :param pulumi.Input[_builtins.str] pattern: The regex pattern.
         :param pulumi.Input[_builtins.str] description: The regex description.
+        :param pulumi.Input[_builtins.str] input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        :param pulumi.Input[_builtins.bool] input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        :param pulumi.Input[_builtins.str] output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        :param pulumi.Input[_builtins.bool] output_enabled: Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "pattern", pattern)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
 
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
         """
-        Options for sensitive information action.
+        Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         """
         return pulumi.get(self, "action")
 
@@ -9724,6 +9836,54 @@ class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        """
+        return pulumi.get(self, "input_action")
+
+    @input_action.setter
+    def input_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "input_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        """
+        return pulumi.get(self, "input_enabled")
+
+    @input_enabled.setter
+    def input_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "input_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        """
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "output_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+        """
+        return pulumi.get(self, "output_enabled")
+
+    @output_enabled.setter
+    def output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "output_enabled", value)
 
 
 if not MYPY:

@@ -191,7 +191,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
+    public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources>;
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */

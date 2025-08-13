@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WebAclAssociation{}
 	case "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration":
 		r = &WebAclLoggingConfiguration{}
+	case "aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation":
+		r = &WebAclRuleGroupAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"wafv2/webAclLoggingConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"wafv2/webAclRuleGroupAssociation",
 		&module{version},
 	)
 }

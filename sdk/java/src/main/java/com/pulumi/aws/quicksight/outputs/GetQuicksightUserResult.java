@@ -25,6 +25,11 @@ public final class GetQuicksightUserResult {
     private String arn;
     private String awsAccountId;
     /**
+     * @return The custom permissions profile associated with this user.
+     * 
+     */
+    private String customPermissionsName;
+    /**
      * @return The user&#39;s email address.
      * 
      */
@@ -73,6 +78,13 @@ public final class GetQuicksightUserResult {
     }
     public String awsAccountId() {
         return this.awsAccountId;
+    }
+    /**
+     * @return The custom permissions profile associated with this user.
+     * 
+     */
+    public String customPermissionsName() {
+        return this.customPermissionsName;
     }
     /**
      * @return The user&#39;s email address.
@@ -134,6 +146,7 @@ public final class GetQuicksightUserResult {
         private Boolean active;
         private String arn;
         private String awsAccountId;
+        private String customPermissionsName;
         private String email;
         private String id;
         private String identityType;
@@ -148,6 +161,7 @@ public final class GetQuicksightUserResult {
     	      this.active = defaults.active;
     	      this.arn = defaults.arn;
     	      this.awsAccountId = defaults.awsAccountId;
+    	      this.customPermissionsName = defaults.customPermissionsName;
     	      this.email = defaults.email;
     	      this.id = defaults.id;
     	      this.identityType = defaults.identityType;
@@ -180,6 +194,14 @@ public final class GetQuicksightUserResult {
               throw new MissingRequiredPropertyException("GetQuicksightUserResult", "awsAccountId");
             }
             this.awsAccountId = awsAccountId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customPermissionsName(String customPermissionsName) {
+            if (customPermissionsName == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightUserResult", "customPermissionsName");
+            }
+            this.customPermissionsName = customPermissionsName;
             return this;
         }
         @CustomType.Setter
@@ -249,6 +271,7 @@ public final class GetQuicksightUserResult {
             _resultValue.active = active;
             _resultValue.arn = arn;
             _resultValue.awsAccountId = awsAccountId;
+            _resultValue.customPermissionsName = customPermissionsName;
             _resultValue.email = email;
             _resultValue.id = id;
             _resultValue.identityType = identityType;

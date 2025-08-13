@@ -55,7 +55,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Bedrock Inference Profile using the `example_id_arg`. For example:
+// Using `pulumi import`, import Bedrock Inference Profile using the `name`. For example:
 //
 // ```sh
 // $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678

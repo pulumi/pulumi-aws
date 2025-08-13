@@ -115,7 +115,7 @@ export class RecommendationPreferences extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+     * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
      */
     public readonly resourceType!: pulumi.Output<string>;
     /**
@@ -204,7 +204,7 @@ export interface RecommendationPreferencesState {
      */
     region?: pulumi.Input<string>;
     /**
-     * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+     * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
      */
     resourceType?: pulumi.Input<string>;
     /**
@@ -250,7 +250,7 @@ export interface RecommendationPreferencesArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+     * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
      */
     resourceType: pulumi.Input<string>;
     /**

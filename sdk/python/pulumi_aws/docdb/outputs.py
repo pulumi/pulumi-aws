@@ -18,6 +18,7 @@ __all__ = [
     'ClusterMasterUserSecret',
     'ClusterParameterGroupParameter',
     'ClusterRestoreToPointInTime',
+    'ClusterServerlessV2ScalingConfiguration',
     'ElasticClusterTimeouts',
     'GlobalClusterGlobalClusterMember',
 ]
@@ -211,6 +212,54 @@ class ClusterRestoreToPointInTime(dict):
         A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
         """
         return pulumi.get(self, "use_latest_restorable_time")
+
+
+@pulumi.output_type
+class ClusterServerlessV2ScalingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServerlessV2ScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServerlessV2ScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServerlessV2ScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_capacity: _builtins.float,
+                 min_capacity: _builtins.float):
+        """
+        :param _builtins.float max_capacity: Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
+        :param _builtins.float min_capacity: Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
+        """
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> _builtins.float:
+        """
+        Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> _builtins.float:
+        """
+        Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
+        """
+        return pulumi.get(self, "min_capacity")
 
 
 @pulumi.output_type

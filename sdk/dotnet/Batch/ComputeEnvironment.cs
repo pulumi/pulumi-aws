@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Batch
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         /// </summary>
         [Output("computeResources")]
-        public Output<Outputs.ComputeEnvironmentComputeResources?> ComputeResources { get; private set; } = null!;
+        public Output<Outputs.ComputeEnvironmentComputeResources> ComputeResources { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.

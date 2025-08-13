@@ -32,7 +32,7 @@ class FunctionArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] comment: Comment.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         """
@@ -89,7 +89,7 @@ class FunctionArgs:
     @pulumi.getter(name="keyValueStoreAssociations")
     def key_value_store_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         """
         return pulumi.get(self, "key_value_store_associations")
 
@@ -141,7 +141,7 @@ class _FunctionState:
         :param pulumi.Input[_builtins.str] code: Source code of the function
         :param pulumi.Input[_builtins.str] comment: Comment.
         :param pulumi.Input[_builtins.str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         :param pulumi.Input[_builtins.str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
         :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -223,7 +223,7 @@ class _FunctionState:
     @pulumi.getter(name="keyValueStoreAssociations")
     def key_value_store_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         """
         return pulumi.get(self, "key_value_store_associations")
 
@@ -328,7 +328,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] code: Source code of the function
         :param pulumi.Input[_builtins.str] comment: Comment.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[_builtins.str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
@@ -433,7 +433,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] code: Source code of the function
         :param pulumi.Input[_builtins.str] comment: Comment.
         :param pulumi.Input[_builtins.str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         :param pulumi.Input[_builtins.str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
         :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -494,7 +494,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="keyValueStoreAssociations")
     def key_value_store_associations(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         """
         return pulumi.get(self, "key_value_store_associations")
 

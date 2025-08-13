@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS AppSync Source Api Association.
+ * Resource for managing an AWS AppSync Source API Association.
  * 
  * ## Example Usage
  * 
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import AppSync Source Api Association using the `gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31`. For example:
+ * Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
  * 
  * ```sh
  * $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
@@ -71,28 +71,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/sourceApiAssociation:SourceApiAssociation")
 public class SourceApiAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the Source Api Association.
+     * ARN of the Source API Association.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the Source Api Association.
+     * @return ARN of the Source API Association.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * ID of the Source Api Association.
+     * ID of the Source API Association.
      * 
      */
     @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
     /**
-     * @return ID of the Source Api Association.
+     * @return ID of the Source API Association.
      * 
      */
     public Output<String> associationId() {

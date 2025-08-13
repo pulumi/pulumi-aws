@@ -78,6 +78,14 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import OpenSearch Domain Policy using `domain_name` prefixed with `esd-policy-`. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test
+    /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/domainPolicy:DomainPolicy")]
     public partial class DomainPolicy : global::Pulumi.CustomResource

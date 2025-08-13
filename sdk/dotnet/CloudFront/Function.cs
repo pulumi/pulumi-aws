@@ -54,7 +54,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         /// </summary>
         [Output("keyValueStoreAssociations")]
         public Output<ImmutableArray<string>> KeyValueStoreAssociations { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.CloudFront
         private InputList<string>? _keyValueStoreAssociations;
 
         /// <summary>
-        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         /// </summary>
         public InputList<string> KeyValueStoreAssociations
         {
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.CloudFront
         private InputList<string>? _keyValueStoreAssociations;
 
         /// <summary>
-        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         /// </summary>
         public InputList<string> KeyValueStoreAssociations
         {

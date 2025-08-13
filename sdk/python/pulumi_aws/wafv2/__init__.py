@@ -17,5 +17,6 @@ from .rule_group import *
 from .web_acl import *
 from .web_acl_association import *
 from .web_acl_logging_configuration import *
+from .web_acl_rule_group_association import *
 from ._inputs import *
 from . import outputs

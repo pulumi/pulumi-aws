@@ -167,6 +167,14 @@ class DomainPolicy(pulumi.CustomResource):
             access_policies=main.json)
         ```
 
+        ## Import
+
+        Using `pulumi import`, import OpenSearch Domain Policy using `domain_name` prefixed with `esd-policy-`. For example:
+
+        ```sh
+        $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain
@@ -208,6 +216,14 @@ class DomainPolicy(pulumi.CustomResource):
         main_domain_policy = aws.opensearch.DomainPolicy("main",
             domain_name=example.domain_name,
             access_policies=main.json)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import OpenSearch Domain Policy using `domain_name` prefixed with `esd-policy-`. For example:
+
+        ```sh
+        $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test
         ```
 
         :param str resource_name: The name of the resource.

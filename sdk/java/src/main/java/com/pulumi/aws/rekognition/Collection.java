@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Rekognition Collection using the `example_id_arg`. For example:
+ * Using `pulumi import`, import Rekognition Collection using the `collection_id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678

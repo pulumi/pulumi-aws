@@ -242,6 +242,12 @@ namespace Pulumi.Aws.DocDB
         public Output<Outputs.ClusterRestoreToPointInTime?> RestoreToPointInTime { get; private set; } = null!;
 
         /// <summary>
+        /// Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+        /// </summary>
+        [Output("serverlessV2ScalingConfiguration")]
+        public Output<Outputs.ClusterServerlessV2ScalingConfiguration?> ServerlessV2ScalingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
         [Output("skipFinalSnapshot")]
@@ -516,6 +522,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("restoreToPointInTime")]
         public Input<Inputs.ClusterRestoreToPointInTimeArgs>? RestoreToPointInTime { get; set; }
+
+        /// <summary>
+        /// Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+        /// </summary>
+        [Input("serverlessV2ScalingConfiguration")]
+        public Input<Inputs.ClusterServerlessV2ScalingConfigurationArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
@@ -794,6 +806,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("restoreToPointInTime")]
         public Input<Inputs.ClusterRestoreToPointInTimeGetArgs>? RestoreToPointInTime { get; set; }
+
+        /// <summary>
+        /// Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+        /// </summary>
+        [Input("serverlessV2ScalingConfiguration")]
+        public Input<Inputs.ClusterServerlessV2ScalingConfigurationGetArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.

@@ -15,30 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.GetClusterVersions(ctx, &eks.GetClusterVersionsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Filter by Cluster Type
 //
 // ```go
@@ -120,7 +96,8 @@ type GetClusterVersionsArgs struct {
 // A collection of values returned by getClusterVersions.
 type GetClusterVersionsResult struct {
 	// Type of cluster that the version belongs to.
-	ClusterType           *string                            `pulumi:"clusterType"`
+	ClusterType *string `pulumi:"clusterType"`
+	// A list of Kubernetes version information.
 	ClusterVersions       []GetClusterVersionsClusterVersion `pulumi:"clusterVersions"`
 	ClusterVersionsOnlies []string                           `pulumi:"clusterVersionsOnlies"`
 	DefaultOnly           *bool                              `pulumi:"defaultOnly"`
@@ -182,6 +159,7 @@ func (o GetClusterVersionsResultOutput) ClusterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetClusterVersionsResult) *string { return v.ClusterType }).(pulumi.StringPtrOutput)
 }
 
+// A list of Kubernetes version information.
 func (o GetClusterVersionsResultOutput) ClusterVersions() GetClusterVersionsClusterVersionArrayOutput {
 	return o.ApplyT(func(v GetClusterVersionsResult) []GetClusterVersionsClusterVersion { return v.ClusterVersions }).(GetClusterVersionsClusterVersionArrayOutput)
 }

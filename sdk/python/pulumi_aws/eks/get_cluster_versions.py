@@ -64,6 +64,9 @@ class GetClusterVersionsResult:
     @_builtins.property
     @pulumi.getter(name="clusterVersions")
     def cluster_versions(self) -> Sequence['outputs.GetClusterVersionsClusterVersionResult']:
+        """
+        A list of Kubernetes version information.
+        """
         return pulumi.get(self, "cluster_versions")
 
     @_builtins.property
@@ -138,6 +141,9 @@ def get_cluster_versions(cluster_type: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     example = aws.eks.get_cluster_versions()
+    pulumi.export("eksClusterVersions", example.cluster_versions)
+    pulumi.export("eksClusterVersionFiltered", [version for version in example.cluster_versions if version.cluster_version == "1.33"])
+    pulumi.export("eksClusterVersionList", [version.cluster_version for version in example.cluster_versions])
     ```
 
     ### Filter by Cluster Type
@@ -205,6 +211,9 @@ def get_cluster_versions_output(cluster_type: Optional[pulumi.Input[Optional[_bu
     import pulumi_aws as aws
 
     example = aws.eks.get_cluster_versions()
+    pulumi.export("eksClusterVersions", example.cluster_versions)
+    pulumi.export("eksClusterVersionFiltered", [version for version in example.cluster_versions if version.cluster_version == "1.33"])
+    pulumi.export("eksClusterVersionList", [version.cluster_version for version in example.cluster_versions])
     ```
 
     ### Filter by Cluster Type

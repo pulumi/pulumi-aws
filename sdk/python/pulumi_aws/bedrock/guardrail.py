@@ -614,10 +614,18 @@ class Guardrail(pulumi.CustomResource):
             sensitive_information_policy_config={
                 "pii_entities_configs": [{
                     "action": "BLOCK",
+                    "input_action": "BLOCK",
+                    "output_action": "ANONYMIZE",
+                    "input_enabled": True,
+                    "output_enabled": True,
                     "type": "NAME",
                 }],
                 "regexes_configs": [{
                     "action": "BLOCK",
+                    "input_action": "BLOCK",
+                    "output_action": "BLOCK",
+                    "input_enabled": True,
+                    "output_enabled": False,
                     "description": "example regex",
                     "name": "regex_example",
                     "pattern": "^\\\\d{3}-\\\\d{2}-\\\\d{4}$",
@@ -704,10 +712,18 @@ class Guardrail(pulumi.CustomResource):
             sensitive_information_policy_config={
                 "pii_entities_configs": [{
                     "action": "BLOCK",
+                    "input_action": "BLOCK",
+                    "output_action": "ANONYMIZE",
+                    "input_enabled": True,
+                    "output_enabled": True,
                     "type": "NAME",
                 }],
                 "regexes_configs": [{
                     "action": "BLOCK",
+                    "input_action": "BLOCK",
+                    "output_action": "BLOCK",
+                    "input_enabled": True,
+                    "output_enabled": False,
                     "description": "example regex",
                     "name": "regex_example",
                     "pattern": "^\\\\d{3}-\\\\d{2}-\\\\d{4}$",

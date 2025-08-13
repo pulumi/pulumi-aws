@@ -34,6 +34,7 @@ class SpotInstanceRequestArgs:
                  enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
                  enclave_options: Optional[pulumi.Input['SpotInstanceRequestEnclaveOptionsArgs']] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  get_password_data: Optional[pulumi.Input[_builtins.bool]] = None,
                  hibernation: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -88,6 +89,7 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
         :param pulumi.Input['SpotInstanceRequestEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[_builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
@@ -162,6 +164,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "enclave_options", enclave_options)
         if ephemeral_block_devices is not None:
             pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if get_password_data is not None:
             pulumi.set(__self__, "get_password_data", get_password_data)
         if hibernation is not None:
@@ -396,6 +400,18 @@ class SpotInstanceRequestArgs:
     @ephemeral_block_devices.setter
     def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]]]):
         pulumi.set(self, "ephemeral_block_devices", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="getPasswordData")
@@ -891,6 +907,7 @@ class _SpotInstanceRequestState:
                  enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
                  enclave_options: Optional[pulumi.Input['SpotInstanceRequestEnclaveOptionsArgs']] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  get_password_data: Optional[pulumi.Input[_builtins.bool]] = None,
                  hibernation: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -956,6 +973,7 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
         :param pulumi.Input['SpotInstanceRequestEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[_builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
@@ -1047,6 +1065,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "enclave_options", enclave_options)
         if ephemeral_block_devices is not None:
             pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if get_password_data is not None:
             pulumi.set(__self__, "get_password_data", get_password_data)
         if hibernation is not None:
@@ -1312,6 +1332,18 @@ class _SpotInstanceRequestState:
     @ephemeral_block_devices.setter
     def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]]]):
         pulumi.set(self, "ephemeral_block_devices", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="getPasswordData")
@@ -1937,6 +1969,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
                  enclave_options: Optional[pulumi.Input[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  get_password_data: Optional[pulumi.Input[_builtins.bool]] = None,
                  hibernation: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2035,6 +2068,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
         :param pulumi.Input[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[_builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
@@ -2160,6 +2194,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
                  enclave_options: Optional[pulumi.Input[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  get_password_data: Optional[pulumi.Input[_builtins.bool]] = None,
                  hibernation: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2221,6 +2256,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["enable_primary_ipv6"] = enable_primary_ipv6
             __props__.__dict__["enclave_options"] = enclave_options
             __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
+            __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["get_password_data"] = get_password_data
             __props__.__dict__["hibernation"] = hibernation
             __props__.__dict__["host_id"] = host_id
@@ -2296,6 +2332,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
             enclave_options: Optional[pulumi.Input[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']]] = None,
             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]]] = None,
+            force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
             get_password_data: Optional[pulumi.Input[_builtins.bool]] = None,
             hibernation: Optional[pulumi.Input[_builtins.bool]] = None,
             host_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2366,6 +2403,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
         :param pulumi.Input[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[_builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
@@ -2447,6 +2485,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["enable_primary_ipv6"] = enable_primary_ipv6
         __props__.__dict__["enclave_options"] = enclave_options
         __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
+        __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["get_password_data"] = get_password_data
         __props__.__dict__["hibernation"] = hibernation
         __props__.__dict__["host_id"] = host_id
@@ -2607,6 +2646,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
         One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         """
         return pulumi.get(self, "ephemeral_block_devices")
+
+    @_builtins.property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        """
+        return pulumi.get(self, "force_destroy")
 
     @_builtins.property
     @pulumi.getter(name="getPasswordData")

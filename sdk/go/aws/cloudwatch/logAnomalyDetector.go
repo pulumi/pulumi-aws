@@ -64,7 +64,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudWatch Log Anomaly Detector using the `example_id_arg`. For example:
+// Using `pulumi import`, import CloudWatch Log Anomaly Detector using the `arn`. For example:
 //
 // ```sh
 // $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678

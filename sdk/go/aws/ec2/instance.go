@@ -382,6 +382,8 @@ type Instance struct {
 	EnclaveOptions InstanceEnclaveOptionsOutput `pulumi:"enclaveOptions"`
 	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
+	// Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrOutput `pulumi:"getPasswordData"`
 	// If true, the launched EC2 instance will support hibernation.
@@ -534,6 +536,8 @@ type instanceState struct {
 	EnclaveOptions *InstanceEnclaveOptions `pulumi:"enclaveOptions"`
 	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
+	// Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
 	// If true, the launched EC2 instance will support hibernation.
@@ -657,6 +661,8 @@ type InstanceState struct {
 	EnclaveOptions InstanceEnclaveOptionsPtrInput
 	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput
+	// Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+	ForceDestroy pulumi.BoolPtrInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
 	// If true, the launched EC2 instance will support hibernation.
@@ -782,6 +788,8 @@ type instanceArgs struct {
 	EnclaveOptions *InstanceEnclaveOptions `pulumi:"enclaveOptions"`
 	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
+	// Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
 	// If true, the launched EC2 instance will support hibernation.
@@ -884,6 +892,8 @@ type InstanceArgs struct {
 	EnclaveOptions InstanceEnclaveOptionsPtrInput
 	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput
+	// Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+	ForceDestroy pulumi.BoolPtrInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
 	// If true, the launched EC2 instance will support hibernation.
@@ -1115,6 +1125,11 @@ func (o InstanceOutput) EnclaveOptions() InstanceEnclaveOptionsOutput {
 // One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 func (o InstanceOutput) EphemeralBlockDevices() InstanceEphemeralBlockDeviceArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceEphemeralBlockDeviceArrayOutput { return v.EphemeralBlockDevices }).(InstanceEphemeralBlockDeviceArrayOutput)
+}
+
+// Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+func (o InstanceOutput) ForceDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
 // If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.

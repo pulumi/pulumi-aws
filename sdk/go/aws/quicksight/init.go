@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountSubscription{}
 	case "aws:quicksight/analysis:Analysis":
 		r = &Analysis{}
+	case "aws:quicksight/customPermissions:CustomPermissions":
+		r = &CustomPermissions{}
 	case "aws:quicksight/dashboard:Dashboard":
 		r = &Dashboard{}
 	case "aws:quicksight/dataSet:DataSet":
@@ -53,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Namespace{}
 	case "aws:quicksight/refreshSchedule:RefreshSchedule":
 		r = &RefreshSchedule{}
+	case "aws:quicksight/roleCustomPermission:RoleCustomPermission":
+		r = &RoleCustomPermission{}
 	case "aws:quicksight/roleMembership:RoleMembership":
 		r = &RoleMembership{}
 	case "aws:quicksight/template:Template":
@@ -63,6 +67,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Theme{}
 	case "aws:quicksight/user:User":
 		r = &User{}
+	case "aws:quicksight/userCustomPermission:UserCustomPermission":
+		r = &UserCustomPermission{}
 	case "aws:quicksight/vpcConnection:VpcConnection":
 		r = &VpcConnection{}
 	default:
@@ -91,6 +97,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/analysis",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/customPermissions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -160,6 +171,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"quicksight/roleCustomPermission",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"quicksight/roleMembership",
 		&module{version},
 	)
@@ -181,6 +197,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/userCustomPermission",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

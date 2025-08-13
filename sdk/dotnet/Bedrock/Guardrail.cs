@@ -56,6 +56,10 @@ namespace Pulumi.Aws.Bedrock
     ///                 new Aws.Bedrock.Inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs
     ///                 {
     ///                     Action = "BLOCK",
+    ///                     InputAction = "BLOCK",
+    ///                     OutputAction = "ANONYMIZE",
+    ///                     InputEnabled = true,
+    ///                     OutputEnabled = true,
     ///                     Type = "NAME",
     ///                 },
     ///             },
@@ -64,6 +68,10 @@ namespace Pulumi.Aws.Bedrock
     ///                 new Aws.Bedrock.Inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs
     ///                 {
     ///                     Action = "BLOCK",
+    ///                     InputAction = "BLOCK",
+    ///                     OutputAction = "BLOCK",
+    ///                     InputEnabled = true,
+    ///                     OutputEnabled = false,
     ///                     Description = "example regex",
     ///                     Name = "regex_example",
     ///                     Pattern = "^\\d{3}-\\d{2}-\\d{4}$",

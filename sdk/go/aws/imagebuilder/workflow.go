@@ -79,7 +79,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EC2 Image Builder Workflow using the `example_id_arg`. For example:
+// Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
 //
 // ```sh
 // $ pulumi import aws:imagebuilder/workflow:Workflow example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1

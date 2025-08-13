@@ -5,6 +5,7 @@ package com.pulumi.aws.ecr.inputs;
 
 import com.pulumi.aws.ecr.inputs.RepositoryEncryptionConfigurationArgs;
 import com.pulumi.aws.ecr.inputs.RepositoryImageScanningConfigurationArgs;
+import com.pulumi.aws.ecr.inputs.RepositoryImageTagMutabilityExclusionFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -83,18 +84,33 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      * 
      */
     @Import(name="imageTagMutability")
     private @Nullable Output<String> imageTagMutability;
 
     /**
-     * @return The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * @return The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      * 
      */
     public Optional<Output<String>> imageTagMutability() {
         return Optional.ofNullable(this.imageTagMutability);
+    }
+
+    /**
+     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+     * 
+     */
+    @Import(name="imageTagMutabilityExclusionFilters")
+    private @Nullable Output<List<RepositoryImageTagMutabilityExclusionFilterArgs>> imageTagMutabilityExclusionFilters;
+
+    /**
+     * @return Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+     * 
+     */
+    public Optional<Output<List<RepositoryImageTagMutabilityExclusionFilterArgs>>> imageTagMutabilityExclusionFilters() {
+        return Optional.ofNullable(this.imageTagMutabilityExclusionFilters);
     }
 
     /**
@@ -195,6 +211,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         this.forceDelete = $.forceDelete;
         this.imageScanningConfiguration = $.imageScanningConfiguration;
         this.imageTagMutability = $.imageTagMutability;
+        this.imageTagMutabilityExclusionFilters = $.imageTagMutabilityExclusionFilters;
         this.name = $.name;
         this.region = $.region;
         this.registryId = $.registryId;
@@ -318,7 +335,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageTagMutability The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+         * @param imageTagMutability The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
          * 
          * @return builder
          * 
@@ -329,13 +346,44 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageTagMutability The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+         * @param imageTagMutability The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
          * 
          * @return builder
          * 
          */
         public Builder imageTagMutability(String imageTagMutability) {
             return imageTagMutability(Output.of(imageTagMutability));
+        }
+
+        /**
+         * @param imageTagMutabilityExclusionFilters Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageTagMutabilityExclusionFilters(@Nullable Output<List<RepositoryImageTagMutabilityExclusionFilterArgs>> imageTagMutabilityExclusionFilters) {
+            $.imageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
+            return this;
+        }
+
+        /**
+         * @param imageTagMutabilityExclusionFilters Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageTagMutabilityExclusionFilters(List<RepositoryImageTagMutabilityExclusionFilterArgs> imageTagMutabilityExclusionFilters) {
+            return imageTagMutabilityExclusionFilters(Output.of(imageTagMutabilityExclusionFilters));
+        }
+
+        /**
+         * @param imageTagMutabilityExclusionFilters Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageTagMutabilityExclusionFilters(RepositoryImageTagMutabilityExclusionFilterArgs... imageTagMutabilityExclusionFilters) {
+            return imageTagMutabilityExclusionFilters(List.of(imageTagMutabilityExclusionFilters));
         }
 
         /**

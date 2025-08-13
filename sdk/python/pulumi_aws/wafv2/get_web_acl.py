@@ -26,7 +26,7 @@ class GetWebAclResult:
     """
     A collection of values returned by getWebAcl.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, region=None, scope=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, region=None, resource_arn=None, scope=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetWebAclResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if resource_arn and not isinstance(resource_arn, str):
+            raise TypeError("Expected argument 'resource_arn' to be a str")
+        pulumi.set(__self__, "resource_arn", resource_arn)
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
@@ -72,13 +75,18 @@ class GetWebAclResult:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> _builtins.str:
+    def name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter
@@ -97,17 +105,21 @@ class AwaitableGetWebAclResult(GetWebAclResult):
             id=self.id,
             name=self.name,
             region=self.region,
+            resource_arn=self.resource_arn,
             scope=self.scope)
 
 
 def get_web_acl(name: Optional[_builtins.str] = None,
                 region: Optional[_builtins.str] = None,
+                resource_arn: Optional[_builtins.str] = None,
                 scope: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAclResult:
     """
     Retrieves the summary of a WAFv2 Web ACL.
 
     ## Example Usage
+
+    ### Lookup by name
 
     ```python
     import pulumi
@@ -117,14 +129,28 @@ def get_web_acl(name: Optional[_builtins.str] = None,
         scope="REGIONAL")
     ```
 
+    ### Lookup by associated resource
 
-    :param _builtins.str name: Name of the WAFv2 Web ACL.
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    alb_example = aws.wafv2.get_web_acl(resource_arn="arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx",
+        scope="REGIONAL")
+    cloudfront_example = aws.wafv2.get_web_acl(resource_arn="arn:aws:cloudfront::123456789012:distribution/XXX",
+        scope="CLOUDFRONT")
+    ```
+
+
+    :param _builtins.str name: Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param _builtins.str resource_arn: ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
     :param _builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['region'] = region
+    __args__['resourceArn'] = resource_arn
     __args__['scope'] = scope
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:wafv2/getWebAcl:getWebAcl', __args__, opts=opts, typ=GetWebAclResult).value
@@ -135,15 +161,19 @@ def get_web_acl(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
         scope=pulumi.get(__ret__, 'scope'))
-def get_web_acl_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_acl_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                       resource_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        scope: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAclResult]:
     """
     Retrieves the summary of a WAFv2 Web ACL.
 
     ## Example Usage
+
+    ### Lookup by name
 
     ```python
     import pulumi
@@ -153,14 +183,28 @@ def get_web_acl_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         scope="REGIONAL")
     ```
 
+    ### Lookup by associated resource
 
-    :param _builtins.str name: Name of the WAFv2 Web ACL.
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    alb_example = aws.wafv2.get_web_acl(resource_arn="arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx",
+        scope="REGIONAL")
+    cloudfront_example = aws.wafv2.get_web_acl(resource_arn="arn:aws:cloudfront::123456789012:distribution/XXX",
+        scope="CLOUDFRONT")
+    ```
+
+
+    :param _builtins.str name: Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param _builtins.str resource_arn: ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
     :param _builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['region'] = region
+    __args__['resourceArn'] = resource_arn
     __args__['scope'] = scope
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:wafv2/getWebAcl:getWebAcl', __args__, opts=opts, typ=GetWebAclResult)
@@ -170,4 +214,5 @@ def get_web_acl_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),
+        resource_arn=pulumi.get(__response__, 'resource_arn'),
         scope=pulumi.get(__response__, 'scope')))

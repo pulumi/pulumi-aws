@@ -297,14 +297,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="computeResources", refs={ComputeEnvironmentComputeResources.class}, tree="[0]")
-    private Output</* @Nullable */ ComputeEnvironmentComputeResources> computeResources;
+    private Output<ComputeEnvironmentComputeResources> computeResources;
 
     /**
      * @return Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      * 
      */
-    public Output<Optional<ComputeEnvironmentComputeResources>> computeResources() {
-        return Codegen.optional(this.computeResources);
+    public Output<ComputeEnvironmentComputeResources> computeResources() {
+        return this.computeResources;
     }
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.

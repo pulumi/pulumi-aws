@@ -283,7 +283,7 @@ type ComputeEnvironment struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-	ComputeResources ComputeEnvironmentComputeResourcesPtrOutput `pulumi:"computeResources"`
+	ComputeResources ComputeEnvironmentComputeResourcesOutput `pulumi:"computeResources"`
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn pulumi.StringOutput `pulumi:"ecsClusterArn"`
 	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
@@ -554,8 +554,8 @@ func (o ComputeEnvironmentOutput) Arn() pulumi.StringOutput {
 }
 
 // Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-func (o ComputeEnvironmentOutput) ComputeResources() ComputeEnvironmentComputeResourcesPtrOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentComputeResourcesPtrOutput { return v.ComputeResources }).(ComputeEnvironmentComputeResourcesPtrOutput)
+func (o ComputeEnvironmentOutput) ComputeResources() ComputeEnvironmentComputeResourcesOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentComputeResourcesOutput { return v.ComputeResources }).(ComputeEnvironmentComputeResourcesOutput)
 }
 
 // The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.

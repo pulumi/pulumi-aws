@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailSensitiveInformationPolicyConfigRegexesConfig
     {
         /// <summary>
-        /// Options for sensitive information action.
+        /// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         /// </summary>
         public readonly string Action;
         /// <summary>
@@ -22,9 +22,25 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        /// </summary>
+        public readonly string? InputAction;
+        /// <summary>
+        /// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        /// </summary>
+        public readonly bool? InputEnabled;
+        /// <summary>
         /// The regex name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+        /// </summary>
+        public readonly string? OutputAction;
+        /// <summary>
+        /// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+        /// </summary>
+        public readonly bool? OutputEnabled;
         /// <summary>
         /// The regex pattern.
         /// </summary>
@@ -36,13 +52,25 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             string? description,
 
+            string? inputAction,
+
+            bool? inputEnabled,
+
             string name,
+
+            string? outputAction,
+
+            bool? outputEnabled,
 
             string pattern)
         {
             Action = action;
             Description = description;
+            InputAction = inputAction;
+            InputEnabled = inputEnabled;
             Name = name;
+            OutputAction = outputAction;
+            OutputEnabled = outputEnabled;
             Pattern = pattern;
         }
     }

@@ -17,18 +17,18 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetWebAclArgs Empty = new GetWebAclArgs();
 
     /**
-     * Name of the WAFv2 Web ACL.
+     * Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
-     * @return Name of the WAFv2 Web ACL.
+     * @return Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -44,6 +44,21 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+     * 
+     */
+    @Import(name="resourceArn")
+    private @Nullable Output<String> resourceArn;
+
+    /**
+     * @return ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+     * 
+     */
+    public Optional<Output<String>> resourceArn() {
+        return Optional.ofNullable(this.resourceArn);
     }
 
     /**
@@ -66,6 +81,7 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
     private GetWebAclArgs(GetWebAclArgs $) {
         this.name = $.name;
         this.region = $.region;
+        this.resourceArn = $.resourceArn;
         this.scope = $.scope;
     }
 
@@ -88,18 +104,18 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the WAFv2 Web ACL.
+         * @param name Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
         /**
-         * @param name Name of the WAFv2 Web ACL.
+         * @param name Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
          * 
          * @return builder
          * 
@@ -130,6 +146,27 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param resourceArn ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceArn(@Nullable Output<String> resourceArn) {
+            $.resourceArn = resourceArn;
+            return this;
+        }
+
+        /**
+         * @param resourceArn ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceArn(String resourceArn) {
+            return resourceArn(Output.of(resourceArn));
+        }
+
+        /**
          * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
          * 
          * @return builder
@@ -151,9 +188,6 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetWebAclArgs build() {
-            if ($.name == null) {
-                throw new MissingRequiredPropertyException("GetWebAclArgs", "name");
-            }
             if ($.scope == null) {
                 throw new MissingRequiredPropertyException("GetWebAclArgs", "scope");
             }

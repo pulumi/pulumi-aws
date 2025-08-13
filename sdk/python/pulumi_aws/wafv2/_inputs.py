@@ -805,6 +805,80 @@ __all__ = [
     'WebAclRuleChallengeConfigArgsDict',
     'WebAclRuleChallengeConfigImmunityTimePropertyArgs',
     'WebAclRuleChallengeConfigImmunityTimePropertyArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgsDict',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgsDict',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgsDict',
+    'WebAclRuleGroupAssociationTimeoutsArgs',
+    'WebAclRuleGroupAssociationTimeoutsArgsDict',
     'WebAclRuleOverrideActionArgs',
     'WebAclRuleOverrideActionArgsDict',
     'WebAclRuleOverrideActionCountArgs',
@@ -21441,6 +21515,1763 @@ class WebAclRuleChallengeConfigImmunityTimePropertyArgs:
     @immunity_time.setter
     def immunity_time(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "immunity_time", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the managed rule group.
+        """
+        vendor_name: pulumi.Input[_builtins.str]
+        """
+        Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+        """
+        rule_action_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgsDict']]]]
+        """
+        Override actions for specific rules within the rule group. See below.
+        """
+        version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Version of the managed rule group. If not specified, the default version is used.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 vendor_name: pulumi.Input[_builtins.str],
+                 rule_action_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs']]]] = None,
+                 version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the managed rule group.
+        :param pulumi.Input[_builtins.str] vendor_name: Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs']]] rule_action_overrides: Override actions for specific rules within the rule group. See below.
+        :param pulumi.Input[_builtins.str] version: Version of the managed rule group. If not specified, the default version is used.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "vendor_name", vendor_name)
+        if rule_action_overrides is not None:
+            pulumi.set(__self__, "rule_action_overrides", rule_action_overrides)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the managed rule group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vendorName")
+    def vendor_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+        """
+        return pulumi.get(self, "vendor_name")
+
+    @vendor_name.setter
+    def vendor_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vendor_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleActionOverrides")
+    def rule_action_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs']]]]:
+        """
+        Override actions for specific rules within the rule group. See below.
+        """
+        return pulumi.get(self, "rule_action_overrides")
+
+    @rule_action_overrides.setter
+    def rule_action_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs']]]]):
+        pulumi.set(self, "rule_action_overrides", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version of the managed rule group. If not specified, the default version is used.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
+        """
+        action_to_use: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgsDict']]
+        """
+        Action to use instead of the rule's original action. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 action_to_use: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs'] action_to_use: Action to use instead of the rule's original action. See below.
+        """
+        pulumi.set(__self__, "name", name)
+        if action_to_use is not None:
+            pulumi.set(__self__, "action_to_use", action_to_use)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionToUse")
+    def action_to_use(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs']]:
+        """
+        Action to use instead of the rule's original action. See below.
+        """
+        return pulumi.get(self, "action_to_use")
+
+    @action_to_use.setter
+    def action_to_use(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs']]):
+        pulumi.set(self, "action_to_use", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgsDict(TypedDict):
+        allow: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgsDict']]
+        """
+        Allow the request. See below.
+        """
+        block: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgsDict']]
+        """
+        Block the request. See below.
+        """
+        captcha: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgsDict']]
+        """
+        Require CAPTCHA verification. See below.
+        """
+        challenge: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgsDict']]
+        """
+        Require challenge verification. See below.
+        """
+        count: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgsDict']]
+        """
+        Count the request without taking action. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs:
+    def __init__(__self__, *,
+                 allow: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs']] = None,
+                 block: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs']] = None,
+                 captcha: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs']] = None,
+                 challenge: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs']] = None,
+                 count: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs'] allow: Allow the request. See below.
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs'] block: Block the request. See below.
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs'] captcha: Require CAPTCHA verification. See below.
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs'] challenge: Require challenge verification. See below.
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs'] count: Count the request without taking action. See below.
+        """
+        if allow is not None:
+            pulumi.set(__self__, "allow", allow)
+        if block is not None:
+            pulumi.set(__self__, "block", block)
+        if captcha is not None:
+            pulumi.set(__self__, "captcha", captcha)
+        if challenge is not None:
+            pulumi.set(__self__, "challenge", challenge)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @_builtins.property
+    @pulumi.getter
+    def allow(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs']]:
+        """
+        Allow the request. See below.
+        """
+        return pulumi.get(self, "allow")
+
+    @allow.setter
+    def allow(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs']]):
+        pulumi.set(self, "allow", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def block(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs']]:
+        """
+        Block the request. See below.
+        """
+        return pulumi.get(self, "block")
+
+    @block.setter
+    def block(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs']]):
+        pulumi.set(self, "block", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def captcha(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs']]:
+        """
+        Require CAPTCHA verification. See below.
+        """
+        return pulumi.get(self, "captcha")
+
+    @captcha.setter
+    def captcha(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs']]):
+        pulumi.set(self, "captcha", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def challenge(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs']]:
+        """
+        Require challenge verification. See below.
+        """
+        return pulumi.get(self, "challenge")
+
+    @challenge.setter
+    def challenge(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs']]):
+        pulumi.set(self, "challenge", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs']]:
+        """
+        Count the request without taking action. See below.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs']]):
+        pulumi.set(self, "count", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgsDict(TypedDict):
+        custom_request_handling: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgsDict']]
+        """
+        Custom handling for allowed requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs'] custom_request_handling: Custom handling for allowed requests. See below.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs']]:
+        """
+        Custom handling for allowed requests. See below.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgsDict(TypedDict):
+        insert_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgsDict']]]]
+        """
+        Headers to insert into the request. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs']]] insert_headers: Headers to insert into the request. See below.
+        """
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs']]]]:
+        """
+        Headers to insert into the request. See below.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs']]]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the header to insert.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the header to insert.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the header to insert.
+        :param pulumi.Input[_builtins.str] value: Value of the header to insert.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the header to insert.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the header to insert.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgsDict(TypedDict):
+        custom_response: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgsDict']]
+        """
+        Custom response for blocked requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs:
+    def __init__(__self__, *,
+                 custom_response: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgs'] custom_response: Custom response for blocked requests. See below.
+        """
+        if custom_response is not None:
+            pulumi.set(__self__, "custom_response", custom_response)
+
+    @_builtins.property
+    @pulumi.getter(name="customResponse")
+    def custom_response(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgs']]:
+        """
+        Custom response for blocked requests. See below.
+        """
+        return pulumi.get(self, "custom_response")
+
+    @custom_response.setter
+    def custom_response(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgs']]):
+        pulumi.set(self, "custom_response", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgsDict(TypedDict):
+        response_code: pulumi.Input[_builtins.int]
+        """
+        HTTP response code to return (200-599).
+        """
+        custom_response_body_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Key of a custom response body to use.
+        """
+        response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgsDict']]]]
+        """
+        Headers to include in the response. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgs:
+    def __init__(__self__, *,
+                 response_code: pulumi.Input[_builtins.int],
+                 custom_response_body_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.int] response_code: HTTP response code to return (200-599).
+        :param pulumi.Input[_builtins.str] custom_response_body_key: Key of a custom response body to use.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs']]] response_headers: Headers to include in the response. See below.
+        """
+        pulumi.set(__self__, "response_code", response_code)
+        if custom_response_body_key is not None:
+            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+        if response_headers is not None:
+            pulumi.set(__self__, "response_headers", response_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="responseCode")
+    def response_code(self) -> pulumi.Input[_builtins.int]:
+        """
+        HTTP response code to return (200-599).
+        """
+        return pulumi.get(self, "response_code")
+
+    @response_code.setter
+    def response_code(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "response_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customResponseBodyKey")
+    def custom_response_body_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Key of a custom response body to use.
+        """
+        return pulumi.get(self, "custom_response_body_key")
+
+    @custom_response_body_key.setter
+    def custom_response_body_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_response_body_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseHeaders")
+    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs']]]]:
+        """
+        Headers to include in the response. See below.
+        """
+        return pulumi.get(self, "response_headers")
+
+    @response_headers.setter
+    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs']]]]):
+        pulumi.set(self, "response_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the response header.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the response header.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the response header.
+        :param pulumi.Input[_builtins.str] value: Value of the response header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the response header.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the response header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgsDict(TypedDict):
+        custom_request_handling: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgsDict']]
+        """
+        Custom handling for CAPTCHA requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs'] custom_request_handling: Custom handling for CAPTCHA requests. See below.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs']]:
+        """
+        Custom handling for CAPTCHA requests. See below.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgsDict(TypedDict):
+        insert_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgsDict']]]]
+        """
+        Headers to insert into the request. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs']]] insert_headers: Headers to insert into the request. See below.
+        """
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs']]]]:
+        """
+        Headers to insert into the request. See below.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs']]]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the header to insert.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the header to insert.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the header to insert.
+        :param pulumi.Input[_builtins.str] value: Value of the header to insert.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the header to insert.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the header to insert.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgsDict(TypedDict):
+        custom_request_handling: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgsDict']]
+        """
+        Custom handling for challenge requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs'] custom_request_handling: Custom handling for challenge requests. See below.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']]:
+        """
+        Custom handling for challenge requests. See below.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgsDict(TypedDict):
+        insert_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgsDict']]]]
+        """
+        Headers to insert into the request. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]] insert_headers: Headers to insert into the request. See below.
+        """
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]]:
+        """
+        Headers to insert into the request. See below.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the header to insert.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the header to insert.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the header to insert.
+        :param pulumi.Input[_builtins.str] value: Value of the header to insert.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the header to insert.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the header to insert.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgsDict(TypedDict):
+        custom_request_handling: NotRequired[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgsDict']]
+        """
+        Custom handling for counted requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs'] custom_request_handling: Custom handling for counted requests. See below.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs']]:
+        """
+        Custom handling for counted requests. See below.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgsDict(TypedDict):
+        insert_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgsDict']]]]
+        """
+        Headers to insert into the request. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs']]] insert_headers: Headers to insert into the request. See below.
+        """
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs']]]]:
+        """
+        Headers to insert into the request. See below.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs']]]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the header to insert.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the header to insert.
+        """
+elif False:
+    WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the header to insert.
+        :param pulumi.Input[_builtins.str] value: Value of the header to insert.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the header to insert.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the header to insert.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceArgsDict(TypedDict):
+        arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the Rule Group to associate with the Web ACL.
+        """
+        rule_action_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgsDict']]]]
+        """
+        Override actions for specific rules within the rule group. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 rule_action_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] arn: ARN of the Rule Group to associate with the Web ACL.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs']]] rule_action_overrides: Override actions for specific rules within the rule group. See below.
+        """
+        pulumi.set(__self__, "arn", arn)
+        if rule_action_overrides is not None:
+            pulumi.set(__self__, "rule_action_overrides", rule_action_overrides)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Rule Group to associate with the Web ACL.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleActionOverrides")
+    def rule_action_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs']]]]:
+        """
+        Override actions for specific rules within the rule group. See below.
+        """
+        return pulumi.get(self, "rule_action_overrides")
+
+    @rule_action_overrides.setter
+    def rule_action_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs']]]]):
+        pulumi.set(self, "rule_action_overrides", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
+        """
+        action_to_use: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgsDict']]
+        """
+        Action to use instead of the rule's original action. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 action_to_use: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs'] action_to_use: Action to use instead of the rule's original action. See below.
+        """
+        pulumi.set(__self__, "name", name)
+        if action_to_use is not None:
+            pulumi.set(__self__, "action_to_use", action_to_use)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionToUse")
+    def action_to_use(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs']]:
+        """
+        Action to use instead of the rule's original action. See below.
+        """
+        return pulumi.get(self, "action_to_use")
+
+    @action_to_use.setter
+    def action_to_use(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs']]):
+        pulumi.set(self, "action_to_use", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgsDict(TypedDict):
+        allow: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgsDict']]
+        """
+        Allow the request. See below.
+        """
+        block: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgsDict']]
+        """
+        Block the request. See below.
+        """
+        captcha: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgsDict']]
+        """
+        Require CAPTCHA verification. See below.
+        """
+        challenge: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgsDict']]
+        """
+        Require challenge verification. See below.
+        """
+        count: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgsDict']]
+        """
+        Count the request without taking action. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs:
+    def __init__(__self__, *,
+                 allow: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgs']] = None,
+                 block: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgs']] = None,
+                 captcha: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs']] = None,
+                 challenge: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgs']] = None,
+                 count: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgs'] allow: Allow the request. See below.
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgs'] block: Block the request. See below.
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs'] captcha: Require CAPTCHA verification. See below.
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgs'] challenge: Require challenge verification. See below.
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs'] count: Count the request without taking action. See below.
+        """
+        if allow is not None:
+            pulumi.set(__self__, "allow", allow)
+        if block is not None:
+            pulumi.set(__self__, "block", block)
+        if captcha is not None:
+            pulumi.set(__self__, "captcha", captcha)
+        if challenge is not None:
+            pulumi.set(__self__, "challenge", challenge)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @_builtins.property
+    @pulumi.getter
+    def allow(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgs']]:
+        """
+        Allow the request. See below.
+        """
+        return pulumi.get(self, "allow")
+
+    @allow.setter
+    def allow(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgs']]):
+        pulumi.set(self, "allow", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def block(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgs']]:
+        """
+        Block the request. See below.
+        """
+        return pulumi.get(self, "block")
+
+    @block.setter
+    def block(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgs']]):
+        pulumi.set(self, "block", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def captcha(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs']]:
+        """
+        Require CAPTCHA verification. See below.
+        """
+        return pulumi.get(self, "captcha")
+
+    @captcha.setter
+    def captcha(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs']]):
+        pulumi.set(self, "captcha", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def challenge(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgs']]:
+        """
+        Require challenge verification. See below.
+        """
+        return pulumi.get(self, "challenge")
+
+    @challenge.setter
+    def challenge(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgs']]):
+        pulumi.set(self, "challenge", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs']]:
+        """
+        Count the request without taking action. See below.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs']]):
+        pulumi.set(self, "count", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgsDict(TypedDict):
+        custom_request_handling: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgsDict']]
+        """
+        Custom handling for allowed requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs'] custom_request_handling: Custom handling for allowed requests. See below.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs']]:
+        """
+        Custom handling for allowed requests. See below.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgsDict(TypedDict):
+        insert_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgsDict']]]]
+        """
+        Headers to insert into the request. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs']]] insert_headers: Headers to insert into the request. See below.
+        """
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs']]]]:
+        """
+        Headers to insert into the request. See below.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs']]]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the header to insert.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the header to insert.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the header to insert.
+        :param pulumi.Input[_builtins.str] value: Value of the header to insert.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the header to insert.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the header to insert.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgsDict(TypedDict):
+        custom_response: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgsDict']]
+        """
+        Custom response for blocked requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgs:
+    def __init__(__self__, *,
+                 custom_response: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs'] custom_response: Custom response for blocked requests. See below.
+        """
+        if custom_response is not None:
+            pulumi.set(__self__, "custom_response", custom_response)
+
+    @_builtins.property
+    @pulumi.getter(name="customResponse")
+    def custom_response(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs']]:
+        """
+        Custom response for blocked requests. See below.
+        """
+        return pulumi.get(self, "custom_response")
+
+    @custom_response.setter
+    def custom_response(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs']]):
+        pulumi.set(self, "custom_response", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgsDict(TypedDict):
+        response_code: pulumi.Input[_builtins.int]
+        """
+        HTTP response code to return (200-599).
+        """
+        custom_response_body_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Key of a custom response body to use.
+        """
+        response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgsDict']]]]
+        """
+        Headers to include in the response. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs:
+    def __init__(__self__, *,
+                 response_code: pulumi.Input[_builtins.int],
+                 custom_response_body_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.int] response_code: HTTP response code to return (200-599).
+        :param pulumi.Input[_builtins.str] custom_response_body_key: Key of a custom response body to use.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs']]] response_headers: Headers to include in the response. See below.
+        """
+        pulumi.set(__self__, "response_code", response_code)
+        if custom_response_body_key is not None:
+            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+        if response_headers is not None:
+            pulumi.set(__self__, "response_headers", response_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="responseCode")
+    def response_code(self) -> pulumi.Input[_builtins.int]:
+        """
+        HTTP response code to return (200-599).
+        """
+        return pulumi.get(self, "response_code")
+
+    @response_code.setter
+    def response_code(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "response_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customResponseBodyKey")
+    def custom_response_body_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Key of a custom response body to use.
+        """
+        return pulumi.get(self, "custom_response_body_key")
+
+    @custom_response_body_key.setter
+    def custom_response_body_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_response_body_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseHeaders")
+    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs']]]]:
+        """
+        Headers to include in the response. See below.
+        """
+        return pulumi.get(self, "response_headers")
+
+    @response_headers.setter
+    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs']]]]):
+        pulumi.set(self, "response_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the response header.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the response header.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the response header.
+        :param pulumi.Input[_builtins.str] value: Value of the response header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the response header.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the response header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgsDict(TypedDict):
+        custom_request_handling: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgsDict']]
+        """
+        Custom handling for CAPTCHA requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs'] custom_request_handling: Custom handling for CAPTCHA requests. See below.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs']]:
+        """
+        Custom handling for CAPTCHA requests. See below.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgsDict(TypedDict):
+        insert_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgsDict']]]]
+        """
+        Headers to insert into the request. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs']]] insert_headers: Headers to insert into the request. See below.
+        """
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs']]]]:
+        """
+        Headers to insert into the request. See below.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs']]]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the header to insert.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the header to insert.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the header to insert.
+        :param pulumi.Input[_builtins.str] value: Value of the header to insert.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the header to insert.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the header to insert.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgsDict(TypedDict):
+        custom_request_handling: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgsDict']]
+        """
+        Custom handling for challenge requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs'] custom_request_handling: Custom handling for challenge requests. See below.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']]:
+        """
+        Custom handling for challenge requests. See below.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgsDict(TypedDict):
+        insert_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgsDict']]]]
+        """
+        Headers to insert into the request. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]] insert_headers: Headers to insert into the request. See below.
+        """
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]]:
+        """
+        Headers to insert into the request. See below.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the header to insert.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the header to insert.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the header to insert.
+        :param pulumi.Input[_builtins.str] value: Value of the header to insert.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the header to insert.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the header to insert.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgsDict(TypedDict):
+        custom_request_handling: NotRequired[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgsDict']]
+        """
+        Custom handling for counted requests. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs'] custom_request_handling: Custom handling for counted requests. See below.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs']]:
+        """
+        Custom handling for counted requests. See below.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgsDict(TypedDict):
+        insert_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgsDict']]]]
+        """
+        Headers to insert into the request. See below.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs']]] insert_headers: Headers to insert into the request. See below.
+        """
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs']]]]:
+        """
+        Headers to insert into the request. See below.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs']]]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the header to insert.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        Value of the header to insert.
+        """
+elif False:
+    WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the header to insert.
+        :param pulumi.Input[_builtins.str] value: Value of the header to insert.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the header to insert.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value of the header to insert.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WebAclRuleGroupAssociationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    WebAclRuleGroupAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleGroupAssociationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:

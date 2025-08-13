@@ -55,6 +55,11 @@ export type TlsInspectionConfiguration = import("./tlsInspectionConfiguration").
 export const TlsInspectionConfiguration: typeof import("./tlsInspectionConfiguration").TlsInspectionConfiguration = null as any;
 utilities.lazyLoad(exports, ["TlsInspectionConfiguration"], () => require("./tlsInspectionConfiguration"));
 
+export { VpcEndpointAssociationArgs, VpcEndpointAssociationState } from "./vpcEndpointAssociation";
+export type VpcEndpointAssociation = import("./vpcEndpointAssociation").VpcEndpointAssociation;
+export const VpcEndpointAssociation: typeof import("./vpcEndpointAssociation").VpcEndpointAssociation = null as any;
+utilities.lazyLoad(exports, ["VpcEndpointAssociation"], () => require("./vpcEndpointAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -74,6 +79,8 @@ const _module = {
                 return new RuleGroup(name, <any>undefined, { urn })
             case "aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration":
                 return new TlsInspectionConfiguration(name, <any>undefined, { urn })
+            case "aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation":
+                return new VpcEndpointAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -86,3 +93,4 @@ pulumi.runtime.registerResourceModule("aws", "networkfirewall/loggingConfigurati
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/ruleGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/tlsInspectionConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "networkfirewall/vpcEndpointAssociation", _module)

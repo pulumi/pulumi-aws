@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,14 +18,14 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
     public static final GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs Empty = new GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs();
 
     /**
-     * Options for sensitive information action.
+     * Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Options for sensitive information action.
+     * @return Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
      * 
      */
     public Output<String> action() {
@@ -47,6 +48,36 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
     }
 
     /**
+     * Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+     * 
+     */
+    @Import(name="inputAction")
+    private @Nullable Output<String> inputAction;
+
+    /**
+     * @return Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+     * 
+     */
+    public Optional<Output<String>> inputAction() {
+        return Optional.ofNullable(this.inputAction);
+    }
+
+    /**
+     * Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
+     * 
+     */
+    @Import(name="inputEnabled")
+    private @Nullable Output<Boolean> inputEnabled;
+
+    /**
+     * @return Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
+     * 
+     */
+    public Optional<Output<Boolean>> inputEnabled() {
+        return Optional.ofNullable(this.inputEnabled);
+    }
+
+    /**
      * The regex name.
      * 
      */
@@ -59,6 +90,36 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    /**
+     * Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+     * 
+     */
+    @Import(name="outputAction")
+    private @Nullable Output<String> outputAction;
+
+    /**
+     * @return Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+     * 
+     */
+    public Optional<Output<String>> outputAction() {
+        return Optional.ofNullable(this.outputAction);
+    }
+
+    /**
+     * Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
+     * 
+     */
+    @Import(name="outputEnabled")
+    private @Nullable Output<Boolean> outputEnabled;
+
+    /**
+     * @return Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
+     * 
+     */
+    public Optional<Output<Boolean>> outputEnabled() {
+        return Optional.ofNullable(this.outputEnabled);
     }
 
     /**
@@ -81,7 +142,11 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
     private GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs(GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs $) {
         this.action = $.action;
         this.description = $.description;
+        this.inputAction = $.inputAction;
+        this.inputEnabled = $.inputEnabled;
         this.name = $.name;
+        this.outputAction = $.outputAction;
+        this.outputEnabled = $.outputEnabled;
         this.pattern = $.pattern;
     }
 
@@ -104,7 +169,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
         }
 
         /**
-         * @param action Options for sensitive information action.
+         * @param action Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
          * 
          * @return builder
          * 
@@ -115,7 +180,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
         }
 
         /**
-         * @param action Options for sensitive information action.
+         * @param action Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
          * 
          * @return builder
          * 
@@ -146,6 +211,48 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
         }
 
         /**
+         * @param inputAction Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputAction(@Nullable Output<String> inputAction) {
+            $.inputAction = inputAction;
+            return this;
+        }
+
+        /**
+         * @param inputAction Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputAction(String inputAction) {
+            return inputAction(Output.of(inputAction));
+        }
+
+        /**
+         * @param inputEnabled Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputEnabled(@Nullable Output<Boolean> inputEnabled) {
+            $.inputEnabled = inputEnabled;
+            return this;
+        }
+
+        /**
+         * @param inputEnabled Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inputEnabled(Boolean inputEnabled) {
+            return inputEnabled(Output.of(inputEnabled));
+        }
+
+        /**
          * @param name The regex name.
          * 
          * @return builder
@@ -164,6 +271,48 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param outputAction Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputAction(@Nullable Output<String> outputAction) {
+            $.outputAction = outputAction;
+            return this;
+        }
+
+        /**
+         * @param outputAction Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputAction(String outputAction) {
+            return outputAction(Output.of(outputAction));
+        }
+
+        /**
+         * @param outputEnabled Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputEnabled(@Nullable Output<Boolean> outputEnabled) {
+            $.outputEnabled = outputEnabled;
+            return this;
+        }
+
+        /**
+         * @param outputEnabled Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputEnabled(Boolean outputEnabled) {
+            return outputEnabled(Output.of(outputEnabled));
         }
 
         /**

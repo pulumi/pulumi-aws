@@ -161,8 +161,8 @@ class _SourceApiAssociationState:
                  timeouts: Optional[pulumi.Input['SourceApiAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering SourceApiAssociation resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Source Api Association.
-        :param pulumi.Input[_builtins.str] association_id: ID of the Source Api Association.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Source API Association.
+        :param pulumi.Input[_builtins.str] association_id: ID of the Source API Association.
         :param pulumi.Input[_builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[_builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[_builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
@@ -195,7 +195,7 @@ class _SourceApiAssociationState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the Source Api Association.
+        ARN of the Source API Association.
         """
         return pulumi.get(self, "arn")
 
@@ -207,7 +207,7 @@ class _SourceApiAssociationState:
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ID of the Source Api Association.
+        ID of the Source API Association.
         """
         return pulumi.get(self, "association_id")
 
@@ -322,7 +322,7 @@ class SourceApiAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['SourceApiAssociationTimeoutsArgs', 'SourceApiAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS AppSync Source Api Association.
+        Resource for managing an AWS AppSync Source API Association.
 
         ## Example Usage
 
@@ -340,7 +340,7 @@ class SourceApiAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import AppSync Source Api Association using the `gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31`. For example:
+        Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
 
         ```sh
         $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
@@ -362,7 +362,7 @@ class SourceApiAssociation(pulumi.CustomResource):
                  args: Optional[SourceApiAssociationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS AppSync Source Api Association.
+        Resource for managing an AWS AppSync Source API Association.
 
         ## Example Usage
 
@@ -380,7 +380,7 @@ class SourceApiAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import AppSync Source Api Association using the `gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31`. For example:
+        Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
 
         ```sh
         $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
@@ -455,8 +455,8 @@ class SourceApiAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Source Api Association.
-        :param pulumi.Input[_builtins.str] association_id: ID of the Source Api Association.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Source API Association.
+        :param pulumi.Input[_builtins.str] association_id: ID of the Source API Association.
         :param pulumi.Input[_builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[_builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[_builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
@@ -484,7 +484,7 @@ class SourceApiAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the Source Api Association.
+        ARN of the Source API Association.
         """
         return pulumi.get(self, "arn")
 
@@ -492,7 +492,7 @@ class SourceApiAssociation(pulumi.CustomResource):
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[_builtins.str]:
         """
-        ID of the Source Api Association.
+        ID of the Source API Association.
         """
         return pulumi.get(self, "association_id")
 

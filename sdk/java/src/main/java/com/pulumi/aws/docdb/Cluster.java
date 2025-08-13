@@ -8,6 +8,7 @@ import com.pulumi.aws.docdb.ClusterArgs;
 import com.pulumi.aws.docdb.inputs.ClusterState;
 import com.pulumi.aws.docdb.outputs.ClusterMasterUserSecret;
 import com.pulumi.aws.docdb.outputs.ClusterRestoreToPointInTime;
+import com.pulumi.aws.docdb.outputs.ClusterServerlessV2ScalingConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -511,6 +512,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ClusterRestoreToPointInTime>> restoreToPointInTime() {
         return Codegen.optional(this.restoreToPointInTime);
+    }
+    /**
+     * Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+     * 
+     */
+    @Export(name="serverlessV2ScalingConfiguration", refs={ClusterServerlessV2ScalingConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ClusterServerlessV2ScalingConfiguration> serverlessV2ScalingConfiguration;
+
+    /**
+     * @return Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+     * 
+     */
+    public Output<Optional<ClusterServerlessV2ScalingConfiguration>> serverlessV2ScalingConfiguration() {
+        return Codegen.optional(this.serverlessV2ScalingConfiguration);
     }
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.

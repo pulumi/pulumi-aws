@@ -11315,6 +11315,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurati
 }
 
 type FirehoseDeliveryStreamIcebergConfiguration struct {
+	AppendOnly *bool `pulumi:"appendOnly"`
 	// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
@@ -11348,6 +11349,7 @@ type FirehoseDeliveryStreamIcebergConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamIcebergConfigurationArgs struct {
+	AppendOnly pulumi.BoolPtrInput `pulumi:"appendOnly"`
 	// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
@@ -11446,6 +11448,10 @@ func (o FirehoseDeliveryStreamIcebergConfigurationOutput) ToFirehoseDeliveryStre
 	}).(FirehoseDeliveryStreamIcebergConfigurationPtrOutput)
 }
 
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) AppendOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *bool { return v.AppendOnly }).(pulumi.BoolPtrOutput)
+}
+
 // Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
 func (o FirehoseDeliveryStreamIcebergConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
@@ -11525,6 +11531,15 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) Elem() FirehoseDeli
 		var ret FirehoseDeliveryStreamIcebergConfiguration
 		return ret
 	}).(FirehoseDeliveryStreamIcebergConfigurationOutput)
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) AppendOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AppendOnly
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.

@@ -4,6 +4,7 @@
 package com.pulumi.aws.docdb;
 
 import com.pulumi.aws.docdb.inputs.ClusterRestoreToPointInTimeArgs;
+import com.pulumi.aws.docdb.inputs.ClusterServerlessV2ScalingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -397,6 +398,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+     * 
+     */
+    @Import(name="serverlessV2ScalingConfiguration")
+    private @Nullable Output<ClusterServerlessV2ScalingConfigurationArgs> serverlessV2ScalingConfiguration;
+
+    /**
+     * @return Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+     * 
+     */
+    public Optional<Output<ClusterServerlessV2ScalingConfigurationArgs>> serverlessV2ScalingConfiguration() {
+        return Optional.ofNullable(this.serverlessV2ScalingConfiguration);
+    }
+
+    /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
@@ -521,6 +537,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.region = $.region;
         this.restoreToPointInTime = $.restoreToPointInTime;
+        this.serverlessV2ScalingConfiguration = $.serverlessV2ScalingConfiguration;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.storageEncrypted = $.storageEncrypted;
@@ -1097,6 +1114,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder restoreToPointInTime(ClusterRestoreToPointInTimeArgs restoreToPointInTime) {
             return restoreToPointInTime(Output.of(restoreToPointInTime));
+        }
+
+        /**
+         * @param serverlessV2ScalingConfiguration Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessV2ScalingConfiguration(@Nullable Output<ClusterServerlessV2ScalingConfigurationArgs> serverlessV2ScalingConfiguration) {
+            $.serverlessV2ScalingConfiguration = serverlessV2ScalingConfiguration;
+            return this;
+        }
+
+        /**
+         * @param serverlessV2ScalingConfiguration Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessV2ScalingConfiguration(ClusterServerlessV2ScalingConfigurationArgs serverlessV2ScalingConfiguration) {
+            return serverlessV2ScalingConfiguration(Output.of(serverlessV2ScalingConfiguration));
         }
 
         /**

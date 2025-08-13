@@ -21,7 +21,7 @@ type LifecyclePolicyPolicyDetails struct {
 	Parameters  *LifecyclePolicyPolicyDetailsParameters  `pulumi:"parameters"`
 	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
 	PolicyType *string `pulumi:"policyType"`
-	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If the source resources are located in a Local Zone, specify `LOCAL_ZONE`. Valid values are `CLOUD`, `LOCAL_ZONE`, and `OUTPOST`.
 	ResourceLocations *string `pulumi:"resourceLocations"`
 	// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
 	ResourceTypes []string `pulumi:"resourceTypes"`
@@ -52,7 +52,7 @@ type LifecyclePolicyPolicyDetailsArgs struct {
 	Parameters  LifecyclePolicyPolicyDetailsParametersPtrInput  `pulumi:"parameters"`
 	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
-	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If the source resources are located in a Local Zone, specify `LOCAL_ZONE`. Valid values are `CLOUD`, `LOCAL_ZONE`, and `OUTPOST`.
 	ResourceLocations pulumi.StringPtrInput `pulumi:"resourceLocations"`
 	// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
@@ -160,7 +160,7 @@ func (o LifecyclePolicyPolicyDetailsOutput) PolicyType() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
 
-// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If the source resources are located in a Local Zone, specify `LOCAL_ZONE`. Valid values are `CLOUD`, `LOCAL_ZONE`, and `OUTPOST`.
 func (o LifecyclePolicyPolicyDetailsOutput) ResourceLocations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.ResourceLocations }).(pulumi.StringPtrOutput)
 }
@@ -245,7 +245,7 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) PolicyType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If the source resources are located in a Local Zone, specify `LOCAL_ZONE`. Valid values are `CLOUD`, `LOCAL_ZONE`, and `OUTPOST`.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceLocations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
 		if v == nil {

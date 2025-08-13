@@ -668,12 +668,16 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      * 
+     * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
+     * 
      */
     @Import(name="visibleToAllUsers")
     private @Nullable Output<Boolean> visibleToAllUsers;
 
     /**
      * @return Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+     * 
+     * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
      * 
      */
     public Optional<Output<Boolean>> visibleToAllUsers() {
@@ -1641,6 +1645,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param visibleToAllUsers Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
          * 
+         * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
+         * 
          * @return builder
          * 
          */
@@ -1651,6 +1657,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param visibleToAllUsers Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+         * 
+         * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
          * 
          * @return builder
          * 

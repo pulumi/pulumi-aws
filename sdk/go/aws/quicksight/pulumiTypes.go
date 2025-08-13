@@ -1306,6 +1306,561 @@ func (o AnalysisSourceEntitySourceTemplateDataSetReferenceArrayOutput) Index(i p
 	}).(AnalysisSourceEntitySourceTemplateDataSetReferenceOutput)
 }
 
+type CustomPermissionsCapabilities struct {
+	// The ability to add or run anomaly detection. Valid values: `DENY`.
+	AddOrRunAnomalyDetectionForAnalyses *string `pulumi:"addOrRunAnomalyDetectionForAnalyses"`
+	// The ability to create and update email reports. Valid values: `DENY`.
+	CreateAndUpdateDashboardEmailReports *string `pulumi:"createAndUpdateDashboardEmailReports"`
+	// The ability to create and update data sources. Valid values: `DENY`.
+	CreateAndUpdateDataSources *string `pulumi:"createAndUpdateDataSources"`
+	// The ability to create and update datasets. Valid values: `DENY`.
+	CreateAndUpdateDatasets *string `pulumi:"createAndUpdateDatasets"`
+	// The ability to export to create and update themes. Valid values: `DENY`.
+	CreateAndUpdateThemes *string `pulumi:"createAndUpdateThemes"`
+	// The ability to create and update threshold alerts. Valid values: `DENY`.
+	CreateAndUpdateThresholdAlerts *string `pulumi:"createAndUpdateThresholdAlerts"`
+	// The ability to create shared folders. Valid values: `DENY`.
+	CreateSharedFolders *string `pulumi:"createSharedFolders"`
+	// The ability to create a SPICE dataset. Valid values: `DENY`.
+	CreateSpiceDataset *string `pulumi:"createSpiceDataset"`
+	// The ability to export to CSV files from the UI. Valid values: `DENY`.
+	ExportToCsv *string `pulumi:"exportToCsv"`
+	// The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+	ExportToCsvInScheduledReports *string `pulumi:"exportToCsvInScheduledReports"`
+	// The ability to export to Excel files from the UI. Valid values: `DENY`.
+	ExportToExcel *string `pulumi:"exportToExcel"`
+	// The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+	ExportToExcelInScheduledReports *string `pulumi:"exportToExcelInScheduledReports"`
+	// The ability to export to PDF files from the UI. Valid values: `DENY`.
+	ExportToPdf *string `pulumi:"exportToPdf"`
+	// The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+	ExportToPdfInScheduledReports *string `pulumi:"exportToPdfInScheduledReports"`
+	// The ability to include content in scheduled email reports. Valid values: `DENY`.
+	IncludeContentInScheduledReportsEmail *string `pulumi:"includeContentInScheduledReportsEmail"`
+	// The ability to print reports. Valid values: `DENY`.
+	PrintReports *string `pulumi:"printReports"`
+	// The ability to rename shared folders. Valid values: `DENY`.
+	RenameSharedFolders *string `pulumi:"renameSharedFolders"`
+	// The ability to share analyses. Valid values: `DENY`.
+	ShareAnalyses *string `pulumi:"shareAnalyses"`
+	// The ability to share dashboards. Valid values: `DENY`.
+	ShareDashboards *string `pulumi:"shareDashboards"`
+	// The ability to share data sources. Valid values: `DENY`.
+	ShareDataSources *string `pulumi:"shareDataSources"`
+	// The ability to share datasets. Valid values: `DENY`.
+	ShareDatasets *string `pulumi:"shareDatasets"`
+	// The ability to subscribe to email reports. Valid values: `DENY`.
+	SubscribeDashboardEmailReports *string `pulumi:"subscribeDashboardEmailReports"`
+	// The ability to view account SPICE capacity. Valid values: `DENY`.
+	ViewAccountSpiceCapacity *string `pulumi:"viewAccountSpiceCapacity"`
+}
+
+// CustomPermissionsCapabilitiesInput is an input type that accepts CustomPermissionsCapabilitiesArgs and CustomPermissionsCapabilitiesOutput values.
+// You can construct a concrete instance of `CustomPermissionsCapabilitiesInput` via:
+//
+//	CustomPermissionsCapabilitiesArgs{...}
+type CustomPermissionsCapabilitiesInput interface {
+	pulumi.Input
+
+	ToCustomPermissionsCapabilitiesOutput() CustomPermissionsCapabilitiesOutput
+	ToCustomPermissionsCapabilitiesOutputWithContext(context.Context) CustomPermissionsCapabilitiesOutput
+}
+
+type CustomPermissionsCapabilitiesArgs struct {
+	// The ability to add or run anomaly detection. Valid values: `DENY`.
+	AddOrRunAnomalyDetectionForAnalyses pulumi.StringPtrInput `pulumi:"addOrRunAnomalyDetectionForAnalyses"`
+	// The ability to create and update email reports. Valid values: `DENY`.
+	CreateAndUpdateDashboardEmailReports pulumi.StringPtrInput `pulumi:"createAndUpdateDashboardEmailReports"`
+	// The ability to create and update data sources. Valid values: `DENY`.
+	CreateAndUpdateDataSources pulumi.StringPtrInput `pulumi:"createAndUpdateDataSources"`
+	// The ability to create and update datasets. Valid values: `DENY`.
+	CreateAndUpdateDatasets pulumi.StringPtrInput `pulumi:"createAndUpdateDatasets"`
+	// The ability to export to create and update themes. Valid values: `DENY`.
+	CreateAndUpdateThemes pulumi.StringPtrInput `pulumi:"createAndUpdateThemes"`
+	// The ability to create and update threshold alerts. Valid values: `DENY`.
+	CreateAndUpdateThresholdAlerts pulumi.StringPtrInput `pulumi:"createAndUpdateThresholdAlerts"`
+	// The ability to create shared folders. Valid values: `DENY`.
+	CreateSharedFolders pulumi.StringPtrInput `pulumi:"createSharedFolders"`
+	// The ability to create a SPICE dataset. Valid values: `DENY`.
+	CreateSpiceDataset pulumi.StringPtrInput `pulumi:"createSpiceDataset"`
+	// The ability to export to CSV files from the UI. Valid values: `DENY`.
+	ExportToCsv pulumi.StringPtrInput `pulumi:"exportToCsv"`
+	// The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+	ExportToCsvInScheduledReports pulumi.StringPtrInput `pulumi:"exportToCsvInScheduledReports"`
+	// The ability to export to Excel files from the UI. Valid values: `DENY`.
+	ExportToExcel pulumi.StringPtrInput `pulumi:"exportToExcel"`
+	// The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+	ExportToExcelInScheduledReports pulumi.StringPtrInput `pulumi:"exportToExcelInScheduledReports"`
+	// The ability to export to PDF files from the UI. Valid values: `DENY`.
+	ExportToPdf pulumi.StringPtrInput `pulumi:"exportToPdf"`
+	// The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+	ExportToPdfInScheduledReports pulumi.StringPtrInput `pulumi:"exportToPdfInScheduledReports"`
+	// The ability to include content in scheduled email reports. Valid values: `DENY`.
+	IncludeContentInScheduledReportsEmail pulumi.StringPtrInput `pulumi:"includeContentInScheduledReportsEmail"`
+	// The ability to print reports. Valid values: `DENY`.
+	PrintReports pulumi.StringPtrInput `pulumi:"printReports"`
+	// The ability to rename shared folders. Valid values: `DENY`.
+	RenameSharedFolders pulumi.StringPtrInput `pulumi:"renameSharedFolders"`
+	// The ability to share analyses. Valid values: `DENY`.
+	ShareAnalyses pulumi.StringPtrInput `pulumi:"shareAnalyses"`
+	// The ability to share dashboards. Valid values: `DENY`.
+	ShareDashboards pulumi.StringPtrInput `pulumi:"shareDashboards"`
+	// The ability to share data sources. Valid values: `DENY`.
+	ShareDataSources pulumi.StringPtrInput `pulumi:"shareDataSources"`
+	// The ability to share datasets. Valid values: `DENY`.
+	ShareDatasets pulumi.StringPtrInput `pulumi:"shareDatasets"`
+	// The ability to subscribe to email reports. Valid values: `DENY`.
+	SubscribeDashboardEmailReports pulumi.StringPtrInput `pulumi:"subscribeDashboardEmailReports"`
+	// The ability to view account SPICE capacity. Valid values: `DENY`.
+	ViewAccountSpiceCapacity pulumi.StringPtrInput `pulumi:"viewAccountSpiceCapacity"`
+}
+
+func (CustomPermissionsCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomPermissionsCapabilities)(nil)).Elem()
+}
+
+func (i CustomPermissionsCapabilitiesArgs) ToCustomPermissionsCapabilitiesOutput() CustomPermissionsCapabilitiesOutput {
+	return i.ToCustomPermissionsCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i CustomPermissionsCapabilitiesArgs) ToCustomPermissionsCapabilitiesOutputWithContext(ctx context.Context) CustomPermissionsCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomPermissionsCapabilitiesOutput)
+}
+
+func (i CustomPermissionsCapabilitiesArgs) ToCustomPermissionsCapabilitiesPtrOutput() CustomPermissionsCapabilitiesPtrOutput {
+	return i.ToCustomPermissionsCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i CustomPermissionsCapabilitiesArgs) ToCustomPermissionsCapabilitiesPtrOutputWithContext(ctx context.Context) CustomPermissionsCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomPermissionsCapabilitiesOutput).ToCustomPermissionsCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// CustomPermissionsCapabilitiesPtrInput is an input type that accepts CustomPermissionsCapabilitiesArgs, CustomPermissionsCapabilitiesPtr and CustomPermissionsCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `CustomPermissionsCapabilitiesPtrInput` via:
+//
+//	        CustomPermissionsCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomPermissionsCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToCustomPermissionsCapabilitiesPtrOutput() CustomPermissionsCapabilitiesPtrOutput
+	ToCustomPermissionsCapabilitiesPtrOutputWithContext(context.Context) CustomPermissionsCapabilitiesPtrOutput
+}
+
+type customPermissionsCapabilitiesPtrType CustomPermissionsCapabilitiesArgs
+
+func CustomPermissionsCapabilitiesPtr(v *CustomPermissionsCapabilitiesArgs) CustomPermissionsCapabilitiesPtrInput {
+	return (*customPermissionsCapabilitiesPtrType)(v)
+}
+
+func (*customPermissionsCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomPermissionsCapabilities)(nil)).Elem()
+}
+
+func (i *customPermissionsCapabilitiesPtrType) ToCustomPermissionsCapabilitiesPtrOutput() CustomPermissionsCapabilitiesPtrOutput {
+	return i.ToCustomPermissionsCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *customPermissionsCapabilitiesPtrType) ToCustomPermissionsCapabilitiesPtrOutputWithContext(ctx context.Context) CustomPermissionsCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomPermissionsCapabilitiesPtrOutput)
+}
+
+type CustomPermissionsCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (CustomPermissionsCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomPermissionsCapabilities)(nil)).Elem()
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ToCustomPermissionsCapabilitiesOutput() CustomPermissionsCapabilitiesOutput {
+	return o
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ToCustomPermissionsCapabilitiesOutputWithContext(ctx context.Context) CustomPermissionsCapabilitiesOutput {
+	return o
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ToCustomPermissionsCapabilitiesPtrOutput() CustomPermissionsCapabilitiesPtrOutput {
+	return o.ToCustomPermissionsCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ToCustomPermissionsCapabilitiesPtrOutputWithContext(ctx context.Context) CustomPermissionsCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomPermissionsCapabilities) *CustomPermissionsCapabilities {
+		return &v
+	}).(CustomPermissionsCapabilitiesPtrOutput)
+}
+
+// The ability to add or run anomaly detection. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) AddOrRunAnomalyDetectionForAnalyses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.AddOrRunAnomalyDetectionForAnalyses }).(pulumi.StringPtrOutput)
+}
+
+// The ability to create and update email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateDashboardEmailReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateDashboardEmailReports }).(pulumi.StringPtrOutput)
+}
+
+// The ability to create and update data sources. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateDataSources() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateDataSources }).(pulumi.StringPtrOutput)
+}
+
+// The ability to create and update datasets. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateDatasets() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateDatasets }).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to create and update themes. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateThemes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateThemes }).(pulumi.StringPtrOutput)
+}
+
+// The ability to create and update threshold alerts. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateThresholdAlerts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateThresholdAlerts }).(pulumi.StringPtrOutput)
+}
+
+// The ability to create shared folders. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) CreateSharedFolders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateSharedFolders }).(pulumi.StringPtrOutput)
+}
+
+// The ability to create a SPICE dataset. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) CreateSpiceDataset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateSpiceDataset }).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to CSV files from the UI. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ExportToCsv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToCsv }).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ExportToCsvInScheduledReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToCsvInScheduledReports }).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to Excel files from the UI. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ExportToExcel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToExcel }).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ExportToExcelInScheduledReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToExcelInScheduledReports }).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to PDF files from the UI. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ExportToPdf() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToPdf }).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ExportToPdfInScheduledReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToPdfInScheduledReports }).(pulumi.StringPtrOutput)
+}
+
+// The ability to include content in scheduled email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) IncludeContentInScheduledReportsEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.IncludeContentInScheduledReportsEmail }).(pulumi.StringPtrOutput)
+}
+
+// The ability to print reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) PrintReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.PrintReports }).(pulumi.StringPtrOutput)
+}
+
+// The ability to rename shared folders. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) RenameSharedFolders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.RenameSharedFolders }).(pulumi.StringPtrOutput)
+}
+
+// The ability to share analyses. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ShareAnalyses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ShareAnalyses }).(pulumi.StringPtrOutput)
+}
+
+// The ability to share dashboards. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ShareDashboards() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ShareDashboards }).(pulumi.StringPtrOutput)
+}
+
+// The ability to share data sources. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ShareDataSources() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ShareDataSources }).(pulumi.StringPtrOutput)
+}
+
+// The ability to share datasets. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ShareDatasets() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ShareDatasets }).(pulumi.StringPtrOutput)
+}
+
+// The ability to subscribe to email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) SubscribeDashboardEmailReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.SubscribeDashboardEmailReports }).(pulumi.StringPtrOutput)
+}
+
+// The ability to view account SPICE capacity. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ViewAccountSpiceCapacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ViewAccountSpiceCapacity }).(pulumi.StringPtrOutput)
+}
+
+type CustomPermissionsCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomPermissionsCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomPermissionsCapabilities)(nil)).Elem()
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ToCustomPermissionsCapabilitiesPtrOutput() CustomPermissionsCapabilitiesPtrOutput {
+	return o
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ToCustomPermissionsCapabilitiesPtrOutputWithContext(ctx context.Context) CustomPermissionsCapabilitiesPtrOutput {
+	return o
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) Elem() CustomPermissionsCapabilitiesOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) CustomPermissionsCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret CustomPermissionsCapabilities
+		return ret
+	}).(CustomPermissionsCapabilitiesOutput)
+}
+
+// The ability to add or run anomaly detection. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) AddOrRunAnomalyDetectionForAnalyses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddOrRunAnomalyDetectionForAnalyses
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to create and update email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateDashboardEmailReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateDashboardEmailReports
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to create and update data sources. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateDataSources() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateDataSources
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to create and update datasets. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateDatasets() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateDatasets
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to create and update themes. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateThemes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateThemes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to create and update threshold alerts. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateThresholdAlerts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateThresholdAlerts
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to create shared folders. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateSharedFolders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateSharedFolders
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to create a SPICE dataset. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateSpiceDataset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateSpiceDataset
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to CSV files from the UI. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ExportToCsv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExportToCsv
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ExportToCsvInScheduledReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExportToCsvInScheduledReports
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to Excel files from the UI. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ExportToExcel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExportToExcel
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ExportToExcelInScheduledReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExportToExcelInScheduledReports
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to PDF files from the UI. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ExportToPdf() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExportToPdf
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ExportToPdfInScheduledReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExportToPdfInScheduledReports
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to include content in scheduled email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) IncludeContentInScheduledReportsEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeContentInScheduledReportsEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to print reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) PrintReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrintReports
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to rename shared folders. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) RenameSharedFolders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RenameSharedFolders
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to share analyses. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareAnalyses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShareAnalyses
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to share dashboards. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareDashboards() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDashboards
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to share data sources. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareDataSources() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDataSources
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to share datasets. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareDatasets() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDatasets
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to subscribe to email reports. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) SubscribeDashboardEmailReports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscribeDashboardEmailReports
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ability to view account SPICE capacity. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ViewAccountSpiceCapacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewAccountSpiceCapacity
+	}).(pulumi.StringPtrOutput)
+}
+
 type DashboardDashboardPublishOptions struct {
 	// Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
 	AdHocFilteringOption *DashboardDashboardPublishOptionsAdHocFilteringOption `pulumi:"adHocFilteringOption"`
@@ -23315,6 +23870,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSourceEntitySourceTemplatePtrInput)(nil)).Elem(), AnalysisSourceEntitySourceTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSourceEntitySourceTemplateDataSetReferenceInput)(nil)).Elem(), AnalysisSourceEntitySourceTemplateDataSetReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSourceEntitySourceTemplateDataSetReferenceArrayInput)(nil)).Elem(), AnalysisSourceEntitySourceTemplateDataSetReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomPermissionsCapabilitiesInput)(nil)).Elem(), CustomPermissionsCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomPermissionsCapabilitiesPtrInput)(nil)).Elem(), CustomPermissionsCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDashboardPublishOptionsInput)(nil)).Elem(), DashboardDashboardPublishOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDashboardPublishOptionsPtrInput)(nil)).Elem(), DashboardDashboardPublishOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDashboardPublishOptionsAdHocFilteringOptionInput)(nil)).Elem(), DashboardDashboardPublishOptionsAdHocFilteringOptionArgs{})
@@ -23648,6 +24205,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSourceEntitySourceTemplatePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSourceEntitySourceTemplateDataSetReferenceOutput{})
 	pulumi.RegisterOutputType(AnalysisSourceEntitySourceTemplateDataSetReferenceArrayOutput{})
+	pulumi.RegisterOutputType(CustomPermissionsCapabilitiesOutput{})
+	pulumi.RegisterOutputType(CustomPermissionsCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDashboardPublishOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardDashboardPublishOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDashboardPublishOptionsAdHocFilteringOptionOutput{})

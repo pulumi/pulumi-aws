@@ -191,14 +191,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.iamArn);
     }
     /**
-     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
      * 
      */
     @Export(name="identityType", refs={String.class}, tree="[0]")
     private Output<String> identityType;
 
     /**
-     * @return Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+     * @return Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
      * 
      */
     public Output<String> identityType() {
@@ -265,17 +265,17 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> userName;
+    private Output<String> userName;
 
     /**
      * @return Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
      * 
      */
-    public Output<Optional<String>> userName() {
-        return Codegen.optional(this.userName);
+    public Output<String> userName() {
+        return this.userName;
     }
     /**
-     * Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+     * Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
      * 
      * The following arguments are optional:
      * 
@@ -284,7 +284,7 @@ public class User extends com.pulumi.resources.CustomResource {
     private Output<String> userRole;
 
     /**
-     * @return Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+     * @return Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
      * 
      * The following arguments are optional:
      * 

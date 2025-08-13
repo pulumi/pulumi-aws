@@ -26,7 +26,7 @@ class GetQuicksightUserResult:
     """
     A collection of values returned by getQuicksightUser.
     """
-    def __init__(__self__, active=None, arn=None, aws_account_id=None, email=None, id=None, identity_type=None, namespace=None, principal_id=None, region=None, user_name=None, user_role=None):
+    def __init__(__self__, active=None, arn=None, aws_account_id=None, custom_permissions_name=None, email=None, id=None, identity_type=None, namespace=None, principal_id=None, region=None, user_name=None, user_role=None):
         if active and not isinstance(active, bool):
             raise TypeError("Expected argument 'active' to be a bool")
         pulumi.set(__self__, "active", active)
@@ -36,6 +36,9 @@ class GetQuicksightUserResult:
         if aws_account_id and not isinstance(aws_account_id, str):
             raise TypeError("Expected argument 'aws_account_id' to be a str")
         pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if custom_permissions_name and not isinstance(custom_permissions_name, str):
+            raise TypeError("Expected argument 'custom_permissions_name' to be a str")
+        pulumi.set(__self__, "custom_permissions_name", custom_permissions_name)
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
@@ -81,6 +84,14 @@ class GetQuicksightUserResult:
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> _builtins.str:
         return pulumi.get(self, "aws_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="customPermissionsName")
+    def custom_permissions_name(self) -> _builtins.str:
+        """
+        The custom permissions profile associated with this user.
+        """
+        return pulumi.get(self, "custom_permissions_name")
 
     @_builtins.property
     @pulumi.getter
@@ -150,6 +161,7 @@ class AwaitableGetQuicksightUserResult(GetQuicksightUserResult):
             active=self.active,
             arn=self.arn,
             aws_account_id=self.aws_account_id,
+            custom_permissions_name=self.custom_permissions_name,
             email=self.email,
             id=self.id,
             identity_type=self.identity_type,
@@ -182,7 +194,6 @@ def get_quicksight_user(aws_account_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str aws_account_id: AWS account ID.
     :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str user_name: The name of the user that you want to match.
@@ -201,6 +212,7 @@ def get_quicksight_user(aws_account_id: Optional[_builtins.str] = None,
         active=pulumi.get(__ret__, 'active'),
         arn=pulumi.get(__ret__, 'arn'),
         aws_account_id=pulumi.get(__ret__, 'aws_account_id'),
+        custom_permissions_name=pulumi.get(__ret__, 'custom_permissions_name'),
         email=pulumi.get(__ret__, 'email'),
         id=pulumi.get(__ret__, 'id'),
         identity_type=pulumi.get(__ret__, 'identity_type'),
@@ -231,7 +243,6 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[_b
     ```
 
 
-    :param _builtins.str aws_account_id: AWS account ID.
     :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str user_name: The name of the user that you want to match.
@@ -249,6 +260,7 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[_b
         active=pulumi.get(__response__, 'active'),
         arn=pulumi.get(__response__, 'arn'),
         aws_account_id=pulumi.get(__response__, 'aws_account_id'),
+        custom_permissions_name=pulumi.get(__response__, 'custom_permissions_name'),
         email=pulumi.get(__response__, 'email'),
         id=pulumi.get(__response__, 'id'),
         identity_type=pulumi.get(__response__, 'identity_type'),

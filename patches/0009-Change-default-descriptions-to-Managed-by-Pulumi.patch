@@ -70,10 +70,10 @@ index 96abcbecf9..bfec91c499 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 9d9710cdc4..15b4d08469 100644
+index 5397965c94..698aac72ea 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
-@@ -68,7 +68,7 @@ func resourceSecurityGroup() *schema.Resource {
+@@ -67,7 +67,7 @@ func resourceSecurityGroup() *schema.Resource {
  				Type:         schema.TypeString,
  				Optional:     true,
  				ForceNew:     true,
@@ -96,7 +96,7 @@ index 6111d73148..0e0313b090 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
-index d9fe8d98db..2c61bdb567 100644
+index e733ba52e0..bea550d91d 100644
 --- a/internal/service/elasticache/subnet_group.go
 +++ b/internal/service/elasticache/subnet_group.go
 @@ -46,7 +46,7 @@ func resourceSubnetGroup() *schema.Resource {

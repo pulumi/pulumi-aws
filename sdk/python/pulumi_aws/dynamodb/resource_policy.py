@@ -211,7 +211,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DynamoDB Resource Policy using the `example_id_arg`. For example:
+        Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
 
         ```sh
         $ pulumi import aws:dynamodb/resourcePolicy:ResourcePolicy example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
@@ -250,7 +250,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DynamoDB Resource Policy using the `example_id_arg`. For example:
+        Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
 
         ```sh
         $ pulumi import aws:dynamodb/resourcePolicy:ResourcePolicy example arn:aws:dynamodb:us-east-1:1234567890:table/my-table

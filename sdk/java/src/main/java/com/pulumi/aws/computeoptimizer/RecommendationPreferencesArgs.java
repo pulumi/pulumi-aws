@@ -112,14 +112,14 @@ public final class RecommendationPreferencesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+     * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
      * 
      */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
     /**
-     * @return The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+     * @return The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
      * 
      */
     public Output<String> resourceType() {
@@ -341,7 +341,7 @@ public final class RecommendationPreferencesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param resourceType The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+         * @param resourceType The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class RecommendationPreferencesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param resourceType The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+         * @param resourceType The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
          * 
          * @return builder
          * 

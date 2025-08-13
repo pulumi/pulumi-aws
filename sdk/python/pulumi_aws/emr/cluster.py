@@ -114,6 +114,8 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[_builtins.bool] unhealthy_node_replacement: Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         :param pulumi.Input[_builtins.bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+               
+               **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
         """
         pulumi.set(__self__, "release_label", release_label)
         pulumi.set(__self__, "service_role", service_role)
@@ -594,6 +596,8 @@ class ClusterArgs:
     def visible_to_all_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+
+        **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
         """
         return pulumi.get(self, "visible_to_all_users")
 
@@ -705,6 +709,8 @@ class _ClusterState:
         :param pulumi.Input[_builtins.bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[_builtins.bool] unhealthy_node_replacement: Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         :param pulumi.Input[_builtins.bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+               
+               **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
         """
         if additional_info is not None:
             pulumi.set(__self__, "additional_info", additional_info)
@@ -1240,6 +1246,8 @@ class _ClusterState:
     def visible_to_all_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+
+        **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
         """
         return pulumi.get(self, "visible_to_all_users")
 
@@ -1616,6 +1624,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[_builtins.bool] unhealthy_node_replacement: Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         :param pulumi.Input[_builtins.bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+               
+               **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
         """
         ...
     @overload
@@ -2104,6 +2114,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[_builtins.bool] unhealthy_node_replacement: Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         :param pulumi.Input[_builtins.bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+               
+               **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2463,6 +2475,8 @@ class Cluster(pulumi.CustomResource):
     def visible_to_all_users(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+
+        **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
         """
         return pulumi.get(self, "visible_to_all_users")
 

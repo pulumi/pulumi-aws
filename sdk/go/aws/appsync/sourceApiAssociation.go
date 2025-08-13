@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS AppSync Source Api Association.
+// Resource for managing an AWS AppSync Source API Association.
 //
 // ## Example Usage
 //
@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import AppSync Source Api Association using the `gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31`. For example:
+// Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
 //
 // ```sh
 // $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
@@ -53,9 +53,9 @@ import (
 type SourceApiAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Source Api Association.
+	// ARN of the Source API Association.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the Source Api Association.
+	// ID of the Source API Association.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// Description of the source API being merged.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -103,9 +103,9 @@ func GetSourceApiAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SourceApiAssociation resources.
 type sourceApiAssociationState struct {
-	// ARN of the Source Api Association.
+	// ARN of the Source API Association.
 	Arn *string `pulumi:"arn"`
-	// ID of the Source Api Association.
+	// ID of the Source API Association.
 	AssociationId *string `pulumi:"associationId"`
 	// Description of the source API being merged.
 	Description *string `pulumi:"description"`
@@ -124,9 +124,9 @@ type sourceApiAssociationState struct {
 }
 
 type SourceApiAssociationState struct {
-	// ARN of the Source Api Association.
+	// ARN of the Source API Association.
 	Arn pulumi.StringPtrInput
-	// ID of the Source Api Association.
+	// ID of the Source API Association.
 	AssociationId pulumi.StringPtrInput
 	// Description of the source API being merged.
 	Description pulumi.StringPtrInput
@@ -270,12 +270,12 @@ func (o SourceApiAssociationOutput) ToSourceApiAssociationOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the Source Api Association.
+// ARN of the Source API Association.
 func (o SourceApiAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the Source Api Association.
+// ID of the Source API Association.
 func (o SourceApiAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }

@@ -36,9 +36,6 @@ export function getQuicksightUser(args: GetQuicksightUserArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getQuicksightUser.
  */
 export interface GetQuicksightUserArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: string;
     /**
      * QuickSight namespace. Defaults to `default`.
@@ -69,6 +66,10 @@ export interface GetQuicksightUserResult {
      */
     readonly arn: string;
     readonly awsAccountId: string;
+    /**
+     * The custom permissions profile associated with this user.
+     */
+    readonly customPermissionsName: string;
     /**
      * The user's email address.
      */
@@ -128,9 +129,6 @@ export function getQuicksightUserOutput(args: GetQuicksightUserOutputArgs, opts?
  * A collection of arguments for invoking getQuicksightUser.
  */
 export interface GetQuicksightUserOutputArgs {
-    /**
-     * AWS account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * QuickSight namespace. Defaults to `default`.

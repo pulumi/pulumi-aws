@@ -5419,6 +5419,7 @@ if not MYPY:
         """
         The S3 Configuration. See `s3_configuration` block below for details.
         """
+        append_only: NotRequired[pulumi.Input[_builtins.bool]]
         buffering_interval: NotRequired[pulumi.Input[_builtins.int]]
         """
         Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
@@ -5453,6 +5454,7 @@ class FirehoseDeliveryStreamIcebergConfigurationArgs:
                  catalog_arn: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  s3_configuration: pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs'],
+                 append_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  buffering_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  buffering_size: Optional[pulumi.Input[_builtins.int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs']] = None,
@@ -5474,6 +5476,8 @@ class FirehoseDeliveryStreamIcebergConfigurationArgs:
         pulumi.set(__self__, "catalog_arn", catalog_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if append_only is not None:
+            pulumi.set(__self__, "append_only", append_only)
         if buffering_interval is not None:
             pulumi.set(__self__, "buffering_interval", buffering_interval)
         if buffering_size is not None:
@@ -5524,6 +5528,15 @@ class FirehoseDeliveryStreamIcebergConfigurationArgs:
     @s3_configuration.setter
     def s3_configuration(self, value: pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs']):
         pulumi.set(self, "s3_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="appendOnly")
+    def append_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "append_only")
+
+    @append_only.setter
+    def append_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "append_only", value)
 
     @_builtins.property
     @pulumi.getter(name="bufferingInterval")

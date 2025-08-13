@@ -146,6 +146,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.SpotInstanceRequestEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
+        /// Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        /// </summary>
+        [Output("forceDestroy")]
+        public Output<bool?> ForceDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         [Output("getPasswordData")]
@@ -586,6 +592,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
+        /// <summary>
         /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         [Input("getPasswordData")]
@@ -969,6 +981,12 @@ namespace Pulumi.Aws.Ec2
             get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.SpotInstanceRequestEphemeralBlockDeviceGetArgs>());
             set => _ephemeralBlockDevices = value;
         }
+
+        /// <summary>
+        /// Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
         /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.

@@ -674,6 +674,8 @@ public final class Wafv2Functions {
      * 
      * ## Example Usage
      * 
+     * ### Lookup by name
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -700,6 +702,47 @@ public final class Wafv2Functions {
      *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
      *             .name("some-web-acl")
      *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Lookup by associated resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var albExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx")
+     *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *         final var cloudfrontExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:cloudfront::123456789012:distribution/XXX")
+     *             .scope("CLOUDFRONT")
      *             .build());
      * 
      *     }
@@ -717,6 +760,8 @@ public final class Wafv2Functions {
      * 
      * ## Example Usage
      * 
+     * ### Lookup by name
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -743,6 +788,47 @@ public final class Wafv2Functions {
      *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
      *             .name("some-web-acl")
      *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Lookup by associated resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var albExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx")
+     *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *         final var cloudfrontExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:cloudfront::123456789012:distribution/XXX")
+     *             .scope("CLOUDFRONT")
      *             .build());
      * 
      *     }
@@ -760,6 +846,8 @@ public final class Wafv2Functions {
      * 
      * ## Example Usage
      * 
+     * ### Lookup by name
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -786,6 +874,47 @@ public final class Wafv2Functions {
      *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
      *             .name("some-web-acl")
      *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Lookup by associated resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var albExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx")
+     *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *         final var cloudfrontExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:cloudfront::123456789012:distribution/XXX")
+     *             .scope("CLOUDFRONT")
      *             .build());
      * 
      *     }
@@ -803,6 +932,8 @@ public final class Wafv2Functions {
      * 
      * ## Example Usage
      * 
+     * ### Lookup by name
+     * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
      * {@code
@@ -837,6 +968,47 @@ public final class Wafv2Functions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ### Lookup by associated resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var albExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx")
+     *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *         final var cloudfrontExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:cloudfront::123456789012:distribution/XXX")
+     *             .scope("CLOUDFRONT")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetWebAclResult> getWebAcl(GetWebAclArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:wafv2/getWebAcl:getWebAcl", TypeShape.of(GetWebAclResult.class), args, Utilities.withVersion(options));
@@ -845,6 +1017,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Web ACL.
      * 
      * ## Example Usage
+     * 
+     * ### Lookup by name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -872,6 +1046,47 @@ public final class Wafv2Functions {
      *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
      *             .name("some-web-acl")
      *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Lookup by associated resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var albExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx")
+     *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *         final var cloudfrontExample = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .resourceArn("arn:aws:cloudfront::123456789012:distribution/XXX")
+     *             .scope("CLOUDFRONT")
      *             .build());
      * 
      *     }

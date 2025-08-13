@@ -43,6 +43,43 @@ import (
 //
 // ```
 //
+// ### With Image Tag Mutability Exclusion
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecr.NewRepository(ctx, "example", &ecr.RepositoryArgs{
+//				Name:               pulumi.String("example-repo"),
+//				ImageTagMutability: pulumi.String("IMMUTABLE_WITH_EXCLUSION"),
+//				ImageTagMutabilityExclusionFilters: ecr.RepositoryImageTagMutabilityExclusionFilterArray{
+//					&ecr.RepositoryImageTagMutabilityExclusionFilterArgs{
+//						Filter:     pulumi.String("latest*"),
+//						FilterType: pulumi.String("WILDCARD"),
+//					},
+//					&ecr.RepositoryImageTagMutabilityExclusionFilterArgs{
+//						Filter:     pulumi.String("dev-*"),
+//						FilterType: pulumi.String("WILDCARD"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import ECR Repositories using the `name`. For example:
@@ -62,8 +99,10 @@ type Repository struct {
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability pulumi.StringPtrOutput `pulumi:"imageTagMutability"`
+	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	ImageTagMutabilityExclusionFilters RepositoryImageTagMutabilityExclusionFilterArrayOutput `pulumi:"imageTagMutabilityExclusionFilters"`
 	// Name of the repository.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -117,8 +156,10 @@ type repositoryState struct {
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
+	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	ImageTagMutabilityExclusionFilters []RepositoryImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// Name of the repository.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -143,8 +184,10 @@ type RepositoryState struct {
 	ForceDelete pulumi.BoolPtrInput
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability pulumi.StringPtrInput
+	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	ImageTagMutabilityExclusionFilters RepositoryImageTagMutabilityExclusionFilterArrayInput
 	// Name of the repository.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -171,8 +214,10 @@ type repositoryArgs struct {
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
+	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	ImageTagMutabilityExclusionFilters []RepositoryImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// Name of the repository.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -190,8 +235,10 @@ type RepositoryArgs struct {
 	ForceDelete pulumi.BoolPtrInput
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability pulumi.StringPtrInput
+	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	ImageTagMutabilityExclusionFilters RepositoryImageTagMutabilityExclusionFilterArrayInput
 	// Name of the repository.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -308,9 +355,16 @@ func (o RepositoryOutput) ImageScanningConfiguration() RepositoryImageScanningCo
 	return o.ApplyT(func(v *Repository) RepositoryImageScanningConfigurationPtrOutput { return v.ImageScanningConfiguration }).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
-// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+// The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 func (o RepositoryOutput) ImageTagMutability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.ImageTagMutability }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+func (o RepositoryOutput) ImageTagMutabilityExclusionFilters() RepositoryImageTagMutabilityExclusionFilterArrayOutput {
+	return o.ApplyT(func(v *Repository) RepositoryImageTagMutabilityExclusionFilterArrayOutput {
+		return v.ImageTagMutabilityExclusionFilters
+	}).(RepositoryImageTagMutabilityExclusionFilterArrayOutput)
 }
 
 // Name of the repository.

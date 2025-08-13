@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync
 {
     /// <summary>
-    /// Resource for managing an AWS AppSync Source Api Association.
+    /// Resource for managing an AWS AppSync Source API Association.
     /// 
     /// ## Example Usage
     /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AppSync Source Api Association using the `gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31`. For example:
+    /// Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
@@ -46,13 +46,13 @@ namespace Pulumi.Aws.AppSync
     public partial class SourceApiAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the Source Api Association.
+        /// ARN of the Source API Association.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Source Api Association.
+        /// ID of the Source API Association.
         /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
@@ -201,13 +201,13 @@ namespace Pulumi.Aws.AppSync
     public sealed class SourceApiAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the Source Api Association.
+        /// ARN of the Source API Association.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID of the Source Api Association.
+        /// ID of the Source API Association.
         /// </summary>
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }

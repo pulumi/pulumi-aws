@@ -78,6 +78,14 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import OpenSearch Domain Policy using `domain_name` prefixed with `esd-policy-`. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test
+ * ```
+ * 
  */
 @ResourceType(type="aws:opensearch/domainPolicy:DomainPolicy")
 public class DomainPolicy extends com.pulumi.resources.CustomResource {

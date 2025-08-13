@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Inspector Filter using the `example_id_arg`. For example:
+ * Using `pulumi import`, import Inspector Filter using the `arn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:inspector2/filter:Filter example &#34;arn:aws:inspector2:us-east-1:111222333444:owner/111222333444/filter/abcdefgh12345678&#34;

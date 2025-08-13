@@ -863,7 +863,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="computeResources")
-    def compute_resources(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentComputeResources']]:
+    def compute_resources(self) -> pulumi.Output['outputs.ComputeEnvironmentComputeResources']:
         """
         Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         """

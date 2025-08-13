@@ -15,17 +15,9 @@ public final class GetQuicksightGroupPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetQuicksightGroupPlainArgs Empty = new GetQuicksightGroupPlainArgs();
 
-    /**
-     * AWS account ID.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable String awsAccountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Optional<String> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -106,12 +98,6 @@ public final class GetQuicksightGroupPlainArgs extends com.pulumi.resources.Invo
             $ = new GetQuicksightGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable String awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;

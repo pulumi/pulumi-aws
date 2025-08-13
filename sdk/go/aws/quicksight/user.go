@@ -118,7 +118,7 @@ type User struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
 	IamArn pulumi.StringPtrOutput `pulumi:"iamArn"`
-	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType pulumi.StringOutput `pulumi:"identityType"`
 	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
@@ -129,8 +129,8 @@ type User struct {
 	// URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
 	UserInvitationUrl pulumi.StringOutput `pulumi:"userInvitationUrl"`
 	// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
-	UserName pulumi.StringPtrOutput `pulumi:"userName"`
-	// Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+	UserName pulumi.StringOutput `pulumi:"userName"`
+	// Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
 	//
 	// The following arguments are optional:
 	UserRole pulumi.StringOutput `pulumi:"userRole"`
@@ -182,7 +182,7 @@ type userState struct {
 	Email *string `pulumi:"email"`
 	// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
 	IamArn *string `pulumi:"iamArn"`
-	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType *string `pulumi:"identityType"`
 	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -194,7 +194,7 @@ type userState struct {
 	UserInvitationUrl *string `pulumi:"userInvitationUrl"`
 	// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
 	UserName *string `pulumi:"userName"`
-	// Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+	// Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
 	//
 	// The following arguments are optional:
 	UserRole *string `pulumi:"userRole"`
@@ -208,7 +208,7 @@ type UserState struct {
 	Email pulumi.StringPtrInput
 	// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
 	IamArn pulumi.StringPtrInput
-	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType pulumi.StringPtrInput
 	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
@@ -220,7 +220,7 @@ type UserState struct {
 	UserInvitationUrl pulumi.StringPtrInput
 	// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
 	UserName pulumi.StringPtrInput
-	// Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+	// Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
 	//
 	// The following arguments are optional:
 	UserRole pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type userArgs struct {
 	Email string `pulumi:"email"`
 	// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
 	IamArn *string `pulumi:"iamArn"`
-	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType string `pulumi:"identityType"`
 	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -246,7 +246,7 @@ type userArgs struct {
 	SessionName *string `pulumi:"sessionName"`
 	// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
 	UserName *string `pulumi:"userName"`
-	// Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+	// Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
 	//
 	// The following arguments are optional:
 	UserRole string `pulumi:"userRole"`
@@ -259,7 +259,7 @@ type UserArgs struct {
 	Email pulumi.StringInput
 	// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
 	IamArn pulumi.StringPtrInput
-	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType pulumi.StringInput
 	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
@@ -269,7 +269,7 @@ type UserArgs struct {
 	SessionName pulumi.StringPtrInput
 	// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
 	UserName pulumi.StringPtrInput
-	// Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+	// Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
 	//
 	// The following arguments are optional:
 	UserRole pulumi.StringInput
@@ -381,7 +381,7 @@ func (o UserOutput) IamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.IamArn }).(pulumi.StringPtrOutput)
 }
 
-// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
+// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 func (o UserOutput) IdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.IdentityType }).(pulumi.StringOutput)
 }
@@ -407,11 +407,11 @@ func (o UserOutput) UserInvitationUrl() pulumi.StringOutput {
 }
 
 // Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
-func (o UserOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
+func (o UserOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }
 
-// Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+// Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
 //
 // The following arguments are optional:
 func (o UserOutput) UserRole() pulumi.StringOutput {

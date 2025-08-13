@@ -60,6 +60,11 @@ export type WebAclLoggingConfiguration = import("./webAclLoggingConfiguration").
 export const WebAclLoggingConfiguration: typeof import("./webAclLoggingConfiguration").WebAclLoggingConfiguration = null as any;
 utilities.lazyLoad(exports, ["WebAclLoggingConfiguration"], () => require("./webAclLoggingConfiguration"));
 
+export { WebAclRuleGroupAssociationArgs, WebAclRuleGroupAssociationState } from "./webAclRuleGroupAssociation";
+export type WebAclRuleGroupAssociation = import("./webAclRuleGroupAssociation").WebAclRuleGroupAssociation;
+export const WebAclRuleGroupAssociation: typeof import("./webAclRuleGroupAssociation").WebAclRuleGroupAssociation = null as any;
+utilities.lazyLoad(exports, ["WebAclRuleGroupAssociation"], () => require("./webAclRuleGroupAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -79,6 +84,8 @@ const _module = {
                 return new WebAclAssociation(name, <any>undefined, { urn })
             case "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration":
                 return new WebAclLoggingConfiguration(name, <any>undefined, { urn })
+            case "aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation":
+                return new WebAclRuleGroupAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -91,3 +98,4 @@ pulumi.runtime.registerResourceModule("aws", "wafv2/ruleGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/webAcl", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/webAclAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/webAclLoggingConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "wafv2/webAclRuleGroupAssociation", _module)
