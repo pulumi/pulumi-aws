@@ -11,7 +11,6 @@ on:
 
 env:
   AWS_REGION: us-west-2
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
@@ -60,6 +59,8 @@ jobs:
           tools: pulumictl, pulumicli, ${{ matrix.language }}
       - name: Prepare local workspace
         run: make prepare_local_workspace
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Download prerequisites
         uses: ./.github/actions/download-prerequisites
       - name: Update path
