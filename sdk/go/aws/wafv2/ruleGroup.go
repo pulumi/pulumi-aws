@@ -12,6 +12,72 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a WAFv2 Rule Group resource.
+//
+// ## Example Usage
+//
+// ### Simple
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
+//				Name:     pulumi.String("example-rule"),
+//				Scope:    pulumi.String("REGIONAL"),
+//				Capacity: pulumi.Int(2),
+//				Rules: wafv2.RuleGroupRuleArray{
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Allow: &wafv2.RuleGroupRuleActionAllowArgs{},
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
+//								CountryCodes: pulumi.StringArray{
+//									pulumi.String("US"),
+//									pulumi.String("NL"),
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("friendly-rule-metric-name"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
+//
+// ```sh
+// $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+// ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
 

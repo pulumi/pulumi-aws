@@ -20,6 +20,99 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a WAFv2 Rule Group resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Simple
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.RuleGroup;
+ * import com.pulumi.aws.wafv2.RuleGroupArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()
+ *             .name("example-rule")
+ *             .scope("REGIONAL")
+ *             .capacity(2)
+ *             .rules(RuleGroupRuleArgs.builder()
+ *                 .name("rule-1")
+ *                 .priority(1)
+ *                 .action(RuleGroupRuleActionArgs.builder()
+ *                     .allow(RuleGroupRuleActionAllowArgs.builder()
+ *                         .build())
+ *                     .build())
+ *                 .statement(RuleGroupRuleStatementArgs.builder()
+ *                     .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
+ *                         .countryCodes(                        
+ *                             "US",
+ *                             "NL")
+ *                         .build())
+ *                     .build())
+ *                 .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
+ *                     .cloudwatchMetricsEnabled(false)
+ *                     .metricName("friendly-rule-metric-name")
+ *                     .sampledRequestsEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .visibilityConfig(RuleGroupVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Complex
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Using rule_json
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+ * ```
+ * 
+ */
 @ResourceType(type="aws:wafv2/ruleGroup:RuleGroup")
 public class RuleGroup extends com.pulumi.resources.CustomResource {
     /**
