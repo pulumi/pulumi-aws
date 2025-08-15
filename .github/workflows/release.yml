@@ -16,6 +16,9 @@ env:
   TF_APPEND_USER_AGENT: pulumi
 jobs:
   prerequisites:
+    permissions:
+      contents: read
+      pull-requests: write
     uses: ./.github/workflows/prerequisites.yml
     secrets: inherit
     with:

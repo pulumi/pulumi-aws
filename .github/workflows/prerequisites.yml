@@ -32,6 +32,9 @@ jobs:
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     outputs:
       version: ${{ steps.provider-version.outputs.version }}
     steps:
