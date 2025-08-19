@@ -11,7 +11,7 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-    /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
+    /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Data Firehose
     /// 
     /// ## Example Usage
     /// 
@@ -160,6 +160,209 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
+    /// ### Cross-Account Amazon Data Firehose Logging
+    /// 
+    /// The following example shows how to set up a flow log in one AWS account (source) that sends logs to an Amazon Data Firehose delivery stream in another AWS account (destination).
+    /// See the [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-firehose.html).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // For source account
+    ///     var src = new Aws.Ec2.Vpc("src");
+    /// 
+    ///     var srcAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "delivery.logs.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var srcRole = new Aws.Iam.Role("src", new()
+    ///     {
+    ///         Name = "tf-example-mySourceRole",
+    ///         AssumeRolePolicy = srcAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     // For destination account
+    ///     var dstAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             srcRole.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var dst = new Aws.Iam.Role("dst", new()
+    ///     {
+    ///         Name = "AWSLogDeliveryFirehoseCrossAccountRole",
+    ///         AssumeRolePolicy = dstAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var srcRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "iam:PassRole",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     srcRole.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "iam:PassedToService",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "delivery.logs.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringLike",
+    ///                         Variable = "iam:AssociatedResourceARN",
+    ///                         Values = new[]
+    ///                         {
+    ///                             src.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogDelivery",
+    ///                     "logs:DeleteLogDelivery",
+    ///                     "logs:ListLogDeliveries",
+    ///                     "logs:GetLogDelivery",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     dst.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var srcPolicy = new Aws.Iam.RolePolicy("src_policy", new()
+    ///     {
+    ///         Name = "tf-example-mySourceRolePolicy",
+    ///         Role = srcRole.Name,
+    ///         Policy = srcRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var dstFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("dst", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "LogDeliveryEnabled", "true" },
+    ///         },
+    ///     });
+    /// 
+    ///     var srcFlowLog = new Aws.Ec2.FlowLog("src", new()
+    ///     {
+    ///         LogDestinationType = "kinesis-data-firehose",
+    ///         LogDestination = dstFirehoseDeliveryStream.Arn,
+    ///         TrafficType = "ALL",
+    ///         VpcId = src.Id,
+    ///         IamRoleArn = srcRole.Arn,
+    ///         DeliverCrossAccountRole = dst.Arn,
+    ///     });
+    /// 
+    ///     var dstRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "iam:CreateServiceLinkedRole",
+    ///                     "firehose:TagDeliveryStream",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var dstRolePolicy2 = new Aws.Iam.RolePolicy("dst", new()
+    ///     {
+    ///         Name = "AWSLogDeliveryFirehoseCrossAccountRolePolicy",
+    ///         Role = dst.Name,
+    ///         Policy = dstRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Flow Logs using the `id`. For example:
@@ -178,7 +381,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         /// </summary>
         [Output("deliverCrossAccountRole")]
         public Output<string?> DeliverCrossAccountRole { get; private set; } = null!;
@@ -196,7 +399,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> EniId { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        /// ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         /// </summary>
         [Output("iamRoleArn")]
         public Output<string?> IamRoleArn { get; private set; } = null!;
@@ -324,7 +527,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class FlowLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         /// </summary>
         [Input("deliverCrossAccountRole")]
         public Input<string>? DeliverCrossAccountRole { get; set; }
@@ -342,7 +545,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? EniId { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        /// ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
@@ -438,7 +641,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         /// </summary>
         [Input("deliverCrossAccountRole")]
         public Input<string>? DeliverCrossAccountRole { get; set; }
@@ -456,7 +659,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? EniId { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        /// ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }

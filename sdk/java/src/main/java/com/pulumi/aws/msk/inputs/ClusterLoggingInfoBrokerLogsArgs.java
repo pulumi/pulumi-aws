@@ -17,23 +17,47 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
 
     public static final ClusterLoggingInfoBrokerLogsArgs Empty = new ClusterLoggingInfoBrokerLogsArgs();
 
+    /**
+     * Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+     * 
+     */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs> cloudwatchLogs;
 
+    /**
+     * @return Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+     * 
+     */
     public Optional<Output<ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs>> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
 
+    /**
+     * Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+     * 
+     */
     @Import(name="firehose")
     private @Nullable Output<ClusterLoggingInfoBrokerLogsFirehoseArgs> firehose;
 
+    /**
+     * @return Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+     * 
+     */
     public Optional<Output<ClusterLoggingInfoBrokerLogsFirehoseArgs>> firehose() {
         return Optional.ofNullable(this.firehose);
     }
 
+    /**
+     * Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+     * 
+     */
     @Import(name="s3")
     private @Nullable Output<ClusterLoggingInfoBrokerLogsS3Args> s3;
 
+    /**
+     * @return Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+     * 
+     */
     public Optional<Output<ClusterLoggingInfoBrokerLogsS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -64,29 +88,65 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
             $ = new ClusterLoggingInfoBrokerLogsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cloudwatchLogs Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchLogs(@Nullable Output<ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs> cloudwatchLogs) {
             $.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
 
+        /**
+         * @param cloudwatchLogs Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchLogs(ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs cloudwatchLogs) {
             return cloudwatchLogs(Output.of(cloudwatchLogs));
         }
 
+        /**
+         * @param firehose Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firehose(@Nullable Output<ClusterLoggingInfoBrokerLogsFirehoseArgs> firehose) {
             $.firehose = firehose;
             return this;
         }
 
+        /**
+         * @param firehose Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firehose(ClusterLoggingInfoBrokerLogsFirehoseArgs firehose) {
             return firehose(Output.of(firehose));
         }
 
+        /**
+         * @param s3 Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3(@Nullable Output<ClusterLoggingInfoBrokerLogsS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
+        /**
+         * @param s3 Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3(ClusterLoggingInfoBrokerLogsS3Args s3) {
             return s3(Output.of(s3));
         }

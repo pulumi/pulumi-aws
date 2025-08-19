@@ -578,6 +578,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultAddonsToRemoves);
     }
     /**
+     * Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+     * 
+     */
+    @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> deletionProtection;
+
+    /**
+     * @return Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+     * 
+     */
+    public Output<Boolean> deletionProtection() {
+        return this.deletionProtection;
+    }
+    /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      * 
      */

@@ -1583,6 +1583,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appsync/api",
+  "fqn": "pulumi_aws.appsync",
+  "classes": {
+   "aws:appsync/api:Api": "Api"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appsync/apiCache",
   "fqn": "pulumi_aws.appsync",
   "classes": {
@@ -1595,6 +1603,14 @@ _utilities.register(
   "fqn": "pulumi_aws.appsync",
   "classes": {
    "aws:appsync/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appsync/channelNamespace",
+  "fqn": "pulumi_aws.appsync",
+  "classes": {
+   "aws:appsync/channelNamespace:ChannelNamespace": "ChannelNamespace"
   }
  },
  {

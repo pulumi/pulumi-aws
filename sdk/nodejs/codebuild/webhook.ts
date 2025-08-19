@@ -42,6 +42,27 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### For CodeBuild Runner Project
+ *
+ * To create a CodeBuild project as a Runner Project, the following `aws.codebuild.Webhook` resource is required for the project.
+ * See thr [AWS Documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/action-runner.html) for more information about CodeBuild Runner Projects.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.codebuild.Webhook("example", {
+ *     projectName: exampleAwsCodebuildProject.name,
+ *     buildType: "BUILD",
+ *     filterGroups: [{
+ *         filters: [{
+ *             type: "EVENT",
+ *             pattern: "WORKFLOW_JOB_QUEUED",
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:

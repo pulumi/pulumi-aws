@@ -20,14 +20,14 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetResourceShareArgs Empty = new GetResourceShareArgs();
 
     /**
-     * Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetResourceShareFilterArgs>> filters;
 
     /**
-     * @return Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * @return Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      * 
      */
     public Optional<Output<List<GetResourceShareFilterArgs>>> filters() {
@@ -139,7 +139,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 

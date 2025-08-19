@@ -13,15 +13,19 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult
     {
+        public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutResult> FlowTimeouts;
         public readonly string RuleOrder;
         public readonly string StreamExceptionPolicy;
 
         [OutputConstructor]
         private GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult(
+            ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutResult> flowTimeouts,
+
             string ruleOrder,
 
             string streamExceptionPolicy)
         {
+            FlowTimeouts = flowTimeouts;
             RuleOrder = ruleOrder;
             StreamExceptionPolicy = streamExceptionPolicy;
         }

@@ -187,14 +187,14 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notificationMetadata);
     }
     /**
-     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
      * 
      */
     @Export(name="notificationTargetArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationTargetArn;
 
     /**
-     * @return ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * @return ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
      * 
      */
     public Output<Optional<String>> notificationTargetArn() {

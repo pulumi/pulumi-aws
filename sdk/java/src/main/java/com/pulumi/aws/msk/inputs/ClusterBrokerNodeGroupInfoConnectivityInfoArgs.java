@@ -17,14 +17,14 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoArgs();
 
     /**
-     * Access control settings for brokers. See below.
+     * Access control settings for brokers. See connectivity_info public_access Argument Reference below.
      * 
      */
     @Import(name="publicAccess")
     private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs> publicAccess;
 
     /**
-     * @return Access control settings for brokers. See below.
+     * @return Access control settings for brokers. See connectivity_info public_access Argument Reference below.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs>> publicAccess() {
@@ -32,14 +32,14 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
     }
 
     /**
-     * VPC connectivity access control for brokers. See below.
+     * VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
      * 
      */
     @Import(name="vpcConnectivity")
     private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs> vpcConnectivity;
 
     /**
-     * @return VPC connectivity access control for brokers. See below.
+     * @return VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs>> vpcConnectivity() {
@@ -72,7 +72,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
         }
 
         /**
-         * @param publicAccess Access control settings for brokers. See below.
+         * @param publicAccess Access control settings for brokers. See connectivity_info public_access Argument Reference below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
         }
 
         /**
-         * @param publicAccess Access control settings for brokers. See below.
+         * @param publicAccess Access control settings for brokers. See connectivity_info public_access Argument Reference below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
         }
 
         /**
-         * @param vpcConnectivity VPC connectivity access control for brokers. See below.
+         * @param vpcConnectivity VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
         }
 
         /**
-         * @param vpcConnectivity VPC connectivity access control for brokers. See below.
+         * @param vpcConnectivity VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
          * 
          * @return builder
          * 

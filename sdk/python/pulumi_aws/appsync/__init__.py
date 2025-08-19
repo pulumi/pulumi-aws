@@ -6,8 +6,10 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .api import *
 from .api_cache import *
 from .api_key import *
+from .channel_namespace import *
 from .data_source import *
 from .domain_name import *
 from .domain_name_api_association import *

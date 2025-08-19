@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, compute_configs=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, region=None, remote_network_configs=None, role_arn=None, status=None, storage_configs=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
+    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, compute_configs=None, created_at=None, deletion_protection=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, region=None, remote_network_configs=None, role_arn=None, status=None, storage_configs=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
         if access_configs and not isinstance(access_configs, list):
             raise TypeError("Expected argument 'access_configs' to be a list")
         pulumi.set(__self__, "access_configs", access_configs)
@@ -46,6 +46,9 @@ class GetClusterResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if deletion_protection and not isinstance(deletion_protection, bool):
+            raise TypeError("Expected argument 'deletion_protection' to be a bool")
+        pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enabled_cluster_log_types and not isinstance(enabled_cluster_log_types, list):
             raise TypeError("Expected argument 'enabled_cluster_log_types' to be a list")
         pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
@@ -148,6 +151,14 @@ class GetClusterResult:
         Unix epoch time stamp in seconds for when the cluster was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> _builtins.bool:
+        """
+        Whether deletion protection for the cluster is enabled.
+        """
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="enabledClusterLogTypes")
@@ -300,6 +311,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_id=self.cluster_id,
             compute_configs=self.compute_configs,
             created_at=self.created_at,
+            deletion_protection=self.deletion_protection,
             enabled_cluster_log_types=self.enabled_cluster_log_types,
             endpoint=self.endpoint,
             id=self.id,
@@ -357,6 +369,7 @@ def get_cluster(name: Optional[_builtins.str] = None,
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         compute_configs=pulumi.get(__ret__, 'compute_configs'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         enabled_cluster_log_types=pulumi.get(__ret__, 'enabled_cluster_log_types'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
@@ -411,6 +424,7 @@ def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         compute_configs=pulumi.get(__response__, 'compute_configs'),
         created_at=pulumi.get(__response__, 'created_at'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         enabled_cluster_log_types=pulumi.get(__response__, 'enabled_cluster_log_types'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),

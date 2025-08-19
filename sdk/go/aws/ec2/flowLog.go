@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
+// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Data Firehose
 //
 // ## Example Usage
 //
@@ -185,6 +185,196 @@ import (
 //
 // ```
 //
+// ### Cross-Account Amazon Data Firehose Logging
+//
+// The following example shows how to set up a flow log in one AWS account (source) that sends logs to an Amazon Data Firehose delivery stream in another AWS account (destination).
+// See the [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-firehose.html).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// For source account
+//			src, err := ec2.NewVpc(ctx, "src", nil)
+//			if err != nil {
+//				return err
+//			}
+//			srcAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"delivery.logs.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			srcRole, err := iam.NewRole(ctx, "src", &iam.RoleArgs{
+//				Name:             pulumi.String("tf-example-mySourceRole"),
+//				AssumeRolePolicy: pulumi.String(srcAssumeRolePolicy.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// For destination account
+//			dstAssumeRolePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sts:AssumeRole"),
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									srcRole.Arn,
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			dst, err := iam.NewRole(ctx, "dst", &iam.RoleArgs{
+//				Name: pulumi.String("AWSLogDeliveryFirehoseCrossAccountRole"),
+//				AssumeRolePolicy: pulumi.String(dstAssumeRolePolicy.ApplyT(func(dstAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &dstAssumeRolePolicy.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			srcRolePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("iam:PassRole"),
+//						},
+//						Resources: pulumi.StringArray{
+//							srcRole.Arn,
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("iam:PassedToService"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("delivery.logs.amazonaws.com"),
+//								},
+//							},
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringLike"),
+//								Variable: pulumi.String("iam:AssociatedResourceARN"),
+//								Values: pulumi.StringArray{
+//									src.Arn,
+//								},
+//							},
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("logs:CreateLogDelivery"),
+//							pulumi.String("logs:DeleteLogDelivery"),
+//							pulumi.String("logs:ListLogDeliveries"),
+//							pulumi.String("logs:GetLogDelivery"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sts:AssumeRole"),
+//						},
+//						Resources: pulumi.StringArray{
+//							dst.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRolePolicy(ctx, "src_policy", &iam.RolePolicyArgs{
+//				Name: pulumi.String("tf-example-mySourceRolePolicy"),
+//				Role: srcRole.Name,
+//				Policy: pulumi.String(srcRolePolicy.ApplyT(func(srcRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &srcRolePolicy.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			dstFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "dst", &kinesis.FirehoseDeliveryStreamArgs{
+//				Tags: pulumi.StringMap{
+//					"LogDeliveryEnabled": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewFlowLog(ctx, "src", &ec2.FlowLogArgs{
+//				LogDestinationType:      pulumi.String("kinesis-data-firehose"),
+//				LogDestination:          dstFirehoseDeliveryStream.Arn,
+//				TrafficType:             pulumi.String("ALL"),
+//				VpcId:                   src.ID(),
+//				IamRoleArn:              srcRole.Arn,
+//				DeliverCrossAccountRole: dst.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			dstRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"iam:CreateServiceLinkedRole",
+//							"firehose:TagDeliveryStream",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "dst", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("AWSLogDeliveryFirehoseCrossAccountRolePolicy"),
+//				Role:   dst.Name,
+//				Policy: pulumi.String(dstRolePolicy.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Flow Logs using the `id`. For example:
@@ -197,13 +387,13 @@ type FlowLog struct {
 
 	// ARN of the Flow Log.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
 	DeliverCrossAccountRole pulumi.StringPtrOutput `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrOutput `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to.
 	EniId pulumi.StringPtrOutput `pulumi:"eniId"`
-	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+	// ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
 	// ARN of the logging destination.
 	LogDestination pulumi.StringOutput `pulumi:"logDestination"`
@@ -267,13 +457,13 @@ func GetFlowLog(ctx *pulumi.Context,
 type flowLogState struct {
 	// ARN of the Flow Log.
 	Arn *string `pulumi:"arn"`
-	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
 	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to.
 	EniId *string `pulumi:"eniId"`
-	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+	// ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// ARN of the logging destination.
 	LogDestination *string `pulumi:"logDestination"`
@@ -308,13 +498,13 @@ type flowLogState struct {
 type FlowLogState struct {
 	// ARN of the Flow Log.
 	Arn pulumi.StringPtrInput
-	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
 	DeliverCrossAccountRole pulumi.StringPtrInput
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrInput
 	// Elastic Network Interface ID to attach to.
 	EniId pulumi.StringPtrInput
-	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+	// ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
 	IamRoleArn pulumi.StringPtrInput
 	// ARN of the logging destination.
 	LogDestination pulumi.StringPtrInput
@@ -351,13 +541,13 @@ func (FlowLogState) ElementType() reflect.Type {
 }
 
 type flowLogArgs struct {
-	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
 	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to.
 	EniId *string `pulumi:"eniId"`
-	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+	// ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// ARN of the logging destination.
 	LogDestination *string `pulumi:"logDestination"`
@@ -389,13 +579,13 @@ type flowLogArgs struct {
 
 // The set of arguments for constructing a FlowLog resource.
 type FlowLogArgs struct {
-	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
 	DeliverCrossAccountRole pulumi.StringPtrInput
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrInput
 	// Elastic Network Interface ID to attach to.
 	EniId pulumi.StringPtrInput
-	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+	// ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
 	IamRoleArn pulumi.StringPtrInput
 	// ARN of the logging destination.
 	LogDestination pulumi.StringPtrInput
@@ -517,7 +707,7 @@ func (o FlowLogOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
 func (o FlowLogOutput) DeliverCrossAccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.DeliverCrossAccountRole }).(pulumi.StringPtrOutput)
 }
@@ -532,7 +722,7 @@ func (o FlowLogOutput) EniId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.EniId }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+// ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
 func (o FlowLogOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }

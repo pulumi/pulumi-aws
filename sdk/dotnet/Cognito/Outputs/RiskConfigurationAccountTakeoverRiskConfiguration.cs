@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// <summary>
         /// The notify configuration used to construct email notifications. See details below.
         /// </summary>
-        public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration NotifyConfiguration;
+        public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration? NotifyConfiguration;
 
         [OutputConstructor]
         private RiskConfigurationAccountTakeoverRiskConfiguration(
             Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions actions,
 
-            Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration)
+            Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration? notifyConfiguration)
         {
             Actions = actions;
             NotifyConfiguration = notifyConfiguration;

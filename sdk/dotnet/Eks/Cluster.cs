@@ -487,6 +487,12 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<string>> DefaultAddonsToRemoves { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+        /// </summary>
+        [Output("deletionProtection")]
+        public Output<bool> DeletionProtection { get; private set; } = null!;
+
+        /// <summary>
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         /// </summary>
         [Output("enabledClusterLogTypes")]
@@ -681,6 +687,12 @@ namespace Pulumi.Aws.Eks
             set => _defaultAddonsToRemoves = value;
         }
 
+        /// <summary>
+        /// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
+
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;
 
@@ -843,6 +855,12 @@ namespace Pulumi.Aws.Eks
             get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
             set => _defaultAddonsToRemoves = value;
         }
+
+        /// <summary>
+        /// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
 
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;

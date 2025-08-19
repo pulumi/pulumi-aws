@@ -38,10 +38,10 @@ class FlowLogArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlowLog resource.
-        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
         :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
@@ -93,7 +93,7 @@ class FlowLogArgs:
     @pulumi.getter(name="deliverCrossAccountRole")
     def deliver_cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         """
         return pulumi.get(self, "deliver_cross_account_role")
 
@@ -129,7 +129,7 @@ class FlowLogArgs:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -297,10 +297,10 @@ class _FlowLogState:
         """
         Input properties used for looking up and filtering FlowLog resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the Flow Log.
-        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
         :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
@@ -369,7 +369,7 @@ class _FlowLogState:
     @pulumi.getter(name="deliverCrossAccountRole")
     def deliver_cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         """
         return pulumi.get(self, "deliver_cross_account_role")
 
@@ -405,7 +405,7 @@ class _FlowLogState:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -586,7 +586,7 @@ class FlowLog(pulumi.CustomResource):
                  __props__=None):
         """
         Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
+        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Data Firehose
 
         ## Example Usage
 
@@ -662,6 +662,102 @@ class FlowLog(pulumi.CustomResource):
             })
         ```
 
+        ### Cross-Account Amazon Data Firehose Logging
+
+        The following example shows how to set up a flow log in one AWS account (source) that sends logs to an Amazon Data Firehose delivery stream in another AWS account (destination).
+        See the [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-firehose.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # For source account
+        src = aws.ec2.Vpc("src")
+        src_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["delivery.logs.amazonaws.com"],
+            }],
+        }])
+        src_role = aws.iam.Role("src",
+            name="tf-example-mySourceRole",
+            assume_role_policy=src_assume_role_policy.json)
+        # For destination account
+        dst_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [src_role.arn],
+            }],
+        }])
+        dst = aws.iam.Role("dst",
+            name="AWSLogDeliveryFirehoseCrossAccountRole",
+            assume_role_policy=dst_assume_role_policy.json)
+        src_role_policy = aws.iam.get_policy_document_output(statements=[
+            {
+                "effect": "Allow",
+                "actions": ["iam:PassRole"],
+                "resources": [src_role.arn],
+                "conditions": [
+                    {
+                        "test": "StringEquals",
+                        "variable": "iam:PassedToService",
+                        "values": ["delivery.logs.amazonaws.com"],
+                    },
+                    {
+                        "test": "StringLike",
+                        "variable": "iam:AssociatedResourceARN",
+                        "values": [src.arn],
+                    },
+                ],
+            },
+            {
+                "effect": "Allow",
+                "actions": [
+                    "logs:CreateLogDelivery",
+                    "logs:DeleteLogDelivery",
+                    "logs:ListLogDeliveries",
+                    "logs:GetLogDelivery",
+                ],
+                "resources": ["*"],
+            },
+            {
+                "effect": "Allow",
+                "actions": ["sts:AssumeRole"],
+                "resources": [dst.arn],
+            },
+        ])
+        src_policy = aws.iam.RolePolicy("src_policy",
+            name="tf-example-mySourceRolePolicy",
+            role=src_role.name,
+            policy=src_role_policy.json)
+        dst_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("dst", tags={
+            "LogDeliveryEnabled": "true",
+        })
+        src_flow_log = aws.ec2.FlowLog("src",
+            log_destination_type="kinesis-data-firehose",
+            log_destination=dst_firehose_delivery_stream.arn,
+            traffic_type="ALL",
+            vpc_id=src.id,
+            iam_role_arn=src_role.arn,
+            deliver_cross_account_role=dst.arn)
+        dst_role_policy = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": [
+                "iam:CreateServiceLinkedRole",
+                "firehose:TagDeliveryStream",
+            ],
+            "resources": ["*"],
+        }])
+        dst_role_policy2 = aws.iam.RolePolicy("dst",
+            name="AWSLogDeliveryFirehoseCrossAccountRolePolicy",
+            role=dst.name,
+            policy=dst_role_policy.json)
+        ```
+
         ## Import
 
         Using `pulumi import`, import Flow Logs using the `id`. For example:
@@ -672,10 +768,10 @@ class FlowLog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
         :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
@@ -700,7 +796,7 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
+        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Data Firehose
 
         ## Example Usage
 
@@ -774,6 +870,102 @@ class FlowLog(pulumi.CustomResource):
                 "file_format": "parquet",
                 "per_hour_partition": True,
             })
+        ```
+
+        ### Cross-Account Amazon Data Firehose Logging
+
+        The following example shows how to set up a flow log in one AWS account (source) that sends logs to an Amazon Data Firehose delivery stream in another AWS account (destination).
+        See the [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-firehose.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # For source account
+        src = aws.ec2.Vpc("src")
+        src_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["delivery.logs.amazonaws.com"],
+            }],
+        }])
+        src_role = aws.iam.Role("src",
+            name="tf-example-mySourceRole",
+            assume_role_policy=src_assume_role_policy.json)
+        # For destination account
+        dst_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [src_role.arn],
+            }],
+        }])
+        dst = aws.iam.Role("dst",
+            name="AWSLogDeliveryFirehoseCrossAccountRole",
+            assume_role_policy=dst_assume_role_policy.json)
+        src_role_policy = aws.iam.get_policy_document_output(statements=[
+            {
+                "effect": "Allow",
+                "actions": ["iam:PassRole"],
+                "resources": [src_role.arn],
+                "conditions": [
+                    {
+                        "test": "StringEquals",
+                        "variable": "iam:PassedToService",
+                        "values": ["delivery.logs.amazonaws.com"],
+                    },
+                    {
+                        "test": "StringLike",
+                        "variable": "iam:AssociatedResourceARN",
+                        "values": [src.arn],
+                    },
+                ],
+            },
+            {
+                "effect": "Allow",
+                "actions": [
+                    "logs:CreateLogDelivery",
+                    "logs:DeleteLogDelivery",
+                    "logs:ListLogDeliveries",
+                    "logs:GetLogDelivery",
+                ],
+                "resources": ["*"],
+            },
+            {
+                "effect": "Allow",
+                "actions": ["sts:AssumeRole"],
+                "resources": [dst.arn],
+            },
+        ])
+        src_policy = aws.iam.RolePolicy("src_policy",
+            name="tf-example-mySourceRolePolicy",
+            role=src_role.name,
+            policy=src_role_policy.json)
+        dst_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("dst", tags={
+            "LogDeliveryEnabled": "true",
+        })
+        src_flow_log = aws.ec2.FlowLog("src",
+            log_destination_type="kinesis-data-firehose",
+            log_destination=dst_firehose_delivery_stream.arn,
+            traffic_type="ALL",
+            vpc_id=src.id,
+            iam_role_arn=src_role.arn,
+            deliver_cross_account_role=dst.arn)
+        dst_role_policy = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": [
+                "iam:CreateServiceLinkedRole",
+                "firehose:TagDeliveryStream",
+            ],
+            "resources": ["*"],
+        }])
+        dst_role_policy2 = aws.iam.RolePolicy("dst",
+            name="AWSLogDeliveryFirehoseCrossAccountRolePolicy",
+            role=dst.name,
+            policy=dst_role_policy.json)
         ```
 
         ## Import
@@ -875,10 +1067,10 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Flow Log.
-        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
         :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
@@ -931,7 +1123,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="deliverCrossAccountRole")
     def deliver_cross_account_role(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         """
         return pulumi.get(self, "deliver_cross_account_role")
 
@@ -955,7 +1147,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+        ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         """
         return pulumi.get(self, "iam_role_arn")
 

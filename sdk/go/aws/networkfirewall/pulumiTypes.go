@@ -10046,8 +10046,9 @@ func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutpu
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOption struct {
-	RuleOrder             string `pulumi:"ruleOrder"`
-	StreamExceptionPolicy string `pulumi:"streamExceptionPolicy"`
+	FlowTimeouts          []GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout `pulumi:"flowTimeouts"`
+	RuleOrder             string                                                           `pulumi:"ruleOrder"`
+	StreamExceptionPolicy string                                                           `pulumi:"streamExceptionPolicy"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs and GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput values.
@@ -10062,8 +10063,9 @@ type GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput interface {
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs struct {
-	RuleOrder             pulumi.StringInput `pulumi:"ruleOrder"`
-	StreamExceptionPolicy pulumi.StringInput `pulumi:"streamExceptionPolicy"`
+	FlowTimeouts          GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayInput `pulumi:"flowTimeouts"`
+	RuleOrder             pulumi.StringInput                                                       `pulumi:"ruleOrder"`
+	StreamExceptionPolicy pulumi.StringInput                                                       `pulumi:"streamExceptionPolicy"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ElementType() reflect.Type {
@@ -10117,6 +10119,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) ToGetFirewall
 	return o
 }
 
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) FlowTimeouts() GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) []GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout {
+		return v.FlowTimeouts
+	}).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput)
+}
+
 func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) RuleOrder() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) string { return v.RuleOrder }).(pulumi.StringOutput)
 }
@@ -10143,6 +10151,102 @@ func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) Index(i 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatefulEngineOption {
 		return vs[0].([]GetFirewallPolicyFirewallPolicyStatefulEngineOption)[vs[1].(int)]
 	}).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout struct {
+	TcpIdleTimeoutSeconds int `pulumi:"tcpIdleTimeoutSeconds"`
+}
+
+// GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArgs and GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArgs{...}
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput
+	ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArgs struct {
+	TcpIdleTimeoutSeconds pulumi.IntInput `pulumi:"tcpIdleTimeoutSeconds"`
+}
+
+func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArgs) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArgs) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArray and GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArray{ GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArgs{...} }
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput
+	ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArray []GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutInput
+
+func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArray) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArray) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput) TcpIdleTimeoutSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout) int {
+		return v.TcpIdleTimeoutSeconds
+	}).(pulumi.IntOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference struct {
@@ -11103,6 +11207,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs{})
@@ -11279,6 +11385,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput{})

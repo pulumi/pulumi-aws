@@ -83,6 +83,10 @@ export interface GetClusterResult {
      */
     readonly createdAt: string;
     /**
+     * Whether deletion protection for the cluster is enabled.
+     */
+    readonly deletionProtection: boolean;
+    /**
      * The enabled control plane logs.
      */
     readonly enabledClusterLogTypes: string[];

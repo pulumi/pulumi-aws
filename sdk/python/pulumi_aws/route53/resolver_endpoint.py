@@ -32,8 +32,7 @@ class ResolverEndpointArgs:
         """
         The set of arguments for constructing a ResolverEndpoint resource.
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
-               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-               or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
         :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
@@ -64,8 +63,7 @@ class ResolverEndpointArgs:
     def direction(self) -> pulumi.Input[_builtins.str]:
         """
         Direction of DNS queries to or from the Route 53 Resolver endpoint.
-        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-        or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
         """
         return pulumi.get(self, "direction")
 
@@ -179,8 +177,7 @@ class _ResolverEndpointState:
         Input properties used for looking up and filtering ResolverEndpoint resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the Route 53 Resolver endpoint.
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
-               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-               or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
         :param pulumi.Input[_builtins.str] host_vpc_id: ID of the VPC that you want to create the resolver endpoint in.
         :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
@@ -234,8 +231,7 @@ class _ResolverEndpointState:
     def direction(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Direction of DNS queries to or from the Route 53 Resolver endpoint.
-        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-        or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
         """
         return pulumi.get(self, "direction")
 
@@ -416,8 +412,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
-               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-               or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[_builtins.str] name: Friendly name of the Route 53 Resolver endpoint.
@@ -557,8 +552,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Route 53 Resolver endpoint.
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
-               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-               or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
         :param pulumi.Input[_builtins.str] host_vpc_id: ID of the VPC that you want to create the resolver endpoint in.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
@@ -602,8 +596,7 @@ class ResolverEndpoint(pulumi.CustomResource):
     def direction(self) -> pulumi.Output[_builtins.str]:
         """
         Direction of DNS queries to or from the Route 53 Resolver endpoint.
-        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-        or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
         """
         return pulumi.get(self, "direction")
 

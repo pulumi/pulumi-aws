@@ -110,7 +110,7 @@ type LifecycleHook struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
 	NotificationMetadata pulumi.StringPtrOutput `pulumi:"notificationMetadata"`
-	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
 	NotificationTargetArn pulumi.StringPtrOutput `pulumi:"notificationTargetArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -166,7 +166,7 @@ type lifecycleHookState struct {
 	Name *string `pulumi:"name"`
 	// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
 	NotificationMetadata *string `pulumi:"notificationMetadata"`
-	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
 	NotificationTargetArn *string `pulumi:"notificationTargetArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -187,7 +187,7 @@ type LifecycleHookState struct {
 	Name pulumi.StringPtrInput
 	// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
 	NotificationMetadata pulumi.StringPtrInput
-	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
 	NotificationTargetArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -212,7 +212,7 @@ type lifecycleHookArgs struct {
 	Name *string `pulumi:"name"`
 	// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
 	NotificationMetadata *string `pulumi:"notificationMetadata"`
-	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
 	NotificationTargetArn *string `pulumi:"notificationTargetArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -234,7 +234,7 @@ type LifecycleHookArgs struct {
 	Name pulumi.StringPtrInput
 	// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
 	NotificationMetadata pulumi.StringPtrInput
-	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+	// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
 	NotificationTargetArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -359,7 +359,7 @@ func (o LifecycleHookOutput) NotificationMetadata() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecycleHook) pulumi.StringPtrOutput { return v.NotificationMetadata }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
 func (o LifecycleHookOutput) NotificationTargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecycleHook) pulumi.StringPtrOutput { return v.NotificationTargetArn }).(pulumi.StringPtrOutput)
 }

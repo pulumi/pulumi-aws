@@ -35,8 +35,7 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
 
     /**
      * Direction of DNS queries to or from the Route 53 Resolver endpoint.
-     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-     * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
      * 
      */
     @Import(name="direction")
@@ -44,8 +43,7 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return Direction of DNS queries to or from the Route 53 Resolver endpoint.
-     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-     * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
      * 
      */
     public Optional<Output<String>> direction() {
@@ -250,8 +248,7 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param direction Direction of DNS queries to or from the Route 53 Resolver endpoint.
-         * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-         * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+         * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
          * 
          * @return builder
          * 
@@ -263,8 +260,7 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param direction Direction of DNS queries to or from the Route 53 Resolver endpoint.
-         * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-         * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+         * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
          * 
          * @return builder
          * 

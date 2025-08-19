@@ -86,6 +86,52 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### For CodeBuild Runner Project
+ * 
+ * To create a CodeBuild project as a Runner Project, the following `aws.codebuild.Webhook` resource is required for the project.
+ * See thr [AWS Documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/action-runner.html) for more information about CodeBuild Runner Projects.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codebuild.Webhook;
+ * import com.pulumi.aws.codebuild.WebhookArgs;
+ * import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Webhook("example", WebhookArgs.builder()
+ *             .projectName(exampleAwsCodebuildProject.name())
+ *             .buildType("BUILD")
+ *             .filterGroups(WebhookFilterGroupArgs.builder()
+ *                 .filters(WebhookFilterGroupFilterArgs.builder()
+ *                     .type("EVENT")
+ *                     .pattern("WORKFLOW_JOB_QUEUED")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:

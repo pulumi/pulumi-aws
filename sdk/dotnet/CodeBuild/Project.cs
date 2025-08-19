@@ -16,6 +16,8 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -329,6 +331,11 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
+    /// 
+    /// ### Runner Project
+    /// 
+    /// While no special configuration is required for `aws.codebuild.Project` to create a project as a Runner Project, an `aws.codebuild.Webhook` resource with an appropriate `filter_group` is required.
+    /// See the `aws.codebuild.Webhook` resource documentation example for more details.
     /// 
     /// ## Import
     /// 

@@ -220,14 +220,14 @@ public class VpcIpamPoolCidr extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="netmaskLength", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> netmaskLength;
+    private Output<Integer> netmaskLength;
 
     /**
      * @return If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
      * 
      */
-    public Output<Optional<Integer>> netmaskLength() {
-        return Codegen.optional(this.netmaskLength);
+    public Output<Integer> netmaskLength() {
+        return this.netmaskLength;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

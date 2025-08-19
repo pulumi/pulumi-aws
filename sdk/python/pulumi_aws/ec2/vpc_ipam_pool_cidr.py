@@ -472,7 +472,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="netmaskLength")
-    def netmask_length(self) -> pulumi.Output[Optional[_builtins.int]]:
+    def netmask_length(self) -> pulumi.Output[_builtins.int]:
         """
         If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
         """

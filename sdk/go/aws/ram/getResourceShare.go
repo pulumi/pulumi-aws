@@ -85,7 +85,7 @@ func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opt
 
 // A collection of arguments for invoking getResourceShare.
 type LookupResourceShareArgs struct {
-	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+	// Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters []GetResourceShareFilter `pulumi:"filters"`
 	// Name of the resource share to retrieve.
 	Name *string `pulumi:"name"`
@@ -131,7 +131,7 @@ func LookupResourceShareOutput(ctx *pulumi.Context, args LookupResourceShareOutp
 
 // A collection of arguments for invoking getResourceShare.
 type LookupResourceShareOutputArgs struct {
-	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+	// Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters GetResourceShareFilterArrayInput `pulumi:"filters"`
 	// Name of the resource share to retrieve.
 	Name pulumi.StringPtrInput `pulumi:"name"`

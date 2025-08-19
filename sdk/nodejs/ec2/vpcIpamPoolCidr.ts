@@ -120,7 +120,7 @@ export class VpcIpamPoolCidr extends pulumi.CustomResource {
     /**
      * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
      */
-    public readonly netmaskLength!: pulumi.Output<number | undefined>;
+    public readonly netmaskLength!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

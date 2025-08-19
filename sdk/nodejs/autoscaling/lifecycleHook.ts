@@ -111,7 +111,7 @@ export class LifecycleHook extends pulumi.CustomResource {
      */
     public readonly notificationMetadata!: pulumi.Output<string | undefined>;
     /**
-     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
      */
     public readonly notificationTargetArn!: pulumi.Output<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface LifecycleHookState {
      */
     notificationMetadata?: pulumi.Input<string>;
     /**
-     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
      */
     notificationTargetArn?: pulumi.Input<string>;
     /**
@@ -239,7 +239,7 @@ export interface LifecycleHookArgs {
      */
     notificationMetadata?: pulumi.Input<string>;
     /**
-     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
      */
     notificationTargetArn?: pulumi.Input<string>;
     /**

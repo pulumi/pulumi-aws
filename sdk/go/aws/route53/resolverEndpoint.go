@@ -75,8 +75,7 @@ type ResolverEndpoint struct {
 	// ARN of the Route 53 Resolver endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
 	Direction pulumi.StringOutput `pulumi:"direction"`
 	// ID of the VPC that you want to create the resolver endpoint in.
 	HostVpcId pulumi.StringOutput `pulumi:"hostVpcId"`
@@ -143,8 +142,7 @@ type resolverEndpointState struct {
 	// ARN of the Route 53 Resolver endpoint.
 	Arn *string `pulumi:"arn"`
 	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
 	Direction *string `pulumi:"direction"`
 	// ID of the VPC that you want to create the resolver endpoint in.
 	HostVpcId *string `pulumi:"hostVpcId"`
@@ -173,8 +171,7 @@ type ResolverEndpointState struct {
 	// ARN of the Route 53 Resolver endpoint.
 	Arn pulumi.StringPtrInput
 	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
 	Direction pulumi.StringPtrInput
 	// ID of the VPC that you want to create the resolver endpoint in.
 	HostVpcId pulumi.StringPtrInput
@@ -205,8 +202,7 @@ func (ResolverEndpointState) ElementType() reflect.Type {
 
 type resolverEndpointArgs struct {
 	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
 	Direction string `pulumi:"direction"`
 	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
@@ -230,8 +226,7 @@ type resolverEndpointArgs struct {
 // The set of arguments for constructing a ResolverEndpoint resource.
 type ResolverEndpointArgs struct {
 	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
 	Direction pulumi.StringInput
 	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
@@ -345,8 +340,7 @@ func (o ResolverEndpointOutput) Arn() pulumi.StringOutput {
 }
 
 // Direction of DNS queries to or from the Route 53 Resolver endpoint.
-// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
 func (o ResolverEndpointOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Direction }).(pulumi.StringOutput)
 }

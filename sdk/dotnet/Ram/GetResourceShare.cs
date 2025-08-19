@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ram
         private List<Inputs.GetResourceShareFilterArgs>? _filters;
 
         /// <summary>
-        /// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+        /// Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
         /// </summary>
         public List<Inputs.GetResourceShareFilterArgs> Filters
         {
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Ram
         private InputList<Inputs.GetResourceShareFilterInputArgs>? _filters;
 
         /// <summary>
-        /// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+        /// Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
         /// </summary>
         public InputList<Inputs.GetResourceShareFilterInputArgs> Filters
         {

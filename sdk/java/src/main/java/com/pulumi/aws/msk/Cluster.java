@@ -445,28 +445,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.bootstrapBrokersVpcConnectivityTls;
     }
     /**
-     * Configuration block for the broker nodes of the Kafka cluster.
+     * Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
      * 
      */
     @Export(name="brokerNodeGroupInfo", refs={ClusterBrokerNodeGroupInfo.class}, tree="[0]")
     private Output<ClusterBrokerNodeGroupInfo> brokerNodeGroupInfo;
 
     /**
-     * @return Configuration block for the broker nodes of the Kafka cluster.
+     * @return Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
      * 
      */
     public Output<ClusterBrokerNodeGroupInfo> brokerNodeGroupInfo() {
         return this.brokerNodeGroupInfo;
     }
     /**
-     * Configuration block for specifying a client authentication. See below.
+     * Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
      * 
      */
     @Export(name="clientAuthentication", refs={ClusterClientAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ ClusterClientAuthentication> clientAuthentication;
 
     /**
-     * @return Configuration block for specifying a client authentication. See below.
+     * @return Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
      * 
      */
     public Output<Optional<ClusterClientAuthentication>> clientAuthentication() {
@@ -501,14 +501,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterUuid;
     }
     /**
-     * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
      * 
      */
     @Export(name="configurationInfo", refs={ClusterConfigurationInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterConfigurationInfo> configurationInfo;
 
     /**
-     * @return Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
      * 
      */
     public Output<Optional<ClusterConfigurationInfo>> configurationInfo() {
@@ -529,14 +529,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.currentVersion;
     }
     /**
-     * Configuration block for specifying encryption. See below.
+     * Configuration block for specifying encryption. See encryption_info Argument Reference below.
      * 
      */
     @Export(name="encryptionInfo", refs={ClusterEncryptionInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterEncryptionInfo> encryptionInfo;
 
     /**
-     * @return Configuration block for specifying encryption. See below.
+     * @return Configuration block for specifying encryption. See encryption_info Argument Reference below.
      * 
      */
     public Output<Optional<ClusterEncryptionInfo>> encryptionInfo() {
@@ -571,14 +571,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.kafkaVersion;
     }
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
      * 
      */
     @Export(name="loggingInfo", refs={ClusterLoggingInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterLoggingInfo> loggingInfo;
 
     /**
-     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
      * 
      */
     public Output<Optional<ClusterLoggingInfo>> loggingInfo() {
@@ -599,14 +599,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.numberOfBrokerNodes;
     }
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
      * 
      */
     @Export(name="openMonitoring", refs={ClusterOpenMonitoring.class}, tree="[0]")
     private Output</* @Nullable */ ClusterOpenMonitoring> openMonitoring;
 
     /**
-     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
      * 
      */
     public Output<Optional<ClusterOpenMonitoring>> openMonitoring() {

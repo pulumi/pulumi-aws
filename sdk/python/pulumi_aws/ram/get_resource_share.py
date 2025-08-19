@@ -190,7 +190,7 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
     ```
 
 
-    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param _builtins.str name: Name of the resource share to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
@@ -253,7 +253,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     ```
 
 
-    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param _builtins.str name: Name of the resource share to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.

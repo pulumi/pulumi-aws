@@ -193,6 +193,10 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Whether deletion protection for the cluster is enabled.
+        /// </summary>
+        public readonly bool DeletionProtection;
+        /// <summary>
         /// The enabled control plane logs.
         /// </summary>
         public readonly ImmutableArray<string> EnabledClusterLogTypes;
@@ -273,6 +277,8 @@ namespace Pulumi.Aws.Eks
 
             string createdAt,
 
+            bool deletionProtection,
+
             ImmutableArray<string> enabledClusterLogTypes,
 
             string endpoint,
@@ -315,6 +321,7 @@ namespace Pulumi.Aws.Eks
             ClusterId = clusterId;
             ComputeConfigs = computeConfigs;
             CreatedAt = createdAt;
+            DeletionProtection = deletionProtection;
             EnabledClusterLogTypes = enabledClusterLogTypes;
             Endpoint = endpoint;
             Id = id;

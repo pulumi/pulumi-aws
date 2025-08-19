@@ -101,6 +101,7 @@ __all__ = [
     'GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableResult',
     'GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetResult',
     'GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult',
+    'GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutResult',
     'GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult',
     'GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult',
     'GetFirewallPolicyFirewallPolicyStatelessCustomActionResult',
@@ -3845,10 +3846,17 @@ class GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetResult(dict)
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult(dict):
     def __init__(__self__, *,
+                 flow_timeouts: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutResult'],
                  rule_order: _builtins.str,
                  stream_exception_policy: _builtins.str):
+        pulumi.set(__self__, "flow_timeouts", flow_timeouts)
         pulumi.set(__self__, "rule_order", rule_order)
         pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="flowTimeouts")
+    def flow_timeouts(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutResult']:
+        return pulumi.get(self, "flow_timeouts")
 
     @_builtins.property
     @pulumi.getter(name="ruleOrder")
@@ -3859,6 +3867,18 @@ class GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult(dict):
     @pulumi.getter(name="streamExceptionPolicy")
     def stream_exception_policy(self) -> _builtins.str:
         return pulumi.get(self, "stream_exception_policy")
+
+
+@pulumi.output_type
+class GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutResult(dict):
+    def __init__(__self__, *,
+                 tcp_idle_timeout_seconds: _builtins.int):
+        pulumi.set(__self__, "tcp_idle_timeout_seconds", tcp_idle_timeout_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="tcpIdleTimeoutSeconds")
+    def tcp_idle_timeout_seconds(self) -> _builtins.int:
+        return pulumi.get(self, "tcp_idle_timeout_seconds")
 
 
 @pulumi.output_type

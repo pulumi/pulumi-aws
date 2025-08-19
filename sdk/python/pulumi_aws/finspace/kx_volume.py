@@ -482,7 +482,7 @@ class KxVolume(pulumi.CustomResource):
         example = aws.finspace.KxVolume("example",
             name="my-tf-kx-volume",
             environment_id=example_aws_finspace_kx_environment["id"],
-            availability_zones="use1-az2",
+            availability_zones=["use1-az2"],
             az_mode="SINGLE",
             type="NAS_1",
             nas1_configurations=[{
@@ -534,7 +534,7 @@ class KxVolume(pulumi.CustomResource):
         example = aws.finspace.KxVolume("example",
             name="my-tf-kx-volume",
             environment_id=example_aws_finspace_kx_environment["id"],
-            availability_zones="use1-az2",
+            availability_zones=["use1-az2"],
             az_mode="SINGLE",
             type="NAS_1",
             nas1_configurations=[{

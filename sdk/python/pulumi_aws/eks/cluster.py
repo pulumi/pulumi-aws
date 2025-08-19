@@ -27,6 +27,7 @@ class ClusterArgs:
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -49,6 +50,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[_builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
@@ -76,6 +78,8 @@ class ClusterArgs:
             pulumi.log.warn("""default_addons_to_removes is deprecated: Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""")
         if default_addons_to_removes is not None:
             pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enabled_cluster_log_types is not None:
             pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
@@ -174,6 +178,18 @@ class ClusterArgs:
     @default_addons_to_removes.setter
     def default_addons_to_removes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_addons_to_removes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledClusterLogTypes")
@@ -343,6 +359,7 @@ class _ClusterState:
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None,
@@ -372,6 +389,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
+        :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[_builtins.str] endpoint: Endpoint for your Kubernetes API server.
@@ -414,6 +432,8 @@ class _ClusterState:
             pulumi.log.warn("""default_addons_to_removes is deprecated: Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""")
         if default_addons_to_removes is not None:
             pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enabled_cluster_log_types is not None:
             pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
@@ -548,6 +568,18 @@ class _ClusterState:
     @default_addons_to_removes.setter
     def default_addons_to_removes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_addons_to_removes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledClusterLogTypes")
@@ -802,6 +834,7 @@ class Cluster(pulumi.CustomResource):
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1082,6 +1115,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[_builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
@@ -1384,6 +1418,7 @@ class Cluster(pulumi.CustomResource):
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1412,6 +1447,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["compute_config"] = compute_config
             __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
+            __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["force_update_version"] = force_update_version
@@ -1458,6 +1494,7 @@ class Cluster(pulumi.CustomResource):
             compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
             default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
             enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
             endpoint: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1492,6 +1529,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
+        :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[_builtins.str] endpoint: Endpoint for your Kubernetes API server.
@@ -1527,6 +1565,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["compute_config"] = compute_config
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
+        __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
         __props__.__dict__["encryption_config"] = encryption_config
         __props__.__dict__["endpoint"] = endpoint
@@ -1610,6 +1649,14 @@ class Cluster(pulumi.CustomResource):
     @_utilities.deprecated("""Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider""")
     def default_addons_to_removes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         return pulumi.get(self, "default_addons_to_removes")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+        """
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="enabledClusterLogTypes")
