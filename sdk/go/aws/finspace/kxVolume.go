@@ -31,11 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := finspace.NewKxVolume(ctx, "example", &finspace.KxVolumeArgs{
-//				Name:              pulumi.String("my-tf-kx-volume"),
-//				EnvironmentId:     pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
-//				AvailabilityZones: pulumi.StringArray("use1-az2"),
-//				AzMode:            pulumi.String("SINGLE"),
-//				Type:              pulumi.String("NAS_1"),
+//				Name:          pulumi.String("my-tf-kx-volume"),
+//				EnvironmentId: pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("use1-az2"),
+//				},
+//				AzMode: pulumi.String("SINGLE"),
+//				Type:   pulumi.String("NAS_1"),
 //				Nas1Configurations: finspace.KxVolumeNas1ConfigurationArray{
 //					&finspace.KxVolumeNas1ConfigurationArgs{
 //						Size: pulumi.Int(1200),

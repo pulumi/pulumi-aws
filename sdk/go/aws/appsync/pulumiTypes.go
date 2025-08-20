@@ -13,6 +13,2598 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApiEventConfig struct {
+	// List of authentication providers. See Auth Providers below.
+	AuthProviders []ApiEventConfigAuthProvider `pulumi:"authProviders"`
+	// List of authentication modes for connections. See Auth Modes below.
+	ConnectionAuthModes []ApiEventConfigConnectionAuthMode `pulumi:"connectionAuthModes"`
+	// List of default authentication modes for publishing. See Auth Modes below.
+	DefaultPublishAuthModes []ApiEventConfigDefaultPublishAuthMode `pulumi:"defaultPublishAuthModes"`
+	// List of default authentication modes for subscribing. See Auth Modes below.
+	DefaultSubscribeAuthModes []ApiEventConfigDefaultSubscribeAuthMode `pulumi:"defaultSubscribeAuthModes"`
+	// Logging configuration. See Log Config below.
+	LogConfig *ApiEventConfigLogConfig `pulumi:"logConfig"`
+}
+
+// ApiEventConfigInput is an input type that accepts ApiEventConfigArgs and ApiEventConfigOutput values.
+// You can construct a concrete instance of `ApiEventConfigInput` via:
+//
+//	ApiEventConfigArgs{...}
+type ApiEventConfigInput interface {
+	pulumi.Input
+
+	ToApiEventConfigOutput() ApiEventConfigOutput
+	ToApiEventConfigOutputWithContext(context.Context) ApiEventConfigOutput
+}
+
+type ApiEventConfigArgs struct {
+	// List of authentication providers. See Auth Providers below.
+	AuthProviders ApiEventConfigAuthProviderArrayInput `pulumi:"authProviders"`
+	// List of authentication modes for connections. See Auth Modes below.
+	ConnectionAuthModes ApiEventConfigConnectionAuthModeArrayInput `pulumi:"connectionAuthModes"`
+	// List of default authentication modes for publishing. See Auth Modes below.
+	DefaultPublishAuthModes ApiEventConfigDefaultPublishAuthModeArrayInput `pulumi:"defaultPublishAuthModes"`
+	// List of default authentication modes for subscribing. See Auth Modes below.
+	DefaultSubscribeAuthModes ApiEventConfigDefaultSubscribeAuthModeArrayInput `pulumi:"defaultSubscribeAuthModes"`
+	// Logging configuration. See Log Config below.
+	LogConfig ApiEventConfigLogConfigPtrInput `pulumi:"logConfig"`
+}
+
+func (ApiEventConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfig)(nil)).Elem()
+}
+
+func (i ApiEventConfigArgs) ToApiEventConfigOutput() ApiEventConfigOutput {
+	return i.ToApiEventConfigOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigArgs) ToApiEventConfigOutputWithContext(ctx context.Context) ApiEventConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigOutput)
+}
+
+func (i ApiEventConfigArgs) ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput {
+	return i.ToApiEventConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigArgs) ToApiEventConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigOutput).ToApiEventConfigPtrOutputWithContext(ctx)
+}
+
+// ApiEventConfigPtrInput is an input type that accepts ApiEventConfigArgs, ApiEventConfigPtr and ApiEventConfigPtrOutput values.
+// You can construct a concrete instance of `ApiEventConfigPtrInput` via:
+//
+//	        ApiEventConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiEventConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput
+	ToApiEventConfigPtrOutputWithContext(context.Context) ApiEventConfigPtrOutput
+}
+
+type apiEventConfigPtrType ApiEventConfigArgs
+
+func ApiEventConfigPtr(v *ApiEventConfigArgs) ApiEventConfigPtrInput {
+	return (*apiEventConfigPtrType)(v)
+}
+
+func (*apiEventConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfig)(nil)).Elem()
+}
+
+func (i *apiEventConfigPtrType) ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput {
+	return i.ToApiEventConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiEventConfigPtrType) ToApiEventConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigPtrOutput)
+}
+
+type ApiEventConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigOutput) ToApiEventConfigOutput() ApiEventConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigOutput) ToApiEventConfigOutputWithContext(ctx context.Context) ApiEventConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigOutput) ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput {
+	return o.ToApiEventConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventConfigOutput) ToApiEventConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEventConfig) *ApiEventConfig {
+		return &v
+	}).(ApiEventConfigPtrOutput)
+}
+
+// List of authentication providers. See Auth Providers below.
+func (o ApiEventConfigOutput) AuthProviders() ApiEventConfigAuthProviderArrayOutput {
+	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigAuthProvider { return v.AuthProviders }).(ApiEventConfigAuthProviderArrayOutput)
+}
+
+// List of authentication modes for connections. See Auth Modes below.
+func (o ApiEventConfigOutput) ConnectionAuthModes() ApiEventConfigConnectionAuthModeArrayOutput {
+	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigConnectionAuthMode { return v.ConnectionAuthModes }).(ApiEventConfigConnectionAuthModeArrayOutput)
+}
+
+// List of default authentication modes for publishing. See Auth Modes below.
+func (o ApiEventConfigOutput) DefaultPublishAuthModes() ApiEventConfigDefaultPublishAuthModeArrayOutput {
+	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigDefaultPublishAuthMode { return v.DefaultPublishAuthModes }).(ApiEventConfigDefaultPublishAuthModeArrayOutput)
+}
+
+// List of default authentication modes for subscribing. See Auth Modes below.
+func (o ApiEventConfigOutput) DefaultSubscribeAuthModes() ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
+	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigDefaultSubscribeAuthMode { return v.DefaultSubscribeAuthModes }).(ApiEventConfigDefaultSubscribeAuthModeArrayOutput)
+}
+
+// Logging configuration. See Log Config below.
+func (o ApiEventConfigOutput) LogConfig() ApiEventConfigLogConfigPtrOutput {
+	return o.ApplyT(func(v ApiEventConfig) *ApiEventConfigLogConfig { return v.LogConfig }).(ApiEventConfigLogConfigPtrOutput)
+}
+
+type ApiEventConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigPtrOutput) ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigPtrOutput) ToApiEventConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigPtrOutput) Elem() ApiEventConfigOutput {
+	return o.ApplyT(func(v *ApiEventConfig) ApiEventConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEventConfig
+		return ret
+	}).(ApiEventConfigOutput)
+}
+
+// List of authentication providers. See Auth Providers below.
+func (o ApiEventConfigPtrOutput) AuthProviders() ApiEventConfigAuthProviderArrayOutput {
+	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigAuthProvider {
+		if v == nil {
+			return nil
+		}
+		return v.AuthProviders
+	}).(ApiEventConfigAuthProviderArrayOutput)
+}
+
+// List of authentication modes for connections. See Auth Modes below.
+func (o ApiEventConfigPtrOutput) ConnectionAuthModes() ApiEventConfigConnectionAuthModeArrayOutput {
+	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigConnectionAuthMode {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionAuthModes
+	}).(ApiEventConfigConnectionAuthModeArrayOutput)
+}
+
+// List of default authentication modes for publishing. See Auth Modes below.
+func (o ApiEventConfigPtrOutput) DefaultPublishAuthModes() ApiEventConfigDefaultPublishAuthModeArrayOutput {
+	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigDefaultPublishAuthMode {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultPublishAuthModes
+	}).(ApiEventConfigDefaultPublishAuthModeArrayOutput)
+}
+
+// List of default authentication modes for subscribing. See Auth Modes below.
+func (o ApiEventConfigPtrOutput) DefaultSubscribeAuthModes() ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
+	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigDefaultSubscribeAuthMode {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSubscribeAuthModes
+	}).(ApiEventConfigDefaultSubscribeAuthModeArrayOutput)
+}
+
+// Logging configuration. See Log Config below.
+func (o ApiEventConfigPtrOutput) LogConfig() ApiEventConfigLogConfigPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfig) *ApiEventConfigLogConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LogConfig
+	}).(ApiEventConfigLogConfigPtrOutput)
+}
+
+type ApiEventConfigAuthProvider struct {
+	// Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+	AuthType string `pulumi:"authType"`
+	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+	CognitoConfig *ApiEventConfigAuthProviderCognitoConfig `pulumi:"cognitoConfig"`
+	// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+	LambdaAuthorizerConfig *ApiEventConfigAuthProviderLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
+	// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
+	OpenidConnectConfig *ApiEventConfigAuthProviderOpenidConnectConfig `pulumi:"openidConnectConfig"`
+}
+
+// ApiEventConfigAuthProviderInput is an input type that accepts ApiEventConfigAuthProviderArgs and ApiEventConfigAuthProviderOutput values.
+// You can construct a concrete instance of `ApiEventConfigAuthProviderInput` via:
+//
+//	ApiEventConfigAuthProviderArgs{...}
+type ApiEventConfigAuthProviderInput interface {
+	pulumi.Input
+
+	ToApiEventConfigAuthProviderOutput() ApiEventConfigAuthProviderOutput
+	ToApiEventConfigAuthProviderOutputWithContext(context.Context) ApiEventConfigAuthProviderOutput
+}
+
+type ApiEventConfigAuthProviderArgs struct {
+	// Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+	CognitoConfig ApiEventConfigAuthProviderCognitoConfigPtrInput `pulumi:"cognitoConfig"`
+	// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+	LambdaAuthorizerConfig ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
+	// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
+	OpenidConnectConfig ApiEventConfigAuthProviderOpenidConnectConfigPtrInput `pulumi:"openidConnectConfig"`
+}
+
+func (ApiEventConfigAuthProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigAuthProvider)(nil)).Elem()
+}
+
+func (i ApiEventConfigAuthProviderArgs) ToApiEventConfigAuthProviderOutput() ApiEventConfigAuthProviderOutput {
+	return i.ToApiEventConfigAuthProviderOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigAuthProviderArgs) ToApiEventConfigAuthProviderOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderOutput)
+}
+
+// ApiEventConfigAuthProviderArrayInput is an input type that accepts ApiEventConfigAuthProviderArray and ApiEventConfigAuthProviderArrayOutput values.
+// You can construct a concrete instance of `ApiEventConfigAuthProviderArrayInput` via:
+//
+//	ApiEventConfigAuthProviderArray{ ApiEventConfigAuthProviderArgs{...} }
+type ApiEventConfigAuthProviderArrayInput interface {
+	pulumi.Input
+
+	ToApiEventConfigAuthProviderArrayOutput() ApiEventConfigAuthProviderArrayOutput
+	ToApiEventConfigAuthProviderArrayOutputWithContext(context.Context) ApiEventConfigAuthProviderArrayOutput
+}
+
+type ApiEventConfigAuthProviderArray []ApiEventConfigAuthProviderInput
+
+func (ApiEventConfigAuthProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiEventConfigAuthProvider)(nil)).Elem()
+}
+
+func (i ApiEventConfigAuthProviderArray) ToApiEventConfigAuthProviderArrayOutput() ApiEventConfigAuthProviderArrayOutput {
+	return i.ToApiEventConfigAuthProviderArrayOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigAuthProviderArray) ToApiEventConfigAuthProviderArrayOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderArrayOutput)
+}
+
+type ApiEventConfigAuthProviderOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigAuthProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigAuthProvider)(nil)).Elem()
+}
+
+func (o ApiEventConfigAuthProviderOutput) ToApiEventConfigAuthProviderOutput() ApiEventConfigAuthProviderOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderOutput) ToApiEventConfigAuthProviderOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderOutput {
+	return o
+}
+
+// Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+func (o ApiEventConfigAuthProviderOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProvider) string { return v.AuthType }).(pulumi.StringOutput)
+}
+
+// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+func (o ApiEventConfigAuthProviderOutput) CognitoConfig() ApiEventConfigAuthProviderCognitoConfigPtrOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProvider) *ApiEventConfigAuthProviderCognitoConfig { return v.CognitoConfig }).(ApiEventConfigAuthProviderCognitoConfigPtrOutput)
+}
+
+// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+func (o ApiEventConfigAuthProviderOutput) LambdaAuthorizerConfig() ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProvider) *ApiEventConfigAuthProviderLambdaAuthorizerConfig {
+		return v.LambdaAuthorizerConfig
+	}).(ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput)
+}
+
+// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
+func (o ApiEventConfigAuthProviderOutput) OpenidConnectConfig() ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProvider) *ApiEventConfigAuthProviderOpenidConnectConfig {
+		return v.OpenidConnectConfig
+	}).(ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput)
+}
+
+type ApiEventConfigAuthProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigAuthProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiEventConfigAuthProvider)(nil)).Elem()
+}
+
+func (o ApiEventConfigAuthProviderArrayOutput) ToApiEventConfigAuthProviderArrayOutput() ApiEventConfigAuthProviderArrayOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderArrayOutput) ToApiEventConfigAuthProviderArrayOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderArrayOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderArrayOutput) Index(i pulumi.IntInput) ApiEventConfigAuthProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiEventConfigAuthProvider {
+		return vs[0].([]ApiEventConfigAuthProvider)[vs[1].(int)]
+	}).(ApiEventConfigAuthProviderOutput)
+}
+
+type ApiEventConfigAuthProviderCognitoConfig struct {
+	// Regular expression for matching the client ID.
+	AppIdClientRegex *string `pulumi:"appIdClientRegex"`
+	// AWS region where the user pool is located.
+	AwsRegion string `pulumi:"awsRegion"`
+	// ID of the Cognito user pool.
+	UserPoolId string `pulumi:"userPoolId"`
+}
+
+// ApiEventConfigAuthProviderCognitoConfigInput is an input type that accepts ApiEventConfigAuthProviderCognitoConfigArgs and ApiEventConfigAuthProviderCognitoConfigOutput values.
+// You can construct a concrete instance of `ApiEventConfigAuthProviderCognitoConfigInput` via:
+//
+//	ApiEventConfigAuthProviderCognitoConfigArgs{...}
+type ApiEventConfigAuthProviderCognitoConfigInput interface {
+	pulumi.Input
+
+	ToApiEventConfigAuthProviderCognitoConfigOutput() ApiEventConfigAuthProviderCognitoConfigOutput
+	ToApiEventConfigAuthProviderCognitoConfigOutputWithContext(context.Context) ApiEventConfigAuthProviderCognitoConfigOutput
+}
+
+type ApiEventConfigAuthProviderCognitoConfigArgs struct {
+	// Regular expression for matching the client ID.
+	AppIdClientRegex pulumi.StringPtrInput `pulumi:"appIdClientRegex"`
+	// AWS region where the user pool is located.
+	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
+	// ID of the Cognito user pool.
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+}
+
+func (ApiEventConfigAuthProviderCognitoConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigAuthProviderCognitoConfig)(nil)).Elem()
+}
+
+func (i ApiEventConfigAuthProviderCognitoConfigArgs) ToApiEventConfigAuthProviderCognitoConfigOutput() ApiEventConfigAuthProviderCognitoConfigOutput {
+	return i.ToApiEventConfigAuthProviderCognitoConfigOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigAuthProviderCognitoConfigArgs) ToApiEventConfigAuthProviderCognitoConfigOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderCognitoConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderCognitoConfigOutput)
+}
+
+func (i ApiEventConfigAuthProviderCognitoConfigArgs) ToApiEventConfigAuthProviderCognitoConfigPtrOutput() ApiEventConfigAuthProviderCognitoConfigPtrOutput {
+	return i.ToApiEventConfigAuthProviderCognitoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigAuthProviderCognitoConfigArgs) ToApiEventConfigAuthProviderCognitoConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderCognitoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderCognitoConfigOutput).ToApiEventConfigAuthProviderCognitoConfigPtrOutputWithContext(ctx)
+}
+
+// ApiEventConfigAuthProviderCognitoConfigPtrInput is an input type that accepts ApiEventConfigAuthProviderCognitoConfigArgs, ApiEventConfigAuthProviderCognitoConfigPtr and ApiEventConfigAuthProviderCognitoConfigPtrOutput values.
+// You can construct a concrete instance of `ApiEventConfigAuthProviderCognitoConfigPtrInput` via:
+//
+//	        ApiEventConfigAuthProviderCognitoConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiEventConfigAuthProviderCognitoConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiEventConfigAuthProviderCognitoConfigPtrOutput() ApiEventConfigAuthProviderCognitoConfigPtrOutput
+	ToApiEventConfigAuthProviderCognitoConfigPtrOutputWithContext(context.Context) ApiEventConfigAuthProviderCognitoConfigPtrOutput
+}
+
+type apiEventConfigAuthProviderCognitoConfigPtrType ApiEventConfigAuthProviderCognitoConfigArgs
+
+func ApiEventConfigAuthProviderCognitoConfigPtr(v *ApiEventConfigAuthProviderCognitoConfigArgs) ApiEventConfigAuthProviderCognitoConfigPtrInput {
+	return (*apiEventConfigAuthProviderCognitoConfigPtrType)(v)
+}
+
+func (*apiEventConfigAuthProviderCognitoConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfigAuthProviderCognitoConfig)(nil)).Elem()
+}
+
+func (i *apiEventConfigAuthProviderCognitoConfigPtrType) ToApiEventConfigAuthProviderCognitoConfigPtrOutput() ApiEventConfigAuthProviderCognitoConfigPtrOutput {
+	return i.ToApiEventConfigAuthProviderCognitoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiEventConfigAuthProviderCognitoConfigPtrType) ToApiEventConfigAuthProviderCognitoConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderCognitoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderCognitoConfigPtrOutput)
+}
+
+type ApiEventConfigAuthProviderCognitoConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigAuthProviderCognitoConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigAuthProviderCognitoConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigAuthProviderCognitoConfigOutput) ToApiEventConfigAuthProviderCognitoConfigOutput() ApiEventConfigAuthProviderCognitoConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderCognitoConfigOutput) ToApiEventConfigAuthProviderCognitoConfigOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderCognitoConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderCognitoConfigOutput) ToApiEventConfigAuthProviderCognitoConfigPtrOutput() ApiEventConfigAuthProviderCognitoConfigPtrOutput {
+	return o.ToApiEventConfigAuthProviderCognitoConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventConfigAuthProviderCognitoConfigOutput) ToApiEventConfigAuthProviderCognitoConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderCognitoConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEventConfigAuthProviderCognitoConfig) *ApiEventConfigAuthProviderCognitoConfig {
+		return &v
+	}).(ApiEventConfigAuthProviderCognitoConfigPtrOutput)
+}
+
+// Regular expression for matching the client ID.
+func (o ApiEventConfigAuthProviderCognitoConfigOutput) AppIdClientRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderCognitoConfig) *string { return v.AppIdClientRegex }).(pulumi.StringPtrOutput)
+}
+
+// AWS region where the user pool is located.
+func (o ApiEventConfigAuthProviderCognitoConfigOutput) AwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderCognitoConfig) string { return v.AwsRegion }).(pulumi.StringOutput)
+}
+
+// ID of the Cognito user pool.
+func (o ApiEventConfigAuthProviderCognitoConfigOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderCognitoConfig) string { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
+type ApiEventConfigAuthProviderCognitoConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigAuthProviderCognitoConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfigAuthProviderCognitoConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) ToApiEventConfigAuthProviderCognitoConfigPtrOutput() ApiEventConfigAuthProviderCognitoConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) ToApiEventConfigAuthProviderCognitoConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderCognitoConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) Elem() ApiEventConfigAuthProviderCognitoConfigOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderCognitoConfig) ApiEventConfigAuthProviderCognitoConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEventConfigAuthProviderCognitoConfig
+		return ret
+	}).(ApiEventConfigAuthProviderCognitoConfigOutput)
+}
+
+// Regular expression for matching the client ID.
+func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderCognitoConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppIdClientRegex
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region where the user pool is located.
+func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderCognitoConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the Cognito user pool.
+func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderCognitoConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPoolId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiEventConfigAuthProviderLambdaAuthorizerConfig struct {
+	// TTL in seconds for the authorization result cache.
+	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
+	// URI of the Lambda function for authorization.
+	AuthorizerUri string `pulumi:"authorizerUri"`
+	// Regular expression for identity validation.
+	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
+}
+
+// ApiEventConfigAuthProviderLambdaAuthorizerConfigInput is an input type that accepts ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs and ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput values.
+// You can construct a concrete instance of `ApiEventConfigAuthProviderLambdaAuthorizerConfigInput` via:
+//
+//	ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs{...}
+type ApiEventConfigAuthProviderLambdaAuthorizerConfigInput interface {
+	pulumi.Input
+
+	ToApiEventConfigAuthProviderLambdaAuthorizerConfigOutput() ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput
+	ToApiEventConfigAuthProviderLambdaAuthorizerConfigOutputWithContext(context.Context) ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput
+}
+
+type ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs struct {
+	// TTL in seconds for the authorization result cache.
+	AuthorizerResultTtlInSeconds pulumi.IntPtrInput `pulumi:"authorizerResultTtlInSeconds"`
+	// URI of the Lambda function for authorization.
+	AuthorizerUri pulumi.StringInput `pulumi:"authorizerUri"`
+	// Regular expression for identity validation.
+	IdentityValidationExpression pulumi.StringPtrInput `pulumi:"identityValidationExpression"`
+}
+
+func (ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigAuthProviderLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (i ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs) ToApiEventConfigAuthProviderLambdaAuthorizerConfigOutput() ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput {
+	return i.ToApiEventConfigAuthProviderLambdaAuthorizerConfigOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs) ToApiEventConfigAuthProviderLambdaAuthorizerConfigOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput)
+}
+
+func (i ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs) ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput() ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
+	return i.ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs) ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput).ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx)
+}
+
+// ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrInput is an input type that accepts ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs, ApiEventConfigAuthProviderLambdaAuthorizerConfigPtr and ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput values.
+// You can construct a concrete instance of `ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrInput` via:
+//
+//	        ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput() ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput
+	ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutputWithContext(context.Context) ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput
+}
+
+type apiEventConfigAuthProviderLambdaAuthorizerConfigPtrType ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs
+
+func ApiEventConfigAuthProviderLambdaAuthorizerConfigPtr(v *ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs) ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrInput {
+	return (*apiEventConfigAuthProviderLambdaAuthorizerConfigPtrType)(v)
+}
+
+func (*apiEventConfigAuthProviderLambdaAuthorizerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfigAuthProviderLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (i *apiEventConfigAuthProviderLambdaAuthorizerConfigPtrType) ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput() ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
+	return i.ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiEventConfigAuthProviderLambdaAuthorizerConfigPtrType) ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput)
+}
+
+type ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigAuthProviderLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) ToApiEventConfigAuthProviderLambdaAuthorizerConfigOutput() ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) ToApiEventConfigAuthProviderLambdaAuthorizerConfigOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput() ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
+	return o.ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEventConfigAuthProviderLambdaAuthorizerConfig) *ApiEventConfigAuthProviderLambdaAuthorizerConfig {
+		return &v
+	}).(ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput)
+}
+
+// TTL in seconds for the authorization result cache.
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderLambdaAuthorizerConfig) *int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// URI of the Lambda function for authorization.
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) AuthorizerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderLambdaAuthorizerConfig) string { return v.AuthorizerUri }).(pulumi.StringOutput)
+}
+
+// Regular expression for identity validation.
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderLambdaAuthorizerConfig) *string {
+		return v.IdentityValidationExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfigAuthProviderLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput() ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) ToApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) Elem() ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderLambdaAuthorizerConfig) ApiEventConfigAuthProviderLambdaAuthorizerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEventConfigAuthProviderLambdaAuthorizerConfig
+		return ret
+	}).(ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput)
+}
+
+// TTL in seconds for the authorization result cache.
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderLambdaAuthorizerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizerResultTtlInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// URI of the Lambda function for authorization.
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderLambdaAuthorizerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizerUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression for identity validation.
+func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderLambdaAuthorizerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityValidationExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiEventConfigAuthProviderOpenidConnectConfig struct {
+	// TTL in seconds for the authentication token.
+	AuthTtl *int `pulumi:"authTtl"`
+	// Client ID for the OpenID Connect provider.
+	ClientId *string `pulumi:"clientId"`
+	// TTL in seconds for the issued at time.
+	IatTtl *int `pulumi:"iatTtl"`
+	// Issuer URL for the OpenID Connect provider.
+	Issuer string `pulumi:"issuer"`
+}
+
+// ApiEventConfigAuthProviderOpenidConnectConfigInput is an input type that accepts ApiEventConfigAuthProviderOpenidConnectConfigArgs and ApiEventConfigAuthProviderOpenidConnectConfigOutput values.
+// You can construct a concrete instance of `ApiEventConfigAuthProviderOpenidConnectConfigInput` via:
+//
+//	ApiEventConfigAuthProviderOpenidConnectConfigArgs{...}
+type ApiEventConfigAuthProviderOpenidConnectConfigInput interface {
+	pulumi.Input
+
+	ToApiEventConfigAuthProviderOpenidConnectConfigOutput() ApiEventConfigAuthProviderOpenidConnectConfigOutput
+	ToApiEventConfigAuthProviderOpenidConnectConfigOutputWithContext(context.Context) ApiEventConfigAuthProviderOpenidConnectConfigOutput
+}
+
+type ApiEventConfigAuthProviderOpenidConnectConfigArgs struct {
+	// TTL in seconds for the authentication token.
+	AuthTtl pulumi.IntPtrInput `pulumi:"authTtl"`
+	// Client ID for the OpenID Connect provider.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// TTL in seconds for the issued at time.
+	IatTtl pulumi.IntPtrInput `pulumi:"iatTtl"`
+	// Issuer URL for the OpenID Connect provider.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+}
+
+func (ApiEventConfigAuthProviderOpenidConnectConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigAuthProviderOpenidConnectConfig)(nil)).Elem()
+}
+
+func (i ApiEventConfigAuthProviderOpenidConnectConfigArgs) ToApiEventConfigAuthProviderOpenidConnectConfigOutput() ApiEventConfigAuthProviderOpenidConnectConfigOutput {
+	return i.ToApiEventConfigAuthProviderOpenidConnectConfigOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigAuthProviderOpenidConnectConfigArgs) ToApiEventConfigAuthProviderOpenidConnectConfigOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderOpenidConnectConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderOpenidConnectConfigOutput)
+}
+
+func (i ApiEventConfigAuthProviderOpenidConnectConfigArgs) ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutput() ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
+	return i.ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigAuthProviderOpenidConnectConfigArgs) ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderOpenidConnectConfigOutput).ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutputWithContext(ctx)
+}
+
+// ApiEventConfigAuthProviderOpenidConnectConfigPtrInput is an input type that accepts ApiEventConfigAuthProviderOpenidConnectConfigArgs, ApiEventConfigAuthProviderOpenidConnectConfigPtr and ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput values.
+// You can construct a concrete instance of `ApiEventConfigAuthProviderOpenidConnectConfigPtrInput` via:
+//
+//	        ApiEventConfigAuthProviderOpenidConnectConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiEventConfigAuthProviderOpenidConnectConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutput() ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput
+	ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutputWithContext(context.Context) ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput
+}
+
+type apiEventConfigAuthProviderOpenidConnectConfigPtrType ApiEventConfigAuthProviderOpenidConnectConfigArgs
+
+func ApiEventConfigAuthProviderOpenidConnectConfigPtr(v *ApiEventConfigAuthProviderOpenidConnectConfigArgs) ApiEventConfigAuthProviderOpenidConnectConfigPtrInput {
+	return (*apiEventConfigAuthProviderOpenidConnectConfigPtrType)(v)
+}
+
+func (*apiEventConfigAuthProviderOpenidConnectConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfigAuthProviderOpenidConnectConfig)(nil)).Elem()
+}
+
+func (i *apiEventConfigAuthProviderOpenidConnectConfigPtrType) ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutput() ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
+	return i.ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiEventConfigAuthProviderOpenidConnectConfigPtrType) ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput)
+}
+
+type ApiEventConfigAuthProviderOpenidConnectConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigAuthProviderOpenidConnectConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigAuthProviderOpenidConnectConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) ToApiEventConfigAuthProviderOpenidConnectConfigOutput() ApiEventConfigAuthProviderOpenidConnectConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) ToApiEventConfigAuthProviderOpenidConnectConfigOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderOpenidConnectConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutput() ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
+	return o.ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEventConfigAuthProviderOpenidConnectConfig) *ApiEventConfigAuthProviderOpenidConnectConfig {
+		return &v
+	}).(ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput)
+}
+
+// TTL in seconds for the authentication token.
+func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) AuthTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderOpenidConnectConfig) *int { return v.AuthTtl }).(pulumi.IntPtrOutput)
+}
+
+// Client ID for the OpenID Connect provider.
+func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderOpenidConnectConfig) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// TTL in seconds for the issued at time.
+func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) IatTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderOpenidConnectConfig) *int { return v.IatTtl }).(pulumi.IntPtrOutput)
+}
+
+// Issuer URL for the OpenID Connect provider.
+func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigAuthProviderOpenidConnectConfig) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+type ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfigAuthProviderOpenidConnectConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutput() ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) ToApiEventConfigAuthProviderOpenidConnectConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) Elem() ApiEventConfigAuthProviderOpenidConnectConfigOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderOpenidConnectConfig) ApiEventConfigAuthProviderOpenidConnectConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEventConfigAuthProviderOpenidConnectConfig
+		return ret
+	}).(ApiEventConfigAuthProviderOpenidConnectConfigOutput)
+}
+
+// TTL in seconds for the authentication token.
+func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) AuthTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderOpenidConnectConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AuthTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Client ID for the OpenID Connect provider.
+func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderOpenidConnectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// TTL in seconds for the issued at time.
+func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) IatTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderOpenidConnectConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IatTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Issuer URL for the OpenID Connect provider.
+func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigAuthProviderOpenidConnectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiEventConfigConnectionAuthMode struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType string `pulumi:"authType"`
+}
+
+// ApiEventConfigConnectionAuthModeInput is an input type that accepts ApiEventConfigConnectionAuthModeArgs and ApiEventConfigConnectionAuthModeOutput values.
+// You can construct a concrete instance of `ApiEventConfigConnectionAuthModeInput` via:
+//
+//	ApiEventConfigConnectionAuthModeArgs{...}
+type ApiEventConfigConnectionAuthModeInput interface {
+	pulumi.Input
+
+	ToApiEventConfigConnectionAuthModeOutput() ApiEventConfigConnectionAuthModeOutput
+	ToApiEventConfigConnectionAuthModeOutputWithContext(context.Context) ApiEventConfigConnectionAuthModeOutput
+}
+
+type ApiEventConfigConnectionAuthModeArgs struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+}
+
+func (ApiEventConfigConnectionAuthModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigConnectionAuthMode)(nil)).Elem()
+}
+
+func (i ApiEventConfigConnectionAuthModeArgs) ToApiEventConfigConnectionAuthModeOutput() ApiEventConfigConnectionAuthModeOutput {
+	return i.ToApiEventConfigConnectionAuthModeOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigConnectionAuthModeArgs) ToApiEventConfigConnectionAuthModeOutputWithContext(ctx context.Context) ApiEventConfigConnectionAuthModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigConnectionAuthModeOutput)
+}
+
+// ApiEventConfigConnectionAuthModeArrayInput is an input type that accepts ApiEventConfigConnectionAuthModeArray and ApiEventConfigConnectionAuthModeArrayOutput values.
+// You can construct a concrete instance of `ApiEventConfigConnectionAuthModeArrayInput` via:
+//
+//	ApiEventConfigConnectionAuthModeArray{ ApiEventConfigConnectionAuthModeArgs{...} }
+type ApiEventConfigConnectionAuthModeArrayInput interface {
+	pulumi.Input
+
+	ToApiEventConfigConnectionAuthModeArrayOutput() ApiEventConfigConnectionAuthModeArrayOutput
+	ToApiEventConfigConnectionAuthModeArrayOutputWithContext(context.Context) ApiEventConfigConnectionAuthModeArrayOutput
+}
+
+type ApiEventConfigConnectionAuthModeArray []ApiEventConfigConnectionAuthModeInput
+
+func (ApiEventConfigConnectionAuthModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiEventConfigConnectionAuthMode)(nil)).Elem()
+}
+
+func (i ApiEventConfigConnectionAuthModeArray) ToApiEventConfigConnectionAuthModeArrayOutput() ApiEventConfigConnectionAuthModeArrayOutput {
+	return i.ToApiEventConfigConnectionAuthModeArrayOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigConnectionAuthModeArray) ToApiEventConfigConnectionAuthModeArrayOutputWithContext(ctx context.Context) ApiEventConfigConnectionAuthModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigConnectionAuthModeArrayOutput)
+}
+
+type ApiEventConfigConnectionAuthModeOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigConnectionAuthModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigConnectionAuthMode)(nil)).Elem()
+}
+
+func (o ApiEventConfigConnectionAuthModeOutput) ToApiEventConfigConnectionAuthModeOutput() ApiEventConfigConnectionAuthModeOutput {
+	return o
+}
+
+func (o ApiEventConfigConnectionAuthModeOutput) ToApiEventConfigConnectionAuthModeOutputWithContext(ctx context.Context) ApiEventConfigConnectionAuthModeOutput {
+	return o
+}
+
+// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+func (o ApiEventConfigConnectionAuthModeOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigConnectionAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
+}
+
+type ApiEventConfigConnectionAuthModeArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigConnectionAuthModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiEventConfigConnectionAuthMode)(nil)).Elem()
+}
+
+func (o ApiEventConfigConnectionAuthModeArrayOutput) ToApiEventConfigConnectionAuthModeArrayOutput() ApiEventConfigConnectionAuthModeArrayOutput {
+	return o
+}
+
+func (o ApiEventConfigConnectionAuthModeArrayOutput) ToApiEventConfigConnectionAuthModeArrayOutputWithContext(ctx context.Context) ApiEventConfigConnectionAuthModeArrayOutput {
+	return o
+}
+
+func (o ApiEventConfigConnectionAuthModeArrayOutput) Index(i pulumi.IntInput) ApiEventConfigConnectionAuthModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiEventConfigConnectionAuthMode {
+		return vs[0].([]ApiEventConfigConnectionAuthMode)[vs[1].(int)]
+	}).(ApiEventConfigConnectionAuthModeOutput)
+}
+
+type ApiEventConfigDefaultPublishAuthMode struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType string `pulumi:"authType"`
+}
+
+// ApiEventConfigDefaultPublishAuthModeInput is an input type that accepts ApiEventConfigDefaultPublishAuthModeArgs and ApiEventConfigDefaultPublishAuthModeOutput values.
+// You can construct a concrete instance of `ApiEventConfigDefaultPublishAuthModeInput` via:
+//
+//	ApiEventConfigDefaultPublishAuthModeArgs{...}
+type ApiEventConfigDefaultPublishAuthModeInput interface {
+	pulumi.Input
+
+	ToApiEventConfigDefaultPublishAuthModeOutput() ApiEventConfigDefaultPublishAuthModeOutput
+	ToApiEventConfigDefaultPublishAuthModeOutputWithContext(context.Context) ApiEventConfigDefaultPublishAuthModeOutput
+}
+
+type ApiEventConfigDefaultPublishAuthModeArgs struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+}
+
+func (ApiEventConfigDefaultPublishAuthModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigDefaultPublishAuthMode)(nil)).Elem()
+}
+
+func (i ApiEventConfigDefaultPublishAuthModeArgs) ToApiEventConfigDefaultPublishAuthModeOutput() ApiEventConfigDefaultPublishAuthModeOutput {
+	return i.ToApiEventConfigDefaultPublishAuthModeOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigDefaultPublishAuthModeArgs) ToApiEventConfigDefaultPublishAuthModeOutputWithContext(ctx context.Context) ApiEventConfigDefaultPublishAuthModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigDefaultPublishAuthModeOutput)
+}
+
+// ApiEventConfigDefaultPublishAuthModeArrayInput is an input type that accepts ApiEventConfigDefaultPublishAuthModeArray and ApiEventConfigDefaultPublishAuthModeArrayOutput values.
+// You can construct a concrete instance of `ApiEventConfigDefaultPublishAuthModeArrayInput` via:
+//
+//	ApiEventConfigDefaultPublishAuthModeArray{ ApiEventConfigDefaultPublishAuthModeArgs{...} }
+type ApiEventConfigDefaultPublishAuthModeArrayInput interface {
+	pulumi.Input
+
+	ToApiEventConfigDefaultPublishAuthModeArrayOutput() ApiEventConfigDefaultPublishAuthModeArrayOutput
+	ToApiEventConfigDefaultPublishAuthModeArrayOutputWithContext(context.Context) ApiEventConfigDefaultPublishAuthModeArrayOutput
+}
+
+type ApiEventConfigDefaultPublishAuthModeArray []ApiEventConfigDefaultPublishAuthModeInput
+
+func (ApiEventConfigDefaultPublishAuthModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiEventConfigDefaultPublishAuthMode)(nil)).Elem()
+}
+
+func (i ApiEventConfigDefaultPublishAuthModeArray) ToApiEventConfigDefaultPublishAuthModeArrayOutput() ApiEventConfigDefaultPublishAuthModeArrayOutput {
+	return i.ToApiEventConfigDefaultPublishAuthModeArrayOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigDefaultPublishAuthModeArray) ToApiEventConfigDefaultPublishAuthModeArrayOutputWithContext(ctx context.Context) ApiEventConfigDefaultPublishAuthModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigDefaultPublishAuthModeArrayOutput)
+}
+
+type ApiEventConfigDefaultPublishAuthModeOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigDefaultPublishAuthModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigDefaultPublishAuthMode)(nil)).Elem()
+}
+
+func (o ApiEventConfigDefaultPublishAuthModeOutput) ToApiEventConfigDefaultPublishAuthModeOutput() ApiEventConfigDefaultPublishAuthModeOutput {
+	return o
+}
+
+func (o ApiEventConfigDefaultPublishAuthModeOutput) ToApiEventConfigDefaultPublishAuthModeOutputWithContext(ctx context.Context) ApiEventConfigDefaultPublishAuthModeOutput {
+	return o
+}
+
+// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+func (o ApiEventConfigDefaultPublishAuthModeOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigDefaultPublishAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
+}
+
+type ApiEventConfigDefaultPublishAuthModeArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigDefaultPublishAuthModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiEventConfigDefaultPublishAuthMode)(nil)).Elem()
+}
+
+func (o ApiEventConfigDefaultPublishAuthModeArrayOutput) ToApiEventConfigDefaultPublishAuthModeArrayOutput() ApiEventConfigDefaultPublishAuthModeArrayOutput {
+	return o
+}
+
+func (o ApiEventConfigDefaultPublishAuthModeArrayOutput) ToApiEventConfigDefaultPublishAuthModeArrayOutputWithContext(ctx context.Context) ApiEventConfigDefaultPublishAuthModeArrayOutput {
+	return o
+}
+
+func (o ApiEventConfigDefaultPublishAuthModeArrayOutput) Index(i pulumi.IntInput) ApiEventConfigDefaultPublishAuthModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiEventConfigDefaultPublishAuthMode {
+		return vs[0].([]ApiEventConfigDefaultPublishAuthMode)[vs[1].(int)]
+	}).(ApiEventConfigDefaultPublishAuthModeOutput)
+}
+
+type ApiEventConfigDefaultSubscribeAuthMode struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType string `pulumi:"authType"`
+}
+
+// ApiEventConfigDefaultSubscribeAuthModeInput is an input type that accepts ApiEventConfigDefaultSubscribeAuthModeArgs and ApiEventConfigDefaultSubscribeAuthModeOutput values.
+// You can construct a concrete instance of `ApiEventConfigDefaultSubscribeAuthModeInput` via:
+//
+//	ApiEventConfigDefaultSubscribeAuthModeArgs{...}
+type ApiEventConfigDefaultSubscribeAuthModeInput interface {
+	pulumi.Input
+
+	ToApiEventConfigDefaultSubscribeAuthModeOutput() ApiEventConfigDefaultSubscribeAuthModeOutput
+	ToApiEventConfigDefaultSubscribeAuthModeOutputWithContext(context.Context) ApiEventConfigDefaultSubscribeAuthModeOutput
+}
+
+type ApiEventConfigDefaultSubscribeAuthModeArgs struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+}
+
+func (ApiEventConfigDefaultSubscribeAuthModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigDefaultSubscribeAuthMode)(nil)).Elem()
+}
+
+func (i ApiEventConfigDefaultSubscribeAuthModeArgs) ToApiEventConfigDefaultSubscribeAuthModeOutput() ApiEventConfigDefaultSubscribeAuthModeOutput {
+	return i.ToApiEventConfigDefaultSubscribeAuthModeOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigDefaultSubscribeAuthModeArgs) ToApiEventConfigDefaultSubscribeAuthModeOutputWithContext(ctx context.Context) ApiEventConfigDefaultSubscribeAuthModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigDefaultSubscribeAuthModeOutput)
+}
+
+// ApiEventConfigDefaultSubscribeAuthModeArrayInput is an input type that accepts ApiEventConfigDefaultSubscribeAuthModeArray and ApiEventConfigDefaultSubscribeAuthModeArrayOutput values.
+// You can construct a concrete instance of `ApiEventConfigDefaultSubscribeAuthModeArrayInput` via:
+//
+//	ApiEventConfigDefaultSubscribeAuthModeArray{ ApiEventConfigDefaultSubscribeAuthModeArgs{...} }
+type ApiEventConfigDefaultSubscribeAuthModeArrayInput interface {
+	pulumi.Input
+
+	ToApiEventConfigDefaultSubscribeAuthModeArrayOutput() ApiEventConfigDefaultSubscribeAuthModeArrayOutput
+	ToApiEventConfigDefaultSubscribeAuthModeArrayOutputWithContext(context.Context) ApiEventConfigDefaultSubscribeAuthModeArrayOutput
+}
+
+type ApiEventConfigDefaultSubscribeAuthModeArray []ApiEventConfigDefaultSubscribeAuthModeInput
+
+func (ApiEventConfigDefaultSubscribeAuthModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiEventConfigDefaultSubscribeAuthMode)(nil)).Elem()
+}
+
+func (i ApiEventConfigDefaultSubscribeAuthModeArray) ToApiEventConfigDefaultSubscribeAuthModeArrayOutput() ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
+	return i.ToApiEventConfigDefaultSubscribeAuthModeArrayOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigDefaultSubscribeAuthModeArray) ToApiEventConfigDefaultSubscribeAuthModeArrayOutputWithContext(ctx context.Context) ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigDefaultSubscribeAuthModeArrayOutput)
+}
+
+type ApiEventConfigDefaultSubscribeAuthModeOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigDefaultSubscribeAuthModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigDefaultSubscribeAuthMode)(nil)).Elem()
+}
+
+func (o ApiEventConfigDefaultSubscribeAuthModeOutput) ToApiEventConfigDefaultSubscribeAuthModeOutput() ApiEventConfigDefaultSubscribeAuthModeOutput {
+	return o
+}
+
+func (o ApiEventConfigDefaultSubscribeAuthModeOutput) ToApiEventConfigDefaultSubscribeAuthModeOutputWithContext(ctx context.Context) ApiEventConfigDefaultSubscribeAuthModeOutput {
+	return o
+}
+
+// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+func (o ApiEventConfigDefaultSubscribeAuthModeOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigDefaultSubscribeAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
+}
+
+type ApiEventConfigDefaultSubscribeAuthModeArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigDefaultSubscribeAuthModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiEventConfigDefaultSubscribeAuthMode)(nil)).Elem()
+}
+
+func (o ApiEventConfigDefaultSubscribeAuthModeArrayOutput) ToApiEventConfigDefaultSubscribeAuthModeArrayOutput() ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
+	return o
+}
+
+func (o ApiEventConfigDefaultSubscribeAuthModeArrayOutput) ToApiEventConfigDefaultSubscribeAuthModeArrayOutputWithContext(ctx context.Context) ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
+	return o
+}
+
+func (o ApiEventConfigDefaultSubscribeAuthModeArrayOutput) Index(i pulumi.IntInput) ApiEventConfigDefaultSubscribeAuthModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiEventConfigDefaultSubscribeAuthMode {
+		return vs[0].([]ApiEventConfigDefaultSubscribeAuthMode)[vs[1].(int)]
+	}).(ApiEventConfigDefaultSubscribeAuthModeOutput)
+}
+
+type ApiEventConfigLogConfig struct {
+	// ARN of the IAM role for CloudWatch logs.
+	CloudwatchLogsRoleArn string `pulumi:"cloudwatchLogsRoleArn"`
+	// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
+	LogLevel string `pulumi:"logLevel"`
+}
+
+// ApiEventConfigLogConfigInput is an input type that accepts ApiEventConfigLogConfigArgs and ApiEventConfigLogConfigOutput values.
+// You can construct a concrete instance of `ApiEventConfigLogConfigInput` via:
+//
+//	ApiEventConfigLogConfigArgs{...}
+type ApiEventConfigLogConfigInput interface {
+	pulumi.Input
+
+	ToApiEventConfigLogConfigOutput() ApiEventConfigLogConfigOutput
+	ToApiEventConfigLogConfigOutputWithContext(context.Context) ApiEventConfigLogConfigOutput
+}
+
+type ApiEventConfigLogConfigArgs struct {
+	// ARN of the IAM role for CloudWatch logs.
+	CloudwatchLogsRoleArn pulumi.StringInput `pulumi:"cloudwatchLogsRoleArn"`
+	// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
+	LogLevel pulumi.StringInput `pulumi:"logLevel"`
+}
+
+func (ApiEventConfigLogConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigLogConfig)(nil)).Elem()
+}
+
+func (i ApiEventConfigLogConfigArgs) ToApiEventConfigLogConfigOutput() ApiEventConfigLogConfigOutput {
+	return i.ToApiEventConfigLogConfigOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigLogConfigArgs) ToApiEventConfigLogConfigOutputWithContext(ctx context.Context) ApiEventConfigLogConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigLogConfigOutput)
+}
+
+func (i ApiEventConfigLogConfigArgs) ToApiEventConfigLogConfigPtrOutput() ApiEventConfigLogConfigPtrOutput {
+	return i.ToApiEventConfigLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigLogConfigArgs) ToApiEventConfigLogConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigLogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigLogConfigOutput).ToApiEventConfigLogConfigPtrOutputWithContext(ctx)
+}
+
+// ApiEventConfigLogConfigPtrInput is an input type that accepts ApiEventConfigLogConfigArgs, ApiEventConfigLogConfigPtr and ApiEventConfigLogConfigPtrOutput values.
+// You can construct a concrete instance of `ApiEventConfigLogConfigPtrInput` via:
+//
+//	        ApiEventConfigLogConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiEventConfigLogConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiEventConfigLogConfigPtrOutput() ApiEventConfigLogConfigPtrOutput
+	ToApiEventConfigLogConfigPtrOutputWithContext(context.Context) ApiEventConfigLogConfigPtrOutput
+}
+
+type apiEventConfigLogConfigPtrType ApiEventConfigLogConfigArgs
+
+func ApiEventConfigLogConfigPtr(v *ApiEventConfigLogConfigArgs) ApiEventConfigLogConfigPtrInput {
+	return (*apiEventConfigLogConfigPtrType)(v)
+}
+
+func (*apiEventConfigLogConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfigLogConfig)(nil)).Elem()
+}
+
+func (i *apiEventConfigLogConfigPtrType) ToApiEventConfigLogConfigPtrOutput() ApiEventConfigLogConfigPtrOutput {
+	return i.ToApiEventConfigLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiEventConfigLogConfigPtrType) ToApiEventConfigLogConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigLogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigLogConfigPtrOutput)
+}
+
+type ApiEventConfigLogConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigLogConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfigLogConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigLogConfigOutput) ToApiEventConfigLogConfigOutput() ApiEventConfigLogConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigLogConfigOutput) ToApiEventConfigLogConfigOutputWithContext(ctx context.Context) ApiEventConfigLogConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigLogConfigOutput) ToApiEventConfigLogConfigPtrOutput() ApiEventConfigLogConfigPtrOutput {
+	return o.ToApiEventConfigLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventConfigLogConfigOutput) ToApiEventConfigLogConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigLogConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEventConfigLogConfig) *ApiEventConfigLogConfig {
+		return &v
+	}).(ApiEventConfigLogConfigPtrOutput)
+}
+
+// ARN of the IAM role for CloudWatch logs.
+func (o ApiEventConfigLogConfigOutput) CloudwatchLogsRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigLogConfig) string { return v.CloudwatchLogsRoleArn }).(pulumi.StringOutput)
+}
+
+// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
+func (o ApiEventConfigLogConfigOutput) LogLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventConfigLogConfig) string { return v.LogLevel }).(pulumi.StringOutput)
+}
+
+type ApiEventConfigLogConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigLogConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfigLogConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigLogConfigPtrOutput) ToApiEventConfigLogConfigPtrOutput() ApiEventConfigLogConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigLogConfigPtrOutput) ToApiEventConfigLogConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigLogConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigLogConfigPtrOutput) Elem() ApiEventConfigLogConfigOutput {
+	return o.ApplyT(func(v *ApiEventConfigLogConfig) ApiEventConfigLogConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEventConfigLogConfig
+		return ret
+	}).(ApiEventConfigLogConfigOutput)
+}
+
+// ARN of the IAM role for CloudWatch logs.
+func (o ApiEventConfigLogConfigPtrOutput) CloudwatchLogsRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigLogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudwatchLogsRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
+func (o ApiEventConfigLogConfigPtrOutput) LogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfigLogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigs struct {
+	// Handler configuration. See Handler Config below.
+	OnPublish *ChannelNamespaceHandlerConfigsOnPublish `pulumi:"onPublish"`
+	// Handler configuration. See Handler Config below.
+	OnSubscribe *ChannelNamespaceHandlerConfigsOnSubscribe `pulumi:"onSubscribe"`
+}
+
+// ChannelNamespaceHandlerConfigsInput is an input type that accepts ChannelNamespaceHandlerConfigsArgs and ChannelNamespaceHandlerConfigsOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsInput` via:
+//
+//	ChannelNamespaceHandlerConfigsArgs{...}
+type ChannelNamespaceHandlerConfigsInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOutput() ChannelNamespaceHandlerConfigsOutput
+	ToChannelNamespaceHandlerConfigsOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOutput
+}
+
+type ChannelNamespaceHandlerConfigsArgs struct {
+	// Handler configuration. See Handler Config below.
+	OnPublish ChannelNamespaceHandlerConfigsOnPublishPtrInput `pulumi:"onPublish"`
+	// Handler configuration. See Handler Config below.
+	OnSubscribe ChannelNamespaceHandlerConfigsOnSubscribePtrInput `pulumi:"onSubscribe"`
+}
+
+func (ChannelNamespaceHandlerConfigsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigs)(nil)).Elem()
+}
+
+func (i ChannelNamespaceHandlerConfigsArgs) ToChannelNamespaceHandlerConfigsOutput() ChannelNamespaceHandlerConfigsOutput {
+	return i.ToChannelNamespaceHandlerConfigsOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsArgs) ToChannelNamespaceHandlerConfigsOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOutput)
+}
+
+func (i ChannelNamespaceHandlerConfigsArgs) ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsArgs) ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOutput).ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceHandlerConfigsPtrInput is an input type that accepts ChannelNamespaceHandlerConfigsArgs, ChannelNamespaceHandlerConfigsPtr and ChannelNamespaceHandlerConfigsPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsPtrInput` via:
+//
+//	        ChannelNamespaceHandlerConfigsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceHandlerConfigsPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput
+	ToChannelNamespaceHandlerConfigsPtrOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsPtrOutput
+}
+
+type channelNamespaceHandlerConfigsPtrType ChannelNamespaceHandlerConfigsArgs
+
+func ChannelNamespaceHandlerConfigsPtr(v *ChannelNamespaceHandlerConfigsArgs) ChannelNamespaceHandlerConfigsPtrInput {
+	return (*channelNamespaceHandlerConfigsPtrType)(v)
+}
+
+func (*channelNamespaceHandlerConfigsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigs)(nil)).Elem()
+}
+
+func (i *channelNamespaceHandlerConfigsPtrType) ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceHandlerConfigsPtrType) ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigs)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsOutput() ChannelNamespaceHandlerConfigsOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput {
+	return o.ToChannelNamespaceHandlerConfigsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigs {
+		return &v
+	}).(ChannelNamespaceHandlerConfigsPtrOutput)
+}
+
+// Handler configuration. See Handler Config below.
+func (o ChannelNamespaceHandlerConfigsOutput) OnPublish() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnPublish { return v.OnPublish }).(ChannelNamespaceHandlerConfigsOnPublishPtrOutput)
+}
+
+// Handler configuration. See Handler Config below.
+func (o ChannelNamespaceHandlerConfigsOutput) OnSubscribe() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnSubscribe {
+		return v.OnSubscribe
+	}).(ChannelNamespaceHandlerConfigsOnSubscribePtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigs)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsPtrOutput) ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsPtrOutput) ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsPtrOutput) Elem() ChannelNamespaceHandlerConfigsOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) ChannelNamespaceHandlerConfigs {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerConfigs
+		return ret
+	}).(ChannelNamespaceHandlerConfigsOutput)
+}
+
+// Handler configuration. See Handler Config below.
+func (o ChannelNamespaceHandlerConfigsPtrOutput) OnPublish() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnPublish {
+		if v == nil {
+			return nil
+		}
+		return v.OnPublish
+	}).(ChannelNamespaceHandlerConfigsOnPublishPtrOutput)
+}
+
+// Handler configuration. See Handler Config below.
+func (o ChannelNamespaceHandlerConfigsPtrOutput) OnSubscribe() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnSubscribe {
+		if v == nil {
+			return nil
+		}
+		return v.OnSubscribe
+	}).(ChannelNamespaceHandlerConfigsOnSubscribePtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnPublish struct {
+	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+	Behavior string `pulumi:"behavior"`
+	// Integration data source configuration for the handler. See Integration below.
+	Integration *ChannelNamespaceHandlerConfigsOnPublishIntegration `pulumi:"integration"`
+}
+
+// ChannelNamespaceHandlerConfigsOnPublishInput is an input type that accepts ChannelNamespaceHandlerConfigsOnPublishArgs and ChannelNamespaceHandlerConfigsOnPublishOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnPublishInput` via:
+//
+//	ChannelNamespaceHandlerConfigsOnPublishArgs{...}
+type ChannelNamespaceHandlerConfigsOnPublishInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnPublishOutput() ChannelNamespaceHandlerConfigsOnPublishOutput
+	ToChannelNamespaceHandlerConfigsOnPublishOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnPublishOutput
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishArgs struct {
+	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// Integration data source configuration for the handler. See Integration below.
+	Integration ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrInput `pulumi:"integration"`
+}
+
+func (ChannelNamespaceHandlerConfigsOnPublishArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublish)(nil)).Elem()
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishArgs) ToChannelNamespaceHandlerConfigsOnPublishOutput() ChannelNamespaceHandlerConfigsOnPublishOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnPublishOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishArgs) ToChannelNamespaceHandlerConfigsOnPublishOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnPublishOutput)
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishArgs) ToChannelNamespaceHandlerConfigsOnPublishPtrOutput() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnPublishPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishArgs) ToChannelNamespaceHandlerConfigsOnPublishPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnPublishOutput).ToChannelNamespaceHandlerConfigsOnPublishPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceHandlerConfigsOnPublishPtrInput is an input type that accepts ChannelNamespaceHandlerConfigsOnPublishArgs, ChannelNamespaceHandlerConfigsOnPublishPtr and ChannelNamespaceHandlerConfigsOnPublishPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnPublishPtrInput` via:
+//
+//	        ChannelNamespaceHandlerConfigsOnPublishArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceHandlerConfigsOnPublishPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnPublishPtrOutput() ChannelNamespaceHandlerConfigsOnPublishPtrOutput
+	ToChannelNamespaceHandlerConfigsOnPublishPtrOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnPublishPtrOutput
+}
+
+type channelNamespaceHandlerConfigsOnPublishPtrType ChannelNamespaceHandlerConfigsOnPublishArgs
+
+func ChannelNamespaceHandlerConfigsOnPublishPtr(v *ChannelNamespaceHandlerConfigsOnPublishArgs) ChannelNamespaceHandlerConfigsOnPublishPtrInput {
+	return (*channelNamespaceHandlerConfigsOnPublishPtrType)(v)
+}
+
+func (*channelNamespaceHandlerConfigsOnPublishPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnPublish)(nil)).Elem()
+}
+
+func (i *channelNamespaceHandlerConfigsOnPublishPtrType) ToChannelNamespaceHandlerConfigsOnPublishPtrOutput() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnPublishPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceHandlerConfigsOnPublishPtrType) ToChannelNamespaceHandlerConfigsOnPublishPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnPublishPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnPublishOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublish)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishOutput) ToChannelNamespaceHandlerConfigsOnPublishOutput() ChannelNamespaceHandlerConfigsOnPublishOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishOutput) ToChannelNamespaceHandlerConfigsOnPublishOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishOutput) ToChannelNamespaceHandlerConfigsOnPublishPtrOutput() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return o.ToChannelNamespaceHandlerConfigsOnPublishPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishOutput) ToChannelNamespaceHandlerConfigsOnPublishPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerConfigsOnPublish) *ChannelNamespaceHandlerConfigsOnPublish {
+		return &v
+	}).(ChannelNamespaceHandlerConfigsOnPublishPtrOutput)
+}
+
+// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+func (o ChannelNamespaceHandlerConfigsOnPublishOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublish) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Integration data source configuration for the handler. See Integration below.
+func (o ChannelNamespaceHandlerConfigsOnPublishOutput) Integration() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublish) *ChannelNamespaceHandlerConfigsOnPublishIntegration {
+		return v.Integration
+	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnPublishPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnPublish)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) ToChannelNamespaceHandlerConfigsOnPublishPtrOutput() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) ToChannelNamespaceHandlerConfigsOnPublishPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Elem() ChannelNamespaceHandlerConfigsOnPublishOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublish) ChannelNamespaceHandlerConfigsOnPublish {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerConfigsOnPublish
+		return ret
+	}).(ChannelNamespaceHandlerConfigsOnPublishOutput)
+}
+
+// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Behavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublish) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Behavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Integration data source configuration for the handler. See Integration below.
+func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Integration() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublish) *ChannelNamespaceHandlerConfigsOnPublishIntegration {
+		if v == nil {
+			return nil
+		}
+		return v.Integration
+	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishIntegration struct {
+	// Unique name of the data source that has been configured on the API.
+	DataSourceName string `pulumi:"dataSourceName"`
+	// Configuration for a Lambda data source. See Lambda Config below.
+	LambdaConfig *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig `pulumi:"lambdaConfig"`
+}
+
+// ChannelNamespaceHandlerConfigsOnPublishIntegrationInput is an input type that accepts ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs and ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnPublishIntegrationInput` via:
+//
+//	ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs{...}
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnPublishIntegrationOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput
+	ToChannelNamespaceHandlerConfigsOnPublishIntegrationOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs struct {
+	// Unique name of the data source that has been configured on the API.
+	DataSourceName pulumi.StringInput `pulumi:"dataSourceName"`
+	// Configuration for a Lambda data source. See Lambda Config below.
+	LambdaConfig ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrInput `pulumi:"lambdaConfig"`
+}
+
+func (ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishIntegration)(nil)).Elem()
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs) ToChannelNamespaceHandlerConfigsOnPublishIntegrationOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnPublishIntegrationOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs) ToChannelNamespaceHandlerConfigsOnPublishIntegrationOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput)
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs) ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs) ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput).ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrInput is an input type that accepts ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs, ChannelNamespaceHandlerConfigsOnPublishIntegrationPtr and ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrInput` via:
+//
+//	        ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput
+	ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput
+}
+
+type channelNamespaceHandlerConfigsOnPublishIntegrationPtrType ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs
+
+func ChannelNamespaceHandlerConfigsOnPublishIntegrationPtr(v *ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs) ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrInput {
+	return (*channelNamespaceHandlerConfigsOnPublishIntegrationPtrType)(v)
+}
+
+func (*channelNamespaceHandlerConfigsOnPublishIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnPublishIntegration)(nil)).Elem()
+}
+
+func (i *channelNamespaceHandlerConfigsOnPublishIntegrationPtrType) ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceHandlerConfigsOnPublishIntegrationPtrType) ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishIntegration)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return o.ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerConfigsOnPublishIntegration) *ChannelNamespaceHandlerConfigsOnPublishIntegration {
+		return &v
+	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput)
+}
+
+// Unique name of the data source that has been configured on the API.
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) DataSourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublishIntegration) string { return v.DataSourceName }).(pulumi.StringOutput)
+}
+
+// Configuration for a Lambda data source. See Lambda Config below.
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublishIntegration) *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig {
+		return v.LambdaConfig
+	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnPublishIntegration)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) Elem() ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublishIntegration) ChannelNamespaceHandlerConfigsOnPublishIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerConfigsOnPublishIntegration
+		return ret
+	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput)
+}
+
+// Unique name of the data source that has been configured on the API.
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) DataSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublishIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for a Lambda data source. See Lambda Config below.
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublishIntegration) *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaConfig
+	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig struct {
+	// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+	InvokeType *string `pulumi:"invokeType"`
+}
+
+// ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigInput is an input type that accepts ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs and ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigInput` via:
+//
+//	ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs{...}
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput
+	ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs struct {
+	// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+	InvokeType pulumi.StringPtrInput `pulumi:"invokeType"`
+}
+
+func (ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig)(nil)).Elem()
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput)
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput).ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrInput is an input type that accepts ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs, ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtr and ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrInput` via:
+//
+//	        ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput
+	ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput
+}
+
+type channelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrType ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs
+
+func ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtr(v *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrInput {
+	return (*channelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrType)(v)
+}
+
+func (*channelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig)(nil)).Elem()
+}
+
+func (i *channelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrType) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrType) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return o.ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig) *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig {
+		return &v
+	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput)
+}
+
+// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput) InvokeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig) *string { return v.InvokeType }).(pulumi.StringPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput) ToChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput) Elem() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig) ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig
+		return ret
+	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput)
+}
+
+// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput) InvokeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvokeType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribe struct {
+	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+	Behavior string `pulumi:"behavior"`
+	// Integration data source configuration for the handler. See Integration below.
+	Integration *ChannelNamespaceHandlerConfigsOnSubscribeIntegration `pulumi:"integration"`
+}
+
+// ChannelNamespaceHandlerConfigsOnSubscribeInput is an input type that accepts ChannelNamespaceHandlerConfigsOnSubscribeArgs and ChannelNamespaceHandlerConfigsOnSubscribeOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnSubscribeInput` via:
+//
+//	ChannelNamespaceHandlerConfigsOnSubscribeArgs{...}
+type ChannelNamespaceHandlerConfigsOnSubscribeInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnSubscribeOutput() ChannelNamespaceHandlerConfigsOnSubscribeOutput
+	ToChannelNamespaceHandlerConfigsOnSubscribeOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnSubscribeOutput
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeArgs struct {
+	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// Integration data source configuration for the handler. See Integration below.
+	Integration ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrInput `pulumi:"integration"`
+}
+
+func (ChannelNamespaceHandlerConfigsOnSubscribeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribe)(nil)).Elem()
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeArgs) ToChannelNamespaceHandlerConfigsOnSubscribeOutput() ChannelNamespaceHandlerConfigsOnSubscribeOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnSubscribeOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeArgs) ToChannelNamespaceHandlerConfigsOnSubscribeOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnSubscribeOutput)
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeArgs) ToChannelNamespaceHandlerConfigsOnSubscribePtrOutput() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnSubscribePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeArgs) ToChannelNamespaceHandlerConfigsOnSubscribePtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnSubscribeOutput).ToChannelNamespaceHandlerConfigsOnSubscribePtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceHandlerConfigsOnSubscribePtrInput is an input type that accepts ChannelNamespaceHandlerConfigsOnSubscribeArgs, ChannelNamespaceHandlerConfigsOnSubscribePtr and ChannelNamespaceHandlerConfigsOnSubscribePtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnSubscribePtrInput` via:
+//
+//	        ChannelNamespaceHandlerConfigsOnSubscribeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceHandlerConfigsOnSubscribePtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnSubscribePtrOutput() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput
+	ToChannelNamespaceHandlerConfigsOnSubscribePtrOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnSubscribePtrOutput
+}
+
+type channelNamespaceHandlerConfigsOnSubscribePtrType ChannelNamespaceHandlerConfigsOnSubscribeArgs
+
+func ChannelNamespaceHandlerConfigsOnSubscribePtr(v *ChannelNamespaceHandlerConfigsOnSubscribeArgs) ChannelNamespaceHandlerConfigsOnSubscribePtrInput {
+	return (*channelNamespaceHandlerConfigsOnSubscribePtrType)(v)
+}
+
+func (*channelNamespaceHandlerConfigsOnSubscribePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnSubscribe)(nil)).Elem()
+}
+
+func (i *channelNamespaceHandlerConfigsOnSubscribePtrType) ToChannelNamespaceHandlerConfigsOnSubscribePtrOutput() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnSubscribePtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceHandlerConfigsOnSubscribePtrType) ToChannelNamespaceHandlerConfigsOnSubscribePtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnSubscribePtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnSubscribeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribe)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) ToChannelNamespaceHandlerConfigsOnSubscribeOutput() ChannelNamespaceHandlerConfigsOnSubscribeOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) ToChannelNamespaceHandlerConfigsOnSubscribeOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) ToChannelNamespaceHandlerConfigsOnSubscribePtrOutput() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return o.ToChannelNamespaceHandlerConfigsOnSubscribePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) ToChannelNamespaceHandlerConfigsOnSubscribePtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerConfigsOnSubscribe) *ChannelNamespaceHandlerConfigsOnSubscribe {
+		return &v
+	}).(ChannelNamespaceHandlerConfigsOnSubscribePtrOutput)
+}
+
+// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribe) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Integration data source configuration for the handler. See Integration below.
+func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) Integration() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribe) *ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
+		return v.Integration
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnSubscribe)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) ToChannelNamespaceHandlerConfigsOnSubscribePtrOutput() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) ToChannelNamespaceHandlerConfigsOnSubscribePtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Elem() ChannelNamespaceHandlerConfigsOnSubscribeOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribe) ChannelNamespaceHandlerConfigsOnSubscribe {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerConfigsOnSubscribe
+		return ret
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeOutput)
+}
+
+// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Behavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribe) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Behavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Integration data source configuration for the handler. See Integration below.
+func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Integration() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribe) *ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
+		if v == nil {
+			return nil
+		}
+		return v.Integration
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegration struct {
+	// Unique name of the data source that has been configured on the API.
+	DataSourceName string `pulumi:"dataSourceName"`
+	// Configuration for a Lambda data source. See Lambda Config below.
+	LambdaConfig *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig `pulumi:"lambdaConfig"`
+}
+
+// ChannelNamespaceHandlerConfigsOnSubscribeIntegrationInput is an input type that accepts ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs and ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnSubscribeIntegrationInput` via:
+//
+//	ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs{...}
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput
+	ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs struct {
+	// Unique name of the data source that has been configured on the API.
+	DataSourceName pulumi.StringInput `pulumi:"dataSourceName"`
+	// Configuration for a Lambda data source. See Lambda Config below.
+	LambdaConfig ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrInput `pulumi:"lambdaConfig"`
+}
+
+func (ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribeIntegration)(nil)).Elem()
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput)
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput).ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrInput is an input type that accepts ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs, ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtr and ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrInput` via:
+//
+//	        ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput
+	ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput
+}
+
+type channelNamespaceHandlerConfigsOnSubscribeIntegrationPtrType ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs
+
+func ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtr(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrInput {
+	return (*channelNamespaceHandlerConfigsOnSubscribeIntegrationPtrType)(v)
+}
+
+func (*channelNamespaceHandlerConfigsOnSubscribeIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnSubscribeIntegration)(nil)).Elem()
+}
+
+func (i *channelNamespaceHandlerConfigsOnSubscribeIntegrationPtrType) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceHandlerConfigsOnSubscribeIntegrationPtrType) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribeIntegration)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return o.ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerConfigsOnSubscribeIntegration) *ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
+		return &v
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput)
+}
+
+// Unique name of the data source that has been configured on the API.
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) DataSourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribeIntegration) string { return v.DataSourceName }).(pulumi.StringOutput)
+}
+
+// Configuration for a Lambda data source. See Lambda Config below.
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribeIntegration) *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig {
+		return v.LambdaConfig
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnSubscribeIntegration)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) Elem() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegration) ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerConfigsOnSubscribeIntegration
+		return ret
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput)
+}
+
+// Unique name of the data source that has been configured on the API.
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) DataSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for a Lambda data source. See Lambda Config below.
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegration) *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaConfig
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig struct {
+	// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+	InvokeType *string `pulumi:"invokeType"`
+}
+
+// ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigInput is an input type that accepts ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs and ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigInput` via:
+//
+//	ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs{...}
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput
+	ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs struct {
+	// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+	InvokeType pulumi.StringPtrInput `pulumi:"invokeType"`
+}
+
+func (ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig)(nil)).Elem()
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput)
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput).ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrInput is an input type that accepts ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs, ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtr and ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrInput` via:
+//
+//	        ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput
+	ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput
+}
+
+type channelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrType ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs
+
+func ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtr(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrInput {
+	return (*channelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrType)(v)
+}
+
+func (*channelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig)(nil)).Elem()
+}
+
+func (i *channelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrType) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrType) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return o.ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig) *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig {
+		return &v
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput)
+}
+
+// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput) InvokeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig) *string { return v.InvokeType }).(pulumi.StringPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput) ToChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput) Elem() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig) ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig
+		return ret
+	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput)
+}
+
+// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput) InvokeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvokeType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelNamespacePublishAuthMode struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType string `pulumi:"authType"`
+}
+
+// ChannelNamespacePublishAuthModeInput is an input type that accepts ChannelNamespacePublishAuthModeArgs and ChannelNamespacePublishAuthModeOutput values.
+// You can construct a concrete instance of `ChannelNamespacePublishAuthModeInput` via:
+//
+//	ChannelNamespacePublishAuthModeArgs{...}
+type ChannelNamespacePublishAuthModeInput interface {
+	pulumi.Input
+
+	ToChannelNamespacePublishAuthModeOutput() ChannelNamespacePublishAuthModeOutput
+	ToChannelNamespacePublishAuthModeOutputWithContext(context.Context) ChannelNamespacePublishAuthModeOutput
+}
+
+type ChannelNamespacePublishAuthModeArgs struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+}
+
+func (ChannelNamespacePublishAuthModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespacePublishAuthMode)(nil)).Elem()
+}
+
+func (i ChannelNamespacePublishAuthModeArgs) ToChannelNamespacePublishAuthModeOutput() ChannelNamespacePublishAuthModeOutput {
+	return i.ToChannelNamespacePublishAuthModeOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespacePublishAuthModeArgs) ToChannelNamespacePublishAuthModeOutputWithContext(ctx context.Context) ChannelNamespacePublishAuthModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespacePublishAuthModeOutput)
+}
+
+// ChannelNamespacePublishAuthModeArrayInput is an input type that accepts ChannelNamespacePublishAuthModeArray and ChannelNamespacePublishAuthModeArrayOutput values.
+// You can construct a concrete instance of `ChannelNamespacePublishAuthModeArrayInput` via:
+//
+//	ChannelNamespacePublishAuthModeArray{ ChannelNamespacePublishAuthModeArgs{...} }
+type ChannelNamespacePublishAuthModeArrayInput interface {
+	pulumi.Input
+
+	ToChannelNamespacePublishAuthModeArrayOutput() ChannelNamespacePublishAuthModeArrayOutput
+	ToChannelNamespacePublishAuthModeArrayOutputWithContext(context.Context) ChannelNamespacePublishAuthModeArrayOutput
+}
+
+type ChannelNamespacePublishAuthModeArray []ChannelNamespacePublishAuthModeInput
+
+func (ChannelNamespacePublishAuthModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelNamespacePublishAuthMode)(nil)).Elem()
+}
+
+func (i ChannelNamespacePublishAuthModeArray) ToChannelNamespacePublishAuthModeArrayOutput() ChannelNamespacePublishAuthModeArrayOutput {
+	return i.ToChannelNamespacePublishAuthModeArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespacePublishAuthModeArray) ToChannelNamespacePublishAuthModeArrayOutputWithContext(ctx context.Context) ChannelNamespacePublishAuthModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespacePublishAuthModeArrayOutput)
+}
+
+type ChannelNamespacePublishAuthModeOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespacePublishAuthModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespacePublishAuthMode)(nil)).Elem()
+}
+
+func (o ChannelNamespacePublishAuthModeOutput) ToChannelNamespacePublishAuthModeOutput() ChannelNamespacePublishAuthModeOutput {
+	return o
+}
+
+func (o ChannelNamespacePublishAuthModeOutput) ToChannelNamespacePublishAuthModeOutputWithContext(ctx context.Context) ChannelNamespacePublishAuthModeOutput {
+	return o
+}
+
+// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+func (o ChannelNamespacePublishAuthModeOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelNamespacePublishAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
+}
+
+type ChannelNamespacePublishAuthModeArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespacePublishAuthModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelNamespacePublishAuthMode)(nil)).Elem()
+}
+
+func (o ChannelNamespacePublishAuthModeArrayOutput) ToChannelNamespacePublishAuthModeArrayOutput() ChannelNamespacePublishAuthModeArrayOutput {
+	return o
+}
+
+func (o ChannelNamespacePublishAuthModeArrayOutput) ToChannelNamespacePublishAuthModeArrayOutputWithContext(ctx context.Context) ChannelNamespacePublishAuthModeArrayOutput {
+	return o
+}
+
+func (o ChannelNamespacePublishAuthModeArrayOutput) Index(i pulumi.IntInput) ChannelNamespacePublishAuthModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelNamespacePublishAuthMode {
+		return vs[0].([]ChannelNamespacePublishAuthMode)[vs[1].(int)]
+	}).(ChannelNamespacePublishAuthModeOutput)
+}
+
+type ChannelNamespaceSubscribeAuthMode struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType string `pulumi:"authType"`
+}
+
+// ChannelNamespaceSubscribeAuthModeInput is an input type that accepts ChannelNamespaceSubscribeAuthModeArgs and ChannelNamespaceSubscribeAuthModeOutput values.
+// You can construct a concrete instance of `ChannelNamespaceSubscribeAuthModeInput` via:
+//
+//	ChannelNamespaceSubscribeAuthModeArgs{...}
+type ChannelNamespaceSubscribeAuthModeInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceSubscribeAuthModeOutput() ChannelNamespaceSubscribeAuthModeOutput
+	ToChannelNamespaceSubscribeAuthModeOutputWithContext(context.Context) ChannelNamespaceSubscribeAuthModeOutput
+}
+
+type ChannelNamespaceSubscribeAuthModeArgs struct {
+	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+}
+
+func (ChannelNamespaceSubscribeAuthModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceSubscribeAuthMode)(nil)).Elem()
+}
+
+func (i ChannelNamespaceSubscribeAuthModeArgs) ToChannelNamespaceSubscribeAuthModeOutput() ChannelNamespaceSubscribeAuthModeOutput {
+	return i.ToChannelNamespaceSubscribeAuthModeOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceSubscribeAuthModeArgs) ToChannelNamespaceSubscribeAuthModeOutputWithContext(ctx context.Context) ChannelNamespaceSubscribeAuthModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceSubscribeAuthModeOutput)
+}
+
+// ChannelNamespaceSubscribeAuthModeArrayInput is an input type that accepts ChannelNamespaceSubscribeAuthModeArray and ChannelNamespaceSubscribeAuthModeArrayOutput values.
+// You can construct a concrete instance of `ChannelNamespaceSubscribeAuthModeArrayInput` via:
+//
+//	ChannelNamespaceSubscribeAuthModeArray{ ChannelNamespaceSubscribeAuthModeArgs{...} }
+type ChannelNamespaceSubscribeAuthModeArrayInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceSubscribeAuthModeArrayOutput() ChannelNamespaceSubscribeAuthModeArrayOutput
+	ToChannelNamespaceSubscribeAuthModeArrayOutputWithContext(context.Context) ChannelNamespaceSubscribeAuthModeArrayOutput
+}
+
+type ChannelNamespaceSubscribeAuthModeArray []ChannelNamespaceSubscribeAuthModeInput
+
+func (ChannelNamespaceSubscribeAuthModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelNamespaceSubscribeAuthMode)(nil)).Elem()
+}
+
+func (i ChannelNamespaceSubscribeAuthModeArray) ToChannelNamespaceSubscribeAuthModeArrayOutput() ChannelNamespaceSubscribeAuthModeArrayOutput {
+	return i.ToChannelNamespaceSubscribeAuthModeArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceSubscribeAuthModeArray) ToChannelNamespaceSubscribeAuthModeArrayOutputWithContext(ctx context.Context) ChannelNamespaceSubscribeAuthModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceSubscribeAuthModeArrayOutput)
+}
+
+type ChannelNamespaceSubscribeAuthModeOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceSubscribeAuthModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceSubscribeAuthMode)(nil)).Elem()
+}
+
+func (o ChannelNamespaceSubscribeAuthModeOutput) ToChannelNamespaceSubscribeAuthModeOutput() ChannelNamespaceSubscribeAuthModeOutput {
+	return o
+}
+
+func (o ChannelNamespaceSubscribeAuthModeOutput) ToChannelNamespaceSubscribeAuthModeOutputWithContext(ctx context.Context) ChannelNamespaceSubscribeAuthModeOutput {
+	return o
+}
+
+// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+func (o ChannelNamespaceSubscribeAuthModeOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelNamespaceSubscribeAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
+}
+
+type ChannelNamespaceSubscribeAuthModeArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceSubscribeAuthModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelNamespaceSubscribeAuthMode)(nil)).Elem()
+}
+
+func (o ChannelNamespaceSubscribeAuthModeArrayOutput) ToChannelNamespaceSubscribeAuthModeArrayOutput() ChannelNamespaceSubscribeAuthModeArrayOutput {
+	return o
+}
+
+func (o ChannelNamespaceSubscribeAuthModeArrayOutput) ToChannelNamespaceSubscribeAuthModeArrayOutputWithContext(ctx context.Context) ChannelNamespaceSubscribeAuthModeArrayOutput {
+	return o
+}
+
+func (o ChannelNamespaceSubscribeAuthModeArrayOutput) Index(i pulumi.IntInput) ChannelNamespaceSubscribeAuthModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelNamespaceSubscribeAuthMode {
+		return vs[0].([]ChannelNamespaceSubscribeAuthMode)[vs[1].(int)]
+	}).(ChannelNamespaceSubscribeAuthModeOutput)
+}
+
 type DataSourceDynamodbConfig struct {
 	// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 	DeltaSyncConfig *DataSourceDynamodbConfigDeltaSyncConfig `pulumi:"deltaSyncConfig"`
@@ -4927,6 +7519,42 @@ func (o SourceApiAssociationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigInput)(nil)).Elem(), ApiEventConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigPtrInput)(nil)).Elem(), ApiEventConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigAuthProviderInput)(nil)).Elem(), ApiEventConfigAuthProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigAuthProviderArrayInput)(nil)).Elem(), ApiEventConfigAuthProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigAuthProviderCognitoConfigInput)(nil)).Elem(), ApiEventConfigAuthProviderCognitoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigAuthProviderCognitoConfigPtrInput)(nil)).Elem(), ApiEventConfigAuthProviderCognitoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigAuthProviderLambdaAuthorizerConfigInput)(nil)).Elem(), ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrInput)(nil)).Elem(), ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigAuthProviderOpenidConnectConfigInput)(nil)).Elem(), ApiEventConfigAuthProviderOpenidConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigAuthProviderOpenidConnectConfigPtrInput)(nil)).Elem(), ApiEventConfigAuthProviderOpenidConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigConnectionAuthModeInput)(nil)).Elem(), ApiEventConfigConnectionAuthModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigConnectionAuthModeArrayInput)(nil)).Elem(), ApiEventConfigConnectionAuthModeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigDefaultPublishAuthModeInput)(nil)).Elem(), ApiEventConfigDefaultPublishAuthModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigDefaultPublishAuthModeArrayInput)(nil)).Elem(), ApiEventConfigDefaultPublishAuthModeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigDefaultSubscribeAuthModeInput)(nil)).Elem(), ApiEventConfigDefaultSubscribeAuthModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigDefaultSubscribeAuthModeArrayInput)(nil)).Elem(), ApiEventConfigDefaultSubscribeAuthModeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigLogConfigInput)(nil)).Elem(), ApiEventConfigLogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigLogConfigPtrInput)(nil)).Elem(), ApiEventConfigLogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsPtrInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnPublishArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishPtrInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnPublishArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishIntegrationInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribeInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnSubscribeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribePtrInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnSubscribeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribeIntegrationInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespacePublishAuthModeInput)(nil)).Elem(), ChannelNamespacePublishAuthModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespacePublishAuthModeArrayInput)(nil)).Elem(), ChannelNamespacePublishAuthModeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceSubscribeAuthModeInput)(nil)).Elem(), ChannelNamespaceSubscribeAuthModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceSubscribeAuthModeArrayInput)(nil)).Elem(), ChannelNamespaceSubscribeAuthModeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDynamodbConfigInput)(nil)).Elem(), DataSourceDynamodbConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDynamodbConfigPtrInput)(nil)).Elem(), DataSourceDynamodbConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDynamodbConfigDeltaSyncConfigInput)(nil)).Elem(), DataSourceDynamodbConfigDeltaSyncConfigArgs{})
@@ -4987,6 +7615,42 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationSourceApiAssociationConfigArrayInput)(nil)).Elem(), SourceApiAssociationSourceApiAssociationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationTimeoutsInput)(nil)).Elem(), SourceApiAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationTimeoutsPtrInput)(nil)).Elem(), SourceApiAssociationTimeoutsArgs{})
+	pulumi.RegisterOutputType(ApiEventConfigOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigAuthProviderOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigAuthProviderArrayOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigAuthProviderCognitoConfigOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigAuthProviderCognitoConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigAuthProviderOpenidConnectConfigOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigConnectionAuthModeOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigConnectionAuthModeArrayOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigDefaultPublishAuthModeOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigDefaultPublishAuthModeArrayOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigDefaultSubscribeAuthModeOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigDefaultSubscribeAuthModeArrayOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigLogConfigOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigLogConfigPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnPublishOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnPublishPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnSubscribeOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnSubscribePtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespacePublishAuthModeOutput{})
+	pulumi.RegisterOutputType(ChannelNamespacePublishAuthModeArrayOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceSubscribeAuthModeOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceSubscribeAuthModeArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceDynamodbConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceDynamodbConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDynamodbConfigDeltaSyncConfigOutput{})

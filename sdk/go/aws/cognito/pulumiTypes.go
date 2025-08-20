@@ -1590,7 +1590,7 @@ type RiskConfigurationAccountTakeoverRiskConfiguration struct {
 	// Account takeover risk configuration actions. See details below.
 	Actions RiskConfigurationAccountTakeoverRiskConfigurationActions `pulumi:"actions"`
 	// The notify configuration used to construct email notifications. See details below.
-	NotifyConfiguration RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration `pulumi:"notifyConfiguration"`
+	NotifyConfiguration *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration `pulumi:"notifyConfiguration"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationArgs and RiskConfigurationAccountTakeoverRiskConfigurationOutput values.
@@ -1608,7 +1608,7 @@ type RiskConfigurationAccountTakeoverRiskConfigurationArgs struct {
 	// Account takeover risk configuration actions. See details below.
 	Actions RiskConfigurationAccountTakeoverRiskConfigurationActionsInput `pulumi:"actions"`
 	// The notify configuration used to construct email notifications. See details below.
-	NotifyConfiguration RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationInput `pulumi:"notifyConfiguration"`
+	NotifyConfiguration RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrInput `pulumi:"notifyConfiguration"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationArgs) ElementType() reflect.Type {
@@ -1696,10 +1696,10 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) Actions() RiskC
 }
 
 // The notify configuration used to construct email notifications. See details below.
-func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) NotifyConfiguration() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput {
-	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfiguration) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration {
+func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) NotifyConfiguration() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration {
 		return v.NotifyConfiguration
-	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput)
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput)
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1742,7 +1742,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput) NotifyConfig
 		if v == nil {
 			return nil
 		}
-		return &v.NotifyConfiguration
+		return v.NotifyConfiguration
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput)
 }
 

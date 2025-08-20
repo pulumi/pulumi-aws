@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
- * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
+ * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Data Firehose
  *
  * ## Example Usage
  *
@@ -94,6 +94,115 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Cross-Account Amazon Data Firehose Logging
+ *
+ * The following example shows how to set up a flow log in one AWS account (source) that sends logs to an Amazon Data Firehose delivery stream in another AWS account (destination).
+ * See the [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-firehose.html).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // For source account
+ * const src = new aws.ec2.Vpc("src", {});
+ * const srcAssumeRolePolicy = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["delivery.logs.amazonaws.com"],
+ *         }],
+ *     }],
+ * });
+ * const srcRole = new aws.iam.Role("src", {
+ *     name: "tf-example-mySourceRole",
+ *     assumeRolePolicy: srcAssumeRolePolicy.then(srcAssumeRolePolicy => srcAssumeRolePolicy.json),
+ * });
+ * // For destination account
+ * const dstAssumeRolePolicy = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: [srcRole.arn],
+ *         }],
+ *     }],
+ * });
+ * const dst = new aws.iam.Role("dst", {
+ *     name: "AWSLogDeliveryFirehoseCrossAccountRole",
+ *     assumeRolePolicy: dstAssumeRolePolicy.apply(dstAssumeRolePolicy => dstAssumeRolePolicy.json),
+ * });
+ * const srcRolePolicy = aws.iam.getPolicyDocumentOutput({
+ *     statements: [
+ *         {
+ *             effect: "Allow",
+ *             actions: ["iam:PassRole"],
+ *             resources: [srcRole.arn],
+ *             conditions: [
+ *                 {
+ *                     test: "StringEquals",
+ *                     variable: "iam:PassedToService",
+ *                     values: ["delivery.logs.amazonaws.com"],
+ *                 },
+ *                 {
+ *                     test: "StringLike",
+ *                     variable: "iam:AssociatedResourceARN",
+ *                     values: [src.arn],
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             actions: [
+ *                 "logs:CreateLogDelivery",
+ *                 "logs:DeleteLogDelivery",
+ *                 "logs:ListLogDeliveries",
+ *                 "logs:GetLogDelivery",
+ *             ],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             actions: ["sts:AssumeRole"],
+ *             resources: [dst.arn],
+ *         },
+ *     ],
+ * });
+ * const srcPolicy = new aws.iam.RolePolicy("src_policy", {
+ *     name: "tf-example-mySourceRolePolicy",
+ *     role: srcRole.name,
+ *     policy: srcRolePolicy.apply(srcRolePolicy => srcRolePolicy.json),
+ * });
+ * const dstFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("dst", {tags: {
+ *     LogDeliveryEnabled: "true",
+ * }});
+ * const srcFlowLog = new aws.ec2.FlowLog("src", {
+ *     logDestinationType: "kinesis-data-firehose",
+ *     logDestination: dstFirehoseDeliveryStream.arn,
+ *     trafficType: "ALL",
+ *     vpcId: src.id,
+ *     iamRoleArn: srcRole.arn,
+ *     deliverCrossAccountRole: dst.arn,
+ * });
+ * const dstRolePolicy = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: [
+ *             "iam:CreateServiceLinkedRole",
+ *             "firehose:TagDeliveryStream",
+ *         ],
+ *         resources: ["*"],
+ *     }],
+ * });
+ * const dstRolePolicy2 = new aws.iam.RolePolicy("dst", {
+ *     name: "AWSLogDeliveryFirehoseCrossAccountRolePolicy",
+ *     role: dst.name,
+ *     policy: dstRolePolicy.then(dstRolePolicy => dstRolePolicy.json),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Flow Logs using the `id`. For example:
@@ -135,7 +244,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
      */
     public readonly deliverCrossAccountRole!: pulumi.Output<string | undefined>;
     /**
@@ -147,7 +256,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly eniId!: pulumi.Output<string | undefined>;
     /**
-     * ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+     * ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
      */
     public readonly iamRoleArn!: pulumi.Output<string | undefined>;
     /**
@@ -267,7 +376,7 @@ export interface FlowLogState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
      */
     deliverCrossAccountRole?: pulumi.Input<string>;
     /**
@@ -279,7 +388,7 @@ export interface FlowLogState {
      */
     eniId?: pulumi.Input<string>;
     /**
-     * ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+     * ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
      */
     iamRoleArn?: pulumi.Input<string>;
     /**
@@ -341,7 +450,7 @@ export interface FlowLogState {
  */
 export interface FlowLogArgs {
     /**
-     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
      */
     deliverCrossAccountRole?: pulumi.Input<string>;
     /**
@@ -353,7 +462,7 @@ export interface FlowLogArgs {
      */
     eniId?: pulumi.Input<string>;
     /**
-     * ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+     * ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
      */
     iamRoleArn?: pulumi.Input<string>;
     /**

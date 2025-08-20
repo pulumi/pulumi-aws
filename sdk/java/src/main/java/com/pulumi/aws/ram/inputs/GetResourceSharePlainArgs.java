@@ -19,14 +19,14 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
     public static final GetResourceSharePlainArgs Empty = new GetResourceSharePlainArgs();
 
     /**
-     * Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetResourceShareFilter> filters;
 
     /**
-     * @return Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * @return Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      * 
      */
     public Optional<List<GetResourceShareFilter>> filters() {
@@ -138,7 +138,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 

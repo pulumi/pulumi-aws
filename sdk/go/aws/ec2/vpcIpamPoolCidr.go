@@ -146,7 +146,7 @@ type VpcIpamPoolCidr struct {
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
-	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
+	NetmaskLength pulumi.IntOutput `pulumi:"netmaskLength"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
@@ -354,8 +354,8 @@ func (o VpcIpamPoolCidrOutput) IpamPoolId() pulumi.StringOutput {
 }
 
 // If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
-func (o VpcIpamPoolCidrOutput) NetmaskLength() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
+func (o VpcIpamPoolCidrOutput) NetmaskLength() pulumi.IntOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.IntOutput { return v.NetmaskLength }).(pulumi.IntOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

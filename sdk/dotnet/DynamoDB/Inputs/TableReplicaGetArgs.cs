@@ -25,6 +25,12 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<string>? ConsistencyMode { get; set; }
 
         /// <summary>
+        /// Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
+        /// </summary>
+        [Input("deletionProtectionEnabled")]
+        public Input<bool>? DeletionProtectionEnabled { get; set; }
+
+        /// <summary>
         /// ARN of the CMK that should be used for the AWS KMS encryption.
         /// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
         /// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.

@@ -353,6 +353,26 @@ class Webhook(pulumi.CustomResource):
             }])
         ```
 
+        ### For CodeBuild Runner Project
+
+        To create a CodeBuild project as a Runner Project, the following `codebuild.Webhook` resource is required for the project.
+        See thr [AWS Documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/action-runner.html) for more information about CodeBuild Runner Projects.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codebuild.Webhook("example",
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD",
+            filter_groups=[{
+                "filters": [{
+                    "type": "EVENT",
+                    "pattern": "WORKFLOW_JOB_QUEUED",
+                }],
+            }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
@@ -408,6 +428,26 @@ class Webhook(pulumi.CustomResource):
                         "pattern": "master",
                     },
                 ],
+            }])
+        ```
+
+        ### For CodeBuild Runner Project
+
+        To create a CodeBuild project as a Runner Project, the following `codebuild.Webhook` resource is required for the project.
+        See thr [AWS Documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/action-runner.html) for more information about CodeBuild Runner Projects.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codebuild.Webhook("example",
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD",
+            filter_groups=[{
+                "filters": [{
+                    "type": "EVENT",
+                    "pattern": "WORKFLOW_JOB_QUEUED",
+                }],
             }])
         ```
 

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const example = new aws.finspace.KxVolume("example", {
  *     name: "my-tf-kx-volume",
  *     environmentId: exampleAwsFinspaceKxEnvironment.id,
- *     availabilityZones: "use1-az2",
+ *     availabilityZones: ["use1-az2"],
  *     azMode: "SINGLE",
  *     type: "NAS_1",
  *     nas1Configurations: [{

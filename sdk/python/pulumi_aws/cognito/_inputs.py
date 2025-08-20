@@ -872,7 +872,7 @@ if not MYPY:
         """
         Account takeover risk configuration actions. See details below.
         """
-        notify_configuration: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDict']
+        notify_configuration: NotRequired[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDict']]
         """
         The notify configuration used to construct email notifications. See details below.
         """
@@ -883,13 +883,14 @@ elif False:
 class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'],
-                 notify_configuration: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']):
+                 notify_configuration: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']] = None):
         """
         :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'] actions: Account takeover risk configuration actions. See details below.
         :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs'] notify_configuration: The notify configuration used to construct email notifications. See details below.
         """
         pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "notify_configuration", notify_configuration)
+        if notify_configuration is not None:
+            pulumi.set(__self__, "notify_configuration", notify_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -905,14 +906,14 @@ class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="notifyConfiguration")
-    def notify_configuration(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']:
+    def notify_configuration(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']]:
         """
         The notify configuration used to construct email notifications. See details below.
         """
         return pulumi.get(self, "notify_configuration")
 
     @notify_configuration.setter
-    def notify_configuration(self, value: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']):
+    def notify_configuration(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']]):
         pulumi.set(self, "notify_configuration", value)
 
 

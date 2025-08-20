@@ -16,6 +16,24 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ApiEventConfig',
+    'ApiEventConfigAuthProvider',
+    'ApiEventConfigAuthProviderCognitoConfig',
+    'ApiEventConfigAuthProviderLambdaAuthorizerConfig',
+    'ApiEventConfigAuthProviderOpenidConnectConfig',
+    'ApiEventConfigConnectionAuthMode',
+    'ApiEventConfigDefaultPublishAuthMode',
+    'ApiEventConfigDefaultSubscribeAuthMode',
+    'ApiEventConfigLogConfig',
+    'ChannelNamespaceHandlerConfigs',
+    'ChannelNamespaceHandlerConfigsOnPublish',
+    'ChannelNamespaceHandlerConfigsOnPublishIntegration',
+    'ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig',
+    'ChannelNamespaceHandlerConfigsOnSubscribe',
+    'ChannelNamespaceHandlerConfigsOnSubscribeIntegration',
+    'ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig',
+    'ChannelNamespacePublishAuthMode',
+    'ChannelNamespaceSubscribeAuthMode',
     'DataSourceDynamodbConfig',
     'DataSourceDynamodbConfigDeltaSyncConfig',
     'DataSourceElasticsearchConfig',
@@ -47,6 +65,878 @@ __all__ = [
     'SourceApiAssociationSourceApiAssociationConfig',
     'SourceApiAssociationTimeouts',
 ]
+
+@pulumi.output_type
+class ApiEventConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authProviders":
+            suggest = "auth_providers"
+        elif key == "connectionAuthModes":
+            suggest = "connection_auth_modes"
+        elif key == "defaultPublishAuthModes":
+            suggest = "default_publish_auth_modes"
+        elif key == "defaultSubscribeAuthModes":
+            suggest = "default_subscribe_auth_modes"
+        elif key == "logConfig":
+            suggest = "log_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_providers: Optional[Sequence['outputs.ApiEventConfigAuthProvider']] = None,
+                 connection_auth_modes: Optional[Sequence['outputs.ApiEventConfigConnectionAuthMode']] = None,
+                 default_publish_auth_modes: Optional[Sequence['outputs.ApiEventConfigDefaultPublishAuthMode']] = None,
+                 default_subscribe_auth_modes: Optional[Sequence['outputs.ApiEventConfigDefaultSubscribeAuthMode']] = None,
+                 log_config: Optional['outputs.ApiEventConfigLogConfig'] = None):
+        """
+        :param Sequence['ApiEventConfigAuthProviderArgs'] auth_providers: List of authentication providers. See Auth Providers below.
+        :param Sequence['ApiEventConfigConnectionAuthModeArgs'] connection_auth_modes: List of authentication modes for connections. See Auth Modes below.
+        :param Sequence['ApiEventConfigDefaultPublishAuthModeArgs'] default_publish_auth_modes: List of default authentication modes for publishing. See Auth Modes below.
+        :param Sequence['ApiEventConfigDefaultSubscribeAuthModeArgs'] default_subscribe_auth_modes: List of default authentication modes for subscribing. See Auth Modes below.
+        :param 'ApiEventConfigLogConfigArgs' log_config: Logging configuration. See Log Config below.
+        """
+        if auth_providers is not None:
+            pulumi.set(__self__, "auth_providers", auth_providers)
+        if connection_auth_modes is not None:
+            pulumi.set(__self__, "connection_auth_modes", connection_auth_modes)
+        if default_publish_auth_modes is not None:
+            pulumi.set(__self__, "default_publish_auth_modes", default_publish_auth_modes)
+        if default_subscribe_auth_modes is not None:
+            pulumi.set(__self__, "default_subscribe_auth_modes", default_subscribe_auth_modes)
+        if log_config is not None:
+            pulumi.set(__self__, "log_config", log_config)
+
+    @_builtins.property
+    @pulumi.getter(name="authProviders")
+    def auth_providers(self) -> Optional[Sequence['outputs.ApiEventConfigAuthProvider']]:
+        """
+        List of authentication providers. See Auth Providers below.
+        """
+        return pulumi.get(self, "auth_providers")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionAuthModes")
+    def connection_auth_modes(self) -> Optional[Sequence['outputs.ApiEventConfigConnectionAuthMode']]:
+        """
+        List of authentication modes for connections. See Auth Modes below.
+        """
+        return pulumi.get(self, "connection_auth_modes")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPublishAuthModes")
+    def default_publish_auth_modes(self) -> Optional[Sequence['outputs.ApiEventConfigDefaultPublishAuthMode']]:
+        """
+        List of default authentication modes for publishing. See Auth Modes below.
+        """
+        return pulumi.get(self, "default_publish_auth_modes")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultSubscribeAuthModes")
+    def default_subscribe_auth_modes(self) -> Optional[Sequence['outputs.ApiEventConfigDefaultSubscribeAuthMode']]:
+        """
+        List of default authentication modes for subscribing. See Auth Modes below.
+        """
+        return pulumi.get(self, "default_subscribe_auth_modes")
+
+    @_builtins.property
+    @pulumi.getter(name="logConfig")
+    def log_config(self) -> Optional['outputs.ApiEventConfigLogConfig']:
+        """
+        Logging configuration. See Log Config below.
+        """
+        return pulumi.get(self, "log_config")
+
+
+@pulumi.output_type
+class ApiEventConfigAuthProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "cognitoConfig":
+            suggest = "cognito_config"
+        elif key == "lambdaAuthorizerConfig":
+            suggest = "lambda_authorizer_config"
+        elif key == "openidConnectConfig":
+            suggest = "openid_connect_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfigAuthProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfigAuthProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfigAuthProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: _builtins.str,
+                 cognito_config: Optional['outputs.ApiEventConfigAuthProviderCognitoConfig'] = None,
+                 lambda_authorizer_config: Optional['outputs.ApiEventConfigAuthProviderLambdaAuthorizerConfig'] = None,
+                 openid_connect_config: Optional['outputs.ApiEventConfigAuthProviderOpenidConnectConfig'] = None):
+        """
+        :param _builtins.str auth_type: Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+        :param 'ApiEventConfigAuthProviderCognitoConfigArgs' cognito_config: Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+        :param 'ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs' lambda_authorizer_config: Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+        :param 'ApiEventConfigAuthProviderOpenidConnectConfigArgs' openid_connect_config: Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        if cognito_config is not None:
+            pulumi.set(__self__, "cognito_config", cognito_config)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+        if openid_connect_config is not None:
+            pulumi.set(__self__, "openid_connect_config", openid_connect_config)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> _builtins.str:
+        """
+        Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @_builtins.property
+    @pulumi.getter(name="cognitoConfig")
+    def cognito_config(self) -> Optional['outputs.ApiEventConfigAuthProviderCognitoConfig']:
+        """
+        Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+        """
+        return pulumi.get(self, "cognito_config")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional['outputs.ApiEventConfigAuthProviderLambdaAuthorizerConfig']:
+        """
+        Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+        """
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @_builtins.property
+    @pulumi.getter(name="openidConnectConfig")
+    def openid_connect_config(self) -> Optional['outputs.ApiEventConfigAuthProviderOpenidConnectConfig']:
+        """
+        Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+        """
+        return pulumi.get(self, "openid_connect_config")
+
+
+@pulumi.output_type
+class ApiEventConfigAuthProviderCognitoConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "userPoolId":
+            suggest = "user_pool_id"
+        elif key == "appIdClientRegex":
+            suggest = "app_id_client_regex"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfigAuthProviderCognitoConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfigAuthProviderCognitoConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfigAuthProviderCognitoConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: _builtins.str,
+                 user_pool_id: _builtins.str,
+                 app_id_client_regex: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str aws_region: AWS region where the user pool is located.
+        :param _builtins.str user_pool_id: ID of the Cognito user pool.
+        :param _builtins.str app_id_client_regex: Regular expression for matching the client ID.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        if app_id_client_regex is not None:
+            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+
+    @_builtins.property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> _builtins.str:
+        """
+        AWS region where the user pool is located.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @_builtins.property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> _builtins.str:
+        """
+        ID of the Cognito user pool.
+        """
+        return pulumi.get(self, "user_pool_id")
+
+    @_builtins.property
+    @pulumi.getter(name="appIdClientRegex")
+    def app_id_client_regex(self) -> Optional[_builtins.str]:
+        """
+        Regular expression for matching the client ID.
+        """
+        return pulumi.get(self, "app_id_client_regex")
+
+
+@pulumi.output_type
+class ApiEventConfigAuthProviderLambdaAuthorizerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizerUri":
+            suggest = "authorizer_uri"
+        elif key == "authorizerResultTtlInSeconds":
+            suggest = "authorizer_result_ttl_in_seconds"
+        elif key == "identityValidationExpression":
+            suggest = "identity_validation_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfigAuthProviderLambdaAuthorizerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfigAuthProviderLambdaAuthorizerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfigAuthProviderLambdaAuthorizerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorizer_uri: _builtins.str,
+                 authorizer_result_ttl_in_seconds: Optional[_builtins.int] = None,
+                 identity_validation_expression: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str authorizer_uri: URI of the Lambda function for authorization.
+        :param _builtins.int authorizer_result_ttl_in_seconds: TTL in seconds for the authorization result cache.
+        :param _builtins.str identity_validation_expression: Regular expression for identity validation.
+        """
+        pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+        if authorizer_result_ttl_in_seconds is not None:
+            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+        if identity_validation_expression is not None:
+            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizerUri")
+    def authorizer_uri(self) -> _builtins.str:
+        """
+        URI of the Lambda function for authorization.
+        """
+        return pulumi.get(self, "authorizer_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizerResultTtlInSeconds")
+    def authorizer_result_ttl_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        TTL in seconds for the authorization result cache.
+        """
+        return pulumi.get(self, "authorizer_result_ttl_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="identityValidationExpression")
+    def identity_validation_expression(self) -> Optional[_builtins.str]:
+        """
+        Regular expression for identity validation.
+        """
+        return pulumi.get(self, "identity_validation_expression")
+
+
+@pulumi.output_type
+class ApiEventConfigAuthProviderOpenidConnectConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTtl":
+            suggest = "auth_ttl"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "iatTtl":
+            suggest = "iat_ttl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfigAuthProviderOpenidConnectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfigAuthProviderOpenidConnectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfigAuthProviderOpenidConnectConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 auth_ttl: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 iat_ttl: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str issuer: Issuer URL for the OpenID Connect provider.
+        :param _builtins.int auth_ttl: TTL in seconds for the authentication token.
+        :param _builtins.str client_id: Client ID for the OpenID Connect provider.
+        :param _builtins.int iat_ttl: TTL in seconds for the issued at time.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        if auth_ttl is not None:
+            pulumi.set(__self__, "auth_ttl", auth_ttl)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if iat_ttl is not None:
+            pulumi.set(__self__, "iat_ttl", iat_ttl)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        Issuer URL for the OpenID Connect provider.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="authTtl")
+    def auth_ttl(self) -> Optional[_builtins.int]:
+        """
+        TTL in seconds for the authentication token.
+        """
+        return pulumi.get(self, "auth_ttl")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        Client ID for the OpenID Connect provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="iatTtl")
+    def iat_ttl(self) -> Optional[_builtins.int]:
+        """
+        TTL in seconds for the issued at time.
+        """
+        return pulumi.get(self, "iat_ttl")
+
+
+@pulumi.output_type
+class ApiEventConfigConnectionAuthMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfigConnectionAuthMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfigConnectionAuthMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfigConnectionAuthMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: _builtins.str):
+        """
+        :param _builtins.str auth_type: Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> _builtins.str:
+        """
+        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        return pulumi.get(self, "auth_type")
+
+
+@pulumi.output_type
+class ApiEventConfigDefaultPublishAuthMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfigDefaultPublishAuthMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfigDefaultPublishAuthMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfigDefaultPublishAuthMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: _builtins.str):
+        """
+        :param _builtins.str auth_type: Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> _builtins.str:
+        """
+        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        return pulumi.get(self, "auth_type")
+
+
+@pulumi.output_type
+class ApiEventConfigDefaultSubscribeAuthMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfigDefaultSubscribeAuthMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfigDefaultSubscribeAuthMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfigDefaultSubscribeAuthMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: _builtins.str):
+        """
+        :param _builtins.str auth_type: Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> _builtins.str:
+        """
+        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        return pulumi.get(self, "auth_type")
+
+
+@pulumi.output_type
+class ApiEventConfigLogConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogsRoleArn":
+            suggest = "cloudwatch_logs_role_arn"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfigLogConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfigLogConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfigLogConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_logs_role_arn: _builtins.str,
+                 log_level: _builtins.str):
+        """
+        :param _builtins.str cloudwatch_logs_role_arn: ARN of the IAM role for CloudWatch logs.
+        :param _builtins.str log_level: Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
+        """
+        pulumi.set(__self__, "cloudwatch_logs_role_arn", cloudwatch_logs_role_arn)
+        pulumi.set(__self__, "log_level", log_level)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogsRoleArn")
+    def cloudwatch_logs_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role for CloudWatch logs.
+        """
+        return pulumi.get(self, "cloudwatch_logs_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> _builtins.str:
+        """
+        Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
+        """
+        return pulumi.get(self, "log_level")
+
+
+@pulumi.output_type
+class ChannelNamespaceHandlerConfigs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onPublish":
+            suggest = "on_publish"
+        elif key == "onSubscribe":
+            suggest = "on_subscribe"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceHandlerConfigs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceHandlerConfigs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceHandlerConfigs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_publish: Optional['outputs.ChannelNamespaceHandlerConfigsOnPublish'] = None,
+                 on_subscribe: Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribe'] = None):
+        """
+        :param 'ChannelNamespaceHandlerConfigsOnPublishArgs' on_publish: Handler configuration. See Handler Config below.
+        :param 'ChannelNamespaceHandlerConfigsOnSubscribeArgs' on_subscribe: Handler configuration. See Handler Config below.
+        """
+        if on_publish is not None:
+            pulumi.set(__self__, "on_publish", on_publish)
+        if on_subscribe is not None:
+            pulumi.set(__self__, "on_subscribe", on_subscribe)
+
+    @_builtins.property
+    @pulumi.getter(name="onPublish")
+    def on_publish(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnPublish']:
+        """
+        Handler configuration. See Handler Config below.
+        """
+        return pulumi.get(self, "on_publish")
+
+    @_builtins.property
+    @pulumi.getter(name="onSubscribe")
+    def on_subscribe(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribe']:
+        """
+        Handler configuration. See Handler Config below.
+        """
+        return pulumi.get(self, "on_subscribe")
+
+
+@pulumi.output_type
+class ChannelNamespaceHandlerConfigsOnPublish(dict):
+    def __init__(__self__, *,
+                 behavior: _builtins.str,
+                 integration: Optional['outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration'] = None):
+        """
+        :param _builtins.str behavior: Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+        :param 'ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs' integration: Integration data source configuration for the handler. See Integration below.
+        """
+        pulumi.set(__self__, "behavior", behavior)
+        if integration is not None:
+            pulumi.set(__self__, "integration", integration)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> _builtins.str:
+        """
+        Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+        """
+        return pulumi.get(self, "behavior")
+
+    @_builtins.property
+    @pulumi.getter
+    def integration(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration']:
+        """
+        Integration data source configuration for the handler. See Integration below.
+        """
+        return pulumi.get(self, "integration")
+
+
+@pulumi.output_type
+class ChannelNamespaceHandlerConfigsOnPublishIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceName":
+            suggest = "data_source_name"
+        elif key == "lambdaConfig":
+            suggest = "lambda_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceHandlerConfigsOnPublishIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceHandlerConfigsOnPublishIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceHandlerConfigsOnPublishIntegration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_name: _builtins.str,
+                 lambda_config: Optional['outputs.ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig'] = None):
+        """
+        :param _builtins.str data_source_name: Unique name of the data source that has been configured on the API.
+        :param 'ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs' lambda_config: Configuration for a Lambda data source. See Lambda Config below.
+        """
+        pulumi.set(__self__, "data_source_name", data_source_name)
+        if lambda_config is not None:
+            pulumi.set(__self__, "lambda_config", lambda_config)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceName")
+    def data_source_name(self) -> _builtins.str:
+        """
+        Unique name of the data source that has been configured on the API.
+        """
+        return pulumi.get(self, "data_source_name")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaConfig")
+    def lambda_config(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig']:
+        """
+        Configuration for a Lambda data source. See Lambda Config below.
+        """
+        return pulumi.get(self, "lambda_config")
+
+
+@pulumi.output_type
+class ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invokeType":
+            suggest = "invoke_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 invoke_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str invoke_type: Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+        """
+        if invoke_type is not None:
+            pulumi.set(__self__, "invoke_type", invoke_type)
+
+    @_builtins.property
+    @pulumi.getter(name="invokeType")
+    def invoke_type(self) -> Optional[_builtins.str]:
+        """
+        Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+        """
+        return pulumi.get(self, "invoke_type")
+
+
+@pulumi.output_type
+class ChannelNamespaceHandlerConfigsOnSubscribe(dict):
+    def __init__(__self__, *,
+                 behavior: _builtins.str,
+                 integration: Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegration'] = None):
+        """
+        :param _builtins.str behavior: Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+        :param 'ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs' integration: Integration data source configuration for the handler. See Integration below.
+        """
+        pulumi.set(__self__, "behavior", behavior)
+        if integration is not None:
+            pulumi.set(__self__, "integration", integration)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> _builtins.str:
+        """
+        Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+        """
+        return pulumi.get(self, "behavior")
+
+    @_builtins.property
+    @pulumi.getter
+    def integration(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegration']:
+        """
+        Integration data source configuration for the handler. See Integration below.
+        """
+        return pulumi.get(self, "integration")
+
+
+@pulumi.output_type
+class ChannelNamespaceHandlerConfigsOnSubscribeIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceName":
+            suggest = "data_source_name"
+        elif key == "lambdaConfig":
+            suggest = "lambda_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceHandlerConfigsOnSubscribeIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceHandlerConfigsOnSubscribeIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceHandlerConfigsOnSubscribeIntegration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_name: _builtins.str,
+                 lambda_config: Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig'] = None):
+        """
+        :param _builtins.str data_source_name: Unique name of the data source that has been configured on the API.
+        :param 'ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs' lambda_config: Configuration for a Lambda data source. See Lambda Config below.
+        """
+        pulumi.set(__self__, "data_source_name", data_source_name)
+        if lambda_config is not None:
+            pulumi.set(__self__, "lambda_config", lambda_config)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceName")
+    def data_source_name(self) -> _builtins.str:
+        """
+        Unique name of the data source that has been configured on the API.
+        """
+        return pulumi.get(self, "data_source_name")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaConfig")
+    def lambda_config(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig']:
+        """
+        Configuration for a Lambda data source. See Lambda Config below.
+        """
+        return pulumi.get(self, "lambda_config")
+
+
+@pulumi.output_type
+class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invokeType":
+            suggest = "invoke_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 invoke_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str invoke_type: Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+        """
+        if invoke_type is not None:
+            pulumi.set(__self__, "invoke_type", invoke_type)
+
+    @_builtins.property
+    @pulumi.getter(name="invokeType")
+    def invoke_type(self) -> Optional[_builtins.str]:
+        """
+        Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+        """
+        return pulumi.get(self, "invoke_type")
+
+
+@pulumi.output_type
+class ChannelNamespacePublishAuthMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespacePublishAuthMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespacePublishAuthMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespacePublishAuthMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: _builtins.str):
+        """
+        :param _builtins.str auth_type: Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> _builtins.str:
+        """
+        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        return pulumi.get(self, "auth_type")
+
+
+@pulumi.output_type
+class ChannelNamespaceSubscribeAuthMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceSubscribeAuthMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceSubscribeAuthMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceSubscribeAuthMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: _builtins.str):
+        """
+        :param _builtins.str auth_type: Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> _builtins.str:
+        """
+        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+        """
+        return pulumi.get(self, "auth_type")
+
 
 @pulumi.output_type
 class DataSourceDynamodbConfig(dict):

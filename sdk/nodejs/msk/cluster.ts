@@ -240,11 +240,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly bootstrapBrokersVpcConnectivityTls!: pulumi.Output<string>;
     /**
-     * Configuration block for the broker nodes of the Kafka cluster.
+     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
      */
     public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
-     * Configuration block for specifying a client authentication. See below.
+     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
      */
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
     /**
@@ -256,7 +256,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterUuid!: pulumi.Output<string>;
     /**
-     * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
      */
     public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
     /**
@@ -264,7 +264,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly currentVersion!: pulumi.Output<string>;
     /**
-     * Configuration block for specifying encryption. See below.
+     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      */
     public readonly encryptionInfo!: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
     /**
@@ -276,7 +276,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kafkaVersion!: pulumi.Output<string>;
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
      */
     public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
     /**
@@ -284,7 +284,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly numberOfBrokerNodes!: pulumi.Output<number>;
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
      */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
@@ -449,11 +449,11 @@ export interface ClusterState {
      */
     bootstrapBrokersVpcConnectivityTls?: pulumi.Input<string>;
     /**
-     * Configuration block for the broker nodes of the Kafka cluster.
+     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
      */
     brokerNodeGroupInfo?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
-     * Configuration block for specifying a client authentication. See below.
+     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
      */
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
     /**
@@ -465,7 +465,7 @@ export interface ClusterState {
      */
     clusterUuid?: pulumi.Input<string>;
     /**
-     * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
      */
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
     /**
@@ -473,7 +473,7 @@ export interface ClusterState {
      */
     currentVersion?: pulumi.Input<string>;
     /**
-     * Configuration block for specifying encryption. See below.
+     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      */
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
     /**
@@ -485,7 +485,7 @@ export interface ClusterState {
      */
     kafkaVersion?: pulumi.Input<string>;
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
      */
     loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
     /**
@@ -493,7 +493,7 @@ export interface ClusterState {
      */
     numberOfBrokerNodes?: pulumi.Input<number>;
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
@@ -527,11 +527,11 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * Configuration block for the broker nodes of the Kafka cluster.
+     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
      */
     brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
-     * Configuration block for specifying a client authentication. See below.
+     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
      */
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
     /**
@@ -539,11 +539,11 @@ export interface ClusterArgs {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
      */
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
     /**
-     * Configuration block for specifying encryption. See below.
+     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      */
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
     /**
@@ -555,7 +555,7 @@ export interface ClusterArgs {
      */
     kafkaVersion: pulumi.Input<string>;
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
      */
     loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
     /**
@@ -563,7 +563,7 @@ export interface ClusterArgs {
      */
     numberOfBrokerNodes: pulumi.Input<number>;
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**

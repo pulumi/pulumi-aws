@@ -1820,6 +1820,8 @@ type TableReplicaType struct {
 	Arn *string `pulumi:"arn"`
 	// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
 	ConsistencyMode *string `pulumi:"consistencyMode"`
+	// Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
+	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// ARN of the CMK that should be used for the AWS KMS encryption.
 	// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
 	// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -1858,6 +1860,8 @@ type TableReplicaTypeArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
 	ConsistencyMode pulumi.StringPtrInput `pulumi:"consistencyMode"`
+	// Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
+	DeletionProtectionEnabled pulumi.BoolPtrInput `pulumi:"deletionProtectionEnabled"`
 	// ARN of the CMK that should be used for the AWS KMS encryption.
 	// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
 	// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -1939,6 +1943,11 @@ func (o TableReplicaTypeOutput) Arn() pulumi.StringPtrOutput {
 // Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
 func (o TableReplicaTypeOutput) ConsistencyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.ConsistencyMode }).(pulumi.StringPtrOutput)
+}
+
+// Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
+func (o TableReplicaTypeOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableReplicaType) *bool { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the CMK that should be used for the AWS KMS encryption.

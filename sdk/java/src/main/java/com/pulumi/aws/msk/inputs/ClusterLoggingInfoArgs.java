@@ -15,14 +15,14 @@ public final class ClusterLoggingInfoArgs extends com.pulumi.resources.ResourceA
     public static final ClusterLoggingInfoArgs Empty = new ClusterLoggingInfoArgs();
 
     /**
-     * Configuration block for Broker Logs settings for logging info. See below.
+     * Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
      * 
      */
     @Import(name="brokerLogs", required=true)
     private Output<ClusterLoggingInfoBrokerLogsArgs> brokerLogs;
 
     /**
-     * @return Configuration block for Broker Logs settings for logging info. See below.
+     * @return Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
      * 
      */
     public Output<ClusterLoggingInfoBrokerLogsArgs> brokerLogs() {
@@ -54,7 +54,7 @@ public final class ClusterLoggingInfoArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param brokerLogs Configuration block for Broker Logs settings for logging info. See below.
+         * @param brokerLogs Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ClusterLoggingInfoArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param brokerLogs Configuration block for Broker Logs settings for logging info. See below.
+         * @param brokerLogs Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
          * 
          * @return builder
          * 

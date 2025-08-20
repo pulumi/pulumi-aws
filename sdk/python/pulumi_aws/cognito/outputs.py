@@ -770,13 +770,14 @@ class RiskConfigurationAccountTakeoverRiskConfiguration(dict):
 
     def __init__(__self__, *,
                  actions: 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions',
-                 notify_configuration: 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration'):
+                 notify_configuration: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration'] = None):
         """
         :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs' actions: Account takeover risk configuration actions. See details below.
         :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs' notify_configuration: The notify configuration used to construct email notifications. See details below.
         """
         pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "notify_configuration", notify_configuration)
+        if notify_configuration is not None:
+            pulumi.set(__self__, "notify_configuration", notify_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -788,7 +789,7 @@ class RiskConfigurationAccountTakeoverRiskConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="notifyConfiguration")
-    def notify_configuration(self) -> 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration':
+    def notify_configuration(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration']:
         """
         The notify configuration used to construct email notifications. See details below.
         """

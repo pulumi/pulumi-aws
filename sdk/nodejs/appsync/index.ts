@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApiArgs, ApiState } from "./api";
+export type Api = import("./api").Api;
+export const Api: typeof import("./api").Api = null as any;
+utilities.lazyLoad(exports, ["Api"], () => require("./api"));
+
 export { ApiCacheArgs, ApiCacheState } from "./apiCache";
 export type ApiCache = import("./apiCache").ApiCache;
 export const ApiCache: typeof import("./apiCache").ApiCache = null as any;
@@ -14,6 +19,11 @@ export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
 utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+
+export { ChannelNamespaceArgs, ChannelNamespaceState } from "./channelNamespace";
+export type ChannelNamespace = import("./channelNamespace").ChannelNamespace;
+export const ChannelNamespace: typeof import("./channelNamespace").ChannelNamespace = null as any;
+utilities.lazyLoad(exports, ["ChannelNamespace"], () => require("./channelNamespace"));
 
 export { DataSourceArgs, DataSourceState } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
@@ -60,10 +70,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:appsync/api:Api":
+                return new Api(name, <any>undefined, { urn })
             case "aws:appsync/apiCache:ApiCache":
                 return new ApiCache(name, <any>undefined, { urn })
             case "aws:appsync/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
+            case "aws:appsync/channelNamespace:ChannelNamespace":
+                return new ChannelNamespace(name, <any>undefined, { urn })
             case "aws:appsync/dataSource:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
             case "aws:appsync/domainName:DomainName":
@@ -85,8 +99,10 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "appsync/api", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/apiCache", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/apiKey", _module)
+pulumi.runtime.registerResourceModule("aws", "appsync/channelNamespace", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/dataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/domainName", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/domainNameApiAssociation", _module)

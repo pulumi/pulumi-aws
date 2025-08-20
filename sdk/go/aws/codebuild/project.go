@@ -18,6 +18,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -300,6 +302,11 @@ import (
 // })
 // }
 // ```
+//
+// ### Runner Project
+//
+// While no special configuration is required for `codebuild.Project` to create a project as a Runner Project, an `codebuild.Webhook` resource with an appropriate `filterGroup` is required.
+// See the `codebuild.Webhook` resource documentation example for more details.
 //
 // ## Import
 //

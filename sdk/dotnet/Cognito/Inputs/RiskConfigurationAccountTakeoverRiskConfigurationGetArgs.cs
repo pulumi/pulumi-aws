@@ -21,8 +21,8 @@ namespace Pulumi.Aws.Cognito.Inputs
         /// <summary>
         /// The notify configuration used to construct email notifications. See details below.
         /// </summary>
-        [Input("notifyConfiguration", required: true)]
-        public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationGetArgs> NotifyConfiguration { get; set; } = null!;
+        [Input("notifyConfiguration")]
+        public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationGetArgs>? NotifyConfiguration { get; set; }
 
         public RiskConfigurationAccountTakeoverRiskConfigurationGetArgs()
         {

@@ -966,6 +966,8 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1170,6 +1172,11 @@ class Project(pulumi.CustomResource):
                 },
             })
         ```
+
+        ### Runner Project
+
+        While no special configuration is required for `codebuild.Project` to create a project as a Runner Project, an `codebuild.Webhook` resource with an appropriate `filter_group` is required.
+        See the `codebuild.Webhook` resource documentation example for more details.
 
         ## Import
 
@@ -1235,6 +1242,8 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1439,6 +1448,11 @@ class Project(pulumi.CustomResource):
                 },
             })
         ```
+
+        ### Runner Project
+
+        While no special configuration is required for `codebuild.Project` to create a project as a Runner Project, an `codebuild.Webhook` resource with an appropriate `filter_group` is required.
+        See the `codebuild.Webhook` resource documentation example for more details.
 
         ## Import
 

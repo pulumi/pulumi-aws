@@ -74,6 +74,8 @@ type LookupClusterResult struct {
 	ComputeConfigs []GetClusterComputeConfig `pulumi:"computeConfigs"`
 	// Unix epoch time stamp in seconds for when the cluster was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Whether deletion protection for the cluster is enabled.
+	DeletionProtection bool `pulumi:"deletionProtection"`
 	// The enabled control plane logs.
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Endpoint for your Kubernetes API server.
@@ -176,6 +178,11 @@ func (o LookupClusterResultOutput) ComputeConfigs() GetClusterComputeConfigArray
 // Unix epoch time stamp in seconds for when the cluster was created.
 func (o LookupClusterResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Whether deletion protection for the cluster is enabled.
+func (o LookupClusterResultOutput) DeletionProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupClusterResult) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
 }
 
 // The enabled control plane logs.

@@ -108,14 +108,14 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
      * 
      */
     @Import(name="notificationTargetArn")
     private @Nullable Output<String> notificationTargetArn;
 
     /**
-     * @return ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * @return ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
      * 
      */
     public Optional<Output<String>> notificationTargetArn() {
@@ -311,7 +311,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationTargetArn ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+         * @param notificationTargetArn ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationTargetArn ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+         * @param notificationTargetArn ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs();
 
     /**
-     * Configuration block for specifying SASL client authentication. See below.
+     * Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
      * 
      */
     @Import(name="sasl")
     private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs> sasl;
 
     /**
-     * @return Configuration block for specifying SASL client authentication. See below.
+     * @return Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs>> sasl() {
@@ -32,14 +32,14 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
     }
 
     /**
-     * Configuration block for specifying TLS client authentication. See below.
+     * Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<Boolean> tls;
 
     /**
-     * @return Configuration block for specifying TLS client authentication. See below.
+     * @return Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
      * 
      */
     public Optional<Output<Boolean>> tls() {
@@ -72,7 +72,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
         }
 
         /**
-         * @param sasl Configuration block for specifying SASL client authentication. See below.
+         * @param sasl Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
         }
 
         /**
-         * @param sasl Configuration block for specifying SASL client authentication. See below.
+         * @param sasl Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
         }
 
         /**
-         * @param tls Configuration block for specifying TLS client authentication. See below.
+         * @param tls Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
         }
 
         /**
-         * @param tls Configuration block for specifying TLS client authentication. See below.
+         * @param tls Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
          * 
          * @return builder
          * 

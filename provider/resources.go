@@ -5919,6 +5919,8 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_networkfirewall_vpc_endpoint_association":                     computeID("vpcEndpointAssociationArn"),
 		"aws_quicksight_custom_permissions":                                computeID("awsAccountId", "customPermissionsName"),
 		"aws_quicksight_user_custom_permission":                            computeID("awsAccountId", "namespace", "userName"),
+		"aws_appsync_api":                                                  computeID("apiId"),
+		"aws_appsync_channel_namespace":                                    computeID("apiId", "name"),
 	}
 
 	// Apply configurations

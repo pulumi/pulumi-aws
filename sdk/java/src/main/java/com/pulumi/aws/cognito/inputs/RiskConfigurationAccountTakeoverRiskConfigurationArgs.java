@@ -9,6 +9,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -34,15 +36,15 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends
      * The notify configuration used to construct email notifications. See details below.
      * 
      */
-    @Import(name="notifyConfiguration", required=true)
-    private Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs> notifyConfiguration;
+    @Import(name="notifyConfiguration")
+    private @Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs> notifyConfiguration;
 
     /**
      * @return The notify configuration used to construct email notifications. See details below.
      * 
      */
-    public Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs> notifyConfiguration() {
-        return this.notifyConfiguration;
+    public Optional<Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs>> notifyConfiguration() {
+        return Optional.ofNullable(this.notifyConfiguration);
     }
 
     private RiskConfigurationAccountTakeoverRiskConfigurationArgs() {}
@@ -97,7 +99,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends
          * @return builder
          * 
          */
-        public Builder notifyConfiguration(Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs> notifyConfiguration) {
+        public Builder notifyConfiguration(@Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs> notifyConfiguration) {
             $.notifyConfiguration = notifyConfiguration;
             return this;
         }
@@ -115,9 +117,6 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends
         public RiskConfigurationAccountTakeoverRiskConfigurationArgs build() {
             if ($.actions == null) {
                 throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationArgs", "actions");
-            }
-            if ($.notifyConfiguration == null) {
-                throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationArgs", "notifyConfiguration");
             }
             return $;
         }

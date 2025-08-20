@@ -473,6 +473,8 @@ type Cluster struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
 	DefaultAddonsToRemoves pulumi.StringArrayOutput `pulumi:"defaultAddonsToRemoves"`
+	// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+	DeletionProtection pulumi.BoolOutput `pulumi:"deletionProtection"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayOutput `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -569,6 +571,8 @@ type clusterState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
 	DefaultAddonsToRemoves []string `pulumi:"defaultAddonsToRemoves"`
+	// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -630,6 +634,8 @@ type ClusterState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
 	DefaultAddonsToRemoves pulumi.StringArrayInput
+	// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+	DeletionProtection pulumi.BoolPtrInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -687,6 +693,8 @@ type clusterArgs struct {
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
 	DefaultAddonsToRemoves []string `pulumi:"defaultAddonsToRemoves"`
+	// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -731,6 +739,8 @@ type ClusterArgs struct {
 	ComputeConfig ClusterComputeConfigPtrInput
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
 	DefaultAddonsToRemoves pulumi.StringArrayInput
+	// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+	DeletionProtection pulumi.BoolPtrInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -890,6 +900,11 @@ func (o ClusterOutput) CreatedAt() pulumi.StringOutput {
 // Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
 func (o ClusterOutput) DefaultAddonsToRemoves() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.DefaultAddonsToRemoves }).(pulumi.StringArrayOutput)
+}
+
+// Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
+func (o ClusterOutput) DeletionProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.DeletionProtection }).(pulumi.BoolOutput)
 }
 
 // List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).

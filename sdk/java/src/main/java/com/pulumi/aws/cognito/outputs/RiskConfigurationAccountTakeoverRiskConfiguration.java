@@ -8,6 +8,8 @@ import com.pulumi.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfig
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfiguration {
@@ -20,7 +22,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfiguration {
      * @return The notify configuration used to construct email notifications. See details below.
      * 
      */
-    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration;
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration;
 
     private RiskConfigurationAccountTakeoverRiskConfiguration() {}
     /**
@@ -34,8 +36,8 @@ public final class RiskConfigurationAccountTakeoverRiskConfiguration {
      * @return The notify configuration used to construct email notifications. See details below.
      * 
      */
-    public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration() {
-        return this.notifyConfiguration;
+    public Optional<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration> notifyConfiguration() {
+        return Optional.ofNullable(this.notifyConfiguration);
     }
 
     public static Builder builder() {
@@ -48,7 +50,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private RiskConfigurationAccountTakeoverRiskConfigurationActions actions;
-        private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration;
+        private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration;
         public Builder() {}
         public Builder(RiskConfigurationAccountTakeoverRiskConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -65,10 +67,8 @@ public final class RiskConfigurationAccountTakeoverRiskConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder notifyConfiguration(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration) {
-            if (notifyConfiguration == null) {
-              throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfiguration", "notifyConfiguration");
-            }
+        public Builder notifyConfiguration(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration) {
+
             this.notifyConfiguration = notifyConfiguration;
             return this;
         }

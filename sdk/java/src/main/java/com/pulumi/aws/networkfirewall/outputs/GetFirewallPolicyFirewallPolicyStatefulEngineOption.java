@@ -3,17 +3,23 @@
 
 package com.pulumi.aws.networkfirewall.outputs;
 
+import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
+    private List<GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout> flowTimeouts;
     private String ruleOrder;
     private String streamExceptionPolicy;
 
     private GetFirewallPolicyFirewallPolicyStatefulEngineOption() {}
+    public List<GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout> flowTimeouts() {
+        return this.flowTimeouts;
+    }
     public String ruleOrder() {
         return this.ruleOrder;
     }
@@ -30,15 +36,28 @@ public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout> flowTimeouts;
         private String ruleOrder;
         private String streamExceptionPolicy;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatefulEngineOption defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.flowTimeouts = defaults.flowTimeouts;
     	      this.ruleOrder = defaults.ruleOrder;
     	      this.streamExceptionPolicy = defaults.streamExceptionPolicy;
         }
 
+        @CustomType.Setter
+        public Builder flowTimeouts(List<GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout> flowTimeouts) {
+            if (flowTimeouts == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatefulEngineOption", "flowTimeouts");
+            }
+            this.flowTimeouts = flowTimeouts;
+            return this;
+        }
+        public Builder flowTimeouts(GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeout... flowTimeouts) {
+            return flowTimeouts(List.of(flowTimeouts));
+        }
         @CustomType.Setter
         public Builder ruleOrder(String ruleOrder) {
             if (ruleOrder == null) {
@@ -57,6 +76,7 @@ public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
         }
         public GetFirewallPolicyFirewallPolicyStatefulEngineOption build() {
             final var _resultValue = new GetFirewallPolicyFirewallPolicyStatefulEngineOption();
+            _resultValue.flowTimeouts = flowTimeouts;
             _resultValue.ruleOrder = ruleOrder;
             _resultValue.streamExceptionPolicy = streamExceptionPolicy;
             return _resultValue;

@@ -728,6 +728,8 @@ class TableReplica(dict):
             suggest = "region_name"
         elif key == "consistencyMode":
             suggest = "consistency_mode"
+        elif key == "deletionProtectionEnabled":
+            suggest = "deletion_protection_enabled"
         elif key == "kmsKeyArn":
             suggest = "kms_key_arn"
         elif key == "pointInTimeRecovery":
@@ -754,6 +756,7 @@ class TableReplica(dict):
                  region_name: _builtins.str,
                  arn: Optional[_builtins.str] = None,
                  consistency_mode: Optional[_builtins.str] = None,
+                 deletion_protection_enabled: Optional[_builtins.bool] = None,
                  kms_key_arn: Optional[_builtins.str] = None,
                  point_in_time_recovery: Optional[_builtins.bool] = None,
                  propagate_tags: Optional[_builtins.bool] = None,
@@ -763,6 +766,7 @@ class TableReplica(dict):
         :param _builtins.str region_name: Region name of the replica.
         :param _builtins.str arn: ARN of the table
         :param _builtins.str consistency_mode: Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+        :param _builtins.bool deletion_protection_enabled: Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
         :param _builtins.str kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption.
                This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
                **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -782,6 +786,8 @@ class TableReplica(dict):
             pulumi.set(__self__, "arn", arn)
         if consistency_mode is not None:
             pulumi.set(__self__, "consistency_mode", consistency_mode)
+        if deletion_protection_enabled is not None:
+            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
@@ -816,6 +822,14 @@ class TableReplica(dict):
         Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
         """
         return pulumi.get(self, "consistency_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")

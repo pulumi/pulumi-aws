@@ -16,6 +16,7 @@ import com.pulumi.aws.eks.outputs.GetClusterVpcConfig;
 import com.pulumi.aws.eks.outputs.GetClusterZonalShiftConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,11 @@ public final class GetClusterResult {
      * 
      */
     private String createdAt;
+    /**
+     * @return Whether deletion protection for the cluster is enabled.
+     * 
+     */
+    private Boolean deletionProtection;
     /**
      * @return The enabled control plane logs.
      * 
@@ -178,6 +184,13 @@ public final class GetClusterResult {
      */
     public String createdAt() {
         return this.createdAt;
+    }
+    /**
+     * @return Whether deletion protection for the cluster is enabled.
+     * 
+     */
+    public Boolean deletionProtection() {
+        return this.deletionProtection;
     }
     /**
      * @return The enabled control plane logs.
@@ -313,6 +326,7 @@ public final class GetClusterResult {
         private String clusterId;
         private List<GetClusterComputeConfig> computeConfigs;
         private String createdAt;
+        private Boolean deletionProtection;
         private List<String> enabledClusterLogTypes;
         private String endpoint;
         private String id;
@@ -340,6 +354,7 @@ public final class GetClusterResult {
     	      this.clusterId = defaults.clusterId;
     	      this.computeConfigs = defaults.computeConfigs;
     	      this.createdAt = defaults.createdAt;
+    	      this.deletionProtection = defaults.deletionProtection;
     	      this.enabledClusterLogTypes = defaults.enabledClusterLogTypes;
     	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
@@ -415,6 +430,14 @@ public final class GetClusterResult {
               throw new MissingRequiredPropertyException("GetClusterResult", "createdAt");
             }
             this.createdAt = createdAt;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder deletionProtection(Boolean deletionProtection) {
+            if (deletionProtection == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "deletionProtection");
+            }
+            this.deletionProtection = deletionProtection;
             return this;
         }
         @CustomType.Setter
@@ -593,6 +616,7 @@ public final class GetClusterResult {
             _resultValue.clusterId = clusterId;
             _resultValue.computeConfigs = computeConfigs;
             _resultValue.createdAt = createdAt;
+            _resultValue.deletionProtection = deletionProtection;
             _resultValue.enabledClusterLogTypes = enabledClusterLogTypes;
             _resultValue.endpoint = endpoint;
             _resultValue.id = id;

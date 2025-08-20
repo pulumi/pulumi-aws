@@ -124,7 +124,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> NotificationMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
         /// </summary>
         [Output("notificationTargetArn")]
         public Output<string?> NotificationTargetArn { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? NotificationMetadata { get; set; }
 
         /// <summary>
-        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
         /// </summary>
         [Input("notificationTargetArn")]
         public Input<string>? NotificationTargetArn { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? NotificationMetadata { get; set; }
 
         /// <summary>
-        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue, an SNS topic, or a Lambda function.
         /// </summary>
         [Input("notificationTargetArn")]
         public Input<string>? NotificationTargetArn { get; set; }

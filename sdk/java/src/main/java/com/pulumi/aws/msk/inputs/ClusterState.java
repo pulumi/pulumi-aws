@@ -189,14 +189,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for the broker nodes of the Kafka cluster.
+     * Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
      * 
      */
     @Import(name="brokerNodeGroupInfo")
     private @Nullable Output<ClusterBrokerNodeGroupInfoArgs> brokerNodeGroupInfo;
 
     /**
-     * @return Configuration block for the broker nodes of the Kafka cluster.
+     * @return Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoArgs>> brokerNodeGroupInfo() {
@@ -204,14 +204,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for specifying a client authentication. See below.
+     * Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
      * 
      */
     @Import(name="clientAuthentication")
     private @Nullable Output<ClusterClientAuthenticationArgs> clientAuthentication;
 
     /**
-     * @return Configuration block for specifying a client authentication. See below.
+     * @return Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
      * 
      */
     public Optional<Output<ClusterClientAuthenticationArgs>> clientAuthentication() {
@@ -249,14 +249,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
      * 
      */
     @Import(name="configurationInfo")
     private @Nullable Output<ClusterConfigurationInfoArgs> configurationInfo;
 
     /**
-     * @return Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
      * 
      */
     public Optional<Output<ClusterConfigurationInfoArgs>> configurationInfo() {
@@ -279,14 +279,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for specifying encryption. See below.
+     * Configuration block for specifying encryption. See encryption_info Argument Reference below.
      * 
      */
     @Import(name="encryptionInfo")
     private @Nullable Output<ClusterEncryptionInfoArgs> encryptionInfo;
 
     /**
-     * @return Configuration block for specifying encryption. See below.
+     * @return Configuration block for specifying encryption. See encryption_info Argument Reference below.
      * 
      */
     public Optional<Output<ClusterEncryptionInfoArgs>> encryptionInfo() {
@@ -324,14 +324,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
      * 
      */
     @Import(name="loggingInfo")
     private @Nullable Output<ClusterLoggingInfoArgs> loggingInfo;
 
     /**
-     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
      * 
      */
     public Optional<Output<ClusterLoggingInfoArgs>> loggingInfo() {
@@ -354,14 +354,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
      * 
      */
     @Import(name="openMonitoring")
     private @Nullable Output<ClusterOpenMonitoringArgs> openMonitoring;
 
     /**
-     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
      * 
      */
     public Optional<Output<ClusterOpenMonitoringArgs>> openMonitoring() {
@@ -742,7 +742,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster.
+         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster.
+         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See below.
+         * @param clientAuthentication Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
          * 
          * @return builder
          * 
@@ -774,7 +774,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See below.
+         * @param clientAuthentication Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
          * 
          * @return builder
          * 
@@ -826,7 +826,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationInfo Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
          * 
          * @return builder
          * 
@@ -837,7 +837,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationInfo Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
          * 
          * @return builder
          * 
@@ -868,7 +868,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionInfo Configuration block for specifying encryption. See below.
+         * @param encryptionInfo Configuration block for specifying encryption. See encryption_info Argument Reference below.
          * 
          * @return builder
          * 
@@ -879,7 +879,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionInfo Configuration block for specifying encryption. See below.
+         * @param encryptionInfo Configuration block for specifying encryption. See encryption_info Argument Reference below.
          * 
          * @return builder
          * 
@@ -931,7 +931,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
          * 
          * @return builder
          * 
@@ -942,7 +942,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
          * 
          * @return builder
          * 
@@ -973,7 +973,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
          * 
          * @return builder
          * 
@@ -984,7 +984,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
          * 
          * @return builder
          * 

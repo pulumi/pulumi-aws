@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ClusterOpenMonitoring {
     /**
-     * @return Configuration block for Prometheus settings for open monitoring. See below.
+     * @return Configuration block for Prometheus settings for open monitoring. See open_monitoring prometheus Argument Reference below.
      * 
      */
     private ClusterOpenMonitoringPrometheus prometheus;
 
     private ClusterOpenMonitoring() {}
     /**
-     * @return Configuration block for Prometheus settings for open monitoring. See below.
+     * @return Configuration block for Prometheus settings for open monitoring. See open_monitoring prometheus Argument Reference below.
      * 
      */
     public ClusterOpenMonitoringPrometheus prometheus() {

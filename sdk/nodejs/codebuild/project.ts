@@ -14,6 +14,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -224,6 +226,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ### Runner Project
+ *
+ * While no special configuration is required for `aws.codebuild.Project` to create a project as a Runner Project, an `aws.codebuild.Webhook` resource with an appropriate `filterGroup` is required.
+ * See the `aws.codebuild.Webhook` resource documentation example for more details.
  *
  * ## Import
  *

@@ -34,14 +34,14 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
      * 
      */
     @Import(name="deliverCrossAccountRole")
     private @Nullable Output<String> deliverCrossAccountRole;
 
     /**
-     * @return ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * @return ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
      * 
      */
     public Optional<Output<String>> deliverCrossAccountRole() {
@@ -79,14 +79,14 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
+     * ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
      * 
      */
     @Import(name="iamRoleArn")
     private @Nullable Output<String> iamRoleArn;
 
     /**
-     * @return ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
+     * @return ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
      * 
      */
     public Optional<Output<String>> iamRoleArn() {
@@ -343,7 +343,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliverCrossAccountRole ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+         * @param deliverCrossAccountRole ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliverCrossAccountRole ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+         * @param deliverCrossAccountRole ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoleArn ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
+         * @param iamRoleArn ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoleArn ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
+         * @param iamRoleArn ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
          * 
          * @return builder
          * 

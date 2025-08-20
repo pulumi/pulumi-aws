@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
     /**
-     * @return Access control settings for brokers. See below.
+     * @return Access control settings for brokers. See connectivity_info public_access Argument Reference below.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess;
     /**
-     * @return VPC connectivity access control for brokers. See below.
+     * @return VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity vpcConnectivity;
 
     private ClusterBrokerNodeGroupInfoConnectivityInfo() {}
     /**
-     * @return Access control settings for brokers. See below.
+     * @return Access control settings for brokers. See connectivity_info public_access Argument Reference below.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess> publicAccess() {
         return Optional.ofNullable(this.publicAccess);
     }
     /**
-     * @return VPC connectivity access control for brokers. See below.
+     * @return VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity> vpcConnectivity() {
