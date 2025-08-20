@@ -5248,6 +5248,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			Namespaces: namespaceMap,
 		},
 		EnableAccurateBridgePreview: true,
+		EnableRawStateDelta:         true,
 	}
 
 	rAlias := func(token string, prev, current tokens.Type, info *tfbridge.ResourceInfo) {
