@@ -25,6 +25,636 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a WAFv2 Web ACL resource.
+ * 
+ * &gt; **Note** In `field_to_match` blocks, _e.g._, in `byte_match_statement`, the `body` block includes an optional argument `oversize_handling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversize_handling` argument as **required** as soon as possible.
+ * 
+ * !&gt; **Warning:** If you use the `aws.wafv2.WebAclRuleGroupAssociation` resource to associate rule groups with this Web ACL, you must add `lifecycle { ignore_changes = [rule] }` to this resource to prevent configuration drift. The association resource modifies the Web ACL&#39;s rules outside of this resource&#39;s direct management.
+ * 
+ * ## Example Usage
+ * 
+ * This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
+ * 
+ * ### Managed Rule
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new WebAcl("example", WebAclArgs.builder()
+ *             .name("managed-rule-example")
+ *             .description("Example of a managed rule.")
+ *             .scope("REGIONAL")
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow(WebAclDefaultActionAllowArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .rules(WebAclRuleArgs.builder()
+ *                 .name("rule-1")
+ *                 .priority(1)
+ *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
+ *                     .count(WebAclRuleOverrideActionCountArgs.builder()
+ *                         .build())
+ *                     .build())
+ *                 .statement(Map.of("managedRuleGroupStatement", Map.ofEntries(
+ *                     Map.entry("name", "AWSManagedRulesCommonRuleSet"),
+ *                     Map.entry("vendorName", "AWS"),
+ *                     Map.entry("ruleActionOverrides",                     
+ *                         WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.builder()
+ *                             .actionToUse(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.builder()
+ *                                 .count(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs.builder()
+ *                                     .build())
+ *                                 .build())
+ *                             .name("SizeRestrictions_QUERYSTRING")
+ *                             .build(),
+ *                         WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.builder()
+ *                             .actionToUse(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.builder()
+ *                                 .count(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs.builder()
+ *                                     .build())
+ *                                 .build())
+ *                             .name("NoUserAgent_HEADER")
+ *                             .build()),
+ *                     Map.entry("scopeDownStatement", WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs.builder()
+ *                         .geoMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs.builder()
+ *                             .countryCodes(                            
+ *                                 "US",
+ *                                 "NL")
+ *                             .build())
+ *                         .build())
+ *                 )))
+ *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
+ *                     .cloudwatchMetricsEnabled(false)
+ *                     .metricName("friendly-rule-metric-name")
+ *                     .sampledRequestsEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
+ *             ))
+ *             .tokenDomains(            
+ *                 "mywebsite.com",
+ *                 "myotherwebsite.com")
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Account Creation Fraud Prevention
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var acfp_example = new WebAcl("acfp-example", WebAclArgs.builder()
+ *             .name("managed-acfp-example")
+ *             .description("Example of a managed ACFP rule.")
+ *             .scope("CLOUDFRONT")
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow(WebAclDefaultActionAllowArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .rules(WebAclRuleArgs.builder()
+ *                 .name("acfp-rule-1")
+ *                 .priority(1)
+ *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
+ *                     .count(WebAclRuleOverrideActionCountArgs.builder()
+ *                         .build())
+ *                     .build())
+ *                 .statement(Map.of("managedRuleGroupStatement", WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
+ *                     .name("AWSManagedRulesACFPRuleSet")
+ *                     .vendorName("AWS")
+ *                     .managedRuleGroupConfigs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.builder()
+ *                         .awsManagedRulesAcfpRuleSet(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.builder()
+ *                             .creationPath("/signin")
+ *                             .registrationPagePath("/register")
+ *                             .requestInspection(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs.builder()
+ *                                 .emailField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs.builder()
+ *                                     .identifier("/email")
+ *                                     .build())
+ *                                 .passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs.builder()
+ *                                     .identifier("/password")
+ *                                     .build())
+ *                                 .payloadType("JSON")
+ *                                 .usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs.builder()
+ *                                     .identifier("/username")
+ *                                     .build())
+ *                                 .build())
+ *                             .responseInspection(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs.builder()
+ *                                 .statusCode(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs.builder()
+ *                                     .failureCodes(403)
+ *                                     .successCodes(200)
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .build()))
+ *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
+ *                     .cloudwatchMetricsEnabled(false)
+ *                     .metricName("friendly-rule-metric-name")
+ *                     .sampledRequestsEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Account Takeover Protection
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var atp_example = new WebAcl("atp-example", WebAclArgs.builder()
+ *             .name("managed-atp-example")
+ *             .description("Example of a managed ATP rule.")
+ *             .scope("CLOUDFRONT")
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow(WebAclDefaultActionAllowArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .rules(WebAclRuleArgs.builder()
+ *                 .name("atp-rule-1")
+ *                 .priority(1)
+ *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
+ *                     .count(WebAclRuleOverrideActionCountArgs.builder()
+ *                         .build())
+ *                     .build())
+ *                 .statement(Map.of("managedRuleGroupStatement", WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
+ *                     .name("AWSManagedRulesATPRuleSet")
+ *                     .vendorName("AWS")
+ *                     .managedRuleGroupConfigs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.builder()
+ *                         .awsManagedRulesAtpRuleSet(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.builder()
+ *                             .loginPath("/api/1/signin")
+ *                             .requestInspection(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs.builder()
+ *                                 .passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs.builder()
+ *                                     .identifier("/password")
+ *                                     .build())
+ *                                 .payloadType("JSON")
+ *                                 .usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs.builder()
+ *                                     .identifier("/email")
+ *                                     .build())
+ *                                 .build())
+ *                             .responseInspection(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs.builder()
+ *                                 .statusCode(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs.builder()
+ *                                     .failureCodes(403)
+ *                                     .successCodes(200)
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .build()))
+ *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
+ *                     .cloudwatchMetricsEnabled(false)
+ *                     .metricName("friendly-rule-metric-name")
+ *                     .sampledRequestsEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Rate Based
+ * 
+ * Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionBlockArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new WebAcl("example", WebAclArgs.builder()
+ *             .name("rate-based-example")
+ *             .description("Example of a Cloudfront rate based statement.")
+ *             .scope("CLOUDFRONT")
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow(WebAclDefaultActionAllowArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .rules(WebAclRuleArgs.builder()
+ *                 .name("rule-1")
+ *                 .priority(1)
+ *                 .action(WebAclRuleActionArgs.builder()
+ *                     .block(WebAclRuleActionBlockArgs.builder()
+ *                         .build())
+ *                     .build())
+ *                 .statement(Map.of("rateBasedStatement", Map.ofEntries(
+ *                     Map.entry("limit", 10000),
+ *                     Map.entry("aggregateKeyType", "IP"),
+ *                     Map.entry("scopeDownStatement", WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.builder()
+ *                         .geoMatchStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs.builder()
+ *                             .countryCodes(                            
+ *                                 "US",
+ *                                 "NL")
+ *                             .build())
+ *                         .build())
+ *                 )))
+ *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
+ *                     .cloudwatchMetricsEnabled(false)
+ *                     .metricName("friendly-rule-metric-name")
+ *                     .sampledRequestsEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
+ *             ))
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Rule Group Reference
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.RuleGroup;
+ * import com.pulumi.aws.wafv2.RuleGroupArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionBlockArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()
+ *             .capacity(10)
+ *             .name("example-rule-group")
+ *             .scope("REGIONAL")
+ *             .rules(            
+ *                 RuleGroupRuleArgs.builder()
+ *                     .name("rule-1")
+ *                     .priority(1)
+ *                     .action(RuleGroupRuleActionArgs.builder()
+ *                         .count(RuleGroupRuleActionCountArgs.builder()
+ *                             .build())
+ *                         .build())
+ *                     .statement(RuleGroupRuleStatementArgs.builder()
+ *                         .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
+ *                             .countryCodes("NL")
+ *                             .build())
+ *                         .build())
+ *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
+ *                         .cloudwatchMetricsEnabled(false)
+ *                         .metricName("friendly-rule-metric-name")
+ *                         .sampledRequestsEnabled(false)
+ *                         .build())
+ *                     .build(),
+ *                 RuleGroupRuleArgs.builder()
+ *                     .name("rule-to-exclude-a")
+ *                     .priority(10)
+ *                     .action(RuleGroupRuleActionArgs.builder()
+ *                         .allow(RuleGroupRuleActionAllowArgs.builder()
+ *                             .build())
+ *                         .build())
+ *                     .statement(RuleGroupRuleStatementArgs.builder()
+ *                         .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
+ *                             .countryCodes("US")
+ *                             .build())
+ *                         .build())
+ *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
+ *                         .cloudwatchMetricsEnabled(false)
+ *                         .metricName("friendly-rule-metric-name")
+ *                         .sampledRequestsEnabled(false)
+ *                         .build())
+ *                     .build(),
+ *                 RuleGroupRuleArgs.builder()
+ *                     .name("rule-to-exclude-b")
+ *                     .priority(15)
+ *                     .action(RuleGroupRuleActionArgs.builder()
+ *                         .allow(RuleGroupRuleActionAllowArgs.builder()
+ *                             .build())
+ *                         .build())
+ *                     .statement(RuleGroupRuleStatementArgs.builder()
+ *                         .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
+ *                             .countryCodes("GB")
+ *                             .build())
+ *                         .build())
+ *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
+ *                         .cloudwatchMetricsEnabled(false)
+ *                         .metricName("friendly-rule-metric-name")
+ *                         .sampledRequestsEnabled(false)
+ *                         .build())
+ *                     .build())
+ *             .visibilityConfig(RuleGroupVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *         var test = new WebAcl("test", WebAclArgs.builder()
+ *             .name("rule-group-example")
+ *             .scope("REGIONAL")
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .block(WebAclDefaultActionBlockArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .rules(WebAclRuleArgs.builder()
+ *                 .name("rule-1")
+ *                 .priority(1)
+ *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
+ *                     .count(WebAclRuleOverrideActionCountArgs.builder()
+ *                         .build())
+ *                     .build())
+ *                 .statement(WebAclRuleStatementArgs.builder()
+ *                     .ruleGroupReferenceStatement(WebAclRuleStatementRuleGroupReferenceStatementArgs.builder()
+ *                         .arn(example.arn())
+ *                         .ruleActionOverrides(                        
+ *                             WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs.builder()
+ *                                 .actionToUse(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs.builder()
+ *                                     .count(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs.builder()
+ *                                         .build())
+ *                                     .build())
+ *                                 .name("rule-to-exclude-b")
+ *                                 .build(),
+ *                             WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs.builder()
+ *                                 .actionToUse(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs.builder()
+ *                                     .count(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs.builder()
+ *                                         .build())
+ *                                     .build())
+ *                                 .name("rule-to-exclude-a")
+ *                                 .build())
+ *                         .build())
+ *                     .build())
+ *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
+ *                     .cloudwatchMetricsEnabled(false)
+ *                     .metricName("friendly-rule-metric-name")
+ *                     .sampledRequestsEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
+ *             ))
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Large Request Body Inspections for Regional Resources
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclAssociationConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new WebAcl("example", WebAclArgs.builder()
+ *             .name("large-request-body-example")
+ *             .scope("REGIONAL")
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow(WebAclDefaultActionAllowArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .associationConfig(WebAclAssociationConfigArgs.builder()
+ *                 .requestBodies(WebAclAssociationConfigRequestBodyArgs.builder()
+ *                     .apiGateway(WebAclAssociationConfigRequestBodyApiGatewayArgs.builder()
+ *                         .defaultSizeInspectionLimit("KB_64")
+ *                         .build())
+ *                     .appRunnerService(WebAclAssociationConfigRequestBodyAppRunnerServiceArgs.builder()
+ *                         .defaultSizeInspectionLimit("KB_64")
+ *                         .build())
+ *                     .cognitoUserPool(WebAclAssociationConfigRequestBodyCognitoUserPoolArgs.builder()
+ *                         .defaultSizeInspectionLimit("KB_64")
+ *                         .build())
+ *                     .verifiedAccessInstance(WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs.builder()
+ *                         .defaultSizeInspectionLimit("KB_64")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import WAFv2 Web ACLs using `ID/Name/Scope`. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+ * ```
+ * 
+ */
 @ResourceType(type="aws:wafv2/webAcl:WebAcl")
 public class WebAcl extends com.pulumi.resources.CustomResource {
     /**
