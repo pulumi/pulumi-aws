@@ -16,6 +16,7 @@ import com.pulumi.aws.ec2.outputs.SpotInstanceRequestLaunchTemplate;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestMaintenanceOptions;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestMetadataOptions;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestNetworkInterface;
+import com.pulumi.aws.ec2.outputs.SpotInstanceRequestPrimaryNetworkInterface;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestPrivateDnsNameOptions;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestRootBlockDevice;
 import com.pulumi.core.Output;
@@ -31,32 +32,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an EC2 Spot Instance Request resource. This allows instances to be
- * requested on the spot market.
- * 
- * By default this provider creates Spot Instance Requests with a `persistent` type,
- * which means that for the duration of their lifetime, AWS will launch an
- * instance with the configured details if and when the spot market will accept
- * the requested price.
- * 
- * On destruction, this provider will make an attempt to terminate the associated Spot
- * Instance if there is one present.
- * 
- * Spot Instances requests with a `one-time` type will close the spot request
- * when the instance is terminated either by the request being below the current spot
- * price availability or by a user.
- * 
- * &gt; **NOTE:** Because their behavior depends on the live status of the spot
- * market, Spot Instance Requests have a unique lifecycle that makes them behave
- * differently than other resources. Most importantly: there is __no
- * guarantee__ that a Spot Instance exists to fulfill the request at any given
- * point in time. See the [AWS Spot Instance
- * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
- * for more information.
- * 
- * &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
- * We recommend using the EC2 Instance resource with `instance_market_options` instead.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -536,7 +511,11 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
+     * @deprecated
+     * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * 
      */
+    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
     @Export(name="networkInterfaces", refs={List.class,SpotInstanceRequestNetworkInterface.class}, tree="[0,1]")
     private Output<List<SpotInstanceRequestNetworkInterface>> networkInterfaces;
 
@@ -592,6 +571,20 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
 
     public Output<String> primaryNetworkInterfaceId() {
         return this.primaryNetworkInterfaceId;
+    }
+    /**
+     * The primary network interface. See Primary Network Interface below.
+     * 
+     */
+    @Export(name="primaryNetworkInterfaces", refs={List.class,SpotInstanceRequestPrimaryNetworkInterface.class}, tree="[0,1]")
+    private Output<List<SpotInstanceRequestPrimaryNetworkInterface>> primaryNetworkInterfaces;
+
+    /**
+     * @return The primary network interface. See Primary Network Interface below.
+     * 
+     */
+    public Output<List<SpotInstanceRequestPrimaryNetworkInterface>> primaryNetworkInterfaces() {
+        return this.primaryNetworkInterfaces;
     }
     /**
      * The private DNS name assigned to the instance. Can only be

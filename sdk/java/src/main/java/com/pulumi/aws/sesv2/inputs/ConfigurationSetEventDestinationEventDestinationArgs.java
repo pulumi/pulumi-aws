@@ -53,9 +53,17 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+     * 
+     */
     @Import(name="eventBridgeDestination")
     private @Nullable Output<ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs> eventBridgeDestination;
 
+    /**
+     * @return An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+     * 
+     */
     public Optional<Output<ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs>> eventBridgeDestination() {
         return Optional.ofNullable(this.eventBridgeDestination);
     }
@@ -192,11 +200,23 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param eventBridgeDestination An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventBridgeDestination(@Nullable Output<ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs> eventBridgeDestination) {
             $.eventBridgeDestination = eventBridgeDestination;
             return this;
         }
 
+        /**
+         * @param eventBridgeDestination An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventBridgeDestination(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs eventBridgeDestination) {
             return eventBridgeDestination(Output.of(eventBridgeDestination));
         }

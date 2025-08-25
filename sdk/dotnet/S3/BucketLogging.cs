@@ -20,6 +20,96 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// 
+    /// ### Grant permission by using bucket policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var logging = new Aws.S3.Bucket("logging", new()
+    ///     {
+    ///         BucketName = "access-logging-bucket",
+    ///     });
+    /// 
+    ///     var loggingBucketPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "logging.s3.amazonaws.com",
+    ///                         },
+    ///                         Type = "Service",
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{logging.Arn}/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:SourceAccount",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var loggingBucketPolicy2 = new Aws.S3.BucketPolicy("logging", new()
+    ///     {
+    ///         Bucket = logging.BucketName,
+    ///         Policy = loggingBucketPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var example = new Aws.S3.Bucket("example", new()
+    ///     {
+    ///         BucketName = "example-bucket",
+    ///     });
+    /// 
+    ///     var exampleBucketLogging = new Aws.S3.BucketLogging("example", new()
+    ///     {
+    ///         Bucket = example.BucketName,
+    ///         TargetBucket = logging.BucketName,
+    ///         TargetPrefix = "log/",
+    ///         TargetObjectKeyFormat = new Aws.S3.Inputs.BucketLoggingTargetObjectKeyFormatArgs
+    ///         {
+    ///             PartitionedPrefix = new Aws.S3.Inputs.BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs
+    ///             {
+    ///                 PartitionDateSource = "EventTime",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Grant permission by using bucket ACL
+    /// 
+    /// The [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) does not recommend using the ACL.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

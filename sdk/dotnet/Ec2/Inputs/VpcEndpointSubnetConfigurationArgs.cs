@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("ipv6")]
         public Input<string>? Ipv6 { get; set; }
 
+        /// <summary>
+        /// The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 

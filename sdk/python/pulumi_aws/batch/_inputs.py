@@ -626,11 +626,11 @@ class ComputeEnvironmentEksConfigurationArgs:
 
 if not MYPY:
     class ComputeEnvironmentUpdatePolicyArgsDict(TypedDict):
-        job_execution_timeout_minutes: pulumi.Input[_builtins.int]
+        job_execution_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
         """
         Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
         """
-        terminate_jobs_on_update: pulumi.Input[_builtins.bool]
+        terminate_jobs_on_update: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
         """
@@ -640,37 +640,39 @@ elif False:
 @pulumi.input_type
 class ComputeEnvironmentUpdatePolicyArgs:
     def __init__(__self__, *,
-                 job_execution_timeout_minutes: pulumi.Input[_builtins.int],
-                 terminate_jobs_on_update: pulumi.Input[_builtins.bool]):
+                 job_execution_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 terminate_jobs_on_update: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] job_execution_timeout_minutes: Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
         :param pulumi.Input[_builtins.bool] terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
         """
-        pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
-        pulumi.set(__self__, "terminate_jobs_on_update", terminate_jobs_on_update)
+        if job_execution_timeout_minutes is not None:
+            pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
+        if terminate_jobs_on_update is not None:
+            pulumi.set(__self__, "terminate_jobs_on_update", terminate_jobs_on_update)
 
     @_builtins.property
     @pulumi.getter(name="jobExecutionTimeoutMinutes")
-    def job_execution_timeout_minutes(self) -> pulumi.Input[_builtins.int]:
+    def job_execution_timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
         """
         return pulumi.get(self, "job_execution_timeout_minutes")
 
     @job_execution_timeout_minutes.setter
-    def job_execution_timeout_minutes(self, value: pulumi.Input[_builtins.int]):
+    def job_execution_timeout_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "job_execution_timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateJobsOnUpdate")
-    def terminate_jobs_on_update(self) -> pulumi.Input[_builtins.bool]:
+    def terminate_jobs_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
         """
         return pulumi.get(self, "terminate_jobs_on_update")
 
     @terminate_jobs_on_update.setter
-    def terminate_jobs_on_update(self, value: pulumi.Input[_builtins.bool]):
+    def terminate_jobs_on_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "terminate_jobs_on_update", value)
 
 

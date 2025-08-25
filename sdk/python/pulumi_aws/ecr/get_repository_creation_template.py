@@ -27,7 +27,7 @@ class GetRepositoryCreationTemplateResult:
     """
     A collection of values returned by getRepositoryCreationTemplate.
     """
-    def __init__(__self__, applied_fors=None, custom_role_arn=None, description=None, encryption_configurations=None, id=None, image_tag_mutability=None, lifecycle_policy=None, prefix=None, region=None, registry_id=None, repository_policy=None, resource_tags=None):
+    def __init__(__self__, applied_fors=None, custom_role_arn=None, description=None, encryption_configurations=None, id=None, image_tag_mutability=None, image_tag_mutability_exclusion_filters=None, lifecycle_policy=None, prefix=None, region=None, registry_id=None, repository_policy=None, resource_tags=None):
         if applied_fors and not isinstance(applied_fors, list):
             raise TypeError("Expected argument 'applied_fors' to be a list")
         pulumi.set(__self__, "applied_fors", applied_fors)
@@ -46,6 +46,9 @@ class GetRepositoryCreationTemplateResult:
         if image_tag_mutability and not isinstance(image_tag_mutability, str):
             raise TypeError("Expected argument 'image_tag_mutability' to be a str")
         pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
+        if image_tag_mutability_exclusion_filters and not isinstance(image_tag_mutability_exclusion_filters, list):
+            raise TypeError("Expected argument 'image_tag_mutability_exclusion_filters' to be a list")
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filters", image_tag_mutability_exclusion_filters)
         if lifecycle_policy and not isinstance(lifecycle_policy, str):
             raise TypeError("Expected argument 'lifecycle_policy' to be a str")
         pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
@@ -114,6 +117,14 @@ class GetRepositoryCreationTemplateResult:
         return pulumi.get(self, "image_tag_mutability")
 
     @_builtins.property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilters")
+    def image_tag_mutability_exclusion_filters(self) -> Sequence['outputs.GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterResult']:
+        """
+        Block that defines filters to specify which image tags can override the default tag mutability setting.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filters")
+
+    @_builtins.property
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> _builtins.str:
         """
@@ -168,6 +179,7 @@ class AwaitableGetRepositoryCreationTemplateResult(GetRepositoryCreationTemplate
             encryption_configurations=self.encryption_configurations,
             id=self.id,
             image_tag_mutability=self.image_tag_mutability,
+            image_tag_mutability_exclusion_filters=self.image_tag_mutability_exclusion_filters,
             lifecycle_policy=self.lifecycle_policy,
             prefix=self.prefix,
             region=self.region,
@@ -211,6 +223,7 @@ def get_repository_creation_template(prefix: Optional[_builtins.str] = None,
         encryption_configurations=pulumi.get(__ret__, 'encryption_configurations'),
         id=pulumi.get(__ret__, 'id'),
         image_tag_mutability=pulumi.get(__ret__, 'image_tag_mutability'),
+        image_tag_mutability_exclusion_filters=pulumi.get(__ret__, 'image_tag_mutability_exclusion_filters'),
         lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
         prefix=pulumi.get(__ret__, 'prefix'),
         region=pulumi.get(__ret__, 'region'),
@@ -251,6 +264,7 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[_built
         encryption_configurations=pulumi.get(__response__, 'encryption_configurations'),
         id=pulumi.get(__response__, 'id'),
         image_tag_mutability=pulumi.get(__response__, 'image_tag_mutability'),
+        image_tag_mutability_exclusion_filters=pulumi.get(__response__, 'image_tag_mutability_exclusion_filters'),
         lifecycle_policy=pulumi.get(__response__, 'lifecycle_policy'),
         prefix=pulumi.get(__response__, 'prefix'),
         region=pulumi.get(__response__, 'region'),

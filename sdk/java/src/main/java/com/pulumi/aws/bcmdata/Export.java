@@ -31,6 +31,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.bcmdata.Export;
  * import com.pulumi.aws.bcmdata.ExportArgs;
  * import com.pulumi.aws.bcmdata.inputs.ExportExportArgs;
@@ -47,12 +50,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
+ * 
  *         var test = new Export("test", ExportArgs.builder()
  *             .export(ExportExportArgs.builder()
  *                 .name("testexample")
  *                 .dataQueries(ExportExportDataQueryArgs.builder()
  *                     .queryStatement("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT")
  *                     .tableConfigurations(Map.of("COST_AND_USAGE_REPORT", Map.ofEntries(
+ *                         Map.entry("BILLING_VIEW_ARN", String.format("arn:%s:billing::%s:billingview/primary", currentGetPartition.partition(),current.accountId())),
  *                         Map.entry("TIME_GRANULARITY", "HOURLY"),
  *                         Map.entry("INCLUDE_RESOURCES", "FALSE"),
  *                         Map.entry("INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY", "FALSE"),

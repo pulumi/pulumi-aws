@@ -167,7 +167,7 @@ def get_reserved_instance_offering(db_instance_class: Optional[_builtins.str] = 
     :param _builtins.int duration: Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
     :param _builtins.bool multi_az: Whether the reservation applies to Multi-AZ deployments.
     :param _builtins.str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
-    :param _builtins.str product_description: Description of the reserved DB instance.
+    :param _builtins.str product_description: Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -219,7 +219,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
     :param _builtins.int duration: Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
     :param _builtins.bool multi_az: Whether the reservation applies to Multi-AZ deployments.
     :param _builtins.str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
-    :param _builtins.str product_description: Description of the reserved DB instance.
+    :param _builtins.str product_description: Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

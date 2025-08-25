@@ -224,6 +224,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
         :param Sequence[_builtins.str] matching_event_types: An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
         :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs' cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
         :param _builtins.bool enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+        :param 'ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs' event_bridge_destination: An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
         :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
         :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs' pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
         :param 'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs' sns_destination: An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
@@ -269,6 +270,9 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @_builtins.property
     @pulumi.getter(name="eventBridgeDestination")
     def event_bridge_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination']:
+        """
+        An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+        """
         return pulumi.get(self, "event_bridge_destination")
 
     @_builtins.property
