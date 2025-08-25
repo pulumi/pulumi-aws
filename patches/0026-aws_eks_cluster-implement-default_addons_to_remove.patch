@@ -8,7 +8,7 @@ set `bootstrapSelfManagedAddons: false` and selectively add the addons
 they want with the `aws.eks.Addon` resource.
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index ebe7b37b93..067f5e9438 100644
+index ebe7b37b936..067f5e94389 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -173,6 +173,14 @@ func resourceCluster() *schema.Resource {
@@ -39,7 +39,7 @@ index ebe7b37b93..067f5e9438 100644
  
 diff --git a/internal/service/eks/cluster_addon_removal.go b/internal/service/eks/cluster_addon_removal.go
 new file mode 100644
-index 0000000000..bd53bad5c1
+index 00000000000..bd53bad5c1f
 --- /dev/null
 +++ b/internal/service/eks/cluster_addon_removal.go
 @@ -0,0 +1,139 @@
