@@ -36,31 +36,31 @@ func TestNoDanglingReferencesInLightSchema(t *testing.T) {
 	danglingRefCount := 0
 	totalCount := 0
 
-	findReferences(data, func(rr any) {
-		r := rr.(string)
+	findReferences(data, func(reference any) {
+		refName := reference.(string)
 		switch {
-		case strings.HasPrefix(r, "#/types/"):
+		case strings.HasPrefix(refName, "#/types/"):
 			totalCount++
-			clean := strings.TrimPrefix(r, "#/types/")
+			clean := strings.TrimPrefix(refName, "#/types/")
 			if _, ok := types[clean]; !ok {
-				if _, s := seen[clean]; !s {
+				if _, ok := seen[clean]; !ok {
 					_, isRes := resources[clean]
 					danglingRefCount++
 					t.Logf("Dangling reference: %v (isRes=%v)", clean, isRes)
 				}
 				seen[clean] = struct{}{}
 			}
-		case r == "pulumi.json#/Any" ||
-			r == "pulumi.json#/Asset" ||
-			r == "pulumi.json#/Archive":
+		case refName == "pulumi.json#/Any" ||
+			refName == "pulumi.json#/Asset" ||
+			refName == "pulumi.json#/Archive":
 			// Ignore known special type references.
 			return
 		// This special form is needed to register Call() methods on an explicit provider.
 		// It is not considered a dangling reference.
-		case r == "#/resources/pulumi:providers:aws":
+		case refName == "#/provider":
 			return
 		default:
-			require.Fail(t, fmt.Sprintf("Unexpected type reference kind: %q", r))
+			require.Fail(t, fmt.Sprintf("Unexpected type reference kind: %q", refName))
 		}
 	})
 
@@ -68,19 +68,19 @@ func TestNoDanglingReferencesInLightSchema(t *testing.T) {
 	require.Equalf(t, 0, danglingRefCount, "Found at least 1 dangling reference")
 }
 
-func findReferences(x any, found func(r any)) {
-	switch x := x.(type) {
+func findReferences(schemaData any, found func(reference any)) {
+	switch data := schemaData.(type) {
 	case map[string]any:
-		if r, ok := x["$ref"]; ok {
-			found(r)
+		if reference, ok := data["$ref"]; ok {
+			found(reference)
 		}
 
-		for _, v := range x {
-			findReferences(v, found)
+		for _, value := range data {
+			findReferences(value, found)
 		}
 	case []any:
-		for _, v := range x {
-			findReferences(v, found)
+		for _, value := range data {
+			findReferences(value, found)
 		}
 	default:
 

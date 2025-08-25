@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ecr.RepositoryCreationTemplateArgs;
 import com.pulumi.aws.ecr.inputs.RepositoryCreationTemplateState;
 import com.pulumi.aws.ecr.outputs.RepositoryCreationTemplateEncryptionConfiguration;
+import com.pulumi.aws.ecr.outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -192,6 +193,20 @@ public class RepositoryCreationTemplate extends com.pulumi.resources.CustomResou
      */
     public Output<Optional<String>> imageTagMutability() {
         return Codegen.optional(this.imageTagMutability);
+    }
+    /**
+     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+     * 
+     */
+    @Export(name="imageTagMutabilityExclusionFilters", refs={List.class,RepositoryCreationTemplateImageTagMutabilityExclusionFilter.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RepositoryCreationTemplateImageTagMutabilityExclusionFilter>> imageTagMutabilityExclusionFilters;
+
+    /**
+     * @return Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+     * 
+     */
+    public Output<Optional<List<RepositoryCreationTemplateImageTagMutabilityExclusionFilter>>> imageTagMutabilityExclusionFilters() {
+        return Codegen.optional(this.imageTagMutabilityExclusionFilters);
     }
     /**
      * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.

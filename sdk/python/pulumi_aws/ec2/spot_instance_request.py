@@ -199,6 +199,9 @@ class SpotInstanceRequestArgs:
         if monitoring is not None:
             pulumi.set(__self__, "monitoring", monitoring)
         if network_interfaces is not None:
+            warnings.warn("""network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""", DeprecationWarning)
+            pulumi.log.warn("""network_interfaces is deprecated: network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""")
+        if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
@@ -608,6 +611,7 @@ class SpotInstanceRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
+    @_utilities.deprecated("""network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]]:
         """
         Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -931,6 +935,7 @@ class _SpotInstanceRequestState:
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
                  primary_network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestPrimaryNetworkInterfaceArgs']]]] = None,
                  private_dns: Optional[pulumi.Input[_builtins.str]] = None,
                  private_dns_name_options: Optional[pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs']] = None,
                  private_ip: Optional[pulumi.Input[_builtins.str]] = None,
@@ -994,6 +999,7 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestPrimaryNetworkInterfaceArgs']]] primary_network_interfaces: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[_builtins.str] private_dns: The private DNS name assigned to the instance. Can only be
                used inside the Amazon EC2, and only available if you've enabled DNS hostnames
                for your VPC
@@ -1102,6 +1108,9 @@ class _SpotInstanceRequestState:
         if monitoring is not None:
             pulumi.set(__self__, "monitoring", monitoring)
         if network_interfaces is not None:
+            warnings.warn("""network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""", DeprecationWarning)
+            pulumi.log.warn("""network_interfaces is deprecated: network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""")
+        if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if outpost_arn is not None:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
@@ -1113,6 +1122,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if primary_network_interface_id is not None:
             pulumi.set(__self__, "primary_network_interface_id", primary_network_interface_id)
+        if primary_network_interfaces is not None:
+            pulumi.set(__self__, "primary_network_interfaces", primary_network_interfaces)
         if private_dns is not None:
             pulumi.set(__self__, "private_dns", private_dns)
         if private_dns_name_options is not None:
@@ -1549,6 +1560,7 @@ class _SpotInstanceRequestState:
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
+    @_utilities.deprecated("""network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]]:
         """
         Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -1609,6 +1621,18 @@ class _SpotInstanceRequestState:
     @primary_network_interface_id.setter
     def primary_network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "primary_network_interface_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryNetworkInterfaces")
+    def primary_network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestPrimaryNetworkInterfaceArgs']]]]:
+        """
+        The primary network interface. See Primary Network Interface below.
+        """
+        return pulumi.get(self, "primary_network_interfaces")
+
+    @primary_network_interfaces.setter
+    def primary_network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestPrimaryNetworkInterfaceArgs']]]]):
+        pulumi.set(self, "primary_network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDns")
@@ -2011,32 +2035,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  wait_for_fulfillment: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides an EC2 Spot Instance Request resource. This allows instances to be
-        requested on the spot market.
-
-        By default this provider creates Spot Instance Requests with a `persistent` type,
-        which means that for the duration of their lifetime, AWS will launch an
-        instance with the configured details if and when the spot market will accept
-        the requested price.
-
-        On destruction, this provider will make an attempt to terminate the associated Spot
-        Instance if there is one present.
-
-        Spot Instances requests with a `one-time` type will close the spot request
-        when the instance is terminated either by the request being below the current spot
-        price availability or by a user.
-
-        > **NOTE:** Because their behavior depends on the live status of the spot
-        market, Spot Instance Requests have a unique lifecycle that makes them behave
-        differently than other resources. Most importantly: there is __no
-        guarantee__ that a Spot Instance exists to fulfill the request at any given
-        point in time. See the [AWS Spot Instance
-        documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        for more information.
-
-        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
-        We recommend using the EC2 Instance resource with `instance_market_options` instead.
-
         ## Example Usage
 
         ```python
@@ -2124,32 +2122,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  args: Optional[SpotInstanceRequestArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EC2 Spot Instance Request resource. This allows instances to be
-        requested on the spot market.
-
-        By default this provider creates Spot Instance Requests with a `persistent` type,
-        which means that for the duration of their lifetime, AWS will launch an
-        instance with the configured details if and when the spot market will accept
-        the requested price.
-
-        On destruction, this provider will make an attempt to terminate the associated Spot
-        Instance if there is one present.
-
-        Spot Instances requests with a `one-time` type will close the spot request
-        when the instance is terminated either by the request being below the current spot
-        price availability or by a user.
-
-        > **NOTE:** Because their behavior depends on the live status of the spot
-        market, Spot Instance Requests have a unique lifecycle that makes them behave
-        differently than other resources. Most importantly: there is __no
-        guarantee__ that a Spot Instance exists to fulfill the request at any given
-        point in time. See the [AWS Spot Instance
-        documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        for more information.
-
-        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
-        We recommend using the EC2 Instance resource with `instance_market_options` instead.
-
         ## Example Usage
 
         ```python
@@ -2301,6 +2273,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["outpost_arn"] = None
             __props__.__dict__["password_data"] = None
             __props__.__dict__["primary_network_interface_id"] = None
+            __props__.__dict__["primary_network_interfaces"] = None
             __props__.__dict__["private_dns"] = None
             __props__.__dict__["public_dns"] = None
             __props__.__dict__["public_ip"] = None
@@ -2356,6 +2329,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             placement_group: Optional[pulumi.Input[_builtins.str]] = None,
             placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
             primary_network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+            primary_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestPrimaryNetworkInterfaceArgs', 'SpotInstanceRequestPrimaryNetworkInterfaceArgsDict']]]]] = None,
             private_dns: Optional[pulumi.Input[_builtins.str]] = None,
             private_dns_name_options: Optional[pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']]] = None,
             private_ip: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2424,6 +2398,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestPrimaryNetworkInterfaceArgs', 'SpotInstanceRequestPrimaryNetworkInterfaceArgsDict']]]] primary_network_interfaces: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[_builtins.str] private_dns: The private DNS name assigned to the instance. Can only be
                used inside the Amazon EC2, and only available if you've enabled DNS hostnames
                for your VPC
@@ -2509,6 +2484,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["placement_group"] = placement_group
         __props__.__dict__["placement_partition_number"] = placement_partition_number
         __props__.__dict__["primary_network_interface_id"] = primary_network_interface_id
+        __props__.__dict__["primary_network_interfaces"] = primary_network_interfaces
         __props__.__dict__["private_dns"] = private_dns
         __props__.__dict__["private_dns_name_options"] = private_dns_name_options
         __props__.__dict__["private_ip"] = private_ip
@@ -2791,6 +2767,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
+    @_utilities.deprecated("""network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""")
     def network_interfaces(self) -> pulumi.Output[Sequence['outputs.SpotInstanceRequestNetworkInterface']]:
         """
         Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -2827,6 +2804,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter(name="primaryNetworkInterfaceId")
     def primary_network_interface_id(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "primary_network_interface_id")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryNetworkInterfaces")
+    def primary_network_interfaces(self) -> pulumi.Output[Sequence['outputs.SpotInstanceRequestPrimaryNetworkInterface']]:
+        """
+        The primary network interface. See Primary Network Interface below.
+        """
+        return pulumi.get(self, "primary_network_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="privateDns")

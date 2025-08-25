@@ -365,7 +365,7 @@ namespace Pulumi.Aws.Batch
         /// Specifies the infrastructure update policy for the compute environment. See details below.
         /// </summary>
         [Output("updatePolicy")]
-        public Output<Outputs.ComputeEnvironmentUpdatePolicy?> UpdatePolicy { get; private set; } = null!;
+        public Output<Outputs.ComputeEnvironmentUpdatePolicy> UpdatePolicy { get; private set; } = null!;
 
 
         /// <summary>

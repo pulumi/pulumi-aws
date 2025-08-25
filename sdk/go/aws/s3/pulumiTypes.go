@@ -7566,9 +7566,9 @@ func (o BucketLoggingTargetGrantGranteeOutput) Uri() pulumi.StringPtrOutput {
 }
 
 type BucketLoggingTargetObjectKeyFormat struct {
-	// Partitioned S3 key for log objects. See below.
+	// Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
 	PartitionedPrefix *BucketLoggingTargetObjectKeyFormatPartitionedPrefix `pulumi:"partitionedPrefix"`
-	// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+	// Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
 	SimplePrefix *BucketLoggingTargetObjectKeyFormatSimplePrefix `pulumi:"simplePrefix"`
 }
 
@@ -7584,9 +7584,9 @@ type BucketLoggingTargetObjectKeyFormatInput interface {
 }
 
 type BucketLoggingTargetObjectKeyFormatArgs struct {
-	// Partitioned S3 key for log objects. See below.
+	// Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
 	PartitionedPrefix BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrInput `pulumi:"partitionedPrefix"`
-	// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+	// Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
 	SimplePrefix BucketLoggingTargetObjectKeyFormatSimplePrefixPtrInput `pulumi:"simplePrefix"`
 }
 
@@ -7667,14 +7667,14 @@ func (o BucketLoggingTargetObjectKeyFormatOutput) ToBucketLoggingTargetObjectKey
 	}).(BucketLoggingTargetObjectKeyFormatPtrOutput)
 }
 
-// Partitioned S3 key for log objects. See below.
+// Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
 func (o BucketLoggingTargetObjectKeyFormatOutput) PartitionedPrefix() BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
 	return o.ApplyT(func(v BucketLoggingTargetObjectKeyFormat) *BucketLoggingTargetObjectKeyFormatPartitionedPrefix {
 		return v.PartitionedPrefix
 	}).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
-// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+// Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
 func (o BucketLoggingTargetObjectKeyFormatOutput) SimplePrefix() BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
 	return o.ApplyT(func(v BucketLoggingTargetObjectKeyFormat) *BucketLoggingTargetObjectKeyFormatSimplePrefix {
 		return v.SimplePrefix
@@ -7705,7 +7705,7 @@ func (o BucketLoggingTargetObjectKeyFormatPtrOutput) Elem() BucketLoggingTargetO
 	}).(BucketLoggingTargetObjectKeyFormatOutput)
 }
 
-// Partitioned S3 key for log objects. See below.
+// Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
 func (o BucketLoggingTargetObjectKeyFormatPtrOutput) PartitionedPrefix() BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingTargetObjectKeyFormat) *BucketLoggingTargetObjectKeyFormatPartitionedPrefix {
 		if v == nil {
@@ -7715,7 +7715,7 @@ func (o BucketLoggingTargetObjectKeyFormatPtrOutput) PartitionedPrefix() BucketL
 	}).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
-// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+// Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
 func (o BucketLoggingTargetObjectKeyFormatPtrOutput) SimplePrefix() BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingTargetObjectKeyFormat) *BucketLoggingTargetObjectKeyFormatSimplePrefix {
 		if v == nil {
@@ -8172,9 +8172,9 @@ func (o BucketLoggingV2TargetGrantGranteeOutput) Uri() pulumi.StringPtrOutput {
 }
 
 type BucketLoggingV2TargetObjectKeyFormat struct {
-	// Partitioned S3 key for log objects. See below.
+	// Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
 	PartitionedPrefix *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix `pulumi:"partitionedPrefix"`
-	// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+	// Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
 	SimplePrefix *BucketLoggingV2TargetObjectKeyFormatSimplePrefix `pulumi:"simplePrefix"`
 }
 
@@ -8190,9 +8190,9 @@ type BucketLoggingV2TargetObjectKeyFormatInput interface {
 }
 
 type BucketLoggingV2TargetObjectKeyFormatArgs struct {
-	// Partitioned S3 key for log objects. See below.
+	// Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
 	PartitionedPrefix BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput `pulumi:"partitionedPrefix"`
-	// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+	// Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
 	SimplePrefix BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput `pulumi:"simplePrefix"`
 }
 
@@ -8273,14 +8273,14 @@ func (o BucketLoggingV2TargetObjectKeyFormatOutput) ToBucketLoggingV2TargetObjec
 	}).(BucketLoggingV2TargetObjectKeyFormatPtrOutput)
 }
 
-// Partitioned S3 key for log objects. See below.
+// Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
 func (o BucketLoggingV2TargetObjectKeyFormatOutput) PartitionedPrefix() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
 	return o.ApplyT(func(v BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
 		return v.PartitionedPrefix
 	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
-// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+// Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
 func (o BucketLoggingV2TargetObjectKeyFormatOutput) SimplePrefix() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
 	return o.ApplyT(func(v BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
 		return v.SimplePrefix
@@ -8311,7 +8311,7 @@ func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) Elem() BucketLoggingV2Tar
 	}).(BucketLoggingV2TargetObjectKeyFormatOutput)
 }
 
-// Partitioned S3 key for log objects. See below.
+// Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
 func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) PartitionedPrefix() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
 		if v == nil {
@@ -8321,7 +8321,7 @@ func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) PartitionedPrefix() Bucke
 	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
-// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+// Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
 func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) SimplePrefix() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
 		if v == nil {

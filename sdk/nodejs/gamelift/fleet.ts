@@ -75,7 +75,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly buildArn!: pulumi.Output<string>;
     /**
-     * ID of the GameLift Build to be deployed on the fleet.
+     * ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
      */
     public readonly buildId!: pulumi.Output<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly scriptArn!: pulumi.Output<string>;
     /**
-     * ID of the GameLift Script to be deployed on the fleet.
+     * ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
      */
     public readonly scriptId!: pulumi.Output<string | undefined>;
     /**
@@ -227,7 +227,7 @@ export interface FleetState {
      */
     buildArn?: pulumi.Input<string>;
     /**
-     * ID of the GameLift Build to be deployed on the fleet.
+     * ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
      */
     buildId?: pulumi.Input<string>;
     /**
@@ -288,7 +288,7 @@ export interface FleetState {
      */
     scriptArn?: pulumi.Input<string>;
     /**
-     * ID of the GameLift Script to be deployed on the fleet.
+     * ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
      */
     scriptId?: pulumi.Input<string>;
     /**
@@ -306,7 +306,7 @@ export interface FleetState {
  */
 export interface FleetArgs {
     /**
-     * ID of the GameLift Build to be deployed on the fleet.
+     * ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
      */
     buildId?: pulumi.Input<string>;
     /**
@@ -358,7 +358,7 @@ export interface FleetArgs {
      */
     runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
     /**
-     * ID of the GameLift Script to be deployed on the fleet.
+     * ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
      */
     scriptId?: pulumi.Input<string>;
     /**

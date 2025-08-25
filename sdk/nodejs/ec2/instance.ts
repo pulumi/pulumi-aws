@@ -36,7 +36,7 @@ import {InstanceProfile} from "../iam";
  *     ],
  *     owners: ["099720109477"],
  * });
- * const web = new aws.ec2.Instance("web", {
+ * const example = new aws.ec2.Instance("example", {
  *     ami: ubuntu.then(ubuntu => ubuntu.id),
  *     instanceType: aws.ec2.InstanceType.T3_Micro,
  *     tags: {
@@ -51,7 +51,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const web = new aws.ec2.Instance("web", {
+ * const example = new aws.ec2.Instance("example", {
  *     ami: "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64",
  *     instanceType: aws.ec2.InstanceType.T3_Micro,
  *     tags: {
@@ -66,7 +66,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _this = aws.ec2.getAmi({
+ * const example = aws.ec2.getAmi({
  *     mostRecent: true,
  *     owners: ["amazon"],
  *     filters: [
@@ -80,8 +80,8 @@ import {InstanceProfile} from "../iam";
  *         },
  *     ],
  * });
- * const thisInstance = new aws.ec2.Instance("this", {
- *     ami: _this.then(_this => _this.id),
+ * const exampleInstance = new aws.ec2.Instance("example", {
+ *     ami: example.then(example => example.id),
  *     instanceMarketOptions: {
  *         marketType: "spot",
  *         spotOptions: {
@@ -115,20 +115,19 @@ import {InstanceProfile} from "../iam";
  *         Name: "tf-example",
  *     },
  * });
- * const foo = new aws.ec2.NetworkInterface("foo", {
+ * const example = new aws.ec2.NetworkInterface("example", {
  *     subnetId: mySubnet.id,
  *     privateIps: ["172.16.10.100"],
  *     tags: {
  *         Name: "primary_network_interface",
  *     },
  * });
- * const fooInstance = new aws.ec2.Instance("foo", {
+ * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: "ami-005e54dee72cc1d00",
  *     instanceType: aws.ec2.InstanceType.T2_Micro,
- *     networkInterfaces: [{
- *         networkInterfaceId: foo.id,
- *         deviceIndex: 0,
- *     }],
+ *     primaryNetworkInterface: {
+ *         networkInterfaceId: example.id,
+ *     },
  *     creditSpecification: {
  *         cpuCredits: "unlimited",
  *     },
@@ -373,6 +372,8 @@ export class Instance extends pulumi.CustomResource {
     public readonly monitoring!: pulumi.Output<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+     *
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.ec2.InstanceNetworkInterface[]>;
     /**
@@ -391,6 +392,10 @@ export class Instance extends pulumi.CustomResource {
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
     public readonly placementPartitionNumber!: pulumi.Output<number>;
+    /**
+     * The primary network interface. See Primary Network Interface below.
+     */
+    public readonly primaryNetworkInterface!: pulumi.Output<outputs.ec2.InstancePrimaryNetworkInterface>;
     /**
      * ID of the instance's primary network interface.
      */
@@ -532,6 +537,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["passwordData"] = state ? state.passwordData : undefined;
             resourceInputs["placementGroup"] = state ? state.placementGroup : undefined;
             resourceInputs["placementPartitionNumber"] = state ? state.placementPartitionNumber : undefined;
+            resourceInputs["primaryNetworkInterface"] = state ? state.primaryNetworkInterface : undefined;
             resourceInputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
             resourceInputs["privateDns"] = state ? state.privateDns : undefined;
             resourceInputs["privateDnsNameOptions"] = state ? state.privateDnsNameOptions : undefined;
@@ -587,6 +593,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
             resourceInputs["placementPartitionNumber"] = args ? args.placementPartitionNumber : undefined;
+            resourceInputs["primaryNetworkInterface"] = args ? args.primaryNetworkInterface : undefined;
             resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
             resourceInputs["privateIp"] = args ? args.privateIp : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
@@ -753,6 +760,8 @@ export interface InstanceState {
     monitoring?: pulumi.Input<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+     *
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceNetworkInterface>[]>;
     /**
@@ -771,6 +780,10 @@ export interface InstanceState {
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
     placementPartitionNumber?: pulumi.Input<number>;
+    /**
+     * The primary network interface. See Primary Network Interface below.
+     */
+    primaryNetworkInterface?: pulumi.Input<inputs.ec2.InstancePrimaryNetworkInterface>;
     /**
      * ID of the instance's primary network interface.
      */
@@ -985,6 +998,8 @@ export interface InstanceArgs {
     monitoring?: pulumi.Input<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+     *
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceNetworkInterface>[]>;
     /**
@@ -995,6 +1010,10 @@ export interface InstanceArgs {
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
     placementPartitionNumber?: pulumi.Input<number>;
+    /**
+     * The primary network interface. See Primary Network Interface below.
+     */
+    primaryNetworkInterface?: pulumi.Input<inputs.ec2.InstancePrimaryNetworkInterface>;
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */

@@ -165,12 +165,15 @@ class Export(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
         test = aws.bcmdata.Export("test", export={
             "name": "testexample",
             "data_queries": [{
                 "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
                 "table_configurations": {
                     "COST_AND_USAGE_REPORT": {
+                        "BILLING_VIEW_ARN": f"arn:{current_get_partition.partition}:billing::{current.account_id}:billingview/primary",
                         "TIME_GRANULARITY": "HOURLY",
                         "INCLUDE_RESOURCES": "FALSE",
                         "INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY": "FALSE",
@@ -226,12 +229,15 @@ class Export(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
         test = aws.bcmdata.Export("test", export={
             "name": "testexample",
             "data_queries": [{
                 "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
                 "table_configurations": {
                     "COST_AND_USAGE_REPORT": {
+                        "BILLING_VIEW_ARN": f"arn:{current_get_partition.partition}:billing::{current.account_id}:billingview/primary",
                         "TIME_GRANULARITY": "HOURLY",
                         "INCLUDE_RESOURCES": "FALSE",
                         "INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY": "FALSE",

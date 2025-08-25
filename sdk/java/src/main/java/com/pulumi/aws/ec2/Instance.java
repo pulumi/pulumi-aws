@@ -17,6 +17,7 @@ import com.pulumi.aws.ec2.outputs.InstanceLaunchTemplate;
 import com.pulumi.aws.ec2.outputs.InstanceMaintenanceOptions;
 import com.pulumi.aws.ec2.outputs.InstanceMetadataOptions;
 import com.pulumi.aws.ec2.outputs.InstanceNetworkInterface;
+import com.pulumi.aws.ec2.outputs.InstancePrimaryNetworkInterface;
 import com.pulumi.aws.ec2.outputs.InstancePrivateDnsNameOptions;
 import com.pulumi.aws.ec2.outputs.InstanceRootBlockDevice;
 import com.pulumi.core.Output;
@@ -79,7 +80,7 @@ import javax.annotation.Nullable;
  *             .owners("099720109477")
  *             .build());
  * 
- *         var web = new Instance("web", InstanceArgs.builder()
+ *         var example = new Instance("example", InstanceArgs.builder()
  *             .ami(ubuntu.id())
  *             .instanceType("t3.micro")
  *             .tags(Map.of("Name", "HelloWorld"))
@@ -116,7 +117,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var web = new Instance("web", InstanceArgs.builder()
+ *         var example = new Instance("example", InstanceArgs.builder()
  *             .ami("resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64")
  *             .instanceType("t3.micro")
  *             .tags(Map.of("Name", "HelloWorld"))
@@ -157,7 +158,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var this = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .owners("amazon")
  *             .filters(            
@@ -171,8 +172,8 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var thisInstance = new Instance("thisInstance", InstanceArgs.builder()
- *             .ami(this_.id())
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
+ *             .ami(example.id())
  *             .instanceMarketOptions(InstanceInstanceMarketOptionsArgs.builder()
  *                 .marketType("spot")
  *                 .spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs.builder()
@@ -207,7 +208,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.NetworkInterfaceArgs;
  * import com.pulumi.aws.ec2.Instance;
  * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ec2.inputs.InstanceNetworkInterfaceArgs;
+ * import com.pulumi.aws.ec2.inputs.InstancePrimaryNetworkInterfaceArgs;
  * import com.pulumi.aws.ec2.inputs.InstanceCreditSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -234,18 +235,17 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 
- *         var foo = new NetworkInterface("foo", NetworkInterfaceArgs.builder()
+ *         var example = new NetworkInterface("example", NetworkInterfaceArgs.builder()
  *             .subnetId(mySubnet.id())
  *             .privateIps("172.16.10.100")
  *             .tags(Map.of("Name", "primary_network_interface"))
  *             .build());
  * 
- *         var fooInstance = new Instance("fooInstance", InstanceArgs.builder()
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .ami("ami-005e54dee72cc1d00")
  *             .instanceType("t2.micro")
- *             .networkInterfaces(InstanceNetworkInterfaceArgs.builder()
- *                 .networkInterfaceId(foo.id())
- *                 .deviceIndex(0)
+ *             .primaryNetworkInterface(InstancePrimaryNetworkInterfaceArgs.builder()
+ *                 .networkInterfaceId(example.id())
  *                 .build())
  *             .creditSpecification(InstanceCreditSpecificationArgs.builder()
  *                 .cpuCredits("unlimited")
@@ -844,7 +844,11 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
+     * @deprecated
+     * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * 
      */
+    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
     @Export(name="networkInterfaces", refs={List.class,InstanceNetworkInterface.class}, tree="[0,1]")
     private Output<List<InstanceNetworkInterface>> networkInterfaces;
 
@@ -910,6 +914,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> placementPartitionNumber() {
         return this.placementPartitionNumber;
+    }
+    /**
+     * The primary network interface. See Primary Network Interface below.
+     * 
+     */
+    @Export(name="primaryNetworkInterface", refs={InstancePrimaryNetworkInterface.class}, tree="[0]")
+    private Output<InstancePrimaryNetworkInterface> primaryNetworkInterface;
+
+    /**
+     * @return The primary network interface. See Primary Network Interface below.
+     * 
+     */
+    public Output<InstancePrimaryNetworkInterface> primaryNetworkInterface() {
+        return this.primaryNetworkInterface;
     }
     /**
      * ID of the instance&#39;s primary network interface.

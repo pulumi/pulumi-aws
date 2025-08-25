@@ -83,7 +83,7 @@ index 5397965c94..698aac72ea 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index 6111d73148..0e0313b090 100644
+index a13e4addce..f2936b7076 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
 @@ -50,7 +50,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -174,7 +174,7 @@ index 5d4d3b06a1..10c61ec591 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
-index 5ff105eec1..b67e6b51ea 100644
+index 7fa8c36e68..da48a33379 100644
 --- a/internal/service/neptune/parameter_group.go
 +++ b/internal/service/neptune/parameter_group.go
 @@ -54,7 +54,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -200,7 +200,7 @@ index d756af75db..d448de5134 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index 956c92fe3c..3ffe853168 100644
+index 4c55067d08..6dcade3a40 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -50,7 +50,7 @@ func resourceClusterParameterGroup() *schema.Resource {
@@ -213,7 +213,7 @@ index 956c92fe3c..3ffe853168 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/option_group.go b/internal/service/rds/option_group.go
-index a4d34b1c1d..abd15452c9 100644
+index 821c3163eb..ec05c24246 100644
 --- a/internal/service/rds/option_group.go
 +++ b/internal/service/rds/option_group.go
 @@ -126,7 +126,7 @@ func resourceOptionGroup() *schema.Resource {
@@ -226,7 +226,7 @@ index a4d34b1c1d..abd15452c9 100644
  			names.AttrSkipDestroy: {
  				Type:     schema.TypeBool,
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index adc7878d25..8e77e7e330 100644
+index 100bd3bae4..d9d02aea42 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
 @@ -53,7 +53,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -278,7 +278,7 @@ index 7117c8e061..0fa362cf95 100644
  			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index 720fa883f3..5a8ac76bf6 100644
+index 10b95ec0c7..9dba775273 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
 @@ -360,7 +360,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta any)

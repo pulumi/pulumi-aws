@@ -79,14 +79,14 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
     }
 
     /**
-     * Description of the reserved DB instance.
+     * Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
      * 
      */
     @Import(name="productDescription", required=true)
     private Output<String> productDescription;
 
     /**
-     * @return Description of the reserved DB instance.
+     * @return Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
      * 
      */
     public Output<String> productDescription() {
@@ -222,7 +222,7 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param productDescription Description of the reserved DB instance.
+         * @param productDescription Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param productDescription Description of the reserved DB instance.
+         * @param productDescription Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
          * 
          * @return builder
          * 

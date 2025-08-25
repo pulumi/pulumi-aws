@@ -24,6 +24,10 @@ namespace Pulumi.Aws.BcmData
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
     ///     var test = new Aws.BcmData.Export("test", new()
     ///     {
     ///         ExportDetails = new Aws.BcmData.Inputs.ExportExportArgs
@@ -38,6 +42,12 @@ namespace Pulumi.Aws.BcmData
     ///                     {
     ///                         { "COST_AND_USAGE_REPORT", 
     ///                         {
+    ///                             { "BILLING_VIEW_ARN", Output.Tuple(currentGetPartition, current).Apply(values =&gt;
+    ///                             {
+    ///                                 var currentGetPartition = values.Item1;
+    ///                                 var current = values.Item2;
+    ///                                 return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:billing::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:billingview/primary";
+    ///                             }) },
     ///                             { "TIME_GRANULARITY", "HOURLY" },
     ///                             { "INCLUDE_RESOURCES", "FALSE" },
     ///                             { "INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY", "FALSE" },

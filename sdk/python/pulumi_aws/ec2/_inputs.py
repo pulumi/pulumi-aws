@@ -112,6 +112,8 @@ __all__ = [
     'InstanceMetadataOptionsArgsDict',
     'InstanceNetworkInterfaceArgs',
     'InstanceNetworkInterfaceArgsDict',
+    'InstancePrimaryNetworkInterfaceArgs',
+    'InstancePrimaryNetworkInterfaceArgsDict',
     'InstancePrivateDnsNameOptionsArgs',
     'InstancePrivateDnsNameOptionsArgsDict',
     'InstanceRootBlockDeviceArgs',
@@ -442,6 +444,8 @@ __all__ = [
     'SpotInstanceRequestMetadataOptionsArgsDict',
     'SpotInstanceRequestNetworkInterfaceArgs',
     'SpotInstanceRequestNetworkInterfaceArgsDict',
+    'SpotInstanceRequestPrimaryNetworkInterfaceArgs',
+    'SpotInstanceRequestPrimaryNetworkInterfaceArgsDict',
     'SpotInstanceRequestPrivateDnsNameOptionsArgs',
     'SpotInstanceRequestPrivateDnsNameOptionsArgsDict',
     'SpotInstanceRequestRootBlockDeviceArgs',
@@ -5606,6 +5610,57 @@ class InstanceNetworkInterfaceArgs:
 
 
 if not MYPY:
+    class InstancePrimaryNetworkInterfaceArgsDict(TypedDict):
+        network_interface_id: pulumi.Input[_builtins.str]
+        """
+        ID of the network interface to attach.
+        """
+        delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the network interface will be deleted when the instance terminates.
+        """
+elif False:
+    InstancePrimaryNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InstancePrimaryNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 network_interface_id: pulumi.Input[_builtins.str],
+                 delete_on_termination: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] network_interface_id: ID of the network interface to attach.
+        :param pulumi.Input[_builtins.bool] delete_on_termination: Whether the network interface will be deleted when the instance terminates.
+        """
+        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the network interface to attach.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the network interface will be deleted when the instance terminates.
+        """
+        return pulumi.get(self, "delete_on_termination")
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "delete_on_termination", value)
+
+
+if not MYPY:
     class InstancePrivateDnsNameOptionsArgsDict(TypedDict):
         enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -6558,7 +6613,7 @@ if not MYPY:
     class LaunchTemplateCapacityReservationSpecificationArgsDict(TypedDict):
         capacity_reservation_preference: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+        Indicates the instance's Capacity Reservation preferences. Can be `capacity-reservations-only`, `open` or `none`. If `capacity_reservation_id` or `capacity_reservation_resource_group_arn` is specified in `capacity_reservation_target` block, either omit `capacity_reservation_preference` or set it to `capacity-reservations-only`.
         """
         capacity_reservation_target: NotRequired[pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgsDict']]
         """
@@ -6573,7 +6628,7 @@ class LaunchTemplateCapacityReservationSpecificationArgs:
                  capacity_reservation_preference: Optional[pulumi.Input[_builtins.str]] = None,
                  capacity_reservation_target: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+        :param pulumi.Input[_builtins.str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `capacity-reservations-only`, `open` or `none`. If `capacity_reservation_id` or `capacity_reservation_resource_group_arn` is specified in `capacity_reservation_target` block, either omit `capacity_reservation_preference` or set it to `capacity-reservations-only`.
         :param pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs'] capacity_reservation_target: Used to target a specific Capacity Reservation:
         """
         if capacity_reservation_preference is not None:
@@ -6585,7 +6640,7 @@ class LaunchTemplateCapacityReservationSpecificationArgs:
     @pulumi.getter(name="capacityReservationPreference")
     def capacity_reservation_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+        Indicates the instance's Capacity Reservation preferences. Can be `capacity-reservations-only`, `open` or `none`. If `capacity_reservation_id` or `capacity_reservation_resource_group_arn` is specified in `capacity_reservation_target` block, either omit `capacity_reservation_preference` or set it to `capacity-reservations-only`.
         """
         return pulumi.get(self, "capacity_reservation_preference")
 
@@ -20025,6 +20080,58 @@ class SpotInstanceRequestNetworkInterfaceArgs:
 
 
 if not MYPY:
+    class SpotInstanceRequestPrimaryNetworkInterfaceArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the network interface will be deleted when the instance terminates.
+        """
+        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ID of the network interface to attach.
+        """
+elif False:
+    SpotInstanceRequestPrimaryNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpotInstanceRequestPrimaryNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[pulumi.Input[_builtins.bool]] = None,
+                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] delete_on_termination: Whether the network interface will be deleted when the instance terminates.
+        :param pulumi.Input[_builtins.str] network_interface_id: ID of the network interface to attach.
+        """
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the network interface will be deleted when the instance terminates.
+        """
+        return pulumi.get(self, "delete_on_termination")
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "delete_on_termination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the network interface to attach.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+
+if not MYPY:
     class SpotInstanceRequestPrivateDnsNameOptionsArgsDict(TypedDict):
         enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -20775,6 +20882,9 @@ if not MYPY:
         The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
         """
         subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+        """
 elif False:
     VpcEndpointSubnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -20787,6 +20897,7 @@ class VpcEndpointSubnetConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] ipv4: The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
         :param pulumi.Input[_builtins.str] ipv6: The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
         """
         if ipv4 is not None:
             pulumi.set(__self__, "ipv4", ipv4)
@@ -20822,6 +20933,9 @@ class VpcEndpointSubnetConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
