@@ -22,6 +22,9 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bcmdata"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -29,7 +32,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bcmdata.NewExport(ctx, "test", &bcmdata.ExportArgs{
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bcmdata.NewExport(ctx, "test", &bcmdata.ExportArgs{
 //				Export: &bcmdata.ExportExportArgs{
 //					Name: pulumi.String("testexample"),
 //					DataQueries: bcmdata.ExportExportDataQueryArray{
@@ -37,6 +48,7 @@ import (
 //							QueryStatement: pulumi.String("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT"),
 //							TableConfigurations: pulumi.StringMapMap{
 //								"COST_AND_USAGE_REPORT": pulumi.StringMap{
+//									"BILLING_VIEW_ARN":                      pulumi.Sprintf("arn:%v:billing::%v:billingview/primary", currentGetPartition.Partition, current.AccountId),
 //									"TIME_GRANULARITY":                      pulumi.String("HOURLY"),
 //									"INCLUDE_RESOURCES":                     pulumi.String("FALSE"),
 //									"INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY": pulumi.String("FALSE"),

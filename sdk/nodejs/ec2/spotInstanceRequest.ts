@@ -8,32 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an EC2 Spot Instance Request resource. This allows instances to be
- * requested on the spot market.
- *
- * By default this provider creates Spot Instance Requests with a `persistent` type,
- * which means that for the duration of their lifetime, AWS will launch an
- * instance with the configured details if and when the spot market will accept
- * the requested price.
- *
- * On destruction, this provider will make an attempt to terminate the associated Spot
- * Instance if there is one present.
- *
- * Spot Instances requests with a `one-time` type will close the spot request
- * when the instance is terminated either by the request being below the current spot
- * price availability or by a user.
- *
- * > **NOTE:** Because their behavior depends on the live status of the spot
- * market, Spot Instance Requests have a unique lifecycle that makes them behave
- * differently than other resources. Most importantly: there is __no
- * guarantee__ that a Spot Instance exists to fulfill the request at any given
- * point in time. See the [AWS Spot Instance
- * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
- * for more information.
- *
- * > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
- * We recommend using the EC2 Instance resource with `instanceMarketOptions` instead.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -204,6 +178,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     public readonly monitoring!: pulumi.Output<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+     *
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.ec2.SpotInstanceRequestNetworkInterface[]>;
     public /*out*/ readonly outpostArn!: pulumi.Output<string>;
@@ -217,6 +193,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly placementPartitionNumber!: pulumi.Output<number>;
     public /*out*/ readonly primaryNetworkInterfaceId!: pulumi.Output<string>;
+    /**
+     * The primary network interface. See Primary Network Interface below.
+     */
+    public /*out*/ readonly primaryNetworkInterfaces!: pulumi.Output<outputs.ec2.SpotInstanceRequestPrimaryNetworkInterface[]>;
     /**
      * The private DNS name assigned to the instance. Can only be
      * used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -392,6 +372,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["placementGroup"] = state ? state.placementGroup : undefined;
             resourceInputs["placementPartitionNumber"] = state ? state.placementPartitionNumber : undefined;
             resourceInputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
+            resourceInputs["primaryNetworkInterfaces"] = state ? state.primaryNetworkInterfaces : undefined;
             resourceInputs["privateDns"] = state ? state.privateDns : undefined;
             resourceInputs["privateDnsNameOptions"] = state ? state.privateDnsNameOptions : undefined;
             resourceInputs["privateIp"] = state ? state.privateIp : undefined;
@@ -479,6 +460,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["outpostArn"] = undefined /*out*/;
             resourceInputs["passwordData"] = undefined /*out*/;
             resourceInputs["primaryNetworkInterfaceId"] = undefined /*out*/;
+            resourceInputs["primaryNetworkInterfaces"] = undefined /*out*/;
             resourceInputs["privateDns"] = undefined /*out*/;
             resourceInputs["publicDns"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
@@ -621,6 +603,8 @@ export interface SpotInstanceRequestState {
     monitoring?: pulumi.Input<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+     *
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
     outpostArn?: pulumi.Input<string>;
@@ -634,6 +618,10 @@ export interface SpotInstanceRequestState {
      */
     placementPartitionNumber?: pulumi.Input<number>;
     primaryNetworkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The primary network interface. See Primary Network Interface below.
+     */
+    primaryNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestPrimaryNetworkInterface>[]>;
     /**
      * The private DNS name assigned to the instance. Can only be
      * used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -886,6 +874,8 @@ export interface SpotInstanceRequestArgs {
     monitoring?: pulumi.Input<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+     *
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
     /**

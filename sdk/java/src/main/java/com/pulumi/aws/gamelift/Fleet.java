@@ -108,14 +108,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.buildArn;
     }
     /**
-     * ID of the GameLift Build to be deployed on the fleet.
+     * ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
      * 
      */
     @Export(name="buildId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> buildId;
 
     /**
-     * @return ID of the GameLift Build to be deployed on the fleet.
+     * @return ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
      * 
      */
     public Output<Optional<String>> buildId() {
@@ -324,14 +324,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.scriptArn;
     }
     /**
-     * ID of the GameLift Script to be deployed on the fleet.
+     * ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
      * 
      */
     @Export(name="scriptId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scriptId;
 
     /**
-     * @return ID of the GameLift Script to be deployed on the fleet.
+     * @return ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
      * 
      */
     public Output<Optional<String>> scriptId() {

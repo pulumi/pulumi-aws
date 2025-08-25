@@ -29,6 +29,94 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Grant permission by using bucket policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import com.pulumi.aws.s3.BucketLogging;
+ * import com.pulumi.aws.s3.BucketLoggingArgs;
+ * import com.pulumi.aws.s3.inputs.BucketLoggingTargetObjectKeyFormatArgs;
+ * import com.pulumi.aws.s3.inputs.BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         var logging = new Bucket("logging", BucketArgs.builder()
+ *             .bucket("access-logging-bucket")
+ *             .build());
+ * 
+ *         final var loggingBucketPolicy = logging.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .identifiers("logging.s3.amazonaws.com")
+ *                     .type("Service")
+ *                     .build())
+ *                 .actions("s3:PutObject")
+ *                 .resources(String.format("%s/*", _arn))
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test("StringEquals")
+ *                     .variable("aws:SourceAccount")
+ *                     .values(current.accountId())
+ *                     .build())
+ *                 .build())
+ *             .build()));
+ * 
+ *         var loggingBucketPolicy2 = new BucketPolicy("loggingBucketPolicy2", BucketPolicyArgs.builder()
+ *             .bucket(logging.bucket())
+ *             .policy(loggingBucketPolicy.json())
+ *             .build());
+ * 
+ *         var example = new Bucket("example", BucketArgs.builder()
+ *             .bucket("example-bucket")
+ *             .build());
+ * 
+ *         var exampleBucketLogging = new BucketLogging("exampleBucketLogging", BucketLoggingArgs.builder()
+ *             .bucket(example.bucket())
+ *             .targetBucket(logging.bucket())
+ *             .targetPrefix("log/")
+ *             .targetObjectKeyFormat(BucketLoggingTargetObjectKeyFormatArgs.builder()
+ *                 .partitionedPrefix(BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs.builder()
+ *                     .partitionDateSource("EventTime")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Grant permission by using bucket ACL
+ * 
+ * The [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) does not recommend using the ACL.
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code

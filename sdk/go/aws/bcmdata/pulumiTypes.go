@@ -242,9 +242,9 @@ func (o ExportExportPtrOutput) RefreshCadences() ExportExportRefreshCadenceArray
 }
 
 type ExportExportDataQuery struct {
-	// Query statement.
+	// Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
 	QueryStatement string `pulumi:"queryStatement"`
-	// Table configuration.
+	// Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
 	TableConfigurations map[string]map[string]string `pulumi:"tableConfigurations"`
 }
 
@@ -260,9 +260,9 @@ type ExportExportDataQueryInput interface {
 }
 
 type ExportExportDataQueryArgs struct {
-	// Query statement.
+	// Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
 	QueryStatement pulumi.StringInput `pulumi:"queryStatement"`
-	// Table configuration.
+	// Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
 	TableConfigurations pulumi.StringMapMapInput `pulumi:"tableConfigurations"`
 }
 
@@ -317,12 +317,12 @@ func (o ExportExportDataQueryOutput) ToExportExportDataQueryOutputWithContext(ct
 	return o
 }
 
-// Query statement.
+// Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
 func (o ExportExportDataQueryOutput) QueryStatement() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDataQuery) string { return v.QueryStatement }).(pulumi.StringOutput)
 }
 
-// Table configuration.
+// Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
 func (o ExportExportDataQueryOutput) TableConfigurations() pulumi.StringMapMapOutput {
 	return o.ApplyT(func(v ExportExportDataQuery) map[string]map[string]string { return v.TableConfigurations }).(pulumi.StringMapMapOutput)
 }

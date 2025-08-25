@@ -178,6 +178,10 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string ImageTagMutability;
         /// <summary>
+        /// Block that defines filters to specify which image tags can override the default tag mutability setting.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterResult> ImageTagMutabilityExclusionFilters;
+        /// <summary>
         /// The lifecycle policy document to apply to any created repositories.
         /// </summary>
         public readonly string LifecyclePolicy;
@@ -210,6 +214,8 @@ namespace Pulumi.Aws.Ecr
 
             string imageTagMutability,
 
+            ImmutableArray<Outputs.GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterResult> imageTagMutabilityExclusionFilters,
+
             string lifecyclePolicy,
 
             string prefix,
@@ -228,6 +234,7 @@ namespace Pulumi.Aws.Ecr
             EncryptionConfigurations = encryptionConfigurations;
             Id = id;
             ImageTagMutability = imageTagMutability;
+            ImageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
             LifecyclePolicy = lifecyclePolicy;
             Prefix = prefix;
             Region = region;

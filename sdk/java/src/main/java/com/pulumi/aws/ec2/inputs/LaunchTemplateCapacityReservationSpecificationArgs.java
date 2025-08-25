@@ -17,14 +17,14 @@ public final class LaunchTemplateCapacityReservationSpecificationArgs extends co
     public static final LaunchTemplateCapacityReservationSpecificationArgs Empty = new LaunchTemplateCapacityReservationSpecificationArgs();
 
     /**
-     * Indicates the instance&#39;s Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+     * Indicates the instance&#39;s Capacity Reservation preferences. Can be `capacity-reservations-only`, `open` or `none`. If `capacity_reservation_id` or `capacity_reservation_resource_group_arn` is specified in `capacity_reservation_target` block, either omit `capacity_reservation_preference` or set it to `capacity-reservations-only`.
      * 
      */
     @Import(name="capacityReservationPreference")
     private @Nullable Output<String> capacityReservationPreference;
 
     /**
-     * @return Indicates the instance&#39;s Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+     * @return Indicates the instance&#39;s Capacity Reservation preferences. Can be `capacity-reservations-only`, `open` or `none`. If `capacity_reservation_id` or `capacity_reservation_resource_group_arn` is specified in `capacity_reservation_target` block, either omit `capacity_reservation_preference` or set it to `capacity-reservations-only`.
      * 
      */
     public Optional<Output<String>> capacityReservationPreference() {
@@ -72,7 +72,7 @@ public final class LaunchTemplateCapacityReservationSpecificationArgs extends co
         }
 
         /**
-         * @param capacityReservationPreference Indicates the instance&#39;s Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+         * @param capacityReservationPreference Indicates the instance&#39;s Capacity Reservation preferences. Can be `capacity-reservations-only`, `open` or `none`. If `capacity_reservation_id` or `capacity_reservation_resource_group_arn` is specified in `capacity_reservation_target` block, either omit `capacity_reservation_preference` or set it to `capacity-reservations-only`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class LaunchTemplateCapacityReservationSpecificationArgs extends co
         }
 
         /**
-         * @param capacityReservationPreference Indicates the instance&#39;s Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+         * @param capacityReservationPreference Indicates the instance&#39;s Capacity Reservation preferences. Can be `capacity-reservations-only`, `open` or `none`. If `capacity_reservation_id` or `capacity_reservation_resource_group_arn` is specified in `capacity_reservation_target` block, either omit `capacity_reservation_preference` or set it to `capacity-reservations-only`.
          * 
          * @return builder
          * 

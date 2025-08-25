@@ -4,10 +4,11 @@
 package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ComputeEnvironmentUpdatePolicy {
@@ -15,27 +16,27 @@ public final class ComputeEnvironmentUpdatePolicy {
      * @return Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
      * 
      */
-    private Integer jobExecutionTimeoutMinutes;
+    private @Nullable Integer jobExecutionTimeoutMinutes;
     /**
      * @return Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
      * 
      */
-    private Boolean terminateJobsOnUpdate;
+    private @Nullable Boolean terminateJobsOnUpdate;
 
     private ComputeEnvironmentUpdatePolicy() {}
     /**
      * @return Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
      * 
      */
-    public Integer jobExecutionTimeoutMinutes() {
-        return this.jobExecutionTimeoutMinutes;
+    public Optional<Integer> jobExecutionTimeoutMinutes() {
+        return Optional.ofNullable(this.jobExecutionTimeoutMinutes);
     }
     /**
      * @return Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
      * 
      */
-    public Boolean terminateJobsOnUpdate() {
-        return this.terminateJobsOnUpdate;
+    public Optional<Boolean> terminateJobsOnUpdate() {
+        return Optional.ofNullable(this.terminateJobsOnUpdate);
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class ComputeEnvironmentUpdatePolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer jobExecutionTimeoutMinutes;
-        private Boolean terminateJobsOnUpdate;
+        private @Nullable Integer jobExecutionTimeoutMinutes;
+        private @Nullable Boolean terminateJobsOnUpdate;
         public Builder() {}
         public Builder(ComputeEnvironmentUpdatePolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,18 +58,14 @@ public final class ComputeEnvironmentUpdatePolicy {
         }
 
         @CustomType.Setter
-        public Builder jobExecutionTimeoutMinutes(Integer jobExecutionTimeoutMinutes) {
-            if (jobExecutionTimeoutMinutes == null) {
-              throw new MissingRequiredPropertyException("ComputeEnvironmentUpdatePolicy", "jobExecutionTimeoutMinutes");
-            }
+        public Builder jobExecutionTimeoutMinutes(@Nullable Integer jobExecutionTimeoutMinutes) {
+
             this.jobExecutionTimeoutMinutes = jobExecutionTimeoutMinutes;
             return this;
         }
         @CustomType.Setter
-        public Builder terminateJobsOnUpdate(Boolean terminateJobsOnUpdate) {
-            if (terminateJobsOnUpdate == null) {
-              throw new MissingRequiredPropertyException("ComputeEnvironmentUpdatePolicy", "terminateJobsOnUpdate");
-            }
+        public Builder terminateJobsOnUpdate(@Nullable Boolean terminateJobsOnUpdate) {
+
             this.terminateJobsOnUpdate = terminateJobsOnUpdate;
             return this;
         }

@@ -285,6 +285,46 @@ class BucketLoggingV2(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Grant permission by using bucket policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
+        logging_bucket_policy = logging.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+            "principals": [{
+                "identifiers": ["logging.s3.amazonaws.com"],
+                "type": "Service",
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [f"{arn}/*"],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "aws:SourceAccount",
+                "values": [current.account_id],
+            }],
+        }]))
+        logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
+            bucket=logging.bucket,
+            policy=logging_bucket_policy.json)
+        example = aws.s3.Bucket("example", bucket="example-bucket")
+        example_bucket_logging = aws.s3.BucketLogging("example",
+            bucket=example.bucket,
+            target_bucket=logging.bucket,
+            target_prefix="log/",
+            target_object_key_format={
+                "partitioned_prefix": {
+                    "partition_date_source": "EventTime",
+                },
+            })
+        ```
+
+        ### Grant permission by using bucket ACL
+
+        The [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) does not recommend using the ACL.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,6 +386,46 @@ class BucketLoggingV2(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
+
+        ### Grant permission by using bucket policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
+        logging_bucket_policy = logging.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+            "principals": [{
+                "identifiers": ["logging.s3.amazonaws.com"],
+                "type": "Service",
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [f"{arn}/*"],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "aws:SourceAccount",
+                "values": [current.account_id],
+            }],
+        }]))
+        logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
+            bucket=logging.bucket,
+            policy=logging_bucket_policy.json)
+        example = aws.s3.Bucket("example", bucket="example-bucket")
+        example_bucket_logging = aws.s3.BucketLogging("example",
+            bucket=example.bucket,
+            target_bucket=logging.bucket,
+            target_prefix="log/",
+            target_object_key_format={
+                "partitioned_prefix": {
+                    "partition_date_source": "EventTime",
+                },
+            })
+        ```
+
+        ### Grant permission by using bucket ACL
+
+        The [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) does not recommend using the ACL.
 
         ```python
         import pulumi

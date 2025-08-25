@@ -45,9 +45,17 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.ipv6);
     }
 
+    /**
+     * The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+     * 
+     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
+    /**
+     * @return The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+     * 
+     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -120,11 +128,23 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
             return ipv6(Output.of(ipv6));
         }
 
+        /**
+         * @param subnetId The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
+        /**
+         * @param subnetId The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

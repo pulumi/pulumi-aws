@@ -967,7 +967,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="updatePolicy")
-    def update_policy(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentUpdatePolicy']]:
+    def update_policy(self) -> pulumi.Output['outputs.ComputeEnvironmentUpdatePolicy']:
         """
         Specifies the infrastructure update policy for the compute environment. See details below.
         """

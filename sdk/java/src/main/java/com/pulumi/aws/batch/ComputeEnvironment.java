@@ -479,14 +479,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="updatePolicy", refs={ComputeEnvironmentUpdatePolicy.class}, tree="[0]")
-    private Output</* @Nullable */ ComputeEnvironmentUpdatePolicy> updatePolicy;
+    private Output<ComputeEnvironmentUpdatePolicy> updatePolicy;
 
     /**
      * @return Specifies the infrastructure update policy for the compute environment. See details below.
      * 
      */
-    public Output<Optional<ComputeEnvironmentUpdatePolicy>> updatePolicy() {
-        return Codegen.optional(this.updatePolicy);
+    public Output<ComputeEnvironmentUpdatePolicy> updatePolicy() {
+        return this.updatePolicy;
     }
 
     /**

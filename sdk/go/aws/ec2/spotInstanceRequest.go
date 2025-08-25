@@ -11,32 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EC2 Spot Instance Request resource. This allows instances to be
-// requested on the spot market.
-//
-// By default this provider creates Spot Instance Requests with a `persistent` type,
-// which means that for the duration of their lifetime, AWS will launch an
-// instance with the configured details if and when the spot market will accept
-// the requested price.
-//
-// On destruction, this provider will make an attempt to terminate the associated Spot
-// Instance if there is one present.
-//
-// Spot Instances requests with a `one-time` type will close the spot request
-// when the instance is terminated either by the request being below the current spot
-// price availability or by a user.
-//
-// > **NOTE:** Because their behavior depends on the live status of the spot
-// market, Spot Instance Requests have a unique lifecycle that makes them behave
-// differently than other resources. Most importantly: there is __no
-// guarantee__ that a Spot Instance exists to fulfill the request at any given
-// point in time. See the [AWS Spot Instance
-// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-// for more information.
-//
-// > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
-// We recommend using the EC2 Instance resource with `instanceMarketOptions` instead.
-//
 // ## Example Usage
 //
 // ```go
@@ -135,6 +109,8 @@ type SpotInstanceRequest struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring pulumi.BoolOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	OutpostArn        pulumi.StringOutput                            `pulumi:"outpostArn"`
 	PasswordData      pulumi.StringOutput                            `pulumi:"passwordData"`
@@ -143,6 +119,8 @@ type SpotInstanceRequest struct {
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber  pulumi.IntOutput    `pulumi:"placementPartitionNumber"`
 	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
+	// The primary network interface. See Primary Network Interface below.
+	PrimaryNetworkInterfaces SpotInstanceRequestPrimaryNetworkInterfaceArrayOutput `pulumi:"primaryNetworkInterfaces"`
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC
@@ -308,6 +286,8 @@ type spotInstanceRequestState struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces []SpotInstanceRequestNetworkInterface `pulumi:"networkInterfaces"`
 	OutpostArn        *string                               `pulumi:"outpostArn"`
 	PasswordData      *string                               `pulumi:"passwordData"`
@@ -316,6 +296,8 @@ type spotInstanceRequestState struct {
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber  *int    `pulumi:"placementPartitionNumber"`
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
+	// The primary network interface. See Primary Network Interface below.
+	PrimaryNetworkInterfaces []SpotInstanceRequestPrimaryNetworkInterface `pulumi:"primaryNetworkInterfaces"`
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC
@@ -452,6 +434,8 @@ type SpotInstanceRequestState struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayInput
 	OutpostArn        pulumi.StringPtrInput
 	PasswordData      pulumi.StringPtrInput
@@ -460,6 +444,8 @@ type SpotInstanceRequestState struct {
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber  pulumi.IntPtrInput
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
+	// The primary network interface. See Primary Network Interface below.
+	PrimaryNetworkInterfaces SpotInstanceRequestPrimaryNetworkInterfaceArrayInput
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC
@@ -598,6 +584,8 @@ type spotInstanceRequestArgs struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces []SpotInstanceRequestNetworkInterface `pulumi:"networkInterfaces"`
 	// Placement Group to start the instance in.
 	PlacementGroup *string `pulumi:"placementGroup"`
@@ -716,6 +704,8 @@ type SpotInstanceRequestArgs struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayInput
 	// Placement Group to start the instance in.
 	PlacementGroup pulumi.StringPtrInput
@@ -1023,6 +1013,8 @@ func (o SpotInstanceRequestOutput) Monitoring() pulumi.BoolOutput {
 }
 
 // Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+//
+// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 func (o SpotInstanceRequestOutput) NetworkInterfaces() SpotInstanceRequestNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestNetworkInterfaceArrayOutput {
 		return v.NetworkInterfaces
@@ -1049,6 +1041,13 @@ func (o SpotInstanceRequestOutput) PlacementPartitionNumber() pulumi.IntOutput {
 
 func (o SpotInstanceRequestOutput) PrimaryNetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PrimaryNetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+// The primary network interface. See Primary Network Interface below.
+func (o SpotInstanceRequestOutput) PrimaryNetworkInterfaces() SpotInstanceRequestPrimaryNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestPrimaryNetworkInterfaceArrayOutput {
+		return v.PrimaryNetworkInterfaces
+	}).(SpotInstanceRequestPrimaryNetworkInterfaceArrayOutput)
 }
 
 // The private DNS name assigned to the instance. Can only be

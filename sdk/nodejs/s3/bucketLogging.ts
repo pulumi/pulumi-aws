@@ -18,6 +18,50 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Grant permission by using bucket policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const logging = new aws.s3.Bucket("logging", {bucket: "access-logging-bucket"});
+ * const loggingBucketPolicy = pulumi.all([logging.arn, current]).apply(([arn, current]) => aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         principals: [{
+ *             identifiers: ["logging.s3.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *         actions: ["s3:PutObject"],
+ *         resources: [`${arn}/*`],
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             variable: "aws:SourceAccount",
+ *             values: [current.accountId],
+ *         }],
+ *     }],
+ * }));
+ * const loggingBucketPolicy2 = new aws.s3.BucketPolicy("logging", {
+ *     bucket: logging.bucket,
+ *     policy: loggingBucketPolicy.apply(loggingBucketPolicy => loggingBucketPolicy.json),
+ * });
+ * const example = new aws.s3.Bucket("example", {bucket: "example-bucket"});
+ * const exampleBucketLogging = new aws.s3.BucketLogging("example", {
+ *     bucket: example.bucket,
+ *     targetBucket: logging.bucket,
+ *     targetPrefix: "log/",
+ *     targetObjectKeyFormat: {
+ *         partitionedPrefix: {
+ *             partitionDateSource: "EventTime",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Grant permission by using bucket ACL
+ *
+ * The [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) does not recommend using the ACL.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

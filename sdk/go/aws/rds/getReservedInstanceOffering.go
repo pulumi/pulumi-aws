@@ -62,7 +62,7 @@ type GetReservedInstanceOfferingArgs struct {
 	MultiAz bool `pulumi:"multiAz"`
 	// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
 	OfferingType string `pulumi:"offeringType"`
-	// Description of the reserved DB instance.
+	// Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
 	ProductDescription string `pulumi:"productDescription"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -105,7 +105,7 @@ type GetReservedInstanceOfferingOutputArgs struct {
 	MultiAz pulumi.BoolInput `pulumi:"multiAz"`
 	// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
 	OfferingType pulumi.StringInput `pulumi:"offeringType"`
-	// Description of the reserved DB instance.
+	// Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
 	ProductDescription pulumi.StringInput `pulumi:"productDescription"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

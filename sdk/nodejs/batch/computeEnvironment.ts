@@ -243,7 +243,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * Specifies the infrastructure update policy for the compute environment. See details below.
      */
-    public readonly updatePolicy!: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
+    public readonly updatePolicy!: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy>;
 
     /**
      * Create a ComputeEnvironment resource with the given unique name, arguments, and options.

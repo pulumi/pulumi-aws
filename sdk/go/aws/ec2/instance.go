@@ -54,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
+//			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
 //				Ami:          pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //				Tags: pulumi.StringMap{
@@ -84,7 +84,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
+//			_, err := ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
 //				Ami:          pulumi.String("resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"),
 //				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //				Tags: pulumi.StringMap{
@@ -114,7 +114,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			this, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//			example, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				MostRecent: pulumi.BoolRef(true),
 //				Owners: []string{
 //					"amazon",
@@ -137,8 +137,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
-//				Ami: pulumi.String(this.Id),
+//			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+//				Ami: pulumi.String(example.Id),
 //				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
 //					MarketType: pulumi.String("spot"),
 //					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
@@ -193,7 +193,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			foo, err := ec2.NewNetworkInterface(ctx, "foo", &ec2.NetworkInterfaceArgs{
+//			example, err := ec2.NewNetworkInterface(ctx, "example", &ec2.NetworkInterfaceArgs{
 //				SubnetId: mySubnet.ID(),
 //				PrivateIps: pulumi.StringArray{
 //					pulumi.String("172.16.10.100"),
@@ -205,14 +205,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "foo", &ec2.InstanceArgs{
+//			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
 //				Ami:          pulumi.String("ami-005e54dee72cc1d00"),
 //				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-//				NetworkInterfaces: ec2.InstanceNetworkInterfaceArray{
-//					&ec2.InstanceNetworkInterfaceArgs{
-//						NetworkInterfaceId: foo.ID(),
-//						DeviceIndex:        pulumi.Int(0),
-//					},
+//				PrimaryNetworkInterface: &ec2.InstancePrimaryNetworkInterfaceArgs{
+//					NetworkInterfaceId: example.ID(),
 //				},
 //				CreditSpecification: &ec2.InstanceCreditSpecificationArgs{
 //					CpuCredits: pulumi.String("unlimited"),
@@ -419,6 +416,8 @@ type Instance struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring pulumi.BoolOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces InstanceNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// ARN of the Outpost the instance is assigned to.
 	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
@@ -428,6 +427,8 @@ type Instance struct {
 	PlacementGroup pulumi.StringOutput `pulumi:"placementGroup"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber pulumi.IntOutput `pulumi:"placementPartitionNumber"`
+	// The primary network interface. See Primary Network Interface below.
+	PrimaryNetworkInterface InstancePrimaryNetworkInterfaceOutput `pulumi:"primaryNetworkInterface"`
 	// ID of the instance's primary network interface.
 	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
 	// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
@@ -573,6 +574,8 @@ type instanceState struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces []InstanceNetworkInterface `pulumi:"networkInterfaces"`
 	// ARN of the Outpost the instance is assigned to.
 	OutpostArn *string `pulumi:"outpostArn"`
@@ -582,6 +585,8 @@ type instanceState struct {
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
+	// The primary network interface. See Primary Network Interface below.
+	PrimaryNetworkInterface *InstancePrimaryNetworkInterface `pulumi:"primaryNetworkInterface"`
 	// ID of the instance's primary network interface.
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
 	// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
@@ -698,6 +703,8 @@ type InstanceState struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces InstanceNetworkInterfaceArrayInput
 	// ARN of the Outpost the instance is assigned to.
 	OutpostArn pulumi.StringPtrInput
@@ -707,6 +714,8 @@ type InstanceState struct {
 	PlacementGroup pulumi.StringPtrInput
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber pulumi.IntPtrInput
+	// The primary network interface. See Primary Network Interface below.
+	PrimaryNetworkInterface InstancePrimaryNetworkInterfacePtrInput
 	// ID of the instance's primary network interface.
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
 	// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
@@ -821,11 +830,15 @@ type instanceArgs struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces []InstanceNetworkInterface `pulumi:"networkInterfaces"`
 	// Placement Group to start the instance in.
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
+	// The primary network interface. See Primary Network Interface below.
+	PrimaryNetworkInterface *InstancePrimaryNetworkInterface `pulumi:"primaryNetworkInterface"`
 	// Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
 	PrivateDnsNameOptions *InstancePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// Private IP address to associate with the instance in a VPC.
@@ -925,11 +938,15 @@ type InstanceArgs struct {
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+	//
+	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces InstanceNetworkInterfaceArrayInput
 	// Placement Group to start the instance in.
 	PlacementGroup pulumi.StringPtrInput
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber pulumi.IntPtrInput
+	// The primary network interface. See Primary Network Interface below.
+	PrimaryNetworkInterface InstancePrimaryNetworkInterfacePtrInput
 	// Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
 	PrivateDnsNameOptions InstancePrivateDnsNameOptionsPtrInput
 	// Private IP address to associate with the instance in a VPC.
@@ -1218,6 +1235,8 @@ func (o InstanceOutput) Monitoring() pulumi.BoolOutput {
 }
 
 // Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+//
+// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 func (o InstanceOutput) NetworkInterfaces() InstanceNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(InstanceNetworkInterfaceArrayOutput)
 }
@@ -1240,6 +1259,11 @@ func (o InstanceOutput) PlacementGroup() pulumi.StringOutput {
 // Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 func (o InstanceOutput) PlacementPartitionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.PlacementPartitionNumber }).(pulumi.IntOutput)
+}
+
+// The primary network interface. See Primary Network Interface below.
+func (o InstanceOutput) PrimaryNetworkInterface() InstancePrimaryNetworkInterfaceOutput {
+	return o.ApplyT(func(v *Instance) InstancePrimaryNetworkInterfaceOutput { return v.PrimaryNetworkInterface }).(InstancePrimaryNetworkInterfaceOutput)
 }
 
 // ID of the instance's primary network interface.
