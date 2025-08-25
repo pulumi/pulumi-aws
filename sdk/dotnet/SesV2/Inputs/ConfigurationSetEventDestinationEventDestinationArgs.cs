@@ -24,6 +24,9 @@ namespace Pulumi.Aws.SesV2.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+        /// </summary>
         [Input("eventBridgeDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs>? EventBridgeDestination { get; set; }
 

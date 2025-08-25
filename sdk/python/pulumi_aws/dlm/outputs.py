@@ -78,7 +78,7 @@ class LifecyclePolicyPolicyDetails(dict):
         :param _builtins.str resource_locations: The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If the source resources are located in a Local Zone, specify `LOCAL_ZONE`. Valid values are `CLOUD`, `LOCAL_ZONE`, and `OUTPOST`.
         :param Sequence[_builtins.str] resource_types: A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
         :param Sequence['LifecyclePolicyPolicyDetailsScheduleArgs'] schedules: See the `schedule` configuration block.
-        :param Mapping[str, _builtins.str] target_tags: A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+        :param Mapping[str, _builtins.str] target_tags: A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted. Required when `policy_type` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policy_type` is `EVENT_BASED_POLICY`.
                
                > Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
         """
@@ -156,7 +156,7 @@ class LifecyclePolicyPolicyDetails(dict):
     @pulumi.getter(name="targetTags")
     def target_tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+        A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted. Required when `policy_type` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policy_type` is `EVENT_BASED_POLICY`.
 
         > Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
         """

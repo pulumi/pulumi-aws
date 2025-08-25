@@ -5,10 +5,11 @@ package com.pulumi.aws.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,30 +20,30 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
      * Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
      * 
      */
-    @Import(name="jobExecutionTimeoutMinutes", required=true)
-    private Output<Integer> jobExecutionTimeoutMinutes;
+    @Import(name="jobExecutionTimeoutMinutes")
+    private @Nullable Output<Integer> jobExecutionTimeoutMinutes;
 
     /**
      * @return Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
      * 
      */
-    public Output<Integer> jobExecutionTimeoutMinutes() {
-        return this.jobExecutionTimeoutMinutes;
+    public Optional<Output<Integer>> jobExecutionTimeoutMinutes() {
+        return Optional.ofNullable(this.jobExecutionTimeoutMinutes);
     }
 
     /**
      * Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
      * 
      */
-    @Import(name="terminateJobsOnUpdate", required=true)
-    private Output<Boolean> terminateJobsOnUpdate;
+    @Import(name="terminateJobsOnUpdate")
+    private @Nullable Output<Boolean> terminateJobsOnUpdate;
 
     /**
      * @return Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
      * 
      */
-    public Output<Boolean> terminateJobsOnUpdate() {
-        return this.terminateJobsOnUpdate;
+    public Optional<Output<Boolean>> terminateJobsOnUpdate() {
+        return Optional.ofNullable(this.terminateJobsOnUpdate);
     }
 
     private ComputeEnvironmentUpdatePolicyArgs() {}
@@ -76,7 +77,7 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder jobExecutionTimeoutMinutes(Output<Integer> jobExecutionTimeoutMinutes) {
+        public Builder jobExecutionTimeoutMinutes(@Nullable Output<Integer> jobExecutionTimeoutMinutes) {
             $.jobExecutionTimeoutMinutes = jobExecutionTimeoutMinutes;
             return this;
         }
@@ -97,7 +98,7 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder terminateJobsOnUpdate(Output<Boolean> terminateJobsOnUpdate) {
+        public Builder terminateJobsOnUpdate(@Nullable Output<Boolean> terminateJobsOnUpdate) {
             $.terminateJobsOnUpdate = terminateJobsOnUpdate;
             return this;
         }
@@ -113,12 +114,6 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
         }
 
         public ComputeEnvironmentUpdatePolicyArgs build() {
-            if ($.jobExecutionTimeoutMinutes == null) {
-                throw new MissingRequiredPropertyException("ComputeEnvironmentUpdatePolicyArgs", "jobExecutionTimeoutMinutes");
-            }
-            if ($.terminateJobsOnUpdate == null) {
-                throw new MissingRequiredPropertyException("ComputeEnvironmentUpdatePolicyArgs", "terminateJobsOnUpdate");
-            }
             return $;
         }
     }

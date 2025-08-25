@@ -22,6 +22,100 @@ import (
 //
 // ## Example Usage
 //
+// ### Grant permission by using bucket policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// logging, err := s3.NewBucket(ctx, "logging", &s3.BucketArgs{
+// Bucket: pulumi.String("access-logging-bucket"),
+// })
+// if err != nil {
+// return err
+// }
+// loggingBucketPolicy := logging.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Identifiers: []string{
+// "logging.s3.amazonaws.com",
+// },
+// Type: "Service",
+// },
+// },
+// Actions: []string{
+// "s3:PutObject",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v/*", arn),
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "aws:SourceAccount",
+// Values: interface{}{
+// current.AccountId,
+// },
+// },
+// },
+// },
+// },
+// }, nil)), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = s3.NewBucketPolicy(ctx, "logging", &s3.BucketPolicyArgs{
+// Bucket: logging.Bucket,
+// Policy: pulumi.String(loggingBucketPolicy.Json),
+// })
+// if err != nil {
+// return err
+// }
+// example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
+// Bucket: pulumi.String("example-bucket"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3.NewBucketLogging(ctx, "example", &s3.BucketLoggingArgs{
+// Bucket: example.Bucket,
+// TargetBucket: logging.Bucket,
+// TargetPrefix: pulumi.String("log/"),
+// TargetObjectKeyFormat: &s3.BucketLoggingTargetObjectKeyFormatArgs{
+// PartitionedPrefix: &s3.BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs{
+// PartitionDateSource: pulumi.String("EventTime"),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// ### Grant permission by using bucket ACL
+//
+// The [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) does not recommend using the ACL.
+//
 // ```go
 // package main
 //

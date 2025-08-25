@@ -18,12 +18,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
  * const test = new aws.bcmdata.Export("test", {"export": {
  *     name: "testexample",
  *     dataQueries: [{
  *         queryStatement: "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
  *         tableConfigurations: {
  *             COST_AND_USAGE_REPORT: {
+ *                 BILLING_VIEW_ARN: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:billing::${current.accountId}:billingview/primary`),
  *                 TIME_GRANULARITY: "HOURLY",
  *                 INCLUDE_RESOURCES: "FALSE",
  *                 INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY: "FALSE",

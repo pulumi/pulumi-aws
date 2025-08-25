@@ -55,7 +55,7 @@ export interface GetReservedInstanceOfferingArgs {
      */
     offeringType: string;
     /**
-     * Description of the reserved DB instance.
+     * Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
      */
     productDescription: string;
     /**
@@ -142,7 +142,7 @@ export interface GetReservedInstanceOfferingOutputArgs {
      */
     offeringType: pulumi.Input<string>;
     /**
-     * Description of the reserved DB instance.
+     * Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
      */
     productDescription: pulumi.Input<string>;
     /**

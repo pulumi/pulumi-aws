@@ -309,7 +309,7 @@ type ComputeEnvironment struct {
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the infrastructure update policy for the compute environment. See details below.
-	UpdatePolicy ComputeEnvironmentUpdatePolicyPtrOutput `pulumi:"updatePolicy"`
+	UpdatePolicy ComputeEnvironmentUpdatePolicyOutput `pulumi:"updatePolicy"`
 }
 
 // NewComputeEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -619,8 +619,8 @@ func (o ComputeEnvironmentOutput) Type() pulumi.StringOutput {
 }
 
 // Specifies the infrastructure update policy for the compute environment. See details below.
-func (o ComputeEnvironmentOutput) UpdatePolicy() ComputeEnvironmentUpdatePolicyPtrOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentUpdatePolicyPtrOutput { return v.UpdatePolicy }).(ComputeEnvironmentUpdatePolicyPtrOutput)
+func (o ComputeEnvironmentOutput) UpdatePolicy() ComputeEnvironmentUpdatePolicyOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentUpdatePolicyOutput { return v.UpdatePolicy }).(ComputeEnvironmentUpdatePolicyOutput)
 }
 
 type ComputeEnvironmentArrayOutput struct{ *pulumi.OutputState }

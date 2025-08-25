@@ -12,7 +12,7 @@ This patch combines a couple of patches that all effect shim.go
 
 diff --git a/shim/shim.go b/shim/shim.go
 new file mode 100644
-index 0000000000..a4c1d81989
+index 00000000000..a4c1d81989c
 --- /dev/null
 +++ b/shim/shim.go
 @@ -0,0 +1,40 @@

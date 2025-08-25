@@ -10,32 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides an EC2 Spot Instance Request resource. This allows instances to be
-    /// requested on the spot market.
-    /// 
-    /// By default this provider creates Spot Instance Requests with a `persistent` type,
-    /// which means that for the duration of their lifetime, AWS will launch an
-    /// instance with the configured details if and when the spot market will accept
-    /// the requested price.
-    /// 
-    /// On destruction, this provider will make an attempt to terminate the associated Spot
-    /// Instance if there is one present.
-    /// 
-    /// Spot Instances requests with a `one-time` type will close the spot request
-    /// when the instance is terminated either by the request being below the current spot
-    /// price availability or by a user.
-    /// 
-    /// &gt; **NOTE:** Because their behavior depends on the live status of the spot
-    /// market, Spot Instance Requests have a unique lifecycle that makes them behave
-    /// differently than other resources. Most importantly: there is __no
-    /// guarantee__ that a Spot Instance exists to fulfill the request at any given
-    /// point in time. See the [AWS Spot Instance
-    /// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-    /// for more information.
-    /// 
-    /// &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
-    /// We recommend using the EC2 Instance resource with `instance_market_options` instead.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -277,6 +251,12 @@ namespace Pulumi.Aws.Ec2
 
         [Output("primaryNetworkInterfaceId")]
         public Output<string> PrimaryNetworkInterfaceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The primary network interface. See Primary Network Interface below.
+        /// </summary>
+        [Output("primaryNetworkInterfaces")]
+        public Output<ImmutableArray<Outputs.SpotInstanceRequestPrimaryNetworkInterface>> PrimaryNetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// The private DNS name assigned to the instance. Can only be
@@ -706,6 +686,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
+        [Obsolete(@"network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.")]
         public InputList<Inputs.SpotInstanceRequestNetworkInterfaceArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.SpotInstanceRequestNetworkInterfaceArgs>());
@@ -1100,6 +1081,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
+        [Obsolete(@"network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.")]
         public InputList<Inputs.SpotInstanceRequestNetworkInterfaceGetArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.SpotInstanceRequestNetworkInterfaceGetArgs>());
@@ -1126,6 +1108,18 @@ namespace Pulumi.Aws.Ec2
 
         [Input("primaryNetworkInterfaceId")]
         public Input<string>? PrimaryNetworkInterfaceId { get; set; }
+
+        [Input("primaryNetworkInterfaces")]
+        private InputList<Inputs.SpotInstanceRequestPrimaryNetworkInterfaceGetArgs>? _primaryNetworkInterfaces;
+
+        /// <summary>
+        /// The primary network interface. See Primary Network Interface below.
+        /// </summary>
+        public InputList<Inputs.SpotInstanceRequestPrimaryNetworkInterfaceGetArgs> PrimaryNetworkInterfaces
+        {
+            get => _primaryNetworkInterfaces ?? (_primaryNetworkInterfaces = new InputList<Inputs.SpotInstanceRequestPrimaryNetworkInterfaceGetArgs>());
+            set => _primaryNetworkInterfaces = value;
+        }
 
         /// <summary>
         /// The private DNS name assigned to the instance. Can only be

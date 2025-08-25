@@ -186,6 +186,10 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string ImageTagMutability;
         /// <summary>
+        /// Block that defines filters to specify which image tags can override the default tag mutability setting.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRepositoryImageTagMutabilityExclusionFilterResult> ImageTagMutabilityExclusionFilters;
+        /// <summary>
         /// List of image tags associated with the most recently pushed image in the repository.
         /// </summary>
         public readonly ImmutableArray<string> MostRecentImageTags;
@@ -213,6 +217,8 @@ namespace Pulumi.Aws.Ecr
 
             string imageTagMutability,
 
+            ImmutableArray<Outputs.GetRepositoryImageTagMutabilityExclusionFilterResult> imageTagMutabilityExclusionFilters,
+
             ImmutableArray<string> mostRecentImageTags,
 
             string name,
@@ -230,6 +236,7 @@ namespace Pulumi.Aws.Ecr
             Id = id;
             ImageScanningConfigurations = imageScanningConfigurations;
             ImageTagMutability = imageTagMutability;
+            ImageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
             MostRecentImageTags = mostRecentImageTags;
             Name = name;
             Region = region;

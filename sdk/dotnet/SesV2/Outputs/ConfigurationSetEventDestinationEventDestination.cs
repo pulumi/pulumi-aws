@@ -21,6 +21,9 @@ namespace Pulumi.Aws.SesV2.Outputs
         /// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+        /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination? EventBridgeDestination;
         /// <summary>
         /// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.

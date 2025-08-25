@@ -5,6 +5,7 @@ package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.aws.ecr.outputs.GetRepositoryEncryptionConfiguration;
 import com.pulumi.aws.ecr.outputs.GetRepositoryImageScanningConfiguration;
+import com.pulumi.aws.ecr.outputs.GetRepositoryImageTagMutabilityExclusionFilter;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -39,6 +40,11 @@ public final class GetRepositoryResult {
      * 
      */
     private String imageTagMutability;
+    /**
+     * @return Block that defines filters to specify which image tags can override the default tag mutability setting.
+     * 
+     */
+    private List<GetRepositoryImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters;
     /**
      * @return List of image tags associated with the most recently pushed image in the repository.
      * 
@@ -95,6 +101,13 @@ public final class GetRepositoryResult {
         return this.imageTagMutability;
     }
     /**
+     * @return Block that defines filters to specify which image tags can override the default tag mutability setting.
+     * 
+     */
+    public List<GetRepositoryImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters() {
+        return this.imageTagMutabilityExclusionFilters;
+    }
+    /**
      * @return List of image tags associated with the most recently pushed image in the repository.
      * 
      */
@@ -139,6 +152,7 @@ public final class GetRepositoryResult {
         private String id;
         private List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations;
         private String imageTagMutability;
+        private List<GetRepositoryImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters;
         private List<String> mostRecentImageTags;
         private String name;
         private String region;
@@ -153,6 +167,7 @@ public final class GetRepositoryResult {
     	      this.id = defaults.id;
     	      this.imageScanningConfigurations = defaults.imageScanningConfigurations;
     	      this.imageTagMutability = defaults.imageTagMutability;
+    	      this.imageTagMutabilityExclusionFilters = defaults.imageTagMutabilityExclusionFilters;
     	      this.mostRecentImageTags = defaults.mostRecentImageTags;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
@@ -206,6 +221,17 @@ public final class GetRepositoryResult {
             }
             this.imageTagMutability = imageTagMutability;
             return this;
+        }
+        @CustomType.Setter
+        public Builder imageTagMutabilityExclusionFilters(List<GetRepositoryImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters) {
+            if (imageTagMutabilityExclusionFilters == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "imageTagMutabilityExclusionFilters");
+            }
+            this.imageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
+            return this;
+        }
+        public Builder imageTagMutabilityExclusionFilters(GetRepositoryImageTagMutabilityExclusionFilter... imageTagMutabilityExclusionFilters) {
+            return imageTagMutabilityExclusionFilters(List.of(imageTagMutabilityExclusionFilters));
         }
         @CustomType.Setter
         public Builder mostRecentImageTags(List<String> mostRecentImageTags) {
@@ -265,6 +291,7 @@ public final class GetRepositoryResult {
             _resultValue.id = id;
             _resultValue.imageScanningConfigurations = imageScanningConfigurations;
             _resultValue.imageTagMutability = imageTagMutability;
+            _resultValue.imageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
             _resultValue.mostRecentImageTags = mostRecentImageTags;
             _resultValue.name = name;
             _resultValue.region = region;

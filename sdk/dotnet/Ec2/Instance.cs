@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var web = new Aws.Ec2.Instance("web", new()
+    ///     var example = new Aws.Ec2.Instance("example", new()
     ///     {
     ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var web = new Aws.Ec2.Instance("web", new()
+    ///     var example = new Aws.Ec2.Instance("example", new()
     ///     {
     ///         Ami = "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64",
     ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @this = Aws.Ec2.GetAmi.Invoke(new()
+    ///     var example = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
     ///         MostRecent = true,
     ///         Owners = new[]
@@ -128,9 +128,9 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var thisInstance = new Aws.Ec2.Instance("this", new()
+    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
-    ///         Ami = @this.Apply(@this =&gt; @this.Apply(getAmiResult =&gt; getAmiResult.Id)),
+    ///         Ami = example.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         InstanceMarketOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsArgs
     ///         {
     ///             MarketType = "spot",
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var foo = new Aws.Ec2.NetworkInterface("foo", new()
+    ///     var example = new Aws.Ec2.NetworkInterface("example", new()
     ///     {
     ///         SubnetId = mySubnet.Id,
     ///         PrivateIps = new[]
@@ -192,17 +192,13 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var fooInstance = new Aws.Ec2.Instance("foo", new()
+    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
     ///         Ami = "ami-005e54dee72cc1d00",
     ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
-    ///         NetworkInterfaces = new[]
+    ///         PrimaryNetworkInterface = new Aws.Ec2.Inputs.InstancePrimaryNetworkInterfaceArgs
     ///         {
-    ///             new Aws.Ec2.Inputs.InstanceNetworkInterfaceArgs
-    ///             {
-    ///                 NetworkInterfaceId = foo.Id,
-    ///                 DeviceIndex = 0,
-    ///             },
+    ///             NetworkInterfaceId = example.Id,
     ///         },
     ///         CreditSpecification = new Aws.Ec2.Inputs.InstanceCreditSpecificationArgs
     ///         {
@@ -551,6 +547,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("placementPartitionNumber")]
         public Output<int> PlacementPartitionNumber { get; private set; } = null!;
+
+        /// <summary>
+        /// The primary network interface. See Primary Network Interface below.
+        /// </summary>
+        [Output("primaryNetworkInterface")]
+        public Output<Outputs.InstancePrimaryNetworkInterface> PrimaryNetworkInterface { get; private set; } = null!;
 
         /// <summary>
         /// ID of the instance's primary network interface.
@@ -926,6 +928,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
+        [Obsolete(@"network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.")]
         public InputList<Inputs.InstanceNetworkInterfaceArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfaceArgs>());
@@ -943,6 +946,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("placementPartitionNumber")]
         public Input<int>? PlacementPartitionNumber { get; set; }
+
+        /// <summary>
+        /// The primary network interface. See Primary Network Interface below.
+        /// </summary>
+        [Input("primaryNetworkInterface")]
+        public Input<Inputs.InstancePrimaryNetworkInterfaceArgs>? PrimaryNetworkInterface { get; set; }
 
         /// <summary>
         /// Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -1293,6 +1302,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
+        [Obsolete(@"network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.")]
         public InputList<Inputs.InstanceNetworkInterfaceGetArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfaceGetArgs>());
@@ -1322,6 +1332,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("placementPartitionNumber")]
         public Input<int>? PlacementPartitionNumber { get; set; }
+
+        /// <summary>
+        /// The primary network interface. See Primary Network Interface below.
+        /// </summary>
+        [Input("primaryNetworkInterface")]
+        public Input<Inputs.InstancePrimaryNetworkInterfaceGetArgs>? PrimaryNetworkInterface { get; set; }
 
         /// <summary>
         /// ID of the instance's primary network interface.

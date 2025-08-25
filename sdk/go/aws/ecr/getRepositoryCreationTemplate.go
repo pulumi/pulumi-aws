@@ -72,6 +72,8 @@ type LookupRepositoryCreationTemplateResult struct {
 	Id string `pulumi:"id"`
 	// The tag mutability setting for any created repositories.
 	ImageTagMutability string `pulumi:"imageTagMutability"`
+	// Block that defines filters to specify which image tags can override the default tag mutability setting.
+	ImageTagMutabilityExclusionFilters []GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// The lifecycle policy document to apply to any created repositories.
 	LifecyclePolicy string `pulumi:"lifecyclePolicy"`
 	Prefix          string `pulumi:"prefix"`
@@ -152,6 +154,13 @@ func (o LookupRepositoryCreationTemplateResultOutput) Id() pulumi.StringOutput {
 // The tag mutability setting for any created repositories.
 func (o LookupRepositoryCreationTemplateResultOutput) ImageTagMutability() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.ImageTagMutability }).(pulumi.StringOutput)
+}
+
+// Block that defines filters to specify which image tags can override the default tag mutability setting.
+func (o LookupRepositoryCreationTemplateResultOutput) ImageTagMutabilityExclusionFilters() GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) []GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter {
+		return v.ImageTagMutabilityExclusionFilters
+	}).(GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput)
 }
 
 // The lifecycle policy document to apply to any created repositories.

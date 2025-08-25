@@ -21,6 +21,10 @@ public final class VpcEndpointSubnetConfiguration {
      * 
      */
     private @Nullable String ipv6;
+    /**
+     * @return The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+     * 
+     */
     private @Nullable String subnetId;
 
     private VpcEndpointSubnetConfiguration() {}
@@ -38,6 +42,10 @@ public final class VpcEndpointSubnetConfiguration {
     public Optional<String> ipv6() {
         return Optional.ofNullable(this.ipv6);
     }
+    /**
+     * @return The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+     * 
+     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }

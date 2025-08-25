@@ -24,6 +24,7 @@ __all__ = [
     'ReplicationConfigurationReplicationConfigurationRuleDestination',
     'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter',
     'RepositoryCreationTemplateEncryptionConfiguration',
+    'RepositoryCreationTemplateImageTagMutabilityExclusionFilter',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
     'RepositoryImageTagMutabilityExclusionFilter',
@@ -32,8 +33,10 @@ __all__ = [
     'GetLifecyclePolicyDocumentRuleActionResult',
     'GetLifecyclePolicyDocumentRuleSelectionResult',
     'GetRepositoryCreationTemplateEncryptionConfigurationResult',
+    'GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterResult',
     'GetRepositoryEncryptionConfigurationResult',
     'GetRepositoryImageScanningConfigurationResult',
+    'GetRepositoryImageTagMutabilityExclusionFilterResult',
 ]
 
 @pulumi.output_type
@@ -325,6 +328,52 @@ class RepositoryCreationTemplateEncryptionConfiguration(dict):
         The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
         """
         return pulumi.get(self, "kms_key")
+
+
+@pulumi.output_type
+class RepositoryCreationTemplateImageTagMutabilityExclusionFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCreationTemplateImageTagMutabilityExclusionFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCreationTemplateImageTagMutabilityExclusionFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCreationTemplateImageTagMutabilityExclusionFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter: _builtins.str,
+                 filter_type: _builtins.str):
+        """
+        :param _builtins.str filter: The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
+        :param _builtins.str filter_type: The type of filter to use. Must be `WILDCARD`.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> _builtins.str:
+        """
+        The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
+        """
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> _builtins.str:
+        """
+        The type of filter to use. Must be `WILDCARD`.
+        """
+        return pulumi.get(self, "filter_type")
 
 
 @pulumi.output_type
@@ -665,6 +714,35 @@ class GetRepositoryCreationTemplateEncryptionConfigurationResult(dict):
 
 
 @pulumi.output_type
+class GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterResult(dict):
+    def __init__(__self__, *,
+                 filter: _builtins.str,
+                 filter_type: _builtins.str):
+        """
+        :param _builtins.str filter: The filter pattern to use for excluding image tags from the mutability setting.
+        :param _builtins.str filter_type: The type of filter to use.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> _builtins.str:
+        """
+        The filter pattern to use for excluding image tags from the mutability setting.
+        """
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> _builtins.str:
+        """
+        The type of filter to use.
+        """
+        return pulumi.get(self, "filter_type")
+
+
+@pulumi.output_type
 class GetRepositoryEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
                  encryption_type: _builtins.str,
@@ -709,5 +787,34 @@ class GetRepositoryImageScanningConfigurationResult(dict):
         Whether images are scanned after being pushed to the repository.
         """
         return pulumi.get(self, "scan_on_push")
+
+
+@pulumi.output_type
+class GetRepositoryImageTagMutabilityExclusionFilterResult(dict):
+    def __init__(__self__, *,
+                 filter: _builtins.str,
+                 filter_type: _builtins.str):
+        """
+        :param _builtins.str filter: The filter pattern to use for excluding image tags from the mutability setting.
+        :param _builtins.str filter_type: The type of filter to use.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> _builtins.str:
+        """
+        The filter pattern to use for excluding image tags from the mutability setting.
+        """
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> _builtins.str:
+        """
+        The type of filter to use.
+        """
+        return pulumi.get(self, "filter_type")
 
 

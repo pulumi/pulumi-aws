@@ -17,14 +17,14 @@ public final class BucketLoggingV2TargetObjectKeyFormatArgs extends com.pulumi.r
     public static final BucketLoggingV2TargetObjectKeyFormatArgs Empty = new BucketLoggingV2TargetObjectKeyFormatArgs();
 
     /**
-     * Partitioned S3 key for log objects. See below.
+     * Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
      * 
      */
     @Import(name="partitionedPrefix")
     private @Nullable Output<BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs> partitionedPrefix;
 
     /**
-     * @return Partitioned S3 key for log objects. See below.
+     * @return Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
      * 
      */
     public Optional<Output<BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs>> partitionedPrefix() {
@@ -32,14 +32,14 @@ public final class BucketLoggingV2TargetObjectKeyFormatArgs extends com.pulumi.r
     }
 
     /**
-     * Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+     * Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
      * 
      */
     @Import(name="simplePrefix")
     private @Nullable Output<BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs> simplePrefix;
 
     /**
-     * @return Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+     * @return Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
      * 
      */
     public Optional<Output<BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs>> simplePrefix() {
@@ -72,7 +72,7 @@ public final class BucketLoggingV2TargetObjectKeyFormatArgs extends com.pulumi.r
         }
 
         /**
-         * @param partitionedPrefix Partitioned S3 key for log objects. See below.
+         * @param partitionedPrefix Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketLoggingV2TargetObjectKeyFormatArgs extends com.pulumi.r
         }
 
         /**
-         * @param partitionedPrefix Partitioned S3 key for log objects. See below.
+         * @param partitionedPrefix Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BucketLoggingV2TargetObjectKeyFormatArgs extends com.pulumi.r
         }
 
         /**
-         * @param simplePrefix Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+         * @param simplePrefix Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BucketLoggingV2TargetObjectKeyFormatArgs extends com.pulumi.r
         }
 
         /**
-         * @param simplePrefix Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+         * @param simplePrefix Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
          * 
          * @return builder
          * 

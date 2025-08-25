@@ -466,7 +466,8 @@ type ConfigurationSetEventDestinationEventDestination struct {
 	// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 	CloudWatchDestination *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination `pulumi:"cloudWatchDestination"`
 	// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-	Enabled                *bool                                                                   `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
 	EventBridgeDestination *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination `pulumi:"eventBridgeDestination"`
 	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 	KinesisFirehoseDestination *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
@@ -493,7 +494,8 @@ type ConfigurationSetEventDestinationEventDestinationArgs struct {
 	// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 	CloudWatchDestination ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput `pulumi:"cloudWatchDestination"`
 	// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-	Enabled                pulumi.BoolPtrInput                                                            `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
 	EventBridgeDestination ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrInput `pulumi:"eventBridgeDestination"`
 	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 	KinesisFirehoseDestination ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
@@ -594,6 +596,7 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) Enabled() pulumi
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) EventBridgeDestination() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
 		return v.EventBridgeDestination
@@ -670,6 +673,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) EventBridgeDestination() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
 		if v == nil {

@@ -68,7 +68,7 @@ namespace Pulumi.Aws.GameLift
         public Output<string> BuildArn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the GameLift Build to be deployed on the fleet.
+        /// ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
         /// </summary>
         [Output("buildId")]
         public Output<string?> BuildId { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.GameLift
         public Output<string> ScriptArn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the GameLift Script to be deployed on the fleet.
+        /// ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
         /// </summary>
         [Output("scriptId")]
         public Output<string?> ScriptId { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.GameLift
     public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the GameLift Build to be deployed on the fleet.
+        /// ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
         /// </summary>
         [Input("buildId")]
         public Input<string>? BuildId { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.GameLift
         public Input<Inputs.FleetRuntimeConfigurationArgs>? RuntimeConfiguration { get; set; }
 
         /// <summary>
-        /// ID of the GameLift Script to be deployed on the fleet.
+        /// ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
         /// </summary>
         [Input("scriptId")]
         public Input<string>? ScriptId { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? BuildArn { get; set; }
 
         /// <summary>
-        /// ID of the GameLift Build to be deployed on the fleet.
+        /// ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
         /// </summary>
         [Input("buildId")]
         public Input<string>? BuildId { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? ScriptArn { get; set; }
 
         /// <summary>
-        /// ID of the GameLift Script to be deployed on the fleet.
+        /// ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
         /// </summary>
         [Input("scriptId")]
         public Input<string>? ScriptId { get; set; }

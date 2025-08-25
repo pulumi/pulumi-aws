@@ -77,6 +77,10 @@ export interface GetRepositoryCreationTemplateResult {
      */
     readonly imageTagMutability: string;
     /**
+     * Block that defines filters to specify which image tags can override the default tag mutability setting.
+     */
+    readonly imageTagMutabilityExclusionFilters: outputs.ecr.GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter[];
+    /**
      * The lifecycle policy document to apply to any created repositories.
      */
     readonly lifecyclePolicy: string;

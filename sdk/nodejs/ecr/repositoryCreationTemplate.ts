@@ -133,6 +133,10 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      */
     public readonly imageTagMutability!: pulumi.Output<string | undefined>;
     /**
+     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+     */
+    public readonly imageTagMutabilityExclusionFilters!: pulumi.Output<outputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter[] | undefined>;
+    /**
      * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
      */
     public readonly lifecyclePolicy!: pulumi.Output<string | undefined>;
@@ -172,6 +176,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["encryptionConfigurations"] = state ? state.encryptionConfigurations : undefined;
             resourceInputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = state ? state.imageTagMutabilityExclusionFilters : undefined;
             resourceInputs["lifecyclePolicy"] = state ? state.lifecyclePolicy : undefined;
             resourceInputs["prefix"] = state ? state.prefix : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
@@ -191,6 +196,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
             resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = args ? args.imageTagMutabilityExclusionFilters : undefined;
             resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
             resourceInputs["prefix"] = args ? args.prefix : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
@@ -227,6 +233,10 @@ export interface RepositoryCreationTemplateState {
      * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      */
     imageTagMutability?: pulumi.Input<string>;
+    /**
+     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+     */
+    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>[]>;
     /**
      * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
      */
@@ -274,6 +284,10 @@ export interface RepositoryCreationTemplateArgs {
      * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      */
     imageTagMutability?: pulumi.Input<string>;
+    /**
+     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+     */
+    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>[]>;
     /**
      * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
      */

@@ -65,7 +65,7 @@ type Fleet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Build ARN.
 	BuildArn pulumi.StringOutput `pulumi:"buildArn"`
-	// ID of the GameLift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
 	BuildId pulumi.StringPtrOutput `pulumi:"buildId"`
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration FleetCertificateConfigurationOutput `pulumi:"certificateConfiguration"`
@@ -96,7 +96,7 @@ type Fleet struct {
 	RuntimeConfiguration FleetRuntimeConfigurationPtrOutput `pulumi:"runtimeConfiguration"`
 	// Script ARN.
 	ScriptArn pulumi.StringOutput `pulumi:"scriptArn"`
-	// ID of the GameLift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
 	ScriptId pulumi.StringPtrOutput `pulumi:"scriptId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -141,7 +141,7 @@ type fleetState struct {
 	Arn *string `pulumi:"arn"`
 	// Build ARN.
 	BuildArn *string `pulumi:"buildArn"`
-	// ID of the GameLift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
 	BuildId *string `pulumi:"buildId"`
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration *FleetCertificateConfiguration `pulumi:"certificateConfiguration"`
@@ -172,7 +172,7 @@ type fleetState struct {
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
 	// Script ARN.
 	ScriptArn *string `pulumi:"scriptArn"`
-	// ID of the GameLift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
 	ScriptId *string `pulumi:"scriptId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -185,7 +185,7 @@ type FleetState struct {
 	Arn pulumi.StringPtrInput
 	// Build ARN.
 	BuildArn pulumi.StringPtrInput
-	// ID of the GameLift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
 	BuildId pulumi.StringPtrInput
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration FleetCertificateConfigurationPtrInput
@@ -216,7 +216,7 @@ type FleetState struct {
 	RuntimeConfiguration FleetRuntimeConfigurationPtrInput
 	// Script ARN.
 	ScriptArn pulumi.StringPtrInput
-	// ID of the GameLift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
 	ScriptId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -229,7 +229,7 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	// ID of the GameLift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
 	BuildId *string `pulumi:"buildId"`
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration *FleetCertificateConfiguration `pulumi:"certificateConfiguration"`
@@ -255,7 +255,7 @@ type fleetArgs struct {
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
-	// ID of the GameLift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
 	ScriptId *string `pulumi:"scriptId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -263,7 +263,7 @@ type fleetArgs struct {
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
-	// ID of the GameLift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
 	BuildId pulumi.StringPtrInput
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration FleetCertificateConfigurationPtrInput
@@ -289,7 +289,7 @@ type FleetArgs struct {
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrInput
-	// ID of the GameLift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
 	ScriptId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -392,7 +392,7 @@ func (o FleetOutput) BuildArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.BuildArn }).(pulumi.StringOutput)
 }
 
-// ID of the GameLift Build to be deployed on the fleet.
+// ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
 func (o FleetOutput) BuildId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.BuildId }).(pulumi.StringPtrOutput)
 }
@@ -471,7 +471,7 @@ func (o FleetOutput) ScriptArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.ScriptArn }).(pulumi.StringOutput)
 }
 
-// ID of the GameLift Script to be deployed on the fleet.
+// ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
 func (o FleetOutput) ScriptId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ScriptId }).(pulumi.StringPtrOutput)
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.aws.ecr.outputs.GetRepositoryCreationTemplateEncryptionConfiguration;
+import com.pulumi.aws.ecr.outputs.GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -43,6 +44,11 @@ public final class GetRepositoryCreationTemplateResult {
      * 
      */
     private String imageTagMutability;
+    /**
+     * @return Block that defines filters to specify which image tags can override the default tag mutability setting.
+     * 
+     */
+    private List<GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters;
     /**
      * @return The lifecycle policy document to apply to any created repositories.
      * 
@@ -110,6 +116,13 @@ public final class GetRepositoryCreationTemplateResult {
         return this.imageTagMutability;
     }
     /**
+     * @return Block that defines filters to specify which image tags can override the default tag mutability setting.
+     * 
+     */
+    public List<GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters() {
+        return this.imageTagMutabilityExclusionFilters;
+    }
+    /**
      * @return The lifecycle policy document to apply to any created repositories.
      * 
      */
@@ -159,6 +172,7 @@ public final class GetRepositoryCreationTemplateResult {
         private List<GetRepositoryCreationTemplateEncryptionConfiguration> encryptionConfigurations;
         private String id;
         private String imageTagMutability;
+        private List<GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters;
         private String lifecyclePolicy;
         private String prefix;
         private String region;
@@ -174,6 +188,7 @@ public final class GetRepositoryCreationTemplateResult {
     	      this.encryptionConfigurations = defaults.encryptionConfigurations;
     	      this.id = defaults.id;
     	      this.imageTagMutability = defaults.imageTagMutability;
+    	      this.imageTagMutabilityExclusionFilters = defaults.imageTagMutabilityExclusionFilters;
     	      this.lifecyclePolicy = defaults.lifecyclePolicy;
     	      this.prefix = defaults.prefix;
     	      this.region = defaults.region;
@@ -237,6 +252,17 @@ public final class GetRepositoryCreationTemplateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder imageTagMutabilityExclusionFilters(List<GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters) {
+            if (imageTagMutabilityExclusionFilters == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryCreationTemplateResult", "imageTagMutabilityExclusionFilters");
+            }
+            this.imageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
+            return this;
+        }
+        public Builder imageTagMutabilityExclusionFilters(GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter... imageTagMutabilityExclusionFilters) {
+            return imageTagMutabilityExclusionFilters(List.of(imageTagMutabilityExclusionFilters));
+        }
+        @CustomType.Setter
         public Builder lifecyclePolicy(String lifecyclePolicy) {
             if (lifecyclePolicy == null) {
               throw new MissingRequiredPropertyException("GetRepositoryCreationTemplateResult", "lifecyclePolicy");
@@ -292,6 +318,7 @@ public final class GetRepositoryCreationTemplateResult {
             _resultValue.encryptionConfigurations = encryptionConfigurations;
             _resultValue.id = id;
             _resultValue.imageTagMutability = imageTagMutability;
+            _resultValue.imageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
             _resultValue.lifecyclePolicy = lifecyclePolicy;
             _resultValue.prefix = prefix;
             _resultValue.region = region;

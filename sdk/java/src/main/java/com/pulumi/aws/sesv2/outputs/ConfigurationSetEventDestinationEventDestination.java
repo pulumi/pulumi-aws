@@ -29,6 +29,10 @@ public final class ConfigurationSetEventDestinationEventDestination {
      * 
      */
     private @Nullable Boolean enabled;
+    /**
+     * @return An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+     * 
+     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationEventBridgeDestination eventBridgeDestination;
     /**
      * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
@@ -66,6 +70,10 @@ public final class ConfigurationSetEventDestinationEventDestination {
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+     * 
+     */
     public Optional<ConfigurationSetEventDestinationEventDestinationEventBridgeDestination> eventBridgeDestination() {
         return Optional.ofNullable(this.eventBridgeDestination);
     }

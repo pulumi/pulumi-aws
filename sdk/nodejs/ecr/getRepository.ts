@@ -78,6 +78,10 @@ export interface GetRepositoryResult {
      */
     readonly imageTagMutability: string;
     /**
+     * Block that defines filters to specify which image tags can override the default tag mutability setting.
+     */
+    readonly imageTagMutabilityExclusionFilters: outputs.ecr.GetRepositoryImageTagMutabilityExclusionFilter[];
+    /**
      * List of image tags associated with the most recently pushed image in the repository.
      */
     readonly mostRecentImageTags: string[];
