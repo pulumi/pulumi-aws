@@ -13,7 +13,7 @@ namespace Pulumi.Aws.BcmData.Inputs
     public sealed class ExportExportDataQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Query statement.
+        /// Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
         /// </summary>
         [Input("queryStatement", required: true)]
         public Input<string> QueryStatement { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.BcmData.Inputs
         private InputMap<ImmutableDictionary<string, string>>? _tableConfigurations;
 
         /// <summary>
-        /// Table configuration.
+        /// Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
         /// </summary>
         public InputMap<ImmutableDictionary<string, string>> TableConfigurations
         {

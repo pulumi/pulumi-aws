@@ -906,9 +906,9 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) KubernetesNamespace() pulum
 
 type ComputeEnvironmentUpdatePolicy struct {
 	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-	JobExecutionTimeoutMinutes int `pulumi:"jobExecutionTimeoutMinutes"`
+	JobExecutionTimeoutMinutes *int `pulumi:"jobExecutionTimeoutMinutes"`
 	// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
-	TerminateJobsOnUpdate bool `pulumi:"terminateJobsOnUpdate"`
+	TerminateJobsOnUpdate *bool `pulumi:"terminateJobsOnUpdate"`
 }
 
 // ComputeEnvironmentUpdatePolicyInput is an input type that accepts ComputeEnvironmentUpdatePolicyArgs and ComputeEnvironmentUpdatePolicyOutput values.
@@ -924,9 +924,9 @@ type ComputeEnvironmentUpdatePolicyInput interface {
 
 type ComputeEnvironmentUpdatePolicyArgs struct {
 	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-	JobExecutionTimeoutMinutes pulumi.IntInput `pulumi:"jobExecutionTimeoutMinutes"`
+	JobExecutionTimeoutMinutes pulumi.IntPtrInput `pulumi:"jobExecutionTimeoutMinutes"`
 	// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
-	TerminateJobsOnUpdate pulumi.BoolInput `pulumi:"terminateJobsOnUpdate"`
+	TerminateJobsOnUpdate pulumi.BoolPtrInput `pulumi:"terminateJobsOnUpdate"`
 }
 
 func (ComputeEnvironmentUpdatePolicyArgs) ElementType() reflect.Type {
@@ -1007,13 +1007,13 @@ func (o ComputeEnvironmentUpdatePolicyOutput) ToComputeEnvironmentUpdatePolicyPt
 }
 
 // Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-func (o ComputeEnvironmentUpdatePolicyOutput) JobExecutionTimeoutMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) int { return v.JobExecutionTimeoutMinutes }).(pulumi.IntOutput)
+func (o ComputeEnvironmentUpdatePolicyOutput) JobExecutionTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *int { return v.JobExecutionTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
-func (o ComputeEnvironmentUpdatePolicyOutput) TerminateJobsOnUpdate() pulumi.BoolOutput {
-	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) bool { return v.TerminateJobsOnUpdate }).(pulumi.BoolOutput)
+func (o ComputeEnvironmentUpdatePolicyOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *bool { return v.TerminateJobsOnUpdate }).(pulumi.BoolPtrOutput)
 }
 
 type ComputeEnvironmentUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -1046,7 +1046,7 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) JobExecutionTimeoutMinutes() pu
 		if v == nil {
 			return nil
 		}
-		return &v.JobExecutionTimeoutMinutes
+		return v.JobExecutionTimeoutMinutes
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1056,7 +1056,7 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) TerminateJobsOnUpdate() pulumi.
 		if v == nil {
 			return nil
 		}
-		return &v.TerminateJobsOnUpdate
+		return v.TerminateJobsOnUpdate
 	}).(pulumi.BoolPtrOutput)
 }
 

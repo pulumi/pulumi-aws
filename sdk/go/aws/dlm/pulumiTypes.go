@@ -27,7 +27,7 @@ type LifecyclePolicyPolicyDetails struct {
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// See the `schedule` configuration block.
 	Schedules []LifecyclePolicyPolicyDetailsSchedule `pulumi:"schedules"`
-	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `policyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policyType` is `EVENT_BASED_POLICY`.
 	//
 	// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
 	TargetTags map[string]string `pulumi:"targetTags"`
@@ -58,7 +58,7 @@ type LifecyclePolicyPolicyDetailsArgs struct {
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 	// See the `schedule` configuration block.
 	Schedules LifecyclePolicyPolicyDetailsScheduleArrayInput `pulumi:"schedules"`
-	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `policyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policyType` is `EVENT_BASED_POLICY`.
 	//
 	// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
 	TargetTags pulumi.StringMapInput `pulumi:"targetTags"`
@@ -175,7 +175,7 @@ func (o LifecyclePolicyPolicyDetailsOutput) Schedules() LifecyclePolicyPolicyDet
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []LifecyclePolicyPolicyDetailsSchedule { return v.Schedules }).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
 }
 
-// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `policyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policyType` is `EVENT_BASED_POLICY`.
 //
 // > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
 func (o LifecyclePolicyPolicyDetailsOutput) TargetTags() pulumi.StringMapOutput {
@@ -275,7 +275,7 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyPolicy
 	}).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
 }
 
-// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `policyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policyType` is `EVENT_BASED_POLICY`.
 //
 // > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutput {

@@ -16,6 +16,7 @@ import com.pulumi.aws.ec2.inputs.InstanceLaunchTemplateArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMaintenanceOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMetadataOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceNetworkInterfaceArgs;
+import com.pulumi.aws.ec2.inputs.InstancePrimaryNetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.InstancePrivateDnsNameOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceRootBlockDeviceArgs;
 import com.pulumi.core.Either;
@@ -518,14 +519,22 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
+     * @deprecated
+     * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * 
      */
+    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<InstanceNetworkInterfaceArgs>> networkInterfaces;
 
     /**
      * @return Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
+     * @deprecated
+     * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * 
      */
+    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
     public Optional<Output<List<InstanceNetworkInterfaceArgs>>> networkInterfaces() {
         return Optional.ofNullable(this.networkInterfaces);
     }
@@ -588,6 +597,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> placementPartitionNumber() {
         return Optional.ofNullable(this.placementPartitionNumber);
+    }
+
+    /**
+     * The primary network interface. See Primary Network Interface below.
+     * 
+     */
+    @Import(name="primaryNetworkInterface")
+    private @Nullable Output<InstancePrimaryNetworkInterfaceArgs> primaryNetworkInterface;
+
+    /**
+     * @return The primary network interface. See Primary Network Interface below.
+     * 
+     */
+    public Optional<Output<InstancePrimaryNetworkInterfaceArgs>> primaryNetworkInterface() {
+        return Optional.ofNullable(this.primaryNetworkInterface);
     }
 
     /**
@@ -961,6 +985,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.passwordData = $.passwordData;
         this.placementGroup = $.placementGroup;
         this.placementPartitionNumber = $.placementPartitionNumber;
+        this.primaryNetworkInterface = $.primaryNetworkInterface;
         this.primaryNetworkInterfaceId = $.primaryNetworkInterfaceId;
         this.privateDns = $.privateDns;
         this.privateDnsNameOptions = $.privateDnsNameOptions;
@@ -1729,7 +1754,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+         * 
          */
+        @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
         public Builder networkInterfaces(@Nullable Output<List<InstanceNetworkInterfaceArgs>> networkInterfaces) {
             $.networkInterfaces = networkInterfaces;
             return this;
@@ -1740,7 +1769,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+         * 
          */
+        @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
         public Builder networkInterfaces(List<InstanceNetworkInterfaceArgs> networkInterfaces) {
             return networkInterfaces(Output.of(networkInterfaces));
         }
@@ -1750,7 +1783,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+         * 
          */
+        @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
         public Builder networkInterfaces(InstanceNetworkInterfaceArgs... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
@@ -1837,6 +1874,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder placementPartitionNumber(Integer placementPartitionNumber) {
             return placementPartitionNumber(Output.of(placementPartitionNumber));
+        }
+
+        /**
+         * @param primaryNetworkInterface The primary network interface. See Primary Network Interface below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryNetworkInterface(@Nullable Output<InstancePrimaryNetworkInterfaceArgs> primaryNetworkInterface) {
+            $.primaryNetworkInterface = primaryNetworkInterface;
+            return this;
+        }
+
+        /**
+         * @param primaryNetworkInterface The primary network interface. See Primary Network Interface below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryNetworkInterface(InstancePrimaryNetworkInterfaceArgs primaryNetworkInterface) {
+            return primaryNetworkInterface(Output.of(primaryNetworkInterface));
         }
 
         /**

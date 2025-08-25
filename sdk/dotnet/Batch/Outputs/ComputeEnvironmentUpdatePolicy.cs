@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Batch.Outputs
         /// <summary>
         /// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
         /// </summary>
-        public readonly int JobExecutionTimeoutMinutes;
+        public readonly int? JobExecutionTimeoutMinutes;
         /// <summary>
         /// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
         /// </summary>
-        public readonly bool TerminateJobsOnUpdate;
+        public readonly bool? TerminateJobsOnUpdate;
 
         [OutputConstructor]
         private ComputeEnvironmentUpdatePolicy(
-            int jobExecutionTimeoutMinutes,
+            int? jobExecutionTimeoutMinutes,
 
-            bool terminateJobsOnUpdate)
+            bool? terminateJobsOnUpdate)
         {
             JobExecutionTimeoutMinutes = jobExecutionTimeoutMinutes;
             TerminateJobsOnUpdate = terminateJobsOnUpdate;

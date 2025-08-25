@@ -52,14 +52,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the GameLift Build to be deployed on the fleet.
+     * ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
      * 
      */
     @Import(name="buildId")
     private @Nullable Output<String> buildId;
 
     /**
-     * @return ID of the GameLift Build to be deployed on the fleet.
+     * @return ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
      * 
      */
     public Optional<Output<String>> buildId() {
@@ -284,14 +284,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the GameLift Script to be deployed on the fleet.
+     * ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
      * 
      */
     @Import(name="scriptId")
     private @Nullable Output<String> scriptId;
 
     /**
-     * @return ID of the GameLift Script to be deployed on the fleet.
+     * @return ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
      * 
      */
     public Optional<Output<String>> scriptId() {
@@ -415,7 +415,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildId ID of the GameLift Build to be deployed on the fleet.
+         * @param buildId ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildId ID of the GameLift Build to be deployed on the fleet.
+         * @param buildId ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptId ID of the GameLift Script to be deployed on the fleet.
+         * @param scriptId ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
          * 
          * @return builder
          * 
@@ -774,7 +774,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptId ID of the GameLift Script to be deployed on the fleet.
+         * @param scriptId ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
          * 
          * @return builder
          * 

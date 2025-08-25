@@ -15,14 +15,14 @@ namespace Pulumi.Aws.Batch.Inputs
         /// <summary>
         /// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
         /// </summary>
-        [Input("jobExecutionTimeoutMinutes", required: true)]
-        public Input<int> JobExecutionTimeoutMinutes { get; set; } = null!;
+        [Input("jobExecutionTimeoutMinutes")]
+        public Input<int>? JobExecutionTimeoutMinutes { get; set; }
 
         /// <summary>
         /// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
         /// </summary>
-        [Input("terminateJobsOnUpdate", required: true)]
-        public Input<bool> TerminateJobsOnUpdate { get; set; } = null!;
+        [Input("terminateJobsOnUpdate")]
+        public Input<bool>? TerminateJobsOnUpdate { get; set; }
 
         public ComputeEnvironmentUpdatePolicyArgs()
         {

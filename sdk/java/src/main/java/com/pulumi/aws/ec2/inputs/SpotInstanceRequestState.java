@@ -13,6 +13,7 @@ import com.pulumi.aws.ec2.inputs.SpotInstanceRequestLaunchTemplateArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestMaintenanceOptionsArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestMetadataOptionsArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestNetworkInterfaceArgs;
+import com.pulumi.aws.ec2.inputs.SpotInstanceRequestPrimaryNetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestPrivateDnsNameOptionsArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestRootBlockDeviceArgs;
 import com.pulumi.core.Output;
@@ -500,14 +501,22 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
+     * @deprecated
+     * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * 
      */
+    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<SpotInstanceRequestNetworkInterfaceArgs>> networkInterfaces;
 
     /**
      * @return Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
+     * @deprecated
+     * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * 
      */
+    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
     public Optional<Output<List<SpotInstanceRequestNetworkInterfaceArgs>>> networkInterfaces() {
         return Optional.ofNullable(this.networkInterfaces);
     }
@@ -561,6 +570,21 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
 
     public Optional<Output<String>> primaryNetworkInterfaceId() {
         return Optional.ofNullable(this.primaryNetworkInterfaceId);
+    }
+
+    /**
+     * The primary network interface. See Primary Network Interface below.
+     * 
+     */
+    @Import(name="primaryNetworkInterfaces")
+    private @Nullable Output<List<SpotInstanceRequestPrimaryNetworkInterfaceArgs>> primaryNetworkInterfaces;
+
+    /**
+     * @return The primary network interface. See Primary Network Interface below.
+     * 
+     */
+    public Optional<Output<List<SpotInstanceRequestPrimaryNetworkInterfaceArgs>>> primaryNetworkInterfaces() {
+        return Optional.ofNullable(this.primaryNetworkInterfaces);
     }
 
     /**
@@ -1039,6 +1063,7 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
         this.placementGroup = $.placementGroup;
         this.placementPartitionNumber = $.placementPartitionNumber;
         this.primaryNetworkInterfaceId = $.primaryNetworkInterfaceId;
+        this.primaryNetworkInterfaces = $.primaryNetworkInterfaces;
         this.privateDns = $.privateDns;
         this.privateDnsNameOptions = $.privateDnsNameOptions;
         this.privateIp = $.privateIp;
@@ -1771,7 +1796,11 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
          * 
          * @return builder
          * 
+         * @deprecated
+         * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+         * 
          */
+        @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
         public Builder networkInterfaces(@Nullable Output<List<SpotInstanceRequestNetworkInterfaceArgs>> networkInterfaces) {
             $.networkInterfaces = networkInterfaces;
             return this;
@@ -1782,7 +1811,11 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
          * 
          * @return builder
          * 
+         * @deprecated
+         * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+         * 
          */
+        @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
         public Builder networkInterfaces(List<SpotInstanceRequestNetworkInterfaceArgs> networkInterfaces) {
             return networkInterfaces(Output.of(networkInterfaces));
         }
@@ -1792,7 +1825,11 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
          * 
          * @return builder
          * 
+         * @deprecated
+         * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+         * 
          */
+        @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
         public Builder networkInterfaces(SpotInstanceRequestNetworkInterfaceArgs... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
@@ -1864,6 +1901,37 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
 
         public Builder primaryNetworkInterfaceId(String primaryNetworkInterfaceId) {
             return primaryNetworkInterfaceId(Output.of(primaryNetworkInterfaceId));
+        }
+
+        /**
+         * @param primaryNetworkInterfaces The primary network interface. See Primary Network Interface below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryNetworkInterfaces(@Nullable Output<List<SpotInstanceRequestPrimaryNetworkInterfaceArgs>> primaryNetworkInterfaces) {
+            $.primaryNetworkInterfaces = primaryNetworkInterfaces;
+            return this;
+        }
+
+        /**
+         * @param primaryNetworkInterfaces The primary network interface. See Primary Network Interface below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryNetworkInterfaces(List<SpotInstanceRequestPrimaryNetworkInterfaceArgs> primaryNetworkInterfaces) {
+            return primaryNetworkInterfaces(Output.of(primaryNetworkInterfaces));
+        }
+
+        /**
+         * @param primaryNetworkInterfaces The primary network interface. See Primary Network Interface below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryNetworkInterfaces(SpotInstanceRequestPrimaryNetworkInterfaceArgs... primaryNetworkInterfaces) {
+            return primaryNetworkInterfaces(List.of(primaryNetworkInterfaces));
         }
 
         /**

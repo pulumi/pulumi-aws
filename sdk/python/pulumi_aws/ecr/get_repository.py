@@ -27,7 +27,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, arn=None, encryption_configurations=None, id=None, image_scanning_configurations=None, image_tag_mutability=None, most_recent_image_tags=None, name=None, region=None, registry_id=None, repository_url=None, tags=None):
+    def __init__(__self__, arn=None, encryption_configurations=None, id=None, image_scanning_configurations=None, image_tag_mutability=None, image_tag_mutability_exclusion_filters=None, most_recent_image_tags=None, name=None, region=None, registry_id=None, repository_url=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetRepositoryResult:
         if image_tag_mutability and not isinstance(image_tag_mutability, str):
             raise TypeError("Expected argument 'image_tag_mutability' to be a str")
         pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
+        if image_tag_mutability_exclusion_filters and not isinstance(image_tag_mutability_exclusion_filters, list):
+            raise TypeError("Expected argument 'image_tag_mutability_exclusion_filters' to be a list")
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filters", image_tag_mutability_exclusion_filters)
         if most_recent_image_tags and not isinstance(most_recent_image_tags, list):
             raise TypeError("Expected argument 'most_recent_image_tags' to be a list")
         pulumi.set(__self__, "most_recent_image_tags", most_recent_image_tags)
@@ -103,6 +106,14 @@ class GetRepositoryResult:
         return pulumi.get(self, "image_tag_mutability")
 
     @_builtins.property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilters")
+    def image_tag_mutability_exclusion_filters(self) -> Sequence['outputs.GetRepositoryImageTagMutabilityExclusionFilterResult']:
+        """
+        Block that defines filters to specify which image tags can override the default tag mutability setting.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filters")
+
+    @_builtins.property
     @pulumi.getter(name="mostRecentImageTags")
     def most_recent_image_tags(self) -> Sequence[_builtins.str]:
         """
@@ -153,6 +164,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             id=self.id,
             image_scanning_configurations=self.image_scanning_configurations,
             image_tag_mutability=self.image_tag_mutability,
+            image_tag_mutability_exclusion_filters=self.image_tag_mutability_exclusion_filters,
             most_recent_image_tags=self.most_recent_image_tags,
             name=self.name,
             region=self.region,
@@ -198,6 +210,7 @@ def get_repository(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         image_scanning_configurations=pulumi.get(__ret__, 'image_scanning_configurations'),
         image_tag_mutability=pulumi.get(__ret__, 'image_tag_mutability'),
+        image_tag_mutability_exclusion_filters=pulumi.get(__ret__, 'image_tag_mutability_exclusion_filters'),
         most_recent_image_tags=pulumi.get(__ret__, 'most_recent_image_tags'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
@@ -240,6 +253,7 @@ def get_repository_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         image_scanning_configurations=pulumi.get(__response__, 'image_scanning_configurations'),
         image_tag_mutability=pulumi.get(__response__, 'image_tag_mutability'),
+        image_tag_mutability_exclusion_filters=pulumi.get(__response__, 'image_tag_mutability_exclusion_filters'),
         most_recent_image_tags=pulumi.get(__response__, 'most_recent_image_tags'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),

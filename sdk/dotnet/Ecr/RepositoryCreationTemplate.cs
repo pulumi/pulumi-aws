@@ -149,6 +149,12 @@ namespace Pulumi.Aws.Ecr
         public Output<string?> ImageTagMutability { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        /// </summary>
+        [Output("imageTagMutabilityExclusionFilters")]
+        public Output<ImmutableArray<Outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>> ImageTagMutabilityExclusionFilters { get; private set; } = null!;
+
+        /// <summary>
         /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         /// </summary>
         [Output("lifecyclePolicy")]
@@ -269,6 +275,18 @@ namespace Pulumi.Aws.Ecr
         [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }
 
+        [Input("imageTagMutabilityExclusionFilters")]
+        private InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>? _imageTagMutabilityExclusionFilters;
+
+        /// <summary>
+        /// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        /// </summary>
+        public InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs> ImageTagMutabilityExclusionFilters
+        {
+            get => _imageTagMutabilityExclusionFilters ?? (_imageTagMutabilityExclusionFilters = new InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>());
+            set => _imageTagMutabilityExclusionFilters = value;
+        }
+
         /// <summary>
         /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         /// </summary>
@@ -351,6 +369,18 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }
+
+        [Input("imageTagMutabilityExclusionFilters")]
+        private InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterGetArgs>? _imageTagMutabilityExclusionFilters;
+
+        /// <summary>
+        /// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        /// </summary>
+        public InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterGetArgs> ImageTagMutabilityExclusionFilters
+        {
+            get => _imageTagMutabilityExclusionFilters ?? (_imageTagMutabilityExclusionFilters = new InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterGetArgs>());
+            set => _imageTagMutabilityExclusionFilters = value;
+        }
 
         /// <summary>
         /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.

@@ -72,6 +72,8 @@ type LookupRepositoryResult struct {
 	ImageScanningConfigurations []GetRepositoryImageScanningConfiguration `pulumi:"imageScanningConfigurations"`
 	// The tag mutability setting for the repository.
 	ImageTagMutability string `pulumi:"imageTagMutability"`
+	// Block that defines filters to specify which image tags can override the default tag mutability setting.
+	ImageTagMutabilityExclusionFilters []GetRepositoryImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// List of image tags associated with the most recently pushed image in the repository.
 	MostRecentImageTags []string `pulumi:"mostRecentImageTags"`
 	Name                string   `pulumi:"name"`
@@ -150,6 +152,13 @@ func (o LookupRepositoryResultOutput) ImageScanningConfigurations() GetRepositor
 // The tag mutability setting for the repository.
 func (o LookupRepositoryResultOutput) ImageTagMutability() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.ImageTagMutability }).(pulumi.StringOutput)
+}
+
+// Block that defines filters to specify which image tags can override the default tag mutability setting.
+func (o LookupRepositoryResultOutput) ImageTagMutabilityExclusionFilters() GetRepositoryImageTagMutabilityExclusionFilterArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) []GetRepositoryImageTagMutabilityExclusionFilter {
+		return v.ImageTagMutabilityExclusionFilters
+	}).(GetRepositoryImageTagMutabilityExclusionFilterArrayOutput)
 }
 
 // List of image tags associated with the most recently pushed image in the repository.

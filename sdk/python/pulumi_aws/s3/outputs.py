@@ -3120,8 +3120,8 @@ class BucketLoggingTargetObjectKeyFormat(dict):
                  partitioned_prefix: Optional['outputs.BucketLoggingTargetObjectKeyFormatPartitionedPrefix'] = None,
                  simple_prefix: Optional['outputs.BucketLoggingTargetObjectKeyFormatSimplePrefix'] = None):
         """
-        :param 'BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs' partitioned_prefix: Partitioned S3 key for log objects. See below.
-        :param 'BucketLoggingTargetObjectKeyFormatSimplePrefixArgs' simple_prefix: Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+        :param 'BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs' partitioned_prefix: Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
+        :param 'BucketLoggingTargetObjectKeyFormatSimplePrefixArgs' simple_prefix: Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
         """
         if partitioned_prefix is not None:
             pulumi.set(__self__, "partitioned_prefix", partitioned_prefix)
@@ -3132,7 +3132,7 @@ class BucketLoggingTargetObjectKeyFormat(dict):
     @pulumi.getter(name="partitionedPrefix")
     def partitioned_prefix(self) -> Optional['outputs.BucketLoggingTargetObjectKeyFormatPartitionedPrefix']:
         """
-        Partitioned S3 key for log objects. See below.
+        Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
         """
         return pulumi.get(self, "partitioned_prefix")
 
@@ -3140,7 +3140,7 @@ class BucketLoggingTargetObjectKeyFormat(dict):
     @pulumi.getter(name="simplePrefix")
     def simple_prefix(self) -> Optional['outputs.BucketLoggingTargetObjectKeyFormatSimplePrefix']:
         """
-        Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+        Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
         """
         return pulumi.get(self, "simple_prefix")
 
@@ -3321,8 +3321,8 @@ class BucketLoggingV2TargetObjectKeyFormat(dict):
                  partitioned_prefix: Optional['outputs.BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix'] = None,
                  simple_prefix: Optional['outputs.BucketLoggingV2TargetObjectKeyFormatSimplePrefix'] = None):
         """
-        :param 'BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs' partitioned_prefix: Partitioned S3 key for log objects. See below.
-        :param 'BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs' simple_prefix: Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+        :param 'BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs' partitioned_prefix: Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
+        :param 'BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs' simple_prefix: Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
         """
         if partitioned_prefix is not None:
             pulumi.set(__self__, "partitioned_prefix", partitioned_prefix)
@@ -3333,7 +3333,7 @@ class BucketLoggingV2TargetObjectKeyFormat(dict):
     @pulumi.getter(name="partitionedPrefix")
     def partitioned_prefix(self) -> Optional['outputs.BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix']:
         """
-        Partitioned S3 key for log objects. See below.
+        Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
         """
         return pulumi.get(self, "partitioned_prefix")
 
@@ -3341,7 +3341,7 @@ class BucketLoggingV2TargetObjectKeyFormat(dict):
     @pulumi.getter(name="simplePrefix")
     def simple_prefix(self) -> Optional['outputs.BucketLoggingV2TargetObjectKeyFormatSimplePrefix']:
         """
-        Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+        Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
         """
         return pulumi.get(self, "simple_prefix")
 
