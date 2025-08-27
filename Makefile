@@ -249,6 +249,7 @@ bin/$(CODEGEN): provider/*.go provider/go.* .make/upstream
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(CODEGEN) -ldflags "$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_EXTRAS)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(CODEGEN))
 .PHONY: tfgen schema tfgen_no_deps tfgen_build_only
 
+provider/cmd/$(PROVIDER)/schema-embed.json:
 schema_embed: provider/cmd/$(PROVIDER)/schema-embed.json
 	(cd provider && VERSION=$(PROVIDER_VERSION) go generate cmd/$(PROVIDER)/main.go)
 

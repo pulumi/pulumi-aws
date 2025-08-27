@@ -70,6 +70,8 @@ jobs:
         uses: ./.github/actions/setup-tools
         with:
           tools: go, pulumictl, pulumicli
+      - name: Prepare local workspace
+        run: make prepare_local_workspace
       - name: Unit-test provider code
         run: make test_provider
       - name: Upload coverage reports to Codecov
