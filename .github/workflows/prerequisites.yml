@@ -50,5 +50,7 @@ jobs:
         set-env: 'PROVIDER_VERSION'
     - name: Generate schema-embed
       run: make schema_embed
+    - name: Build tfgen
+      run: make tfgen_build_only
     - name: Upload artifacts
       uses: ./.github/actions/upload-prerequisites

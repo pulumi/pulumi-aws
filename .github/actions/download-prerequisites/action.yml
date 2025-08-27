@@ -4,6 +4,20 @@ description: Downloads the code generator binary to `bin/`.
 runs:
   using: "composite"
   steps:
+    - name: Download the prerequisites bin
+      uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+      with:
+        name: prerequisites-bin
+        path: bin
+
+    - name: Restore executable permissions
+      shell: bash
+      run: chmod +x $(< bin/executables.txt)
+
+    - name: Remove executables list
+      shell: bash
+      run: rm bin/executables.txt
+
     - name: Download schema-embed.json
       uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
       with:
