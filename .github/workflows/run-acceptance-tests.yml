@@ -112,9 +112,14 @@ jobs:
       - name: Setup tools
         uses: ./.github/actions/setup-tools
         with:
-          tools: go, pulumictl, pulumicli, setup-tools
+          tools: go, pulumictl, pulumicli, schema-tools
       - name: Prepare local workspace before restoring previously built files
         run: make prepare_local_workspace
+      - name: Restore prerequisites
+        uses: ./.github/actions/download-prerequisites
+      - name: Restore makefile progress
+        # This mirrors the targets completed in the prerequisites job
+        run: make --touch provider
       - name: Generate schema
         run: make schema
         env:
