@@ -213,6 +213,7 @@ jobs:
     needs:
       - prerequisites
       - build_provider
+      - test_provider
       - build_sdk
     permissions:
       contents: read
