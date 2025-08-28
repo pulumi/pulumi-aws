@@ -71,44 +71,44 @@ export class VpcEndpointAssociation extends pulumi.CustomResource {
     /**
      * A description of the VPC endpoint association.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall.
      */
-    public readonly firewallArn!: pulumi.Output<string>;
+    declare public readonly firewallArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
      */
-    public readonly subnetMapping!: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationSubnetMapping | undefined>;
+    declare public readonly subnetMapping: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationSubnetMapping | undefined>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationTimeouts | undefined>;
     /**
      * ARN of the VPC Endpoint Association.
      */
-    public /*out*/ readonly vpcEndpointAssociationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcEndpointAssociationArn: pulumi.Output<string>;
     /**
      * The unique identifier of the VPC endpoint association.
      */
-    public /*out*/ readonly vpcEndpointAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcEndpointAssociationId: pulumi.Output<string>;
     /**
      * Nested list of information about the current status of the VPC Endpoint Association.
      */
-    public /*out*/ readonly vpcEndpointAssociationStatuses!: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationVpcEndpointAssociationStatus[]>;
+    declare public /*out*/ readonly vpcEndpointAssociationStatuses: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationVpcEndpointAssociationStatus[]>;
     /**
      * The unique identifier of the VPC for the endpoint association.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointAssociation resource with the given unique name, arguments, and options.
@@ -123,32 +123,32 @@ export class VpcEndpointAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointAssociationState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["firewallArn"] = state ? state.firewallArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["subnetMapping"] = state ? state.subnetMapping : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vpcEndpointAssociationArn"] = state ? state.vpcEndpointAssociationArn : undefined;
-            resourceInputs["vpcEndpointAssociationId"] = state ? state.vpcEndpointAssociationId : undefined;
-            resourceInputs["vpcEndpointAssociationStatuses"] = state ? state.vpcEndpointAssociationStatuses : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["firewallArn"] = state?.firewallArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["subnetMapping"] = state?.subnetMapping;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vpcEndpointAssociationArn"] = state?.vpcEndpointAssociationArn;
+            resourceInputs["vpcEndpointAssociationId"] = state?.vpcEndpointAssociationId;
+            resourceInputs["vpcEndpointAssociationStatuses"] = state?.vpcEndpointAssociationStatuses;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as VpcEndpointAssociationArgs | undefined;
-            if ((!args || args.firewallArn === undefined) && !opts.urn) {
+            if (args?.firewallArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallArn'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["firewallArn"] = args ? args.firewallArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["subnetMapping"] = args ? args.subnetMapping : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["firewallArn"] = args?.firewallArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["subnetMapping"] = args?.subnetMapping;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vpcEndpointAssociationArn"] = undefined /*out*/;
             resourceInputs["vpcEndpointAssociationId"] = undefined /*out*/;

@@ -62,19 +62,19 @@ export class ConditionalForwarder extends pulumi.CustomResource {
     /**
      * ID of directory.
      */
-    public readonly directoryId!: pulumi.Output<string>;
+    declare public readonly directoryId: pulumi.Output<string>;
     /**
      * A list of forwarder IP addresses.
      */
-    public readonly dnsIps!: pulumi.Output<string[]>;
+    declare public readonly dnsIps: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */
-    public readonly remoteDomainName!: pulumi.Output<string>;
+    declare public readonly remoteDomainName: pulumi.Output<string>;
 
     /**
      * Create a ConditionalForwarder resource with the given unique name, arguments, and options.
@@ -89,25 +89,25 @@ export class ConditionalForwarder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConditionalForwarderState | undefined;
-            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
-            resourceInputs["dnsIps"] = state ? state.dnsIps : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["remoteDomainName"] = state ? state.remoteDomainName : undefined;
+            resourceInputs["directoryId"] = state?.directoryId;
+            resourceInputs["dnsIps"] = state?.dnsIps;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["remoteDomainName"] = state?.remoteDomainName;
         } else {
             const args = argsOrState as ConditionalForwarderArgs | undefined;
-            if ((!args || args.directoryId === undefined) && !opts.urn) {
+            if (args?.directoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if ((!args || args.dnsIps === undefined) && !opts.urn) {
+            if (args?.dnsIps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsIps'");
             }
-            if ((!args || args.remoteDomainName === undefined) && !opts.urn) {
+            if (args?.remoteDomainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteDomainName'");
             }
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["dnsIps"] = args ? args.dnsIps : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["remoteDomainName"] = args ? args.remoteDomainName : undefined;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["dnsIps"] = args?.dnsIps;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["remoteDomainName"] = args?.remoteDomainName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:directoryservice/conditionalForwader:ConditionalForwader" }] };

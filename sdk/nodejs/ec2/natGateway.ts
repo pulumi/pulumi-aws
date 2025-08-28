@@ -106,55 +106,55 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
      */
-    public readonly allocationId!: pulumi.Output<string | undefined>;
+    declare public readonly allocationId: pulumi.Output<string | undefined>;
     /**
      * The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      */
-    public readonly connectivityType!: pulumi.Output<string | undefined>;
+    declare public readonly connectivityType: pulumi.Output<string | undefined>;
     /**
      * The ID of the network interface associated with the NAT Gateway.
      */
-    public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
      */
-    public readonly privateIp!: pulumi.Output<string>;
+    declare public readonly privateIp: pulumi.Output<string>;
     /**
      * The Elastic IP address associated with the NAT Gateway.
      */
-    public /*out*/ readonly publicIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicIp: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
      */
-    public readonly secondaryAllocationIds!: pulumi.Output<string[]>;
+    declare public readonly secondaryAllocationIds: pulumi.Output<string[]>;
     /**
      * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
      */
-    public readonly secondaryPrivateIpAddressCount!: pulumi.Output<number>;
+    declare public readonly secondaryPrivateIpAddressCount: pulumi.Output<number>;
     /**
      * A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
      */
-    public readonly secondaryPrivateIpAddresses!: pulumi.Output<string[]>;
+    declare public readonly secondaryPrivateIpAddresses: pulumi.Output<string[]>;
     /**
      * The Subnet ID of the subnet in which to place the NAT Gateway.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a NatGateway resource with the given unique name, arguments, and options.
@@ -169,33 +169,33 @@ export class NatGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatGatewayState | undefined;
-            resourceInputs["allocationId"] = state ? state.allocationId : undefined;
-            resourceInputs["associationId"] = state ? state.associationId : undefined;
-            resourceInputs["connectivityType"] = state ? state.connectivityType : undefined;
-            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            resourceInputs["privateIp"] = state ? state.privateIp : undefined;
-            resourceInputs["publicIp"] = state ? state.publicIp : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["secondaryAllocationIds"] = state ? state.secondaryAllocationIds : undefined;
-            resourceInputs["secondaryPrivateIpAddressCount"] = state ? state.secondaryPrivateIpAddressCount : undefined;
-            resourceInputs["secondaryPrivateIpAddresses"] = state ? state.secondaryPrivateIpAddresses : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["allocationId"] = state?.allocationId;
+            resourceInputs["associationId"] = state?.associationId;
+            resourceInputs["connectivityType"] = state?.connectivityType;
+            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
+            resourceInputs["privateIp"] = state?.privateIp;
+            resourceInputs["publicIp"] = state?.publicIp;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["secondaryAllocationIds"] = state?.secondaryAllocationIds;
+            resourceInputs["secondaryPrivateIpAddressCount"] = state?.secondaryPrivateIpAddressCount;
+            resourceInputs["secondaryPrivateIpAddresses"] = state?.secondaryPrivateIpAddresses;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as NatGatewayArgs | undefined;
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
-            resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
-            resourceInputs["privateIp"] = args ? args.privateIp : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["secondaryAllocationIds"] = args ? args.secondaryAllocationIds : undefined;
-            resourceInputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
-            resourceInputs["secondaryPrivateIpAddresses"] = args ? args.secondaryPrivateIpAddresses : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allocationId"] = args?.allocationId;
+            resourceInputs["connectivityType"] = args?.connectivityType;
+            resourceInputs["privateIp"] = args?.privateIp;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["secondaryAllocationIds"] = args?.secondaryAllocationIds;
+            resourceInputs["secondaryPrivateIpAddressCount"] = args?.secondaryPrivateIpAddressCount;
+            resourceInputs["secondaryPrivateIpAddresses"] = args?.secondaryPrivateIpAddresses;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;

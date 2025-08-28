@@ -37,20 +37,22 @@ public final class GraphArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-     * character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don&#39;t specify a graph
-     * name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-     * UUID.
+     * The graph name. For example: my-graph-1.
+     * 								The name must contain from 1 to 63 letters, numbers, or hyphens,
+     * 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+     * 								If you don&#39;t specify a graph name, a unique graph name is generated for you using the prefix graph-for,
+     * 								followed by a combination of Stack Name and a UUID.
      * 
      */
     @Import(name="graphName")
     private @Nullable Output<String> graphName;
 
     /**
-     * @return The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-     * character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don&#39;t specify a graph
-     * name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-     * UUID.
+     * @return The graph name. For example: my-graph-1.
+     * 								The name must contain from 1 to 63 letters, numbers, or hyphens,
+     * 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+     * 								If you don&#39;t specify a graph name, a unique graph name is generated for you using the prefix graph-for,
+     * 								followed by a combination of Stack Name and a UUID.
      * 
      */
     public Optional<Output<String>> graphName() {
@@ -244,10 +246,11 @@ public final class GraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param graphName The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-         * character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don&#39;t specify a graph
-         * name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-         * UUID.
+         * @param graphName The graph name. For example: my-graph-1.
+         * 								The name must contain from 1 to 63 letters, numbers, or hyphens,
+         * 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+         * 								If you don&#39;t specify a graph name, a unique graph name is generated for you using the prefix graph-for,
+         * 								followed by a combination of Stack Name and a UUID.
          * 
          * @return builder
          * 
@@ -258,10 +261,11 @@ public final class GraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param graphName The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-         * character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don&#39;t specify a graph
-         * name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-         * UUID.
+         * @param graphName The graph name. For example: my-graph-1.
+         * 								The name must contain from 1 to 63 letters, numbers, or hyphens,
+         * 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+         * 								If you don&#39;t specify a graph name, a unique graph name is generated for you using the prefix graph-for,
+         * 								followed by a combination of Stack Name and a UUID.
          * 
          * @return builder
          * 

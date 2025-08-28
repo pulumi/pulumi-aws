@@ -91,44 +91,44 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
      */
-    public readonly apiPassthrough!: pulumi.Output<string | undefined>;
+    declare public readonly apiPassthrough: pulumi.Output<string | undefined>;
     /**
      * ARN of the certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * PEM-encoded certificate value.
      */
-    public /*out*/ readonly certificate!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificate: pulumi.Output<string>;
     /**
      * ARN of the certificate authority.
      */
-    public readonly certificateAuthorityArn!: pulumi.Output<string>;
+    declare public readonly certificateAuthorityArn: pulumi.Output<string>;
     /**
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      */
-    public /*out*/ readonly certificateChain!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateChain: pulumi.Output<string>;
     /**
      * Certificate Signing Request in PEM format.
      */
-    public readonly certificateSigningRequest!: pulumi.Output<string>;
+    declare public readonly certificateSigningRequest: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      */
-    public readonly signingAlgorithm!: pulumi.Output<string>;
+    declare public readonly signingAlgorithm: pulumi.Output<string>;
     /**
      * Template to use when issuing a certificate.
      * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
      */
-    public readonly templateArn!: pulumi.Output<string | undefined>;
+    declare public readonly templateArn: pulumi.Output<string | undefined>;
     /**
      * Configures end of the validity period for the certificate. See validity block below.
      */
-    public readonly validity!: pulumi.Output<outputs.acmpca.CertificateValidity>;
+    declare public readonly validity: pulumi.Output<outputs.acmpca.CertificateValidity>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -143,37 +143,37 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["apiPassthrough"] = state ? state.apiPassthrough : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
-            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
-            resourceInputs["certificateSigningRequest"] = state ? state.certificateSigningRequest : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["signingAlgorithm"] = state ? state.signingAlgorithm : undefined;
-            resourceInputs["templateArn"] = state ? state.templateArn : undefined;
-            resourceInputs["validity"] = state ? state.validity : undefined;
+            resourceInputs["apiPassthrough"] = state?.apiPassthrough;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["certificateAuthorityArn"] = state?.certificateAuthorityArn;
+            resourceInputs["certificateChain"] = state?.certificateChain;
+            resourceInputs["certificateSigningRequest"] = state?.certificateSigningRequest;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["signingAlgorithm"] = state?.signingAlgorithm;
+            resourceInputs["templateArn"] = state?.templateArn;
+            resourceInputs["validity"] = state?.validity;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            if ((!args || args.certificateSigningRequest === undefined) && !opts.urn) {
+            if (args?.certificateSigningRequest === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateSigningRequest'");
             }
-            if ((!args || args.signingAlgorithm === undefined) && !opts.urn) {
+            if (args?.signingAlgorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signingAlgorithm'");
             }
-            if ((!args || args.validity === undefined) && !opts.urn) {
+            if (args?.validity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
-            resourceInputs["apiPassthrough"] = args ? args.apiPassthrough : undefined;
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
-            resourceInputs["templateArn"] = args ? args.templateArn : undefined;
-            resourceInputs["validity"] = args ? args.validity : undefined;
+            resourceInputs["apiPassthrough"] = args?.apiPassthrough;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["certificateSigningRequest"] = args?.certificateSigningRequest;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["signingAlgorithm"] = args?.signingAlgorithm;
+            resourceInputs["templateArn"] = args?.templateArn;
+            resourceInputs["validity"] = args?.validity;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["certificateChain"] = undefined /*out*/;

@@ -136,73 +136,73 @@ export class UserSettings extends pulumi.CustomResource {
     /**
      * Additional encryption context for the user settings.
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of web portal ARNs to associate with the user settings.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
      */
-    public readonly cookieSynchronizationConfiguration!: pulumi.Output<outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration | undefined>;
+    declare public readonly cookieSynchronizationConfiguration: pulumi.Output<outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration | undefined>;
     /**
      * Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
      */
-    public readonly copyAllowed!: pulumi.Output<string>;
+    declare public readonly copyAllowed: pulumi.Output<string>;
     /**
      * ARN of the customer managed KMS key.
      */
-    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
      */
-    public readonly deepLinkAllowed!: pulumi.Output<string>;
+    declare public readonly deepLinkAllowed: pulumi.Output<string>;
     /**
      * Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
      */
-    public readonly disconnectTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly disconnectTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
      */
-    public readonly downloadAllowed!: pulumi.Output<string>;
+    declare public readonly downloadAllowed: pulumi.Output<string>;
     /**
      * Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
      */
-    public readonly idleDisconnectTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly idleDisconnectTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
      */
-    public readonly pasteAllowed!: pulumi.Output<string>;
+    declare public readonly pasteAllowed: pulumi.Output<string>;
     /**
      * Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
      */
-    public readonly printAllowed!: pulumi.Output<string>;
+    declare public readonly printAllowed: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration of the toolbar. Detailed below.
      */
-    public readonly toolbarConfiguration!: pulumi.Output<outputs.workspacesweb.UserSettingsToolbarConfiguration | undefined>;
+    declare public readonly toolbarConfiguration: pulumi.Output<outputs.workspacesweb.UserSettingsToolbarConfiguration | undefined>;
     /**
      * Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
      *
      * The following arguments are optional:
      */
-    public readonly uploadAllowed!: pulumi.Output<string>;
+    declare public readonly uploadAllowed: pulumi.Output<string>;
     /**
      * ARN of the user settings resource.
      */
-    public /*out*/ readonly userSettingsArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly userSettingsArn: pulumi.Output<string>;
 
     /**
      * Create a UserSettings resource with the given unique name, arguments, and options.
@@ -217,54 +217,54 @@ export class UserSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserSettingsState | undefined;
-            resourceInputs["additionalEncryptionContext"] = state ? state.additionalEncryptionContext : undefined;
-            resourceInputs["associatedPortalArns"] = state ? state.associatedPortalArns : undefined;
-            resourceInputs["cookieSynchronizationConfiguration"] = state ? state.cookieSynchronizationConfiguration : undefined;
-            resourceInputs["copyAllowed"] = state ? state.copyAllowed : undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["deepLinkAllowed"] = state ? state.deepLinkAllowed : undefined;
-            resourceInputs["disconnectTimeoutInMinutes"] = state ? state.disconnectTimeoutInMinutes : undefined;
-            resourceInputs["downloadAllowed"] = state ? state.downloadAllowed : undefined;
-            resourceInputs["idleDisconnectTimeoutInMinutes"] = state ? state.idleDisconnectTimeoutInMinutes : undefined;
-            resourceInputs["pasteAllowed"] = state ? state.pasteAllowed : undefined;
-            resourceInputs["printAllowed"] = state ? state.printAllowed : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["toolbarConfiguration"] = state ? state.toolbarConfiguration : undefined;
-            resourceInputs["uploadAllowed"] = state ? state.uploadAllowed : undefined;
-            resourceInputs["userSettingsArn"] = state ? state.userSettingsArn : undefined;
+            resourceInputs["additionalEncryptionContext"] = state?.additionalEncryptionContext;
+            resourceInputs["associatedPortalArns"] = state?.associatedPortalArns;
+            resourceInputs["cookieSynchronizationConfiguration"] = state?.cookieSynchronizationConfiguration;
+            resourceInputs["copyAllowed"] = state?.copyAllowed;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["deepLinkAllowed"] = state?.deepLinkAllowed;
+            resourceInputs["disconnectTimeoutInMinutes"] = state?.disconnectTimeoutInMinutes;
+            resourceInputs["downloadAllowed"] = state?.downloadAllowed;
+            resourceInputs["idleDisconnectTimeoutInMinutes"] = state?.idleDisconnectTimeoutInMinutes;
+            resourceInputs["pasteAllowed"] = state?.pasteAllowed;
+            resourceInputs["printAllowed"] = state?.printAllowed;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["toolbarConfiguration"] = state?.toolbarConfiguration;
+            resourceInputs["uploadAllowed"] = state?.uploadAllowed;
+            resourceInputs["userSettingsArn"] = state?.userSettingsArn;
         } else {
             const args = argsOrState as UserSettingsArgs | undefined;
-            if ((!args || args.copyAllowed === undefined) && !opts.urn) {
+            if (args?.copyAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'copyAllowed'");
             }
-            if ((!args || args.downloadAllowed === undefined) && !opts.urn) {
+            if (args?.downloadAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'downloadAllowed'");
             }
-            if ((!args || args.pasteAllowed === undefined) && !opts.urn) {
+            if (args?.pasteAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pasteAllowed'");
             }
-            if ((!args || args.printAllowed === undefined) && !opts.urn) {
+            if (args?.printAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'printAllowed'");
             }
-            if ((!args || args.uploadAllowed === undefined) && !opts.urn) {
+            if (args?.uploadAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'uploadAllowed'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["cookieSynchronizationConfiguration"] = args ? args.cookieSynchronizationConfiguration : undefined;
-            resourceInputs["copyAllowed"] = args ? args.copyAllowed : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["deepLinkAllowed"] = args ? args.deepLinkAllowed : undefined;
-            resourceInputs["disconnectTimeoutInMinutes"] = args ? args.disconnectTimeoutInMinutes : undefined;
-            resourceInputs["downloadAllowed"] = args ? args.downloadAllowed : undefined;
-            resourceInputs["idleDisconnectTimeoutInMinutes"] = args ? args.idleDisconnectTimeoutInMinutes : undefined;
-            resourceInputs["pasteAllowed"] = args ? args.pasteAllowed : undefined;
-            resourceInputs["printAllowed"] = args ? args.printAllowed : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["toolbarConfiguration"] = args ? args.toolbarConfiguration : undefined;
-            resourceInputs["uploadAllowed"] = args ? args.uploadAllowed : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["cookieSynchronizationConfiguration"] = args?.cookieSynchronizationConfiguration;
+            resourceInputs["copyAllowed"] = args?.copyAllowed;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["deepLinkAllowed"] = args?.deepLinkAllowed;
+            resourceInputs["disconnectTimeoutInMinutes"] = args?.disconnectTimeoutInMinutes;
+            resourceInputs["downloadAllowed"] = args?.downloadAllowed;
+            resourceInputs["idleDisconnectTimeoutInMinutes"] = args?.idleDisconnectTimeoutInMinutes;
+            resourceInputs["pasteAllowed"] = args?.pasteAllowed;
+            resourceInputs["printAllowed"] = args?.printAllowed;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["toolbarConfiguration"] = args?.toolbarConfiguration;
+            resourceInputs["uploadAllowed"] = args?.uploadAllowed;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["userSettingsArn"] = undefined /*out*/;

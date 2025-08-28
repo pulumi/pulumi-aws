@@ -62,47 +62,47 @@ export class TrustProvider extends pulumi.CustomResource {
     /**
      * A description for the AWS Verified Access trust provider.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A block of options for device identity based trust providers.
      */
-    public readonly deviceOptions!: pulumi.Output<outputs.verifiedaccess.TrustProviderDeviceOptions | undefined>;
+    declare public readonly deviceOptions: pulumi.Output<outputs.verifiedaccess.TrustProviderDeviceOptions | undefined>;
     /**
      * The type of device-based trust provider.
      */
-    public readonly deviceTrustProviderType!: pulumi.Output<string | undefined>;
+    declare public readonly deviceTrustProviderType: pulumi.Output<string | undefined>;
     /**
      * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
      */
-    public readonly nativeApplicationOidcOptions!: pulumi.Output<outputs.verifiedaccess.TrustProviderNativeApplicationOidcOptions | undefined>;
+    declare public readonly nativeApplicationOidcOptions: pulumi.Output<outputs.verifiedaccess.TrustProviderNativeApplicationOidcOptions | undefined>;
     /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      */
-    public readonly oidcOptions!: pulumi.Output<outputs.verifiedaccess.TrustProviderOidcOptions | undefined>;
+    declare public readonly oidcOptions: pulumi.Output<outputs.verifiedaccess.TrustProviderOidcOptions | undefined>;
     /**
      * The identifier to be used when working with policy rules.
      */
-    public readonly policyReferenceName!: pulumi.Output<string>;
+    declare public readonly policyReferenceName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly sseSpecification!: pulumi.Output<outputs.verifiedaccess.TrustProviderSseSpecification>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly sseSpecification: pulumi.Output<outputs.verifiedaccess.TrustProviderSseSpecification>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of trust provider can be either user or device-based.
      *
      * The following arguments are optional:
      */
-    public readonly trustProviderType!: pulumi.Output<string>;
+    declare public readonly trustProviderType: pulumi.Output<string>;
     /**
      * The type of user-based trust provider.
      */
-    public readonly userTrustProviderType!: pulumi.Output<string | undefined>;
+    declare public readonly userTrustProviderType: pulumi.Output<string | undefined>;
 
     /**
      * Create a TrustProvider resource with the given unique name, arguments, and options.
@@ -117,37 +117,37 @@ export class TrustProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrustProviderState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["deviceOptions"] = state ? state.deviceOptions : undefined;
-            resourceInputs["deviceTrustProviderType"] = state ? state.deviceTrustProviderType : undefined;
-            resourceInputs["nativeApplicationOidcOptions"] = state ? state.nativeApplicationOidcOptions : undefined;
-            resourceInputs["oidcOptions"] = state ? state.oidcOptions : undefined;
-            resourceInputs["policyReferenceName"] = state ? state.policyReferenceName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sseSpecification"] = state ? state.sseSpecification : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["trustProviderType"] = state ? state.trustProviderType : undefined;
-            resourceInputs["userTrustProviderType"] = state ? state.userTrustProviderType : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["deviceOptions"] = state?.deviceOptions;
+            resourceInputs["deviceTrustProviderType"] = state?.deviceTrustProviderType;
+            resourceInputs["nativeApplicationOidcOptions"] = state?.nativeApplicationOidcOptions;
+            resourceInputs["oidcOptions"] = state?.oidcOptions;
+            resourceInputs["policyReferenceName"] = state?.policyReferenceName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sseSpecification"] = state?.sseSpecification;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["trustProviderType"] = state?.trustProviderType;
+            resourceInputs["userTrustProviderType"] = state?.userTrustProviderType;
         } else {
             const args = argsOrState as TrustProviderArgs | undefined;
-            if ((!args || args.policyReferenceName === undefined) && !opts.urn) {
+            if (args?.policyReferenceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyReferenceName'");
             }
-            if ((!args || args.trustProviderType === undefined) && !opts.urn) {
+            if (args?.trustProviderType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trustProviderType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceOptions"] = args ? args.deviceOptions : undefined;
-            resourceInputs["deviceTrustProviderType"] = args ? args.deviceTrustProviderType : undefined;
-            resourceInputs["nativeApplicationOidcOptions"] = args ? args.nativeApplicationOidcOptions : undefined;
-            resourceInputs["oidcOptions"] = args ? args.oidcOptions : undefined;
-            resourceInputs["policyReferenceName"] = args ? args.policyReferenceName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustProviderType"] = args ? args.trustProviderType : undefined;
-            resourceInputs["userTrustProviderType"] = args ? args.userTrustProviderType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceOptions"] = args?.deviceOptions;
+            resourceInputs["deviceTrustProviderType"] = args?.deviceTrustProviderType;
+            resourceInputs["nativeApplicationOidcOptions"] = args?.nativeApplicationOidcOptions;
+            resourceInputs["oidcOptions"] = args?.oidcOptions;
+            resourceInputs["policyReferenceName"] = args?.policyReferenceName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustProviderType"] = args?.trustProviderType;
+            resourceInputs["userTrustProviderType"] = args?.userTrustProviderType;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

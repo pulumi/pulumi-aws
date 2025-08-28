@@ -55,7 +55,7 @@ export class AdminAccount extends pulumi.CustomResource {
     /**
      * The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
 
     /**
      * Create a AdminAccount resource with the given unique name, arguments, and options.
@@ -70,10 +70,10 @@ export class AdminAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminAccountState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["accountId"] = state?.accountId;
         } else {
             const args = argsOrState as AdminAccountArgs | undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["accountId"] = args?.accountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AdminAccount.__pulumiType, name, resourceInputs, opts);

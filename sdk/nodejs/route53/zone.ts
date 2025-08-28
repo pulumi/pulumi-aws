@@ -104,48 +104,48 @@ export class Zone extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Hosted Zone.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
      */
-    public readonly comment!: pulumi.Output<string>;
+    declare public readonly comment: pulumi.Output<string>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
-    public readonly delegationSetId!: pulumi.Output<string | undefined>;
+    declare public readonly delegationSetId: pulumi.Output<string | undefined>;
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      */
-    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
      * This is the name of the hosted zone.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of name servers in associated (or default) delegation set.
      * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
      */
-    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly nameServers: pulumi.Output<string[]>;
     /**
      * The Route 53 name server that created the SOA record.
      */
-    public /*out*/ readonly primaryNameServer!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryNameServer: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
-    public readonly vpcs!: pulumi.Output<outputs.route53.ZoneVpc[] | undefined>;
+    declare public readonly vpcs: pulumi.Output<outputs.route53.ZoneVpc[] | undefined>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
-    public /*out*/ readonly zoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly zoneId: pulumi.Output<string>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -160,25 +160,25 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["delegationSetId"] = state ? state.delegationSetId : undefined;
-            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
-            resourceInputs["primaryNameServer"] = state ? state.primaryNameServer : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcs"] = state ? state.vpcs : undefined;
-            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["delegationSetId"] = state?.delegationSetId;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nameServers"] = state?.nameServers;
+            resourceInputs["primaryNameServer"] = state?.primaryNameServer;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcs"] = state?.vpcs;
+            resourceInputs["zoneId"] = state?.zoneId;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            resourceInputs["comment"] = (args ? args.comment : undefined) ?? "Managed by Pulumi";
-            resourceInputs["delegationSetId"] = args ? args.delegationSetId : undefined;
-            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcs"] = args ? args.vpcs : undefined;
+            resourceInputs["comment"] = (args?.comment) ?? "Managed by Pulumi";
+            resourceInputs["delegationSetId"] = args?.delegationSetId;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcs"] = args?.vpcs;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["nameServers"] = undefined /*out*/;
             resourceInputs["primaryNameServer"] = undefined /*out*/;

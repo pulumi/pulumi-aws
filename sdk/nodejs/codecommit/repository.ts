@@ -75,47 +75,47 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The ARN of the repository
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The URL to use for cloning the repository over HTTPS.
      */
-    public /*out*/ readonly cloneUrlHttp!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloneUrlHttp: pulumi.Output<string>;
     /**
      * The URL to use for cloning the repository over SSH.
      */
-    public /*out*/ readonly cloneUrlSsh!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloneUrlSsh: pulumi.Output<string>;
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      */
-    public readonly defaultBranch!: pulumi.Output<string | undefined>;
+    declare public readonly defaultBranch: pulumi.Output<string | undefined>;
     /**
      * The description of the repository. This needs to be less than 1000 characters
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the repository
      */
-    public /*out*/ readonly repositoryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly repositoryId: pulumi.Output<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    public readonly repositoryName!: pulumi.Output<string>;
+    declare public readonly repositoryName: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -130,28 +130,28 @@ export class Repository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cloneUrlHttp"] = state ? state.cloneUrlHttp : undefined;
-            resourceInputs["cloneUrlSsh"] = state ? state.cloneUrlSsh : undefined;
-            resourceInputs["defaultBranch"] = state ? state.defaultBranch : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
-            resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cloneUrlHttp"] = state?.cloneUrlHttp;
+            resourceInputs["cloneUrlSsh"] = state?.cloneUrlSsh;
+            resourceInputs["defaultBranch"] = state?.defaultBranch;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["repositoryId"] = state?.repositoryId;
+            resourceInputs["repositoryName"] = state?.repositoryName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
-            if ((!args || args.repositoryName === undefined) && !opts.urn) {
+            if (args?.repositoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            resourceInputs["defaultBranch"] = args ? args.defaultBranch : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultBranch"] = args?.defaultBranch;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cloneUrlHttp"] = undefined /*out*/;
             resourceInputs["cloneUrlSsh"] = undefined /*out*/;

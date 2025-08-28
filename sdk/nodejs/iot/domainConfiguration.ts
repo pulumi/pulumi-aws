@@ -63,63 +63,63 @@ export class DomainConfiguration extends pulumi.CustomResource {
     /**
      * An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
      */
-    public readonly applicationProtocol!: pulumi.Output<string>;
+    declare public readonly applicationProtocol: pulumi.Output<string>;
     /**
      * The ARN of the domain configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
      */
-    public readonly authenticationType!: pulumi.Output<string>;
+    declare public readonly authenticationType: pulumi.Output<string>;
     /**
      * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */
-    public readonly authorizerConfig!: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
+    declare public readonly authorizerConfig: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
     /**
      * Fully-qualified domain name.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The type of the domain.
      */
-    public /*out*/ readonly domainType!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainType: pulumi.Output<string>;
     /**
      * The name of the domain configuration. This value must be unique to a region.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
      */
-    public readonly serverCertificateArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly serverCertificateArns: pulumi.Output<string[] | undefined>;
     /**
      * The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
      */
-    public readonly serviceType!: pulumi.Output<string | undefined>;
+    declare public readonly serviceType: pulumi.Output<string | undefined>;
     /**
      * The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
      */
-    public readonly tlsConfig!: pulumi.Output<outputs.iot.DomainConfigurationTlsConfig>;
+    declare public readonly tlsConfig: pulumi.Output<outputs.iot.DomainConfigurationTlsConfig>;
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
      */
-    public readonly validationCertificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly validationCertificateArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a DomainConfiguration resource with the given unique name, arguments, and options.
@@ -134,35 +134,35 @@ export class DomainConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainConfigurationState | undefined;
-            resourceInputs["applicationProtocol"] = state ? state.applicationProtocol : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
-            resourceInputs["authorizerConfig"] = state ? state.authorizerConfig : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["domainType"] = state ? state.domainType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serverCertificateArns"] = state ? state.serverCertificateArns : undefined;
-            resourceInputs["serviceType"] = state ? state.serviceType : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["tlsConfig"] = state ? state.tlsConfig : undefined;
-            resourceInputs["validationCertificateArn"] = state ? state.validationCertificateArn : undefined;
+            resourceInputs["applicationProtocol"] = state?.applicationProtocol;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["authenticationType"] = state?.authenticationType;
+            resourceInputs["authorizerConfig"] = state?.authorizerConfig;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["domainType"] = state?.domainType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serverCertificateArns"] = state?.serverCertificateArns;
+            resourceInputs["serviceType"] = state?.serviceType;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tlsConfig"] = state?.tlsConfig;
+            resourceInputs["validationCertificateArn"] = state?.validationCertificateArn;
         } else {
             const args = argsOrState as DomainConfigurationArgs | undefined;
-            resourceInputs["applicationProtocol"] = args ? args.applicationProtocol : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["authorizerConfig"] = args ? args.authorizerConfig : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serverCertificateArns"] = args ? args.serverCertificateArns : undefined;
-            resourceInputs["serviceType"] = args ? args.serviceType : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
-            resourceInputs["validationCertificateArn"] = args ? args.validationCertificateArn : undefined;
+            resourceInputs["applicationProtocol"] = args?.applicationProtocol;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["authorizerConfig"] = args?.authorizerConfig;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serverCertificateArns"] = args?.serverCertificateArns;
+            resourceInputs["serviceType"] = args?.serviceType;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsConfig"] = args?.tlsConfig;
+            resourceInputs["validationCertificateArn"] = args?.validationCertificateArn;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainType"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

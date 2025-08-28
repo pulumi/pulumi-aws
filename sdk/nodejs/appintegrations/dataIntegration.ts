@@ -71,39 +71,39 @@ export class DataIntegration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Data Integration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the description of the Data Integration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
      */
-    public readonly kmsKey!: pulumi.Output<string>;
+    declare public readonly kmsKey: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Integration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
-    public readonly scheduleConfig!: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig>;
+    declare public readonly scheduleConfig: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig>;
     /**
      * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      */
-    public readonly sourceUri!: pulumi.Output<string>;
+    declare public readonly sourceUri: pulumi.Output<string>;
     /**
      * Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DataIntegration resource with the given unique name, arguments, and options.
@@ -118,33 +118,33 @@ export class DataIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataIntegrationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["scheduleConfig"] = state ? state.scheduleConfig : undefined;
-            resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["kmsKey"] = state?.kmsKey;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["scheduleConfig"] = state?.scheduleConfig;
+            resourceInputs["sourceUri"] = state?.sourceUri;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as DataIntegrationArgs | undefined;
-            if ((!args || args.kmsKey === undefined) && !opts.urn) {
+            if (args?.kmsKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kmsKey'");
             }
-            if ((!args || args.scheduleConfig === undefined) && !opts.urn) {
+            if (args?.scheduleConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleConfig'");
             }
-            if ((!args || args.sourceUri === undefined) && !opts.urn) {
+            if (args?.sourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceUri'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["scheduleConfig"] = args ? args.scheduleConfig : undefined;
-            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKey"] = args?.kmsKey;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["scheduleConfig"] = args?.scheduleConfig;
+            resourceInputs["sourceUri"] = args?.sourceUri;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

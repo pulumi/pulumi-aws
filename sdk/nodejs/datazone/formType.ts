@@ -136,50 +136,50 @@ export class FormType extends pulumi.CustomResource {
     /**
      * Creation time of the Form Type.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Creator of the Form Type.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Description of form type. Must have a length of between 1 and 2048 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Identifier of the domain.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
-    public /*out*/ readonly imports!: pulumi.Output<outputs.datazone.FormTypeImport[]>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
+    declare public /*out*/ readonly imports: pulumi.Output<outputs.datazone.FormTypeImport[]>;
     /**
      * Object of the model of the form type that contains the following attributes.
      */
-    public readonly model!: pulumi.Output<outputs.datazone.FormTypeModel | undefined>;
+    declare public readonly model: pulumi.Output<outputs.datazone.FormTypeModel | undefined>;
     /**
      * Name of the form type. Must be the name of the structure in smithy document.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Origin domain id of the Form Type.
      */
-    public /*out*/ readonly originDomainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly originDomainId: pulumi.Output<string>;
     /**
      * Origin project id of the Form Type.
      */
-    public /*out*/ readonly originProjectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly originProjectId: pulumi.Output<string>;
     /**
      * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
      */
-    public readonly owningProjectIdentifier!: pulumi.Output<string>;
+    declare public readonly owningProjectIdentifier: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Revision of the Form Type.
      */
-    public /*out*/ readonly revision!: pulumi.Output<string>;
-    public readonly status!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.datazone.FormTypeTimeouts | undefined>;
+    declare public /*out*/ readonly revision: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.datazone.FormTypeTimeouts | undefined>;
 
     /**
      * Create a FormType resource with the given unique name, arguments, and options.
@@ -194,36 +194,36 @@ export class FormType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FormTypeState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
-            resourceInputs["imports"] = state ? state.imports : undefined;
-            resourceInputs["model"] = state ? state.model : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["originDomainId"] = state ? state.originDomainId : undefined;
-            resourceInputs["originProjectId"] = state ? state.originProjectId : undefined;
-            resourceInputs["owningProjectIdentifier"] = state ? state.owningProjectIdentifier : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["revision"] = state ? state.revision : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["domainIdentifier"] = state?.domainIdentifier;
+            resourceInputs["imports"] = state?.imports;
+            resourceInputs["model"] = state?.model;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["originDomainId"] = state?.originDomainId;
+            resourceInputs["originProjectId"] = state?.originProjectId;
+            resourceInputs["owningProjectIdentifier"] = state?.owningProjectIdentifier;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["revision"] = state?.revision;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as FormTypeArgs | undefined;
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.owningProjectIdentifier === undefined) && !opts.urn) {
+            if (args?.owningProjectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'owningProjectIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["owningProjectIdentifier"] = args ? args.owningProjectIdentifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["owningProjectIdentifier"] = args?.owningProjectIdentifier;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["imports"] = undefined /*out*/;

@@ -81,70 +81,70 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * ARN of the Fleet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Number of machines allocated to the ﬂeet.
      */
-    public readonly baseCapacity!: pulumi.Output<number>;
+    declare public readonly baseCapacity: pulumi.Output<number>;
     /**
      * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      */
-    public readonly computeConfiguration!: pulumi.Output<outputs.codebuild.FleetComputeConfiguration | undefined>;
+    declare public readonly computeConfiguration: pulumi.Output<outputs.codebuild.FleetComputeConfiguration | undefined>;
     /**
      * Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      */
-    public readonly computeType!: pulumi.Output<string>;
+    declare public readonly computeType: pulumi.Output<string>;
     /**
      * Creation time of the fleet.
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      *
      * The following arguments are optional:
      */
-    public readonly environmentType!: pulumi.Output<string>;
+    declare public readonly environmentType: pulumi.Output<string>;
     /**
      * The service role associated with the compute fleet.
      */
-    public readonly fleetServiceRole!: pulumi.Output<string | undefined>;
+    declare public readonly fleetServiceRole: pulumi.Output<string | undefined>;
     /**
      * The Amazon Machine Image (AMI) of the compute fleet.
      */
-    public readonly imageId!: pulumi.Output<string | undefined>;
+    declare public readonly imageId: pulumi.Output<string | undefined>;
     /**
      * Last modification time of the fleet.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
     /**
      * Fleet name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
      */
-    public readonly overflowBehavior!: pulumi.Output<string>;
+    declare public readonly overflowBehavior: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
-    public readonly scalingConfiguration!: pulumi.Output<outputs.codebuild.FleetScalingConfiguration | undefined>;
+    declare public readonly scalingConfiguration: pulumi.Output<outputs.codebuild.FleetScalingConfiguration | undefined>;
     /**
      * Nested attribute containing information about the current status of the fleet.
      */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.codebuild.FleetStatus[]>;
+    declare public /*out*/ readonly statuses: pulumi.Output<outputs.codebuild.FleetStatus[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block. See `vpcConfig` below.
      */
-    public readonly vpcConfigs!: pulumi.Output<outputs.codebuild.FleetVpcConfig[] | undefined>;
+    declare public readonly vpcConfigs: pulumi.Output<outputs.codebuild.FleetVpcConfig[] | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -159,46 +159,46 @@ export class Fleet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["baseCapacity"] = state ? state.baseCapacity : undefined;
-            resourceInputs["computeConfiguration"] = state ? state.computeConfiguration : undefined;
-            resourceInputs["computeType"] = state ? state.computeType : undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["environmentType"] = state ? state.environmentType : undefined;
-            resourceInputs["fleetServiceRole"] = state ? state.fleetServiceRole : undefined;
-            resourceInputs["imageId"] = state ? state.imageId : undefined;
-            resourceInputs["lastModified"] = state ? state.lastModified : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["overflowBehavior"] = state ? state.overflowBehavior : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["scalingConfiguration"] = state ? state.scalingConfiguration : undefined;
-            resourceInputs["statuses"] = state ? state.statuses : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcConfigs"] = state ? state.vpcConfigs : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["baseCapacity"] = state?.baseCapacity;
+            resourceInputs["computeConfiguration"] = state?.computeConfiguration;
+            resourceInputs["computeType"] = state?.computeType;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["environmentType"] = state?.environmentType;
+            resourceInputs["fleetServiceRole"] = state?.fleetServiceRole;
+            resourceInputs["imageId"] = state?.imageId;
+            resourceInputs["lastModified"] = state?.lastModified;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["overflowBehavior"] = state?.overflowBehavior;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["scalingConfiguration"] = state?.scalingConfiguration;
+            resourceInputs["statuses"] = state?.statuses;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcConfigs"] = state?.vpcConfigs;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            if ((!args || args.baseCapacity === undefined) && !opts.urn) {
+            if (args?.baseCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseCapacity'");
             }
-            if ((!args || args.computeType === undefined) && !opts.urn) {
+            if (args?.computeType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeType'");
             }
-            if ((!args || args.environmentType === undefined) && !opts.urn) {
+            if (args?.environmentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentType'");
             }
-            resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
-            resourceInputs["computeConfiguration"] = args ? args.computeConfiguration : undefined;
-            resourceInputs["computeType"] = args ? args.computeType : undefined;
-            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
-            resourceInputs["fleetServiceRole"] = args ? args.fleetServiceRole : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overflowBehavior"] = args ? args.overflowBehavior : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfigs"] = args ? args.vpcConfigs : undefined;
+            resourceInputs["baseCapacity"] = args?.baseCapacity;
+            resourceInputs["computeConfiguration"] = args?.computeConfiguration;
+            resourceInputs["computeType"] = args?.computeType;
+            resourceInputs["environmentType"] = args?.environmentType;
+            resourceInputs["fleetServiceRole"] = args?.fleetServiceRole;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overflowBehavior"] = args?.overflowBehavior;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["scalingConfiguration"] = args?.scalingConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfigs"] = args?.vpcConfigs;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;

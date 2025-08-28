@@ -234,61 +234,61 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    public readonly applyImmediately!: pulumi.Output<boolean>;
+    declare public readonly applyImmediately: pulumi.Output<boolean>;
     /**
      * ARN of the created ElastiCache Replication Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether to enable encryption at rest.
      * When `engine` is `redis`, default is `false`.
      * When `engine` is `valkey`, default is `true`.
      */
-    public readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
+    declare public readonly atRestEncryptionEnabled: pulumi.Output<boolean>;
     /**
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
-    public readonly authToken!: pulumi.Output<string | undefined>;
+    declare public readonly authToken: pulumi.Output<string | undefined>;
     /**
      * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      */
-    public readonly authTokenUpdateStrategy!: pulumi.Output<string | undefined>;
+    declare public readonly authTokenUpdateStrategy: pulumi.Output<string | undefined>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
      * Defaults to `true`.
      */
-    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
+    declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean>;
     /**
      * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      */
-    public readonly automaticFailoverEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticFailoverEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Indicates if cluster mode is enabled.
      */
-    public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly clusterEnabled: pulumi.Output<boolean>;
     /**
      * Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
      */
-    public readonly clusterMode!: pulumi.Output<string>;
+    declare public readonly clusterMode: pulumi.Output<string>;
     /**
      * Address of the replication group configuration endpoint when cluster mode is enabled.
      */
-    public /*out*/ readonly configurationEndpointAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationEndpointAddress: pulumi.Output<string>;
     /**
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      */
-    public readonly dataTieringEnabled!: pulumi.Output<boolean>;
+    declare public readonly dataTieringEnabled: pulumi.Output<boolean>;
     /**
      * User-created description for the replication group. Must not be empty.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Name of the cache engine to be used for the clusters in this replication group.
      * Valid values are `redis` or `valkey`.
      * Default is `redis`.
      */
-    public readonly engine!: pulumi.Output<string | undefined>;
+    declare public readonly engine: pulumi.Output<string | undefined>;
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
      * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -297,60 +297,60 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
      * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    declare public readonly engineVersion: pulumi.Output<string>;
     /**
      * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      */
-    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
+    declare public /*out*/ readonly engineVersionActual: pulumi.Output<string>;
     /**
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      */
-    public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly finalSnapshotIdentifier: pulumi.Output<string | undefined>;
     /**
      * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
      */
-    public readonly globalReplicationGroupId!: pulumi.Output<string>;
+    declare public readonly globalReplicationGroupId: pulumi.Output<string>;
     /**
      * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      */
-    public readonly ipDiscovery!: pulumi.Output<string>;
+    declare public readonly ipDiscovery: pulumi.Output<string>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
      */
-    public readonly logDeliveryConfigurations!: pulumi.Output<outputs.elasticache.ReplicationGroupLogDeliveryConfiguration[] | undefined>;
+    declare public readonly logDeliveryConfigurations: pulumi.Output<outputs.elasticache.ReplicationGroupLogDeliveryConfiguration[] | undefined>;
     /**
      * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      */
-    public readonly maintenanceWindow!: pulumi.Output<string>;
+    declare public readonly maintenanceWindow: pulumi.Output<string>;
     /**
      * Identifiers of all the nodes that are part of this replication group.
      */
-    public /*out*/ readonly memberClusters!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly memberClusters: pulumi.Output<string[]>;
     /**
      * Specifies whether to enable Multi-AZ Support for the replication group.
      * If `true`, `automaticFailoverEnabled` must also be enabled.
      * Defaults to `false`.
      */
-    public readonly multiAzEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly multiAzEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
      */
-    public readonly networkType!: pulumi.Output<string>;
+    declare public readonly networkType: pulumi.Output<string>;
     /**
      * Instance class to be used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
      * Required unless `globalReplicationGroupId` is set.
      * Cannot be set if `globalReplicationGroupId` is set.
      */
-    public readonly nodeType!: pulumi.Output<string>;
+    declare public readonly nodeType: pulumi.Output<string>;
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
-    public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
+    declare public readonly notificationTopicArn: pulumi.Output<string | undefined>;
     /**
      * Number of cache clusters (primary and replicas) this replication group will have.
      * If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
@@ -358,37 +358,37 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
      * Defaults to `1`.
      */
-    public readonly numCacheClusters!: pulumi.Output<number>;
+    declare public readonly numCacheClusters: pulumi.Output<number>;
     /**
      * Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Conflicts with `numCacheClusters`.
      */
-    public readonly numNodeGroups!: pulumi.Output<number>;
+    declare public readonly numNodeGroups: pulumi.Output<number>;
     /**
      * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
-    public readonly parameterGroupName!: pulumi.Output<string>;
+    declare public readonly parameterGroupName: pulumi.Output<string>;
     /**
      * Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
      */
-    public readonly preferredCacheClusterAzs!: pulumi.Output<string[] | undefined>;
+    declare public readonly preferredCacheClusterAzs: pulumi.Output<string[] | undefined>;
     /**
      * (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
      */
-    public /*out*/ readonly primaryEndpointAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryEndpointAddress: pulumi.Output<string>;
     /**
      * (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
      */
-    public /*out*/ readonly readerEndpointAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly readerEndpointAddress: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
@@ -396,66 +396,66 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Conflicts with `numCacheClusters`.
      * Can only be set if `numNodeGroups` is set.
      */
-    public readonly replicasPerNodeGroup!: pulumi.Output<number>;
+    declare public readonly replicasPerNodeGroup: pulumi.Output<number>;
     /**
      * Replication group identifier. This parameter is stored as a lowercase string.
      *
      * The following arguments are optional:
      */
-    public readonly replicationGroupId!: pulumi.Output<string>;
+    declare public readonly replicationGroupId: pulumi.Output<string>;
     /**
      * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
      * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      */
-    public readonly securityGroupNames!: pulumi.Output<string[]>;
+    declare public readonly securityGroupNames: pulumi.Output<string[]>;
     /**
      * List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
      */
-    public readonly snapshotArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly snapshotArns: pulumi.Output<string[] | undefined>;
     /**
      * Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
      */
-    public readonly snapshotName!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotName: pulumi.Output<string | undefined>;
     /**
      * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      */
-    public readonly snapshotRetentionLimit!: pulumi.Output<number | undefined>;
+    declare public readonly snapshotRetentionLimit: pulumi.Output<number | undefined>;
     /**
      * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
      */
-    public readonly snapshotWindow!: pulumi.Output<string>;
+    declare public readonly snapshotWindow: pulumi.Output<string>;
     /**
      * Name of the cache subnet group to be used for the replication group.
      */
-    public readonly subnetGroupName!: pulumi.Output<string>;
+    declare public readonly subnetGroupName: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to enable encryption in transit.
      * Changing this argument with an `engineVersion` < `7.0.5` will force a replacement.
      * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      */
-    public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
+    declare public readonly transitEncryptionEnabled: pulumi.Output<boolean>;
     /**
      * A setting that enables clients to migrate to in-transit encryption with no downtime.
      * Valid values are `preferred` and `required`.
      * When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
      * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
      */
-    public readonly transitEncryptionMode!: pulumi.Output<string>;
+    declare public readonly transitEncryptionMode: pulumi.Output<string>;
     /**
      * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
      */
-    public readonly userGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly userGroupIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ReplicationGroup resource with the given unique name, arguments, and options.
@@ -470,99 +470,99 @@ export class ReplicationGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationGroupState | undefined;
-            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
-            resourceInputs["authToken"] = state ? state.authToken : undefined;
-            resourceInputs["authTokenUpdateStrategy"] = state ? state.authTokenUpdateStrategy : undefined;
-            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            resourceInputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
-            resourceInputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
-            resourceInputs["clusterMode"] = state ? state.clusterMode : undefined;
-            resourceInputs["configurationEndpointAddress"] = state ? state.configurationEndpointAddress : undefined;
-            resourceInputs["dataTieringEnabled"] = state ? state.dataTieringEnabled : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["engine"] = state ? state.engine : undefined;
-            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
-            resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
-            resourceInputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
-            resourceInputs["globalReplicationGroupId"] = state ? state.globalReplicationGroupId : undefined;
-            resourceInputs["ipDiscovery"] = state ? state.ipDiscovery : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["logDeliveryConfigurations"] = state ? state.logDeliveryConfigurations : undefined;
-            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            resourceInputs["memberClusters"] = state ? state.memberClusters : undefined;
-            resourceInputs["multiAzEnabled"] = state ? state.multiAzEnabled : undefined;
-            resourceInputs["networkType"] = state ? state.networkType : undefined;
-            resourceInputs["nodeType"] = state ? state.nodeType : undefined;
-            resourceInputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
-            resourceInputs["numCacheClusters"] = state ? state.numCacheClusters : undefined;
-            resourceInputs["numNodeGroups"] = state ? state.numNodeGroups : undefined;
-            resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["preferredCacheClusterAzs"] = state ? state.preferredCacheClusterAzs : undefined;
-            resourceInputs["primaryEndpointAddress"] = state ? state.primaryEndpointAddress : undefined;
-            resourceInputs["readerEndpointAddress"] = state ? state.readerEndpointAddress : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replicasPerNodeGroup"] = state ? state.replicasPerNodeGroup : undefined;
-            resourceInputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
-            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
-            resourceInputs["snapshotArns"] = state ? state.snapshotArns : undefined;
-            resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
-            resourceInputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
-            resourceInputs["snapshotWindow"] = state ? state.snapshotWindow : undefined;
-            resourceInputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
-            resourceInputs["transitEncryptionMode"] = state ? state.transitEncryptionMode : undefined;
-            resourceInputs["userGroupIds"] = state ? state.userGroupIds : undefined;
+            resourceInputs["applyImmediately"] = state?.applyImmediately;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["atRestEncryptionEnabled"] = state?.atRestEncryptionEnabled;
+            resourceInputs["authToken"] = state?.authToken;
+            resourceInputs["authTokenUpdateStrategy"] = state?.authTokenUpdateStrategy;
+            resourceInputs["autoMinorVersionUpgrade"] = state?.autoMinorVersionUpgrade;
+            resourceInputs["automaticFailoverEnabled"] = state?.automaticFailoverEnabled;
+            resourceInputs["clusterEnabled"] = state?.clusterEnabled;
+            resourceInputs["clusterMode"] = state?.clusterMode;
+            resourceInputs["configurationEndpointAddress"] = state?.configurationEndpointAddress;
+            resourceInputs["dataTieringEnabled"] = state?.dataTieringEnabled;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["engine"] = state?.engine;
+            resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["engineVersionActual"] = state?.engineVersionActual;
+            resourceInputs["finalSnapshotIdentifier"] = state?.finalSnapshotIdentifier;
+            resourceInputs["globalReplicationGroupId"] = state?.globalReplicationGroupId;
+            resourceInputs["ipDiscovery"] = state?.ipDiscovery;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["logDeliveryConfigurations"] = state?.logDeliveryConfigurations;
+            resourceInputs["maintenanceWindow"] = state?.maintenanceWindow;
+            resourceInputs["memberClusters"] = state?.memberClusters;
+            resourceInputs["multiAzEnabled"] = state?.multiAzEnabled;
+            resourceInputs["networkType"] = state?.networkType;
+            resourceInputs["nodeType"] = state?.nodeType;
+            resourceInputs["notificationTopicArn"] = state?.notificationTopicArn;
+            resourceInputs["numCacheClusters"] = state?.numCacheClusters;
+            resourceInputs["numNodeGroups"] = state?.numNodeGroups;
+            resourceInputs["parameterGroupName"] = state?.parameterGroupName;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["preferredCacheClusterAzs"] = state?.preferredCacheClusterAzs;
+            resourceInputs["primaryEndpointAddress"] = state?.primaryEndpointAddress;
+            resourceInputs["readerEndpointAddress"] = state?.readerEndpointAddress;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["replicasPerNodeGroup"] = state?.replicasPerNodeGroup;
+            resourceInputs["replicationGroupId"] = state?.replicationGroupId;
+            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
+            resourceInputs["securityGroupNames"] = state?.securityGroupNames;
+            resourceInputs["snapshotArns"] = state?.snapshotArns;
+            resourceInputs["snapshotName"] = state?.snapshotName;
+            resourceInputs["snapshotRetentionLimit"] = state?.snapshotRetentionLimit;
+            resourceInputs["snapshotWindow"] = state?.snapshotWindow;
+            resourceInputs["subnetGroupName"] = state?.subnetGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["transitEncryptionEnabled"] = state?.transitEncryptionEnabled;
+            resourceInputs["transitEncryptionMode"] = state?.transitEncryptionMode;
+            resourceInputs["userGroupIds"] = state?.userGroupIds;
         } else {
             const args = argsOrState as ReplicationGroupArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            resourceInputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
+            resourceInputs["applyImmediately"] = args?.applyImmediately;
+            resourceInputs["atRestEncryptionEnabled"] = args?.atRestEncryptionEnabled;
             resourceInputs["authToken"] = args?.authToken ? pulumi.secret(args.authToken) : undefined;
-            resourceInputs["authTokenUpdateStrategy"] = args ? args.authTokenUpdateStrategy : undefined;
-            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
-            resourceInputs["clusterMode"] = args ? args.clusterMode : undefined;
-            resourceInputs["dataTieringEnabled"] = args ? args.dataTieringEnabled : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
-            resourceInputs["globalReplicationGroupId"] = args ? args.globalReplicationGroupId : undefined;
-            resourceInputs["ipDiscovery"] = args ? args.ipDiscovery : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logDeliveryConfigurations"] = args ? args.logDeliveryConfigurations : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["multiAzEnabled"] = args ? args.multiAzEnabled : undefined;
-            resourceInputs["networkType"] = args ? args.networkType : undefined;
-            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
-            resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
-            resourceInputs["numCacheClusters"] = args ? args.numCacheClusters : undefined;
-            resourceInputs["numNodeGroups"] = args ? args.numNodeGroups : undefined;
-            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["preferredCacheClusterAzs"] = args ? args.preferredCacheClusterAzs : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replicasPerNodeGroup"] = args ? args.replicasPerNodeGroup : undefined;
-            resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
-            resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
-            resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
-            resourceInputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
-            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
-            resourceInputs["transitEncryptionMode"] = args ? args.transitEncryptionMode : undefined;
-            resourceInputs["userGroupIds"] = args ? args.userGroupIds : undefined;
+            resourceInputs["authTokenUpdateStrategy"] = args?.authTokenUpdateStrategy;
+            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
+            resourceInputs["automaticFailoverEnabled"] = args?.automaticFailoverEnabled;
+            resourceInputs["clusterMode"] = args?.clusterMode;
+            resourceInputs["dataTieringEnabled"] = args?.dataTieringEnabled;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["finalSnapshotIdentifier"] = args?.finalSnapshotIdentifier;
+            resourceInputs["globalReplicationGroupId"] = args?.globalReplicationGroupId;
+            resourceInputs["ipDiscovery"] = args?.ipDiscovery;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["logDeliveryConfigurations"] = args?.logDeliveryConfigurations;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["multiAzEnabled"] = args?.multiAzEnabled;
+            resourceInputs["networkType"] = args?.networkType;
+            resourceInputs["nodeType"] = args?.nodeType;
+            resourceInputs["notificationTopicArn"] = args?.notificationTopicArn;
+            resourceInputs["numCacheClusters"] = args?.numCacheClusters;
+            resourceInputs["numNodeGroups"] = args?.numNodeGroups;
+            resourceInputs["parameterGroupName"] = args?.parameterGroupName;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["preferredCacheClusterAzs"] = args?.preferredCacheClusterAzs;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replicasPerNodeGroup"] = args?.replicasPerNodeGroup;
+            resourceInputs["replicationGroupId"] = args?.replicationGroupId;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["securityGroupNames"] = args?.securityGroupNames;
+            resourceInputs["snapshotArns"] = args?.snapshotArns;
+            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["snapshotRetentionLimit"] = args?.snapshotRetentionLimit;
+            resourceInputs["snapshotWindow"] = args?.snapshotWindow;
+            resourceInputs["subnetGroupName"] = args?.subnetGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitEncryptionEnabled"] = args?.transitEncryptionEnabled;
+            resourceInputs["transitEncryptionMode"] = args?.transitEncryptionMode;
+            resourceInputs["userGroupIds"] = args?.userGroupIds;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterEnabled"] = undefined /*out*/;
             resourceInputs["configurationEndpointAddress"] = undefined /*out*/;

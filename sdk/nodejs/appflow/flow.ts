@@ -148,55 +148,55 @@ export class Flow extends pulumi.CustomResource {
     /**
      * Flow's ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description of the flow you want to create.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      */
-    public readonly destinationFlowConfigs!: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
+    declare public readonly destinationFlowConfigs: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
     /**
      * The current status of the flow.
      */
-    public /*out*/ readonly flowStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly flowStatus: pulumi.Output<string>;
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
-    public readonly kmsArn!: pulumi.Output<string>;
+    declare public readonly kmsArn: pulumi.Output<string>;
     /**
      * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
      */
-    public readonly metadataCatalogConfig!: pulumi.Output<outputs.appflow.FlowMetadataCatalogConfig>;
+    declare public readonly metadataCatalogConfig: pulumi.Output<outputs.appflow.FlowMetadataCatalogConfig>;
     /**
      * Name of the flow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
-    public readonly sourceFlowConfig!: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
+    declare public readonly sourceFlowConfig: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      */
-    public readonly tasks!: pulumi.Output<outputs.appflow.FlowTask[]>;
+    declare public readonly tasks: pulumi.Output<outputs.appflow.FlowTask[]>;
     /**
      * A Trigger that determine how and when the flow runs.
      */
-    public readonly triggerConfig!: pulumi.Output<outputs.appflow.FlowTriggerConfig>;
+    declare public readonly triggerConfig: pulumi.Output<outputs.appflow.FlowTriggerConfig>;
 
     /**
      * Create a Flow resource with the given unique name, arguments, and options.
@@ -211,43 +211,43 @@ export class Flow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlowState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destinationFlowConfigs"] = state ? state.destinationFlowConfigs : undefined;
-            resourceInputs["flowStatus"] = state ? state.flowStatus : undefined;
-            resourceInputs["kmsArn"] = state ? state.kmsArn : undefined;
-            resourceInputs["metadataCatalogConfig"] = state ? state.metadataCatalogConfig : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sourceFlowConfig"] = state ? state.sourceFlowConfig : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["tasks"] = state ? state.tasks : undefined;
-            resourceInputs["triggerConfig"] = state ? state.triggerConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destinationFlowConfigs"] = state?.destinationFlowConfigs;
+            resourceInputs["flowStatus"] = state?.flowStatus;
+            resourceInputs["kmsArn"] = state?.kmsArn;
+            resourceInputs["metadataCatalogConfig"] = state?.metadataCatalogConfig;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sourceFlowConfig"] = state?.sourceFlowConfig;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tasks"] = state?.tasks;
+            resourceInputs["triggerConfig"] = state?.triggerConfig;
         } else {
             const args = argsOrState as FlowArgs | undefined;
-            if ((!args || args.destinationFlowConfigs === undefined) && !opts.urn) {
+            if (args?.destinationFlowConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationFlowConfigs'");
             }
-            if ((!args || args.sourceFlowConfig === undefined) && !opts.urn) {
+            if (args?.sourceFlowConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceFlowConfig'");
             }
-            if ((!args || args.tasks === undefined) && !opts.urn) {
+            if (args?.tasks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tasks'");
             }
-            if ((!args || args.triggerConfig === undefined) && !opts.urn) {
+            if (args?.triggerConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerConfig'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationFlowConfigs"] = args ? args.destinationFlowConfigs : undefined;
-            resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
-            resourceInputs["metadataCatalogConfig"] = args ? args.metadataCatalogConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tasks"] = args ? args.tasks : undefined;
-            resourceInputs["triggerConfig"] = args ? args.triggerConfig : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationFlowConfigs"] = args?.destinationFlowConfigs;
+            resourceInputs["kmsArn"] = args?.kmsArn;
+            resourceInputs["metadataCatalogConfig"] = args?.metadataCatalogConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sourceFlowConfig"] = args?.sourceFlowConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tasks"] = args?.tasks;
+            resourceInputs["triggerConfig"] = args?.triggerConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["flowStatus"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

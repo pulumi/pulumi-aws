@@ -58,47 +58,47 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
      */
-    public /*out*/ readonly accountsWithProvisionedRestoreAccesses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly accountsWithProvisionedRestoreAccesses: pulumi.Output<string[]>;
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
      */
-    public /*out*/ readonly accountsWithRestoreAccesses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly accountsWithRestoreAccesses: pulumi.Output<string[]>;
     /**
      * The username of the database within a snapshot.
      */
-    public /*out*/ readonly adminUsername!: pulumi.Output<string>;
+    declare public /*out*/ readonly adminUsername: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the snapshot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique identifier of the KMS key used to encrypt the snapshot.
      */
-    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
      */
-    public /*out*/ readonly namespaceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly namespaceArn: pulumi.Output<string>;
     /**
      * The namespace to create a snapshot for.
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * The owner Amazon Web Services; account of the snapshot.
      */
-    public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccount: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * How long to retain the created snapshot. Default value is `-1`.
      */
-    public readonly retentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly retentionPeriod: pulumi.Output<number | undefined>;
     /**
      * The name of the snapshot.
      */
-    public readonly snapshotName!: pulumi.Output<string>;
+    declare public readonly snapshotName: pulumi.Output<string>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -113,29 +113,29 @@ export class Snapshot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotState | undefined;
-            resourceInputs["accountsWithProvisionedRestoreAccesses"] = state ? state.accountsWithProvisionedRestoreAccesses : undefined;
-            resourceInputs["accountsWithRestoreAccesses"] = state ? state.accountsWithRestoreAccesses : undefined;
-            resourceInputs["adminUsername"] = state ? state.adminUsername : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["namespaceArn"] = state ? state.namespaceArn : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["ownerAccount"] = state ? state.ownerAccount : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
-            resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
+            resourceInputs["accountsWithProvisionedRestoreAccesses"] = state?.accountsWithProvisionedRestoreAccesses;
+            resourceInputs["accountsWithRestoreAccesses"] = state?.accountsWithRestoreAccesses;
+            resourceInputs["adminUsername"] = state?.adminUsername;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["namespaceArn"] = state?.namespaceArn;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["ownerAccount"] = state?.ownerAccount;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["retentionPeriod"] = state?.retentionPeriod;
+            resourceInputs["snapshotName"] = state?.snapshotName;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.snapshotName === undefined) && !opts.urn) {
+            if (args?.snapshotName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snapshotName'");
             }
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["snapshotName"] = args?.snapshotName;
             resourceInputs["accountsWithProvisionedRestoreAccesses"] = undefined /*out*/;
             resourceInputs["accountsWithRestoreAccesses"] = undefined /*out*/;
             resourceInputs["adminUsername"] = undefined /*out*/;

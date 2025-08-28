@@ -62,18 +62,18 @@ export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ID of the endpoint service.
      *
      * The following arguments are optional:
      */
-    public readonly serviceId!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.vpc.EndpointServicePrivateDnsVerificationTimeouts | undefined>;
+    declare public readonly serviceId: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.vpc.EndpointServicePrivateDnsVerificationTimeouts | undefined>;
     /**
      * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
      */
-    public readonly waitForVerification!: pulumi.Output<boolean | undefined>;
+    declare public readonly waitForVerification: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a EndpointServicePrivateDnsVerification resource with the given unique name, arguments, and options.
@@ -88,19 +88,19 @@ export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointServicePrivateDnsVerificationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serviceId"] = state ? state.serviceId : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["waitForVerification"] = state ? state.waitForVerification : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serviceId"] = state?.serviceId;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["waitForVerification"] = state?.waitForVerification;
         } else {
             const args = argsOrState as EndpointServicePrivateDnsVerificationArgs | undefined;
-            if ((!args || args.serviceId === undefined) && !opts.urn) {
+            if (args?.serviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["waitForVerification"] = args ? args.waitForVerification : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serviceId"] = args?.serviceId;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["waitForVerification"] = args?.waitForVerification;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EndpointServicePrivateDnsVerification.__pulumiType, name, resourceInputs, opts);

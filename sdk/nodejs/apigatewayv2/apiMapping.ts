@@ -62,23 +62,23 @@ export class ApiMapping extends pulumi.CustomResource {
     /**
      * API identifier.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
      */
-    public readonly apiMappingKey!: pulumi.Output<string | undefined>;
+    declare public readonly apiMappingKey: pulumi.Output<string | undefined>;
     /**
      * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
-    public readonly stage!: pulumi.Output<string>;
+    declare public readonly stage: pulumi.Output<string>;
 
     /**
      * Create a ApiMapping resource with the given unique name, arguments, and options.
@@ -93,27 +93,27 @@ export class ApiMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiMappingState | undefined;
-            resourceInputs["apiId"] = state ? state.apiId : undefined;
-            resourceInputs["apiMappingKey"] = state ? state.apiMappingKey : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["stage"] = state ? state.stage : undefined;
+            resourceInputs["apiId"] = state?.apiId;
+            resourceInputs["apiMappingKey"] = state?.apiMappingKey;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["stage"] = state?.stage;
         } else {
             const args = argsOrState as ApiMappingArgs | undefined;
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.stage === undefined) && !opts.urn) {
+            if (args?.stage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stage'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["apiMappingKey"] = args ? args.apiMappingKey : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["apiMappingKey"] = args?.apiMappingKey;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["stage"] = args?.stage;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiMapping.__pulumiType, name, resourceInputs, opts);

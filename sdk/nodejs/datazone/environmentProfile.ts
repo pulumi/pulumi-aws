@@ -141,51 +141,51 @@ export class EnvironmentProfile extends pulumi.CustomResource {
     /**
      * Id of the AWS account being used.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Desired region for environment profile.
      */
-    public readonly awsAccountRegion!: pulumi.Output<string>;
+    declare public readonly awsAccountRegion: pulumi.Output<string>;
     /**
      * Creation time of environment profile.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Creator of environment profile.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Description of environment profile.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Domain Identifier for environment profile.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * ID of the blueprint which the environment will be created with.
      */
-    public readonly environmentBlueprintIdentifier!: pulumi.Output<string>;
+    declare public readonly environmentBlueprintIdentifier: pulumi.Output<string>;
     /**
      * Name of the environment profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Project identifier for environment profile.
      */
-    public readonly projectIdentifier!: pulumi.Output<string>;
+    declare public readonly projectIdentifier: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Time of last update to environment profile.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Array of user parameters of the environment profile with the following attributes:
      */
-    public readonly userParameters!: pulumi.Output<outputs.datazone.EnvironmentProfileUserParameter[] | undefined>;
+    declare public readonly userParameters: pulumi.Output<outputs.datazone.EnvironmentProfileUserParameter[] | undefined>;
 
     /**
      * Create a EnvironmentProfile resource with the given unique name, arguments, and options.
@@ -200,41 +200,41 @@ export class EnvironmentProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentProfileState | undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["awsAccountRegion"] = state ? state.awsAccountRegion : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
-            resourceInputs["environmentBlueprintIdentifier"] = state ? state.environmentBlueprintIdentifier : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectIdentifier"] = state ? state.projectIdentifier : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
-            resourceInputs["userParameters"] = state ? state.userParameters : undefined;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["awsAccountRegion"] = state?.awsAccountRegion;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["domainIdentifier"] = state?.domainIdentifier;
+            resourceInputs["environmentBlueprintIdentifier"] = state?.environmentBlueprintIdentifier;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectIdentifier"] = state?.projectIdentifier;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["userParameters"] = state?.userParameters;
         } else {
             const args = argsOrState as EnvironmentProfileArgs | undefined;
-            if ((!args || args.awsAccountRegion === undefined) && !opts.urn) {
+            if (args?.awsAccountRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountRegion'");
             }
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.environmentBlueprintIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentBlueprintIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentBlueprintIdentifier'");
             }
-            if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
+            if (args?.projectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["awsAccountRegion"] = args ? args.awsAccountRegion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["environmentBlueprintIdentifier"] = args ? args.environmentBlueprintIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["userParameters"] = args ? args.userParameters : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["awsAccountRegion"] = args?.awsAccountRegion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["environmentBlueprintIdentifier"] = args?.environmentBlueprintIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["userParameters"] = args?.userParameters;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;

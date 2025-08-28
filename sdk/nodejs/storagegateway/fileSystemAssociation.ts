@@ -118,43 +118,43 @@ export class FileSystemAssociation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the newly created file system association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the storage used for the audit logs.
      */
-    public readonly auditDestinationArn!: pulumi.Output<string | undefined>;
+    declare public readonly auditDestinationArn: pulumi.Output<string | undefined>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.FileSystemAssociationCacheAttributes | undefined>;
+    declare public readonly cacheAttributes: pulumi.Output<outputs.storagegateway.FileSystemAssociationCacheAttributes | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    public readonly gatewayArn!: pulumi.Output<string>;
+    declare public readonly gatewayArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
      */
-    public readonly locationArn!: pulumi.Output<string>;
+    declare public readonly locationArn: pulumi.Output<string>;
     /**
      * The password of the user credential.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a FileSystemAssociation resource with the given unique name, arguments, and options.
@@ -169,38 +169,38 @@ export class FileSystemAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FileSystemAssociationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
-            resourceInputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
-            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            resourceInputs["locationArn"] = state ? state.locationArn : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["auditDestinationArn"] = state?.auditDestinationArn;
+            resourceInputs["cacheAttributes"] = state?.cacheAttributes;
+            resourceInputs["gatewayArn"] = state?.gatewayArn;
+            resourceInputs["locationArn"] = state?.locationArn;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as FileSystemAssociationArgs | undefined;
-            if ((!args || args.gatewayArn === undefined) && !opts.urn) {
+            if (args?.gatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if ((!args || args.locationArn === undefined) && !opts.urn) {
+            if (args?.locationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationArn'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
-            resourceInputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
-            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            resourceInputs["locationArn"] = args ? args.locationArn : undefined;
+            resourceInputs["auditDestinationArn"] = args?.auditDestinationArn;
+            resourceInputs["cacheAttributes"] = args?.cacheAttributes;
+            resourceInputs["gatewayArn"] = args?.gatewayArn;
+            resourceInputs["locationArn"] = args?.locationArn;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["username"] = args?.username;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

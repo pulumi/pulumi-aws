@@ -56,40 +56,40 @@ export class SnapshotSchedule extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
      */
-    public readonly definitions!: pulumi.Output<string[]>;
+    declare public readonly definitions: pulumi.Output<string[]>;
     /**
      * The description of the snapshot schedule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
      */
-    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
      * The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
      */
-    public readonly identifier!: pulumi.Output<string>;
+    declare public readonly identifier: pulumi.Output<string>;
     /**
      * Creates a unique
      * identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    public readonly identifierPrefix!: pulumi.Output<string>;
+    declare public readonly identifierPrefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a SnapshotSchedule resource with the given unique name, arguments, and options.
@@ -104,27 +104,27 @@ export class SnapshotSchedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotScheduleState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["definitions"] = state ? state.definitions : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            resourceInputs["identifier"] = state ? state.identifier : undefined;
-            resourceInputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["definitions"] = state?.definitions;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
+            resourceInputs["identifier"] = state?.identifier;
+            resourceInputs["identifierPrefix"] = state?.identifierPrefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as SnapshotScheduleArgs | undefined;
-            if ((!args || args.definitions === undefined) && !opts.urn) {
+            if (args?.definitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definitions'");
             }
-            resourceInputs["definitions"] = args ? args.definitions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["definitions"] = args?.definitions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["identifierPrefix"] = args?.identifierPrefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

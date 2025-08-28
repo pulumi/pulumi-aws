@@ -46,23 +46,23 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
     /**
      * An identity pool ID.
      */
-    public readonly identityPoolId!: pulumi.Output<string>;
+    declare public readonly identityPoolId: pulumi.Output<string>;
     /**
      * The name of the identity provider.
      */
-    public readonly identityProviderName!: pulumi.Output<string>;
+    declare public readonly identityProviderName: pulumi.Output<string>;
     /**
      * String to string map of variables.
      */
-    public readonly principalTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly principalTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * use default (username and clientID) attribute mappings.
      */
-    public readonly useDefaults!: pulumi.Output<boolean | undefined>;
+    declare public readonly useDefaults: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a IdentityPoolProviderPrincipalTag resource with the given unique name, arguments, and options.
@@ -77,24 +77,24 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPoolProviderPrincipalTagState | undefined;
-            resourceInputs["identityPoolId"] = state ? state.identityPoolId : undefined;
-            resourceInputs["identityProviderName"] = state ? state.identityProviderName : undefined;
-            resourceInputs["principalTags"] = state ? state.principalTags : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["useDefaults"] = state ? state.useDefaults : undefined;
+            resourceInputs["identityPoolId"] = state?.identityPoolId;
+            resourceInputs["identityProviderName"] = state?.identityProviderName;
+            resourceInputs["principalTags"] = state?.principalTags;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["useDefaults"] = state?.useDefaults;
         } else {
             const args = argsOrState as IdentityPoolProviderPrincipalTagArgs | undefined;
-            if ((!args || args.identityPoolId === undefined) && !opts.urn) {
+            if (args?.identityPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolId'");
             }
-            if ((!args || args.identityProviderName === undefined) && !opts.urn) {
+            if (args?.identityProviderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderName'");
             }
-            resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
-            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
-            resourceInputs["principalTags"] = args ? args.principalTags : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["useDefaults"] = args ? args.useDefaults : undefined;
+            resourceInputs["identityPoolId"] = args?.identityPoolId;
+            resourceInputs["identityProviderName"] = args?.identityProviderName;
+            resourceInputs["principalTags"] = args?.principalTags;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["useDefaults"] = args?.useDefaults;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentityPoolProviderPrincipalTag.__pulumiType, name, resourceInputs, opts);

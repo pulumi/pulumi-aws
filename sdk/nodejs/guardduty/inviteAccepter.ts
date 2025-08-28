@@ -68,15 +68,15 @@ export class InviteAccepter extends pulumi.CustomResource {
     /**
      * The detector ID of the member GuardDuty account.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * AWS account ID for primary account.
      */
-    public readonly masterAccountId!: pulumi.Output<string>;
+    declare public readonly masterAccountId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a InviteAccepter resource with the given unique name, arguments, and options.
@@ -91,20 +91,20 @@ export class InviteAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InviteAccepterState | undefined;
-            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
-            resourceInputs["masterAccountId"] = state ? state.masterAccountId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["detectorId"] = state?.detectorId;
+            resourceInputs["masterAccountId"] = state?.masterAccountId;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as InviteAccepterArgs | undefined;
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.masterAccountId === undefined) && !opts.urn) {
+            if (args?.masterAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterAccountId'");
             }
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["masterAccountId"] = args ? args.masterAccountId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["masterAccountId"] = args?.masterAccountId;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InviteAccepter.__pulumiType, name, resourceInputs, opts);

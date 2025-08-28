@@ -67,47 +67,47 @@ export class Control extends pulumi.CustomResource {
     /**
      * Recommended actions to carry out if the control isn't fulfilled.
      */
-    public readonly actionPlanInstructions!: pulumi.Output<string | undefined>;
+    declare public readonly actionPlanInstructions: pulumi.Output<string | undefined>;
     /**
      * Title of the action plan for remediating the control.
      */
-    public readonly actionPlanTitle!: pulumi.Output<string | undefined>;
+    declare public readonly actionPlanTitle: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the control.
      * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Data mapping sources. See `controlMappingSources` below.
      *
      * The following arguments are optional:
      */
-    public readonly controlMappingSources!: pulumi.Output<outputs.auditmanager.ControlControlMappingSource[] | undefined>;
+    declare public readonly controlMappingSources: pulumi.Output<outputs.auditmanager.ControlControlMappingSource[] | undefined>;
     /**
      * Description of the control.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the control.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Steps to follow to determine if the control is satisfied.
      */
-    public readonly testingInformation!: pulumi.Output<string | undefined>;
+    declare public readonly testingInformation: pulumi.Output<string | undefined>;
     /**
      * Type of control, such as a custom control or a standard control.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Control resource with the given unique name, arguments, and options.
@@ -122,27 +122,27 @@ export class Control extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ControlState | undefined;
-            resourceInputs["actionPlanInstructions"] = state ? state.actionPlanInstructions : undefined;
-            resourceInputs["actionPlanTitle"] = state ? state.actionPlanTitle : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["controlMappingSources"] = state ? state.controlMappingSources : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["testingInformation"] = state ? state.testingInformation : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["actionPlanInstructions"] = state?.actionPlanInstructions;
+            resourceInputs["actionPlanTitle"] = state?.actionPlanTitle;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["controlMappingSources"] = state?.controlMappingSources;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["testingInformation"] = state?.testingInformation;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ControlArgs | undefined;
-            resourceInputs["actionPlanInstructions"] = args ? args.actionPlanInstructions : undefined;
-            resourceInputs["actionPlanTitle"] = args ? args.actionPlanTitle : undefined;
-            resourceInputs["controlMappingSources"] = args ? args.controlMappingSources : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["testingInformation"] = args ? args.testingInformation : undefined;
+            resourceInputs["actionPlanInstructions"] = args?.actionPlanInstructions;
+            resourceInputs["actionPlanTitle"] = args?.actionPlanTitle;
+            resourceInputs["controlMappingSources"] = args?.controlMappingSources;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["testingInformation"] = args?.testingInformation;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

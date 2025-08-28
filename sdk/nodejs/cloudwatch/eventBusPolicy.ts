@@ -163,15 +163,15 @@ export class EventBusPolicy extends pulumi.CustomResource {
      * The name of the event bus to set the permissions on.
      * If you omit this, the permissions are set on the `default` event bus.
      */
-    public readonly eventBusName!: pulumi.Output<string | undefined>;
+    declare public readonly eventBusName: pulumi.Output<string | undefined>;
     /**
      * The text of the policy.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a EventBusPolicy resource with the given unique name, arguments, and options.
@@ -186,17 +186,17 @@ export class EventBusPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventBusPolicyState | undefined;
-            resourceInputs["eventBusName"] = state ? state.eventBusName : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["eventBusName"] = state?.eventBusName;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as EventBusPolicyArgs | undefined;
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["eventBusName"] = args?.eventBusName;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventBusPolicy.__pulumiType, name, resourceInputs, opts);

@@ -78,29 +78,29 @@ export class Logging extends pulumi.CustomResource {
     /**
      * Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      */
-    public readonly bucketName!: pulumi.Output<string | undefined>;
+    declare public readonly bucketName: pulumi.Output<string | undefined>;
     /**
      * Identifier of the source cluster.
      *
      * The following arguments are optional:
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
      * Log destination type. Valid values are `s3` and `cloudwatch`.
      */
-    public readonly logDestinationType!: pulumi.Output<string | undefined>;
+    declare public readonly logDestinationType: pulumi.Output<string | undefined>;
     /**
      * Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
      */
-    public readonly logExports!: pulumi.Output<string[] | undefined>;
+    declare public readonly logExports: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Prefix applied to the log file names.
      */
-    public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly s3KeyPrefix: pulumi.Output<string | undefined>;
 
     /**
      * Create a Logging resource with the given unique name, arguments, and options.
@@ -115,23 +115,23 @@ export class Logging extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoggingState | undefined;
-            resourceInputs["bucketName"] = state ? state.bucketName : undefined;
-            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            resourceInputs["logDestinationType"] = state ? state.logDestinationType : undefined;
-            resourceInputs["logExports"] = state ? state.logExports : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
+            resourceInputs["bucketName"] = state?.bucketName;
+            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
+            resourceInputs["logDestinationType"] = state?.logDestinationType;
+            resourceInputs["logExports"] = state?.logExports;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["s3KeyPrefix"] = state?.s3KeyPrefix;
         } else {
             const args = argsOrState as LoggingArgs | undefined;
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["logDestinationType"] = args ? args.logDestinationType : undefined;
-            resourceInputs["logExports"] = args ? args.logExports : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["logDestinationType"] = args?.logDestinationType;
+            resourceInputs["logExports"] = args?.logExports;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["s3KeyPrefix"] = args?.s3KeyPrefix;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Logging.__pulumiType, name, resourceInputs, opts);

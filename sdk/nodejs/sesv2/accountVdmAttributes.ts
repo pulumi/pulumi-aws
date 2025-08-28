@@ -68,21 +68,21 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
-    public readonly dashboardAttributes!: pulumi.Output<outputs.sesv2.AccountVdmAttributesDashboardAttributes>;
+    declare public readonly dashboardAttributes: pulumi.Output<outputs.sesv2.AccountVdmAttributesDashboardAttributes>;
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
-    public readonly guardianAttributes!: pulumi.Output<outputs.sesv2.AccountVdmAttributesGuardianAttributes>;
+    declare public readonly guardianAttributes: pulumi.Output<outputs.sesv2.AccountVdmAttributesGuardianAttributes>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *
      * The following arguments are optional:
      */
-    public readonly vdmEnabled!: pulumi.Output<string>;
+    declare public readonly vdmEnabled: pulumi.Output<string>;
 
     /**
      * Create a AccountVdmAttributes resource with the given unique name, arguments, and options.
@@ -97,19 +97,19 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountVdmAttributesState | undefined;
-            resourceInputs["dashboardAttributes"] = state ? state.dashboardAttributes : undefined;
-            resourceInputs["guardianAttributes"] = state ? state.guardianAttributes : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["vdmEnabled"] = state ? state.vdmEnabled : undefined;
+            resourceInputs["dashboardAttributes"] = state?.dashboardAttributes;
+            resourceInputs["guardianAttributes"] = state?.guardianAttributes;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["vdmEnabled"] = state?.vdmEnabled;
         } else {
             const args = argsOrState as AccountVdmAttributesArgs | undefined;
-            if ((!args || args.vdmEnabled === undefined) && !opts.urn) {
+            if (args?.vdmEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vdmEnabled'");
             }
-            resourceInputs["dashboardAttributes"] = args ? args.dashboardAttributes : undefined;
-            resourceInputs["guardianAttributes"] = args ? args.guardianAttributes : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vdmEnabled"] = args ? args.vdmEnabled : undefined;
+            resourceInputs["dashboardAttributes"] = args?.dashboardAttributes;
+            resourceInputs["guardianAttributes"] = args?.guardianAttributes;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vdmEnabled"] = args?.vdmEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountVdmAttributes.__pulumiType, name, resourceInputs, opts);

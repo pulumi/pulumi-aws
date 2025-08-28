@@ -80,39 +80,39 @@ export class DirectoryBucket extends pulumi.CustomResource {
     /**
      * ARN of the bucket.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      */
-    public readonly dataRedundancy!: pulumi.Output<string>;
+    declare public readonly dataRedundancy: pulumi.Output<string>;
     /**
      * Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
-    public readonly forceDestroy!: pulumi.Output<boolean>;
+    declare public readonly forceDestroy: pulumi.Output<boolean>;
     /**
      * Bucket location. See Location below for more details.
      */
-    public readonly location!: pulumi.Output<outputs.s3.DirectoryBucketLocation | undefined>;
+    declare public readonly location: pulumi.Output<outputs.s3.DirectoryBucketLocation | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Bucket type. Valid values: `Directory`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a DirectoryBucket resource with the given unique name, arguments, and options.
@@ -127,27 +127,27 @@ export class DirectoryBucket extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryBucketState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["dataRedundancy"] = state ? state.dataRedundancy : undefined;
-            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["dataRedundancy"] = state?.dataRedundancy;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as DirectoryBucketArgs | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["dataRedundancy"] = args ? args.dataRedundancy : undefined;
-            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["dataRedundancy"] = args?.dataRedundancy;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

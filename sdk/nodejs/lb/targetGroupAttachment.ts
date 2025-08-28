@@ -87,25 +87,25 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
      * The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The port on which targets receive traffic.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARN of the target group with which to register targets.
      */
-    public readonly targetGroupArn!: pulumi.Output<string>;
+    declare public readonly targetGroupArn: pulumi.Output<string>;
     /**
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
      *
      * The following arguments are optional:
      */
-    public readonly targetId!: pulumi.Output<string>;
+    declare public readonly targetId: pulumi.Output<string>;
 
     /**
      * Create a TargetGroupAttachment resource with the given unique name, arguments, and options.
@@ -120,24 +120,24 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TargetGroupAttachmentState | undefined;
-            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["targetGroupArn"] = state ? state.targetGroupArn : undefined;
-            resourceInputs["targetId"] = state ? state.targetId : undefined;
+            resourceInputs["availabilityZone"] = state?.availabilityZone;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["targetGroupArn"] = state?.targetGroupArn;
+            resourceInputs["targetId"] = state?.targetId;
         } else {
             const args = argsOrState as TargetGroupAttachmentArgs | undefined;
-            if ((!args || args.targetGroupArn === undefined) && !opts.urn) {
+            if (args?.targetGroupArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupArn'");
             }
-            if ((!args || args.targetId === undefined) && !opts.urn) {
+            if (args?.targetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["targetGroupArn"] = args ? args.targetGroupArn : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["targetGroupArn"] = args?.targetGroupArn;
+            resourceInputs["targetId"] = args?.targetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment" }] };

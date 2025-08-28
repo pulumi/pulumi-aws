@@ -74,60 +74,60 @@ export class MultiRegionCluster extends pulumi.CustomResource {
     /**
      * The ARN of the multi-region cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * description for the multi-region cluster.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
      */
-    public readonly engine!: pulumi.Output<string>;
+    declare public readonly engine: pulumi.Output<string>;
     /**
      * The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    declare public readonly engineVersion: pulumi.Output<string>;
     /**
      * The name of the multi-region cluster.
      */
-    public /*out*/ readonly multiRegionClusterName!: pulumi.Output<string>;
+    declare public /*out*/ readonly multiRegionClusterName: pulumi.Output<string>;
     /**
      * A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
      */
-    public readonly multiRegionClusterNameSuffix!: pulumi.Output<string>;
+    declare public readonly multiRegionClusterNameSuffix: pulumi.Output<string>;
     /**
      * The name of the multi-region parameter group to be associated with the cluster.
      */
-    public readonly multiRegionParameterGroupName!: pulumi.Output<string>;
+    declare public readonly multiRegionParameterGroupName: pulumi.Output<string>;
     /**
      * The node type to be used for the multi-region cluster.
      *
      * The following arguments are optional:
      */
-    public readonly nodeType!: pulumi.Output<string>;
+    declare public readonly nodeType: pulumi.Output<string>;
     /**
      * The number of shards for the multi-region cluster.
      */
-    public readonly numShards!: pulumi.Output<number>;
+    declare public readonly numShards: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.memorydb.MultiRegionClusterTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.memorydb.MultiRegionClusterTimeouts | undefined>;
     /**
      * A flag to enable in-transit encryption on the cluster.
      */
-    public readonly tlsEnabled!: pulumi.Output<boolean>;
-    public readonly updateStrategy!: pulumi.Output<string | undefined>;
+    declare public readonly tlsEnabled: pulumi.Output<boolean>;
+    declare public readonly updateStrategy: pulumi.Output<string | undefined>;
 
     /**
      * Create a MultiRegionCluster resource with the given unique name, arguments, and options.
@@ -142,42 +142,42 @@ export class MultiRegionCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MultiRegionClusterState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["engine"] = state ? state.engine : undefined;
-            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
-            resourceInputs["multiRegionClusterName"] = state ? state.multiRegionClusterName : undefined;
-            resourceInputs["multiRegionClusterNameSuffix"] = state ? state.multiRegionClusterNameSuffix : undefined;
-            resourceInputs["multiRegionParameterGroupName"] = state ? state.multiRegionParameterGroupName : undefined;
-            resourceInputs["nodeType"] = state ? state.nodeType : undefined;
-            resourceInputs["numShards"] = state ? state.numShards : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
-            resourceInputs["updateStrategy"] = state ? state.updateStrategy : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["engine"] = state?.engine;
+            resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["multiRegionClusterName"] = state?.multiRegionClusterName;
+            resourceInputs["multiRegionClusterNameSuffix"] = state?.multiRegionClusterNameSuffix;
+            resourceInputs["multiRegionParameterGroupName"] = state?.multiRegionParameterGroupName;
+            resourceInputs["nodeType"] = state?.nodeType;
+            resourceInputs["numShards"] = state?.numShards;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["tlsEnabled"] = state?.tlsEnabled;
+            resourceInputs["updateStrategy"] = state?.updateStrategy;
         } else {
             const args = argsOrState as MultiRegionClusterArgs | undefined;
-            if ((!args || args.multiRegionClusterNameSuffix === undefined) && !opts.urn) {
+            if (args?.multiRegionClusterNameSuffix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'multiRegionClusterNameSuffix'");
             }
-            if ((!args || args.nodeType === undefined) && !opts.urn) {
+            if (args?.nodeType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["multiRegionClusterNameSuffix"] = args ? args.multiRegionClusterNameSuffix : undefined;
-            resourceInputs["multiRegionParameterGroupName"] = args ? args.multiRegionParameterGroupName : undefined;
-            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
-            resourceInputs["numShards"] = args ? args.numShards : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
-            resourceInputs["updateStrategy"] = args ? args.updateStrategy : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["multiRegionClusterNameSuffix"] = args?.multiRegionClusterNameSuffix;
+            resourceInputs["multiRegionParameterGroupName"] = args?.multiRegionParameterGroupName;
+            resourceInputs["nodeType"] = args?.nodeType;
+            resourceInputs["numShards"] = args?.numShards;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["tlsEnabled"] = args?.tlsEnabled;
+            resourceInputs["updateStrategy"] = args?.updateStrategy;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["multiRegionClusterName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

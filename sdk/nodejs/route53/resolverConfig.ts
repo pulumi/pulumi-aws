@@ -63,19 +63,19 @@ export class ResolverConfig extends pulumi.CustomResource {
     /**
      * Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
      */
-    public readonly autodefinedReverseFlag!: pulumi.Output<string>;
+    declare public readonly autodefinedReverseFlag: pulumi.Output<string>;
     /**
      * The AWS account ID of the owner of the VPC that this resolver configuration applies to.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the VPC that the configuration is for.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
 
     /**
      * Create a ResolverConfig resource with the given unique name, arguments, and options.
@@ -90,21 +90,21 @@ export class ResolverConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverConfigState | undefined;
-            resourceInputs["autodefinedReverseFlag"] = state ? state.autodefinedReverseFlag : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["autodefinedReverseFlag"] = state?.autodefinedReverseFlag;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceId"] = state?.resourceId;
         } else {
             const args = argsOrState as ResolverConfigArgs | undefined;
-            if ((!args || args.autodefinedReverseFlag === undefined) && !opts.urn) {
+            if (args?.autodefinedReverseFlag === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autodefinedReverseFlag'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["autodefinedReverseFlag"] = args ? args.autodefinedReverseFlag : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["autodefinedReverseFlag"] = args?.autodefinedReverseFlag;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["ownerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

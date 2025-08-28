@@ -155,39 +155,39 @@ export class CodeSigningConfig extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly allowedPublishers!: pulumi.Output<outputs.lambda.CodeSigningConfigAllowedPublishers>;
+    declare public readonly allowedPublishers: pulumi.Output<outputs.lambda.CodeSigningConfigAllowedPublishers>;
     /**
      * ARN of the code signing configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Unique identifier for the code signing configuration.
      */
-    public /*out*/ readonly configId!: pulumi.Output<string>;
+    declare public /*out*/ readonly configId: pulumi.Output<string>;
     /**
      * Descriptive name for this code signing configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Date and time that the code signing configuration was last modified.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
     /**
      * Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
      */
-    public readonly policies!: pulumi.Output<outputs.lambda.CodeSigningConfigPolicies>;
+    declare public readonly policies: pulumi.Output<outputs.lambda.CodeSigningConfigPolicies>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CodeSigningConfig resource with the given unique name, arguments, and options.
@@ -202,25 +202,25 @@ export class CodeSigningConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CodeSigningConfigState | undefined;
-            resourceInputs["allowedPublishers"] = state ? state.allowedPublishers : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["configId"] = state ? state.configId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["lastModified"] = state ? state.lastModified : undefined;
-            resourceInputs["policies"] = state ? state.policies : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["allowedPublishers"] = state?.allowedPublishers;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["configId"] = state?.configId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["lastModified"] = state?.lastModified;
+            resourceInputs["policies"] = state?.policies;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as CodeSigningConfigArgs | undefined;
-            if ((!args || args.allowedPublishers === undefined) && !opts.urn) {
+            if (args?.allowedPublishers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowedPublishers'");
             }
-            resourceInputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedPublishers"] = args?.allowedPublishers;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configId"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;

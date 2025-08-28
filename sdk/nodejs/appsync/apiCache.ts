@@ -64,31 +64,31 @@ export class ApiCache extends pulumi.CustomResource {
     /**
      * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
      */
-    public readonly apiCachingBehavior!: pulumi.Output<string>;
+    declare public readonly apiCachingBehavior: pulumi.Output<string>;
     /**
      * GraphQL API ID.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * At-rest encryption flag for cache. You cannot update this setting after creation.
      */
-    public readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
+    declare public readonly atRestEncryptionEnabled: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      */
-    public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
+    declare public readonly transitEncryptionEnabled: pulumi.Output<boolean>;
     /**
      * TTL in seconds for cache entries.
      */
-    public readonly ttl!: pulumi.Output<number>;
+    declare public readonly ttl: pulumi.Output<number>;
     /**
      * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a ApiCache resource with the given unique name, arguments, and options.
@@ -103,34 +103,34 @@ export class ApiCache extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiCacheState | undefined;
-            resourceInputs["apiCachingBehavior"] = state ? state.apiCachingBehavior : undefined;
-            resourceInputs["apiId"] = state ? state.apiId : undefined;
-            resourceInputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["apiCachingBehavior"] = state?.apiCachingBehavior;
+            resourceInputs["apiId"] = state?.apiId;
+            resourceInputs["atRestEncryptionEnabled"] = state?.atRestEncryptionEnabled;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["transitEncryptionEnabled"] = state?.transitEncryptionEnabled;
+            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ApiCacheArgs | undefined;
-            if ((!args || args.apiCachingBehavior === undefined) && !opts.urn) {
+            if (args?.apiCachingBehavior === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiCachingBehavior'");
             }
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.ttl === undefined) && !opts.urn) {
+            if (args?.ttl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ttl'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["apiCachingBehavior"] = args ? args.apiCachingBehavior : undefined;
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["apiCachingBehavior"] = args?.apiCachingBehavior;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["atRestEncryptionEnabled"] = args?.atRestEncryptionEnabled;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["transitEncryptionEnabled"] = args?.transitEncryptionEnabled;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiCache.__pulumiType, name, resourceInputs, opts);

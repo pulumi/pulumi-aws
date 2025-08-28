@@ -229,65 +229,65 @@ export class StreamProcessor extends pulumi.CustomResource {
     /**
      * ARN of the Stream Processor.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * See `dataSharingPreference`.
      */
-    public readonly dataSharingPreference!: pulumi.Output<outputs.rekognition.StreamProcessorDataSharingPreference | undefined>;
+    declare public readonly dataSharingPreference: pulumi.Output<outputs.rekognition.StreamProcessorDataSharingPreference | undefined>;
     /**
      * Input video stream. See `input`.
      */
-    public readonly input!: pulumi.Output<outputs.rekognition.StreamProcessorInput | undefined>;
+    declare public readonly input: pulumi.Output<outputs.rekognition.StreamProcessorInput | undefined>;
     /**
      * Optional parameter for label detection stream processors.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The name of the Stream Processor.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
      */
-    public readonly notificationChannel!: pulumi.Output<outputs.rekognition.StreamProcessorNotificationChannel | undefined>;
+    declare public readonly notificationChannel: pulumi.Output<outputs.rekognition.StreamProcessorNotificationChannel | undefined>;
     /**
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      */
-    public readonly output!: pulumi.Output<outputs.rekognition.StreamProcessorOutput | undefined>;
+    declare public readonly output: pulumi.Output<outputs.rekognition.StreamProcessorOutput | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      */
-    public readonly regionsOfInterests!: pulumi.Output<outputs.rekognition.StreamProcessorRegionsOfInterest[] | undefined>;
+    declare public readonly regionsOfInterests: pulumi.Output<outputs.rekognition.StreamProcessorRegionsOfInterest[] | undefined>;
     /**
      * The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
      *
      * The following arguments are optional:
      */
-    public readonly settings!: pulumi.Output<outputs.rekognition.StreamProcessorSettings | undefined>;
+    declare public readonly settings: pulumi.Output<outputs.rekognition.StreamProcessorSettings | undefined>;
     /**
      * (**Deprecated**) ARN of the Stream Processor.
      * Use `arn` instead.
      *
      * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
      */
-    public /*out*/ readonly streamProcessorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly streamProcessorArn: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.rekognition.StreamProcessorTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.rekognition.StreamProcessorTimeouts | undefined>;
 
     /**
      * Create a StreamProcessor resource with the given unique name, arguments, and options.
@@ -302,38 +302,38 @@ export class StreamProcessor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamProcessorState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["dataSharingPreference"] = state ? state.dataSharingPreference : undefined;
-            resourceInputs["input"] = state ? state.input : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationChannel"] = state ? state.notificationChannel : undefined;
-            resourceInputs["output"] = state ? state.output : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["regionsOfInterests"] = state ? state.regionsOfInterests : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
-            resourceInputs["streamProcessorArn"] = state ? state.streamProcessorArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["dataSharingPreference"] = state?.dataSharingPreference;
+            resourceInputs["input"] = state?.input;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationChannel"] = state?.notificationChannel;
+            resourceInputs["output"] = state?.output;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["regionsOfInterests"] = state?.regionsOfInterests;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["settings"] = state?.settings;
+            resourceInputs["streamProcessorArn"] = state?.streamProcessorArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as StreamProcessorArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["dataSharingPreference"] = args ? args.dataSharingPreference : undefined;
-            resourceInputs["input"] = args ? args.input : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationChannel"] = args ? args.notificationChannel : undefined;
-            resourceInputs["output"] = args ? args.output : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["regionsOfInterests"] = args ? args.regionsOfInterests : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["dataSharingPreference"] = args?.dataSharingPreference;
+            resourceInputs["input"] = args?.input;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationChannel"] = args?.notificationChannel;
+            resourceInputs["output"] = args?.output;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["regionsOfInterests"] = args?.regionsOfInterests;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamProcessorArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

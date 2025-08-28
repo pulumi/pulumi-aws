@@ -65,15 +65,15 @@ export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the application.
      */
-    public readonly applicationArn!: pulumi.Output<string>;
+    declare public readonly applicationArn: pulumi.Output<string>;
     /**
      * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
      */
-    public readonly assignmentRequired!: pulumi.Output<boolean>;
+    declare public readonly assignmentRequired: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ApplicationAssignmentConfiguration resource with the given unique name, arguments, and options.
@@ -88,20 +88,20 @@ export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationAssignmentConfigurationState | undefined;
-            resourceInputs["applicationArn"] = state ? state.applicationArn : undefined;
-            resourceInputs["assignmentRequired"] = state ? state.assignmentRequired : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["applicationArn"] = state?.applicationArn;
+            resourceInputs["assignmentRequired"] = state?.assignmentRequired;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ApplicationAssignmentConfigurationArgs | undefined;
-            if ((!args || args.applicationArn === undefined) && !opts.urn) {
+            if (args?.applicationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationArn'");
             }
-            if ((!args || args.assignmentRequired === undefined) && !opts.urn) {
+            if (args?.assignmentRequired === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assignmentRequired'");
             }
-            resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
-            resourceInputs["assignmentRequired"] = args ? args.assignmentRequired : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["applicationArn"] = args?.applicationArn;
+            resourceInputs["assignmentRequired"] = args?.assignmentRequired;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApplicationAssignmentConfiguration.__pulumiType, name, resourceInputs, opts);

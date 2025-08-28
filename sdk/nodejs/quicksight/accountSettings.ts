@@ -65,16 +65,16 @@ export class AccountSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountSettings.__pulumiType;
     }
 
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
      */
-    public readonly defaultNamespace!: pulumi.Output<string>;
+    declare public readonly defaultNamespace: pulumi.Output<string>;
     /**
      * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
      */
-    public readonly terminationProtectionEnabled!: pulumi.Output<boolean>;
-    public readonly timeouts!: pulumi.Output<outputs.quicksight.AccountSettingsTimeouts | undefined>;
+    declare public readonly terminationProtectionEnabled: pulumi.Output<boolean>;
+    declare public readonly timeouts: pulumi.Output<outputs.quicksight.AccountSettingsTimeouts | undefined>;
 
     /**
      * Create a AccountSettings resource with the given unique name, arguments, and options.
@@ -89,16 +89,16 @@ export class AccountSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountSettingsState | undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["defaultNamespace"] = state ? state.defaultNamespace : undefined;
-            resourceInputs["terminationProtectionEnabled"] = state ? state.terminationProtectionEnabled : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["defaultNamespace"] = state?.defaultNamespace;
+            resourceInputs["terminationProtectionEnabled"] = state?.terminationProtectionEnabled;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AccountSettingsArgs | undefined;
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["defaultNamespace"] = args ? args.defaultNamespace : undefined;
-            resourceInputs["terminationProtectionEnabled"] = args ? args.terminationProtectionEnabled : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["defaultNamespace"] = args?.defaultNamespace;
+            resourceInputs["terminationProtectionEnabled"] = args?.terminationProtectionEnabled;
+            resourceInputs["timeouts"] = args?.timeouts;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountSettings.__pulumiType, name, resourceInputs, opts);

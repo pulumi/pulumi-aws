@@ -63,26 +63,26 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
      * The time period after which
      * the session cookie should be considered stale, expressed in seconds.
      */
-    public readonly cookieExpirationPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly cookieExpirationPeriod: pulumi.Output<number | undefined>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    public readonly lbPort!: pulumi.Output<number>;
+    declare public readonly lbPort: pulumi.Output<number>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    public readonly loadBalancer!: pulumi.Output<string>;
+    declare public readonly loadBalancer: pulumi.Output<string>;
     /**
      * The name of the stickiness policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancerCookieStickinessPolicy resource with the given unique name, arguments, and options.
@@ -97,24 +97,24 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerCookieStickinessPolicyState | undefined;
-            resourceInputs["cookieExpirationPeriod"] = state ? state.cookieExpirationPeriod : undefined;
-            resourceInputs["lbPort"] = state ? state.lbPort : undefined;
-            resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["cookieExpirationPeriod"] = state?.cookieExpirationPeriod;
+            resourceInputs["lbPort"] = state?.lbPort;
+            resourceInputs["loadBalancer"] = state?.loadBalancer;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as LoadBalancerCookieStickinessPolicyArgs | undefined;
-            if ((!args || args.lbPort === undefined) && !opts.urn) {
+            if (args?.lbPort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lbPort'");
             }
-            if ((!args || args.loadBalancer === undefined) && !opts.urn) {
+            if (args?.loadBalancer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            resourceInputs["cookieExpirationPeriod"] = args ? args.cookieExpirationPeriod : undefined;
-            resourceInputs["lbPort"] = args ? args.lbPort : undefined;
-            resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["cookieExpirationPeriod"] = args?.cookieExpirationPeriod;
+            resourceInputs["lbPort"] = args?.lbPort;
+            resourceInputs["loadBalancer"] = args?.loadBalancer;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy" }] };

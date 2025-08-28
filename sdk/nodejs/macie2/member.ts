@@ -64,60 +64,60 @@ export class Member extends pulumi.CustomResource {
     /**
      * The AWS account ID for the account.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The AWS account ID for the administrator account.
      */
-    public /*out*/ readonly administratorAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly administratorAccountId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the account.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The email address for the account.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      */
-    public readonly invitationDisableEmailNotification!: pulumi.Output<boolean | undefined>;
+    declare public readonly invitationDisableEmailNotification: pulumi.Output<boolean | undefined>;
     /**
      * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      */
-    public readonly invitationMessage!: pulumi.Output<string | undefined>;
+    declare public readonly invitationMessage: pulumi.Output<string | undefined>;
     /**
      * Send an invitation to a member
      */
-    public readonly invite!: pulumi.Output<boolean>;
+    declare public readonly invite: pulumi.Output<boolean>;
     /**
      * The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
      */
-    public /*out*/ readonly invitedAt!: pulumi.Output<string>;
-    public /*out*/ readonly masterAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly invitedAt: pulumi.Output<string>;
+    declare public /*out*/ readonly masterAccountId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The current status of the relationship between the account and the administrator account.
      */
-    public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly relationshipStatus: pulumi.Output<string>;
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Member resource with the given unique name, arguments, and options.
@@ -132,37 +132,37 @@ export class Member extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["administratorAccountId"] = state ? state.administratorAccountId : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["invitationDisableEmailNotification"] = state ? state.invitationDisableEmailNotification : undefined;
-            resourceInputs["invitationMessage"] = state ? state.invitationMessage : undefined;
-            resourceInputs["invite"] = state ? state.invite : undefined;
-            resourceInputs["invitedAt"] = state ? state.invitedAt : undefined;
-            resourceInputs["masterAccountId"] = state ? state.masterAccountId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["administratorAccountId"] = state?.administratorAccountId;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["invitationDisableEmailNotification"] = state?.invitationDisableEmailNotification;
+            resourceInputs["invitationMessage"] = state?.invitationMessage;
+            resourceInputs["invite"] = state?.invite;
+            resourceInputs["invitedAt"] = state?.invitedAt;
+            resourceInputs["masterAccountId"] = state?.masterAccountId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["relationshipStatus"] = state?.relationshipStatus;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
             const args = argsOrState as MemberArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["invitationDisableEmailNotification"] = args ? args.invitationDisableEmailNotification : undefined;
-            resourceInputs["invitationMessage"] = args ? args.invitationMessage : undefined;
-            resourceInputs["invite"] = args ? args.invite : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["invitationDisableEmailNotification"] = args?.invitationDisableEmailNotification;
+            resourceInputs["invitationMessage"] = args?.invitationMessage;
+            resourceInputs["invite"] = args?.invite;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administratorAccountId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["invitedAt"] = undefined /*out*/;

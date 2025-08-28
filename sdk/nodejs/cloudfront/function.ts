@@ -52,45 +52,45 @@ export class Function extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifying your CloudFront Function.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Source code of the function
      */
-    public readonly code!: pulumi.Output<string>;
+    declare public readonly code: pulumi.Output<string>;
     /**
      * Comment.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
      */
-    public readonly keyValueStoreAssociations!: pulumi.Output<string[] | undefined>;
+    declare public readonly keyValueStoreAssociations: pulumi.Output<string[] | undefined>;
     /**
      * ETag hash of any `LIVE` stage of the function.
      */
-    public /*out*/ readonly liveStageEtag!: pulumi.Output<string>;
+    declare public /*out*/ readonly liveStageEtag: pulumi.Output<string>;
     /**
      * Unique name for your CloudFront Function.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
      */
-    public readonly publish!: pulumi.Output<boolean | undefined>;
+    declare public readonly publish: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      *
      * The following arguments are optional:
      */
-    public readonly runtime!: pulumi.Output<string>;
+    declare public readonly runtime: pulumi.Output<string>;
     /**
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -105,30 +105,30 @@ export class Function extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["code"] = state ? state.code : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["keyValueStoreAssociations"] = state ? state.keyValueStoreAssociations : undefined;
-            resourceInputs["liveStageEtag"] = state ? state.liveStageEtag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publish"] = state ? state.publish : undefined;
-            resourceInputs["runtime"] = state ? state.runtime : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["code"] = state?.code;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["keyValueStoreAssociations"] = state?.keyValueStoreAssociations;
+            resourceInputs["liveStageEtag"] = state?.liveStageEtag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publish"] = state?.publish;
+            resourceInputs["runtime"] = state?.runtime;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
-            if ((!args || args.code === undefined) && !opts.urn) {
+            if (args?.code === undefined && !opts.urn) {
                 throw new Error("Missing required property 'code'");
             }
-            if ((!args || args.runtime === undefined) && !opts.urn) {
+            if (args?.runtime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtime'");
             }
-            resourceInputs["code"] = args ? args.code : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["keyValueStoreAssociations"] = args ? args.keyValueStoreAssociations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publish"] = args ? args.publish : undefined;
-            resourceInputs["runtime"] = args ? args.runtime : undefined;
+            resourceInputs["code"] = args?.code;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["keyValueStoreAssociations"] = args?.keyValueStoreAssociations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publish"] = args?.publish;
+            resourceInputs["runtime"] = args?.runtime;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["liveStageEtag"] = undefined /*out*/;

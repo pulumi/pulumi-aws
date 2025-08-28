@@ -58,43 +58,43 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The Arn of the queue
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
      */
-    public readonly concurrentJobs!: pulumi.Output<number>;
+    declare public readonly concurrentJobs: pulumi.Output<number>;
     /**
      * A description of the queue
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A unique identifier describing the queue
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      */
-    public readonly pricingPlan!: pulumi.Output<string | undefined>;
+    declare public readonly pricingPlan: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A detail pricing plan of the  reserved queue. See below.
      */
-    public readonly reservationPlanSettings!: pulumi.Output<outputs.mediaconvert.QueueReservationPlanSettings>;
+    declare public readonly reservationPlanSettings: pulumi.Output<outputs.mediaconvert.QueueReservationPlanSettings>;
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -109,26 +109,26 @@ export class Queue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["concurrentJobs"] = state ? state.concurrentJobs : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pricingPlan"] = state ? state.pricingPlan : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["reservationPlanSettings"] = state ? state.reservationPlanSettings : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["concurrentJobs"] = state?.concurrentJobs;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pricingPlan"] = state?.pricingPlan;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["reservationPlanSettings"] = state?.reservationPlanSettings;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as QueueArgs | undefined;
-            resourceInputs["concurrentJobs"] = args ? args.concurrentJobs : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["reservationPlanSettings"] = args ? args.reservationPlanSettings : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["concurrentJobs"] = args?.concurrentJobs;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["reservationPlanSettings"] = args?.reservationPlanSettings;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

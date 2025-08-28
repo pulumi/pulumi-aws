@@ -64,41 +64,41 @@ export class Template extends pulumi.CustomResource {
     /**
      * AWS Region to which the template applies.
      */
-    public readonly awsRegion!: pulumi.Output<string>;
+    declare public readonly awsRegion: pulumi.Output<string>;
     /**
      * Indicates whether the quota is global.
      */
-    public /*out*/ readonly globalQuota!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly globalQuota: pulumi.Output<boolean>;
     /**
      * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
      */
-    public readonly quotaCode!: pulumi.Output<string>;
+    declare public readonly quotaCode: pulumi.Output<string>;
     /**
      * Quota name.
      */
-    public /*out*/ readonly quotaName!: pulumi.Output<string>;
+    declare public /*out*/ readonly quotaName: pulumi.Output<string>;
     /**
      * AWS Region to which the template applies. Use `aws.getRegion` instead.
      *
      * @deprecated region is deprecated. Use aws.getRegion instead.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
      */
-    public readonly serviceCode!: pulumi.Output<string>;
+    declare public readonly serviceCode: pulumi.Output<string>;
     /**
      * Service name.
      */
-    public /*out*/ readonly serviceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceName: pulumi.Output<string>;
     /**
      * Unit of measurement.
      */
-    public /*out*/ readonly unit!: pulumi.Output<string>;
+    declare public /*out*/ readonly unit: pulumi.Output<string>;
     /**
      * The new, increased value for the quota.
      */
-    public readonly value!: pulumi.Output<number>;
+    declare public readonly value: pulumi.Output<number>;
 
     /**
      * Create a Template resource with the given unique name, arguments, and options.
@@ -113,31 +113,31 @@ export class Template extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateState | undefined;
-            resourceInputs["awsRegion"] = state ? state.awsRegion : undefined;
-            resourceInputs["globalQuota"] = state ? state.globalQuota : undefined;
-            resourceInputs["quotaCode"] = state ? state.quotaCode : undefined;
-            resourceInputs["quotaName"] = state ? state.quotaName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serviceCode"] = state ? state.serviceCode : undefined;
-            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
-            resourceInputs["unit"] = state ? state.unit : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["awsRegion"] = state?.awsRegion;
+            resourceInputs["globalQuota"] = state?.globalQuota;
+            resourceInputs["quotaCode"] = state?.quotaCode;
+            resourceInputs["quotaName"] = state?.quotaName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serviceCode"] = state?.serviceCode;
+            resourceInputs["serviceName"] = state?.serviceName;
+            resourceInputs["unit"] = state?.unit;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as TemplateArgs | undefined;
-            if ((!args || args.quotaCode === undefined) && !opts.urn) {
+            if (args?.quotaCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'quotaCode'");
             }
-            if ((!args || args.serviceCode === undefined) && !opts.urn) {
+            if (args?.serviceCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceCode'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["awsRegion"] = args ? args.awsRegion : undefined;
-            resourceInputs["quotaCode"] = args ? args.quotaCode : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serviceCode"] = args ? args.serviceCode : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["awsRegion"] = args?.awsRegion;
+            resourceInputs["quotaCode"] = args?.quotaCode;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serviceCode"] = args?.serviceCode;
+            resourceInputs["value"] = args?.value;
             resourceInputs["globalQuota"] = undefined /*out*/;
             resourceInputs["quotaName"] = undefined /*out*/;
             resourceInputs["serviceName"] = undefined /*out*/;
