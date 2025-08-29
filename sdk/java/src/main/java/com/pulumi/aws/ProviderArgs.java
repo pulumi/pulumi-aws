@@ -25,14 +25,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
-     * The access key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+     * The access key for API operations. You can retrieve this
+     * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
     @Import(name="accessKey")
     private @Nullable Output<String> accessKey;
 
     /**
-     * @return The access key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+     * @return The access key for API operations. You can retrieve this
+     * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
     public Optional<Output<String>> accessKey() {
@@ -61,16 +63,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-     * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
      * 
      */
     @Import(name="customCaBundle")
     private @Nullable Output<String> customCaBundle;
 
     /**
-     * @return File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-     * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+     * @return File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
      * 
      */
     public Optional<Output<String>> customCaBundle() {
@@ -93,16 +93,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Address of the EC2 metadata service endpoint to use. Can also be configured using the
-     * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+     * Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
      * 
      */
     @Import(name="ec2MetadataServiceEndpoint")
     private @Nullable Output<String> ec2MetadataServiceEndpoint;
 
     /**
-     * @return Address of the EC2 metadata service endpoint to use. Can also be configured using the
-     * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+     * @return Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
      * 
      */
     public Optional<Output<String>> ec2MetadataServiceEndpoint() {
@@ -110,16 +108,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-     * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+     * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
      * 
      */
     @Import(name="ec2MetadataServiceEndpointMode")
     private @Nullable Output<String> ec2MetadataServiceEndpointMode;
 
     /**
-     * @return Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-     * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+     * @return Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
      * 
      */
     public Optional<Output<String>> ec2MetadataServiceEndpointMode() {
@@ -141,16 +137,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-     * `http_proxy` environment variables.
+     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
      * 
      */
     @Import(name="httpProxy")
     private @Nullable Output<String> httpProxy;
 
     /**
-     * @return URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-     * `http_proxy` environment variables.
+     * @return URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
      * 
      */
     public Optional<Output<String>> httpProxy() {
@@ -158,16 +152,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-     * `https_proxy` environment variables.
+     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
      * 
      */
     @Import(name="httpsProxy")
     private @Nullable Output<String> httpsProxy;
 
     /**
-     * @return URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-     * `https_proxy` environment variables.
+     * @return URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
      * 
      */
     public Optional<Output<String>> httpsProxy() {
@@ -205,14 +197,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+     * The maximum number of times an AWS API request is
+     * being executed. If the API request still fails, an error is
+     * thrown.
      * 
      */
     @Import(name="maxRetries", json=true)
     private @Nullable Output<Integer> maxRetries;
 
     /**
-     * @return The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+     * @return The maximum number of times an AWS API request is
+     * being executed. If the API request still fails, an error is
+     * thrown.
      * 
      */
     public Optional<Output<Integer>> maxRetries() {
@@ -220,16 +216,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-     * `no_proxy` environment variables.
+     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
      * 
      */
     @Import(name="noProxy")
     private @Nullable Output<String> noProxy;
 
     /**
-     * @return Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-     * `no_proxy` environment variables.
+     * @return Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
      * 
      */
     public Optional<Output<String>> noProxy() {
@@ -237,14 +231,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+     * The profile for API operations. If not set, the default profile
+     * created with `aws configure` will be used.
      * 
      */
     @Import(name="profile")
     private @Nullable Output<String> profile;
 
     /**
-     * @return The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+     * @return The profile for API operations. If not set, the default profile
+     * created with `aws configure` will be used.
      * 
      */
     public Optional<Output<String>> profile() {
@@ -252,14 +248,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+     * The region where AWS operations will take place. Examples
+     * are us-east-1, us-west-2, etc.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+     * @return The region where AWS operations will take place. Examples
+     * are us-east-1, us-west-2, etc.
      * 
      */
     public Optional<Output<String>> region() {
@@ -267,16 +265,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-     * `AWS_RETRY_MODE` environment variable.
+     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
      * 
      */
     @Import(name="retryMode")
     private @Nullable Output<String> retryMode;
 
     /**
-     * @return Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-     * `AWS_RETRY_MODE` environment variable.
+     * @return Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
      * 
      */
     public Optional<Output<String>> retryMode() {
@@ -284,18 +280,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
      * 
      */
     @Import(name="s3UsEast1RegionalEndpoint")
     private @Nullable Output<String> s3UsEast1RegionalEndpoint;
 
     /**
-     * @return Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * @return Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
      * 
      */
     public Optional<Output<String>> s3UsEast1RegionalEndpoint() {
@@ -303,18 +295,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-     * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-     * Specific to the Amazon S3 service.
+     * Set this to true to enable the request to use path-style addressing,
+     * i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+     * use virtual hosted bucket addressing when possible
+     * (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
      * 
      */
     @Import(name="s3UsePathStyle", json=true)
     private @Nullable Output<Boolean> s3UsePathStyle;
 
     /**
-     * @return Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-     * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-     * Specific to the Amazon S3 service.
+     * @return Set this to true to enable the request to use path-style addressing,
+     * i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+     * use virtual hosted bucket addressing when possible
+     * (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
      * 
      */
     public Optional<Output<Boolean>> s3UsePathStyle() {
@@ -322,14 +316,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+     * The secret key for API operations. You can retrieve this
+     * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
     @Import(name="secretKey")
     private @Nullable Output<String> secretKey;
 
     /**
-     * @return The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+     * @return The secret key for API operations. You can retrieve this
+     * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
     public Optional<Output<String>> secretKey() {
@@ -367,16 +363,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-     * available/implemented.
+     * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
      * 
      */
     @Import(name="skipCredentialsValidation", json=true)
     private @Nullable Output<Boolean> skipCredentialsValidation;
 
     /**
-     * @return Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-     * available/implemented.
+     * @return Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
      * 
      */
     public Optional<Output<Boolean>> skipCredentialsValidation() {
@@ -399,16 +393,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-     * not public (yet).
+     * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
      * 
      */
     @Import(name="skipRegionValidation", json=true)
     private @Nullable Output<Boolean> skipRegionValidation;
 
     /**
-     * @return Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-     * not public (yet).
+     * @return Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
      * 
      */
     public Optional<Output<Boolean>> skipRegionValidation() {
@@ -431,14 +423,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+     * The region where AWS STS operations will take place. Examples
+     * are us-east-1 and us-west-2.
      * 
      */
     @Import(name="stsRegion")
     private @Nullable Output<String> stsRegion;
 
     /**
-     * @return The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+     * @return The region where AWS STS operations will take place. Examples
+     * are us-east-1 and us-west-2.
      * 
      */
     public Optional<Output<String>> stsRegion() {
@@ -446,14 +440,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * session token. A session token is only required if you are using temporary security credentials.
+     * session token. A session token is only required if you are
+     * using temporary security credentials.
      * 
      */
     @Import(name="token")
     private @Nullable Output<String> token;
 
     /**
-     * @return session token. A session token is only required if you are using temporary security credentials.
+     * @return session token. A session token is only required if you are
+     * using temporary security credentials.
      * 
      */
     public Optional<Output<String>> token() {
@@ -562,7 +558,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessKey The access key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+         * @param accessKey The access key for API operations. You can retrieve this
+         * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
          * 
          * @return builder
          * 
@@ -573,7 +570,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessKey The access key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+         * @param accessKey The access key for API operations. You can retrieve this
+         * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
          * 
          * @return builder
          * 
@@ -618,8 +616,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customCaBundle File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-         * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+         * @param customCaBundle File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
          * 
          * @return builder
          * 
@@ -630,8 +627,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customCaBundle File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-         * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+         * @param customCaBundle File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
          * 
          * @return builder
          * 
@@ -662,8 +658,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ec2MetadataServiceEndpoint Address of the EC2 metadata service endpoint to use. Can also be configured using the
-         * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+         * @param ec2MetadataServiceEndpoint Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
          * 
          * @return builder
          * 
@@ -674,8 +669,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ec2MetadataServiceEndpoint Address of the EC2 metadata service endpoint to use. Can also be configured using the
-         * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+         * @param ec2MetadataServiceEndpoint Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
          * 
          * @return builder
          * 
@@ -685,8 +679,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ec2MetadataServiceEndpointMode Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-         * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+         * @param ec2MetadataServiceEndpointMode Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
          * 
          * @return builder
          * 
@@ -697,8 +690,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ec2MetadataServiceEndpointMode Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-         * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+         * @param ec2MetadataServiceEndpointMode Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
          * 
          * @return builder
          * 
@@ -734,8 +726,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpProxy URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-         * `http_proxy` environment variables.
+         * @param httpProxy URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
          * 
          * @return builder
          * 
@@ -746,8 +737,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpProxy URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-         * `http_proxy` environment variables.
+         * @param httpProxy URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
          * 
          * @return builder
          * 
@@ -757,8 +747,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpsProxy URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-         * `https_proxy` environment variables.
+         * @param httpsProxy URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
          * 
          * @return builder
          * 
@@ -769,8 +758,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpsProxy URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-         * `https_proxy` environment variables.
+         * @param httpsProxy URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
          * 
          * @return builder
          * 
@@ -822,7 +810,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetries The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+         * @param maxRetries The maximum number of times an AWS API request is
+         * being executed. If the API request still fails, an error is
+         * thrown.
          * 
          * @return builder
          * 
@@ -833,7 +823,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetries The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+         * @param maxRetries The maximum number of times an AWS API request is
+         * being executed. If the API request still fails, an error is
+         * thrown.
          * 
          * @return builder
          * 
@@ -843,8 +835,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param noProxy Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-         * `no_proxy` environment variables.
+         * @param noProxy Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
          * 
          * @return builder
          * 
@@ -855,8 +846,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param noProxy Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-         * `no_proxy` environment variables.
+         * @param noProxy Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
          * 
          * @return builder
          * 
@@ -866,7 +856,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profile The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+         * @param profile The profile for API operations. If not set, the default profile
+         * created with `aws configure` will be used.
          * 
          * @return builder
          * 
@@ -877,7 +868,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profile The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+         * @param profile The profile for API operations. If not set, the default profile
+         * created with `aws configure` will be used.
          * 
          * @return builder
          * 
@@ -887,7 +879,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+         * @param region The region where AWS operations will take place. Examples
+         * are us-east-1, us-west-2, etc.
          * 
          * @return builder
          * 
@@ -898,7 +891,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+         * @param region The region where AWS operations will take place. Examples
+         * are us-east-1, us-west-2, etc.
          * 
          * @return builder
          * 
@@ -908,8 +902,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryMode Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-         * `AWS_RETRY_MODE` environment variable.
+         * @param retryMode Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
          * 
          * @return builder
          * 
@@ -920,8 +913,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryMode Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-         * `AWS_RETRY_MODE` environment variable.
+         * @param retryMode Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
          * 
          * @return builder
          * 
@@ -931,9 +923,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3UsEast1RegionalEndpoint Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-         * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-         * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+         * @param s3UsEast1RegionalEndpoint Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
          * 
          * @return builder
          * 
@@ -944,9 +934,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3UsEast1RegionalEndpoint Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-         * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-         * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+         * @param s3UsEast1RegionalEndpoint Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
          * 
          * @return builder
          * 
@@ -956,9 +944,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3UsePathStyle Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-         * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-         * Specific to the Amazon S3 service.
+         * @param s3UsePathStyle Set this to true to enable the request to use path-style addressing,
+         * i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+         * use virtual hosted bucket addressing when possible
+         * (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
          * 
          * @return builder
          * 
@@ -969,9 +958,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3UsePathStyle Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-         * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-         * Specific to the Amazon S3 service.
+         * @param s3UsePathStyle Set this to true to enable the request to use path-style addressing,
+         * i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+         * use virtual hosted bucket addressing when possible
+         * (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
          * 
          * @return builder
          * 
@@ -981,7 +971,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretKey The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+         * @param secretKey The secret key for API operations. You can retrieve this
+         * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
          * 
          * @return builder
          * 
@@ -992,7 +983,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretKey The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+         * @param secretKey The secret key for API operations. You can retrieve this
+         * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
          * 
          * @return builder
          * 
@@ -1064,8 +1056,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipCredentialsValidation Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-         * available/implemented.
+         * @param skipCredentialsValidation Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
          * 
          * @return builder
          * 
@@ -1076,8 +1067,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipCredentialsValidation Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-         * available/implemented.
+         * @param skipCredentialsValidation Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
          * 
          * @return builder
          * 
@@ -1108,8 +1098,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipRegionValidation Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-         * not public (yet).
+         * @param skipRegionValidation Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
          * 
          * @return builder
          * 
@@ -1120,8 +1109,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipRegionValidation Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-         * not public (yet).
+         * @param skipRegionValidation Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
          * 
          * @return builder
          * 
@@ -1152,7 +1140,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stsRegion The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+         * @param stsRegion The region where AWS STS operations will take place. Examples
+         * are us-east-1 and us-west-2.
          * 
          * @return builder
          * 
@@ -1163,7 +1152,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stsRegion The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+         * @param stsRegion The region where AWS STS operations will take place. Examples
+         * are us-east-1 and us-west-2.
          * 
          * @return builder
          * 
@@ -1173,7 +1163,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param token session token. A session token is only required if you are using temporary security credentials.
+         * @param token session token. A session token is only required if you are
+         * using temporary security credentials.
          * 
          * @return builder
          * 
@@ -1184,7 +1175,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param token session token. A session token is only required if you are using temporary security credentials.
+         * @param token session token. A session token is only required if you are
+         * using temporary security credentials.
          * 
          * @return builder
          * 

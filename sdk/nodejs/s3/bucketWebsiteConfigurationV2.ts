@@ -116,44 +116,44 @@ export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
     /**
      * Name of the bucket.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Name of the error document for the website. See below.
      */
-    public readonly errorDocument!: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2ErrorDocument | undefined>;
+    declare public readonly errorDocument: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2ErrorDocument | undefined>;
     /**
      * Account ID of the expected bucket owner.
      */
-    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
      * Name of the index document for the website. See below.
      */
-    public readonly indexDocument!: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2IndexDocument | undefined>;
+    declare public readonly indexDocument: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2IndexDocument | undefined>;
     /**
      * Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      */
-    public readonly redirectAllRequestsTo!: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2RedirectAllRequestsTo | undefined>;
+    declare public readonly redirectAllRequestsTo: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2RedirectAllRequestsTo | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
      */
-    public readonly routingRuleDetails!: pulumi.Output<string>;
+    declare public readonly routingRuleDetails: pulumi.Output<string>;
     /**
      * List of rules that define when a redirect is applied and the redirect behavior. See below.
      */
-    public readonly routingRules!: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2RoutingRule[]>;
+    declare public readonly routingRules: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2RoutingRule[]>;
     /**
      * Domain of the website endpoint. This is used to create Route 53 alias records.
      */
-    public /*out*/ readonly websiteDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly websiteDomain: pulumi.Output<string>;
     /**
      * Website endpoint.
      */
-    public /*out*/ readonly websiteEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly websiteEndpoint: pulumi.Output<string>;
 
     /**
      * Create a BucketWebsiteConfigurationV2 resource with the given unique name, arguments, and options.
@@ -171,29 +171,29 @@ export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketWebsiteConfigurationV2State | undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["errorDocument"] = state ? state.errorDocument : undefined;
-            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
-            resourceInputs["indexDocument"] = state ? state.indexDocument : undefined;
-            resourceInputs["redirectAllRequestsTo"] = state ? state.redirectAllRequestsTo : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routingRuleDetails"] = state ? state.routingRuleDetails : undefined;
-            resourceInputs["routingRules"] = state ? state.routingRules : undefined;
-            resourceInputs["websiteDomain"] = state ? state.websiteDomain : undefined;
-            resourceInputs["websiteEndpoint"] = state ? state.websiteEndpoint : undefined;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["errorDocument"] = state?.errorDocument;
+            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
+            resourceInputs["indexDocument"] = state?.indexDocument;
+            resourceInputs["redirectAllRequestsTo"] = state?.redirectAllRequestsTo;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routingRuleDetails"] = state?.routingRuleDetails;
+            resourceInputs["routingRules"] = state?.routingRules;
+            resourceInputs["websiteDomain"] = state?.websiteDomain;
+            resourceInputs["websiteEndpoint"] = state?.websiteEndpoint;
         } else {
             const args = argsOrState as BucketWebsiteConfigurationV2Args | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["errorDocument"] = args ? args.errorDocument : undefined;
-            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
-            resourceInputs["indexDocument"] = args ? args.indexDocument : undefined;
-            resourceInputs["redirectAllRequestsTo"] = args ? args.redirectAllRequestsTo : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routingRuleDetails"] = args ? args.routingRuleDetails : undefined;
-            resourceInputs["routingRules"] = args ? args.routingRules : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["errorDocument"] = args?.errorDocument;
+            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
+            resourceInputs["indexDocument"] = args?.indexDocument;
+            resourceInputs["redirectAllRequestsTo"] = args?.redirectAllRequestsTo;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routingRuleDetails"] = args?.routingRuleDetails;
+            resourceInputs["routingRules"] = args?.routingRules;
             resourceInputs["websiteDomain"] = undefined /*out*/;
             resourceInputs["websiteEndpoint"] = undefined /*out*/;
         }

@@ -85,63 +85,63 @@ export class ReplicaKey extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
      * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
      * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
      * The default value is `false`.
      */
-    public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
+    declare public readonly bypassPolicyLockoutSafetyCheck: pulumi.Output<boolean | undefined>;
     /**
      * The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
      * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      */
-    public readonly deletionWindowInDays!: pulumi.Output<number | undefined>;
+    declare public readonly deletionWindowInDays: pulumi.Output<number | undefined>;
     /**
      * A description of the KMS key.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The key ID of the replica key. Related multi-Region keys have the same key ID.
      */
-    public /*out*/ readonly keyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyId: pulumi.Output<string>;
     /**
      * A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
      */
-    public /*out*/ readonly keyRotationEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly keyRotationEnabled: pulumi.Output<boolean>;
     /**
      * The type of key material in the KMS key. This is a shared property of multi-Region keys.
      */
-    public /*out*/ readonly keySpec!: pulumi.Output<string>;
+    declare public /*out*/ readonly keySpec: pulumi.Output<string>;
     /**
      * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      */
-    public /*out*/ readonly keyUsage!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyUsage: pulumi.Output<string>;
     /**
      * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      */
-    public readonly primaryKeyArn!: pulumi.Output<string>;
+    declare public readonly primaryKeyArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ReplicaKey resource with the given unique name, arguments, and options.
@@ -156,33 +156,33 @@ export class ReplicaKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicaKeyState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
-            resourceInputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["keyId"] = state ? state.keyId : undefined;
-            resourceInputs["keyRotationEnabled"] = state ? state.keyRotationEnabled : undefined;
-            resourceInputs["keySpec"] = state ? state.keySpec : undefined;
-            resourceInputs["keyUsage"] = state ? state.keyUsage : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["primaryKeyArn"] = state ? state.primaryKeyArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state?.bypassPolicyLockoutSafetyCheck;
+            resourceInputs["deletionWindowInDays"] = state?.deletionWindowInDays;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["keyId"] = state?.keyId;
+            resourceInputs["keyRotationEnabled"] = state?.keyRotationEnabled;
+            resourceInputs["keySpec"] = state?.keySpec;
+            resourceInputs["keyUsage"] = state?.keyUsage;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["primaryKeyArn"] = state?.primaryKeyArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ReplicaKeyArgs | undefined;
-            if ((!args || args.primaryKeyArn === undefined) && !opts.urn) {
+            if (args?.primaryKeyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryKeyArn'");
             }
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
-            resourceInputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args?.bypassPolicyLockoutSafetyCheck;
+            resourceInputs["deletionWindowInDays"] = args?.deletionWindowInDays;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["primaryKeyArn"] = args?.primaryKeyArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
             resourceInputs["keyRotationEnabled"] = undefined /*out*/;

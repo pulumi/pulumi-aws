@@ -61,29 +61,29 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
      */
-    public readonly bypassPolicyLockoutCheck!: pulumi.Output<boolean | undefined>;
+    declare public readonly bypassPolicyLockoutCheck: pulumi.Output<boolean | undefined>;
     /**
      * When the policy was last updated, in Unix time seconds.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
      *
      * The following arguments are optional:
      */
-    public readonly policyDocument!: pulumi.Output<string>;
+    declare public readonly policyDocument: pulumi.Output<string>;
     /**
      * name of the resource policy. Must be unique within a specific Amazon Web Services account.
      */
-    public readonly policyName!: pulumi.Output<string>;
+    declare public readonly policyName: pulumi.Output<string>;
     /**
      * Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
      */
-    public readonly policyRevisionId!: pulumi.Output<string>;
+    declare public readonly policyRevisionId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -98,25 +98,25 @@ export class ResourcePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourcePolicyState | undefined;
-            resourceInputs["bypassPolicyLockoutCheck"] = state ? state.bypassPolicyLockoutCheck : undefined;
-            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
-            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
-            resourceInputs["policyName"] = state ? state.policyName : undefined;
-            resourceInputs["policyRevisionId"] = state ? state.policyRevisionId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["bypassPolicyLockoutCheck"] = state?.bypassPolicyLockoutCheck;
+            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
+            resourceInputs["policyDocument"] = state?.policyDocument;
+            resourceInputs["policyName"] = state?.policyName;
+            resourceInputs["policyRevisionId"] = state?.policyRevisionId;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ResourcePolicyArgs | undefined;
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.policyName === undefined) && !opts.urn) {
+            if (args?.policyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyName'");
             }
-            resourceInputs["bypassPolicyLockoutCheck"] = args ? args.bypassPolicyLockoutCheck : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["policyRevisionId"] = args ? args.policyRevisionId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["bypassPolicyLockoutCheck"] = args?.bypassPolicyLockoutCheck;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["policyRevisionId"] = args?.policyRevisionId;
+            resourceInputs["region"] = args?.region;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

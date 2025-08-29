@@ -82,23 +82,23 @@ export class DetectorFeature extends pulumi.CustomResource {
     /**
      * Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      */
-    public readonly additionalConfigurations!: pulumi.Output<outputs.guardduty.DetectorFeatureAdditionalConfiguration[] | undefined>;
+    declare public readonly additionalConfigurations: pulumi.Output<outputs.guardduty.DetectorFeatureAdditionalConfiguration[] | undefined>;
     /**
      * Amazon GuardDuty detector ID.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
 
     /**
      * Create a DetectorFeature resource with the given unique name, arguments, and options.
@@ -113,24 +113,24 @@ export class DetectorFeature extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DetectorFeatureState | undefined;
-            resourceInputs["additionalConfigurations"] = state ? state.additionalConfigurations : undefined;
-            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["additionalConfigurations"] = state?.additionalConfigurations;
+            resourceInputs["detectorId"] = state?.detectorId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as DetectorFeatureArgs | undefined;
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["additionalConfigurations"] = args ? args.additionalConfigurations : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["additionalConfigurations"] = args?.additionalConfigurations;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DetectorFeature.__pulumiType, name, resourceInputs, opts);

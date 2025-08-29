@@ -118,34 +118,34 @@ export class ReplicationSet extends pulumi.CustomResource {
     /**
      * The ARN of the replication set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ARN of the user who created the replication set.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * If `true`, the last region in a replication set cannot be deleted.
      */
-    public /*out*/ readonly deletionProtected!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly deletionProtected: pulumi.Output<boolean>;
     /**
      * A timestamp showing when the replication set was last modified.
      */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<string>;
     /**
      * The replication set's Regions. Use `regions` instead.
      *
      * @deprecated region is deprecated. Use regions instead.
      */
-    public readonly region!: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
+    declare public readonly region: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
     /**
      * The replication set's Regions.
      */
-    public readonly regions!: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
+    declare public readonly regions: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -161,11 +161,11 @@ export class ReplicationSet extends pulumi.CustomResource {
      *
      * > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ReplicationSet resource with the given unique name, arguments, and options.
@@ -180,20 +180,20 @@ export class ReplicationSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["deletionProtected"] = state ? state.deletionProtected : undefined;
-            resourceInputs["lastModifiedBy"] = state ? state.lastModifiedBy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["regions"] = state ? state.regions : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["deletionProtected"] = state?.deletionProtected;
+            resourceInputs["lastModifiedBy"] = state?.lastModifiedBy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["regions"] = state?.regions;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ReplicationSetArgs | undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["regions"] = args?.regions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["deletionProtected"] = undefined /*out*/;

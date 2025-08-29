@@ -69,15 +69,15 @@ export class RedriveAllowPolicy extends pulumi.CustomResource {
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
-    public readonly queueUrl!: pulumi.Output<string>;
+    declare public readonly queueUrl: pulumi.Output<string>;
     /**
      * The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
      */
-    public readonly redriveAllowPolicy!: pulumi.Output<string>;
+    declare public readonly redriveAllowPolicy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a RedriveAllowPolicy resource with the given unique name, arguments, and options.
@@ -92,20 +92,20 @@ export class RedriveAllowPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RedriveAllowPolicyState | undefined;
-            resourceInputs["queueUrl"] = state ? state.queueUrl : undefined;
-            resourceInputs["redriveAllowPolicy"] = state ? state.redriveAllowPolicy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["queueUrl"] = state?.queueUrl;
+            resourceInputs["redriveAllowPolicy"] = state?.redriveAllowPolicy;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as RedriveAllowPolicyArgs | undefined;
-            if ((!args || args.queueUrl === undefined) && !opts.urn) {
+            if (args?.queueUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queueUrl'");
             }
-            if ((!args || args.redriveAllowPolicy === undefined) && !opts.urn) {
+            if (args?.redriveAllowPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'redriveAllowPolicy'");
             }
-            resourceInputs["queueUrl"] = args ? args.queueUrl : undefined;
-            resourceInputs["redriveAllowPolicy"] = args ? args.redriveAllowPolicy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["queueUrl"] = args?.queueUrl;
+            resourceInputs["redriveAllowPolicy"] = args?.redriveAllowPolicy;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RedriveAllowPolicy.__pulumiType, name, resourceInputs, opts);

@@ -455,84 +455,84 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * The URL to use in SDK integrations with managed rule groups.
      */
-    public /*out*/ readonly applicationIntegrationUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationIntegrationUrl: pulumi.Output<string>;
     /**
      * The ARN of the WAF WebACL.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      */
-    public readonly associationConfig!: pulumi.Output<outputs.wafv2.WebAclAssociationConfig | undefined>;
+    declare public readonly associationConfig: pulumi.Output<outputs.wafv2.WebAclAssociationConfig | undefined>;
     /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
-    public /*out*/ readonly capacity!: pulumi.Output<number>;
+    declare public /*out*/ readonly capacity: pulumi.Output<number>;
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      */
-    public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
+    declare public readonly captchaConfig: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
     /**
      * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      */
-    public readonly challengeConfig!: pulumi.Output<outputs.wafv2.WebAclChallengeConfig | undefined>;
+    declare public readonly challengeConfig: pulumi.Output<outputs.wafv2.WebAclChallengeConfig | undefined>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
-    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebAclCustomResponseBody[] | undefined>;
+    declare public readonly customResponseBodies: pulumi.Output<outputs.wafv2.WebAclCustomResponseBody[] | undefined>;
     /**
      * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
      */
-    public readonly dataProtectionConfig!: pulumi.Output<outputs.wafv2.WebAclDataProtectionConfig | undefined>;
+    declare public readonly dataProtectionConfig: pulumi.Output<outputs.wafv2.WebAclDataProtectionConfig | undefined>;
     /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
-    public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
+    declare public readonly defaultAction: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
     /**
      * Friendly description of the WebACL.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lockToken!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lockToken: pulumi.Output<string>;
     /**
      * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
      */
-    public readonly ruleJson!: pulumi.Output<string | undefined>;
+    declare public readonly ruleJson: pulumi.Output<string | undefined>;
     /**
      * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      */
-    public readonly rules!: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
      */
-    public readonly tokenDomains!: pulumi.Output<string[] | undefined>;
+    declare public readonly tokenDomains: pulumi.Output<string[] | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      */
-    public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebAclVisibilityConfig>;
+    declare public readonly visibilityConfig: pulumi.Output<outputs.wafv2.WebAclVisibilityConfig>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -547,54 +547,54 @@ export class WebAcl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclState | undefined;
-            resourceInputs["applicationIntegrationUrl"] = state ? state.applicationIntegrationUrl : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["associationConfig"] = state ? state.associationConfig : undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["captchaConfig"] = state ? state.captchaConfig : undefined;
-            resourceInputs["challengeConfig"] = state ? state.challengeConfig : undefined;
-            resourceInputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
-            resourceInputs["dataProtectionConfig"] = state ? state.dataProtectionConfig : undefined;
-            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["lockToken"] = state ? state.lockToken : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["ruleJson"] = state ? state.ruleJson : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["tokenDomains"] = state ? state.tokenDomains : undefined;
-            resourceInputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
+            resourceInputs["applicationIntegrationUrl"] = state?.applicationIntegrationUrl;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["associationConfig"] = state?.associationConfig;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["captchaConfig"] = state?.captchaConfig;
+            resourceInputs["challengeConfig"] = state?.challengeConfig;
+            resourceInputs["customResponseBodies"] = state?.customResponseBodies;
+            resourceInputs["dataProtectionConfig"] = state?.dataProtectionConfig;
+            resourceInputs["defaultAction"] = state?.defaultAction;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["lockToken"] = state?.lockToken;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["ruleJson"] = state?.ruleJson;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tokenDomains"] = state?.tokenDomains;
+            resourceInputs["visibilityConfig"] = state?.visibilityConfig;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
-            if ((!args || args.defaultAction === undefined) && !opts.urn) {
+            if (args?.defaultAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
+            if (args?.visibilityConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
-            resourceInputs["associationConfig"] = args ? args.associationConfig : undefined;
-            resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
-            resourceInputs["challengeConfig"] = args ? args.challengeConfig : undefined;
-            resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
-            resourceInputs["dataProtectionConfig"] = args ? args.dataProtectionConfig : undefined;
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["ruleJson"] = args ? args.ruleJson : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
-            resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            resourceInputs["associationConfig"] = args?.associationConfig;
+            resourceInputs["captchaConfig"] = args?.captchaConfig;
+            resourceInputs["challengeConfig"] = args?.challengeConfig;
+            resourceInputs["customResponseBodies"] = args?.customResponseBodies;
+            resourceInputs["dataProtectionConfig"] = args?.dataProtectionConfig;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["ruleJson"] = args?.ruleJson;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tokenDomains"] = args?.tokenDomains;
+            resourceInputs["visibilityConfig"] = args?.visibilityConfig;
             resourceInputs["applicationIntegrationUrl"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;

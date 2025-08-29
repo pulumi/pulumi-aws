@@ -113,19 +113,19 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
     /**
      * PEM-encoded certificate for the Certificate Authority.
      */
-    public readonly certificate!: pulumi.Output<string>;
+    declare public readonly certificate: pulumi.Output<string>;
     /**
      * ARN of the Certificate Authority.
      */
-    public readonly certificateAuthorityArn!: pulumi.Output<string>;
+    declare public readonly certificateAuthorityArn: pulumi.Output<string>;
     /**
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      */
-    public readonly certificateChain!: pulumi.Output<string | undefined>;
+    declare public readonly certificateChain: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a CertificateAuthorityCertificate resource with the given unique name, arguments, and options.
@@ -140,22 +140,22 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateAuthorityCertificateState | undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
-            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["certificateAuthorityArn"] = state?.certificateAuthorityArn;
+            resourceInputs["certificateChain"] = state?.certificateChain;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as CertificateAuthorityCertificateArgs | undefined;
-            if ((!args || args.certificate === undefined) && !opts.urn) {
+            if (args?.certificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["certificateChain"] = args?.certificateChain;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CertificateAuthorityCertificate.__pulumiType, name, resourceInputs, opts);

@@ -255,43 +255,43 @@ export class Policy extends pulumi.CustomResource {
     /**
      * List of CloudWatch alarm ARNs associated with the scaling policy.
      */
-    public /*out*/ readonly alarmArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly alarmArns: pulumi.Output<string[]>;
     /**
      * ARN assigned by AWS to the scaling policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of the policy. Must be between 1 and 255 characters in length.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
      */
-    public readonly policyType!: pulumi.Output<string | undefined>;
+    declare public readonly policyType: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
      */
-    public readonly scalableDimension!: pulumi.Output<string>;
+    declare public readonly scalableDimension: pulumi.Output<string>;
     /**
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
      */
-    public readonly serviceNamespace!: pulumi.Output<string>;
+    declare public readonly serviceNamespace: pulumi.Output<string>;
     /**
      * Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
      */
-    public readonly stepScalingPolicyConfiguration!: pulumi.Output<outputs.appautoscaling.PolicyStepScalingPolicyConfiguration | undefined>;
+    declare public readonly stepScalingPolicyConfiguration: pulumi.Output<outputs.appautoscaling.PolicyStepScalingPolicyConfiguration | undefined>;
     /**
      * Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
      */
-    public readonly targetTrackingScalingPolicyConfiguration!: pulumi.Output<outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfiguration | undefined>;
+    declare public readonly targetTrackingScalingPolicyConfiguration: pulumi.Output<outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfiguration | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -306,35 +306,35 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["alarmArns"] = state ? state.alarmArns : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyType"] = state ? state.policyType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["scalableDimension"] = state ? state.scalableDimension : undefined;
-            resourceInputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
-            resourceInputs["stepScalingPolicyConfiguration"] = state ? state.stepScalingPolicyConfiguration : undefined;
-            resourceInputs["targetTrackingScalingPolicyConfiguration"] = state ? state.targetTrackingScalingPolicyConfiguration : undefined;
+            resourceInputs["alarmArns"] = state?.alarmArns;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyType"] = state?.policyType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["scalableDimension"] = state?.scalableDimension;
+            resourceInputs["serviceNamespace"] = state?.serviceNamespace;
+            resourceInputs["stepScalingPolicyConfiguration"] = state?.stepScalingPolicyConfiguration;
+            resourceInputs["targetTrackingScalingPolicyConfiguration"] = state?.targetTrackingScalingPolicyConfiguration;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.scalableDimension === undefined) && !opts.urn) {
+            if (args?.scalableDimension === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
+            if (args?.serviceNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            resourceInputs["stepScalingPolicyConfiguration"] = args ? args.stepScalingPolicyConfiguration : undefined;
-            resourceInputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["scalableDimension"] = args?.scalableDimension;
+            resourceInputs["serviceNamespace"] = args?.serviceNamespace;
+            resourceInputs["stepScalingPolicyConfiguration"] = args?.stepScalingPolicyConfiguration;
+            resourceInputs["targetTrackingScalingPolicyConfiguration"] = args?.targetTrackingScalingPolicyConfiguration;
             resourceInputs["alarmArns"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         }

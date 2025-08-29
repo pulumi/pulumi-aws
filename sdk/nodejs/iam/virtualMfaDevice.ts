@@ -62,39 +62,39 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the virtual mfa device.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
      */
-    public /*out*/ readonly base32StringSeed!: pulumi.Output<string>;
+    declare public /*out*/ readonly base32StringSeed: pulumi.Output<string>;
     /**
      * The date and time when the virtual MFA device was enabled.
      */
-    public /*out*/ readonly enableDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly enableDate: pulumi.Output<string>;
     /**
      * The path for the virtual MFA device.
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    declare public readonly path: pulumi.Output<string | undefined>;
     /**
      * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      */
-    public /*out*/ readonly qrCodePng!: pulumi.Output<string>;
+    declare public /*out*/ readonly qrCodePng: pulumi.Output<string>;
     /**
      * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The associated IAM User name if the virtual MFA device is enabled.
      */
-    public /*out*/ readonly userName!: pulumi.Output<string>;
+    declare public /*out*/ readonly userName: pulumi.Output<string>;
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      */
-    public readonly virtualMfaDeviceName!: pulumi.Output<string>;
+    declare public readonly virtualMfaDeviceName: pulumi.Output<string>;
 
     /**
      * Create a VirtualMfaDevice resource with the given unique name, arguments, and options.
@@ -109,23 +109,23 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMfaDeviceState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["base32StringSeed"] = state ? state.base32StringSeed : undefined;
-            resourceInputs["enableDate"] = state ? state.enableDate : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["qrCodePng"] = state ? state.qrCodePng : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
-            resourceInputs["virtualMfaDeviceName"] = state ? state.virtualMfaDeviceName : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["base32StringSeed"] = state?.base32StringSeed;
+            resourceInputs["enableDate"] = state?.enableDate;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["qrCodePng"] = state?.qrCodePng;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["userName"] = state?.userName;
+            resourceInputs["virtualMfaDeviceName"] = state?.virtualMfaDeviceName;
         } else {
             const args = argsOrState as VirtualMfaDeviceArgs | undefined;
-            if ((!args || args.virtualMfaDeviceName === undefined) && !opts.urn) {
+            if (args?.virtualMfaDeviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMfaDeviceName'");
             }
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMfaDeviceName"] = args ? args.virtualMfaDeviceName : undefined;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMfaDeviceName"] = args?.virtualMfaDeviceName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["base32StringSeed"] = undefined /*out*/;
             resourceInputs["enableDate"] = undefined /*out*/;

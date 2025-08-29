@@ -62,43 +62,43 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
      */
-    public readonly accessType!: pulumi.Output<string>;
+    declare public readonly accessType: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * VPC CIDR block of the endpoint.
      */
-    public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
+    declare public /*out*/ readonly cidrBlock: pulumi.Output<string>;
     /**
      * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      */
-    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
+    declare public readonly customerOwnedIpv4Pool: pulumi.Output<string | undefined>;
     /**
      * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
     /**
      * Identifier of the Outpost to contain this endpoint.
      */
-    public readonly outpostId!: pulumi.Output<string>;
+    declare public readonly outpostId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Identifier of the EC2 Security Group.
      */
-    public readonly securityGroupId!: pulumi.Output<string>;
+    declare public readonly securityGroupId: pulumi.Output<string>;
     /**
      * Identifier of the EC2 Subnet.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -113,33 +113,33 @@ export class Endpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            resourceInputs["accessType"] = state ? state.accessType : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
-            resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
-            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            resourceInputs["outpostId"] = state ? state.outpostId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["accessType"] = state?.accessType;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cidrBlock"] = state?.cidrBlock;
+            resourceInputs["creationTime"] = state?.creationTime;
+            resourceInputs["customerOwnedIpv4Pool"] = state?.customerOwnedIpv4Pool;
+            resourceInputs["networkInterfaces"] = state?.networkInterfaces;
+            resourceInputs["outpostId"] = state?.outpostId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupId"] = state?.securityGroupId;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if ((!args || args.outpostId === undefined) && !opts.urn) {
+            if (args?.outpostId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
+            if (args?.securityGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["accessType"] = args ? args.accessType : undefined;
-            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
-            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["accessType"] = args?.accessType;
+            resourceInputs["customerOwnedIpv4Pool"] = args?.customerOwnedIpv4Pool;
+            resourceInputs["outpostId"] = args?.outpostId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupId"] = args?.securityGroupId;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

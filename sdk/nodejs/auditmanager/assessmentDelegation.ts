@@ -62,37 +62,37 @@ export class AssessmentDelegation extends pulumi.CustomResource {
     /**
      * Identifier for the assessment.
      */
-    public readonly assessmentId!: pulumi.Output<string>;
+    declare public readonly assessmentId: pulumi.Output<string>;
     /**
      * Comment describing the delegation request.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
      */
-    public readonly controlSetId!: pulumi.Output<string>;
+    declare public readonly controlSetId: pulumi.Output<string>;
     /**
      * Unique identifier for the delegation.
      */
-    public /*out*/ readonly delegationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly delegationId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
      *
      * The following arguments are optional:
      */
-    public readonly roleType!: pulumi.Output<string>;
+    declare public readonly roleType: pulumi.Output<string>;
     /**
      * Status of the delegation.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a AssessmentDelegation resource with the given unique name, arguments, and options.
@@ -107,34 +107,34 @@ export class AssessmentDelegation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentDelegationState | undefined;
-            resourceInputs["assessmentId"] = state ? state.assessmentId : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["controlSetId"] = state ? state.controlSetId : undefined;
-            resourceInputs["delegationId"] = state ? state.delegationId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["roleType"] = state ? state.roleType : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["assessmentId"] = state?.assessmentId;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["controlSetId"] = state?.controlSetId;
+            resourceInputs["delegationId"] = state?.delegationId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["roleType"] = state?.roleType;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as AssessmentDelegationArgs | undefined;
-            if ((!args || args.assessmentId === undefined) && !opts.urn) {
+            if (args?.assessmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assessmentId'");
             }
-            if ((!args || args.controlSetId === undefined) && !opts.urn) {
+            if (args?.controlSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controlSetId'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.roleType === undefined) && !opts.urn) {
+            if (args?.roleType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleType'");
             }
-            resourceInputs["assessmentId"] = args ? args.assessmentId : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["controlSetId"] = args ? args.controlSetId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["roleType"] = args ? args.roleType : undefined;
+            resourceInputs["assessmentId"] = args?.assessmentId;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["controlSetId"] = args?.controlSetId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["roleType"] = args?.roleType;
             resourceInputs["delegationId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

@@ -139,137 +139,137 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Access Logs block. See below.
      */
-    public readonly accessLogs!: pulumi.Output<outputs.alb.LoadBalancerAccessLogs | undefined>;
+    declare public readonly accessLogs: pulumi.Output<outputs.alb.LoadBalancerAccessLogs | undefined>;
     /**
      * ARN of the load balancer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ARN suffix for use with CloudWatch Metrics.
      */
-    public /*out*/ readonly arnSuffix!: pulumi.Output<string>;
+    declare public /*out*/ readonly arnSuffix: pulumi.Output<string>;
     /**
      * Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
      */
-    public readonly clientKeepAlive!: pulumi.Output<number | undefined>;
+    declare public readonly clientKeepAlive: pulumi.Output<number | undefined>;
     /**
      * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      */
-    public readonly connectionLogs!: pulumi.Output<outputs.alb.LoadBalancerConnectionLogs | undefined>;
+    declare public readonly connectionLogs: pulumi.Output<outputs.alb.LoadBalancerConnectionLogs | undefined>;
     /**
      * ID of the customer owned ipv4 pool to use for this load balancer.
      */
-    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
+    declare public readonly customerOwnedIpv4Pool: pulumi.Output<string | undefined>;
     /**
      * How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      */
-    public readonly desyncMitigationMode!: pulumi.Output<string | undefined>;
+    declare public readonly desyncMitigationMode: pulumi.Output<string | undefined>;
     /**
      * DNS name of the load balancer.
      * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      */
-    public readonly dnsRecordClientRoutingPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly dnsRecordClientRoutingPolicy: pulumi.Output<string | undefined>;
     /**
      * Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
-    public readonly dropInvalidHeaderFields!: pulumi.Output<boolean | undefined>;
+    declare public readonly dropInvalidHeaderFields: pulumi.Output<boolean | undefined>;
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
      */
-    public readonly enableCrossZoneLoadBalancing!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableCrossZoneLoadBalancing: pulumi.Output<boolean | undefined>;
     /**
      * If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      */
-    public readonly enableDeletionProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDeletionProtection: pulumi.Output<boolean | undefined>;
     /**
      * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
-    public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableHttp2: pulumi.Output<boolean | undefined>;
     /**
      * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      */
-    public readonly enableTlsVersionAndCipherSuiteHeaders!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableTlsVersionAndCipherSuiteHeaders: pulumi.Output<boolean | undefined>;
     /**
      * Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      */
-    public readonly enableWafFailOpen!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableWafFailOpen: pulumi.Output<boolean | undefined>;
     /**
      * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      */
-    public readonly enableXffClientPort!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableXffClientPort: pulumi.Output<boolean | undefined>;
     /**
      * Whether zonal shift is enabled. Defaults to `false`.
      */
-    public readonly enableZonalShift!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableZonalShift: pulumi.Output<boolean | undefined>;
     /**
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */
-    public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic!: pulumi.Output<string>;
+    declare public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic: pulumi.Output<string>;
     /**
      * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
-    public readonly idleTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly idleTimeout: pulumi.Output<number | undefined>;
     /**
      * If true, the LB will be internal. Defaults to `false`.
      */
-    public readonly internal!: pulumi.Output<boolean>;
+    declare public readonly internal: pulumi.Output<boolean>;
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    public readonly ipAddressType!: pulumi.Output<string>;
+    declare public readonly ipAddressType: pulumi.Output<string>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */
-    public readonly ipamPools!: pulumi.Output<outputs.alb.LoadBalancerIpamPools | undefined>;
+    declare public readonly ipamPools: pulumi.Output<outputs.alb.LoadBalancerIpamPools | undefined>;
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
-    public readonly loadBalancerType!: pulumi.Output<enums.alb.LoadBalancerType | undefined>;
+    declare public readonly loadBalancerType: pulumi.Output<enums.alb.LoadBalancerType | undefined>;
     /**
      * Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
      */
-    public readonly minimumLoadBalancerCapacity!: pulumi.Output<outputs.alb.LoadBalancerMinimumLoadBalancerCapacity | undefined>;
+    declare public readonly minimumLoadBalancerCapacity: pulumi.Output<outputs.alb.LoadBalancerMinimumLoadBalancerCapacity | undefined>;
     /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
-    public readonly preserveHostHeader!: pulumi.Output<boolean | undefined>;
+    declare public readonly preserveHostHeader: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    declare public readonly securityGroups: pulumi.Output<string[]>;
     /**
      * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      */
-    public readonly subnetMappings!: pulumi.Output<outputs.alb.LoadBalancerSubnetMapping[]>;
+    declare public readonly subnetMappings: pulumi.Output<outputs.alb.LoadBalancerSubnetMapping[]>;
     /**
      * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      */
-    public readonly subnets!: pulumi.Output<string[]>;
+    declare public readonly subnets: pulumi.Output<string[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
      * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
      *
@@ -277,11 +277,11 @@ export class LoadBalancer extends pulumi.CustomResource {
      *
      * > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
      */
-    public readonly xffHeaderProcessingMode!: pulumi.Output<string | undefined>;
+    declare public readonly xffHeaderProcessingMode: pulumi.Output<string | undefined>;
     /**
      * Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      */
-    public /*out*/ readonly zoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly zoneId: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -296,74 +296,74 @@ export class LoadBalancer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
-            resourceInputs["accessLogs"] = state ? state.accessLogs : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["arnSuffix"] = state ? state.arnSuffix : undefined;
-            resourceInputs["clientKeepAlive"] = state ? state.clientKeepAlive : undefined;
-            resourceInputs["connectionLogs"] = state ? state.connectionLogs : undefined;
-            resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
-            resourceInputs["desyncMitigationMode"] = state ? state.desyncMitigationMode : undefined;
-            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
-            resourceInputs["dnsRecordClientRoutingPolicy"] = state ? state.dnsRecordClientRoutingPolicy : undefined;
-            resourceInputs["dropInvalidHeaderFields"] = state ? state.dropInvalidHeaderFields : undefined;
-            resourceInputs["enableCrossZoneLoadBalancing"] = state ? state.enableCrossZoneLoadBalancing : undefined;
-            resourceInputs["enableDeletionProtection"] = state ? state.enableDeletionProtection : undefined;
-            resourceInputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
-            resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = state ? state.enableTlsVersionAndCipherSuiteHeaders : undefined;
-            resourceInputs["enableWafFailOpen"] = state ? state.enableWafFailOpen : undefined;
-            resourceInputs["enableXffClientPort"] = state ? state.enableXffClientPort : undefined;
-            resourceInputs["enableZonalShift"] = state ? state.enableZonalShift : undefined;
-            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = state ? state.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
-            resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            resourceInputs["internal"] = state ? state.internal : undefined;
-            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            resourceInputs["ipamPools"] = state ? state.ipamPools : undefined;
-            resourceInputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
-            resourceInputs["minimumLoadBalancerCapacity"] = state ? state.minimumLoadBalancerCapacity : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["preserveHostHeader"] = state ? state.preserveHostHeader : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
-            resourceInputs["subnetMappings"] = state ? state.subnetMappings : undefined;
-            resourceInputs["subnets"] = state ? state.subnets : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
-            resourceInputs["xffHeaderProcessingMode"] = state ? state.xffHeaderProcessingMode : undefined;
-            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["accessLogs"] = state?.accessLogs;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["arnSuffix"] = state?.arnSuffix;
+            resourceInputs["clientKeepAlive"] = state?.clientKeepAlive;
+            resourceInputs["connectionLogs"] = state?.connectionLogs;
+            resourceInputs["customerOwnedIpv4Pool"] = state?.customerOwnedIpv4Pool;
+            resourceInputs["desyncMitigationMode"] = state?.desyncMitigationMode;
+            resourceInputs["dnsName"] = state?.dnsName;
+            resourceInputs["dnsRecordClientRoutingPolicy"] = state?.dnsRecordClientRoutingPolicy;
+            resourceInputs["dropInvalidHeaderFields"] = state?.dropInvalidHeaderFields;
+            resourceInputs["enableCrossZoneLoadBalancing"] = state?.enableCrossZoneLoadBalancing;
+            resourceInputs["enableDeletionProtection"] = state?.enableDeletionProtection;
+            resourceInputs["enableHttp2"] = state?.enableHttp2;
+            resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = state?.enableTlsVersionAndCipherSuiteHeaders;
+            resourceInputs["enableWafFailOpen"] = state?.enableWafFailOpen;
+            resourceInputs["enableXffClientPort"] = state?.enableXffClientPort;
+            resourceInputs["enableZonalShift"] = state?.enableZonalShift;
+            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = state?.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+            resourceInputs["idleTimeout"] = state?.idleTimeout;
+            resourceInputs["internal"] = state?.internal;
+            resourceInputs["ipAddressType"] = state?.ipAddressType;
+            resourceInputs["ipamPools"] = state?.ipamPools;
+            resourceInputs["loadBalancerType"] = state?.loadBalancerType;
+            resourceInputs["minimumLoadBalancerCapacity"] = state?.minimumLoadBalancerCapacity;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["preserveHostHeader"] = state?.preserveHostHeader;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroups"] = state?.securityGroups;
+            resourceInputs["subnetMappings"] = state?.subnetMappings;
+            resourceInputs["subnets"] = state?.subnets;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["xffHeaderProcessingMode"] = state?.xffHeaderProcessingMode;
+            resourceInputs["zoneId"] = state?.zoneId;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            resourceInputs["accessLogs"] = args ? args.accessLogs : undefined;
-            resourceInputs["clientKeepAlive"] = args ? args.clientKeepAlive : undefined;
-            resourceInputs["connectionLogs"] = args ? args.connectionLogs : undefined;
-            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
-            resourceInputs["desyncMitigationMode"] = args ? args.desyncMitigationMode : undefined;
-            resourceInputs["dnsRecordClientRoutingPolicy"] = args ? args.dnsRecordClientRoutingPolicy : undefined;
-            resourceInputs["dropInvalidHeaderFields"] = args ? args.dropInvalidHeaderFields : undefined;
-            resourceInputs["enableCrossZoneLoadBalancing"] = args ? args.enableCrossZoneLoadBalancing : undefined;
-            resourceInputs["enableDeletionProtection"] = args ? args.enableDeletionProtection : undefined;
-            resourceInputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
-            resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = args ? args.enableTlsVersionAndCipherSuiteHeaders : undefined;
-            resourceInputs["enableWafFailOpen"] = args ? args.enableWafFailOpen : undefined;
-            resourceInputs["enableXffClientPort"] = args ? args.enableXffClientPort : undefined;
-            resourceInputs["enableZonalShift"] = args ? args.enableZonalShift : undefined;
-            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args ? args.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
-            resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            resourceInputs["internal"] = args ? args.internal : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["ipamPools"] = args ? args.ipamPools : undefined;
-            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            resourceInputs["minimumLoadBalancerCapacity"] = args ? args.minimumLoadBalancerCapacity : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["preserveHostHeader"] = args ? args.preserveHostHeader : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["xffHeaderProcessingMode"] = args ? args.xffHeaderProcessingMode : undefined;
+            resourceInputs["accessLogs"] = args?.accessLogs;
+            resourceInputs["clientKeepAlive"] = args?.clientKeepAlive;
+            resourceInputs["connectionLogs"] = args?.connectionLogs;
+            resourceInputs["customerOwnedIpv4Pool"] = args?.customerOwnedIpv4Pool;
+            resourceInputs["desyncMitigationMode"] = args?.desyncMitigationMode;
+            resourceInputs["dnsRecordClientRoutingPolicy"] = args?.dnsRecordClientRoutingPolicy;
+            resourceInputs["dropInvalidHeaderFields"] = args?.dropInvalidHeaderFields;
+            resourceInputs["enableCrossZoneLoadBalancing"] = args?.enableCrossZoneLoadBalancing;
+            resourceInputs["enableDeletionProtection"] = args?.enableDeletionProtection;
+            resourceInputs["enableHttp2"] = args?.enableHttp2;
+            resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = args?.enableTlsVersionAndCipherSuiteHeaders;
+            resourceInputs["enableWafFailOpen"] = args?.enableWafFailOpen;
+            resourceInputs["enableXffClientPort"] = args?.enableXffClientPort;
+            resourceInputs["enableZonalShift"] = args?.enableZonalShift;
+            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args?.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+            resourceInputs["idleTimeout"] = args?.idleTimeout;
+            resourceInputs["internal"] = args?.internal;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["ipamPools"] = args?.ipamPools;
+            resourceInputs["loadBalancerType"] = args?.loadBalancerType;
+            resourceInputs["minimumLoadBalancerCapacity"] = args?.minimumLoadBalancerCapacity;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["preserveHostHeader"] = args?.preserveHostHeader;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["subnetMappings"] = args?.subnetMappings;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["xffHeaderProcessingMode"] = args?.xffHeaderProcessingMode;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnSuffix"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;

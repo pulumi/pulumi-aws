@@ -61,51 +61,51 @@ export class MlflowTrackingServer extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
      */
-    public readonly artifactStoreUri!: pulumi.Output<string>;
+    declare public readonly artifactStoreUri: pulumi.Output<string>;
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team.
      */
-    public readonly automaticModelRegistration!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticModelRegistration: pulumi.Output<boolean | undefined>;
     /**
      * The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
      */
-    public readonly mlflowVersion!: pulumi.Output<string>;
+    declare public readonly mlflowVersion: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * A unique string identifying the tracking server name. This string is part of the tracking server ARN.
      */
-    public readonly trackingServerName!: pulumi.Output<string>;
+    declare public readonly trackingServerName: pulumi.Output<string>;
     /**
      * The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
      */
-    public readonly trackingServerSize!: pulumi.Output<string | undefined>;
+    declare public readonly trackingServerSize: pulumi.Output<string | undefined>;
     /**
      * The URL to connect to the MLflow user interface for the described tracking server.
      */
-    public /*out*/ readonly trackingServerUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly trackingServerUrl: pulumi.Output<string>;
     /**
      * The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
      */
-    public readonly weeklyMaintenanceWindowStart!: pulumi.Output<string>;
+    declare public readonly weeklyMaintenanceWindowStart: pulumi.Output<string>;
 
     /**
      * Create a MlflowTrackingServer resource with the given unique name, arguments, and options.
@@ -120,38 +120,38 @@ export class MlflowTrackingServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MlflowTrackingServerState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["artifactStoreUri"] = state ? state.artifactStoreUri : undefined;
-            resourceInputs["automaticModelRegistration"] = state ? state.automaticModelRegistration : undefined;
-            resourceInputs["mlflowVersion"] = state ? state.mlflowVersion : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["trackingServerName"] = state ? state.trackingServerName : undefined;
-            resourceInputs["trackingServerSize"] = state ? state.trackingServerSize : undefined;
-            resourceInputs["trackingServerUrl"] = state ? state.trackingServerUrl : undefined;
-            resourceInputs["weeklyMaintenanceWindowStart"] = state ? state.weeklyMaintenanceWindowStart : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["artifactStoreUri"] = state?.artifactStoreUri;
+            resourceInputs["automaticModelRegistration"] = state?.automaticModelRegistration;
+            resourceInputs["mlflowVersion"] = state?.mlflowVersion;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["trackingServerName"] = state?.trackingServerName;
+            resourceInputs["trackingServerSize"] = state?.trackingServerSize;
+            resourceInputs["trackingServerUrl"] = state?.trackingServerUrl;
+            resourceInputs["weeklyMaintenanceWindowStart"] = state?.weeklyMaintenanceWindowStart;
         } else {
             const args = argsOrState as MlflowTrackingServerArgs | undefined;
-            if ((!args || args.artifactStoreUri === undefined) && !opts.urn) {
+            if (args?.artifactStoreUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'artifactStoreUri'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.trackingServerName === undefined) && !opts.urn) {
+            if (args?.trackingServerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trackingServerName'");
             }
-            resourceInputs["artifactStoreUri"] = args ? args.artifactStoreUri : undefined;
-            resourceInputs["automaticModelRegistration"] = args ? args.automaticModelRegistration : undefined;
-            resourceInputs["mlflowVersion"] = args ? args.mlflowVersion : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackingServerName"] = args ? args.trackingServerName : undefined;
-            resourceInputs["trackingServerSize"] = args ? args.trackingServerSize : undefined;
-            resourceInputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
+            resourceInputs["artifactStoreUri"] = args?.artifactStoreUri;
+            resourceInputs["automaticModelRegistration"] = args?.automaticModelRegistration;
+            resourceInputs["mlflowVersion"] = args?.mlflowVersion;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackingServerName"] = args?.trackingServerName;
+            resourceInputs["trackingServerSize"] = args?.trackingServerSize;
+            resourceInputs["weeklyMaintenanceWindowStart"] = args?.weeklyMaintenanceWindowStart;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["trackingServerUrl"] = undefined /*out*/;

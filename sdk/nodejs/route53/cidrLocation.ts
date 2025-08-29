@@ -63,15 +63,15 @@ export class CidrLocation extends pulumi.CustomResource {
     /**
      * CIDR blocks for the location.
      */
-    public readonly cidrBlocks!: pulumi.Output<string[]>;
+    declare public readonly cidrBlocks: pulumi.Output<string[]>;
     /**
      * The ID of the CIDR collection to update.
      */
-    public readonly cidrCollectionId!: pulumi.Output<string>;
+    declare public readonly cidrCollectionId: pulumi.Output<string>;
     /**
      * Name for the CIDR location.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a CidrLocation resource with the given unique name, arguments, and options.
@@ -86,20 +86,20 @@ export class CidrLocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CidrLocationState | undefined;
-            resourceInputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
-            resourceInputs["cidrCollectionId"] = state ? state.cidrCollectionId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["cidrBlocks"] = state?.cidrBlocks;
+            resourceInputs["cidrCollectionId"] = state?.cidrCollectionId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as CidrLocationArgs | undefined;
-            if ((!args || args.cidrBlocks === undefined) && !opts.urn) {
+            if (args?.cidrBlocks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cidrBlocks'");
             }
-            if ((!args || args.cidrCollectionId === undefined) && !opts.urn) {
+            if (args?.cidrCollectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cidrCollectionId'");
             }
-            resourceInputs["cidrBlocks"] = args ? args.cidrBlocks : undefined;
-            resourceInputs["cidrCollectionId"] = args ? args.cidrCollectionId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["cidrBlocks"] = args?.cidrBlocks;
+            resourceInputs["cidrCollectionId"] = args?.cidrCollectionId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CidrLocation.__pulumiType, name, resourceInputs, opts);

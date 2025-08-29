@@ -185,57 +185,57 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * Codepipeline ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore[]>;
+    declare public readonly artifactStores: pulumi.Output<outputs.codepipeline.PipelineArtifactStore[]>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
      */
-    public readonly executionMode!: pulumi.Output<string | undefined>;
+    declare public readonly executionMode: pulumi.Output<string | undefined>;
     /**
      * The name of the pipeline.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
      */
-    public readonly pipelineType!: pulumi.Output<string | undefined>;
+    declare public readonly pipelineType: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * A stage block. Stages are documented below.
      */
-    public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStage[]>;
+    declare public readonly stages: pulumi.Output<outputs.codepipeline.PipelineStage[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
      */
-    public /*out*/ readonly triggerAlls!: pulumi.Output<outputs.codepipeline.PipelineTriggerAll[]>;
+    declare public /*out*/ readonly triggerAlls: pulumi.Output<outputs.codepipeline.PipelineTriggerAll[]>;
     /**
      * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      */
-    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTrigger[] | undefined>;
+    declare public readonly triggers: pulumi.Output<outputs.codepipeline.PipelineTrigger[] | undefined>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      *
      * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      */
-    public readonly variables!: pulumi.Output<outputs.codepipeline.PipelineVariable[] | undefined>;
+    declare public readonly variables: pulumi.Output<outputs.codepipeline.PipelineVariable[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -250,40 +250,40 @@ export class Pipeline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["artifactStores"] = state ? state.artifactStores : undefined;
-            resourceInputs["executionMode"] = state ? state.executionMode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pipelineType"] = state ? state.pipelineType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["stages"] = state ? state.stages : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["triggerAlls"] = state ? state.triggerAlls : undefined;
-            resourceInputs["triggers"] = state ? state.triggers : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["artifactStores"] = state?.artifactStores;
+            resourceInputs["executionMode"] = state?.executionMode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pipelineType"] = state?.pipelineType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["stages"] = state?.stages;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["triggerAlls"] = state?.triggerAlls;
+            resourceInputs["triggers"] = state?.triggers;
+            resourceInputs["variables"] = state?.variables;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if ((!args || args.artifactStores === undefined) && !opts.urn) {
+            if (args?.artifactStores === undefined && !opts.urn) {
                 throw new Error("Missing required property 'artifactStores'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.stages === undefined) && !opts.urn) {
+            if (args?.stages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
-            resourceInputs["executionMode"] = args ? args.executionMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pipelineType"] = args ? args.pipelineType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["artifactStores"] = args?.artifactStores;
+            resourceInputs["executionMode"] = args?.executionMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pipelineType"] = args?.pipelineType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stages"] = args?.stages;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["variables"] = args?.variables;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["triggerAlls"] = undefined /*out*/;

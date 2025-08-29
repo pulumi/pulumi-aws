@@ -118,27 +118,27 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
     /**
      * The Catalog ID of the table.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    declare public readonly catalogId: pulumi.Output<string>;
     /**
      * A configuration block that defines the table optimizer settings. See Configuration for additional details.
      */
-    public readonly configuration!: pulumi.Output<outputs.glue.CatalogTableOptimizerConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.glue.CatalogTableOptimizerConfiguration | undefined>;
     /**
      * The name of the database in the catalog in which the table resides.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name of the table.
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
     /**
      * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a CatalogTableOptimizer resource with the given unique name, arguments, and options.
@@ -153,32 +153,32 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CatalogTableOptimizerState | undefined;
-            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["catalogId"] = state?.catalogId;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tableName"] = state?.tableName;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as CatalogTableOptimizerArgs | undefined;
-            if ((!args || args.catalogId === undefined) && !opts.urn) {
+            if (args?.catalogId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogId'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CatalogTableOptimizer.__pulumiType, name, resourceInputs, opts);

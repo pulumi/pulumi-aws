@@ -51,19 +51,19 @@ export class RoleAssociation extends pulumi.CustomResource {
     /**
      * DB Instance Identifier to associate with the IAM Role.
      */
-    public readonly dbInstanceIdentifier!: pulumi.Output<string>;
+    declare public readonly dbInstanceIdentifier: pulumi.Output<string>;
     /**
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
-    public readonly featureName!: pulumi.Output<string>;
+    declare public readonly featureName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
 
     /**
      * Create a RoleAssociation resource with the given unique name, arguments, and options.
@@ -78,25 +78,25 @@ export class RoleAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleAssociationState | undefined;
-            resourceInputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
-            resourceInputs["featureName"] = state ? state.featureName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["dbInstanceIdentifier"] = state?.dbInstanceIdentifier;
+            resourceInputs["featureName"] = state?.featureName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
         } else {
             const args = argsOrState as RoleAssociationArgs | undefined;
-            if ((!args || args.dbInstanceIdentifier === undefined) && !opts.urn) {
+            if (args?.dbInstanceIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbInstanceIdentifier'");
             }
-            if ((!args || args.featureName === undefined) && !opts.urn) {
+            if (args?.featureName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'featureName'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
-            resourceInputs["featureName"] = args ? args.featureName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["dbInstanceIdentifier"] = args?.dbInstanceIdentifier;
+            resourceInputs["featureName"] = args?.featureName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RoleAssociation.__pulumiType, name, resourceInputs, opts);

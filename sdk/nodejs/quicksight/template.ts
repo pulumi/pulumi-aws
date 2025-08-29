@@ -69,62 +69,62 @@ export class Template extends pulumi.CustomResource {
     /**
      * ARN of the template.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The time that the template was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The time that the template was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * Display name for the template.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A set of resource permissions on the template. Maximum of 64 items. See permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.TemplatePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.TemplatePermission[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
+    declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
     /**
      * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
      */
-    public /*out*/ readonly sourceEntityArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceEntityArn: pulumi.Output<string>;
     /**
      * The template creation status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier for the template.
      */
-    public readonly templateId!: pulumi.Output<string>;
+    declare public readonly templateId: pulumi.Output<string>;
     /**
      * A description of the current template version being created/updated.
      *
      * The following arguments are optional:
      */
-    public readonly versionDescription!: pulumi.Output<string>;
+    declare public readonly versionDescription: pulumi.Output<string>;
     /**
      * The version number of the template version.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
     /**
      * Create a Template resource with the given unique name, arguments, and options.
@@ -139,37 +139,37 @@ export class Template extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
-            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sourceEntity"] = state ? state.sourceEntity : undefined;
-            resourceInputs["sourceEntityArn"] = state ? state.sourceEntityArn : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["templateId"] = state ? state.templateId : undefined;
-            resourceInputs["versionDescription"] = state ? state.versionDescription : undefined;
-            resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["createdTime"] = state?.createdTime;
+            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sourceEntity"] = state?.sourceEntity;
+            resourceInputs["sourceEntityArn"] = state?.sourceEntityArn;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["templateId"] = state?.templateId;
+            resourceInputs["versionDescription"] = state?.versionDescription;
+            resourceInputs["versionNumber"] = state?.versionNumber;
         } else {
             const args = argsOrState as TemplateArgs | undefined;
-            if ((!args || args.templateId === undefined) && !opts.urn) {
+            if (args?.templateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateId'");
             }
-            if ((!args || args.versionDescription === undefined) && !opts.urn) {
+            if (args?.versionDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versionDescription'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sourceEntity"] = args?.sourceEntity;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateId"] = args?.templateId;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

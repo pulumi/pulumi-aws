@@ -104,63 +104,63 @@ export class Application extends pulumi.CustomResource {
     /**
      * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
      */
-    public readonly architecture!: pulumi.Output<string | undefined>;
+    declare public readonly architecture: pulumi.Output<string | undefined>;
     /**
      * ARN of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The configuration for an application to automatically start on job submission.
      */
-    public readonly autoStartConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStartConfiguration>;
+    declare public readonly autoStartConfiguration: pulumi.Output<outputs.emrserverless.ApplicationAutoStartConfiguration>;
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      */
-    public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration>;
+    declare public readonly autoStopConfiguration: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration>;
     /**
      * The image configuration applied to all worker types.
      */
-    public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfiguration>;
+    declare public readonly imageConfiguration: pulumi.Output<outputs.emrserverless.ApplicationImageConfiguration>;
     /**
      * The capacity to initialize when the application is created.
      */
-    public readonly initialCapacities!: pulumi.Output<outputs.emrserverless.ApplicationInitialCapacity[] | undefined>;
+    declare public readonly initialCapacities: pulumi.Output<outputs.emrserverless.ApplicationInitialCapacity[] | undefined>;
     /**
      * Enables the interactive use cases to use when running an application.
      */
-    public readonly interactiveConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationInteractiveConfiguration>;
+    declare public readonly interactiveConfiguration: pulumi.Output<outputs.emrserverless.ApplicationInteractiveConfiguration>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
-    public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity>;
+    declare public readonly maximumCapacity: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity>;
     /**
      * The name of the application.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The network configuration for customer VPC connectivity.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.emrserverless.ApplicationNetworkConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The EMR release version associated with the application.
      */
-    public readonly releaseLabel!: pulumi.Output<string>;
+    declare public readonly releaseLabel: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of application you want to start, such as `spark` or `hive`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -175,42 +175,42 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["architecture"] = state ? state.architecture : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoStartConfiguration"] = state ? state.autoStartConfiguration : undefined;
-            resourceInputs["autoStopConfiguration"] = state ? state.autoStopConfiguration : undefined;
-            resourceInputs["imageConfiguration"] = state ? state.imageConfiguration : undefined;
-            resourceInputs["initialCapacities"] = state ? state.initialCapacities : undefined;
-            resourceInputs["interactiveConfiguration"] = state ? state.interactiveConfiguration : undefined;
-            resourceInputs["maximumCapacity"] = state ? state.maximumCapacity : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["architecture"] = state?.architecture;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoStartConfiguration"] = state?.autoStartConfiguration;
+            resourceInputs["autoStopConfiguration"] = state?.autoStopConfiguration;
+            resourceInputs["imageConfiguration"] = state?.imageConfiguration;
+            resourceInputs["initialCapacities"] = state?.initialCapacities;
+            resourceInputs["interactiveConfiguration"] = state?.interactiveConfiguration;
+            resourceInputs["maximumCapacity"] = state?.maximumCapacity;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConfiguration"] = state?.networkConfiguration;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["releaseLabel"] = state?.releaseLabel;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if ((!args || args.releaseLabel === undefined) && !opts.urn) {
+            if (args?.releaseLabel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'releaseLabel'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["architecture"] = args ? args.architecture : undefined;
-            resourceInputs["autoStartConfiguration"] = args ? args.autoStartConfiguration : undefined;
-            resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
-            resourceInputs["imageConfiguration"] = args ? args.imageConfiguration : undefined;
-            resourceInputs["initialCapacities"] = args ? args.initialCapacities : undefined;
-            resourceInputs["interactiveConfiguration"] = args ? args.interactiveConfiguration : undefined;
-            resourceInputs["maximumCapacity"] = args ? args.maximumCapacity : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["architecture"] = args?.architecture;
+            resourceInputs["autoStartConfiguration"] = args?.autoStartConfiguration;
+            resourceInputs["autoStopConfiguration"] = args?.autoStopConfiguration;
+            resourceInputs["imageConfiguration"] = args?.imageConfiguration;
+            resourceInputs["initialCapacities"] = args?.initialCapacities;
+            resourceInputs["interactiveConfiguration"] = args?.interactiveConfiguration;
+            resourceInputs["maximumCapacity"] = args?.maximumCapacity;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["releaseLabel"] = args?.releaseLabel;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

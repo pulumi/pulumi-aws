@@ -68,15 +68,15 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name or description of the Size Constraint Set.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Parts of web requests that you want to inspect the size of.
      */
-    public readonly sizeConstraints!: pulumi.Output<outputs.waf.SizeConstraintSetSizeConstraint[] | undefined>;
+    declare public readonly sizeConstraints: pulumi.Output<outputs.waf.SizeConstraintSetSizeConstraint[] | undefined>;
 
     /**
      * Create a SizeConstraintSet resource with the given unique name, arguments, and options.
@@ -91,13 +91,13 @@ export class SizeConstraintSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SizeConstraintSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sizeConstraints"] = state ? state.sizeConstraints : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sizeConstraints"] = state?.sizeConstraints;
         } else {
             const args = argsOrState as SizeConstraintSetArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sizeConstraints"] = args?.sizeConstraints;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

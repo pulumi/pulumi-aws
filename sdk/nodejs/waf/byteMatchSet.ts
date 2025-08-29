@@ -69,17 +69,17 @@ export class ByteMatchSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the byte match set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the bytes (typically a string that corresponds
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    public readonly byteMatchTuples!: pulumi.Output<outputs.waf.ByteMatchSetByteMatchTuple[] | undefined>;
+    declare public readonly byteMatchTuples: pulumi.Output<outputs.waf.ByteMatchSetByteMatchTuple[] | undefined>;
     /**
      * The name or description of the Byte Match Set.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ByteMatchSet resource with the given unique name, arguments, and options.
@@ -94,13 +94,13 @@ export class ByteMatchSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ByteMatchSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["byteMatchTuples"] = state ? state.byteMatchTuples : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["byteMatchTuples"] = state?.byteMatchTuples;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ByteMatchSetArgs | undefined;
-            resourceInputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["byteMatchTuples"] = args?.byteMatchTuples;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

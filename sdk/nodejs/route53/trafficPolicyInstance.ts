@@ -61,27 +61,27 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the traffic policy instance.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
      */
-    public readonly hostedZoneId!: pulumi.Output<string>;
+    declare public readonly hostedZoneId: pulumi.Output<string>;
     /**
      * Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
      */
-    public readonly trafficPolicyId!: pulumi.Output<string>;
+    declare public readonly trafficPolicyId: pulumi.Output<string>;
     /**
      * Version of the traffic policy
      */
-    public readonly trafficPolicyVersion!: pulumi.Output<number>;
+    declare public readonly trafficPolicyVersion: pulumi.Output<number>;
     /**
      * TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
      */
-    public readonly ttl!: pulumi.Output<number>;
+    declare public readonly ttl: pulumi.Output<number>;
 
     /**
      * Create a TrafficPolicyInstance resource with the given unique name, arguments, and options.
@@ -96,31 +96,31 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficPolicyInstanceState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["trafficPolicyId"] = state ? state.trafficPolicyId : undefined;
-            resourceInputs["trafficPolicyVersion"] = state ? state.trafficPolicyVersion : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["hostedZoneId"] = state?.hostedZoneId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["trafficPolicyId"] = state?.trafficPolicyId;
+            resourceInputs["trafficPolicyVersion"] = state?.trafficPolicyVersion;
+            resourceInputs["ttl"] = state?.ttl;
         } else {
             const args = argsOrState as TrafficPolicyInstanceArgs | undefined;
-            if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
+            if (args?.hostedZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostedZoneId'");
             }
-            if ((!args || args.trafficPolicyId === undefined) && !opts.urn) {
+            if (args?.trafficPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficPolicyId'");
             }
-            if ((!args || args.trafficPolicyVersion === undefined) && !opts.urn) {
+            if (args?.trafficPolicyVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficPolicyVersion'");
             }
-            if ((!args || args.ttl === undefined) && !opts.urn) {
+            if (args?.ttl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ttl'");
             }
-            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["trafficPolicyId"] = args ? args.trafficPolicyId : undefined;
-            resourceInputs["trafficPolicyVersion"] = args ? args.trafficPolicyVersion : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["hostedZoneId"] = args?.hostedZoneId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["trafficPolicyId"] = args?.trafficPolicyId;
+            resourceInputs["trafficPolicyVersion"] = args?.trafficPolicyVersion;
+            resourceInputs["ttl"] = args?.ttl;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

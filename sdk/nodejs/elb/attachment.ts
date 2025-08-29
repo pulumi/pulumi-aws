@@ -58,15 +58,15 @@ export class Attachment extends pulumi.CustomResource {
     /**
      * The name of the ELB.
      */
-    public readonly elb!: pulumi.Output<string>;
+    declare public readonly elb: pulumi.Output<string>;
     /**
      * Instance ID to place in the ELB pool.
      */
-    public readonly instance!: pulumi.Output<string>;
+    declare public readonly instance: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a Attachment resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class Attachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AttachmentState | undefined;
-            resourceInputs["elb"] = state ? state.elb : undefined;
-            resourceInputs["instance"] = state ? state.instance : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["elb"] = state?.elb;
+            resourceInputs["instance"] = state?.instance;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
-            if ((!args || args.elb === undefined) && !opts.urn) {
+            if (args?.elb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elb'");
             }
-            if ((!args || args.instance === undefined) && !opts.urn) {
+            if (args?.instance === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instance'");
             }
-            resourceInputs["elb"] = args ? args.elb : undefined;
-            resourceInputs["instance"] = args ? args.instance : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["elb"] = args?.elb;
+            resourceInputs["instance"] = args?.instance;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/attachment:Attachment" }] };

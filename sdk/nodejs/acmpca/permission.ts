@@ -63,27 +63,27 @@ export class Permission extends pulumi.CustomResource {
     /**
      * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
      */
-    public readonly actions!: pulumi.Output<string[]>;
+    declare public readonly actions: pulumi.Output<string[]>;
     /**
      * ARN of the CA that grants the permissions.
      */
-    public readonly certificateAuthorityArn!: pulumi.Output<string>;
+    declare public readonly certificateAuthorityArn: pulumi.Output<string>;
     /**
      * IAM policy that is associated with the permission.
      */
-    public /*out*/ readonly policy!: pulumi.Output<string>;
+    declare public /*out*/ readonly policy: pulumi.Output<string>;
     /**
      * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ID of the calling account
      */
-    public readonly sourceAccount!: pulumi.Output<string>;
+    declare public readonly sourceAccount: pulumi.Output<string>;
 
     /**
      * Create a Permission resource with the given unique name, arguments, and options.
@@ -98,28 +98,28 @@ export class Permission extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sourceAccount"] = state ? state.sourceAccount : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["certificateAuthorityArn"] = state?.certificateAuthorityArn;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sourceAccount"] = state?.sourceAccount;
         } else {
             const args = argsOrState as PermissionArgs | undefined;
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sourceAccount"] = args?.sourceAccount;
             resourceInputs["policy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

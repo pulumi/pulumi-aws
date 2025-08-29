@@ -67,48 +67,48 @@ export class LocationAzureBlob extends pulumi.CustomResource {
     /**
      * The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
      */
-    public readonly accessTier!: pulumi.Output<string | undefined>;
+    declare public readonly accessTier: pulumi.Output<string | undefined>;
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    public readonly agentArns!: pulumi.Output<string[]>;
+    declare public readonly agentArns: pulumi.Output<string[]>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
      */
-    public readonly authenticationType!: pulumi.Output<string>;
+    declare public readonly authenticationType: pulumi.Output<string>;
     /**
      * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
      */
-    public readonly blobType!: pulumi.Output<string | undefined>;
+    declare public readonly blobType: pulumi.Output<string | undefined>;
     /**
      * The URL of the Azure Blob Storage container involved in your transfer.
      */
-    public readonly containerUrl!: pulumi.Output<string>;
+    declare public readonly containerUrl: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */
-    public readonly sasConfiguration!: pulumi.Output<outputs.datasync.LocationAzureBlobSasConfiguration | undefined>;
+    declare public readonly sasConfiguration: pulumi.Output<outputs.datasync.LocationAzureBlobSasConfiguration | undefined>;
     /**
      * Path segments if you want to limit your transfer to a virtual directory in the container.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    declare public readonly subdirectory: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
 
     /**
      * Create a LocationAzureBlob resource with the given unique name, arguments, and options.
@@ -123,38 +123,38 @@ export class LocationAzureBlob extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocationAzureBlobState | undefined;
-            resourceInputs["accessTier"] = state ? state.accessTier : undefined;
-            resourceInputs["agentArns"] = state ? state.agentArns : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
-            resourceInputs["blobType"] = state ? state.blobType : undefined;
-            resourceInputs["containerUrl"] = state ? state.containerUrl : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sasConfiguration"] = state ? state.sasConfiguration : undefined;
-            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["accessTier"] = state?.accessTier;
+            resourceInputs["agentArns"] = state?.agentArns;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["authenticationType"] = state?.authenticationType;
+            resourceInputs["blobType"] = state?.blobType;
+            resourceInputs["containerUrl"] = state?.containerUrl;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sasConfiguration"] = state?.sasConfiguration;
+            resourceInputs["subdirectory"] = state?.subdirectory;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as LocationAzureBlobArgs | undefined;
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
+            if (args?.agentArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            if ((!args || args.authenticationType === undefined) && !opts.urn) {
+            if (args?.authenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if ((!args || args.containerUrl === undefined) && !opts.urn) {
+            if (args?.containerUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerUrl'");
             }
-            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["blobType"] = args ? args.blobType : undefined;
-            resourceInputs["containerUrl"] = args ? args.containerUrl : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sasConfiguration"] = args ? args.sasConfiguration : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessTier"] = args?.accessTier;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["blobType"] = args?.blobType;
+            resourceInputs["containerUrl"] = args?.containerUrl;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sasConfiguration"] = args?.sasConfiguration;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;

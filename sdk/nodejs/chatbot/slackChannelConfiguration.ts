@@ -68,62 +68,62 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the Slack channel configuration.
      */
-    public /*out*/ readonly chatConfigurationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly chatConfigurationArn: pulumi.Output<string>;
     /**
      * Name of the Slack channel configuration.
      */
-    public readonly configurationName!: pulumi.Output<string>;
+    declare public readonly configurationName: pulumi.Output<string>;
     /**
      * List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
      */
-    public readonly guardrailPolicyArns!: pulumi.Output<string[]>;
+    declare public readonly guardrailPolicyArns: pulumi.Output<string[]>;
     /**
      * User-defined role that AWS Chatbot assumes. This is not the service-linked role.
      */
-    public readonly iamRoleArn!: pulumi.Output<string>;
+    declare public readonly iamRoleArn: pulumi.Output<string>;
     /**
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      */
-    public readonly loggingLevel!: pulumi.Output<string>;
+    declare public readonly loggingLevel: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ID of the Slack channel. For example, `C07EZ1ABC23`.
      */
-    public readonly slackChannelId!: pulumi.Output<string>;
+    declare public readonly slackChannelId: pulumi.Output<string>;
     /**
      * Name of the Slack channel.
      */
-    public /*out*/ readonly slackChannelName!: pulumi.Output<string>;
+    declare public /*out*/ readonly slackChannelName: pulumi.Output<string>;
     /**
      * ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
      *
      * The following arguments are optional:
      */
-    public readonly slackTeamId!: pulumi.Output<string>;
+    declare public readonly slackTeamId: pulumi.Output<string>;
     /**
      * Name of the Slack team.
      */
-    public /*out*/ readonly slackTeamName!: pulumi.Output<string>;
+    declare public /*out*/ readonly slackTeamName: pulumi.Output<string>;
     /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      */
-    public readonly snsTopicArns!: pulumi.Output<string[]>;
+    declare public readonly snsTopicArns: pulumi.Output<string[]>;
     /**
      * Map of tags assigned to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.chatbot.SlackChannelConfigurationTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.chatbot.SlackChannelConfigurationTimeouts | undefined>;
     /**
      * Enables use of a user role requirement in your chat configuration.
      */
-    public readonly userAuthorizationRequired!: pulumi.Output<boolean>;
+    declare public readonly userAuthorizationRequired: pulumi.Output<boolean>;
 
     /**
      * Create a SlackChannelConfiguration resource with the given unique name, arguments, and options.
@@ -138,46 +138,46 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlackChannelConfigurationState | undefined;
-            resourceInputs["chatConfigurationArn"] = state ? state.chatConfigurationArn : undefined;
-            resourceInputs["configurationName"] = state ? state.configurationName : undefined;
-            resourceInputs["guardrailPolicyArns"] = state ? state.guardrailPolicyArns : undefined;
-            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            resourceInputs["loggingLevel"] = state ? state.loggingLevel : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["slackChannelId"] = state ? state.slackChannelId : undefined;
-            resourceInputs["slackChannelName"] = state ? state.slackChannelName : undefined;
-            resourceInputs["slackTeamId"] = state ? state.slackTeamId : undefined;
-            resourceInputs["slackTeamName"] = state ? state.slackTeamName : undefined;
-            resourceInputs["snsTopicArns"] = state ? state.snsTopicArns : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["userAuthorizationRequired"] = state ? state.userAuthorizationRequired : undefined;
+            resourceInputs["chatConfigurationArn"] = state?.chatConfigurationArn;
+            resourceInputs["configurationName"] = state?.configurationName;
+            resourceInputs["guardrailPolicyArns"] = state?.guardrailPolicyArns;
+            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
+            resourceInputs["loggingLevel"] = state?.loggingLevel;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["slackChannelId"] = state?.slackChannelId;
+            resourceInputs["slackChannelName"] = state?.slackChannelName;
+            resourceInputs["slackTeamId"] = state?.slackTeamId;
+            resourceInputs["slackTeamName"] = state?.slackTeamName;
+            resourceInputs["snsTopicArns"] = state?.snsTopicArns;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["userAuthorizationRequired"] = state?.userAuthorizationRequired;
         } else {
             const args = argsOrState as SlackChannelConfigurationArgs | undefined;
-            if ((!args || args.configurationName === undefined) && !opts.urn) {
+            if (args?.configurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
+            if (args?.iamRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.slackChannelId === undefined) && !opts.urn) {
+            if (args?.slackChannelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slackChannelId'");
             }
-            if ((!args || args.slackTeamId === undefined) && !opts.urn) {
+            if (args?.slackTeamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slackTeamId'");
             }
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["guardrailPolicyArns"] = args ? args.guardrailPolicyArns : undefined;
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["loggingLevel"] = args ? args.loggingLevel : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["slackChannelId"] = args ? args.slackChannelId : undefined;
-            resourceInputs["slackTeamId"] = args ? args.slackTeamId : undefined;
-            resourceInputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["userAuthorizationRequired"] = args ? args.userAuthorizationRequired : undefined;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["guardrailPolicyArns"] = args?.guardrailPolicyArns;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["loggingLevel"] = args?.loggingLevel;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["slackChannelId"] = args?.slackChannelId;
+            resourceInputs["slackTeamId"] = args?.slackTeamId;
+            resourceInputs["snsTopicArns"] = args?.snsTopicArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["userAuthorizationRequired"] = args?.userAuthorizationRequired;
             resourceInputs["chatConfigurationArn"] = undefined /*out*/;
             resourceInputs["slackChannelName"] = undefined /*out*/;
             resourceInputs["slackTeamName"] = undefined /*out*/;

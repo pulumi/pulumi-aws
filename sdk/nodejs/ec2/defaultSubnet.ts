@@ -64,8 +64,8 @@ export class DefaultSubnet extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultSubnet.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly assignIpv6AddressOnCreation!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly assignIpv6AddressOnCreation: pulumi.Output<boolean | undefined>;
     /**
      * is required
      * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
@@ -73,40 +73,40 @@ export class DefaultSubnet extends pulumi.CustomResource {
      *
      * This resource supports the following additional arguments:
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    declare public readonly availabilityZone: pulumi.Output<string>;
     /**
      * The AZ ID of the subnet
      */
-    public /*out*/ readonly availabilityZoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly availabilityZoneId: pulumi.Output<string>;
     /**
      * The IPv4 CIDR block assigned to the subnet
      */
-    public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
-    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
-    public readonly enableDns64!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly enableLniAtDeviceIndex!: pulumi.Output<number>;
-    public readonly enableResourceNameDnsARecordOnLaunch!: pulumi.Output<boolean | undefined>;
-    public readonly enableResourceNameDnsAaaaRecordOnLaunch!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly existingDefaultSubnet!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly cidrBlock: pulumi.Output<string>;
+    declare public readonly customerOwnedIpv4Pool: pulumi.Output<string | undefined>;
+    declare public readonly enableDns64: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly enableLniAtDeviceIndex: pulumi.Output<number>;
+    declare public readonly enableResourceNameDnsARecordOnLaunch: pulumi.Output<boolean | undefined>;
+    declare public readonly enableResourceNameDnsAaaaRecordOnLaunch: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly existingDefaultSubnet: pulumi.Output<boolean>;
     /**
      * Whether destroying the resource deletes the default subnet. Default: `false`
      */
-    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
-    public readonly ipv6CidrBlock!: pulumi.Output<string>;
-    public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string>;
-    public readonly ipv6Native!: pulumi.Output<boolean | undefined>;
-    public readonly mapCustomerOwnedIpOnLaunch!: pulumi.Output<boolean | undefined>;
-    public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string>;
-    public readonly region!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    declare public readonly ipv6CidrBlock: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv6CidrBlockAssociationId: pulumi.Output<string>;
+    declare public readonly ipv6Native: pulumi.Output<boolean | undefined>;
+    declare public readonly mapCustomerOwnedIpOnLaunch: pulumi.Output<boolean | undefined>;
+    declare public readonly mapPublicIpOnLaunch: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly outpostArn: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    declare public readonly privateDnsHostnameTypeOnLaunch: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC the subnet is in
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a DefaultSubnet resource with the given unique name, arguments, and options.
@@ -121,49 +121,49 @@ export class DefaultSubnet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultSubnetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
-            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            resourceInputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
-            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
-            resourceInputs["enableDns64"] = state ? state.enableDns64 : undefined;
-            resourceInputs["enableLniAtDeviceIndex"] = state ? state.enableLniAtDeviceIndex : undefined;
-            resourceInputs["enableResourceNameDnsARecordOnLaunch"] = state ? state.enableResourceNameDnsARecordOnLaunch : undefined;
-            resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = state ? state.enableResourceNameDnsAaaaRecordOnLaunch : undefined;
-            resourceInputs["existingDefaultSubnet"] = state ? state.existingDefaultSubnet : undefined;
-            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
-            resourceInputs["ipv6CidrBlockAssociationId"] = state ? state.ipv6CidrBlockAssociationId : undefined;
-            resourceInputs["ipv6Native"] = state ? state.ipv6Native : undefined;
-            resourceInputs["mapCustomerOwnedIpOnLaunch"] = state ? state.mapCustomerOwnedIpOnLaunch : undefined;
-            resourceInputs["mapPublicIpOnLaunch"] = state ? state.mapPublicIpOnLaunch : undefined;
-            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["privateDnsHostnameTypeOnLaunch"] = state ? state.privateDnsHostnameTypeOnLaunch : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["assignIpv6AddressOnCreation"] = state?.assignIpv6AddressOnCreation;
+            resourceInputs["availabilityZone"] = state?.availabilityZone;
+            resourceInputs["availabilityZoneId"] = state?.availabilityZoneId;
+            resourceInputs["cidrBlock"] = state?.cidrBlock;
+            resourceInputs["customerOwnedIpv4Pool"] = state?.customerOwnedIpv4Pool;
+            resourceInputs["enableDns64"] = state?.enableDns64;
+            resourceInputs["enableLniAtDeviceIndex"] = state?.enableLniAtDeviceIndex;
+            resourceInputs["enableResourceNameDnsARecordOnLaunch"] = state?.enableResourceNameDnsARecordOnLaunch;
+            resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = state?.enableResourceNameDnsAaaaRecordOnLaunch;
+            resourceInputs["existingDefaultSubnet"] = state?.existingDefaultSubnet;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
+            resourceInputs["ipv6CidrBlock"] = state?.ipv6CidrBlock;
+            resourceInputs["ipv6CidrBlockAssociationId"] = state?.ipv6CidrBlockAssociationId;
+            resourceInputs["ipv6Native"] = state?.ipv6Native;
+            resourceInputs["mapCustomerOwnedIpOnLaunch"] = state?.mapCustomerOwnedIpOnLaunch;
+            resourceInputs["mapPublicIpOnLaunch"] = state?.mapPublicIpOnLaunch;
+            resourceInputs["outpostArn"] = state?.outpostArn;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["privateDnsHostnameTypeOnLaunch"] = state?.privateDnsHostnameTypeOnLaunch;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as DefaultSubnetArgs | undefined;
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
+            if (args?.availabilityZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
-            resourceInputs["enableDns64"] = args ? args.enableDns64 : undefined;
-            resourceInputs["enableResourceNameDnsARecordOnLaunch"] = args ? args.enableResourceNameDnsARecordOnLaunch : undefined;
-            resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = args ? args.enableResourceNameDnsAaaaRecordOnLaunch : undefined;
-            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            resourceInputs["ipv6Native"] = args ? args.ipv6Native : undefined;
-            resourceInputs["mapCustomerOwnedIpOnLaunch"] = args ? args.mapCustomerOwnedIpOnLaunch : undefined;
-            resourceInputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
-            resourceInputs["privateDnsHostnameTypeOnLaunch"] = args ? args.privateDnsHostnameTypeOnLaunch : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assignIpv6AddressOnCreation"] = args?.assignIpv6AddressOnCreation;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["customerOwnedIpv4Pool"] = args?.customerOwnedIpv4Pool;
+            resourceInputs["enableDns64"] = args?.enableDns64;
+            resourceInputs["enableResourceNameDnsARecordOnLaunch"] = args?.enableResourceNameDnsARecordOnLaunch;
+            resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = args?.enableResourceNameDnsAaaaRecordOnLaunch;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
+            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
+            resourceInputs["ipv6Native"] = args?.ipv6Native;
+            resourceInputs["mapCustomerOwnedIpOnLaunch"] = args?.mapCustomerOwnedIpOnLaunch;
+            resourceInputs["mapPublicIpOnLaunch"] = args?.mapPublicIpOnLaunch;
+            resourceInputs["privateDnsHostnameTypeOnLaunch"] = args?.privateDnsHostnameTypeOnLaunch;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;

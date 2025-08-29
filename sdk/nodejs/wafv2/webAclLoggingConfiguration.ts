@@ -112,23 +112,23 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      */
-    public readonly logDestinationConfigs!: pulumi.Output<string[]>;
+    declare public readonly logDestinationConfigs: pulumi.Output<string[]>;
     /**
      * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
      */
-    public readonly loggingFilter!: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationLoggingFilter | undefined>;
+    declare public readonly loggingFilter: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationLoggingFilter | undefined>;
     /**
      * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
-    public readonly redactedFields!: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationRedactedField[] | undefined>;
+    declare public readonly redactedFields: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationRedactedField[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
 
     /**
      * Create a WebAclLoggingConfiguration resource with the given unique name, arguments, and options.
@@ -143,24 +143,24 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclLoggingConfigurationState | undefined;
-            resourceInputs["logDestinationConfigs"] = state ? state.logDestinationConfigs : undefined;
-            resourceInputs["loggingFilter"] = state ? state.loggingFilter : undefined;
-            resourceInputs["redactedFields"] = state ? state.redactedFields : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["logDestinationConfigs"] = state?.logDestinationConfigs;
+            resourceInputs["loggingFilter"] = state?.loggingFilter;
+            resourceInputs["redactedFields"] = state?.redactedFields;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceArn"] = state?.resourceArn;
         } else {
             const args = argsOrState as WebAclLoggingConfigurationArgs | undefined;
-            if ((!args || args.logDestinationConfigs === undefined) && !opts.urn) {
+            if (args?.logDestinationConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logDestinationConfigs'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
-            resourceInputs["loggingFilter"] = args ? args.loggingFilter : undefined;
-            resourceInputs["redactedFields"] = args ? args.redactedFields : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["logDestinationConfigs"] = args?.logDestinationConfigs;
+            resourceInputs["loggingFilter"] = args?.loggingFilter;
+            resourceInputs["redactedFields"] = args?.redactedFields;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceArn"] = args?.resourceArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WebAclLoggingConfiguration.__pulumiType, name, resourceInputs, opts);

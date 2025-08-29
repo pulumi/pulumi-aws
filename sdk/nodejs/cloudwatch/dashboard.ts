@@ -90,19 +90,19 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the dashboard.
      */
-    public /*out*/ readonly dashboardArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dashboardArn: pulumi.Output<string>;
     /**
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      */
-    public readonly dashboardBody!: pulumi.Output<string>;
+    declare public readonly dashboardBody: pulumi.Output<string>;
     /**
      * The name of the dashboard.
      */
-    public readonly dashboardName!: pulumi.Output<string>;
+    declare public readonly dashboardName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -117,21 +117,21 @@ export class Dashboard extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DashboardState | undefined;
-            resourceInputs["dashboardArn"] = state ? state.dashboardArn : undefined;
-            resourceInputs["dashboardBody"] = state ? state.dashboardBody : undefined;
-            resourceInputs["dashboardName"] = state ? state.dashboardName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["dashboardArn"] = state?.dashboardArn;
+            resourceInputs["dashboardBody"] = state?.dashboardBody;
+            resourceInputs["dashboardName"] = state?.dashboardName;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
-            if ((!args || args.dashboardBody === undefined) && !opts.urn) {
+            if (args?.dashboardBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardBody'");
             }
-            if ((!args || args.dashboardName === undefined) && !opts.urn) {
+            if (args?.dashboardName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardName'");
             }
-            resourceInputs["dashboardBody"] = args ? args.dashboardBody : undefined;
-            resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["dashboardBody"] = args?.dashboardBody;
+            resourceInputs["dashboardName"] = args?.dashboardName;
+            resourceInputs["region"] = args?.region;
             resourceInputs["dashboardArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

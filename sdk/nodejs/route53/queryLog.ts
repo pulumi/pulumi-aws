@@ -91,15 +91,15 @@ export class QueryLog extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Query Logging Config.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * CloudWatch log group ARN to send query logs.
      */
-    public readonly cloudwatchLogGroupArn!: pulumi.Output<string>;
+    declare public readonly cloudwatchLogGroupArn: pulumi.Output<string>;
     /**
      * Route53 hosted zone ID to enable query logs.
      */
-    public readonly zoneId!: pulumi.Output<string>;
+    declare public readonly zoneId: pulumi.Output<string>;
 
     /**
      * Create a QueryLog resource with the given unique name, arguments, and options.
@@ -114,19 +114,19 @@ export class QueryLog extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueryLogState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
-            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cloudwatchLogGroupArn"] = state?.cloudwatchLogGroupArn;
+            resourceInputs["zoneId"] = state?.zoneId;
         } else {
             const args = argsOrState as QueryLogArgs | undefined;
-            if ((!args || args.cloudwatchLogGroupArn === undefined) && !opts.urn) {
+            if (args?.cloudwatchLogGroupArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloudwatchLogGroupArn'");
             }
-            if ((!args || args.zoneId === undefined) && !opts.urn) {
+            if (args?.zoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            resourceInputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
-            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["cloudwatchLogGroupArn"] = args?.cloudwatchLogGroupArn;
+            resourceInputs["zoneId"] = args?.zoneId;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

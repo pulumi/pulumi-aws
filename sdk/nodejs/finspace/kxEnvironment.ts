@@ -133,61 +133,61 @@ export class KxEnvironment extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX environment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
      */
-    public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly availabilityZones: pulumi.Output<string[]>;
     /**
      * Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      */
-    public readonly customDnsConfigurations!: pulumi.Output<outputs.finspace.KxEnvironmentCustomDnsConfiguration[] | undefined>;
+    declare public readonly customDnsConfigurations: pulumi.Output<outputs.finspace.KxEnvironmentCustomDnsConfiguration[] | undefined>;
     /**
      * Description for the KX environment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Unique identifier for the AWS environment infrastructure account.
      */
-    public /*out*/ readonly infrastructureAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly infrastructureAccountId: pulumi.Output<string>;
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
      *
      * The following arguments are optional:
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTimestamp: pulumi.Output<string>;
     /**
      * Name of the KX environment that you want to create.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Status of environment creation
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      */
-    public readonly transitGatewayConfiguration!: pulumi.Output<outputs.finspace.KxEnvironmentTransitGatewayConfiguration | undefined>;
+    declare public readonly transitGatewayConfiguration: pulumi.Output<outputs.finspace.KxEnvironmentTransitGatewayConfiguration | undefined>;
 
     /**
      * Create a KxEnvironment resource with the given unique name, arguments, and options.
@@ -202,32 +202,32 @@ export class KxEnvironment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KxEnvironmentState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            resourceInputs["createdTimestamp"] = state ? state.createdTimestamp : undefined;
-            resourceInputs["customDnsConfigurations"] = state ? state.customDnsConfigurations : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["infrastructureAccountId"] = state ? state.infrastructureAccountId : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["transitGatewayConfiguration"] = state ? state.transitGatewayConfiguration : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["availabilityZones"] = state?.availabilityZones;
+            resourceInputs["createdTimestamp"] = state?.createdTimestamp;
+            resourceInputs["customDnsConfigurations"] = state?.customDnsConfigurations;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["infrastructureAccountId"] = state?.infrastructureAccountId;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["lastModifiedTimestamp"] = state?.lastModifiedTimestamp;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["transitGatewayConfiguration"] = state?.transitGatewayConfiguration;
         } else {
             const args = argsOrState as KxEnvironmentArgs | undefined;
-            if ((!args || args.kmsKeyId === undefined) && !opts.urn) {
+            if (args?.kmsKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kmsKeyId'");
             }
-            resourceInputs["customDnsConfigurations"] = args ? args.customDnsConfigurations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayConfiguration"] = args ? args.transitGatewayConfiguration : undefined;
+            resourceInputs["customDnsConfigurations"] = args?.customDnsConfigurations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayConfiguration"] = args?.transitGatewayConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;

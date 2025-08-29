@@ -112,15 +112,15 @@ export class QueuePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueuePolicy.__pulumiType;
     }
 
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * URL of the SQS Queue to which to attach the policy.
      */
-    public readonly queueUrl!: pulumi.Output<string>;
+    declare public readonly queueUrl: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a QueuePolicy resource with the given unique name, arguments, and options.
@@ -135,20 +135,20 @@ export class QueuePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueuePolicyState | undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["queueUrl"] = state ? state.queueUrl : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["queueUrl"] = state?.queueUrl;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as QueuePolicyArgs | undefined;
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.queueUrl === undefined) && !opts.urn) {
+            if (args?.queueUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queueUrl'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["queueUrl"] = args ? args.queueUrl : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["queueUrl"] = args?.queueUrl;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(QueuePolicy.__pulumiType, name, resourceInputs, opts);

@@ -84,39 +84,39 @@ export class Application extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationId: pulumi.Output<string>;
     /**
      * The ARN of the CodeDeploy application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
-    public readonly computePlatform!: pulumi.Output<string | undefined>;
+    declare public readonly computePlatform: pulumi.Output<string | undefined>;
     /**
      * The name for a connection to a GitHub account.
      */
-    public /*out*/ readonly githubAccountName!: pulumi.Output<string>;
+    declare public /*out*/ readonly githubAccountName: pulumi.Output<string>;
     /**
      * Whether the user has authenticated with GitHub for the specified application.
      */
-    public /*out*/ readonly linkedToGithub!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly linkedToGithub: pulumi.Output<boolean>;
     /**
      * The name of the application.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -131,21 +131,21 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["computePlatform"] = state ? state.computePlatform : undefined;
-            resourceInputs["githubAccountName"] = state ? state.githubAccountName : undefined;
-            resourceInputs["linkedToGithub"] = state ? state.linkedToGithub : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["computePlatform"] = state?.computePlatform;
+            resourceInputs["githubAccountName"] = state?.githubAccountName;
+            resourceInputs["linkedToGithub"] = state?.linkedToGithub;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["computePlatform"] = args?.computePlatform;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["githubAccountName"] = undefined /*out*/;

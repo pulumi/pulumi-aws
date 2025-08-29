@@ -87,19 +87,19 @@ export class ZoneAssociation extends pulumi.CustomResource {
     /**
      * The account ID of the account that created the hosted zone.
      */
-    public /*out*/ readonly owningAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly owningAccount: pulumi.Output<string>;
     /**
      * The VPC to associate with the private hosted zone.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    public readonly vpcRegion!: pulumi.Output<string>;
+    declare public readonly vpcRegion: pulumi.Output<string>;
     /**
      * The private hosted zone to associate.
      */
-    public readonly zoneId!: pulumi.Output<string>;
+    declare public readonly zoneId: pulumi.Output<string>;
 
     /**
      * Create a ZoneAssociation resource with the given unique name, arguments, and options.
@@ -114,21 +114,21 @@ export class ZoneAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneAssociationState | undefined;
-            resourceInputs["owningAccount"] = state ? state.owningAccount : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
-            resourceInputs["vpcRegion"] = state ? state.vpcRegion : undefined;
-            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["owningAccount"] = state?.owningAccount;
+            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["vpcRegion"] = state?.vpcRegion;
+            resourceInputs["zoneId"] = state?.zoneId;
         } else {
             const args = argsOrState as ZoneAssociationArgs | undefined;
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if ((!args || args.zoneId === undefined) && !opts.urn) {
+            if (args?.zoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
-            resourceInputs["vpcRegion"] = args ? args.vpcRegion : undefined;
-            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["vpcRegion"] = args?.vpcRegion;
+            resourceInputs["zoneId"] = args?.zoneId;
             resourceInputs["owningAccount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

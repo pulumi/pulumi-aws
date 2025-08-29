@@ -67,23 +67,23 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The date the policy was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The definition of the policy. See Definition below.
      */
-    public readonly definition!: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition | undefined>;
+    declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition | undefined>;
     /**
      * The Policy ID of the policy.
      */
-    public /*out*/ readonly policyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyId: pulumi.Output<string>;
     /**
      * The Policy Store ID of the policy store.
      */
-    public readonly policyStoreId!: pulumi.Output<string>;
+    declare public readonly policyStoreId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -98,19 +98,19 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
-            resourceInputs["definition"] = state ? state.definition : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["createdDate"] = state?.createdDate;
+            resourceInputs["definition"] = state?.definition;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["policyStoreId"] = state?.policyStoreId;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+            if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["policyStoreId"] = args?.policyStoreId;
+            resourceInputs["region"] = args?.region;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["policyId"] = undefined /*out*/;
         }

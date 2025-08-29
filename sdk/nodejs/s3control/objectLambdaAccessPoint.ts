@@ -77,27 +77,27 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
     /**
      * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Alias for the S3 Object Lambda Access Point.
      */
-    public /*out*/ readonly alias!: pulumi.Output<string>;
+    declare public /*out*/ readonly alias: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
      */
-    public readonly configuration!: pulumi.Output<outputs.s3control.ObjectLambdaAccessPointConfiguration>;
+    declare public readonly configuration: pulumi.Output<outputs.s3control.ObjectLambdaAccessPointConfiguration>;
     /**
      * The name for this Object Lambda Access Point.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ObjectLambdaAccessPoint resource with the given unique name, arguments, and options.
@@ -112,21 +112,21 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ObjectLambdaAccessPointState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ObjectLambdaAccessPointArgs | undefined;
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         }

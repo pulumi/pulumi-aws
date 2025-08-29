@@ -59,15 +59,15 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     /**
      * The ARN of the principal to allow permissions.
      */
-    public readonly principalArn!: pulumi.Output<string>;
+    declare public readonly principalArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the VPC endpoint service to allow permission.
      */
-    public readonly vpcEndpointServiceId!: pulumi.Output<string>;
+    declare public readonly vpcEndpointServiceId: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointServiceAllowedPrinciple resource with the given unique name, arguments, and options.
@@ -82,20 +82,20 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointServiceAllowedPrincipleState | undefined;
-            resourceInputs["principalArn"] = state ? state.principalArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
+            resourceInputs["principalArn"] = state?.principalArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["vpcEndpointServiceId"] = state?.vpcEndpointServiceId;
         } else {
             const args = argsOrState as VpcEndpointServiceAllowedPrincipleArgs | undefined;
-            if ((!args || args.principalArn === undefined) && !opts.urn) {
+            if (args?.principalArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalArn'");
             }
-            if ((!args || args.vpcEndpointServiceId === undefined) && !opts.urn) {
+            if (args?.vpcEndpointServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointServiceId'");
             }
-            resourceInputs["principalArn"] = args ? args.principalArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
+            resourceInputs["principalArn"] = args?.principalArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vpcEndpointServiceId"] = args?.vpcEndpointServiceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcEndpointServiceAllowedPrinciple.__pulumiType, name, resourceInputs, opts);

@@ -55,15 +55,15 @@ export class ContributorInsights extends pulumi.CustomResource {
     /**
      * The global secondary index name
      */
-    public readonly indexName!: pulumi.Output<string | undefined>;
+    declare public readonly indexName: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name of the table to enable contributor insights
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
 
     /**
      * Create a ContributorInsights resource with the given unique name, arguments, and options.
@@ -78,17 +78,17 @@ export class ContributorInsights extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContributorInsightsState | undefined;
-            resourceInputs["indexName"] = state ? state.indexName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["indexName"] = state?.indexName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as ContributorInsightsArgs | undefined;
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["indexName"] = args ? args.indexName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tableName"] = args?.tableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ContributorInsights.__pulumiType, name, resourceInputs, opts);

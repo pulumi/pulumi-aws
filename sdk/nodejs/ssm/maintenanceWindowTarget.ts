@@ -99,32 +99,32 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
     /**
      * The description of the maintenance window target.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the maintenance window target.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */
-    public readonly ownerInformation!: pulumi.Output<string | undefined>;
+    declare public readonly ownerInformation: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      */
-    public readonly resourceType!: pulumi.Output<string>;
+    declare public readonly resourceType: pulumi.Output<string>;
     /**
      * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
      * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      */
-    public readonly targets!: pulumi.Output<outputs.ssm.MaintenanceWindowTargetTarget[]>;
+    declare public readonly targets: pulumi.Output<outputs.ssm.MaintenanceWindowTargetTarget[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */
-    public readonly windowId!: pulumi.Output<string>;
+    declare public readonly windowId: pulumi.Output<string>;
 
     /**
      * Create a MaintenanceWindowTarget resource with the given unique name, arguments, and options.
@@ -139,31 +139,31 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceWindowTargetState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ownerInformation"] = state ? state.ownerInformation : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
-            resourceInputs["targets"] = state ? state.targets : undefined;
-            resourceInputs["windowId"] = state ? state.windowId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ownerInformation"] = state?.ownerInformation;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["targets"] = state?.targets;
+            resourceInputs["windowId"] = state?.windowId;
         } else {
             const args = argsOrState as MaintenanceWindowTargetArgs | undefined;
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            if ((!args || args.windowId === undefined) && !opts.urn) {
+            if (args?.windowId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'windowId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ownerInformation"] = args ? args.ownerInformation : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
-            resourceInputs["windowId"] = args ? args.windowId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ownerInformation"] = args?.ownerInformation;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["targets"] = args?.targets;
+            resourceInputs["windowId"] = args?.windowId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MaintenanceWindowTarget.__pulumiType, name, resourceInputs, opts);
