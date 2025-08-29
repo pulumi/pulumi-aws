@@ -91,43 +91,43 @@ export class HoursOfOperation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Hours of Operation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
      */
-    public readonly configs!: pulumi.Output<outputs.connect.HoursOfOperationConfig[]>;
+    declare public readonly configs: pulumi.Output<outputs.connect.HoursOfOperationConfig[]>;
     /**
      * Specifies the description of the Hours of Operation.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier for the hours of operation.
      */
-    public /*out*/ readonly hoursOfOperationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hoursOfOperationId: pulumi.Output<string>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * Specifies the name of the Hours of Operation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the time zone of the Hours of Operation.
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    declare public readonly timeZone: pulumi.Output<string>;
 
     /**
      * Create a HoursOfOperation resource with the given unique name, arguments, and options.
@@ -142,34 +142,34 @@ export class HoursOfOperation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HoursOfOperationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["configs"] = state ? state.configs : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["hoursOfOperationId"] = state ? state.hoursOfOperationId : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["configs"] = state?.configs;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["hoursOfOperationId"] = state?.hoursOfOperationId;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeZone"] = state?.timeZone;
         } else {
             const args = argsOrState as HoursOfOperationArgs | undefined;
-            if ((!args || args.configs === undefined) && !opts.urn) {
+            if (args?.configs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configs'");
             }
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.timeZone === undefined) && !opts.urn) {
+            if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            resourceInputs["configs"] = args ? args.configs : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["configs"] = args?.configs;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hoursOfOperationId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

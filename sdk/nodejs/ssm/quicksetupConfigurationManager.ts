@@ -97,38 +97,38 @@ export class QuicksetupConfigurationManager extends pulumi.CustomResource {
     /**
      * Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
      */
-    public readonly configurationDefinition!: pulumi.Output<outputs.ssm.QuicksetupConfigurationManagerConfigurationDefinition | undefined>;
+    declare public readonly configurationDefinition: pulumi.Output<outputs.ssm.QuicksetupConfigurationManagerConfigurationDefinition | undefined>;
     /**
      * Description of the configuration manager.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * ARN of the Configuration Manager.
      */
-    public /*out*/ readonly managerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly managerArn: pulumi.Output<string>;
     /**
      * Configuration manager name.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
      */
-    public /*out*/ readonly statusSummaries!: pulumi.Output<outputs.ssm.QuicksetupConfigurationManagerStatusSummary[]>;
+    declare public /*out*/ readonly statusSummaries: pulumi.Output<outputs.ssm.QuicksetupConfigurationManagerStatusSummary[]>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.ssm.QuicksetupConfigurationManagerTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.ssm.QuicksetupConfigurationManagerTimeouts | undefined>;
 
     /**
      * Create a QuicksetupConfigurationManager resource with the given unique name, arguments, and options.
@@ -143,23 +143,23 @@ export class QuicksetupConfigurationManager extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QuicksetupConfigurationManagerState | undefined;
-            resourceInputs["configurationDefinition"] = state ? state.configurationDefinition : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["managerArn"] = state ? state.managerArn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["statusSummaries"] = state ? state.statusSummaries : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["configurationDefinition"] = state?.configurationDefinition;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["managerArn"] = state?.managerArn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["statusSummaries"] = state?.statusSummaries;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as QuicksetupConfigurationManagerArgs | undefined;
-            resourceInputs["configurationDefinition"] = args ? args.configurationDefinition : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["configurationDefinition"] = args?.configurationDefinition;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["managerArn"] = undefined /*out*/;
             resourceInputs["statusSummaries"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

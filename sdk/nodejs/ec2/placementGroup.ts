@@ -62,42 +62,42 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the placement group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the placement group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
      * `partition`.  Valid values are 1 - 7 (default is `2`).
      */
-    public readonly partitionCount!: pulumi.Output<number>;
+    declare public readonly partitionCount: pulumi.Output<number>;
     /**
      * The ID of the placement group.
      */
-    public /*out*/ readonly placementGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly placementGroupId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Determines how placement groups spread instances. Can only be used
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
-    public readonly spreadLevel!: pulumi.Output<string>;
+    declare public readonly spreadLevel: pulumi.Output<string>;
     /**
      * The placement strategy. Can be `cluster`, `partition` or `spread`.
      */
-    public readonly strategy!: pulumi.Output<string>;
+    declare public readonly strategy: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -112,26 +112,26 @@ export class PlacementGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlacementGroupState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partitionCount"] = state ? state.partitionCount : undefined;
-            resourceInputs["placementGroupId"] = state ? state.placementGroupId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["spreadLevel"] = state ? state.spreadLevel : undefined;
-            resourceInputs["strategy"] = state ? state.strategy : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partitionCount"] = state?.partitionCount;
+            resourceInputs["placementGroupId"] = state?.placementGroupId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["spreadLevel"] = state?.spreadLevel;
+            resourceInputs["strategy"] = state?.strategy;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as PlacementGroupArgs | undefined;
-            if ((!args || args.strategy === undefined) && !opts.urn) {
+            if (args?.strategy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'strategy'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["spreadLevel"] = args ? args.spreadLevel : undefined;
-            resourceInputs["strategy"] = args ? args.strategy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partitionCount"] = args?.partitionCount;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["spreadLevel"] = args?.spreadLevel;
+            resourceInputs["strategy"] = args?.strategy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["placementGroupId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

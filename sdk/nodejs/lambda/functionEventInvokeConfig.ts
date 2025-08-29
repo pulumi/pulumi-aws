@@ -218,29 +218,29 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
     /**
      * Configuration block with destination configuration. See below.
      */
-    public readonly destinationConfig!: pulumi.Output<outputs.lambda.FunctionEventInvokeConfigDestinationConfig | undefined>;
+    declare public readonly destinationConfig: pulumi.Output<outputs.lambda.FunctionEventInvokeConfigDestinationConfig | undefined>;
     /**
      * Name or ARN of the Lambda Function, omitting any version or alias qualifier.
      *
      * The following arguments are optional:
      */
-    public readonly functionName!: pulumi.Output<string>;
+    declare public readonly functionName: pulumi.Output<string>;
     /**
      * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
      */
-    public readonly maximumEventAgeInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly maximumEventAgeInSeconds: pulumi.Output<number | undefined>;
     /**
      * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
      */
-    public readonly maximumRetryAttempts!: pulumi.Output<number | undefined>;
+    declare public readonly maximumRetryAttempts: pulumi.Output<number | undefined>;
     /**
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      */
-    public readonly qualifier!: pulumi.Output<string | undefined>;
+    declare public readonly qualifier: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a FunctionEventInvokeConfig resource with the given unique name, arguments, and options.
@@ -255,23 +255,23 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionEventInvokeConfigState | undefined;
-            resourceInputs["destinationConfig"] = state ? state.destinationConfig : undefined;
-            resourceInputs["functionName"] = state ? state.functionName : undefined;
-            resourceInputs["maximumEventAgeInSeconds"] = state ? state.maximumEventAgeInSeconds : undefined;
-            resourceInputs["maximumRetryAttempts"] = state ? state.maximumRetryAttempts : undefined;
-            resourceInputs["qualifier"] = state ? state.qualifier : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["destinationConfig"] = state?.destinationConfig;
+            resourceInputs["functionName"] = state?.functionName;
+            resourceInputs["maximumEventAgeInSeconds"] = state?.maximumEventAgeInSeconds;
+            resourceInputs["maximumRetryAttempts"] = state?.maximumRetryAttempts;
+            resourceInputs["qualifier"] = state?.qualifier;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as FunctionEventInvokeConfigArgs | undefined;
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["maximumEventAgeInSeconds"] = args ? args.maximumEventAgeInSeconds : undefined;
-            resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
-            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["destinationConfig"] = args?.destinationConfig;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["maximumEventAgeInSeconds"] = args?.maximumEventAgeInSeconds;
+            resourceInputs["maximumRetryAttempts"] = args?.maximumRetryAttempts;
+            resourceInputs["qualifier"] = args?.qualifier;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FunctionEventInvokeConfig.__pulumiType, name, resourceInputs, opts);

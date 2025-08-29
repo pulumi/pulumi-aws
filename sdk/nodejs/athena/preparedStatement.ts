@@ -68,23 +68,23 @@ export class PreparedStatement extends pulumi.CustomResource {
     /**
      * Brief explanation of prepared statement. Maximum length of 1024.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the prepared statement. Maximum length of 256.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The query string for the prepared statement.
      */
-    public readonly queryStatement!: pulumi.Output<string>;
+    declare public readonly queryStatement: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name of the workgroup to which the prepared statement belongs.
      */
-    public readonly workgroup!: pulumi.Output<string>;
+    declare public readonly workgroup: pulumi.Output<string>;
 
     /**
      * Create a PreparedStatement resource with the given unique name, arguments, and options.
@@ -99,24 +99,24 @@ export class PreparedStatement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PreparedStatementState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queryStatement"] = state ? state.queryStatement : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["workgroup"] = state ? state.workgroup : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queryStatement"] = state?.queryStatement;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["workgroup"] = state?.workgroup;
         } else {
             const args = argsOrState as PreparedStatementArgs | undefined;
-            if ((!args || args.queryStatement === undefined) && !opts.urn) {
+            if (args?.queryStatement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryStatement'");
             }
-            if ((!args || args.workgroup === undefined) && !opts.urn) {
+            if (args?.workgroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workgroup'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryStatement"] = args ? args.queryStatement : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryStatement"] = args?.queryStatement;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["workgroup"] = args?.workgroup;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PreparedStatement.__pulumiType, name, resourceInputs, opts);

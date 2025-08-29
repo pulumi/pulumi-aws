@@ -224,73 +224,73 @@ export class Pipe extends pulumi.CustomResource {
     /**
      * ARN of this pipe.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the pipe. At most 512 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
      */
-    public readonly desiredState!: pulumi.Output<string | undefined>;
+    declare public readonly desiredState: pulumi.Output<string | undefined>;
     /**
      * Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
      */
-    public readonly enrichment!: pulumi.Output<string | undefined>;
+    declare public readonly enrichment: pulumi.Output<string | undefined>;
     /**
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
-    public readonly enrichmentParameters!: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
+    declare public readonly enrichmentParameters: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * Logging configuration settings for the pipe. Detailed below.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ARN of the role that allows the pipe to send data to the target.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
      */
-    public readonly source!: pulumi.Output<string>;
+    declare public readonly source: pulumi.Output<string>;
     /**
      * Parameters to configure a source for the pipe. Detailed below.
      */
-    public readonly sourceParameters!: pulumi.Output<outputs.pipes.PipeSourceParameters>;
+    declare public readonly sourceParameters: pulumi.Output<outputs.pipes.PipeSourceParameters>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Target resource of the pipe (typically an ARN).
      *
      * The following arguments are optional:
      */
-    public readonly target!: pulumi.Output<string>;
+    declare public readonly target: pulumi.Output<string>;
     /**
      * Parameters to configure a target for your pipe. Detailed below.
      */
-    public readonly targetParameters!: pulumi.Output<outputs.pipes.PipeTargetParameters | undefined>;
+    declare public readonly targetParameters: pulumi.Output<outputs.pipes.PipeTargetParameters | undefined>;
 
     /**
      * Create a Pipe resource with the given unique name, arguments, and options.
@@ -305,49 +305,49 @@ export class Pipe extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipeState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["desiredState"] = state ? state.desiredState : undefined;
-            resourceInputs["enrichment"] = state ? state.enrichment : undefined;
-            resourceInputs["enrichmentParameters"] = state ? state.enrichmentParameters : undefined;
-            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
-            resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["sourceParameters"] = state ? state.sourceParameters : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["target"] = state ? state.target : undefined;
-            resourceInputs["targetParameters"] = state ? state.targetParameters : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["desiredState"] = state?.desiredState;
+            resourceInputs["enrichment"] = state?.enrichment;
+            resourceInputs["enrichmentParameters"] = state?.enrichmentParameters;
+            resourceInputs["kmsKeyIdentifier"] = state?.kmsKeyIdentifier;
+            resourceInputs["logConfiguration"] = state?.logConfiguration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["sourceParameters"] = state?.sourceParameters;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["target"] = state?.target;
+            resourceInputs["targetParameters"] = state?.targetParameters;
         } else {
             const args = argsOrState as PipeArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["desiredState"] = args ? args.desiredState : undefined;
-            resourceInputs["enrichment"] = args ? args.enrichment : undefined;
-            resourceInputs["enrichmentParameters"] = args ? args.enrichmentParameters : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceParameters"] = args ? args.sourceParameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["targetParameters"] = args ? args.targetParameters : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["desiredState"] = args?.desiredState;
+            resourceInputs["enrichment"] = args?.enrichment;
+            resourceInputs["enrichmentParameters"] = args?.enrichmentParameters;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceParameters"] = args?.sourceParameters;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["targetParameters"] = args?.targetParameters;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

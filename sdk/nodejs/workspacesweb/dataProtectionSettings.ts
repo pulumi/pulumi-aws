@@ -139,45 +139,45 @@ export class DataProtectionSettings extends pulumi.CustomResource {
     /**
      * Additional encryption context for the data protection settings.
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of web portal ARNs that this data protection settings resource is associated with.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * ARN of the customer managed KMS key.
      */
-    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
     /**
      * ARN of the data protection settings resource.
      */
-    public /*out*/ readonly dataProtectionSettingsArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataProtectionSettingsArn: pulumi.Output<string>;
     /**
      * The description of the data protection settings.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the data protection settings.
      *
      * The following arguments are optional:
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The inline redaction configuration of the data protection settings. Detailed below.
      */
-    public readonly inlineRedactionConfiguration!: pulumi.Output<outputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration | undefined>;
+    declare public readonly inlineRedactionConfiguration: pulumi.Output<outputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DataProtectionSettings resource with the given unique name, arguments, and options.
@@ -192,28 +192,28 @@ export class DataProtectionSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataProtectionSettingsState | undefined;
-            resourceInputs["additionalEncryptionContext"] = state ? state.additionalEncryptionContext : undefined;
-            resourceInputs["associatedPortalArns"] = state ? state.associatedPortalArns : undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["dataProtectionSettingsArn"] = state ? state.dataProtectionSettingsArn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["inlineRedactionConfiguration"] = state ? state.inlineRedactionConfiguration : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["additionalEncryptionContext"] = state?.additionalEncryptionContext;
+            resourceInputs["associatedPortalArns"] = state?.associatedPortalArns;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["dataProtectionSettingsArn"] = state?.dataProtectionSettingsArn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["inlineRedactionConfiguration"] = state?.inlineRedactionConfiguration;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as DataProtectionSettingsArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["inlineRedactionConfiguration"] = args ? args.inlineRedactionConfiguration : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["inlineRedactionConfiguration"] = args?.inlineRedactionConfiguration;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["dataProtectionSettingsArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

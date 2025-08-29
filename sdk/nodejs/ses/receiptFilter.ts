@@ -59,23 +59,23 @@ export class ReceiptFilter extends pulumi.CustomResource {
     /**
      * The SES receipt filter ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The IP address or address range to filter, in CIDR notation
      */
-    public readonly cidr!: pulumi.Output<string>;
+    declare public readonly cidr: pulumi.Output<string>;
     /**
      * The name of the filter
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Block or Allow
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ReceiptFilter resource with the given unique name, arguments, and options.
@@ -90,23 +90,23 @@ export class ReceiptFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReceiptFilterState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cidr"] = state ? state.cidr : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cidr"] = state?.cidr;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ReceiptFilterArgs | undefined;
-            if ((!args || args.cidr === undefined) && !opts.urn) {
+            if (args?.cidr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cidr'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["cidr"] = args ? args.cidr : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["cidr"] = args?.cidr;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

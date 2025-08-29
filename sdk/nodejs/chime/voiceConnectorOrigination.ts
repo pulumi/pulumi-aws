@@ -81,19 +81,19 @@ export class VoiceConnectorOrigination extends pulumi.CustomResource {
     /**
      * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      */
-    public readonly routes!: pulumi.Output<outputs.chime.VoiceConnectorOriginationRoute[]>;
+    declare public readonly routes: pulumi.Output<outputs.chime.VoiceConnectorOriginationRoute[]>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
-    public readonly voiceConnectorId!: pulumi.Output<string>;
+    declare public readonly voiceConnectorId: pulumi.Output<string>;
 
     /**
      * Create a VoiceConnectorOrigination resource with the given unique name, arguments, and options.
@@ -108,22 +108,22 @@ export class VoiceConnectorOrigination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorOriginationState | undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routes"] = state ? state.routes : undefined;
-            resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routes"] = state?.routes;
+            resourceInputs["voiceConnectorId"] = state?.voiceConnectorId;
         } else {
             const args = argsOrState as VoiceConnectorOriginationArgs | undefined;
-            if ((!args || args.routes === undefined) && !opts.urn) {
+            if (args?.routes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routes'");
             }
-            if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
+            if (args?.voiceConnectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["voiceConnectorId"] = args?.voiceConnectorId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization" }] };

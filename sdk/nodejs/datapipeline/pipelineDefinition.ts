@@ -115,25 +115,25 @@ export class PipelineDefinition extends pulumi.CustomResource {
     /**
      * Configuration block for the parameter objects used in the pipeline definition. See below
      */
-    public readonly parameterObjects!: pulumi.Output<outputs.datapipeline.PipelineDefinitionParameterObject[] | undefined>;
+    declare public readonly parameterObjects: pulumi.Output<outputs.datapipeline.PipelineDefinitionParameterObject[] | undefined>;
     /**
      * Configuration block for the parameter values used in the pipeline definition. See below
      */
-    public readonly parameterValues!: pulumi.Output<outputs.datapipeline.PipelineDefinitionParameterValue[] | undefined>;
+    declare public readonly parameterValues: pulumi.Output<outputs.datapipeline.PipelineDefinitionParameterValue[] | undefined>;
     /**
      * ID of the pipeline.
      */
-    public readonly pipelineId!: pulumi.Output<string>;
+    declare public readonly pipelineId: pulumi.Output<string>;
     /**
      * Configuration block for the objects that define the pipeline. See below
      *
      * The following arguments are optional:
      */
-    public readonly pipelineObjects!: pulumi.Output<outputs.datapipeline.PipelineDefinitionPipelineObject[]>;
+    declare public readonly pipelineObjects: pulumi.Output<outputs.datapipeline.PipelineDefinitionPipelineObject[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a PipelineDefinition resource with the given unique name, arguments, and options.
@@ -148,24 +148,24 @@ export class PipelineDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineDefinitionState | undefined;
-            resourceInputs["parameterObjects"] = state ? state.parameterObjects : undefined;
-            resourceInputs["parameterValues"] = state ? state.parameterValues : undefined;
-            resourceInputs["pipelineId"] = state ? state.pipelineId : undefined;
-            resourceInputs["pipelineObjects"] = state ? state.pipelineObjects : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["parameterObjects"] = state?.parameterObjects;
+            resourceInputs["parameterValues"] = state?.parameterValues;
+            resourceInputs["pipelineId"] = state?.pipelineId;
+            resourceInputs["pipelineObjects"] = state?.pipelineObjects;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as PipelineDefinitionArgs | undefined;
-            if ((!args || args.pipelineId === undefined) && !opts.urn) {
+            if (args?.pipelineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineId'");
             }
-            if ((!args || args.pipelineObjects === undefined) && !opts.urn) {
+            if (args?.pipelineObjects === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineObjects'");
             }
-            resourceInputs["parameterObjects"] = args ? args.parameterObjects : undefined;
-            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
-            resourceInputs["pipelineId"] = args ? args.pipelineId : undefined;
-            resourceInputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["parameterObjects"] = args?.parameterObjects;
+            resourceInputs["parameterValues"] = args?.parameterValues;
+            resourceInputs["pipelineId"] = args?.pipelineId;
+            resourceInputs["pipelineObjects"] = args?.pipelineObjects;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PipelineDefinition.__pulumiType, name, resourceInputs, opts);

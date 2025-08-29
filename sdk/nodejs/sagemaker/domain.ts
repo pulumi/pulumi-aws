@@ -121,89 +121,89 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
      */
-    public readonly appNetworkAccessType!: pulumi.Output<string | undefined>;
+    declare public readonly appNetworkAccessType: pulumi.Output<string | undefined>;
     /**
      * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      */
-    public readonly appSecurityGroupManagement!: pulumi.Output<string | undefined>;
+    declare public readonly appSecurityGroupManagement: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      */
-    public readonly authMode!: pulumi.Output<string>;
+    declare public readonly authMode: pulumi.Output<string>;
     /**
      * The default space settings. See `defaultSpaceSettings` Block below.
      */
-    public readonly defaultSpaceSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
+    declare public readonly defaultSpaceSettings: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
     /**
      * The default user settings. See `defaultUserSettings` Block below.
      */
-    public readonly defaultUserSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultUserSettings>;
+    declare public readonly defaultUserSettings: pulumi.Output<outputs.sagemaker.DomainDefaultUserSettings>;
     /**
      * The domain name.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The domain settings. See `domainSettings` Block below.
      */
-    public readonly domainSettings!: pulumi.Output<outputs.sagemaker.DomainDomainSettings | undefined>;
+    declare public readonly domainSettings: pulumi.Output<outputs.sagemaker.DomainDomainSettings | undefined>;
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
-    public /*out*/ readonly homeEfsFileSystemId!: pulumi.Output<string>;
+    declare public /*out*/ readonly homeEfsFileSystemId: pulumi.Output<string>;
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
-    public readonly retentionPolicy!: pulumi.Output<outputs.sagemaker.DomainRetentionPolicy | undefined>;
+    declare public readonly retentionPolicy: pulumi.Output<outputs.sagemaker.DomainRetentionPolicy | undefined>;
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      */
-    public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string>;
+    declare public /*out*/ readonly securityGroupIdForDomainBoundary: pulumi.Output<string>;
     /**
      * The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
      */
-    public /*out*/ readonly singleSignOnApplicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly singleSignOnApplicationArn: pulumi.Output<string>;
     /**
      * The SSO managed application instance ID.
      */
-    public /*out*/ readonly singleSignOnManagedApplicationInstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly singleSignOnManagedApplicationInstanceId: pulumi.Output<string>;
     /**
      * The VPC subnets that Studio uses for communication.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
      */
-    public readonly tagPropagation!: pulumi.Output<string | undefined>;
+    declare public readonly tagPropagation: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The domain's URL.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      *
      * The following arguments are optional:
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -218,58 +218,58 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["appNetworkAccessType"] = state ? state.appNetworkAccessType : undefined;
-            resourceInputs["appSecurityGroupManagement"] = state ? state.appSecurityGroupManagement : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["authMode"] = state ? state.authMode : undefined;
-            resourceInputs["defaultSpaceSettings"] = state ? state.defaultSpaceSettings : undefined;
-            resourceInputs["defaultUserSettings"] = state ? state.defaultUserSettings : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["domainSettings"] = state ? state.domainSettings : undefined;
-            resourceInputs["homeEfsFileSystemId"] = state ? state.homeEfsFileSystemId : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
-            resourceInputs["securityGroupIdForDomainBoundary"] = state ? state.securityGroupIdForDomainBoundary : undefined;
-            resourceInputs["singleSignOnApplicationArn"] = state ? state.singleSignOnApplicationArn : undefined;
-            resourceInputs["singleSignOnManagedApplicationInstanceId"] = state ? state.singleSignOnManagedApplicationInstanceId : undefined;
-            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
-            resourceInputs["tagPropagation"] = state ? state.tagPropagation : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["appNetworkAccessType"] = state?.appNetworkAccessType;
+            resourceInputs["appSecurityGroupManagement"] = state?.appSecurityGroupManagement;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["authMode"] = state?.authMode;
+            resourceInputs["defaultSpaceSettings"] = state?.defaultSpaceSettings;
+            resourceInputs["defaultUserSettings"] = state?.defaultUserSettings;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["domainSettings"] = state?.domainSettings;
+            resourceInputs["homeEfsFileSystemId"] = state?.homeEfsFileSystemId;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["retentionPolicy"] = state?.retentionPolicy;
+            resourceInputs["securityGroupIdForDomainBoundary"] = state?.securityGroupIdForDomainBoundary;
+            resourceInputs["singleSignOnApplicationArn"] = state?.singleSignOnApplicationArn;
+            resourceInputs["singleSignOnManagedApplicationInstanceId"] = state?.singleSignOnManagedApplicationInstanceId;
+            resourceInputs["subnetIds"] = state?.subnetIds;
+            resourceInputs["tagPropagation"] = state?.tagPropagation;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if ((!args || args.authMode === undefined) && !opts.urn) {
+            if (args?.authMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authMode'");
             }
-            if ((!args || args.defaultUserSettings === undefined) && !opts.urn) {
+            if (args?.defaultUserSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultUserSettings'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
-            resourceInputs["appSecurityGroupManagement"] = args ? args.appSecurityGroupManagement : undefined;
-            resourceInputs["authMode"] = args ? args.authMode : undefined;
-            resourceInputs["defaultSpaceSettings"] = args ? args.defaultSpaceSettings : undefined;
-            resourceInputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainSettings"] = args ? args.domainSettings : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tagPropagation"] = args ? args.tagPropagation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["appNetworkAccessType"] = args?.appNetworkAccessType;
+            resourceInputs["appSecurityGroupManagement"] = args?.appSecurityGroupManagement;
+            resourceInputs["authMode"] = args?.authMode;
+            resourceInputs["defaultSpaceSettings"] = args?.defaultSpaceSettings;
+            resourceInputs["defaultUserSettings"] = args?.defaultUserSettings;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainSettings"] = args?.domainSettings;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["retentionPolicy"] = args?.retentionPolicy;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tagPropagation"] = args?.tagPropagation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
             resourceInputs["securityGroupIdForDomainBoundary"] = undefined /*out*/;

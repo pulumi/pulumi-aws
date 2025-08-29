@@ -132,26 +132,26 @@ export class Glossary extends pulumi.CustomResource {
     /**
      * Description of the glossary. Must have a length between 0 and 4096.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * Name of the glossary. Must have length between 1 and 256.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
      *
      * The following arguments are optional:
      */
-    public readonly owningProjectIdentifier!: pulumi.Output<string>;
+    declare public readonly owningProjectIdentifier: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Status of business glossary. Valid values are DISABLED and ENABLED.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
 
     /**
      * Create a Glossary resource with the given unique name, arguments, and options.
@@ -166,26 +166,26 @@ export class Glossary extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlossaryState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["owningProjectIdentifier"] = state ? state.owningProjectIdentifier : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["domainIdentifier"] = state?.domainIdentifier;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["owningProjectIdentifier"] = state?.owningProjectIdentifier;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as GlossaryArgs | undefined;
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.owningProjectIdentifier === undefined) && !opts.urn) {
+            if (args?.owningProjectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'owningProjectIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["owningProjectIdentifier"] = args ? args.owningProjectIdentifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["owningProjectIdentifier"] = args?.owningProjectIdentifier;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Glossary.__pulumiType, name, resourceInputs, opts);

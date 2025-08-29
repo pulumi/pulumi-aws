@@ -64,32 +64,32 @@ export class ResourceLfTag extends pulumi.CustomResource {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    public readonly catalogId!: pulumi.Output<string | undefined>;
+    declare public readonly catalogId: pulumi.Output<string | undefined>;
     /**
      * Configuration block for a database resource. See Database for more details.
      */
-    public readonly database!: pulumi.Output<outputs.lakeformation.ResourceLfTagDatabase | undefined>;
+    declare public readonly database: pulumi.Output<outputs.lakeformation.ResourceLfTagDatabase | undefined>;
     /**
      * Set of LF-tags to attach to the resource. See LF Tag for more details.
      *
      * Exactly one of the following is required:
      */
-    public readonly lfTag!: pulumi.Output<outputs.lakeformation.ResourceLfTagLfTag | undefined>;
+    declare public readonly lfTag: pulumi.Output<outputs.lakeformation.ResourceLfTagLfTag | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration block for a table resource. See Table for more details.
      */
-    public readonly table!: pulumi.Output<outputs.lakeformation.ResourceLfTagTable | undefined>;
+    declare public readonly table: pulumi.Output<outputs.lakeformation.ResourceLfTagTable | undefined>;
     /**
      * Configuration block for a table with columns resource. See Table With Columns for more details.
      *
      * The following arguments are optional:
      */
-    public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.ResourceLfTagTableWithColumns | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.lakeformation.ResourceLfTagTimeouts | undefined>;
+    declare public readonly tableWithColumns: pulumi.Output<outputs.lakeformation.ResourceLfTagTableWithColumns | undefined>;
+    declare public readonly timeouts: pulumi.Output<outputs.lakeformation.ResourceLfTagTimeouts | undefined>;
 
     /**
      * Create a ResourceLfTag resource with the given unique name, arguments, and options.
@@ -104,22 +104,22 @@ export class ResourceLfTag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceLfTagState | undefined;
-            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["lfTag"] = state ? state.lfTag : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
-            resourceInputs["tableWithColumns"] = state ? state.tableWithColumns : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["catalogId"] = state?.catalogId;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["lfTag"] = state?.lfTag;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["table"] = state?.table;
+            resourceInputs["tableWithColumns"] = state?.tableWithColumns;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ResourceLfTagArgs | undefined;
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["lfTag"] = args ? args.lfTag : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
-            resourceInputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["lfTag"] = args?.lfTag;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["table"] = args?.table;
+            resourceInputs["tableWithColumns"] = args?.tableWithColumns;
+            resourceInputs["timeouts"] = args?.timeouts;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceLfTag.__pulumiType, name, resourceInputs, opts);

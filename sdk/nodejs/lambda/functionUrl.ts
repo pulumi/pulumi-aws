@@ -94,41 +94,41 @@ export class FunctionUrl extends pulumi.CustomResource {
     /**
      * Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      */
-    public readonly authorizationType!: pulumi.Output<string>;
+    declare public readonly authorizationType: pulumi.Output<string>;
     /**
      * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      */
-    public readonly cors!: pulumi.Output<outputs.lambda.FunctionUrlCors | undefined>;
+    declare public readonly cors: pulumi.Output<outputs.lambda.FunctionUrlCors | undefined>;
     /**
      * ARN of the Lambda function.
      */
-    public /*out*/ readonly functionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly functionArn: pulumi.Output<string>;
     /**
      * Name or ARN of the Lambda function.
      *
      * The following arguments are optional:
      */
-    public readonly functionName!: pulumi.Output<string>;
+    declare public readonly functionName: pulumi.Output<string>;
     /**
      * HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
      */
-    public /*out*/ readonly functionUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly functionUrl: pulumi.Output<string>;
     /**
      * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      */
-    public readonly invokeMode!: pulumi.Output<string | undefined>;
+    declare public readonly invokeMode: pulumi.Output<string | undefined>;
     /**
      * Alias name or `$LATEST`.
      */
-    public readonly qualifier!: pulumi.Output<string | undefined>;
+    declare public readonly qualifier: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Generated ID for the endpoint.
      */
-    public /*out*/ readonly urlId!: pulumi.Output<string>;
+    declare public /*out*/ readonly urlId: pulumi.Output<string>;
 
     /**
      * Create a FunctionUrl resource with the given unique name, arguments, and options.
@@ -143,29 +143,29 @@ export class FunctionUrl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionUrlState | undefined;
-            resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
-            resourceInputs["cors"] = state ? state.cors : undefined;
-            resourceInputs["functionArn"] = state ? state.functionArn : undefined;
-            resourceInputs["functionName"] = state ? state.functionName : undefined;
-            resourceInputs["functionUrl"] = state ? state.functionUrl : undefined;
-            resourceInputs["invokeMode"] = state ? state.invokeMode : undefined;
-            resourceInputs["qualifier"] = state ? state.qualifier : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["urlId"] = state ? state.urlId : undefined;
+            resourceInputs["authorizationType"] = state?.authorizationType;
+            resourceInputs["cors"] = state?.cors;
+            resourceInputs["functionArn"] = state?.functionArn;
+            resourceInputs["functionName"] = state?.functionName;
+            resourceInputs["functionUrl"] = state?.functionUrl;
+            resourceInputs["invokeMode"] = state?.invokeMode;
+            resourceInputs["qualifier"] = state?.qualifier;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["urlId"] = state?.urlId;
         } else {
             const args = argsOrState as FunctionUrlArgs | undefined;
-            if ((!args || args.authorizationType === undefined) && !opts.urn) {
+            if (args?.authorizationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationType'");
             }
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["invokeMode"] = args ? args.invokeMode : undefined;
-            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["authorizationType"] = args?.authorizationType;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["invokeMode"] = args?.invokeMode;
+            resourceInputs["qualifier"] = args?.qualifier;
+            resourceInputs["region"] = args?.region;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionUrl"] = undefined /*out*/;
             resourceInputs["urlId"] = undefined /*out*/;

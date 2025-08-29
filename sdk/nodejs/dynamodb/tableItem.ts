@@ -75,25 +75,25 @@ export class TableItem extends pulumi.CustomResource {
     /**
      * Hash key to use for lookups and identification of the item
      */
-    public readonly hashKey!: pulumi.Output<string>;
+    declare public readonly hashKey: pulumi.Output<string>;
     /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
-    public readonly item!: pulumi.Output<string>;
+    declare public readonly item: pulumi.Output<string>;
     /**
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
-    public readonly rangeKey!: pulumi.Output<string | undefined>;
+    declare public readonly rangeKey: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Name of the table to contain the item.
      *
      * > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
 
     /**
      * Create a TableItem resource with the given unique name, arguments, and options.
@@ -108,27 +108,27 @@ export class TableItem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableItemState | undefined;
-            resourceInputs["hashKey"] = state ? state.hashKey : undefined;
-            resourceInputs["item"] = state ? state.item : undefined;
-            resourceInputs["rangeKey"] = state ? state.rangeKey : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["hashKey"] = state?.hashKey;
+            resourceInputs["item"] = state?.item;
+            resourceInputs["rangeKey"] = state?.rangeKey;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as TableItemArgs | undefined;
-            if ((!args || args.hashKey === undefined) && !opts.urn) {
+            if (args?.hashKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hashKey'");
             }
-            if ((!args || args.item === undefined) && !opts.urn) {
+            if (args?.item === undefined && !opts.urn) {
                 throw new Error("Missing required property 'item'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["hashKey"] = args ? args.hashKey : undefined;
-            resourceInputs["item"] = args ? args.item : undefined;
-            resourceInputs["rangeKey"] = args ? args.rangeKey : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["hashKey"] = args?.hashKey;
+            resourceInputs["item"] = args?.item;
+            resourceInputs["rangeKey"] = args?.rangeKey;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tableName"] = args?.tableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TableItem.__pulumiType, name, resourceInputs, opts);

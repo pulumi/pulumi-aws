@@ -84,31 +84,31 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
      *
      * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
-    public readonly connectionEvents!: pulumi.Output<string[]>;
+    declare public readonly connectionEvents: pulumi.Output<string[]>;
     /**
      * The ARN of the SNS topic for the notifications.
      */
-    public readonly connectionNotificationArn!: pulumi.Output<string>;
+    declare public readonly connectionNotificationArn: pulumi.Output<string>;
     /**
      * The type of notification.
      */
-    public /*out*/ readonly notificationType!: pulumi.Output<string>;
+    declare public /*out*/ readonly notificationType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The state of the notification.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */
-    public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcEndpointId: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      */
-    public readonly vpcEndpointServiceId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcEndpointServiceId: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcEndpointConnectionNotification resource with the given unique name, arguments, and options.
@@ -123,26 +123,26 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointConnectionNotificationState | undefined;
-            resourceInputs["connectionEvents"] = state ? state.connectionEvents : undefined;
-            resourceInputs["connectionNotificationArn"] = state ? state.connectionNotificationArn : undefined;
-            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
-            resourceInputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
+            resourceInputs["connectionEvents"] = state?.connectionEvents;
+            resourceInputs["connectionNotificationArn"] = state?.connectionNotificationArn;
+            resourceInputs["notificationType"] = state?.notificationType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["vpcEndpointId"] = state?.vpcEndpointId;
+            resourceInputs["vpcEndpointServiceId"] = state?.vpcEndpointServiceId;
         } else {
             const args = argsOrState as VpcEndpointConnectionNotificationArgs | undefined;
-            if ((!args || args.connectionEvents === undefined) && !opts.urn) {
+            if (args?.connectionEvents === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionEvents'");
             }
-            if ((!args || args.connectionNotificationArn === undefined) && !opts.urn) {
+            if (args?.connectionNotificationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionNotificationArn'");
             }
-            resourceInputs["connectionEvents"] = args ? args.connectionEvents : undefined;
-            resourceInputs["connectionNotificationArn"] = args ? args.connectionNotificationArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
+            resourceInputs["connectionEvents"] = args?.connectionEvents;
+            resourceInputs["connectionNotificationArn"] = args?.connectionNotificationArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
+            resourceInputs["vpcEndpointServiceId"] = args?.vpcEndpointServiceId;
             resourceInputs["notificationType"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         }

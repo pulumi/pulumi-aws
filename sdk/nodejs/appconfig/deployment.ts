@@ -66,59 +66,59 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * Application ID. Must be between 4 and 7 characters in length.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * ARN of the AppConfig Deployment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration profile ID. Must be between 4 and 7 characters in length.
      */
-    public readonly configurationProfileId!: pulumi.Output<string>;
+    declare public readonly configurationProfileId: pulumi.Output<string>;
     /**
      * Configuration version to deploy. Can be at most 1024 characters.
      */
-    public readonly configurationVersion!: pulumi.Output<string>;
+    declare public readonly configurationVersion: pulumi.Output<string>;
     /**
      * Deployment number.
      */
-    public /*out*/ readonly deploymentNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly deploymentNumber: pulumi.Output<number>;
     /**
      * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      */
-    public readonly deploymentStrategyId!: pulumi.Output<string>;
+    declare public readonly deploymentStrategyId: pulumi.Output<string>;
     /**
      * Description of the deployment. Can be at most 1024 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Environment ID. Must be between 4 and 7 characters in length.
      */
-    public readonly environmentId!: pulumi.Output<string>;
+    declare public readonly environmentId: pulumi.Output<string>;
     /**
      * ARN of the KMS key used to encrypt configuration data.
      */
-    public /*out*/ readonly kmsKeyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
     /**
      * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * State of the deployment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -133,46 +133,46 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
-            resourceInputs["configurationVersion"] = state ? state.configurationVersion : undefined;
-            resourceInputs["deploymentNumber"] = state ? state.deploymentNumber : undefined;
-            resourceInputs["deploymentStrategyId"] = state ? state.deploymentStrategyId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
-            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["configurationProfileId"] = state?.configurationProfileId;
+            resourceInputs["configurationVersion"] = state?.configurationVersion;
+            resourceInputs["deploymentNumber"] = state?.deploymentNumber;
+            resourceInputs["deploymentStrategyId"] = state?.deploymentStrategyId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["environmentId"] = state?.environmentId;
+            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
+            resourceInputs["kmsKeyIdentifier"] = state?.kmsKeyIdentifier;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.configurationProfileId === undefined) && !opts.urn) {
+            if (args?.configurationProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationProfileId'");
             }
-            if ((!args || args.configurationVersion === undefined) && !opts.urn) {
+            if (args?.configurationVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationVersion'");
             }
-            if ((!args || args.deploymentStrategyId === undefined) && !opts.urn) {
+            if (args?.deploymentStrategyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentStrategyId'");
             }
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            resourceInputs["configurationVersion"] = args ? args.configurationVersion : undefined;
-            resourceInputs["deploymentStrategyId"] = args ? args.deploymentStrategyId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["configurationProfileId"] = args?.configurationProfileId;
+            resourceInputs["configurationVersion"] = args?.configurationVersion;
+            resourceInputs["deploymentStrategyId"] = args?.deploymentStrategyId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deploymentNumber"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;

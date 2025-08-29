@@ -61,59 +61,59 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     /**
      * The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      */
-    public readonly accessKey!: pulumi.Output<string | undefined>;
+    declare public readonly accessKey: pulumi.Output<string | undefined>;
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    public readonly agentArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly agentArns: pulumi.Output<string[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The bucket on the self-managed object storage server that is used to read data from.
      */
-    public readonly bucketName!: pulumi.Output<string>;
+    declare public readonly bucketName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      */
-    public readonly secretKey!: pulumi.Output<string | undefined>;
+    declare public readonly secretKey: pulumi.Output<string | undefined>;
     /**
      * Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
      */
-    public readonly serverCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly serverCertificate: pulumi.Output<string | undefined>;
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
      */
-    public readonly serverHostname!: pulumi.Output<string>;
+    declare public readonly serverHostname: pulumi.Output<string>;
     /**
      * The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
      */
-    public readonly serverPort!: pulumi.Output<number | undefined>;
+    declare public readonly serverPort: pulumi.Output<number | undefined>;
     /**
      * The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
      */
-    public readonly serverProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly serverProtocol: pulumi.Output<string | undefined>;
     /**
      * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    declare public readonly subdirectory: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the Object Storage location that was described.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
 
     /**
      * Create a LocationObjectStorage resource with the given unique name, arguments, and options.
@@ -128,39 +128,39 @@ export class LocationObjectStorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocationObjectStorageState | undefined;
-            resourceInputs["accessKey"] = state ? state.accessKey : undefined;
-            resourceInputs["agentArns"] = state ? state.agentArns : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bucketName"] = state ? state.bucketName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["secretKey"] = state ? state.secretKey : undefined;
-            resourceInputs["serverCertificate"] = state ? state.serverCertificate : undefined;
-            resourceInputs["serverHostname"] = state ? state.serverHostname : undefined;
-            resourceInputs["serverPort"] = state ? state.serverPort : undefined;
-            resourceInputs["serverProtocol"] = state ? state.serverProtocol : undefined;
-            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["accessKey"] = state?.accessKey;
+            resourceInputs["agentArns"] = state?.agentArns;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bucketName"] = state?.bucketName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["secretKey"] = state?.secretKey;
+            resourceInputs["serverCertificate"] = state?.serverCertificate;
+            resourceInputs["serverHostname"] = state?.serverHostname;
+            resourceInputs["serverPort"] = state?.serverPort;
+            resourceInputs["serverProtocol"] = state?.serverProtocol;
+            resourceInputs["subdirectory"] = state?.subdirectory;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as LocationObjectStorageArgs | undefined;
-            if ((!args || args.bucketName === undefined) && !opts.urn) {
+            if (args?.bucketName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucketName'");
             }
-            if ((!args || args.serverHostname === undefined) && !opts.urn) {
+            if (args?.serverHostname === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverHostname'");
             }
-            resourceInputs["accessKey"] = args ? args.accessKey : undefined;
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["accessKey"] = args?.accessKey;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["region"] = args?.region;
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
-            resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
-            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
-            resourceInputs["serverPort"] = args ? args.serverPort : undefined;
-            resourceInputs["serverProtocol"] = args ? args.serverProtocol : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["serverCertificate"] = args?.serverCertificate;
+            resourceInputs["serverHostname"] = args?.serverHostname;
+            resourceInputs["serverPort"] = args?.serverPort;
+            resourceInputs["serverProtocol"] = args?.serverProtocol;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;

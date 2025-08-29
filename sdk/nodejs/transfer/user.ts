@@ -98,51 +98,51 @@ export class User extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Transfer User
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      */
-    public readonly homeDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly homeDirectory: pulumi.Output<string | undefined>;
     /**
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      */
-    public readonly homeDirectoryMappings!: pulumi.Output<outputs.transfer.UserHomeDirectoryMapping[] | undefined>;
+    declare public readonly homeDirectoryMappings: pulumi.Output<outputs.transfer.UserHomeDirectoryMapping[] | undefined>;
     /**
      * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
      */
-    public readonly homeDirectoryType!: pulumi.Output<string | undefined>;
+    declare public readonly homeDirectoryType: pulumi.Output<string | undefined>;
     /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      */
-    public readonly policy!: pulumi.Output<string | undefined>;
+    declare public readonly policy: pulumi.Output<string | undefined>;
     /**
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
      */
-    public readonly posixProfile!: pulumi.Output<outputs.transfer.UserPosixProfile | undefined>;
+    declare public readonly posixProfile: pulumi.Output<outputs.transfer.UserPosixProfile | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The name used for log in to your SFTP server.
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -157,39 +157,39 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["homeDirectory"] = state ? state.homeDirectory : undefined;
-            resourceInputs["homeDirectoryMappings"] = state ? state.homeDirectoryMappings : undefined;
-            resourceInputs["homeDirectoryType"] = state ? state.homeDirectoryType : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["posixProfile"] = state ? state.posixProfile : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["homeDirectory"] = state?.homeDirectory;
+            resourceInputs["homeDirectoryMappings"] = state?.homeDirectoryMappings;
+            resourceInputs["homeDirectoryType"] = state?.homeDirectoryType;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["posixProfile"] = state?.posixProfile;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["userName"] = state?.userName;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            resourceInputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
-            resourceInputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["posixProfile"] = args ? args.posixProfile : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["homeDirectory"] = args?.homeDirectory;
+            resourceInputs["homeDirectoryMappings"] = args?.homeDirectoryMappings;
+            resourceInputs["homeDirectoryType"] = args?.homeDirectoryType;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["posixProfile"] = args?.posixProfile;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -58,41 +58,41 @@ export class RouteCalculation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      */
-    public /*out*/ readonly calculatorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly calculatorArn: pulumi.Output<string>;
     /**
      * The name of the route calculator resource.
      */
-    public readonly calculatorName!: pulumi.Output<string>;
+    declare public readonly calculatorName: pulumi.Output<string>;
     /**
      * The timestamp for when the route calculator resource was created in ISO 8601 format.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * Specifies the data provider of traffic and road network data.
      *
      * The following arguments are optional:
      */
-    public readonly dataSource!: pulumi.Output<string>;
+    declare public readonly dataSource: pulumi.Output<string>;
     /**
      * The optional description for the route calculator resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The timestamp for when the route calculator resource was last update in ISO 8601.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a RouteCalculation resource with the given unique name, arguments, and options.
@@ -107,28 +107,28 @@ export class RouteCalculation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteCalculationState | undefined;
-            resourceInputs["calculatorArn"] = state ? state.calculatorArn : undefined;
-            resourceInputs["calculatorName"] = state ? state.calculatorName : undefined;
-            resourceInputs["createTime"] = state ? state.createTime : undefined;
-            resourceInputs["dataSource"] = state ? state.dataSource : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
+            resourceInputs["calculatorArn"] = state?.calculatorArn;
+            resourceInputs["calculatorName"] = state?.calculatorName;
+            resourceInputs["createTime"] = state?.createTime;
+            resourceInputs["dataSource"] = state?.dataSource;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["updateTime"] = state?.updateTime;
         } else {
             const args = argsOrState as RouteCalculationArgs | undefined;
-            if ((!args || args.calculatorName === undefined) && !opts.urn) {
+            if (args?.calculatorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'calculatorName'");
             }
-            if ((!args || args.dataSource === undefined) && !opts.urn) {
+            if (args?.dataSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            resourceInputs["calculatorName"] = args ? args.calculatorName : undefined;
-            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["calculatorName"] = args?.calculatorName;
+            resourceInputs["dataSource"] = args?.dataSource;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["calculatorArn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

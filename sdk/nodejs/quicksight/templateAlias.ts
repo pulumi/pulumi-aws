@@ -61,26 +61,26 @@ export class TemplateAlias extends pulumi.CustomResource {
     /**
      * Display name of the template alias.
      */
-    public readonly aliasName!: pulumi.Output<string>;
+    declare public readonly aliasName: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the template alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ID of the template.
      */
-    public readonly templateId!: pulumi.Output<string>;
+    declare public readonly templateId: pulumi.Output<string>;
     /**
      * Version number of the template.
      *
      * The following arguments are optional:
      */
-    public readonly templateVersionNumber!: pulumi.Output<number>;
+    declare public readonly templateVersionNumber: pulumi.Output<number>;
 
     /**
      * Create a TemplateAlias resource with the given unique name, arguments, and options.
@@ -95,28 +95,28 @@ export class TemplateAlias extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateAliasState | undefined;
-            resourceInputs["aliasName"] = state ? state.aliasName : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["templateId"] = state ? state.templateId : undefined;
-            resourceInputs["templateVersionNumber"] = state ? state.templateVersionNumber : undefined;
+            resourceInputs["aliasName"] = state?.aliasName;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["templateId"] = state?.templateId;
+            resourceInputs["templateVersionNumber"] = state?.templateVersionNumber;
         } else {
             const args = argsOrState as TemplateAliasArgs | undefined;
-            if ((!args || args.aliasName === undefined) && !opts.urn) {
+            if (args?.aliasName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aliasName'");
             }
-            if ((!args || args.templateId === undefined) && !opts.urn) {
+            if (args?.templateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateId'");
             }
-            if ((!args || args.templateVersionNumber === undefined) && !opts.urn) {
+            if (args?.templateVersionNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateVersionNumber'");
             }
-            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["templateVersionNumber"] = args ? args.templateVersionNumber : undefined;
+            resourceInputs["aliasName"] = args?.aliasName;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["templateId"] = args?.templateId;
+            resourceInputs["templateVersionNumber"] = args?.templateVersionNumber;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

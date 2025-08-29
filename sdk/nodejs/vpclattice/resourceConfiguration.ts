@@ -114,54 +114,54 @@ export class ResourceConfiguration extends pulumi.CustomResource {
     /**
      * Allow or Deny the association of this resource to a shareable service network.
      */
-    public readonly allowAssociationToShareableServiceNetwork!: pulumi.Output<boolean>;
+    declare public readonly allowAssociationToShareableServiceNetwork: pulumi.Output<boolean>;
     /**
      * ARN of the resource gateway.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name for the Resource Configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Port ranges to access the Resource either single port `80` or range `80-81` range.
      */
-    public readonly portRanges!: pulumi.Output<string[]>;
+    declare public readonly portRanges: pulumi.Output<string[]>;
     /**
      * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      *
      * The following arguments are optional:
      */
-    public readonly resourceConfigurationDefinition!: pulumi.Output<outputs.vpclattice.ResourceConfigurationResourceConfigurationDefinition | undefined>;
+    declare public readonly resourceConfigurationDefinition: pulumi.Output<outputs.vpclattice.ResourceConfigurationResourceConfigurationDefinition | undefined>;
     /**
      * ID of Resource Configuration where `type` is `CHILD`.
      */
-    public readonly resourceConfigurationGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceConfigurationGroupId: pulumi.Output<string | undefined>;
     /**
      * ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
      */
-    public readonly resourceGatewayIdentifier!: pulumi.Output<string>;
+    declare public readonly resourceGatewayIdentifier: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.vpclattice.ResourceConfigurationTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.vpclattice.ResourceConfigurationTimeouts | undefined>;
     /**
      * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a ResourceConfiguration resource with the given unique name, arguments, and options.
@@ -176,32 +176,32 @@ export class ResourceConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceConfigurationState | undefined;
-            resourceInputs["allowAssociationToShareableServiceNetwork"] = state ? state.allowAssociationToShareableServiceNetwork : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["portRanges"] = state ? state.portRanges : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceConfigurationDefinition"] = state ? state.resourceConfigurationDefinition : undefined;
-            resourceInputs["resourceConfigurationGroupId"] = state ? state.resourceConfigurationGroupId : undefined;
-            resourceInputs["resourceGatewayIdentifier"] = state ? state.resourceGatewayIdentifier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["allowAssociationToShareableServiceNetwork"] = state?.allowAssociationToShareableServiceNetwork;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["portRanges"] = state?.portRanges;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceConfigurationDefinition"] = state?.resourceConfigurationDefinition;
+            resourceInputs["resourceConfigurationGroupId"] = state?.resourceConfigurationGroupId;
+            resourceInputs["resourceGatewayIdentifier"] = state?.resourceGatewayIdentifier;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ResourceConfigurationArgs | undefined;
-            resourceInputs["allowAssociationToShareableServiceNetwork"] = args ? args.allowAssociationToShareableServiceNetwork : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["portRanges"] = args ? args.portRanges : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceConfigurationDefinition"] = args ? args.resourceConfigurationDefinition : undefined;
-            resourceInputs["resourceConfigurationGroupId"] = args ? args.resourceConfigurationGroupId : undefined;
-            resourceInputs["resourceGatewayIdentifier"] = args ? args.resourceGatewayIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["allowAssociationToShareableServiceNetwork"] = args?.allowAssociationToShareableServiceNetwork;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["portRanges"] = args?.portRanges;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceConfigurationDefinition"] = args?.resourceConfigurationDefinition;
+            resourceInputs["resourceConfigurationGroupId"] = args?.resourceConfigurationGroupId;
+            resourceInputs["resourceGatewayIdentifier"] = args?.resourceGatewayIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

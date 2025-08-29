@@ -76,31 +76,31 @@ export class Route extends pulumi.CustomResource {
     /**
      * The ID of the Client VPN endpoint.
      */
-    public readonly clientVpnEndpointId!: pulumi.Output<string>;
+    declare public readonly clientVpnEndpointId: pulumi.Output<string>;
     /**
      * A brief description of the route.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The IPv4 address range, in CIDR notation, of the route destination.
      */
-    public readonly destinationCidrBlock!: pulumi.Output<string>;
+    declare public readonly destinationCidrBlock: pulumi.Output<string>;
     /**
      * Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
      */
-    public /*out*/ readonly origin!: pulumi.Output<string>;
+    declare public /*out*/ readonly origin: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      */
-    public readonly targetVpcSubnetId!: pulumi.Output<string>;
+    declare public readonly targetVpcSubnetId: pulumi.Output<string>;
     /**
      * The type of the route.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -115,29 +115,29 @@ export class Route extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            resourceInputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
-            resourceInputs["origin"] = state ? state.origin : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["targetVpcSubnetId"] = state ? state.targetVpcSubnetId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["clientVpnEndpointId"] = state?.clientVpnEndpointId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destinationCidrBlock"] = state?.destinationCidrBlock;
+            resourceInputs["origin"] = state?.origin;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["targetVpcSubnetId"] = state?.targetVpcSubnetId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
+            if (args?.clientVpnEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
+            if (args?.destinationCidrBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.targetVpcSubnetId === undefined) && !opts.urn) {
+            if (args?.targetVpcSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetVpcSubnetId'");
             }
-            resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["targetVpcSubnetId"] = args ? args.targetVpcSubnetId : undefined;
+            resourceInputs["clientVpnEndpointId"] = args?.clientVpnEndpointId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["targetVpcSubnetId"] = args?.targetVpcSubnetId;
             resourceInputs["origin"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

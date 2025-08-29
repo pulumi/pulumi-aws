@@ -173,105 +173,105 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * The ARN of the crawler
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
      */
-    public readonly catalogTargets!: pulumi.Output<outputs.glue.CrawlerCatalogTarget[] | undefined>;
+    declare public readonly catalogTargets: pulumi.Output<outputs.glue.CrawlerCatalogTarget[] | undefined>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
-    public readonly classifiers!: pulumi.Output<string[] | undefined>;
+    declare public readonly classifiers: pulumi.Output<string[] | undefined>;
     /**
      * JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
      */
-    public readonly configuration!: pulumi.Output<string | undefined>;
+    declare public readonly configuration: pulumi.Output<string | undefined>;
     /**
      * Glue database where results are written.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * List of nested Delta Lake target arguments. See Delta Target below.
      */
-    public readonly deltaTargets!: pulumi.Output<outputs.glue.CrawlerDeltaTarget[] | undefined>;
+    declare public readonly deltaTargets: pulumi.Output<outputs.glue.CrawlerDeltaTarget[] | undefined>;
     /**
      * Description of the crawler.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
-    public readonly dynamodbTargets!: pulumi.Output<outputs.glue.CrawlerDynamodbTarget[] | undefined>;
+    declare public readonly dynamodbTargets: pulumi.Output<outputs.glue.CrawlerDynamodbTarget[] | undefined>;
     /**
      * List of nested Hudi target arguments. See Iceberg Target below.
      */
-    public readonly hudiTargets!: pulumi.Output<outputs.glue.CrawlerHudiTarget[] | undefined>;
+    declare public readonly hudiTargets: pulumi.Output<outputs.glue.CrawlerHudiTarget[] | undefined>;
     /**
      * List of nested Iceberg target arguments. See Iceberg Target below.
      */
-    public readonly icebergTargets!: pulumi.Output<outputs.glue.CrawlerIcebergTarget[] | undefined>;
+    declare public readonly icebergTargets: pulumi.Output<outputs.glue.CrawlerIcebergTarget[] | undefined>;
     /**
      * List of nested JDBC target arguments. See JDBC Target below.
      */
-    public readonly jdbcTargets!: pulumi.Output<outputs.glue.CrawlerJdbcTarget[] | undefined>;
+    declare public readonly jdbcTargets: pulumi.Output<outputs.glue.CrawlerJdbcTarget[] | undefined>;
     /**
      * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
      */
-    public readonly lakeFormationConfiguration!: pulumi.Output<outputs.glue.CrawlerLakeFormationConfiguration | undefined>;
+    declare public readonly lakeFormationConfiguration: pulumi.Output<outputs.glue.CrawlerLakeFormationConfiguration | undefined>;
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      */
-    public readonly lineageConfiguration!: pulumi.Output<outputs.glue.CrawlerLineageConfiguration | undefined>;
+    declare public readonly lineageConfiguration: pulumi.Output<outputs.glue.CrawlerLineageConfiguration | undefined>;
     /**
      * List of nested MongoDB target arguments. See MongoDB Target below.
      */
-    public readonly mongodbTargets!: pulumi.Output<outputs.glue.CrawlerMongodbTarget[] | undefined>;
+    declare public readonly mongodbTargets: pulumi.Output<outputs.glue.CrawlerMongodbTarget[] | undefined>;
     /**
      * Name of the crawler.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      */
-    public readonly recrawlPolicy!: pulumi.Output<outputs.glue.CrawlerRecrawlPolicy | undefined>;
+    declare public readonly recrawlPolicy: pulumi.Output<outputs.glue.CrawlerRecrawlPolicy | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * List of nested Amazon S3 target arguments. See S3 Target below.
      */
-    public readonly s3Targets!: pulumi.Output<outputs.glue.CrawlerS3Target[] | undefined>;
+    declare public readonly s3Targets: pulumi.Output<outputs.glue.CrawlerS3Target[] | undefined>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
-    public readonly schedule!: pulumi.Output<string | undefined>;
+    declare public readonly schedule: pulumi.Output<string | undefined>;
     /**
      * Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
      */
-    public readonly schemaChangePolicy!: pulumi.Output<outputs.glue.CrawlerSchemaChangePolicy | undefined>;
+    declare public readonly schemaChangePolicy: pulumi.Output<outputs.glue.CrawlerSchemaChangePolicy | undefined>;
     /**
      * The name of Security Configuration to be used by the crawler
      */
-    public readonly securityConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly securityConfiguration: pulumi.Output<string | undefined>;
     /**
      * The table prefix used for catalog tables that are created.
      */
-    public readonly tablePrefix!: pulumi.Output<string | undefined>;
+    declare public readonly tablePrefix: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Crawler resource with the given unique name, arguments, and options.
@@ -286,62 +286,62 @@ export class Crawler extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CrawlerState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["catalogTargets"] = state ? state.catalogTargets : undefined;
-            resourceInputs["classifiers"] = state ? state.classifiers : undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["deltaTargets"] = state ? state.deltaTargets : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
-            resourceInputs["hudiTargets"] = state ? state.hudiTargets : undefined;
-            resourceInputs["icebergTargets"] = state ? state.icebergTargets : undefined;
-            resourceInputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
-            resourceInputs["lakeFormationConfiguration"] = state ? state.lakeFormationConfiguration : undefined;
-            resourceInputs["lineageConfiguration"] = state ? state.lineageConfiguration : undefined;
-            resourceInputs["mongodbTargets"] = state ? state.mongodbTargets : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recrawlPolicy"] = state ? state.recrawlPolicy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["s3Targets"] = state ? state.s3Targets : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["schemaChangePolicy"] = state ? state.schemaChangePolicy : undefined;
-            resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
-            resourceInputs["tablePrefix"] = state ? state.tablePrefix : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["catalogTargets"] = state?.catalogTargets;
+            resourceInputs["classifiers"] = state?.classifiers;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["deltaTargets"] = state?.deltaTargets;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dynamodbTargets"] = state?.dynamodbTargets;
+            resourceInputs["hudiTargets"] = state?.hudiTargets;
+            resourceInputs["icebergTargets"] = state?.icebergTargets;
+            resourceInputs["jdbcTargets"] = state?.jdbcTargets;
+            resourceInputs["lakeFormationConfiguration"] = state?.lakeFormationConfiguration;
+            resourceInputs["lineageConfiguration"] = state?.lineageConfiguration;
+            resourceInputs["mongodbTargets"] = state?.mongodbTargets;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recrawlPolicy"] = state?.recrawlPolicy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["s3Targets"] = state?.s3Targets;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["schemaChangePolicy"] = state?.schemaChangePolicy;
+            resourceInputs["securityConfiguration"] = state?.securityConfiguration;
+            resourceInputs["tablePrefix"] = state?.tablePrefix;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as CrawlerArgs | undefined;
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["catalogTargets"] = args ? args.catalogTargets : undefined;
-            resourceInputs["classifiers"] = args ? args.classifiers : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["deltaTargets"] = args ? args.deltaTargets : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
-            resourceInputs["hudiTargets"] = args ? args.hudiTargets : undefined;
-            resourceInputs["icebergTargets"] = args ? args.icebergTargets : undefined;
-            resourceInputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
-            resourceInputs["lakeFormationConfiguration"] = args ? args.lakeFormationConfiguration : undefined;
-            resourceInputs["lineageConfiguration"] = args ? args.lineageConfiguration : undefined;
-            resourceInputs["mongodbTargets"] = args ? args.mongodbTargets : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recrawlPolicy"] = args ? args.recrawlPolicy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["s3Targets"] = args ? args.s3Targets : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["schemaChangePolicy"] = args ? args.schemaChangePolicy : undefined;
-            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            resourceInputs["tablePrefix"] = args ? args.tablePrefix : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["catalogTargets"] = args?.catalogTargets;
+            resourceInputs["classifiers"] = args?.classifiers;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["deltaTargets"] = args?.deltaTargets;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dynamodbTargets"] = args?.dynamodbTargets;
+            resourceInputs["hudiTargets"] = args?.hudiTargets;
+            resourceInputs["icebergTargets"] = args?.icebergTargets;
+            resourceInputs["jdbcTargets"] = args?.jdbcTargets;
+            resourceInputs["lakeFormationConfiguration"] = args?.lakeFormationConfiguration;
+            resourceInputs["lineageConfiguration"] = args?.lineageConfiguration;
+            resourceInputs["mongodbTargets"] = args?.mongodbTargets;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recrawlPolicy"] = args?.recrawlPolicy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["s3Targets"] = args?.s3Targets;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["schemaChangePolicy"] = args?.schemaChangePolicy;
+            resourceInputs["securityConfiguration"] = args?.securityConfiguration;
+            resourceInputs["tablePrefix"] = args?.tablePrefix;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -11,7 +11,8 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+// The access key for API operations. You can retrieve this
+// from the 'Security & Credentials' section of the AWS console.
 func GetAccessKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:accessKey")
 }
@@ -25,8 +26,7 @@ func GetAssumeRoles(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:assumeRoles")
 }
 
-// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-// variable. (Setting `caBundle` in the shared config file is not supported.)
+// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `caBundle` in the shared config file is not supported.)
 func GetCustomCaBundle(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:customCaBundle")
 }
@@ -36,14 +36,12 @@ func GetDefaultTags(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:defaultTags")
 }
 
-// Address of the EC2 metadata service endpoint to use. Can also be configured using the
-// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+// Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
 func GetEc2MetadataServiceEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:ec2MetadataServiceEndpoint")
 }
 
-// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
 func GetEc2MetadataServiceEndpointMode(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:ec2MetadataServiceEndpointMode")
 }
@@ -54,14 +52,12 @@ func GetForbiddenAccountIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:forbiddenAccountIds")
 }
 
-// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-// `httpProxy` environment variables.
+// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `httpProxy` environment variables.
 func GetHttpProxy(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:httpProxy")
 }
 
-// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-// `httpsProxy` environment variables.
+// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `httpsProxy` environment variables.
 func GetHttpsProxy(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:httpsProxy")
 }
@@ -76,23 +72,26 @@ func GetInsecure(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:insecure")
 }
 
-// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+// The maximum number of times an AWS API request is
+// being executed. If the API request still fails, an error is
+// thrown.
 func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "aws:maxRetries")
 }
 
-// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-// `noProxy` environment variables.
+// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `noProxy` environment variables.
 func GetNoProxy(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:noProxy")
 }
 
-// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+// The profile for API operations. If not set, the default profile
+// created with `aws configure` will be used.
 func GetProfile(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:profile")
 }
 
-// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+// The region where AWS operations will take place. Examples
+// are us-east-1, us-west-2, etc.
 func GetRegion(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "aws:region")
 	if err == nil {
@@ -105,27 +104,26 @@ func GetRegion(ctx *pulumi.Context) string {
 	return value
 }
 
-// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-// `AWS_RETRY_MODE` environment variable.
+// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
 func GetRetryMode(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:retryMode")
 }
 
-// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-// variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
+// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
 func GetS3UsEast1RegionalEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:s3UsEast1RegionalEndpoint")
 }
 
-// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-// Specific to the Amazon S3 service.
+// Set this to true to enable the request to use path-style addressing,
+// i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+// use virtual hosted bucket addressing when possible
+// (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
 func GetS3UsePathStyle(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:s3UsePathStyle")
 }
 
-// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+// The secret key for API operations. You can retrieve this
+// from the 'Security & Credentials' section of the AWS console.
 func GetSecretKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:secretKey")
 }
@@ -140,8 +138,7 @@ func GetSharedCredentialsFiles(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:sharedCredentialsFiles")
 }
 
-// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-// available/implemented.
+// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
 func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "aws:skipCredentialsValidation")
 	if err == nil {
@@ -157,8 +154,7 @@ func GetSkipMetadataApiCheck(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:skipMetadataApiCheck")
 }
 
-// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-// not public (yet).
+// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
 func GetSkipRegionValidation(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "aws:skipRegionValidation")
 	if err == nil {
@@ -174,12 +170,14 @@ func GetSkipRequestingAccountId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:skipRequestingAccountId")
 }
 
-// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+// The region where AWS STS operations will take place. Examples
+// are us-east-1 and us-west-2.
 func GetStsRegion(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:stsRegion")
 }
 
-// session token. A session token is only required if you are using temporary security credentials.
+// session token. A session token is only required if you are
+// using temporary security credentials.
 func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:token")
 }

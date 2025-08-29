@@ -123,95 +123,95 @@ export class ReplicationInstance extends pulumi.CustomResource {
     /**
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
-    public readonly allocatedStorage!: pulumi.Output<number>;
+    declare public readonly allocatedStorage: pulumi.Output<number>;
     /**
      * Indicates that major version upgrades are allowed.
      */
-    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowMajorVersionUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */
-    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
+    declare public readonly applyImmediately: pulumi.Output<boolean | undefined>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      */
-    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
+    declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean>;
     /**
      * The EC2 Availability Zone that the replication instance will be created in.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    declare public readonly availabilityZone: pulumi.Output<string>;
     /**
      * A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
      */
-    public readonly dnsNameServers!: pulumi.Output<string | undefined>;
+    declare public readonly dnsNameServers: pulumi.Output<string | undefined>;
     /**
      * The engine version number of the replication instance.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    declare public readonly engineVersion: pulumi.Output<string>;
     /**
      * Configuration block for settings required for Kerberos authentication. See below.
      */
-    public readonly kerberosAuthenticationSettings!: pulumi.Output<outputs.dms.ReplicationInstanceKerberosAuthenticationSettings | undefined>;
+    declare public readonly kerberosAuthenticationSettings: pulumi.Output<outputs.dms.ReplicationInstanceKerberosAuthenticationSettings | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string>;
+    declare public readonly kmsKeyArn: pulumi.Output<string>;
     /**
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      */
-    public readonly multiAz!: pulumi.Output<boolean>;
+    declare public readonly multiAz: pulumi.Output<boolean>;
     /**
      * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
      */
-    public readonly networkType!: pulumi.Output<string>;
+    declare public readonly networkType: pulumi.Output<string>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
     /**
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean>;
+    declare public readonly publiclyAccessible: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
-    public /*out*/ readonly replicationInstanceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly replicationInstanceArn: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      */
-    public readonly replicationInstanceClass!: pulumi.Output<string>;
+    declare public readonly replicationInstanceClass: pulumi.Output<string>;
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      */
-    public readonly replicationInstanceId!: pulumi.Output<string>;
+    declare public readonly replicationInstanceId: pulumi.Output<string>;
     /**
      * A list of the private IP addresses of the replication instance.
      */
-    public /*out*/ readonly replicationInstancePrivateIps!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly replicationInstancePrivateIps: pulumi.Output<string[]>;
     /**
      * A list of the public IP addresses of the replication instance.
      */
-    public /*out*/ readonly replicationInstancePublicIps!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly replicationInstancePublicIps: pulumi.Output<string[]>;
     /**
      * A subnet group to associate with the replication instance.
      */
-    public readonly replicationSubnetGroupId!: pulumi.Output<string>;
+    declare public readonly replicationSubnetGroupId: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
 
     /**
      * Create a ReplicationInstance resource with the given unique name, arguments, and options.
@@ -226,56 +226,56 @@ export class ReplicationInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationInstanceState | undefined;
-            resourceInputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
-            resourceInputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
-            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            resourceInputs["dnsNameServers"] = state ? state.dnsNameServers : undefined;
-            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
-            resourceInputs["kerberosAuthenticationSettings"] = state ? state.kerberosAuthenticationSettings : undefined;
-            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            resourceInputs["multiAz"] = state ? state.multiAz : undefined;
-            resourceInputs["networkType"] = state ? state.networkType : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
-            resourceInputs["replicationInstanceClass"] = state ? state.replicationInstanceClass : undefined;
-            resourceInputs["replicationInstanceId"] = state ? state.replicationInstanceId : undefined;
-            resourceInputs["replicationInstancePrivateIps"] = state ? state.replicationInstancePrivateIps : undefined;
-            resourceInputs["replicationInstancePublicIps"] = state ? state.replicationInstancePublicIps : undefined;
-            resourceInputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["allocatedStorage"] = state?.allocatedStorage;
+            resourceInputs["allowMajorVersionUpgrade"] = state?.allowMajorVersionUpgrade;
+            resourceInputs["applyImmediately"] = state?.applyImmediately;
+            resourceInputs["autoMinorVersionUpgrade"] = state?.autoMinorVersionUpgrade;
+            resourceInputs["availabilityZone"] = state?.availabilityZone;
+            resourceInputs["dnsNameServers"] = state?.dnsNameServers;
+            resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["kerberosAuthenticationSettings"] = state?.kerberosAuthenticationSettings;
+            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
+            resourceInputs["multiAz"] = state?.multiAz;
+            resourceInputs["networkType"] = state?.networkType;
+            resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["replicationInstanceArn"] = state?.replicationInstanceArn;
+            resourceInputs["replicationInstanceClass"] = state?.replicationInstanceClass;
+            resourceInputs["replicationInstanceId"] = state?.replicationInstanceId;
+            resourceInputs["replicationInstancePrivateIps"] = state?.replicationInstancePrivateIps;
+            resourceInputs["replicationInstancePublicIps"] = state?.replicationInstancePublicIps;
+            resourceInputs["replicationSubnetGroupId"] = state?.replicationSubnetGroupId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
         } else {
             const args = argsOrState as ReplicationInstanceArgs | undefined;
-            if ((!args || args.replicationInstanceClass === undefined) && !opts.urn) {
+            if (args?.replicationInstanceClass === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationInstanceClass'");
             }
-            if ((!args || args.replicationInstanceId === undefined) && !opts.urn) {
+            if (args?.replicationInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationInstanceId'");
             }
-            resourceInputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
-            resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
-            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["dnsNameServers"] = args ? args.dnsNameServers : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["kerberosAuthenticationSettings"] = args ? args.kerberosAuthenticationSettings : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
-            resourceInputs["networkType"] = args ? args.networkType : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
-            resourceInputs["replicationInstanceId"] = args ? args.replicationInstanceId : undefined;
-            resourceInputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["allocatedStorage"] = args?.allocatedStorage;
+            resourceInputs["allowMajorVersionUpgrade"] = args?.allowMajorVersionUpgrade;
+            resourceInputs["applyImmediately"] = args?.applyImmediately;
+            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["dnsNameServers"] = args?.dnsNameServers;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["kerberosAuthenticationSettings"] = args?.kerberosAuthenticationSettings;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["multiAz"] = args?.multiAz;
+            resourceInputs["networkType"] = args?.networkType;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replicationInstanceClass"] = args?.replicationInstanceClass;
+            resourceInputs["replicationInstanceId"] = args?.replicationInstanceId;
+            resourceInputs["replicationSubnetGroupId"] = args?.replicationSubnetGroupId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["replicationInstanceArn"] = undefined /*out*/;
             resourceInputs["replicationInstancePrivateIps"] = undefined /*out*/;
             resourceInputs["replicationInstancePublicIps"] = undefined /*out*/;

@@ -61,39 +61,39 @@ export class VpcConnection extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the VPC connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      */
-    public readonly authentication!: pulumi.Output<string>;
+    declare public readonly authentication: pulumi.Output<string>;
     /**
      * The list of subnets in the client VPC to connect to.
      */
-    public readonly clientSubnets!: pulumi.Output<string[]>;
+    declare public readonly clientSubnets: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The security groups to attach to the ENIs for the broker nodes.
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    declare public readonly securityGroups: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    public readonly targetClusterArn!: pulumi.Output<string>;
+    declare public readonly targetClusterArn: pulumi.Output<string>;
     /**
      * The VPC ID of the remote client.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcConnection resource with the given unique name, arguments, and options.
@@ -108,39 +108,39 @@ export class VpcConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcConnectionState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["authentication"] = state ? state.authentication : undefined;
-            resourceInputs["clientSubnets"] = state ? state.clientSubnets : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["targetClusterArn"] = state ? state.targetClusterArn : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["authentication"] = state?.authentication;
+            resourceInputs["clientSubnets"] = state?.clientSubnets;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroups"] = state?.securityGroups;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetClusterArn"] = state?.targetClusterArn;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as VpcConnectionArgs | undefined;
-            if ((!args || args.authentication === undefined) && !opts.urn) {
+            if (args?.authentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if ((!args || args.clientSubnets === undefined) && !opts.urn) {
+            if (args?.clientSubnets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSubnets'");
             }
-            if ((!args || args.securityGroups === undefined) && !opts.urn) {
+            if (args?.securityGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroups'");
             }
-            if ((!args || args.targetClusterArn === undefined) && !opts.urn) {
+            if (args?.targetClusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetClusterArn'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["clientSubnets"] = args ? args.clientSubnets : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetClusterArn"] = args ? args.targetClusterArn : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["clientSubnets"] = args?.clientSubnets;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetClusterArn"] = args?.targetClusterArn;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -76,61 +76,61 @@ export class Membership extends pulumi.CustomResource {
     /**
      * The ARN of the membership.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ARN of the joined collaboration.
      */
-    public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationArn: pulumi.Output<string>;
     /**
      * The account ID of the collaboration's creator.
      */
-    public /*out*/ readonly collaborationCreatorAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationCreatorAccountId: pulumi.Output<string>;
     /**
      * The display name of the collaboration's creator.
      */
-    public /*out*/ readonly collaborationCreatorDisplayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationCreatorDisplayName: pulumi.Output<string>;
     /**
      * The ID of the collaboration to which the member was invited.
      */
-    public readonly collaborationId!: pulumi.Output<string>;
+    declare public readonly collaborationId: pulumi.Output<string>;
     /**
      * The name of the joined collaboration.
      */
-    public /*out*/ readonly collaborationName!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationName: pulumi.Output<string>;
     /**
      * The date and time the membership was created.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * The default configuration for a query result.
      */
-    public readonly defaultResultConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipDefaultResultConfiguration | undefined>;
+    declare public readonly defaultResultConfiguration: pulumi.Output<outputs.cleanrooms.MembershipDefaultResultConfiguration | undefined>;
     /**
      * The list of abilities for the invited member.
      */
-    public /*out*/ readonly memberAbilities!: pulumi.Output<string[]>;
-    public readonly paymentConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
+    declare public /*out*/ readonly memberAbilities: pulumi.Output<string[]>;
+    declare public readonly paymentConfiguration: pulumi.Output<outputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      */
-    public readonly queryLogStatus!: pulumi.Output<string>;
+    declare public readonly queryLogStatus: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The status of the membership.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key value pairs which tag the membership.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The date and time the membership was last updated.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a Membership resource with the given unique name, arguments, and options.
@@ -145,36 +145,36 @@ export class Membership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MembershipState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["collaborationArn"] = state ? state.collaborationArn : undefined;
-            resourceInputs["collaborationCreatorAccountId"] = state ? state.collaborationCreatorAccountId : undefined;
-            resourceInputs["collaborationCreatorDisplayName"] = state ? state.collaborationCreatorDisplayName : undefined;
-            resourceInputs["collaborationId"] = state ? state.collaborationId : undefined;
-            resourceInputs["collaborationName"] = state ? state.collaborationName : undefined;
-            resourceInputs["createTime"] = state ? state.createTime : undefined;
-            resourceInputs["defaultResultConfiguration"] = state ? state.defaultResultConfiguration : undefined;
-            resourceInputs["memberAbilities"] = state ? state.memberAbilities : undefined;
-            resourceInputs["paymentConfiguration"] = state ? state.paymentConfiguration : undefined;
-            resourceInputs["queryLogStatus"] = state ? state.queryLogStatus : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["collaborationArn"] = state?.collaborationArn;
+            resourceInputs["collaborationCreatorAccountId"] = state?.collaborationCreatorAccountId;
+            resourceInputs["collaborationCreatorDisplayName"] = state?.collaborationCreatorDisplayName;
+            resourceInputs["collaborationId"] = state?.collaborationId;
+            resourceInputs["collaborationName"] = state?.collaborationName;
+            resourceInputs["createTime"] = state?.createTime;
+            resourceInputs["defaultResultConfiguration"] = state?.defaultResultConfiguration;
+            resourceInputs["memberAbilities"] = state?.memberAbilities;
+            resourceInputs["paymentConfiguration"] = state?.paymentConfiguration;
+            resourceInputs["queryLogStatus"] = state?.queryLogStatus;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["updateTime"] = state?.updateTime;
         } else {
             const args = argsOrState as MembershipArgs | undefined;
-            if ((!args || args.collaborationId === undefined) && !opts.urn) {
+            if (args?.collaborationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collaborationId'");
             }
-            if ((!args || args.queryLogStatus === undefined) && !opts.urn) {
+            if (args?.queryLogStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
-            resourceInputs["collaborationId"] = args ? args.collaborationId : undefined;
-            resourceInputs["defaultResultConfiguration"] = args ? args.defaultResultConfiguration : undefined;
-            resourceInputs["paymentConfiguration"] = args ? args.paymentConfiguration : undefined;
-            resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collaborationId"] = args?.collaborationId;
+            resourceInputs["defaultResultConfiguration"] = args?.defaultResultConfiguration;
+            resourceInputs["paymentConfiguration"] = args?.paymentConfiguration;
+            resourceInputs["queryLogStatus"] = args?.queryLogStatus;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationCreatorAccountId"] = undefined /*out*/;

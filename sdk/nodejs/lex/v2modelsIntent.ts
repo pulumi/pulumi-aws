@@ -47,83 +47,83 @@ export class V2modelsIntent extends pulumi.CustomResource {
     /**
      * Identifier of the bot associated with this intent.
      */
-    public readonly botId!: pulumi.Output<string>;
+    declare public readonly botId: pulumi.Output<string>;
     /**
      * Version of the bot associated with this intent.
      */
-    public readonly botVersion!: pulumi.Output<string>;
+    declare public readonly botVersion: pulumi.Output<string>;
     /**
      * Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
      */
-    public readonly closingSetting!: pulumi.Output<outputs.lex.V2modelsIntentClosingSetting | undefined>;
-    public readonly confirmationSetting!: pulumi.Output<outputs.lex.V2modelsIntentConfirmationSetting | undefined>;
+    declare public readonly closingSetting: pulumi.Output<outputs.lex.V2modelsIntentClosingSetting | undefined>;
+    declare public readonly confirmationSetting: pulumi.Output<outputs.lex.V2modelsIntentConfirmationSetting | undefined>;
     /**
      * Timestamp of the date and time that the intent was created.
      */
-    public /*out*/ readonly creationDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDateTime: pulumi.Output<string>;
     /**
      * Description of the intent. Use the description to help identify the intent in lists.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialogCodeHook`.
      */
-    public readonly dialogCodeHook!: pulumi.Output<outputs.lex.V2modelsIntentDialogCodeHook | undefined>;
+    declare public readonly dialogCodeHook: pulumi.Output<outputs.lex.V2modelsIntentDialogCodeHook | undefined>;
     /**
      * Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillmentCodeHook`.
      */
-    public readonly fulfillmentCodeHook!: pulumi.Output<outputs.lex.V2modelsIntentFulfillmentCodeHook | undefined>;
+    declare public readonly fulfillmentCodeHook: pulumi.Output<outputs.lex.V2modelsIntentFulfillmentCodeHook | undefined>;
     /**
      * Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initialResponseSetting`.
      */
-    public readonly initialResponseSetting!: pulumi.Output<outputs.lex.V2modelsIntentInitialResponseSetting | undefined>;
+    declare public readonly initialResponseSetting: pulumi.Output<outputs.lex.V2modelsIntentInitialResponseSetting | undefined>;
     /**
      * Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `inputContext`.
      */
-    public readonly inputContexts!: pulumi.Output<outputs.lex.V2modelsIntentInputContext[] | undefined>;
+    declare public readonly inputContexts: pulumi.Output<outputs.lex.V2modelsIntentInputContext[] | undefined>;
     /**
      * Unique identifier for the intent.
      */
-    public /*out*/ readonly intentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly intentId: pulumi.Output<string>;
     /**
      * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
      */
-    public readonly kendraConfiguration!: pulumi.Output<outputs.lex.V2modelsIntentKendraConfiguration | undefined>;
+    declare public readonly kendraConfiguration: pulumi.Output<outputs.lex.V2modelsIntentKendraConfiguration | undefined>;
     /**
      * Timestamp of the last time that the intent was modified.
      */
-    public /*out*/ readonly lastUpdatedDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedDateTime: pulumi.Output<string>;
     /**
      * Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
      */
-    public readonly localeId!: pulumi.Output<string>;
+    declare public readonly localeId: pulumi.Output<string>;
     /**
      * Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `outputContext`.
      */
-    public readonly outputContexts!: pulumi.Output<outputs.lex.V2modelsIntentOutputContext[] | undefined>;
+    declare public readonly outputContexts: pulumi.Output<outputs.lex.V2modelsIntentOutputContext[] | undefined>;
     /**
      * Identifier for the built-in intent to base this intent on.
      */
-    public readonly parentIntentSignature!: pulumi.Output<string | undefined>;
+    declare public readonly parentIntentSignature: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
      */
-    public readonly sampleUtterances!: pulumi.Output<outputs.lex.V2modelsIntentSampleUtterance[] | undefined>;
+    declare public readonly sampleUtterances: pulumi.Output<outputs.lex.V2modelsIntentSampleUtterance[] | undefined>;
     /**
      * Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slotPriority`.
      */
-    public readonly slotPriorities!: pulumi.Output<outputs.lex.V2modelsIntentSlotPriority[] | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsIntentTimeouts | undefined>;
+    declare public readonly slotPriorities: pulumi.Output<outputs.lex.V2modelsIntentSlotPriority[] | undefined>;
+    declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsIntentTimeouts | undefined>;
 
     /**
      * Create a V2modelsIntent resource with the given unique name, arguments, and options.
@@ -138,56 +138,56 @@ export class V2modelsIntent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as V2modelsIntentState | undefined;
-            resourceInputs["botId"] = state ? state.botId : undefined;
-            resourceInputs["botVersion"] = state ? state.botVersion : undefined;
-            resourceInputs["closingSetting"] = state ? state.closingSetting : undefined;
-            resourceInputs["confirmationSetting"] = state ? state.confirmationSetting : undefined;
-            resourceInputs["creationDateTime"] = state ? state.creationDateTime : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dialogCodeHook"] = state ? state.dialogCodeHook : undefined;
-            resourceInputs["fulfillmentCodeHook"] = state ? state.fulfillmentCodeHook : undefined;
-            resourceInputs["initialResponseSetting"] = state ? state.initialResponseSetting : undefined;
-            resourceInputs["inputContexts"] = state ? state.inputContexts : undefined;
-            resourceInputs["intentId"] = state ? state.intentId : undefined;
-            resourceInputs["kendraConfiguration"] = state ? state.kendraConfiguration : undefined;
-            resourceInputs["lastUpdatedDateTime"] = state ? state.lastUpdatedDateTime : undefined;
-            resourceInputs["localeId"] = state ? state.localeId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputContexts"] = state ? state.outputContexts : undefined;
-            resourceInputs["parentIntentSignature"] = state ? state.parentIntentSignature : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sampleUtterances"] = state ? state.sampleUtterances : undefined;
-            resourceInputs["slotPriorities"] = state ? state.slotPriorities : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["botId"] = state?.botId;
+            resourceInputs["botVersion"] = state?.botVersion;
+            resourceInputs["closingSetting"] = state?.closingSetting;
+            resourceInputs["confirmationSetting"] = state?.confirmationSetting;
+            resourceInputs["creationDateTime"] = state?.creationDateTime;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dialogCodeHook"] = state?.dialogCodeHook;
+            resourceInputs["fulfillmentCodeHook"] = state?.fulfillmentCodeHook;
+            resourceInputs["initialResponseSetting"] = state?.initialResponseSetting;
+            resourceInputs["inputContexts"] = state?.inputContexts;
+            resourceInputs["intentId"] = state?.intentId;
+            resourceInputs["kendraConfiguration"] = state?.kendraConfiguration;
+            resourceInputs["lastUpdatedDateTime"] = state?.lastUpdatedDateTime;
+            resourceInputs["localeId"] = state?.localeId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputContexts"] = state?.outputContexts;
+            resourceInputs["parentIntentSignature"] = state?.parentIntentSignature;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sampleUtterances"] = state?.sampleUtterances;
+            resourceInputs["slotPriorities"] = state?.slotPriorities;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as V2modelsIntentArgs | undefined;
-            if ((!args || args.botId === undefined) && !opts.urn) {
+            if (args?.botId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            if ((!args || args.botVersion === undefined) && !opts.urn) {
+            if (args?.botVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botVersion'");
             }
-            if ((!args || args.localeId === undefined) && !opts.urn) {
+            if (args?.localeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localeId'");
             }
-            resourceInputs["botId"] = args ? args.botId : undefined;
-            resourceInputs["botVersion"] = args ? args.botVersion : undefined;
-            resourceInputs["closingSetting"] = args ? args.closingSetting : undefined;
-            resourceInputs["confirmationSetting"] = args ? args.confirmationSetting : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dialogCodeHook"] = args ? args.dialogCodeHook : undefined;
-            resourceInputs["fulfillmentCodeHook"] = args ? args.fulfillmentCodeHook : undefined;
-            resourceInputs["initialResponseSetting"] = args ? args.initialResponseSetting : undefined;
-            resourceInputs["inputContexts"] = args ? args.inputContexts : undefined;
-            resourceInputs["kendraConfiguration"] = args ? args.kendraConfiguration : undefined;
-            resourceInputs["localeId"] = args ? args.localeId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputContexts"] = args ? args.outputContexts : undefined;
-            resourceInputs["parentIntentSignature"] = args ? args.parentIntentSignature : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sampleUtterances"] = args ? args.sampleUtterances : undefined;
-            resourceInputs["slotPriorities"] = args ? args.slotPriorities : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["botId"] = args?.botId;
+            resourceInputs["botVersion"] = args?.botVersion;
+            resourceInputs["closingSetting"] = args?.closingSetting;
+            resourceInputs["confirmationSetting"] = args?.confirmationSetting;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dialogCodeHook"] = args?.dialogCodeHook;
+            resourceInputs["fulfillmentCodeHook"] = args?.fulfillmentCodeHook;
+            resourceInputs["initialResponseSetting"] = args?.initialResponseSetting;
+            resourceInputs["inputContexts"] = args?.inputContexts;
+            resourceInputs["kendraConfiguration"] = args?.kendraConfiguration;
+            resourceInputs["localeId"] = args?.localeId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputContexts"] = args?.outputContexts;
+            resourceInputs["parentIntentSignature"] = args?.parentIntentSignature;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sampleUtterances"] = args?.sampleUtterances;
+            resourceInputs["slotPriorities"] = args?.slotPriorities;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["intentId"] = undefined /*out*/;
             resourceInputs["lastUpdatedDateTime"] = undefined /*out*/;

@@ -76,25 +76,25 @@ export class RoleAssociation extends pulumi.CustomResource {
     /**
      * The AWS SSO group ids to be assigned the role given in `role`.
      */
-    public readonly groupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupIds: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * The AWS SSO user ids to be assigned the role given in `role`.
      */
-    public readonly userIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly userIds: pulumi.Output<string[] | undefined>;
     /**
      * The workspace id.
      *
      * The following arguments are optional:
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a RoleAssociation resource with the given unique name, arguments, and options.
@@ -109,24 +109,24 @@ export class RoleAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleAssociationState | undefined;
-            resourceInputs["groupIds"] = state ? state.groupIds : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["userIds"] = state ? state.userIds : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["groupIds"] = state?.groupIds;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["userIds"] = state?.userIds;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as RoleAssociationArgs | undefined;
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["groupIds"] = args ? args.groupIds : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["userIds"] = args ? args.userIds : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["groupIds"] = args?.groupIds;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["userIds"] = args?.userIds;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RoleAssociation.__pulumiType, name, resourceInputs, opts);

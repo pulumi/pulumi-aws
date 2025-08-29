@@ -55,27 +55,27 @@ export class HsmClientCertificate extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier of the HSM client certificate.
      */
-    public readonly hsmClientCertificateIdentifier!: pulumi.Output<string>;
+    declare public readonly hsmClientCertificateIdentifier: pulumi.Output<string>;
     /**
      * The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
      */
-    public /*out*/ readonly hsmClientCertificatePublicKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly hsmClientCertificatePublicKey: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a HsmClientCertificate resource with the given unique name, arguments, and options.
@@ -90,20 +90,20 @@ export class HsmClientCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HsmClientCertificateState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["hsmClientCertificateIdentifier"] = state ? state.hsmClientCertificateIdentifier : undefined;
-            resourceInputs["hsmClientCertificatePublicKey"] = state ? state.hsmClientCertificatePublicKey : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["hsmClientCertificateIdentifier"] = state?.hsmClientCertificateIdentifier;
+            resourceInputs["hsmClientCertificatePublicKey"] = state?.hsmClientCertificatePublicKey;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as HsmClientCertificateArgs | undefined;
-            if ((!args || args.hsmClientCertificateIdentifier === undefined) && !opts.urn) {
+            if (args?.hsmClientCertificateIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hsmClientCertificateIdentifier'");
             }
-            resourceInputs["hsmClientCertificateIdentifier"] = args ? args.hsmClientCertificateIdentifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hsmClientCertificateIdentifier"] = args?.hsmClientCertificateIdentifier;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hsmClientCertificatePublicKey"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

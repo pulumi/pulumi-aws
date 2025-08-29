@@ -113,21 +113,21 @@ export class ResourceCollection extends pulumi.CustomResource {
     /**
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      */
-    public readonly cloudformation!: pulumi.Output<outputs.devopsguru.ResourceCollectionCloudformation | undefined>;
+    declare public readonly cloudformation: pulumi.Output<outputs.devopsguru.ResourceCollectionCloudformation | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */
-    public readonly tags!: pulumi.Output<outputs.devopsguru.ResourceCollectionTags | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.devopsguru.ResourceCollectionTags | undefined>;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
      *
      * The following arguments are optional:
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a ResourceCollection resource with the given unique name, arguments, and options.
@@ -142,19 +142,19 @@ export class ResourceCollection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceCollectionState | undefined;
-            resourceInputs["cloudformation"] = state ? state.cloudformation : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["cloudformation"] = state?.cloudformation;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ResourceCollectionArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["cloudformation"] = args ? args.cloudformation : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["cloudformation"] = args?.cloudformation;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceCollection.__pulumiType, name, resourceInputs, opts);

@@ -63,15 +63,15 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
     /**
      * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
      */
-    public readonly privateDnsEnabled!: pulumi.Output<boolean>;
+    declare public readonly privateDnsEnabled: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * VPC endpoint identifier.
      */
-    public readonly vpcEndpointId!: pulumi.Output<string>;
+    declare public readonly vpcEndpointId: pulumi.Output<string>;
 
     /**
      * Create a EndpointPrivateDns resource with the given unique name, arguments, and options.
@@ -86,20 +86,20 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointPrivateDnsState | undefined;
-            resourceInputs["privateDnsEnabled"] = state ? state.privateDnsEnabled : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+            resourceInputs["privateDnsEnabled"] = state?.privateDnsEnabled;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["vpcEndpointId"] = state?.vpcEndpointId;
         } else {
             const args = argsOrState as EndpointPrivateDnsArgs | undefined;
-            if ((!args || args.privateDnsEnabled === undefined) && !opts.urn) {
+            if (args?.privateDnsEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateDnsEnabled'");
             }
-            if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
+            if (args?.vpcEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
-            resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["privateDnsEnabled"] = args?.privateDnsEnabled;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EndpointPrivateDns.__pulumiType, name, resourceInputs, opts);

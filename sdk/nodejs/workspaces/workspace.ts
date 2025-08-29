@@ -83,55 +83,55 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The ID of the bundle for the WorkSpace.
      */
-    public readonly bundleId!: pulumi.Output<string>;
+    declare public readonly bundleId: pulumi.Output<string>;
     /**
      * The name of the WorkSpace, as seen by the operating system.
      */
-    public /*out*/ readonly computerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly computerName: pulumi.Output<string>;
     /**
      * The ID of the directory for the WorkSpace.
      */
-    public readonly directoryId!: pulumi.Output<string>;
+    declare public readonly directoryId: pulumi.Output<string>;
     /**
      * The IP address of the WorkSpace.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      */
-    public readonly rootVolumeEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly rootVolumeEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The operational state of the WorkSpace.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
     /**
      * Indicates whether the data stored on the user volume is encrypted.
      */
-    public readonly userVolumeEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly userVolumeEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
      */
-    public readonly volumeEncryptionKey!: pulumi.Output<string | undefined>;
+    declare public readonly volumeEncryptionKey: pulumi.Output<string | undefined>;
     /**
      * The WorkSpace properties.
      */
-    public readonly workspaceProperties!: pulumi.Output<outputs.workspaces.WorkspaceWorkspaceProperties>;
+    declare public readonly workspaceProperties: pulumi.Output<outputs.workspaces.WorkspaceWorkspaceProperties>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -146,39 +146,39 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            resourceInputs["bundleId"] = state ? state.bundleId : undefined;
-            resourceInputs["computerName"] = state ? state.computerName : undefined;
-            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["rootVolumeEncryptionEnabled"] = state ? state.rootVolumeEncryptionEnabled : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
-            resourceInputs["userVolumeEncryptionEnabled"] = state ? state.userVolumeEncryptionEnabled : undefined;
-            resourceInputs["volumeEncryptionKey"] = state ? state.volumeEncryptionKey : undefined;
-            resourceInputs["workspaceProperties"] = state ? state.workspaceProperties : undefined;
+            resourceInputs["bundleId"] = state?.bundleId;
+            resourceInputs["computerName"] = state?.computerName;
+            resourceInputs["directoryId"] = state?.directoryId;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["rootVolumeEncryptionEnabled"] = state?.rootVolumeEncryptionEnabled;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["userName"] = state?.userName;
+            resourceInputs["userVolumeEncryptionEnabled"] = state?.userVolumeEncryptionEnabled;
+            resourceInputs["volumeEncryptionKey"] = state?.volumeEncryptionKey;
+            resourceInputs["workspaceProperties"] = state?.workspaceProperties;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.bundleId === undefined) && !opts.urn) {
+            if (args?.bundleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            if ((!args || args.directoryId === undefined) && !opts.urn) {
+            if (args?.directoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["rootVolumeEncryptionEnabled"] = args ? args.rootVolumeEncryptionEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
-            resourceInputs["userVolumeEncryptionEnabled"] = args ? args.userVolumeEncryptionEnabled : undefined;
-            resourceInputs["volumeEncryptionKey"] = args ? args.volumeEncryptionKey : undefined;
-            resourceInputs["workspaceProperties"] = args ? args.workspaceProperties : undefined;
+            resourceInputs["bundleId"] = args?.bundleId;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["rootVolumeEncryptionEnabled"] = args?.rootVolumeEncryptionEnabled;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
+            resourceInputs["userVolumeEncryptionEnabled"] = args?.userVolumeEncryptionEnabled;
+            resourceInputs["volumeEncryptionKey"] = args?.volumeEncryptionKey;
+            resourceInputs["workspaceProperties"] = args?.workspaceProperties;
             resourceInputs["computerName"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

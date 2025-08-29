@@ -65,44 +65,44 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * ARN of the Cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether deletion protection is enabled in this cluster.
      */
-    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Encryption configuration details for the DSQL Cluster.
      */
-    public /*out*/ readonly encryptionDetails!: pulumi.Output<outputs.dsql.ClusterEncryptionDetail[]>;
+    declare public /*out*/ readonly encryptionDetails: pulumi.Output<outputs.dsql.ClusterEncryptionDetail[]>;
     /**
      * Cluster Identifier.
      */
-    public /*out*/ readonly identifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly identifier: pulumi.Output<string>;
     /**
      * The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
      */
-    public readonly kmsEncryptionKey!: pulumi.Output<string>;
+    declare public readonly kmsEncryptionKey: pulumi.Output<string>;
     /**
      * Multi-region properties of the DSQL Cluster.
      */
-    public readonly multiRegionProperties!: pulumi.Output<outputs.dsql.ClusterMultiRegionProperties | undefined>;
+    declare public readonly multiRegionProperties: pulumi.Output<outputs.dsql.ClusterMultiRegionProperties | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Set of tags to be associated with the AWS DSQL Cluster resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.dsql.ClusterTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.dsql.ClusterTimeouts | undefined>;
     /**
      * The DSQL Cluster's VPC endpoint service name.
      */
-    public /*out*/ readonly vpcEndpointServiceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcEndpointServiceName: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -117,25 +117,25 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["deletionProtectionEnabled"] = state ? state.deletionProtectionEnabled : undefined;
-            resourceInputs["encryptionDetails"] = state ? state.encryptionDetails : undefined;
-            resourceInputs["identifier"] = state ? state.identifier : undefined;
-            resourceInputs["kmsEncryptionKey"] = state ? state.kmsEncryptionKey : undefined;
-            resourceInputs["multiRegionProperties"] = state ? state.multiRegionProperties : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vpcEndpointServiceName"] = state ? state.vpcEndpointServiceName : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["deletionProtectionEnabled"] = state?.deletionProtectionEnabled;
+            resourceInputs["encryptionDetails"] = state?.encryptionDetails;
+            resourceInputs["identifier"] = state?.identifier;
+            resourceInputs["kmsEncryptionKey"] = state?.kmsEncryptionKey;
+            resourceInputs["multiRegionProperties"] = state?.multiRegionProperties;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vpcEndpointServiceName"] = state?.vpcEndpointServiceName;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["kmsEncryptionKey"] = args ? args.kmsEncryptionKey : undefined;
-            resourceInputs["multiRegionProperties"] = args ? args.multiRegionProperties : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["kmsEncryptionKey"] = args?.kmsEncryptionKey;
+            resourceInputs["multiRegionProperties"] = args?.multiRegionProperties;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["encryptionDetails"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;

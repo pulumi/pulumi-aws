@@ -84,28 +84,28 @@ export class EventPermission extends pulumi.CustomResource {
     /**
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      */
-    public readonly action!: pulumi.Output<string | undefined>;
+    declare public readonly action: pulumi.Output<string | undefined>;
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
-    public readonly condition!: pulumi.Output<outputs.cloudwatch.EventPermissionCondition | undefined>;
+    declare public readonly condition: pulumi.Output<outputs.cloudwatch.EventPermissionCondition | undefined>;
     /**
      * The name of the event bus to set the permissions on.
      * If you omit this, the permissions are set on the `default` event bus.
      */
-    public readonly eventBusName!: pulumi.Output<string | undefined>;
+    declare public readonly eventBusName: pulumi.Output<string | undefined>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * An identifier string for the external account that you are granting permissions to.
      */
-    public readonly statementId!: pulumi.Output<string>;
+    declare public readonly statementId: pulumi.Output<string>;
 
     /**
      * Create a EventPermission resource with the given unique name, arguments, and options.
@@ -120,26 +120,26 @@ export class EventPermission extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventPermissionState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["condition"] = state ? state.condition : undefined;
-            resourceInputs["eventBusName"] = state ? state.eventBusName : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["statementId"] = state ? state.statementId : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["condition"] = state?.condition;
+            resourceInputs["eventBusName"] = state?.eventBusName;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["statementId"] = state?.statementId;
         } else {
             const args = argsOrState as EventPermissionArgs | undefined;
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.statementId === undefined) && !opts.urn) {
+            if (args?.statementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["eventBusName"] = args?.eventBusName;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["statementId"] = args?.statementId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventPermission.__pulumiType, name, resourceInputs, opts);

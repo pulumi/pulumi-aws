@@ -74,23 +74,23 @@ export class Route extends pulumi.CustomResource {
     /**
      * Indicates whether to drop traffic that matches this route (default to `false`).
      */
-    public readonly blackhole!: pulumi.Output<boolean | undefined>;
+    declare public readonly blackhole: pulumi.Output<boolean | undefined>;
     /**
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
-    public readonly destinationCidrBlock!: pulumi.Output<string>;
+    declare public readonly destinationCidrBlock: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      */
-    public readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
+    declare public readonly transitGatewayAttachmentId: pulumi.Output<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
+    declare public readonly transitGatewayRouteTableId: pulumi.Output<string>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -105,24 +105,24 @@ export class Route extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            resourceInputs["blackhole"] = state ? state.blackhole : undefined;
-            resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
-            resourceInputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
+            resourceInputs["blackhole"] = state?.blackhole;
+            resourceInputs["destinationCidrBlock"] = state?.destinationCidrBlock;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
+            resourceInputs["transitGatewayRouteTableId"] = state?.transitGatewayRouteTableId;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
+            if (args?.destinationCidrBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
+            if (args?.transitGatewayRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            resourceInputs["blackhole"] = args ? args.blackhole : undefined;
-            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
+            resourceInputs["blackhole"] = args?.blackhole;
+            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
+            resourceInputs["transitGatewayRouteTableId"] = args?.transitGatewayRouteTableId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Route.__pulumiType, name, resourceInputs, opts);

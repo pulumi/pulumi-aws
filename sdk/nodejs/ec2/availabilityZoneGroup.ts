@@ -60,15 +60,15 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
     /**
      * Name of the Availability Zone Group.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      */
-    public readonly optInStatus!: pulumi.Output<string>;
+    declare public readonly optInStatus: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a AvailabilityZoneGroup resource with the given unique name, arguments, and options.
@@ -83,20 +83,20 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AvailabilityZoneGroupState | undefined;
-            resourceInputs["groupName"] = state ? state.groupName : undefined;
-            resourceInputs["optInStatus"] = state ? state.optInStatus : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["groupName"] = state?.groupName;
+            resourceInputs["optInStatus"] = state?.optInStatus;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as AvailabilityZoneGroupArgs | undefined;
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.optInStatus === undefined) && !opts.urn) {
+            if (args?.optInStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'optInStatus'");
             }
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["optInStatus"] = args ? args.optInStatus : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["optInStatus"] = args?.optInStatus;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AvailabilityZoneGroup.__pulumiType, name, resourceInputs, opts);

@@ -64,19 +64,19 @@ export class Attachment extends pulumi.CustomResource {
     /**
      * Name of ASG to associate with the ELB.
      */
-    public readonly autoscalingGroupName!: pulumi.Output<string>;
+    declare public readonly autoscalingGroupName: pulumi.Output<string>;
     /**
      * Name of the ELB.
      */
-    public readonly elb!: pulumi.Output<string | undefined>;
+    declare public readonly elb: pulumi.Output<string | undefined>;
     /**
      * ARN of a load balancer target group.
      */
-    public readonly lbTargetGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly lbTargetGroupArn: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a Attachment resource with the given unique name, arguments, and options.
@@ -91,19 +91,19 @@ export class Attachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AttachmentState | undefined;
-            resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            resourceInputs["elb"] = state ? state.elb : undefined;
-            resourceInputs["lbTargetGroupArn"] = state ? state.lbTargetGroupArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["autoscalingGroupName"] = state?.autoscalingGroupName;
+            resourceInputs["elb"] = state?.elb;
+            resourceInputs["lbTargetGroupArn"] = state?.lbTargetGroupArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
-            if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoscalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            resourceInputs["elb"] = args ? args.elb : undefined;
-            resourceInputs["lbTargetGroupArn"] = args ? args.lbTargetGroupArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["autoscalingGroupName"] = args?.autoscalingGroupName;
+            resourceInputs["elb"] = args?.elb;
+            resourceInputs["lbTargetGroupArn"] = args?.lbTargetGroupArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Attachment.__pulumiType, name, resourceInputs, opts);

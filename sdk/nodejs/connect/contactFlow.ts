@@ -126,51 +126,51 @@ export class ContactFlow extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Contact Flow.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier of the Contact Flow.
      */
-    public /*out*/ readonly contactFlowId!: pulumi.Output<string>;
+    declare public /*out*/ readonly contactFlowId: pulumi.Output<string>;
     /**
      * Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
      */
-    public readonly contentHash!: pulumi.Output<string | undefined>;
+    declare public readonly contentHash: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the Contact Flow.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
      */
-    public readonly filename!: pulumi.Output<string | undefined>;
+    declare public readonly filename: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * Specifies the name of the Contact Flow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Tags to apply to the Contact Flow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a ContactFlow resource with the given unique name, arguments, and options.
@@ -185,32 +185,32 @@ export class ContactFlow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactFlowState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["contactFlowId"] = state ? state.contactFlowId : undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["contentHash"] = state ? state.contentHash : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["filename"] = state ? state.filename : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["contactFlowId"] = state?.contactFlowId;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["contentHash"] = state?.contentHash;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["filename"] = state?.filename;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ContactFlowArgs | undefined;
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentHash"] = args ? args.contentHash : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["filename"] = args ? args.filename : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentHash"] = args?.contentHash;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["filename"] = args?.filename;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["contactFlowId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

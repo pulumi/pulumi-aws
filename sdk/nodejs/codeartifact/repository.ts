@@ -104,47 +104,47 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The account number of the AWS account that manages the repository.
      */
-    public /*out*/ readonly administratorAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly administratorAccount: pulumi.Output<string>;
     /**
      * The ARN of the repository.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the repository.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The domain that contains the created repository.
      */
-    public readonly domain!: pulumi.Output<string>;
+    declare public readonly domain: pulumi.Output<string>;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    public readonly domainOwner!: pulumi.Output<string>;
+    declare public readonly domainOwner: pulumi.Output<string>;
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    public readonly externalConnections!: pulumi.Output<outputs.codeartifact.RepositoryExternalConnections | undefined>;
+    declare public readonly externalConnections: pulumi.Output<outputs.codeartifact.RepositoryExternalConnections | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name of the repository to create.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
-    public readonly upstreams!: pulumi.Output<outputs.codeartifact.RepositoryUpstream[] | undefined>;
+    declare public readonly upstreams: pulumi.Output<outputs.codeartifact.RepositoryUpstream[] | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -159,33 +159,33 @@ export class Repository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
-            resourceInputs["administratorAccount"] = state ? state.administratorAccount : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["domainOwner"] = state ? state.domainOwner : undefined;
-            resourceInputs["externalConnections"] = state ? state.externalConnections : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["upstreams"] = state ? state.upstreams : undefined;
+            resourceInputs["administratorAccount"] = state?.administratorAccount;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["domainOwner"] = state?.domainOwner;
+            resourceInputs["externalConnections"] = state?.externalConnections;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["upstreams"] = state?.upstreams;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
-            resourceInputs["externalConnections"] = args ? args.externalConnections : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upstreams"] = args ? args.upstreams : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["domainOwner"] = args?.domainOwner;
+            resourceInputs["externalConnections"] = args?.externalConnections;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upstreams"] = args?.upstreams;
             resourceInputs["administratorAccount"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

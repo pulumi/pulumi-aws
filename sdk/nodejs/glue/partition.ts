@@ -62,40 +62,40 @@ export class Partition extends pulumi.CustomResource {
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    declare public readonly catalogId: pulumi.Output<string>;
     /**
      * The time at which the partition was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The last time at which the partition was accessed.
      */
-    public /*out*/ readonly lastAccessedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastAccessedTime: pulumi.Output<string>;
     /**
      * The last time at which column statistics were computed for this partition.
      */
-    public /*out*/ readonly lastAnalyzedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastAnalyzedTime: pulumi.Output<string>;
     /**
      * Properties associated with this table, as a list of key-value pairs.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The values that define the partition.
      */
-    public readonly partitionValues!: pulumi.Output<string[]>;
+    declare public readonly partitionValues: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
-    public readonly storageDescriptor!: pulumi.Output<outputs.glue.PartitionStorageDescriptor | undefined>;
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly storageDescriptor: pulumi.Output<outputs.glue.PartitionStorageDescriptor | undefined>;
+    declare public readonly tableName: pulumi.Output<string>;
 
     /**
      * Create a Partition resource with the given unique name, arguments, and options.
@@ -110,34 +110,34 @@ export class Partition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PartitionState | undefined;
-            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
-            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["lastAccessedTime"] = state ? state.lastAccessedTime : undefined;
-            resourceInputs["lastAnalyzedTime"] = state ? state.lastAnalyzedTime : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["partitionValues"] = state ? state.partitionValues : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["catalogId"] = state?.catalogId;
+            resourceInputs["creationTime"] = state?.creationTime;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["lastAccessedTime"] = state?.lastAccessedTime;
+            resourceInputs["lastAnalyzedTime"] = state?.lastAnalyzedTime;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["partitionValues"] = state?.partitionValues;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["storageDescriptor"] = state?.storageDescriptor;
+            resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as PartitionArgs | undefined;
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.partitionValues === undefined) && !opts.urn) {
+            if (args?.partitionValues === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionValues'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["partitionValues"] = args ? args.partitionValues : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["partitionValues"] = args?.partitionValues;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["storageDescriptor"] = args?.storageDescriptor;
+            resourceInputs["tableName"] = args?.tableName;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastAccessedTime"] = undefined /*out*/;
             resourceInputs["lastAnalyzedTime"] = undefined /*out*/;

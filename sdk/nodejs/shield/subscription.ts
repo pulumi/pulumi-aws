@@ -61,11 +61,11 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
      */
-    public readonly autoRenew!: pulumi.Output<string>;
+    declare public readonly autoRenew: pulumi.Output<string>;
     /**
      * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
      */
-    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -80,12 +80,12 @@ export class Subscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
-            resourceInputs["autoRenew"] = state ? state.autoRenew : undefined;
-            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
+            resourceInputs["autoRenew"] = state?.autoRenew;
+            resourceInputs["skipDestroy"] = state?.skipDestroy;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
-            resourceInputs["autoRenew"] = args ? args.autoRenew : undefined;
-            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
+            resourceInputs["autoRenew"] = args?.autoRenew;
+            resourceInputs["skipDestroy"] = args?.skipDestroy;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Subscription.__pulumiType, name, resourceInputs, opts);

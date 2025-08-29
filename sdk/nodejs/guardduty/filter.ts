@@ -87,43 +87,43 @@ export class Filter extends pulumi.CustomResource {
     /**
      * Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * The ARN of the GuardDuty filter.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description of the filter.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * ID of a GuardDuty detector, attached to your account.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      */
-    public readonly findingCriteria!: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
+    declare public readonly findingCriteria: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
     /**
      * The name of your filter.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      */
-    public readonly rank!: pulumi.Output<number>;
+    declare public readonly rank: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Filter resource with the given unique name, arguments, and options.
@@ -138,38 +138,38 @@ export class Filter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FilterState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
-            resourceInputs["findingCriteria"] = state ? state.findingCriteria : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["detectorId"] = state?.detectorId;
+            resourceInputs["findingCriteria"] = state?.findingCriteria;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as FilterArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.findingCriteria === undefined) && !opts.urn) {
+            if (args?.findingCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'findingCriteria'");
             }
-            if ((!args || args.rank === undefined) && !opts.urn) {
+            if (args?.rank === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rank'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["findingCriteria"] = args ? args.findingCriteria : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["findingCriteria"] = args?.findingCriteria;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -56,23 +56,23 @@ export class ScalingPlan extends pulumi.CustomResource {
     /**
      * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      */
-    public readonly applicationSource!: pulumi.Output<outputs.autoscalingplans.ScalingPlanApplicationSource>;
+    declare public readonly applicationSource: pulumi.Output<outputs.autoscalingplans.ScalingPlanApplicationSource>;
     /**
      * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */
-    public readonly scalingInstructions!: pulumi.Output<outputs.autoscalingplans.ScalingPlanScalingInstruction[]>;
+    declare public readonly scalingInstructions: pulumi.Output<outputs.autoscalingplans.ScalingPlanScalingInstruction[]>;
     /**
      * The version number of the scaling plan. This value is always 1.
      */
-    public /*out*/ readonly scalingPlanVersion!: pulumi.Output<number>;
+    declare public /*out*/ readonly scalingPlanVersion: pulumi.Output<number>;
 
     /**
      * Create a ScalingPlan resource with the given unique name, arguments, and options.
@@ -87,23 +87,23 @@ export class ScalingPlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScalingPlanState | undefined;
-            resourceInputs["applicationSource"] = state ? state.applicationSource : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["scalingInstructions"] = state ? state.scalingInstructions : undefined;
-            resourceInputs["scalingPlanVersion"] = state ? state.scalingPlanVersion : undefined;
+            resourceInputs["applicationSource"] = state?.applicationSource;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["scalingInstructions"] = state?.scalingInstructions;
+            resourceInputs["scalingPlanVersion"] = state?.scalingPlanVersion;
         } else {
             const args = argsOrState as ScalingPlanArgs | undefined;
-            if ((!args || args.applicationSource === undefined) && !opts.urn) {
+            if (args?.applicationSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationSource'");
             }
-            if ((!args || args.scalingInstructions === undefined) && !opts.urn) {
+            if (args?.scalingInstructions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalingInstructions'");
             }
-            resourceInputs["applicationSource"] = args ? args.applicationSource : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["scalingInstructions"] = args ? args.scalingInstructions : undefined;
+            resourceInputs["applicationSource"] = args?.applicationSource;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["scalingInstructions"] = args?.scalingInstructions;
             resourceInputs["scalingPlanVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

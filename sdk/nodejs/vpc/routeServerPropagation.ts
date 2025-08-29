@@ -63,18 +63,18 @@ export class RouteServerPropagation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The unique identifier for the route server to be associated.
      */
-    public readonly routeServerId!: pulumi.Output<string>;
+    declare public readonly routeServerId: pulumi.Output<string>;
     /**
      * The ID of the route table to which route server will propagate routes.
      *
      * The following arguments are optional:
      */
-    public readonly routeTableId!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.vpc.RouteServerPropagationTimeouts | undefined>;
+    declare public readonly routeTableId: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerPropagationTimeouts | undefined>;
 
     /**
      * Create a RouteServerPropagation resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class RouteServerPropagation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteServerPropagationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
-            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routeServerId"] = state?.routeServerId;
+            resourceInputs["routeTableId"] = state?.routeTableId;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as RouteServerPropagationArgs | undefined;
-            if ((!args || args.routeServerId === undefined) && !opts.urn) {
+            if (args?.routeServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeServerId'");
             }
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routeServerId"] = args ? args.routeServerId : undefined;
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routeServerId"] = args?.routeServerId;
+            resourceInputs["routeTableId"] = args?.routeTableId;
+            resourceInputs["timeouts"] = args?.timeouts;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RouteServerPropagation.__pulumiType, name, resourceInputs, opts);

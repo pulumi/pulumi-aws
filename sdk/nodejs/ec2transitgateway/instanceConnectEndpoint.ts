@@ -58,56 +58,56 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Availability Zone of the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
+    declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
     /**
      * The DNS name of the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * The DNS name of the EC2 Instance Connect FIPS Endpoint.
      */
-    public /*out*/ readonly fipsDnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fipsDnsName: pulumi.Output<string>;
     /**
      * The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
      * The ID of the AWS account that created the EC2 Instance Connect Endpoint.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Indicates whether your client's IP address is preserved as the source. Default: `true`.
      */
-    public readonly preserveClientIp!: pulumi.Output<boolean>;
+    declare public readonly preserveClientIp: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
      * The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.ec2transitgateway.InstanceConnectEndpointTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.ec2transitgateway.InstanceConnectEndpointTimeouts | undefined>;
     /**
      * The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a InstanceConnectEndpoint resource with the given unique name, arguments, and options.
@@ -122,31 +122,31 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceConnectEndpointState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
-            resourceInputs["fipsDnsName"] = state ? state.fipsDnsName : undefined;
-            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["preserveClientIp"] = state ? state.preserveClientIp : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["availabilityZone"] = state?.availabilityZone;
+            resourceInputs["dnsName"] = state?.dnsName;
+            resourceInputs["fipsDnsName"] = state?.fipsDnsName;
+            resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["preserveClientIp"] = state?.preserveClientIp;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as InstanceConnectEndpointArgs | undefined;
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["preserveClientIp"] = args ? args.preserveClientIp : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["preserveClientIp"] = args?.preserveClientIp;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;

@@ -48,40 +48,40 @@ export class Scraper extends pulumi.CustomResource {
     /**
      * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
      */
-    public readonly alias!: pulumi.Output<string | undefined>;
+    declare public readonly alias: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the new scraper.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
-    public readonly destination!: pulumi.Output<outputs.amp.ScraperDestination | undefined>;
+    declare public readonly destination: pulumi.Output<outputs.amp.ScraperDestination | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      */
-    public /*out*/ readonly roleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly roleArn: pulumi.Output<string>;
     /**
      * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
      */
-    public readonly roleConfiguration!: pulumi.Output<outputs.amp.ScraperRoleConfiguration | undefined>;
+    declare public readonly roleConfiguration: pulumi.Output<outputs.amp.ScraperRoleConfiguration | undefined>;
     /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */
-    public readonly scrapeConfiguration!: pulumi.Output<string>;
+    declare public readonly scrapeConfiguration: pulumi.Output<string>;
     /**
      * Configuration block to specify where the managed scraper will collect metrics from. See `source`.
      *
      * The following arguments are optional:
      */
-    public readonly source!: pulumi.Output<outputs.amp.ScraperSource | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.amp.ScraperTimeouts | undefined>;
+    declare public readonly source: pulumi.Output<outputs.amp.ScraperSource | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.amp.ScraperTimeouts | undefined>;
 
     /**
      * Create a Scraper resource with the given unique name, arguments, and options.
@@ -96,30 +96,30 @@ export class Scraper extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScraperState | undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["destination"] = state ? state.destination : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["roleConfiguration"] = state ? state.roleConfiguration : undefined;
-            resourceInputs["scrapeConfiguration"] = state ? state.scrapeConfiguration : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["destination"] = state?.destination;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["roleConfiguration"] = state?.roleConfiguration;
+            resourceInputs["scrapeConfiguration"] = state?.scrapeConfiguration;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ScraperArgs | undefined;
-            if ((!args || args.scrapeConfiguration === undefined) && !opts.urn) {
+            if (args?.scrapeConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scrapeConfiguration'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleConfiguration"] = args ? args.roleConfiguration : undefined;
-            resourceInputs["scrapeConfiguration"] = args ? args.scrapeConfiguration : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleConfiguration"] = args?.roleConfiguration;
+            resourceInputs["scrapeConfiguration"] = args?.scrapeConfiguration;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

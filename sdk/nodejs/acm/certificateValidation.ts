@@ -147,15 +147,15 @@ export class CertificateValidation extends pulumi.CustomResource {
     /**
      * ARN of the certificate that is being validated.
      */
-    public readonly certificateArn!: pulumi.Output<string>;
+    declare public readonly certificateArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      */
-    public readonly validationRecordFqdns!: pulumi.Output<string[] | undefined>;
+    declare public readonly validationRecordFqdns: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CertificateValidation resource with the given unique name, arguments, and options.
@@ -170,17 +170,17 @@ export class CertificateValidation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateValidationState | undefined;
-            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["validationRecordFqdns"] = state ? state.validationRecordFqdns : undefined;
+            resourceInputs["certificateArn"] = state?.certificateArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["validationRecordFqdns"] = state?.validationRecordFqdns;
         } else {
             const args = argsOrState as CertificateValidationArgs | undefined;
-            if ((!args || args.certificateArn === undefined) && !opts.urn) {
+            if (args?.certificateArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["validationRecordFqdns"] = args ? args.validationRecordFqdns : undefined;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["validationRecordFqdns"] = args?.validationRecordFqdns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CertificateValidation.__pulumiType, name, resourceInputs, opts);

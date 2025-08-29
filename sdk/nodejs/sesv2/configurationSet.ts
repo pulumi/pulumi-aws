@@ -82,44 +82,44 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * ARN of the Configuration Set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the configuration set.
      */
-    public readonly configurationSetName!: pulumi.Output<string>;
+    declare public readonly configurationSetName: pulumi.Output<string>;
     /**
      * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
      */
-    public readonly deliveryOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetDeliveryOptions | undefined>;
+    declare public readonly deliveryOptions: pulumi.Output<outputs.sesv2.ConfigurationSetDeliveryOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
      */
-    public readonly reputationOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetReputationOptions>;
+    declare public readonly reputationOptions: pulumi.Output<outputs.sesv2.ConfigurationSetReputationOptions>;
     /**
      * An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
      */
-    public readonly sendingOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetSendingOptions>;
+    declare public readonly sendingOptions: pulumi.Output<outputs.sesv2.ConfigurationSetSendingOptions>;
     /**
      * An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
      */
-    public readonly suppressionOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetSuppressionOptions | undefined>;
+    declare public readonly suppressionOptions: pulumi.Output<outputs.sesv2.ConfigurationSetSuppressionOptions | undefined>;
     /**
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
      */
-    public readonly trackingOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetTrackingOptions | undefined>;
+    declare public readonly trackingOptions: pulumi.Output<outputs.sesv2.ConfigurationSetTrackingOptions | undefined>;
     /**
      * An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdmOptions` Block for details.
      */
-    public readonly vdmOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetVdmOptions | undefined>;
+    declare public readonly vdmOptions: pulumi.Output<outputs.sesv2.ConfigurationSetVdmOptions | undefined>;
 
     /**
      * Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -134,31 +134,31 @@ export class ConfigurationSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["configurationSetName"] = state ? state.configurationSetName : undefined;
-            resourceInputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["reputationOptions"] = state ? state.reputationOptions : undefined;
-            resourceInputs["sendingOptions"] = state ? state.sendingOptions : undefined;
-            resourceInputs["suppressionOptions"] = state ? state.suppressionOptions : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["trackingOptions"] = state ? state.trackingOptions : undefined;
-            resourceInputs["vdmOptions"] = state ? state.vdmOptions : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["configurationSetName"] = state?.configurationSetName;
+            resourceInputs["deliveryOptions"] = state?.deliveryOptions;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["reputationOptions"] = state?.reputationOptions;
+            resourceInputs["sendingOptions"] = state?.sendingOptions;
+            resourceInputs["suppressionOptions"] = state?.suppressionOptions;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["trackingOptions"] = state?.trackingOptions;
+            resourceInputs["vdmOptions"] = state?.vdmOptions;
         } else {
             const args = argsOrState as ConfigurationSetArgs | undefined;
-            if ((!args || args.configurationSetName === undefined) && !opts.urn) {
+            if (args?.configurationSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationSetName'");
             }
-            resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
-            resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["reputationOptions"] = args ? args.reputationOptions : undefined;
-            resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
-            resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
-            resourceInputs["vdmOptions"] = args ? args.vdmOptions : undefined;
+            resourceInputs["configurationSetName"] = args?.configurationSetName;
+            resourceInputs["deliveryOptions"] = args?.deliveryOptions;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["reputationOptions"] = args?.reputationOptions;
+            resourceInputs["sendingOptions"] = args?.sendingOptions;
+            resourceInputs["suppressionOptions"] = args?.suppressionOptions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackingOptions"] = args?.trackingOptions;
+            resourceInputs["vdmOptions"] = args?.vdmOptions;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

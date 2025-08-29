@@ -80,23 +80,23 @@ export class VaultNotifications extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
     /**
      * An array of events that indicate the status of jobs to back up resources to the backup vault.
      */
-    public readonly backupVaultEvents!: pulumi.Output<string[]>;
+    declare public readonly backupVaultEvents: pulumi.Output<string[]>;
     /**
      * Name of the backup vault to add notifications for.
      */
-    public readonly backupVaultName!: pulumi.Output<string>;
+    declare public readonly backupVaultName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
      */
-    public readonly snsTopicArn!: pulumi.Output<string>;
+    declare public readonly snsTopicArn: pulumi.Output<string>;
 
     /**
      * Create a VaultNotifications resource with the given unique name, arguments, and options.
@@ -111,26 +111,26 @@ export class VaultNotifications extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultNotificationsState | undefined;
-            resourceInputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
-            resourceInputs["backupVaultEvents"] = state ? state.backupVaultEvents : undefined;
-            resourceInputs["backupVaultName"] = state ? state.backupVaultName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
+            resourceInputs["backupVaultArn"] = state?.backupVaultArn;
+            resourceInputs["backupVaultEvents"] = state?.backupVaultEvents;
+            resourceInputs["backupVaultName"] = state?.backupVaultName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["snsTopicArn"] = state?.snsTopicArn;
         } else {
             const args = argsOrState as VaultNotificationsArgs | undefined;
-            if ((!args || args.backupVaultEvents === undefined) && !opts.urn) {
+            if (args?.backupVaultEvents === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultEvents'");
             }
-            if ((!args || args.backupVaultName === undefined) && !opts.urn) {
+            if (args?.backupVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
-            if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
+            if (args?.snsTopicArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
-            resourceInputs["backupVaultEvents"] = args ? args.backupVaultEvents : undefined;
-            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["backupVaultEvents"] = args?.backupVaultEvents;
+            resourceInputs["backupVaultName"] = args?.backupVaultName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

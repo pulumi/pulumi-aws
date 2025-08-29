@@ -114,41 +114,41 @@ export class EventDestination extends pulumi.CustomResource {
     /**
      * The SES event destination ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * CloudWatch destination for the events
      */
-    public readonly cloudwatchDestinations!: pulumi.Output<outputs.ses.EventDestinationCloudwatchDestination[] | undefined>;
+    declare public readonly cloudwatchDestinations: pulumi.Output<outputs.ses.EventDestinationCloudwatchDestination[] | undefined>;
     /**
      * The name of the configuration set
      */
-    public readonly configurationSetName!: pulumi.Output<string>;
+    declare public readonly configurationSetName: pulumi.Output<string>;
     /**
      * If true, the event destination will be enabled
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Send the events to a kinesis firehose destination
      */
-    public readonly kinesisDestination!: pulumi.Output<outputs.ses.EventDestinationKinesisDestination | undefined>;
+    declare public readonly kinesisDestination: pulumi.Output<outputs.ses.EventDestinationKinesisDestination | undefined>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
-    public readonly matchingTypes!: pulumi.Output<string[]>;
+    declare public readonly matchingTypes: pulumi.Output<string[]>;
     /**
      * The name of the event destination
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Send the events to an SNS Topic destination
      *
      * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
      */
-    public readonly snsDestination!: pulumi.Output<outputs.ses.EventDestinationSnsDestination | undefined>;
+    declare public readonly snsDestination: pulumi.Output<outputs.ses.EventDestinationSnsDestination | undefined>;
 
     /**
      * Create a EventDestination resource with the given unique name, arguments, and options.
@@ -163,31 +163,31 @@ export class EventDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventDestinationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cloudwatchDestinations"] = state ? state.cloudwatchDestinations : undefined;
-            resourceInputs["configurationSetName"] = state ? state.configurationSetName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["kinesisDestination"] = state ? state.kinesisDestination : undefined;
-            resourceInputs["matchingTypes"] = state ? state.matchingTypes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["snsDestination"] = state ? state.snsDestination : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cloudwatchDestinations"] = state?.cloudwatchDestinations;
+            resourceInputs["configurationSetName"] = state?.configurationSetName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["kinesisDestination"] = state?.kinesisDestination;
+            resourceInputs["matchingTypes"] = state?.matchingTypes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["snsDestination"] = state?.snsDestination;
         } else {
             const args = argsOrState as EventDestinationArgs | undefined;
-            if ((!args || args.configurationSetName === undefined) && !opts.urn) {
+            if (args?.configurationSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationSetName'");
             }
-            if ((!args || args.matchingTypes === undefined) && !opts.urn) {
+            if (args?.matchingTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'matchingTypes'");
             }
-            resourceInputs["cloudwatchDestinations"] = args ? args.cloudwatchDestinations : undefined;
-            resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["kinesisDestination"] = args ? args.kinesisDestination : undefined;
-            resourceInputs["matchingTypes"] = args ? args.matchingTypes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["snsDestination"] = args ? args.snsDestination : undefined;
+            resourceInputs["cloudwatchDestinations"] = args?.cloudwatchDestinations;
+            resourceInputs["configurationSetName"] = args?.configurationSetName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["kinesisDestination"] = args?.kinesisDestination;
+            resourceInputs["matchingTypes"] = args?.matchingTypes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["snsDestination"] = args?.snsDestination;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

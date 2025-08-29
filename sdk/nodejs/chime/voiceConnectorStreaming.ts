@@ -126,27 +126,27 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
     /**
      * The retention period, in hours, for the Amazon Kinesis data.
      */
-    public readonly dataRetention!: pulumi.Output<number>;
+    declare public readonly dataRetention: pulumi.Output<number>;
     /**
      * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * The media insights configuration. See `mediaInsightsConfiguration`.
      */
-    public readonly mediaInsightsConfiguration!: pulumi.Output<outputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration | undefined>;
+    declare public readonly mediaInsightsConfiguration: pulumi.Output<outputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */
-    public readonly streamingNotificationTargets!: pulumi.Output<string[] | undefined>;
+    declare public readonly streamingNotificationTargets: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
-    public readonly voiceConnectorId!: pulumi.Output<string>;
+    declare public readonly voiceConnectorId: pulumi.Output<string>;
 
     /**
      * Create a VoiceConnectorStreaming resource with the given unique name, arguments, and options.
@@ -161,26 +161,26 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorStreamingState | undefined;
-            resourceInputs["dataRetention"] = state ? state.dataRetention : undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["mediaInsightsConfiguration"] = state ? state.mediaInsightsConfiguration : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["streamingNotificationTargets"] = state ? state.streamingNotificationTargets : undefined;
-            resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
+            resourceInputs["dataRetention"] = state?.dataRetention;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["mediaInsightsConfiguration"] = state?.mediaInsightsConfiguration;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["streamingNotificationTargets"] = state?.streamingNotificationTargets;
+            resourceInputs["voiceConnectorId"] = state?.voiceConnectorId;
         } else {
             const args = argsOrState as VoiceConnectorStreamingArgs | undefined;
-            if ((!args || args.dataRetention === undefined) && !opts.urn) {
+            if (args?.dataRetention === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataRetention'");
             }
-            if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
+            if (args?.voiceConnectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
-            resourceInputs["dataRetention"] = args ? args.dataRetention : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["mediaInsightsConfiguration"] = args ? args.mediaInsightsConfiguration : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["streamingNotificationTargets"] = args ? args.streamingNotificationTargets : undefined;
-            resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
+            resourceInputs["dataRetention"] = args?.dataRetention;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["mediaInsightsConfiguration"] = args?.mediaInsightsConfiguration;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["streamingNotificationTargets"] = args?.streamingNotificationTargets;
+            resourceInputs["voiceConnectorId"] = args?.voiceConnectorId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VoiceConnectorStreaming.__pulumiType, name, resourceInputs, opts);

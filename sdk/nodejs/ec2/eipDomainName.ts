@@ -60,20 +60,20 @@ export class EipDomainName extends pulumi.CustomResource {
     /**
      * The allocation ID.
      */
-    public readonly allocationId!: pulumi.Output<string>;
+    declare public readonly allocationId: pulumi.Output<string>;
     /**
      * The domain name to modify for the IP address.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The DNS pointer (PTR) record for the IP address.
      */
-    public /*out*/ readonly ptrRecord!: pulumi.Output<string>;
+    declare public /*out*/ readonly ptrRecord: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.ec2.EipDomainNameTimeouts | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.ec2.EipDomainNameTimeouts | undefined>;
 
     /**
      * Create a EipDomainName resource with the given unique name, arguments, and options.
@@ -88,23 +88,23 @@ export class EipDomainName extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EipDomainNameState | undefined;
-            resourceInputs["allocationId"] = state ? state.allocationId : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["ptrRecord"] = state ? state.ptrRecord : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["allocationId"] = state?.allocationId;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["ptrRecord"] = state?.ptrRecord;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as EipDomainNameArgs | undefined;
-            if ((!args || args.allocationId === undefined) && !opts.urn) {
+            if (args?.allocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allocationId'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["allocationId"] = args?.allocationId;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["ptrRecord"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

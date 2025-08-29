@@ -95,82 +95,82 @@ export class VpcIpamPool extends pulumi.CustomResource {
     /**
      * The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
      */
-    public readonly addressFamily!: pulumi.Output<string>;
+    declare public readonly addressFamily: pulumi.Output<string>;
     /**
      * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
      */
-    public readonly allocationDefaultNetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly allocationDefaultNetmaskLength: pulumi.Output<number | undefined>;
     /**
      * The maximum netmask length that will be required for CIDR allocations in this pool.
      */
-    public readonly allocationMaxNetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly allocationMaxNetmaskLength: pulumi.Output<number | undefined>;
     /**
      * The minimum netmask length that will be required for CIDR allocations in this pool.
      */
-    public readonly allocationMinNetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly allocationMinNetmaskLength: pulumi.Output<number | undefined>;
     /**
      * Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
      */
-    public readonly allocationResourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly allocationResourceTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Amazon Resource Name (ARN) of IPAM
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
      * within the CIDR range in the pool.
      */
-    public readonly autoImport!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoImport: pulumi.Output<boolean | undefined>;
     /**
      * Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
      */
-    public readonly awsService!: pulumi.Output<string | undefined>;
+    declare public readonly awsService: pulumi.Output<string | undefined>;
     /**
      * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
      */
-    public readonly cascade!: pulumi.Output<boolean | undefined>;
+    declare public readonly cascade: pulumi.Output<boolean | undefined>;
     /**
      * A description for the IPAM pool.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the scope in which you would like to create the IPAM pool.
      */
-    public readonly ipamScopeId!: pulumi.Output<string>;
-    public /*out*/ readonly ipamScopeType!: pulumi.Output<string>;
+    declare public readonly ipamScopeId: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamScopeType: pulumi.Output<string>;
     /**
      * The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
      */
-    public readonly locale!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly poolDepth!: pulumi.Output<number>;
+    declare public readonly locale: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly poolDepth: pulumi.Output<number>;
     /**
      * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
      */
-    public readonly publicIpSource!: pulumi.Output<string | undefined>;
+    declare public readonly publicIpSource: pulumi.Output<string | undefined>;
     /**
      * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      */
-    public readonly publiclyAdvertisable!: pulumi.Output<boolean | undefined>;
+    declare public readonly publiclyAdvertisable: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      */
-    public readonly sourceIpamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceIpamPoolId: pulumi.Output<string | undefined>;
     /**
      * The ID of the IPAM
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VpcIpamPool resource with the given unique name, arguments, and options.
@@ -185,51 +185,51 @@ export class VpcIpamPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamPoolState | undefined;
-            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
-            resourceInputs["allocationDefaultNetmaskLength"] = state ? state.allocationDefaultNetmaskLength : undefined;
-            resourceInputs["allocationMaxNetmaskLength"] = state ? state.allocationMaxNetmaskLength : undefined;
-            resourceInputs["allocationMinNetmaskLength"] = state ? state.allocationMinNetmaskLength : undefined;
-            resourceInputs["allocationResourceTags"] = state ? state.allocationResourceTags : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoImport"] = state ? state.autoImport : undefined;
-            resourceInputs["awsService"] = state ? state.awsService : undefined;
-            resourceInputs["cascade"] = state ? state.cascade : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["ipamScopeId"] = state ? state.ipamScopeId : undefined;
-            resourceInputs["ipamScopeType"] = state ? state.ipamScopeType : undefined;
-            resourceInputs["locale"] = state ? state.locale : undefined;
-            resourceInputs["poolDepth"] = state ? state.poolDepth : undefined;
-            resourceInputs["publicIpSource"] = state ? state.publicIpSource : undefined;
-            resourceInputs["publiclyAdvertisable"] = state ? state.publiclyAdvertisable : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sourceIpamPoolId"] = state ? state.sourceIpamPoolId : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["addressFamily"] = state?.addressFamily;
+            resourceInputs["allocationDefaultNetmaskLength"] = state?.allocationDefaultNetmaskLength;
+            resourceInputs["allocationMaxNetmaskLength"] = state?.allocationMaxNetmaskLength;
+            resourceInputs["allocationMinNetmaskLength"] = state?.allocationMinNetmaskLength;
+            resourceInputs["allocationResourceTags"] = state?.allocationResourceTags;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoImport"] = state?.autoImport;
+            resourceInputs["awsService"] = state?.awsService;
+            resourceInputs["cascade"] = state?.cascade;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["ipamScopeId"] = state?.ipamScopeId;
+            resourceInputs["ipamScopeType"] = state?.ipamScopeType;
+            resourceInputs["locale"] = state?.locale;
+            resourceInputs["poolDepth"] = state?.poolDepth;
+            resourceInputs["publicIpSource"] = state?.publicIpSource;
+            resourceInputs["publiclyAdvertisable"] = state?.publiclyAdvertisable;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sourceIpamPoolId"] = state?.sourceIpamPoolId;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as VpcIpamPoolArgs | undefined;
-            if ((!args || args.addressFamily === undefined) && !opts.urn) {
+            if (args?.addressFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if ((!args || args.ipamScopeId === undefined) && !opts.urn) {
+            if (args?.ipamScopeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamScopeId'");
             }
-            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
-            resourceInputs["allocationDefaultNetmaskLength"] = args ? args.allocationDefaultNetmaskLength : undefined;
-            resourceInputs["allocationMaxNetmaskLength"] = args ? args.allocationMaxNetmaskLength : undefined;
-            resourceInputs["allocationMinNetmaskLength"] = args ? args.allocationMinNetmaskLength : undefined;
-            resourceInputs["allocationResourceTags"] = args ? args.allocationResourceTags : undefined;
-            resourceInputs["autoImport"] = args ? args.autoImport : undefined;
-            resourceInputs["awsService"] = args ? args.awsService : undefined;
-            resourceInputs["cascade"] = args ? args.cascade : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipamScopeId"] = args ? args.ipamScopeId : undefined;
-            resourceInputs["locale"] = args ? args.locale : undefined;
-            resourceInputs["publicIpSource"] = args ? args.publicIpSource : undefined;
-            resourceInputs["publiclyAdvertisable"] = args ? args.publiclyAdvertisable : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sourceIpamPoolId"] = args ? args.sourceIpamPoolId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressFamily"] = args?.addressFamily;
+            resourceInputs["allocationDefaultNetmaskLength"] = args?.allocationDefaultNetmaskLength;
+            resourceInputs["allocationMaxNetmaskLength"] = args?.allocationMaxNetmaskLength;
+            resourceInputs["allocationMinNetmaskLength"] = args?.allocationMinNetmaskLength;
+            resourceInputs["allocationResourceTags"] = args?.allocationResourceTags;
+            resourceInputs["autoImport"] = args?.autoImport;
+            resourceInputs["awsService"] = args?.awsService;
+            resourceInputs["cascade"] = args?.cascade;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipamScopeId"] = args?.ipamScopeId;
+            resourceInputs["locale"] = args?.locale;
+            resourceInputs["publicIpSource"] = args?.publicIpSource;
+            resourceInputs["publiclyAdvertisable"] = args?.publiclyAdvertisable;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sourceIpamPoolId"] = args?.sourceIpamPoolId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamScopeType"] = undefined /*out*/;
             resourceInputs["poolDepth"] = undefined /*out*/;

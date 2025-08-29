@@ -60,20 +60,20 @@ export class GroupAssociation extends pulumi.CustomResource {
     /**
      * ARN of the canary.
      */
-    public readonly canaryArn!: pulumi.Output<string>;
-    public /*out*/ readonly groupArn!: pulumi.Output<string>;
+    declare public readonly canaryArn: pulumi.Output<string>;
+    declare public /*out*/ readonly groupArn: pulumi.Output<string>;
     /**
      * ID of the Group.
      */
-    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupId: pulumi.Output<string>;
     /**
      * Name of the group that the canary will be associated with.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a GroupAssociation resource with the given unique name, arguments, and options.
@@ -88,22 +88,22 @@ export class GroupAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupAssociationState | undefined;
-            resourceInputs["canaryArn"] = state ? state.canaryArn : undefined;
-            resourceInputs["groupArn"] = state ? state.groupArn : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["groupName"] = state ? state.groupName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["canaryArn"] = state?.canaryArn;
+            resourceInputs["groupArn"] = state?.groupArn;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["groupName"] = state?.groupName;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as GroupAssociationArgs | undefined;
-            if ((!args || args.canaryArn === undefined) && !opts.urn) {
+            if (args?.canaryArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'canaryArn'");
             }
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            resourceInputs["canaryArn"] = args ? args.canaryArn : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["canaryArn"] = args?.canaryArn;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["region"] = args?.region;
             resourceInputs["groupArn"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;
         }

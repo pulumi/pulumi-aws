@@ -121,37 +121,37 @@ export class Alias extends pulumi.CustomResource {
     /**
      * ARN identifying your Lambda function alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description of the alias.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name or ARN of the Lambda function.
      */
-    public readonly functionName!: pulumi.Output<string>;
+    declare public readonly functionName: pulumi.Output<string>;
     /**
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      */
-    public readonly functionVersion!: pulumi.Output<string>;
+    declare public readonly functionVersion: pulumi.Output<string>;
     /**
      * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
-    public /*out*/ readonly invokeArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly invokeArn: pulumi.Output<string>;
     /**
      * Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Lambda alias' route configuration settings. See below.
      */
-    public readonly routingConfig!: pulumi.Output<outputs.lambda.AliasRoutingConfig | undefined>;
+    declare public readonly routingConfig: pulumi.Output<outputs.lambda.AliasRoutingConfig | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -166,28 +166,28 @@ export class Alias extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AliasState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["functionName"] = state ? state.functionName : undefined;
-            resourceInputs["functionVersion"] = state ? state.functionVersion : undefined;
-            resourceInputs["invokeArn"] = state ? state.invokeArn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routingConfig"] = state ? state.routingConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["functionName"] = state?.functionName;
+            resourceInputs["functionVersion"] = state?.functionVersion;
+            resourceInputs["invokeArn"] = state?.invokeArn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routingConfig"] = state?.routingConfig;
         } else {
             const args = argsOrState as AliasArgs | undefined;
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if ((!args || args.functionVersion === undefined) && !opts.urn) {
+            if (args?.functionVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionVersion'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routingConfig"] = args ? args.routingConfig : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["functionVersion"] = args?.functionVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routingConfig"] = args?.routingConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["invokeArn"] = undefined /*out*/;
         }

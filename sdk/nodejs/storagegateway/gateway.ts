@@ -152,105 +152,105 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    public readonly activationKey!: pulumi.Output<string>;
+    declare public readonly activationKey: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the gateway.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      */
-    public readonly averageDownloadRateLimitInBitsPerSec!: pulumi.Output<number | undefined>;
+    declare public readonly averageDownloadRateLimitInBitsPerSec: pulumi.Output<number | undefined>;
     /**
      * The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      */
-    public readonly averageUploadRateLimitInBitsPerSec!: pulumi.Output<number | undefined>;
+    declare public readonly averageUploadRateLimitInBitsPerSec: pulumi.Output<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
      */
-    public readonly cloudwatchLogGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly cloudwatchLogGroupArn: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon EC2 instance that was used to launch the gateway.
      */
-    public /*out*/ readonly ec2InstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ec2InstanceId: pulumi.Output<string>;
     /**
      * The type of endpoint for your gateway.
      */
-    public /*out*/ readonly endpointType!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointType: pulumi.Output<string>;
     /**
      * Identifier of the gateway.
      */
-    public /*out*/ readonly gatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayId: pulumi.Output<string>;
     /**
      * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    public readonly gatewayIpAddress!: pulumi.Output<string>;
+    declare public readonly gatewayIpAddress: pulumi.Output<string>;
     /**
      * Name of the gateway.
      */
-    public readonly gatewayName!: pulumi.Output<string>;
+    declare public readonly gatewayName: pulumi.Output<string>;
     /**
      * An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
      */
-    public /*out*/ readonly gatewayNetworkInterfaces!: pulumi.Output<outputs.storagegateway.GatewayGatewayNetworkInterface[]>;
+    declare public /*out*/ readonly gatewayNetworkInterfaces: pulumi.Output<outputs.storagegateway.GatewayGatewayNetworkInterface[]>;
     /**
      * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
      */
-    public readonly gatewayTimezone!: pulumi.Output<string>;
+    declare public readonly gatewayTimezone: pulumi.Output<string>;
     /**
      * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
      */
-    public readonly gatewayType!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayType: pulumi.Output<string | undefined>;
     /**
      * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
-    public readonly gatewayVpcEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayVpcEndpoint: pulumi.Output<string | undefined>;
     /**
      * The type of hypervisor environment used by the host.
      */
-    public /*out*/ readonly hostEnvironment!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostEnvironment: pulumi.Output<string>;
     /**
      * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
      */
-    public readonly maintenanceStartTime!: pulumi.Output<outputs.storagegateway.GatewayMaintenanceStartTime>;
+    declare public readonly maintenanceStartTime: pulumi.Output<outputs.storagegateway.GatewayMaintenanceStartTime>;
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
-    public readonly mediumChangerType!: pulumi.Output<string | undefined>;
+    declare public readonly mediumChangerType: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
-    public readonly smbActiveDirectorySettings!: pulumi.Output<outputs.storagegateway.GatewaySmbActiveDirectorySettings | undefined>;
+    declare public readonly smbActiveDirectorySettings: pulumi.Output<outputs.storagegateway.GatewaySmbActiveDirectorySettings | undefined>;
     /**
      * Specifies whether the shares on this gateway appear when listing shares.
      */
-    public readonly smbFileShareVisibility!: pulumi.Output<boolean | undefined>;
+    declare public readonly smbFileShareVisibility: pulumi.Output<boolean | undefined>;
     /**
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
-    public readonly smbGuestPassword!: pulumi.Output<string | undefined>;
+    declare public readonly smbGuestPassword: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
      */
-    public readonly smbSecurityStrategy!: pulumi.Output<string>;
+    declare public readonly smbSecurityStrategy: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
-    public readonly tapeDriveType!: pulumi.Output<string | undefined>;
+    declare public readonly tapeDriveType: pulumi.Output<string | undefined>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -265,57 +265,57 @@ export class Gateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
-            resourceInputs["activationKey"] = state ? state.activationKey : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["averageDownloadRateLimitInBitsPerSec"] = state ? state.averageDownloadRateLimitInBitsPerSec : undefined;
-            resourceInputs["averageUploadRateLimitInBitsPerSec"] = state ? state.averageUploadRateLimitInBitsPerSec : undefined;
-            resourceInputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
-            resourceInputs["ec2InstanceId"] = state ? state.ec2InstanceId : undefined;
-            resourceInputs["endpointType"] = state ? state.endpointType : undefined;
-            resourceInputs["gatewayId"] = state ? state.gatewayId : undefined;
-            resourceInputs["gatewayIpAddress"] = state ? state.gatewayIpAddress : undefined;
-            resourceInputs["gatewayName"] = state ? state.gatewayName : undefined;
-            resourceInputs["gatewayNetworkInterfaces"] = state ? state.gatewayNetworkInterfaces : undefined;
-            resourceInputs["gatewayTimezone"] = state ? state.gatewayTimezone : undefined;
-            resourceInputs["gatewayType"] = state ? state.gatewayType : undefined;
-            resourceInputs["gatewayVpcEndpoint"] = state ? state.gatewayVpcEndpoint : undefined;
-            resourceInputs["hostEnvironment"] = state ? state.hostEnvironment : undefined;
-            resourceInputs["maintenanceStartTime"] = state ? state.maintenanceStartTime : undefined;
-            resourceInputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
-            resourceInputs["smbFileShareVisibility"] = state ? state.smbFileShareVisibility : undefined;
-            resourceInputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
-            resourceInputs["smbSecurityStrategy"] = state ? state.smbSecurityStrategy : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["tapeDriveType"] = state ? state.tapeDriveType : undefined;
+            resourceInputs["activationKey"] = state?.activationKey;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["averageDownloadRateLimitInBitsPerSec"] = state?.averageDownloadRateLimitInBitsPerSec;
+            resourceInputs["averageUploadRateLimitInBitsPerSec"] = state?.averageUploadRateLimitInBitsPerSec;
+            resourceInputs["cloudwatchLogGroupArn"] = state?.cloudwatchLogGroupArn;
+            resourceInputs["ec2InstanceId"] = state?.ec2InstanceId;
+            resourceInputs["endpointType"] = state?.endpointType;
+            resourceInputs["gatewayId"] = state?.gatewayId;
+            resourceInputs["gatewayIpAddress"] = state?.gatewayIpAddress;
+            resourceInputs["gatewayName"] = state?.gatewayName;
+            resourceInputs["gatewayNetworkInterfaces"] = state?.gatewayNetworkInterfaces;
+            resourceInputs["gatewayTimezone"] = state?.gatewayTimezone;
+            resourceInputs["gatewayType"] = state?.gatewayType;
+            resourceInputs["gatewayVpcEndpoint"] = state?.gatewayVpcEndpoint;
+            resourceInputs["hostEnvironment"] = state?.hostEnvironment;
+            resourceInputs["maintenanceStartTime"] = state?.maintenanceStartTime;
+            resourceInputs["mediumChangerType"] = state?.mediumChangerType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["smbActiveDirectorySettings"] = state?.smbActiveDirectorySettings;
+            resourceInputs["smbFileShareVisibility"] = state?.smbFileShareVisibility;
+            resourceInputs["smbGuestPassword"] = state?.smbGuestPassword;
+            resourceInputs["smbSecurityStrategy"] = state?.smbSecurityStrategy;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tapeDriveType"] = state?.tapeDriveType;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
-            if ((!args || args.gatewayName === undefined) && !opts.urn) {
+            if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.gatewayTimezone === undefined) && !opts.urn) {
+            if (args?.gatewayTimezone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayTimezone'");
             }
-            resourceInputs["activationKey"] = args ? args.activationKey : undefined;
-            resourceInputs["averageDownloadRateLimitInBitsPerSec"] = args ? args.averageDownloadRateLimitInBitsPerSec : undefined;
-            resourceInputs["averageUploadRateLimitInBitsPerSec"] = args ? args.averageUploadRateLimitInBitsPerSec : undefined;
-            resourceInputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
-            resourceInputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["gatewayTimezone"] = args ? args.gatewayTimezone : undefined;
-            resourceInputs["gatewayType"] = args ? args.gatewayType : undefined;
-            resourceInputs["gatewayVpcEndpoint"] = args ? args.gatewayVpcEndpoint : undefined;
-            resourceInputs["maintenanceStartTime"] = args ? args.maintenanceStartTime : undefined;
-            resourceInputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
-            resourceInputs["smbFileShareVisibility"] = args ? args.smbFileShareVisibility : undefined;
+            resourceInputs["activationKey"] = args?.activationKey;
+            resourceInputs["averageDownloadRateLimitInBitsPerSec"] = args?.averageDownloadRateLimitInBitsPerSec;
+            resourceInputs["averageUploadRateLimitInBitsPerSec"] = args?.averageUploadRateLimitInBitsPerSec;
+            resourceInputs["cloudwatchLogGroupArn"] = args?.cloudwatchLogGroupArn;
+            resourceInputs["gatewayIpAddress"] = args?.gatewayIpAddress;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["gatewayTimezone"] = args?.gatewayTimezone;
+            resourceInputs["gatewayType"] = args?.gatewayType;
+            resourceInputs["gatewayVpcEndpoint"] = args?.gatewayVpcEndpoint;
+            resourceInputs["maintenanceStartTime"] = args?.maintenanceStartTime;
+            resourceInputs["mediumChangerType"] = args?.mediumChangerType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["smbActiveDirectorySettings"] = args?.smbActiveDirectorySettings;
+            resourceInputs["smbFileShareVisibility"] = args?.smbFileShareVisibility;
             resourceInputs["smbGuestPassword"] = args?.smbGuestPassword ? pulumi.secret(args.smbGuestPassword) : undefined;
-            resourceInputs["smbSecurityStrategy"] = args ? args.smbSecurityStrategy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
+            resourceInputs["smbSecurityStrategy"] = args?.smbSecurityStrategy;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tapeDriveType"] = args?.tapeDriveType;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ec2InstanceId"] = undefined /*out*/;
             resourceInputs["endpointType"] = undefined /*out*/;

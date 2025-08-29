@@ -84,39 +84,39 @@ export class EventEndpoint extends pulumi.CustomResource {
     /**
      * The ARN of the endpoint that was created.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the global endpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The URL of the endpoint that was created.
      */
-    public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointUrl: pulumi.Output<string>;
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
      */
-    public readonly eventBuses!: pulumi.Output<outputs.cloudwatch.EventEndpointEventBus[]>;
+    declare public readonly eventBuses: pulumi.Output<outputs.cloudwatch.EventEndpointEventBus[]>;
     /**
      * The name of the global endpoint.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Parameters used for replication. Documented below.
      */
-    public readonly replicationConfig!: pulumi.Output<outputs.cloudwatch.EventEndpointReplicationConfig | undefined>;
+    declare public readonly replicationConfig: pulumi.Output<outputs.cloudwatch.EventEndpointReplicationConfig | undefined>;
     /**
      * The ARN of the IAM role used for replication between event buses.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * Parameters used for routing, including the health check and secondary Region. Documented below.
      */
-    public readonly routingConfig!: pulumi.Output<outputs.cloudwatch.EventEndpointRoutingConfig>;
+    declare public readonly routingConfig: pulumi.Output<outputs.cloudwatch.EventEndpointRoutingConfig>;
 
     /**
      * Create a EventEndpoint resource with the given unique name, arguments, and options.
@@ -131,30 +131,30 @@ export class EventEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventEndpointState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["endpointUrl"] = state ? state.endpointUrl : undefined;
-            resourceInputs["eventBuses"] = state ? state.eventBuses : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replicationConfig"] = state ? state.replicationConfig : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["routingConfig"] = state ? state.routingConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["endpointUrl"] = state?.endpointUrl;
+            resourceInputs["eventBuses"] = state?.eventBuses;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["replicationConfig"] = state?.replicationConfig;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["routingConfig"] = state?.routingConfig;
         } else {
             const args = argsOrState as EventEndpointArgs | undefined;
-            if ((!args || args.eventBuses === undefined) && !opts.urn) {
+            if (args?.eventBuses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventBuses'");
             }
-            if ((!args || args.routingConfig === undefined) && !opts.urn) {
+            if (args?.routingConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingConfig'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBuses"] = args ? args.eventBuses : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replicationConfig"] = args ? args.replicationConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["routingConfig"] = args ? args.routingConfig : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBuses"] = args?.eventBuses;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replicationConfig"] = args?.replicationConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["routingConfig"] = args?.routingConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpointUrl"] = undefined /*out*/;
         }

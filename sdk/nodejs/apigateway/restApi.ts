@@ -56,81 +56,81 @@ export class RestApi extends pulumi.CustomResource {
     /**
      * Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
-    public readonly apiKeySource!: pulumi.Output<string>;
+    declare public readonly apiKeySource: pulumi.Output<string>;
     /**
      * ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
-    public readonly binaryMediaTypes!: pulumi.Output<string[]>;
+    declare public readonly binaryMediaTypes: pulumi.Output<string[]>;
     /**
      * OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `aws.apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      */
-    public readonly body!: pulumi.Output<string | undefined>;
+    declare public readonly body: pulumi.Output<string | undefined>;
     /**
      * Creation date of the REST API
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
-    public readonly disableExecuteApiEndpoint!: pulumi.Output<boolean>;
+    declare public readonly disableExecuteApiEndpoint: pulumi.Output<boolean>;
     /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      */
-    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration>;
+    declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration>;
     /**
      * Execution ARN part to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      */
-    public /*out*/ readonly executionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly executionArn: pulumi.Output<string>;
     /**
      * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
      */
-    public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
+    declare public readonly failOnWarnings: pulumi.Output<boolean | undefined>;
     /**
      * Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
-    public readonly minimumCompressionSize!: pulumi.Output<string>;
+    declare public readonly minimumCompressionSize: pulumi.Output<string>;
     /**
      * Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
-    public readonly putRestApiMode!: pulumi.Output<string | undefined>;
+    declare public readonly putRestApiMode: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Resource ID of the REST API's root
      */
-    public /*out*/ readonly rootResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly rootResourceId: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RestApi resource with the given unique name, arguments, and options.
@@ -145,41 +145,41 @@ export class RestApi extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestApiState | undefined;
-            resourceInputs["apiKeySource"] = state ? state.apiKeySource : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["binaryMediaTypes"] = state ? state.binaryMediaTypes : undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["disableExecuteApiEndpoint"] = state ? state.disableExecuteApiEndpoint : undefined;
-            resourceInputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
-            resourceInputs["executionArn"] = state ? state.executionArn : undefined;
-            resourceInputs["failOnWarnings"] = state ? state.failOnWarnings : undefined;
-            resourceInputs["minimumCompressionSize"] = state ? state.minimumCompressionSize : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["putRestApiMode"] = state ? state.putRestApiMode : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["rootResourceId"] = state ? state.rootResourceId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["apiKeySource"] = state?.apiKeySource;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["binaryMediaTypes"] = state?.binaryMediaTypes;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["createdDate"] = state?.createdDate;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["disableExecuteApiEndpoint"] = state?.disableExecuteApiEndpoint;
+            resourceInputs["endpointConfiguration"] = state?.endpointConfiguration;
+            resourceInputs["executionArn"] = state?.executionArn;
+            resourceInputs["failOnWarnings"] = state?.failOnWarnings;
+            resourceInputs["minimumCompressionSize"] = state?.minimumCompressionSize;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["putRestApiMode"] = state?.putRestApiMode;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["rootResourceId"] = state?.rootResourceId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as RestApiArgs | undefined;
-            resourceInputs["apiKeySource"] = args ? args.apiKeySource : undefined;
-            resourceInputs["binaryMediaTypes"] = args ? args.binaryMediaTypes : undefined;
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
-            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
-            resourceInputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["putRestApiMode"] = args ? args.putRestApiMode : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiKeySource"] = args?.apiKeySource;
+            resourceInputs["binaryMediaTypes"] = args?.binaryMediaTypes;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disableExecuteApiEndpoint"] = args?.disableExecuteApiEndpoint;
+            resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
+            resourceInputs["failOnWarnings"] = args?.failOnWarnings;
+            resourceInputs["minimumCompressionSize"] = args?.minimumCompressionSize;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["putRestApiMode"] = args?.putRestApiMode;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["executionArn"] = undefined /*out*/;

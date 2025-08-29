@@ -67,34 +67,34 @@ export class IamPolicyAssignment extends pulumi.CustomResource {
     /**
      * Assignment ID.
      */
-    public /*out*/ readonly assignmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly assignmentId: pulumi.Output<string>;
     /**
      * Name of the assignment.
      */
-    public readonly assignmentName!: pulumi.Output<string>;
+    declare public readonly assignmentName: pulumi.Output<string>;
     /**
      * Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
      *
      * The following arguments are optional:
      */
-    public readonly assignmentStatus!: pulumi.Output<string>;
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly assignmentStatus: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      */
-    public readonly identities!: pulumi.Output<outputs.quicksight.IamPolicyAssignmentIdentities | undefined>;
+    declare public readonly identities: pulumi.Output<outputs.quicksight.IamPolicyAssignmentIdentities | undefined>;
     /**
      * Namespace that contains the assignment. Defaults to `default`.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
      */
-    public readonly policyArn!: pulumi.Output<string | undefined>;
+    declare public readonly policyArn: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a IamPolicyAssignment resource with the given unique name, arguments, and options.
@@ -109,29 +109,29 @@ export class IamPolicyAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IamPolicyAssignmentState | undefined;
-            resourceInputs["assignmentId"] = state ? state.assignmentId : undefined;
-            resourceInputs["assignmentName"] = state ? state.assignmentName : undefined;
-            resourceInputs["assignmentStatus"] = state ? state.assignmentStatus : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["identities"] = state ? state.identities : undefined;
-            resourceInputs["namespace"] = state ? state.namespace : undefined;
-            resourceInputs["policyArn"] = state ? state.policyArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["assignmentId"] = state?.assignmentId;
+            resourceInputs["assignmentName"] = state?.assignmentName;
+            resourceInputs["assignmentStatus"] = state?.assignmentStatus;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["identities"] = state?.identities;
+            resourceInputs["namespace"] = state?.namespace;
+            resourceInputs["policyArn"] = state?.policyArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as IamPolicyAssignmentArgs | undefined;
-            if ((!args || args.assignmentName === undefined) && !opts.urn) {
+            if (args?.assignmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assignmentName'");
             }
-            if ((!args || args.assignmentStatus === undefined) && !opts.urn) {
+            if (args?.assignmentStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assignmentStatus'");
             }
-            resourceInputs["assignmentName"] = args ? args.assignmentName : undefined;
-            resourceInputs["assignmentStatus"] = args ? args.assignmentStatus : undefined;
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["identities"] = args ? args.identities : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["assignmentName"] = args?.assignmentName;
+            resourceInputs["assignmentStatus"] = args?.assignmentStatus;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["identities"] = args?.identities;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["policyArn"] = args?.policyArn;
+            resourceInputs["region"] = args?.region;
             resourceInputs["assignmentId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

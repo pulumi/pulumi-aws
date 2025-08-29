@@ -295,45 +295,45 @@ export class EventBus extends pulumi.CustomResource {
     /**
      * ARN of the event bus.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
      */
-    public readonly deadLetterConfig!: pulumi.Output<outputs.cloudwatch.EventBusDeadLetterConfig | undefined>;
+    declare public readonly deadLetterConfig: pulumi.Output<outputs.cloudwatch.EventBusDeadLetterConfig | undefined>;
     /**
      * Event bus description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Partner event source that the new event bus will be matched with. Must match `name`.
      */
-    public readonly eventSourceName!: pulumi.Output<string | undefined>;
+    declare public readonly eventSourceName: pulumi.Output<string | undefined>;
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * Block for logging configuration settings for the event bus.
      */
-    public readonly logConfig!: pulumi.Output<outputs.cloudwatch.EventBusLogConfig | undefined>;
+    declare public readonly logConfig: pulumi.Output<outputs.cloudwatch.EventBusLogConfig | undefined>;
     /**
      * Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a EventBus resource with the given unique name, arguments, and options.
@@ -348,26 +348,26 @@ export class EventBus extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventBusState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["eventSourceName"] = state ? state.eventSourceName : undefined;
-            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
-            resourceInputs["logConfig"] = state ? state.logConfig : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["deadLetterConfig"] = state?.deadLetterConfig;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["eventSourceName"] = state?.eventSourceName;
+            resourceInputs["kmsKeyIdentifier"] = state?.kmsKeyIdentifier;
+            resourceInputs["logConfig"] = state?.logConfig;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as EventBusArgs | undefined;
-            resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["logConfig"] = args ? args.logConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deadLetterConfig"] = args?.deadLetterConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventSourceName"] = args?.eventSourceName;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["logConfig"] = args?.logConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

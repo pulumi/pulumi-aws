@@ -67,39 +67,39 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the Recording Configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Object containing destination configuration for where recorded video will be stored.
      */
-    public readonly destinationConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
+    declare public readonly destinationConfiguration: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
     /**
      * Recording Configuration name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
      */
-    public readonly recordingReconnectWindowSeconds!: pulumi.Output<number>;
+    declare public readonly recordingReconnectWindowSeconds: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The current state of the Recording Configuration.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
      */
-    public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration>;
+    declare public readonly thumbnailConfiguration: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration>;
 
     /**
      * Create a RecordingConfiguration resource with the given unique name, arguments, and options.
@@ -114,26 +114,26 @@ export class RecordingConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecordingConfigurationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["destinationConfiguration"] = state ? state.destinationConfiguration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recordingReconnectWindowSeconds"] = state ? state.recordingReconnectWindowSeconds : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["thumbnailConfiguration"] = state ? state.thumbnailConfiguration : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["destinationConfiguration"] = state?.destinationConfiguration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recordingReconnectWindowSeconds"] = state?.recordingReconnectWindowSeconds;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["thumbnailConfiguration"] = state?.thumbnailConfiguration;
         } else {
             const args = argsOrState as RecordingConfigurationArgs | undefined;
-            if ((!args || args.destinationConfiguration === undefined) && !opts.urn) {
+            if (args?.destinationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationConfiguration'");
             }
-            resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recordingReconnectWindowSeconds"] = args ? args.recordingReconnectWindowSeconds : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thumbnailConfiguration"] = args ? args.thumbnailConfiguration : undefined;
+            resourceInputs["destinationConfiguration"] = args?.destinationConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recordingReconnectWindowSeconds"] = args?.recordingReconnectWindowSeconds;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thumbnailConfiguration"] = args?.thumbnailConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -78,16 +78,16 @@ export class ClusterPolicy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
      */
-    public readonly clusterArn!: pulumi.Output<string>;
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    declare public readonly clusterArn: pulumi.Output<string>;
+    declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
      * Resource policy for cluster.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ClusterPolicy resource with the given unique name, arguments, and options.
@@ -102,21 +102,21 @@ export class ClusterPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterPolicyState | undefined;
-            resourceInputs["clusterArn"] = state ? state.clusterArn : undefined;
-            resourceInputs["currentVersion"] = state ? state.currentVersion : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["clusterArn"] = state?.clusterArn;
+            resourceInputs["currentVersion"] = state?.currentVersion;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ClusterPolicyArgs | undefined;
-            if ((!args || args.clusterArn === undefined) && !opts.urn) {
+            if (args?.clusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
             resourceInputs["currentVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

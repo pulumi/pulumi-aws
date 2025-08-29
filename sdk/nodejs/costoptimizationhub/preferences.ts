@@ -69,11 +69,11 @@ export class Preferences extends pulumi.CustomResource {
     /**
      * Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
      */
-    public readonly memberAccountDiscountVisibility!: pulumi.Output<string>;
+    declare public readonly memberAccountDiscountVisibility: pulumi.Output<string>;
     /**
      * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
      */
-    public readonly savingsEstimationMode!: pulumi.Output<string>;
+    declare public readonly savingsEstimationMode: pulumi.Output<string>;
 
     /**
      * Create a Preferences resource with the given unique name, arguments, and options.
@@ -88,12 +88,12 @@ export class Preferences extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PreferencesState | undefined;
-            resourceInputs["memberAccountDiscountVisibility"] = state ? state.memberAccountDiscountVisibility : undefined;
-            resourceInputs["savingsEstimationMode"] = state ? state.savingsEstimationMode : undefined;
+            resourceInputs["memberAccountDiscountVisibility"] = state?.memberAccountDiscountVisibility;
+            resourceInputs["savingsEstimationMode"] = state?.savingsEstimationMode;
         } else {
             const args = argsOrState as PreferencesArgs | undefined;
-            resourceInputs["memberAccountDiscountVisibility"] = args ? args.memberAccountDiscountVisibility : undefined;
-            resourceInputs["savingsEstimationMode"] = args ? args.savingsEstimationMode : undefined;
+            resourceInputs["memberAccountDiscountVisibility"] = args?.memberAccountDiscountVisibility;
+            resourceInputs["savingsEstimationMode"] = args?.savingsEstimationMode;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Preferences.__pulumiType, name, resourceInputs, opts);

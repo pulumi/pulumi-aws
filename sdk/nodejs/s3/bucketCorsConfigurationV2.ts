@@ -93,19 +93,19 @@ export class BucketCorsConfigurationV2 extends pulumi.CustomResource {
     /**
      * Name of the bucket.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
      */
-    public readonly corsRules!: pulumi.Output<outputs.s3.BucketCorsConfigurationV2CorsRule[]>;
+    declare public readonly corsRules: pulumi.Output<outputs.s3.BucketCorsConfigurationV2CorsRule[]>;
     /**
      * Account ID of the expected bucket owner.
      */
-    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a BucketCorsConfigurationV2 resource with the given unique name, arguments, and options.
@@ -123,22 +123,22 @@ export class BucketCorsConfigurationV2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketCorsConfigurationV2State | undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["corsRules"] = state ? state.corsRules : undefined;
-            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["corsRules"] = state?.corsRules;
+            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as BucketCorsConfigurationV2Args | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.corsRules === undefined) && !opts.urn) {
+            if (args?.corsRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'corsRules'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["corsRules"] = args ? args.corsRules : undefined;
-            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["corsRules"] = args?.corsRules;
+            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2" }] };

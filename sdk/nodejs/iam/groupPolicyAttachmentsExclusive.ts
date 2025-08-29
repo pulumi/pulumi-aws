@@ -44,11 +44,11 @@ export class GroupPolicyAttachmentsExclusive extends pulumi.CustomResource {
     /**
      * IAM group name.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      */
-    public readonly policyArns!: pulumi.Output<string[]>;
+    declare public readonly policyArns: pulumi.Output<string[]>;
 
     /**
      * Create a GroupPolicyAttachmentsExclusive resource with the given unique name, arguments, and options.
@@ -63,18 +63,18 @@ export class GroupPolicyAttachmentsExclusive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupPolicyAttachmentsExclusiveState | undefined;
-            resourceInputs["groupName"] = state ? state.groupName : undefined;
-            resourceInputs["policyArns"] = state ? state.policyArns : undefined;
+            resourceInputs["groupName"] = state?.groupName;
+            resourceInputs["policyArns"] = state?.policyArns;
         } else {
             const args = argsOrState as GroupPolicyAttachmentsExclusiveArgs | undefined;
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.policyArns === undefined) && !opts.urn) {
+            if (args?.policyArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyArns'");
             }
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["policyArns"] = args ? args.policyArns : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["policyArns"] = args?.policyArns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupPolicyAttachmentsExclusive.__pulumiType, name, resourceInputs, opts);

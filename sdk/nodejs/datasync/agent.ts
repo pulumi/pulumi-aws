@@ -87,47 +87,47 @@ export class Agent extends pulumi.CustomResource {
     /**
      * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
      */
-    public readonly activationKey!: pulumi.Output<string>;
+    declare public readonly activationKey: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Agent.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    declare public readonly ipAddress: pulumi.Output<string>;
     /**
      * Name of the DataSync Agent.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      */
-    public readonly privateLinkEndpoint!: pulumi.Output<string>;
+    declare public readonly privateLinkEndpoint: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */
-    public readonly securityGroupArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupArns: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
-    public readonly subnetArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetArns: pulumi.Output<string[] | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
      */
-    public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcEndpointId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Agent resource with the given unique name, arguments, and options.
@@ -142,28 +142,28 @@ export class Agent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentState | undefined;
-            resourceInputs["activationKey"] = state ? state.activationKey : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateLinkEndpoint"] = state ? state.privateLinkEndpoint : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
-            resourceInputs["subnetArns"] = state ? state.subnetArns : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+            resourceInputs["activationKey"] = state?.activationKey;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateLinkEndpoint"] = state?.privateLinkEndpoint;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupArns"] = state?.securityGroupArns;
+            resourceInputs["subnetArns"] = state?.subnetArns;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcEndpointId"] = state?.vpcEndpointId;
         } else {
             const args = argsOrState as AgentArgs | undefined;
-            resourceInputs["activationKey"] = args ? args.activationKey : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateLinkEndpoint"] = args ? args.privateLinkEndpoint : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["activationKey"] = args?.activationKey;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateLinkEndpoint"] = args?.privateLinkEndpoint;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["subnetArns"] = args?.subnetArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

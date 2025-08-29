@@ -55,29 +55,29 @@ export class Cell extends pulumi.CustomResource {
     /**
      * ARN of the cell
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Unique name describing the cell.
      *
      * The following arguments are optional:
      */
-    public readonly cellName!: pulumi.Output<string>;
+    declare public readonly cellName: pulumi.Output<string>;
     /**
      * List of cell arns to add as nested fault domains within this cell.
      */
-    public readonly cells!: pulumi.Output<string[] | undefined>;
+    declare public readonly cells: pulumi.Output<string[] | undefined>;
     /**
      * List of readiness scopes (recovery groups or cells) that contain this cell.
      */
-    public /*out*/ readonly parentReadinessScopes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly parentReadinessScopes: pulumi.Output<string[]>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Cell resource with the given unique name, arguments, and options.
@@ -92,20 +92,20 @@ export class Cell extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CellState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cellName"] = state ? state.cellName : undefined;
-            resourceInputs["cells"] = state ? state.cells : undefined;
-            resourceInputs["parentReadinessScopes"] = state ? state.parentReadinessScopes : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cellName"] = state?.cellName;
+            resourceInputs["cells"] = state?.cells;
+            resourceInputs["parentReadinessScopes"] = state?.parentReadinessScopes;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as CellArgs | undefined;
-            if ((!args || args.cellName === undefined) && !opts.urn) {
+            if (args?.cellName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cellName'");
             }
-            resourceInputs["cellName"] = args ? args.cellName : undefined;
-            resourceInputs["cells"] = args ? args.cells : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cellName"] = args?.cellName;
+            resourceInputs["cells"] = args?.cells;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["parentReadinessScopes"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

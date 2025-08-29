@@ -155,58 +155,58 @@ export class AgentFlow extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the flow.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The time at which the flow was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
      */
-    public readonly customerEncryptionKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly customerEncryptionKeyArn: pulumi.Output<string | undefined>;
     /**
      * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
      */
-    public readonly definition!: pulumi.Output<outputs.bedrock.AgentFlowDefinition | undefined>;
+    declare public readonly definition: pulumi.Output<outputs.bedrock.AgentFlowDefinition | undefined>;
     /**
      * A description for the flow.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      *
      * The following arguments are optional:
      */
-    public readonly executionRoleArn!: pulumi.Output<string>;
+    declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
      * A name for the flow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The status of the flow.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentFlowTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentFlowTimeouts | undefined>;
     /**
      * The time at which the flow was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * The version of the flow.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a AgentFlow resource with the given unique name, arguments, and options.
@@ -221,33 +221,33 @@ export class AgentFlow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentFlowState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["customerEncryptionKeyArn"] = state ? state.customerEncryptionKeyArn : undefined;
-            resourceInputs["definition"] = state ? state.definition : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["customerEncryptionKeyArn"] = state?.customerEncryptionKeyArn;
+            resourceInputs["definition"] = state?.definition;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as AgentFlowArgs | undefined;
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            resourceInputs["customerEncryptionKeyArn"] = args ? args.customerEncryptionKeyArn : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["customerEncryptionKeyArn"] = args?.customerEncryptionKeyArn;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

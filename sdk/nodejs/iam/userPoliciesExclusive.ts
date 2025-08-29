@@ -44,11 +44,11 @@ export class UserPoliciesExclusive extends pulumi.CustomResource {
     /**
      * A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
      */
-    public readonly policyNames!: pulumi.Output<string[]>;
+    declare public readonly policyNames: pulumi.Output<string[]>;
     /**
      * IAM user name.
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a UserPoliciesExclusive resource with the given unique name, arguments, and options.
@@ -63,18 +63,18 @@ export class UserPoliciesExclusive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserPoliciesExclusiveState | undefined;
-            resourceInputs["policyNames"] = state ? state.policyNames : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["policyNames"] = state?.policyNames;
+            resourceInputs["userName"] = state?.userName;
         } else {
             const args = argsOrState as UserPoliciesExclusiveArgs | undefined;
-            if ((!args || args.policyNames === undefined) && !opts.urn) {
+            if (args?.policyNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyNames'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["policyNames"] = args ? args.policyNames : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["policyNames"] = args?.policyNames;
+            resourceInputs["userName"] = args?.userName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserPoliciesExclusive.__pulumiType, name, resourceInputs, opts);

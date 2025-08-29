@@ -152,50 +152,50 @@ export class Integration extends pulumi.CustomResource {
      * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
      * You can only include this parameter if you specify the `kmsKeyId` parameter.
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ARN of the Integration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description of the integration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the integration.
      */
-    public readonly integrationName!: pulumi.Output<string>;
+    declare public readonly integrationName: pulumi.Output<string>;
     /**
      * KMS key identifier for the key to use to encrypt the integration.
      * If you don't specify an encryption key, Redshift uses a default AWS owned key.
      * You can only include this parameter if `sourceArn` references a DynamoDB table.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
      */
-    public readonly sourceArn!: pulumi.Output<string>;
+    declare public readonly sourceArn: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of the Redshift data warehouse to use as the target for replication.
      *
      * The following arguments are optional:
      */
-    public readonly targetArn!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.redshift.IntegrationTimeouts | undefined>;
+    declare public readonly targetArn: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.redshift.IntegrationTimeouts | undefined>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -210,37 +210,37 @@ export class Integration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            resourceInputs["additionalEncryptionContext"] = state ? state.additionalEncryptionContext : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["integrationName"] = state ? state.integrationName : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["additionalEncryptionContext"] = state?.additionalEncryptionContext;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["integrationName"] = state?.integrationName;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sourceArn"] = state?.sourceArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetArn"] = state?.targetArn;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.integrationName === undefined) && !opts.urn) {
+            if (args?.integrationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationName'");
             }
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationName"] = args ? args.integrationName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationName"] = args?.integrationName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sourceArn"] = args?.sourceArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

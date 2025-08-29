@@ -67,31 +67,31 @@ export class UserLoginProfile extends pulumi.CustomResource {
     /**
      * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
      */
-    public /*out*/ readonly encryptedPassword!: pulumi.Output<string>;
+    declare public /*out*/ readonly encryptedPassword: pulumi.Output<string>;
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
      */
-    public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyFingerprint: pulumi.Output<string>;
     /**
      * The plain text password, only available when `pgpKey` is not provided.
      */
-    public /*out*/ readonly password!: pulumi.Output<string>;
+    declare public /*out*/ readonly password: pulumi.Output<string>;
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
      */
-    public readonly passwordLength!: pulumi.Output<number | undefined>;
+    declare public readonly passwordLength: pulumi.Output<number | undefined>;
     /**
      * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
      */
-    public readonly passwordResetRequired!: pulumi.Output<boolean>;
+    declare public readonly passwordResetRequired: pulumi.Output<boolean>;
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    public readonly pgpKey!: pulumi.Output<string | undefined>;
+    declare public readonly pgpKey: pulumi.Output<string | undefined>;
     /**
      * The IAM user's name.
      */
-    public readonly user!: pulumi.Output<string>;
+    declare public readonly user: pulumi.Output<string>;
 
     /**
      * Create a UserLoginProfile resource with the given unique name, arguments, and options.
@@ -106,22 +106,22 @@ export class UserLoginProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserLoginProfileState | undefined;
-            resourceInputs["encryptedPassword"] = state ? state.encryptedPassword : undefined;
-            resourceInputs["keyFingerprint"] = state ? state.keyFingerprint : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["passwordLength"] = state ? state.passwordLength : undefined;
-            resourceInputs["passwordResetRequired"] = state ? state.passwordResetRequired : undefined;
-            resourceInputs["pgpKey"] = state ? state.pgpKey : undefined;
-            resourceInputs["user"] = state ? state.user : undefined;
+            resourceInputs["encryptedPassword"] = state?.encryptedPassword;
+            resourceInputs["keyFingerprint"] = state?.keyFingerprint;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["passwordLength"] = state?.passwordLength;
+            resourceInputs["passwordResetRequired"] = state?.passwordResetRequired;
+            resourceInputs["pgpKey"] = state?.pgpKey;
+            resourceInputs["user"] = state?.user;
         } else {
             const args = argsOrState as UserLoginProfileArgs | undefined;
-            if ((!args || args.user === undefined) && !opts.urn) {
+            if (args?.user === undefined && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            resourceInputs["passwordLength"] = args ? args.passwordLength : undefined;
-            resourceInputs["passwordResetRequired"] = args ? args.passwordResetRequired : undefined;
-            resourceInputs["pgpKey"] = args ? args.pgpKey : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["passwordLength"] = args?.passwordLength;
+            resourceInputs["passwordResetRequired"] = args?.passwordResetRequired;
+            resourceInputs["pgpKey"] = args?.pgpKey;
+            resourceInputs["user"] = args?.user;
             resourceInputs["encryptedPassword"] = undefined /*out*/;
             resourceInputs["keyFingerprint"] = undefined /*out*/;
             resourceInputs["password"] = undefined /*out*/;

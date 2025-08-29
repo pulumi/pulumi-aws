@@ -20,7 +20,8 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("aws");
 /**
- * The access key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+ * The access key for API operations. You can retrieve this
+ * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
  * 
  */
     public Optional<String> accessKey() {
@@ -36,8 +37,7 @@ public final class Config {
         return Codegen.objectProp("assumeRoles", TypeShape.<List<AssumeRoles>>builder(List.class).addParameter(AssumeRoles.class).build()).config(config).get();
     }
 /**
- * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
- * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+ * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
  * 
  */
     public Optional<String> customCaBundle() {
@@ -51,16 +51,14 @@ public final class Config {
         return Codegen.objectProp("defaultTags", DefaultTags.class).config(config).get();
     }
 /**
- * Address of the EC2 metadata service endpoint to use. Can also be configured using the
- * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+ * Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
  * 
  */
     public Optional<String> ec2MetadataServiceEndpoint() {
         return Codegen.stringProp("ec2MetadataServiceEndpoint").config(config).get();
     }
 /**
- * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
- * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+ * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
  * 
  */
     public Optional<String> ec2MetadataServiceEndpointMode() {
@@ -73,16 +71,14 @@ public final class Config {
         return Codegen.objectProp("forbiddenAccountIds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
- * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
- * `http_proxy` environment variables.
+ * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
  * 
  */
     public Optional<String> httpProxy() {
         return Codegen.stringProp("httpProxy").config(config).get();
     }
 /**
- * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
- * `https_proxy` environment variables.
+ * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
  * 
  */
     public Optional<String> httpsProxy() {
@@ -103,62 +99,64 @@ public final class Config {
         return Codegen.booleanProp("insecure").config(config).get();
     }
 /**
- * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+ * The maximum number of times an AWS API request is
+ * being executed. If the API request still fails, an error is
+ * thrown.
  * 
  */
     public Optional<Integer> maxRetries() {
         return Codegen.integerProp("maxRetries").config(config).get();
     }
 /**
- * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
- * `no_proxy` environment variables.
+ * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
  * 
  */
     public Optional<String> noProxy() {
         return Codegen.stringProp("noProxy").config(config).get();
     }
 /**
- * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+ * The profile for API operations. If not set, the default profile
+ * created with `aws configure` will be used.
  * 
  */
     public Optional<String> profile() {
         return Codegen.stringProp("profile").config(config).get();
     }
 /**
- * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+ * The region where AWS operations will take place. Examples
+ * are us-east-1, us-west-2, etc.
  * 
  */
     public Optional<String> region() {
         return Codegen.stringProp("region").config(config).env("AWS_REGION", "AWS_DEFAULT_REGION").get();
     }
 /**
- * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
- * `AWS_RETRY_MODE` environment variable.
+ * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
  * 
  */
     public Optional<String> retryMode() {
         return Codegen.stringProp("retryMode").config(config).get();
     }
 /**
- * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
- * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
- * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+ * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
  * 
  */
     public Optional<String> s3UsEast1RegionalEndpoint() {
         return Codegen.stringProp("s3UsEast1RegionalEndpoint").config(config).get();
     }
 /**
- * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
- * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
- * Specific to the Amazon S3 service.
+ * Set this to true to enable the request to use path-style addressing,
+ * i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+ * use virtual hosted bucket addressing when possible
+ * (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
  * 
  */
     public Optional<Boolean> s3UsePathStyle() {
         return Codegen.booleanProp("s3UsePathStyle").config(config).get();
     }
 /**
- * The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
+ * The secret key for API operations. You can retrieve this
+ * from the &#39;Security &amp; Credentials&#39; section of the AWS console.
  * 
  */
     public Optional<String> secretKey() {
@@ -179,8 +177,7 @@ public final class Config {
         return Codegen.objectProp("sharedCredentialsFiles", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
- * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
- * available/implemented.
+ * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
  * 
  */
     public Optional<Boolean> skipCredentialsValidation() {
@@ -194,8 +191,7 @@ public final class Config {
         return Codegen.booleanProp("skipMetadataApiCheck").config(config).get();
     }
 /**
- * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
- * not public (yet).
+ * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
  * 
  */
     public Optional<Boolean> skipRegionValidation() {
@@ -209,14 +205,16 @@ public final class Config {
         return Codegen.booleanProp("skipRequestingAccountId").config(config).get();
     }
 /**
- * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+ * The region where AWS STS operations will take place. Examples
+ * are us-east-1 and us-west-2.
  * 
  */
     public Optional<String> stsRegion() {
         return Codegen.stringProp("stsRegion").config(config).get();
     }
 /**
- * session token. A session token is only required if you are using temporary security credentials.
+ * session token. A session token is only required if you are
+ * using temporary security credentials.
  * 
  */
     public Optional<String> token() {

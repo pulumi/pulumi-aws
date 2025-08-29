@@ -90,47 +90,47 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
     /**
      * The ARN of the DHCP Options Set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
      */
-    public readonly domainNameServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly domainNameServers: pulumi.Output<string[] | undefined>;
     /**
      * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
      */
-    public readonly ipv6AddressPreferredLeaseTime!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6AddressPreferredLeaseTime: pulumi.Output<string | undefined>;
     /**
      * List of NETBIOS name servers.
      */
-    public readonly netbiosNameServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly netbiosNameServers: pulumi.Output<string[] | undefined>;
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    public readonly netbiosNodeType!: pulumi.Output<string | undefined>;
+    declare public readonly netbiosNodeType: pulumi.Output<string | undefined>;
     /**
      * List of NTP servers to configure.
      */
-    public readonly ntpServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly ntpServers: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the AWS account that owns the DHCP options set.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VpcDhcpOptions resource with the given unique name, arguments, and options.
@@ -145,27 +145,27 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcDhcpOptionsState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["domainNameServers"] = state ? state.domainNameServers : undefined;
-            resourceInputs["ipv6AddressPreferredLeaseTime"] = state ? state.ipv6AddressPreferredLeaseTime : undefined;
-            resourceInputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
-            resourceInputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
-            resourceInputs["ntpServers"] = state ? state.ntpServers : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["domainNameServers"] = state?.domainNameServers;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = state?.ipv6AddressPreferredLeaseTime;
+            resourceInputs["netbiosNameServers"] = state?.netbiosNameServers;
+            resourceInputs["netbiosNodeType"] = state?.netbiosNodeType;
+            resourceInputs["ntpServers"] = state?.ntpServers;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as VpcDhcpOptionsArgs | undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainNameServers"] = args ? args.domainNameServers : undefined;
-            resourceInputs["ipv6AddressPreferredLeaseTime"] = args ? args.ipv6AddressPreferredLeaseTime : undefined;
-            resourceInputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
-            resourceInputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
-            resourceInputs["ntpServers"] = args ? args.ntpServers : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainNameServers"] = args?.domainNameServers;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = args?.ipv6AddressPreferredLeaseTime;
+            resourceInputs["netbiosNameServers"] = args?.netbiosNameServers;
+            resourceInputs["netbiosNodeType"] = args?.netbiosNodeType;
+            resourceInputs["ntpServers"] = args?.ntpServers;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

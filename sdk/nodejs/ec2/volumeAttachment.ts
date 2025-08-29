@@ -75,22 +75,22 @@ export class VolumeAttachment extends pulumi.CustomResource {
      * The device name to expose to the instance (for
      * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
      */
-    public readonly deviceName!: pulumi.Output<string>;
+    declare public readonly deviceName: pulumi.Output<string>;
     /**
      * Set to `true` if you want to force the
      * volume to detach. Useful if previous attempts failed, but use this option only
      * as a last resort, as this can result in **data loss**. See
      * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
      */
-    public readonly forceDetach!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDetach: pulumi.Output<boolean | undefined>;
     /**
      * ID of the Instance to attach to
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy
@@ -98,16 +98,16 @@ export class VolumeAttachment extends pulumi.CustomResource {
      * useful when destroying an instance which has volumes created by some other
      * means attached.
      */
-    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Set this to true to ensure that the target instance is stopped
      * before trying to detach the volume. Stops the instance, if it is not already stopped.
      */
-    public readonly stopInstanceBeforeDetaching!: pulumi.Output<boolean | undefined>;
+    declare public readonly stopInstanceBeforeDetaching: pulumi.Output<boolean | undefined>;
     /**
      * ID of the Volume to be attached
      */
-    public readonly volumeId!: pulumi.Output<string>;
+    declare public readonly volumeId: pulumi.Output<string>;
 
     /**
      * Create a VolumeAttachment resource with the given unique name, arguments, and options.
@@ -122,31 +122,31 @@ export class VolumeAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeAttachmentState | undefined;
-            resourceInputs["deviceName"] = state ? state.deviceName : undefined;
-            resourceInputs["forceDetach"] = state ? state.forceDetach : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
-            resourceInputs["stopInstanceBeforeDetaching"] = state ? state.stopInstanceBeforeDetaching : undefined;
-            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["deviceName"] = state?.deviceName;
+            resourceInputs["forceDetach"] = state?.forceDetach;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["skipDestroy"] = state?.skipDestroy;
+            resourceInputs["stopInstanceBeforeDetaching"] = state?.stopInstanceBeforeDetaching;
+            resourceInputs["volumeId"] = state?.volumeId;
         } else {
             const args = argsOrState as VolumeAttachmentArgs | undefined;
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.volumeId === undefined) && !opts.urn) {
+            if (args?.volumeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["forceDetach"] = args ? args.forceDetach : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
-            resourceInputs["stopInstanceBeforeDetaching"] = args ? args.stopInstanceBeforeDetaching : undefined;
-            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["forceDetach"] = args?.forceDetach;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["skipDestroy"] = args?.skipDestroy;
+            resourceInputs["stopInstanceBeforeDetaching"] = args?.stopInstanceBeforeDetaching;
+            resourceInputs["volumeId"] = args?.volumeId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VolumeAttachment.__pulumiType, name, resourceInputs, opts);

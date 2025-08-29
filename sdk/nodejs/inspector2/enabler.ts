@@ -79,17 +79,17 @@ export class Enabler extends pulumi.CustomResource {
      * Set of account IDs.
      * Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
      */
-    public readonly accountIds!: pulumi.Output<string[]>;
+    declare public readonly accountIds: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Type of resources to scan.
      * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
      * At least one item is required.
      */
-    public readonly resourceTypes!: pulumi.Output<string[]>;
+    declare public readonly resourceTypes: pulumi.Output<string[]>;
 
     /**
      * Create a Enabler resource with the given unique name, arguments, and options.
@@ -104,20 +104,20 @@ export class Enabler extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnablerState | undefined;
-            resourceInputs["accountIds"] = state ? state.accountIds : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceTypes"] = state ? state.resourceTypes : undefined;
+            resourceInputs["accountIds"] = state?.accountIds;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceTypes"] = state?.resourceTypes;
         } else {
             const args = argsOrState as EnablerArgs | undefined;
-            if ((!args || args.accountIds === undefined) && !opts.urn) {
+            if (args?.accountIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountIds'");
             }
-            if ((!args || args.resourceTypes === undefined) && !opts.urn) {
+            if (args?.resourceTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypes'");
             }
-            resourceInputs["accountIds"] = args ? args.accountIds : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
+            resourceInputs["accountIds"] = args?.accountIds;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceTypes"] = args?.resourceTypes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Enabler.__pulumiType, name, resourceInputs, opts);

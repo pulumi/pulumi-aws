@@ -44,11 +44,11 @@ export class GroupPoliciesExclusive extends pulumi.CustomResource {
     /**
      * IAM group name.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
      */
-    public readonly policyNames!: pulumi.Output<string[]>;
+    declare public readonly policyNames: pulumi.Output<string[]>;
 
     /**
      * Create a GroupPoliciesExclusive resource with the given unique name, arguments, and options.
@@ -63,18 +63,18 @@ export class GroupPoliciesExclusive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupPoliciesExclusiveState | undefined;
-            resourceInputs["groupName"] = state ? state.groupName : undefined;
-            resourceInputs["policyNames"] = state ? state.policyNames : undefined;
+            resourceInputs["groupName"] = state?.groupName;
+            resourceInputs["policyNames"] = state?.policyNames;
         } else {
             const args = argsOrState as GroupPoliciesExclusiveArgs | undefined;
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.policyNames === undefined) && !opts.urn) {
+            if (args?.policyNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyNames'");
             }
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["policyNames"] = args ? args.policyNames : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["policyNames"] = args?.policyNames;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupPoliciesExclusive.__pulumiType, name, resourceInputs, opts);

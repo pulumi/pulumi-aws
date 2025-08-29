@@ -68,7 +68,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARN of a standard - see below.
      *
@@ -86,7 +86,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
      * | PCI DSS  v3.2.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
      * | PCI DSS  v4.0.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/4.0.1`                                  |
      */
-    public readonly standardsArn!: pulumi.Output<string>;
+    declare public readonly standardsArn: pulumi.Output<string>;
 
     /**
      * Create a StandardsSubscription resource with the given unique name, arguments, and options.
@@ -101,15 +101,15 @@ export class StandardsSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandardsSubscriptionState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["standardsArn"] = state ? state.standardsArn : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["standardsArn"] = state?.standardsArn;
         } else {
             const args = argsOrState as StandardsSubscriptionArgs | undefined;
-            if ((!args || args.standardsArn === undefined) && !opts.urn) {
+            if (args?.standardsArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'standardsArn'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["standardsArn"] = args ? args.standardsArn : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["standardsArn"] = args?.standardsArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StandardsSubscription.__pulumiType, name, resourceInputs, opts);

@@ -61,27 +61,27 @@ export class Template extends pulumi.CustomResource {
     /**
      * The ARN of the SES template
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    public readonly html!: pulumi.Output<string | undefined>;
+    declare public readonly html: pulumi.Output<string | undefined>;
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The subject line of the email.
      */
-    public readonly subject!: pulumi.Output<string | undefined>;
+    declare public readonly subject: pulumi.Output<string | undefined>;
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    public readonly text!: pulumi.Output<string | undefined>;
+    declare public readonly text: pulumi.Output<string | undefined>;
 
     /**
      * Create a Template resource with the given unique name, arguments, and options.
@@ -96,19 +96,19 @@ export class Template extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["html"] = state ? state.html : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["subject"] = state ? state.subject : undefined;
-            resourceInputs["text"] = state ? state.text : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["html"] = state?.html;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["subject"] = state?.subject;
+            resourceInputs["text"] = state?.text;
         } else {
             const args = argsOrState as TemplateArgs | undefined;
-            resourceInputs["html"] = args ? args.html : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["subject"] = args ? args.subject : undefined;
-            resourceInputs["text"] = args ? args.text : undefined;
+            resourceInputs["html"] = args?.html;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["subject"] = args?.subject;
+            resourceInputs["text"] = args?.text;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

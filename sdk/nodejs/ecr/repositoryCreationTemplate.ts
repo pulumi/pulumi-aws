@@ -115,48 +115,48 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
     /**
      * Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
      */
-    public readonly appliedFors!: pulumi.Output<string[]>;
+    declare public readonly appliedFors: pulumi.Output<string[]>;
     /**
      * A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
      */
-    public readonly customRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly customRoleArn: pulumi.Output<string | undefined>;
     /**
      * The description for this template.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Encryption configuration for any created repositories. See below for schema.
      */
-    public readonly encryptionConfigurations!: pulumi.Output<outputs.ecr.RepositoryCreationTemplateEncryptionConfiguration[] | undefined>;
+    declare public readonly encryptionConfigurations: pulumi.Output<outputs.ecr.RepositoryCreationTemplateEncryptionConfiguration[] | undefined>;
     /**
      * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      */
-    public readonly imageTagMutability!: pulumi.Output<string | undefined>;
+    declare public readonly imageTagMutability: pulumi.Output<string | undefined>;
     /**
      * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
      */
-    public readonly imageTagMutabilityExclusionFilters!: pulumi.Output<outputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter[] | undefined>;
+    declare public readonly imageTagMutabilityExclusionFilters: pulumi.Output<outputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter[] | undefined>;
     /**
      * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
      */
-    public readonly lifecyclePolicy!: pulumi.Output<string | undefined>;
+    declare public readonly lifecyclePolicy: pulumi.Output<string | undefined>;
     /**
      * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
      */
-    public readonly prefix!: pulumi.Output<string>;
+    declare public readonly prefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The registry ID the repository creation template applies to.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
-    public readonly repositoryPolicy!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly registryId: pulumi.Output<string>;
+    declare public readonly repositoryPolicy: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to any created repositories.
      */
-    public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly resourceTags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RepositoryCreationTemplate resource with the given unique name, arguments, and options.
@@ -171,37 +171,37 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryCreationTemplateState | undefined;
-            resourceInputs["appliedFors"] = state ? state.appliedFors : undefined;
-            resourceInputs["customRoleArn"] = state ? state.customRoleArn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["encryptionConfigurations"] = state ? state.encryptionConfigurations : undefined;
-            resourceInputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
-            resourceInputs["imageTagMutabilityExclusionFilters"] = state ? state.imageTagMutabilityExclusionFilters : undefined;
-            resourceInputs["lifecyclePolicy"] = state ? state.lifecyclePolicy : undefined;
-            resourceInputs["prefix"] = state ? state.prefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["registryId"] = state ? state.registryId : undefined;
-            resourceInputs["repositoryPolicy"] = state ? state.repositoryPolicy : undefined;
-            resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
+            resourceInputs["appliedFors"] = state?.appliedFors;
+            resourceInputs["customRoleArn"] = state?.customRoleArn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["encryptionConfigurations"] = state?.encryptionConfigurations;
+            resourceInputs["imageTagMutability"] = state?.imageTagMutability;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = state?.imageTagMutabilityExclusionFilters;
+            resourceInputs["lifecyclePolicy"] = state?.lifecyclePolicy;
+            resourceInputs["prefix"] = state?.prefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["registryId"] = state?.registryId;
+            resourceInputs["repositoryPolicy"] = state?.repositoryPolicy;
+            resourceInputs["resourceTags"] = state?.resourceTags;
         } else {
             const args = argsOrState as RepositoryCreationTemplateArgs | undefined;
-            if ((!args || args.appliedFors === undefined) && !opts.urn) {
+            if (args?.appliedFors === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appliedFors'");
             }
-            if ((!args || args.prefix === undefined) && !opts.urn) {
+            if (args?.prefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'prefix'");
             }
-            resourceInputs["appliedFors"] = args ? args.appliedFors : undefined;
-            resourceInputs["customRoleArn"] = args ? args.customRoleArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
-            resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
-            resourceInputs["imageTagMutabilityExclusionFilters"] = args ? args.imageTagMutabilityExclusionFilters : undefined;
-            resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["repositoryPolicy"] = args ? args.repositoryPolicy : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["appliedFors"] = args?.appliedFors;
+            resourceInputs["customRoleArn"] = args?.customRoleArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryptionConfigurations"] = args?.encryptionConfigurations;
+            resourceInputs["imageTagMutability"] = args?.imageTagMutability;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = args?.imageTagMutabilityExclusionFilters;
+            resourceInputs["lifecyclePolicy"] = args?.lifecyclePolicy;
+            resourceInputs["prefix"] = args?.prefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["repositoryPolicy"] = args?.repositoryPolicy;
+            resourceInputs["resourceTags"] = args?.resourceTags;
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

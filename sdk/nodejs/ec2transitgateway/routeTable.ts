@@ -55,31 +55,31 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */
-    public /*out*/ readonly defaultAssociationRouteTable!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly defaultAssociationRouteTable: pulumi.Output<boolean>;
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
-    public /*out*/ readonly defaultPropagationRouteTable!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly defaultPropagationRouteTable: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    public readonly transitGatewayId!: pulumi.Output<string>;
+    declare public readonly transitGatewayId: pulumi.Output<string>;
 
     /**
      * Create a RouteTable resource with the given unique name, arguments, and options.
@@ -94,21 +94,21 @@ export class RouteTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteTableState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["defaultAssociationRouteTable"] = state ? state.defaultAssociationRouteTable : undefined;
-            resourceInputs["defaultPropagationRouteTable"] = state ? state.defaultPropagationRouteTable : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["defaultAssociationRouteTable"] = state?.defaultAssociationRouteTable;
+            resourceInputs["defaultPropagationRouteTable"] = state?.defaultPropagationRouteTable;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
         } else {
             const args = argsOrState as RouteTableArgs | undefined;
-            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+            if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultAssociationRouteTable"] = undefined /*out*/;
             resourceInputs["defaultPropagationRouteTable"] = undefined /*out*/;

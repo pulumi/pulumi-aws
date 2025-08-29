@@ -66,30 +66,30 @@ export class Host extends pulumi.CustomResource {
     /**
      * The CodeConnections Host ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the host to be created. The name must be unique in the calling AWS account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The endpoint of the infrastructure to be represented by the host after it is created.
      */
-    public readonly providerEndpoint!: pulumi.Output<string>;
+    declare public readonly providerEndpoint: pulumi.Output<string>;
     /**
      * The name of the external provider where your third-party code repository is configured.
      */
-    public readonly providerType!: pulumi.Output<string>;
+    declare public readonly providerType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.codeconnections.HostTimeouts | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.codeconnections.HostTimeouts | undefined>;
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.codeconnections.HostVpcConfiguration | undefined>;
+    declare public readonly vpcConfiguration: pulumi.Output<outputs.codeconnections.HostVpcConfiguration | undefined>;
 
     /**
      * Create a Host resource with the given unique name, arguments, and options.
@@ -104,30 +104,30 @@ export class Host extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["providerEndpoint"] = state ? state.providerEndpoint : undefined;
-            resourceInputs["providerType"] = state ? state.providerType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["providerEndpoint"] = state?.providerEndpoint;
+            resourceInputs["providerType"] = state?.providerType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vpcConfiguration"] = state?.vpcConfiguration;
         } else {
             const args = argsOrState as HostArgs | undefined;
-            if ((!args || args.providerEndpoint === undefined) && !opts.urn) {
+            if (args?.providerEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerEndpoint'");
             }
-            if ((!args || args.providerType === undefined) && !opts.urn) {
+            if (args?.providerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerType'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["providerEndpoint"] = args ? args.providerEndpoint : undefined;
-            resourceInputs["providerType"] = args ? args.providerType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["providerEndpoint"] = args?.providerEndpoint;
+            resourceInputs["providerType"] = args?.providerType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

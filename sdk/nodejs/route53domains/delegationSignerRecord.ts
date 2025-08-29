@@ -131,16 +131,16 @@ export class DelegationSignerRecord extends pulumi.CustomResource {
     /**
      * An ID assigned to the created DS record.
      */
-    public /*out*/ readonly dnssecKeyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnssecKeyId: pulumi.Output<string>;
     /**
      * The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      */
-    public readonly signingAttributes!: pulumi.Output<outputs.route53domains.DelegationSignerRecordSigningAttributes | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.route53domains.DelegationSignerRecordTimeouts | undefined>;
+    declare public readonly signingAttributes: pulumi.Output<outputs.route53domains.DelegationSignerRecordSigningAttributes | undefined>;
+    declare public readonly timeouts: pulumi.Output<outputs.route53domains.DelegationSignerRecordTimeouts | undefined>;
 
     /**
      * Create a DelegationSignerRecord resource with the given unique name, arguments, and options.
@@ -155,18 +155,18 @@ export class DelegationSignerRecord extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DelegationSignerRecordState | undefined;
-            resourceInputs["dnssecKeyId"] = state ? state.dnssecKeyId : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["signingAttributes"] = state ? state.signingAttributes : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["dnssecKeyId"] = state?.dnssecKeyId;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["signingAttributes"] = state?.signingAttributes;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as DelegationSignerRecordArgs | undefined;
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["signingAttributes"] = args ? args.signingAttributes : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["signingAttributes"] = args?.signingAttributes;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["dnssecKeyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

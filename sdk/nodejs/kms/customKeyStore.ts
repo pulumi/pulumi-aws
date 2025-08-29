@@ -104,28 +104,28 @@ export class CustomKeyStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomKeyStore.__pulumiType;
     }
 
-    public readonly cloudHsmClusterId!: pulumi.Output<string | undefined>;
+    declare public readonly cloudHsmClusterId: pulumi.Output<string | undefined>;
     /**
      * Unique name for Custom Key Store.
      *
      * The following arguments are optional:
      */
-    public readonly customKeyStoreName!: pulumi.Output<string>;
+    declare public readonly customKeyStoreName: pulumi.Output<string>;
     /**
      * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
      */
-    public readonly customKeyStoreType!: pulumi.Output<string>;
-    public readonly keyStorePassword!: pulumi.Output<string | undefined>;
+    declare public readonly customKeyStoreType: pulumi.Output<string>;
+    declare public readonly keyStorePassword: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly trustAnchorCertificate!: pulumi.Output<string | undefined>;
-    public readonly xksProxyAuthenticationCredential!: pulumi.Output<outputs.kms.CustomKeyStoreXksProxyAuthenticationCredential | undefined>;
-    public readonly xksProxyConnectivity!: pulumi.Output<string | undefined>;
-    public readonly xksProxyUriEndpoint!: pulumi.Output<string | undefined>;
-    public readonly xksProxyUriPath!: pulumi.Output<string | undefined>;
-    public readonly xksProxyVpcEndpointServiceName!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly trustAnchorCertificate: pulumi.Output<string | undefined>;
+    declare public readonly xksProxyAuthenticationCredential: pulumi.Output<outputs.kms.CustomKeyStoreXksProxyAuthenticationCredential | undefined>;
+    declare public readonly xksProxyConnectivity: pulumi.Output<string | undefined>;
+    declare public readonly xksProxyUriEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly xksProxyUriPath: pulumi.Output<string | undefined>;
+    declare public readonly xksProxyVpcEndpointServiceName: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomKeyStore resource with the given unique name, arguments, and options.
@@ -140,33 +140,33 @@ export class CustomKeyStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomKeyStoreState | undefined;
-            resourceInputs["cloudHsmClusterId"] = state ? state.cloudHsmClusterId : undefined;
-            resourceInputs["customKeyStoreName"] = state ? state.customKeyStoreName : undefined;
-            resourceInputs["customKeyStoreType"] = state ? state.customKeyStoreType : undefined;
-            resourceInputs["keyStorePassword"] = state ? state.keyStorePassword : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["trustAnchorCertificate"] = state ? state.trustAnchorCertificate : undefined;
-            resourceInputs["xksProxyAuthenticationCredential"] = state ? state.xksProxyAuthenticationCredential : undefined;
-            resourceInputs["xksProxyConnectivity"] = state ? state.xksProxyConnectivity : undefined;
-            resourceInputs["xksProxyUriEndpoint"] = state ? state.xksProxyUriEndpoint : undefined;
-            resourceInputs["xksProxyUriPath"] = state ? state.xksProxyUriPath : undefined;
-            resourceInputs["xksProxyVpcEndpointServiceName"] = state ? state.xksProxyVpcEndpointServiceName : undefined;
+            resourceInputs["cloudHsmClusterId"] = state?.cloudHsmClusterId;
+            resourceInputs["customKeyStoreName"] = state?.customKeyStoreName;
+            resourceInputs["customKeyStoreType"] = state?.customKeyStoreType;
+            resourceInputs["keyStorePassword"] = state?.keyStorePassword;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["trustAnchorCertificate"] = state?.trustAnchorCertificate;
+            resourceInputs["xksProxyAuthenticationCredential"] = state?.xksProxyAuthenticationCredential;
+            resourceInputs["xksProxyConnectivity"] = state?.xksProxyConnectivity;
+            resourceInputs["xksProxyUriEndpoint"] = state?.xksProxyUriEndpoint;
+            resourceInputs["xksProxyUriPath"] = state?.xksProxyUriPath;
+            resourceInputs["xksProxyVpcEndpointServiceName"] = state?.xksProxyVpcEndpointServiceName;
         } else {
             const args = argsOrState as CustomKeyStoreArgs | undefined;
-            if ((!args || args.customKeyStoreName === undefined) && !opts.urn) {
+            if (args?.customKeyStoreName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customKeyStoreName'");
             }
-            resourceInputs["cloudHsmClusterId"] = args ? args.cloudHsmClusterId : undefined;
-            resourceInputs["customKeyStoreName"] = args ? args.customKeyStoreName : undefined;
-            resourceInputs["customKeyStoreType"] = args ? args.customKeyStoreType : undefined;
-            resourceInputs["keyStorePassword"] = args ? args.keyStorePassword : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["trustAnchorCertificate"] = args ? args.trustAnchorCertificate : undefined;
-            resourceInputs["xksProxyAuthenticationCredential"] = args ? args.xksProxyAuthenticationCredential : undefined;
-            resourceInputs["xksProxyConnectivity"] = args ? args.xksProxyConnectivity : undefined;
-            resourceInputs["xksProxyUriEndpoint"] = args ? args.xksProxyUriEndpoint : undefined;
-            resourceInputs["xksProxyUriPath"] = args ? args.xksProxyUriPath : undefined;
-            resourceInputs["xksProxyVpcEndpointServiceName"] = args ? args.xksProxyVpcEndpointServiceName : undefined;
+            resourceInputs["cloudHsmClusterId"] = args?.cloudHsmClusterId;
+            resourceInputs["customKeyStoreName"] = args?.customKeyStoreName;
+            resourceInputs["customKeyStoreType"] = args?.customKeyStoreType;
+            resourceInputs["keyStorePassword"] = args?.keyStorePassword;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["trustAnchorCertificate"] = args?.trustAnchorCertificate;
+            resourceInputs["xksProxyAuthenticationCredential"] = args?.xksProxyAuthenticationCredential;
+            resourceInputs["xksProxyConnectivity"] = args?.xksProxyConnectivity;
+            resourceInputs["xksProxyUriEndpoint"] = args?.xksProxyUriEndpoint;
+            resourceInputs["xksProxyUriPath"] = args?.xksProxyUriPath;
+            resourceInputs["xksProxyVpcEndpointServiceName"] = args?.xksProxyVpcEndpointServiceName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomKeyStore.__pulumiType, name, resourceInputs, opts);

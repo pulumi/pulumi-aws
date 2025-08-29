@@ -76,16 +76,16 @@ export class AccountSettingDefault extends pulumi.CustomResource {
     /**
      * Name of the account setting to set.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly principalArn!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly principalArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * State of the setting.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a AccountSettingDefault resource with the given unique name, arguments, and options.
@@ -100,18 +100,18 @@ export class AccountSettingDefault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountSettingDefaultState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["principalArn"] = state ? state.principalArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["principalArn"] = state?.principalArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as AccountSettingDefaultArgs | undefined;
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["value"] = args?.value;
             resourceInputs["principalArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

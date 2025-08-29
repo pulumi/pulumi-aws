@@ -127,53 +127,53 @@ export class DataLakeSettings extends pulumi.CustomResource {
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
-    public readonly admins!: pulumi.Output<string[]>;
+    declare public readonly admins: pulumi.Output<string[]>;
     /**
      * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
      */
-    public readonly allowExternalDataFiltering!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowExternalDataFiltering: pulumi.Output<boolean | undefined>;
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      */
-    public readonly allowFullTableExternalDataAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowFullTableExternalDataAccess: pulumi.Output<boolean | undefined>;
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
      */
-    public readonly authorizedSessionTagValueLists!: pulumi.Output<string[]>;
+    declare public readonly authorizedSessionTagValueLists: pulumi.Output<string[]>;
     /**
      * Identifier for the Data Catalog. By default, the account ID.
      */
-    public readonly catalogId!: pulumi.Output<string | undefined>;
+    declare public readonly catalogId: pulumi.Output<string | undefined>;
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      */
-    public readonly createDatabaseDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission[]>;
+    declare public readonly createDatabaseDefaultPermissions: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission[]>;
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
-    public readonly createTableDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission[]>;
+    declare public readonly createTableDefaultPermissions: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission[]>;
     /**
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      */
-    public readonly externalDataFilteringAllowLists!: pulumi.Output<string[]>;
+    declare public readonly externalDataFilteringAllowLists: pulumi.Output<string[]>;
     /**
      * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string}>;
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
-    public readonly readOnlyAdmins!: pulumi.Output<string[]>;
+    declare public readonly readOnlyAdmins: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      *
      * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
-    public readonly trustedResourceOwners!: pulumi.Output<string[]>;
+    declare public readonly trustedResourceOwners: pulumi.Output<string[]>;
 
     /**
      * Create a DataLakeSettings resource with the given unique name, arguments, and options.
@@ -188,32 +188,32 @@ export class DataLakeSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataLakeSettingsState | undefined;
-            resourceInputs["admins"] = state ? state.admins : undefined;
-            resourceInputs["allowExternalDataFiltering"] = state ? state.allowExternalDataFiltering : undefined;
-            resourceInputs["allowFullTableExternalDataAccess"] = state ? state.allowFullTableExternalDataAccess : undefined;
-            resourceInputs["authorizedSessionTagValueLists"] = state ? state.authorizedSessionTagValueLists : undefined;
-            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
-            resourceInputs["createDatabaseDefaultPermissions"] = state ? state.createDatabaseDefaultPermissions : undefined;
-            resourceInputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
-            resourceInputs["externalDataFilteringAllowLists"] = state ? state.externalDataFilteringAllowLists : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["readOnlyAdmins"] = state ? state.readOnlyAdmins : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["trustedResourceOwners"] = state ? state.trustedResourceOwners : undefined;
+            resourceInputs["admins"] = state?.admins;
+            resourceInputs["allowExternalDataFiltering"] = state?.allowExternalDataFiltering;
+            resourceInputs["allowFullTableExternalDataAccess"] = state?.allowFullTableExternalDataAccess;
+            resourceInputs["authorizedSessionTagValueLists"] = state?.authorizedSessionTagValueLists;
+            resourceInputs["catalogId"] = state?.catalogId;
+            resourceInputs["createDatabaseDefaultPermissions"] = state?.createDatabaseDefaultPermissions;
+            resourceInputs["createTableDefaultPermissions"] = state?.createTableDefaultPermissions;
+            resourceInputs["externalDataFilteringAllowLists"] = state?.externalDataFilteringAllowLists;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["readOnlyAdmins"] = state?.readOnlyAdmins;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["trustedResourceOwners"] = state?.trustedResourceOwners;
         } else {
             const args = argsOrState as DataLakeSettingsArgs | undefined;
-            resourceInputs["admins"] = args ? args.admins : undefined;
-            resourceInputs["allowExternalDataFiltering"] = args ? args.allowExternalDataFiltering : undefined;
-            resourceInputs["allowFullTableExternalDataAccess"] = args ? args.allowFullTableExternalDataAccess : undefined;
-            resourceInputs["authorizedSessionTagValueLists"] = args ? args.authorizedSessionTagValueLists : undefined;
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["createDatabaseDefaultPermissions"] = args ? args.createDatabaseDefaultPermissions : undefined;
-            resourceInputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
-            resourceInputs["externalDataFilteringAllowLists"] = args ? args.externalDataFilteringAllowLists : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["readOnlyAdmins"] = args ? args.readOnlyAdmins : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
+            resourceInputs["admins"] = args?.admins;
+            resourceInputs["allowExternalDataFiltering"] = args?.allowExternalDataFiltering;
+            resourceInputs["allowFullTableExternalDataAccess"] = args?.allowFullTableExternalDataAccess;
+            resourceInputs["authorizedSessionTagValueLists"] = args?.authorizedSessionTagValueLists;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["createDatabaseDefaultPermissions"] = args?.createDatabaseDefaultPermissions;
+            resourceInputs["createTableDefaultPermissions"] = args?.createTableDefaultPermissions;
+            resourceInputs["externalDataFilteringAllowLists"] = args?.externalDataFilteringAllowLists;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["readOnlyAdmins"] = args?.readOnlyAdmins;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["trustedResourceOwners"] = args?.trustedResourceOwners;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataLakeSettings.__pulumiType, name, resourceInputs, opts);

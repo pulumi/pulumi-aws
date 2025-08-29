@@ -109,55 +109,55 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      */
-    public readonly bufferOptions!: pulumi.Output<outputs.opensearchingest.PipelineBufferOptions | undefined>;
+    declare public readonly bufferOptions: pulumi.Output<outputs.opensearchingest.PipelineBufferOptions | undefined>;
     /**
      * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      */
-    public readonly encryptionAtRestOptions!: pulumi.Output<outputs.opensearchingest.PipelineEncryptionAtRestOptions | undefined>;
+    declare public readonly encryptionAtRestOptions: pulumi.Output<outputs.opensearchingest.PipelineEncryptionAtRestOptions | undefined>;
     /**
      * The list of ingestion endpoints for the pipeline, which you can send data to.
      */
-    public /*out*/ readonly ingestEndpointUrls!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ingestEndpointUrls: pulumi.Output<string[]>;
     /**
      * Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      */
-    public readonly logPublishingOptions!: pulumi.Output<outputs.opensearchingest.PipelineLogPublishingOptions | undefined>;
+    declare public readonly logPublishingOptions: pulumi.Output<outputs.opensearchingest.PipelineLogPublishingOptions | undefined>;
     /**
      * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
      */
-    public readonly maxUnits!: pulumi.Output<number>;
+    declare public readonly maxUnits: pulumi.Output<number>;
     /**
      * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
      */
-    public readonly minUnits!: pulumi.Output<number>;
+    declare public readonly minUnits: pulumi.Output<number>;
     /**
      * Amazon Resource Name (ARN) of the pipeline.
      */
-    public /*out*/ readonly pipelineArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly pipelineArn: pulumi.Output<string>;
     /**
      * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
      */
-    public readonly pipelineConfigurationBody!: pulumi.Output<string>;
+    declare public readonly pipelineConfigurationBody: pulumi.Output<string>;
     /**
      * The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      *
      * The following arguments are optional:
      */
-    public readonly pipelineName!: pulumi.Output<string>;
+    declare public readonly pipelineName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.opensearchingest.PipelineTimeouts | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.opensearchingest.PipelineTimeouts | undefined>;
     /**
      * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      */
-    public readonly vpcOptions!: pulumi.Output<outputs.opensearchingest.PipelineVpcOptions | undefined>;
+    declare public readonly vpcOptions: pulumi.Output<outputs.opensearchingest.PipelineVpcOptions | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -172,45 +172,45 @@ export class Pipeline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
-            resourceInputs["bufferOptions"] = state ? state.bufferOptions : undefined;
-            resourceInputs["encryptionAtRestOptions"] = state ? state.encryptionAtRestOptions : undefined;
-            resourceInputs["ingestEndpointUrls"] = state ? state.ingestEndpointUrls : undefined;
-            resourceInputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
-            resourceInputs["maxUnits"] = state ? state.maxUnits : undefined;
-            resourceInputs["minUnits"] = state ? state.minUnits : undefined;
-            resourceInputs["pipelineArn"] = state ? state.pipelineArn : undefined;
-            resourceInputs["pipelineConfigurationBody"] = state ? state.pipelineConfigurationBody : undefined;
-            resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vpcOptions"] = state ? state.vpcOptions : undefined;
+            resourceInputs["bufferOptions"] = state?.bufferOptions;
+            resourceInputs["encryptionAtRestOptions"] = state?.encryptionAtRestOptions;
+            resourceInputs["ingestEndpointUrls"] = state?.ingestEndpointUrls;
+            resourceInputs["logPublishingOptions"] = state?.logPublishingOptions;
+            resourceInputs["maxUnits"] = state?.maxUnits;
+            resourceInputs["minUnits"] = state?.minUnits;
+            resourceInputs["pipelineArn"] = state?.pipelineArn;
+            resourceInputs["pipelineConfigurationBody"] = state?.pipelineConfigurationBody;
+            resourceInputs["pipelineName"] = state?.pipelineName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vpcOptions"] = state?.vpcOptions;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if ((!args || args.maxUnits === undefined) && !opts.urn) {
+            if (args?.maxUnits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxUnits'");
             }
-            if ((!args || args.minUnits === undefined) && !opts.urn) {
+            if (args?.minUnits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minUnits'");
             }
-            if ((!args || args.pipelineConfigurationBody === undefined) && !opts.urn) {
+            if (args?.pipelineConfigurationBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineConfigurationBody'");
             }
-            if ((!args || args.pipelineName === undefined) && !opts.urn) {
+            if (args?.pipelineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineName'");
             }
-            resourceInputs["bufferOptions"] = args ? args.bufferOptions : undefined;
-            resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
-            resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
-            resourceInputs["maxUnits"] = args ? args.maxUnits : undefined;
-            resourceInputs["minUnits"] = args ? args.minUnits : undefined;
-            resourceInputs["pipelineConfigurationBody"] = args ? args.pipelineConfigurationBody : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
+            resourceInputs["bufferOptions"] = args?.bufferOptions;
+            resourceInputs["encryptionAtRestOptions"] = args?.encryptionAtRestOptions;
+            resourceInputs["logPublishingOptions"] = args?.logPublishingOptions;
+            resourceInputs["maxUnits"] = args?.maxUnits;
+            resourceInputs["minUnits"] = args?.minUnits;
+            resourceInputs["pipelineConfigurationBody"] = args?.pipelineConfigurationBody;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["vpcOptions"] = args?.vpcOptions;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["pipelineArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

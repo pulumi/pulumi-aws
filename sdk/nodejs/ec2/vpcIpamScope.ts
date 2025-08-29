@@ -64,37 +64,37 @@ export class VpcIpamScope extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the scope.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description for the scope you're creating.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the IPAM for which you're creating this scope.
      */
-    public /*out*/ readonly ipamArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamArn: pulumi.Output<string>;
     /**
      * The ID of the IPAM for which you're creating this scope.
      */
-    public readonly ipamId!: pulumi.Output<string>;
-    public /*out*/ readonly ipamScopeType!: pulumi.Output<string>;
+    declare public readonly ipamId: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamScopeType: pulumi.Output<string>;
     /**
      * Defines if the scope is the default scope or not.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The number of pools in the scope.
      */
-    public /*out*/ readonly poolCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly poolCount: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VpcIpamScope resource with the given unique name, arguments, and options.
@@ -109,25 +109,25 @@ export class VpcIpamScope extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamScopeState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["ipamArn"] = state ? state.ipamArn : undefined;
-            resourceInputs["ipamId"] = state ? state.ipamId : undefined;
-            resourceInputs["ipamScopeType"] = state ? state.ipamScopeType : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["poolCount"] = state ? state.poolCount : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["ipamArn"] = state?.ipamArn;
+            resourceInputs["ipamId"] = state?.ipamId;
+            resourceInputs["ipamScopeType"] = state?.ipamScopeType;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["poolCount"] = state?.poolCount;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as VpcIpamScopeArgs | undefined;
-            if ((!args || args.ipamId === undefined) && !opts.urn) {
+            if (args?.ipamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipamId"] = args ? args.ipamId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipamId"] = args?.ipamId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamScopeType"] = undefined /*out*/;

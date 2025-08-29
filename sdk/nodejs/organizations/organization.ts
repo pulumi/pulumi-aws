@@ -68,47 +68,47 @@ export class Organization extends pulumi.CustomResource {
     /**
      * List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
      */
-    public /*out*/ readonly accounts!: pulumi.Output<outputs.organizations.OrganizationAccount[]>;
+    declare public /*out*/ readonly accounts: pulumi.Output<outputs.organizations.OrganizationAccount[]>;
     /**
      * ARN of the root
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `featureSet` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
      */
-    public readonly awsServiceAccessPrincipals!: pulumi.Output<string[] | undefined>;
+    declare public readonly awsServiceAccessPrincipals: pulumi.Output<string[] | undefined>;
     /**
      * List of Organizations policy types to enable in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      */
-    public readonly enabledPolicyTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly enabledPolicyTypes: pulumi.Output<string[] | undefined>;
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
-    public readonly featureSet!: pulumi.Output<string | undefined>;
+    declare public readonly featureSet: pulumi.Output<string | undefined>;
     /**
      * ARN of the master account
      */
-    public /*out*/ readonly masterAccountArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly masterAccountArn: pulumi.Output<string>;
     /**
      * Email address of the master account
      */
-    public /*out*/ readonly masterAccountEmail!: pulumi.Output<string>;
+    declare public /*out*/ readonly masterAccountEmail: pulumi.Output<string>;
     /**
      * Identifier of the master account
      */
-    public /*out*/ readonly masterAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly masterAccountId: pulumi.Output<string>;
     /**
      * Name of the master account
      */
-    public /*out*/ readonly masterAccountName!: pulumi.Output<string>;
+    declare public /*out*/ readonly masterAccountName: pulumi.Output<string>;
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
-    public /*out*/ readonly nonMasterAccounts!: pulumi.Output<outputs.organizations.OrganizationNonMasterAccount[]>;
+    declare public /*out*/ readonly nonMasterAccounts: pulumi.Output<outputs.organizations.OrganizationNonMasterAccount[]>;
     /**
      * List of organization roots. All elements have these attributes:
      */
-    public /*out*/ readonly roots!: pulumi.Output<outputs.organizations.OrganizationRoot[]>;
+    declare public /*out*/ readonly roots: pulumi.Output<outputs.organizations.OrganizationRoot[]>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -123,22 +123,22 @@ export class Organization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationState | undefined;
-            resourceInputs["accounts"] = state ? state.accounts : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsServiceAccessPrincipals"] = state ? state.awsServiceAccessPrincipals : undefined;
-            resourceInputs["enabledPolicyTypes"] = state ? state.enabledPolicyTypes : undefined;
-            resourceInputs["featureSet"] = state ? state.featureSet : undefined;
-            resourceInputs["masterAccountArn"] = state ? state.masterAccountArn : undefined;
-            resourceInputs["masterAccountEmail"] = state ? state.masterAccountEmail : undefined;
-            resourceInputs["masterAccountId"] = state ? state.masterAccountId : undefined;
-            resourceInputs["masterAccountName"] = state ? state.masterAccountName : undefined;
-            resourceInputs["nonMasterAccounts"] = state ? state.nonMasterAccounts : undefined;
-            resourceInputs["roots"] = state ? state.roots : undefined;
+            resourceInputs["accounts"] = state?.accounts;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsServiceAccessPrincipals"] = state?.awsServiceAccessPrincipals;
+            resourceInputs["enabledPolicyTypes"] = state?.enabledPolicyTypes;
+            resourceInputs["featureSet"] = state?.featureSet;
+            resourceInputs["masterAccountArn"] = state?.masterAccountArn;
+            resourceInputs["masterAccountEmail"] = state?.masterAccountEmail;
+            resourceInputs["masterAccountId"] = state?.masterAccountId;
+            resourceInputs["masterAccountName"] = state?.masterAccountName;
+            resourceInputs["nonMasterAccounts"] = state?.nonMasterAccounts;
+            resourceInputs["roots"] = state?.roots;
         } else {
             const args = argsOrState as OrganizationArgs | undefined;
-            resourceInputs["awsServiceAccessPrincipals"] = args ? args.awsServiceAccessPrincipals : undefined;
-            resourceInputs["enabledPolicyTypes"] = args ? args.enabledPolicyTypes : undefined;
-            resourceInputs["featureSet"] = args ? args.featureSet : undefined;
+            resourceInputs["awsServiceAccessPrincipals"] = args?.awsServiceAccessPrincipals;
+            resourceInputs["enabledPolicyTypes"] = args?.enabledPolicyTypes;
+            resourceInputs["featureSet"] = args?.featureSet;
             resourceInputs["accounts"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["masterAccountArn"] = undefined /*out*/;

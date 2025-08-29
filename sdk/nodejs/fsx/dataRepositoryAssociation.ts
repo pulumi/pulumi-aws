@@ -91,49 +91,49 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
      */
-    public readonly batchImportMetaDataOnCreate!: pulumi.Output<boolean | undefined>;
+    declare public readonly batchImportMetaDataOnCreate: pulumi.Output<boolean | undefined>;
     /**
      * The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
      */
-    public readonly dataRepositoryPath!: pulumi.Output<string>;
+    declare public readonly dataRepositoryPath: pulumi.Output<string>;
     /**
      * Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
      */
-    public readonly deleteDataInFilesystem!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteDataInFilesystem: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Amazon FSx file system to on which to create a data repository association.
      */
-    public readonly fileSystemId!: pulumi.Output<string>;
+    declare public readonly fileSystemId: pulumi.Output<string>;
     /**
      * A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
      */
-    public readonly fileSystemPath!: pulumi.Output<string>;
+    declare public readonly fileSystemPath: pulumi.Output<string>;
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
      */
-    public readonly importedFileChunkSize!: pulumi.Output<number>;
+    declare public readonly importedFileChunkSize: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * See the `s3` configuration block. Max of 1.
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      */
-    public readonly s3!: pulumi.Output<outputs.fsx.DataRepositoryAssociationS3>;
+    declare public readonly s3: pulumi.Output<outputs.fsx.DataRepositoryAssociationS3>;
     /**
      * A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DataRepositoryAssociation resource with the given unique name, arguments, and options.
@@ -148,38 +148,38 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataRepositoryAssociationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["associationId"] = state ? state.associationId : undefined;
-            resourceInputs["batchImportMetaDataOnCreate"] = state ? state.batchImportMetaDataOnCreate : undefined;
-            resourceInputs["dataRepositoryPath"] = state ? state.dataRepositoryPath : undefined;
-            resourceInputs["deleteDataInFilesystem"] = state ? state.deleteDataInFilesystem : undefined;
-            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
-            resourceInputs["fileSystemPath"] = state ? state.fileSystemPath : undefined;
-            resourceInputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["s3"] = state ? state.s3 : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["associationId"] = state?.associationId;
+            resourceInputs["batchImportMetaDataOnCreate"] = state?.batchImportMetaDataOnCreate;
+            resourceInputs["dataRepositoryPath"] = state?.dataRepositoryPath;
+            resourceInputs["deleteDataInFilesystem"] = state?.deleteDataInFilesystem;
+            resourceInputs["fileSystemId"] = state?.fileSystemId;
+            resourceInputs["fileSystemPath"] = state?.fileSystemPath;
+            resourceInputs["importedFileChunkSize"] = state?.importedFileChunkSize;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["s3"] = state?.s3;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as DataRepositoryAssociationArgs | undefined;
-            if ((!args || args.dataRepositoryPath === undefined) && !opts.urn) {
+            if (args?.dataRepositoryPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataRepositoryPath'");
             }
-            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
+            if (args?.fileSystemId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            if ((!args || args.fileSystemPath === undefined) && !opts.urn) {
+            if (args?.fileSystemPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemPath'");
             }
-            resourceInputs["batchImportMetaDataOnCreate"] = args ? args.batchImportMetaDataOnCreate : undefined;
-            resourceInputs["dataRepositoryPath"] = args ? args.dataRepositoryPath : undefined;
-            resourceInputs["deleteDataInFilesystem"] = args ? args.deleteDataInFilesystem : undefined;
-            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            resourceInputs["fileSystemPath"] = args ? args.fileSystemPath : undefined;
-            resourceInputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["s3"] = args ? args.s3 : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["batchImportMetaDataOnCreate"] = args?.batchImportMetaDataOnCreate;
+            resourceInputs["dataRepositoryPath"] = args?.dataRepositoryPath;
+            resourceInputs["deleteDataInFilesystem"] = args?.deleteDataInFilesystem;
+            resourceInputs["fileSystemId"] = args?.fileSystemId;
+            resourceInputs["fileSystemPath"] = args?.fileSystemPath;
+            resourceInputs["importedFileChunkSize"] = args?.importedFileChunkSize;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["s3"] = args?.s3;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

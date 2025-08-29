@@ -75,20 +75,20 @@ export class ClusterPeering extends pulumi.CustomResource {
     /**
      * List of DSQL Cluster ARNs to be peered to this cluster.
      */
-    public readonly clusters!: pulumi.Output<string[]>;
+    declare public readonly clusters: pulumi.Output<string[]>;
     /**
      * DSQL Cluster Identifier.
      */
-    public readonly identifier!: pulumi.Output<string>;
+    declare public readonly identifier: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.dsql.ClusterPeeringTimeouts | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.dsql.ClusterPeeringTimeouts | undefined>;
     /**
      * Witness region for a multi-region cluster.
      */
-    public readonly witnessRegion!: pulumi.Output<string>;
+    declare public readonly witnessRegion: pulumi.Output<string>;
 
     /**
      * Create a ClusterPeering resource with the given unique name, arguments, and options.
@@ -103,27 +103,27 @@ export class ClusterPeering extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterPeeringState | undefined;
-            resourceInputs["clusters"] = state ? state.clusters : undefined;
-            resourceInputs["identifier"] = state ? state.identifier : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["witnessRegion"] = state ? state.witnessRegion : undefined;
+            resourceInputs["clusters"] = state?.clusters;
+            resourceInputs["identifier"] = state?.identifier;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["witnessRegion"] = state?.witnessRegion;
         } else {
             const args = argsOrState as ClusterPeeringArgs | undefined;
-            if ((!args || args.clusters === undefined) && !opts.urn) {
+            if (args?.clusters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusters'");
             }
-            if ((!args || args.identifier === undefined) && !opts.urn) {
+            if (args?.identifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.witnessRegion === undefined) && !opts.urn) {
+            if (args?.witnessRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'witnessRegion'");
             }
-            resourceInputs["clusters"] = args ? args.clusters : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["witnessRegion"] = args ? args.witnessRegion : undefined;
+            resourceInputs["clusters"] = args?.clusters;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["witnessRegion"] = args?.witnessRegion;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterPeering.__pulumiType, name, resourceInputs, opts);

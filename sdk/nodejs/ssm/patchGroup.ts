@@ -54,15 +54,15 @@ export class PatchGroup extends pulumi.CustomResource {
     /**
      * The ID of the patch baseline to register the patch group with.
      */
-    public readonly baselineId!: pulumi.Output<string>;
+    declare public readonly baselineId: pulumi.Output<string>;
     /**
      * The name of the patch group that should be registered with the patch baseline.
      */
-    public readonly patchGroup!: pulumi.Output<string>;
+    declare public readonly patchGroup: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a PatchGroup resource with the given unique name, arguments, and options.
@@ -77,20 +77,20 @@ export class PatchGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PatchGroupState | undefined;
-            resourceInputs["baselineId"] = state ? state.baselineId : undefined;
-            resourceInputs["patchGroup"] = state ? state.patchGroup : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["baselineId"] = state?.baselineId;
+            resourceInputs["patchGroup"] = state?.patchGroup;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as PatchGroupArgs | undefined;
-            if ((!args || args.baselineId === undefined) && !opts.urn) {
+            if (args?.baselineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baselineId'");
             }
-            if ((!args || args.patchGroup === undefined) && !opts.urn) {
+            if (args?.patchGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'patchGroup'");
             }
-            resourceInputs["baselineId"] = args ? args.baselineId : undefined;
-            resourceInputs["patchGroup"] = args ? args.patchGroup : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["baselineId"] = args?.baselineId;
+            resourceInputs["patchGroup"] = args?.patchGroup;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PatchGroup.__pulumiType, name, resourceInputs, opts);

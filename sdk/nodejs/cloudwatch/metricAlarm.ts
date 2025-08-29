@@ -216,86 +216,86 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
      */
-    public readonly actionsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly actionsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    public readonly alarmActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly alarmActions: pulumi.Output<string[] | undefined>;
     /**
      * The description for the alarm.
      */
-    public readonly alarmDescription!: pulumi.Output<string | undefined>;
+    declare public readonly alarmDescription: pulumi.Output<string | undefined>;
     /**
      * The ARN of the CloudWatch Metric Alarm.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
-    public readonly comparisonOperator!: pulumi.Output<string>;
+    declare public readonly comparisonOperator: pulumi.Output<string>;
     /**
      * The number of datapoints that must be breaching to trigger the alarm.
      */
-    public readonly datapointsToAlarm!: pulumi.Output<number | undefined>;
+    declare public readonly datapointsToAlarm: pulumi.Output<number | undefined>;
     /**
      * The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    public readonly dimensions!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly dimensions: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Used only for alarms based on percentiles.
      * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
      * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      */
-    public readonly evaluateLowSampleCountPercentiles!: pulumi.Output<string>;
+    declare public readonly evaluateLowSampleCountPercentiles: pulumi.Output<string>;
     /**
      * The number of periods over which data is compared to the specified threshold.
      */
-    public readonly evaluationPeriods!: pulumi.Output<number>;
+    declare public readonly evaluationPeriods: pulumi.Output<number>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      */
-    public readonly extendedStatistic!: pulumi.Output<string | undefined>;
+    declare public readonly extendedStatistic: pulumi.Output<string | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    public readonly insufficientDataActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly insufficientDataActions: pulumi.Output<string[] | undefined>;
     /**
      * The name for the alarm's associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    public readonly metricName!: pulumi.Output<string | undefined>;
+    declare public readonly metricName: pulumi.Output<string | undefined>;
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    public readonly metricQueries!: pulumi.Output<outputs.cloudwatch.MetricAlarmMetricQuery[] | undefined>;
+    declare public readonly metricQueries: pulumi.Output<outputs.cloudwatch.MetricAlarmMetricQuery[] | undefined>;
     /**
      * The descriptive name for the alarm. This name must be unique within the user's AWS account
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    public readonly namespace!: pulumi.Output<string | undefined>;
+    declare public readonly namespace: pulumi.Output<string | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    public readonly okActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly okActions: pulumi.Output<string[] | undefined>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
      * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      */
-    public readonly period!: pulumi.Output<number | undefined>;
+    declare public readonly period: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      */
-    public readonly statistic!: pulumi.Output<string | undefined>;
+    declare public readonly statistic: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -304,27 +304,27 @@ export class MetricAlarm extends pulumi.CustomResource {
      *
      * > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
-    public readonly threshold!: pulumi.Output<number | undefined>;
+    declare public readonly threshold: pulumi.Output<number | undefined>;
     /**
      * If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
      */
-    public readonly thresholdMetricId!: pulumi.Output<string | undefined>;
+    declare public readonly thresholdMetricId: pulumi.Output<string | undefined>;
     /**
      * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      */
-    public readonly treatMissingData!: pulumi.Output<string | undefined>;
+    declare public readonly treatMissingData: pulumi.Output<string | undefined>;
     /**
      * The unit for the alarm's associated metric.
      */
-    public readonly unit!: pulumi.Output<string | undefined>;
+    declare public readonly unit: pulumi.Output<string | undefined>;
 
     /**
      * Create a MetricAlarm resource with the given unique name, arguments, and options.
@@ -339,62 +339,62 @@ export class MetricAlarm extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricAlarmState | undefined;
-            resourceInputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
-            resourceInputs["alarmActions"] = state ? state.alarmActions : undefined;
-            resourceInputs["alarmDescription"] = state ? state.alarmDescription : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["comparisonOperator"] = state ? state.comparisonOperator : undefined;
-            resourceInputs["datapointsToAlarm"] = state ? state.datapointsToAlarm : undefined;
-            resourceInputs["dimensions"] = state ? state.dimensions : undefined;
-            resourceInputs["evaluateLowSampleCountPercentiles"] = state ? state.evaluateLowSampleCountPercentiles : undefined;
-            resourceInputs["evaluationPeriods"] = state ? state.evaluationPeriods : undefined;
-            resourceInputs["extendedStatistic"] = state ? state.extendedStatistic : undefined;
-            resourceInputs["insufficientDataActions"] = state ? state.insufficientDataActions : undefined;
-            resourceInputs["metricName"] = state ? state.metricName : undefined;
-            resourceInputs["metricQueries"] = state ? state.metricQueries : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespace"] = state ? state.namespace : undefined;
-            resourceInputs["okActions"] = state ? state.okActions : undefined;
-            resourceInputs["period"] = state ? state.period : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["statistic"] = state ? state.statistic : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["threshold"] = state ? state.threshold : undefined;
-            resourceInputs["thresholdMetricId"] = state ? state.thresholdMetricId : undefined;
-            resourceInputs["treatMissingData"] = state ? state.treatMissingData : undefined;
-            resourceInputs["unit"] = state ? state.unit : undefined;
+            resourceInputs["actionsEnabled"] = state?.actionsEnabled;
+            resourceInputs["alarmActions"] = state?.alarmActions;
+            resourceInputs["alarmDescription"] = state?.alarmDescription;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["comparisonOperator"] = state?.comparisonOperator;
+            resourceInputs["datapointsToAlarm"] = state?.datapointsToAlarm;
+            resourceInputs["dimensions"] = state?.dimensions;
+            resourceInputs["evaluateLowSampleCountPercentiles"] = state?.evaluateLowSampleCountPercentiles;
+            resourceInputs["evaluationPeriods"] = state?.evaluationPeriods;
+            resourceInputs["extendedStatistic"] = state?.extendedStatistic;
+            resourceInputs["insufficientDataActions"] = state?.insufficientDataActions;
+            resourceInputs["metricName"] = state?.metricName;
+            resourceInputs["metricQueries"] = state?.metricQueries;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespace"] = state?.namespace;
+            resourceInputs["okActions"] = state?.okActions;
+            resourceInputs["period"] = state?.period;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["statistic"] = state?.statistic;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["threshold"] = state?.threshold;
+            resourceInputs["thresholdMetricId"] = state?.thresholdMetricId;
+            resourceInputs["treatMissingData"] = state?.treatMissingData;
+            resourceInputs["unit"] = state?.unit;
         } else {
             const args = argsOrState as MetricAlarmArgs | undefined;
-            if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
+            if (args?.comparisonOperator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'comparisonOperator'");
             }
-            if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
+            if (args?.evaluationPeriods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
-            resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
-            resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
-            resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
-            resourceInputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
-            resourceInputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
-            resourceInputs["dimensions"] = args ? args.dimensions : undefined;
-            resourceInputs["evaluateLowSampleCountPercentiles"] = args ? args.evaluateLowSampleCountPercentiles : undefined;
-            resourceInputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
-            resourceInputs["extendedStatistic"] = args ? args.extendedStatistic : undefined;
-            resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["metricQueries"] = args ? args.metricQueries : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["okActions"] = args ? args.okActions : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["statistic"] = args ? args.statistic : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
-            resourceInputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
-            resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
-            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["actionsEnabled"] = args?.actionsEnabled;
+            resourceInputs["alarmActions"] = args?.alarmActions;
+            resourceInputs["alarmDescription"] = args?.alarmDescription;
+            resourceInputs["comparisonOperator"] = args?.comparisonOperator;
+            resourceInputs["datapointsToAlarm"] = args?.datapointsToAlarm;
+            resourceInputs["dimensions"] = args?.dimensions;
+            resourceInputs["evaluateLowSampleCountPercentiles"] = args?.evaluateLowSampleCountPercentiles;
+            resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
+            resourceInputs["extendedStatistic"] = args?.extendedStatistic;
+            resourceInputs["insufficientDataActions"] = args?.insufficientDataActions;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["metricQueries"] = args?.metricQueries;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["okActions"] = args?.okActions;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["statistic"] = args?.statistic;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threshold"] = args?.threshold;
+            resourceInputs["thresholdMetricId"] = args?.thresholdMetricId;
+            resourceInputs["treatMissingData"] = args?.treatMissingData;
+            resourceInputs["unit"] = args?.unit;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

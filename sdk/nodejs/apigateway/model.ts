@@ -69,27 +69,27 @@ export class Model extends pulumi.CustomResource {
     /**
      * Content type of the model
      */
-    public readonly contentType!: pulumi.Output<string>;
+    declare public readonly contentType: pulumi.Output<string>;
     /**
      * Description of the model
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the model
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<string>;
+    declare public readonly restApi: pulumi.Output<string>;
     /**
      * Schema of the model in a JSON form
      */
-    public readonly schema!: pulumi.Output<string | undefined>;
+    declare public readonly schema: pulumi.Output<string | undefined>;
 
     /**
      * Create a Model resource with the given unique name, arguments, and options.
@@ -104,26 +104,26 @@ export class Model extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModelState | undefined;
-            resourceInputs["contentType"] = state ? state.contentType : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["restApi"] = state ? state.restApi : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["contentType"] = state?.contentType;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["restApi"] = state?.restApi;
+            resourceInputs["schema"] = state?.schema;
         } else {
             const args = argsOrState as ModelArgs | undefined;
-            if ((!args || args.contentType === undefined) && !opts.urn) {
+            if (args?.contentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if ((!args || args.restApi === undefined) && !opts.urn) {
+            if (args?.restApi === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["restApi"] = args ? args.restApi : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["restApi"] = args?.restApi;
+            resourceInputs["schema"] = args?.schema;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Model.__pulumiType, name, resourceInputs, opts);

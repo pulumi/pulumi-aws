@@ -58,61 +58,61 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
     /**
      * Attachment ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
     /**
      * Type of attachment.
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
      * ARN of the core network.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * ID of the core network.
      */
-    public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkId: pulumi.Output<string>;
     /**
      * Edge location for the peer.
      */
-    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
     /**
      * ID of the attachment account owner.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * ID of the peer for the attachment.
      */
-    public readonly peeringId!: pulumi.Output<string>;
+    declare public readonly peeringId: pulumi.Output<string>;
     /**
      * Attachment resource ARN.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * Name of the segment attachment.
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    declare public /*out*/ readonly segmentName: pulumi.Output<string>;
     /**
      * State of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of the transit gateway route table for the attachment.
      *
      * The following arguments are optional:
      */
-    public readonly transitGatewayRouteTableArn!: pulumi.Output<string>;
+    declare public readonly transitGatewayRouteTableArn: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayRouteTableAttachment resource with the given unique name, arguments, and options.
@@ -127,31 +127,31 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitGatewayRouteTableAttachmentState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["attachmentPolicyRuleNumber"] = state ? state.attachmentPolicyRuleNumber : undefined;
-            resourceInputs["attachmentType"] = state ? state.attachmentType : undefined;
-            resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
-            resourceInputs["coreNetworkId"] = state ? state.coreNetworkId : undefined;
-            resourceInputs["edgeLocation"] = state ? state.edgeLocation : undefined;
-            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            resourceInputs["peeringId"] = state ? state.peeringId : undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
-            resourceInputs["segmentName"] = state ? state.segmentName : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["transitGatewayRouteTableArn"] = state ? state.transitGatewayRouteTableArn : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["attachmentPolicyRuleNumber"] = state?.attachmentPolicyRuleNumber;
+            resourceInputs["attachmentType"] = state?.attachmentType;
+            resourceInputs["coreNetworkArn"] = state?.coreNetworkArn;
+            resourceInputs["coreNetworkId"] = state?.coreNetworkId;
+            resourceInputs["edgeLocation"] = state?.edgeLocation;
+            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
+            resourceInputs["peeringId"] = state?.peeringId;
+            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["segmentName"] = state?.segmentName;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["transitGatewayRouteTableArn"] = state?.transitGatewayRouteTableArn;
         } else {
             const args = argsOrState as TransitGatewayRouteTableAttachmentArgs | undefined;
-            if ((!args || args.peeringId === undefined) && !opts.urn) {
+            if (args?.peeringId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringId'");
             }
-            if ((!args || args.transitGatewayRouteTableArn === undefined) && !opts.urn) {
+            if (args?.transitGatewayRouteTableArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableArn'");
             }
-            resourceInputs["peeringId"] = args ? args.peeringId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayRouteTableArn"] = args ? args.transitGatewayRouteTableArn : undefined;
+            resourceInputs["peeringId"] = args?.peeringId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayRouteTableArn"] = args?.transitGatewayRouteTableArn;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

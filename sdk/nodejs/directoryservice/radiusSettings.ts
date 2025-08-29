@@ -64,43 +64,43 @@ export class RadiusSettings extends pulumi.CustomResource {
     /**
      * The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
      */
-    public readonly authenticationProtocol!: pulumi.Output<string>;
+    declare public readonly authenticationProtocol: pulumi.Output<string>;
     /**
      * The identifier of the directory for which you want to manager RADIUS settings.
      */
-    public readonly directoryId!: pulumi.Output<string>;
+    declare public readonly directoryId: pulumi.Output<string>;
     /**
      * Display label.
      */
-    public readonly displayLabel!: pulumi.Output<string>;
+    declare public readonly displayLabel: pulumi.Output<string>;
     /**
      * The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
      */
-    public readonly radiusPort!: pulumi.Output<number>;
+    declare public readonly radiusPort: pulumi.Output<number>;
     /**
      * The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
      */
-    public readonly radiusRetries!: pulumi.Output<number>;
+    declare public readonly radiusRetries: pulumi.Output<number>;
     /**
      * An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
      */
-    public readonly radiusServers!: pulumi.Output<string[]>;
+    declare public readonly radiusServers: pulumi.Output<string[]>;
     /**
      * The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
      */
-    public readonly radiusTimeout!: pulumi.Output<number>;
+    declare public readonly radiusTimeout: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Required for enabling RADIUS on the directory.
      */
-    public readonly sharedSecret!: pulumi.Output<string>;
+    declare public readonly sharedSecret: pulumi.Output<string>;
     /**
      * Not currently used.
      */
-    public readonly useSameUsername!: pulumi.Output<boolean | undefined>;
+    declare public readonly useSameUsername: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a RadiusSettings resource with the given unique name, arguments, and options.
@@ -115,52 +115,52 @@ export class RadiusSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RadiusSettingsState | undefined;
-            resourceInputs["authenticationProtocol"] = state ? state.authenticationProtocol : undefined;
-            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
-            resourceInputs["displayLabel"] = state ? state.displayLabel : undefined;
-            resourceInputs["radiusPort"] = state ? state.radiusPort : undefined;
-            resourceInputs["radiusRetries"] = state ? state.radiusRetries : undefined;
-            resourceInputs["radiusServers"] = state ? state.radiusServers : undefined;
-            resourceInputs["radiusTimeout"] = state ? state.radiusTimeout : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sharedSecret"] = state ? state.sharedSecret : undefined;
-            resourceInputs["useSameUsername"] = state ? state.useSameUsername : undefined;
+            resourceInputs["authenticationProtocol"] = state?.authenticationProtocol;
+            resourceInputs["directoryId"] = state?.directoryId;
+            resourceInputs["displayLabel"] = state?.displayLabel;
+            resourceInputs["radiusPort"] = state?.radiusPort;
+            resourceInputs["radiusRetries"] = state?.radiusRetries;
+            resourceInputs["radiusServers"] = state?.radiusServers;
+            resourceInputs["radiusTimeout"] = state?.radiusTimeout;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sharedSecret"] = state?.sharedSecret;
+            resourceInputs["useSameUsername"] = state?.useSameUsername;
         } else {
             const args = argsOrState as RadiusSettingsArgs | undefined;
-            if ((!args || args.authenticationProtocol === undefined) && !opts.urn) {
+            if (args?.authenticationProtocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationProtocol'");
             }
-            if ((!args || args.directoryId === undefined) && !opts.urn) {
+            if (args?.directoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if ((!args || args.displayLabel === undefined) && !opts.urn) {
+            if (args?.displayLabel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayLabel'");
             }
-            if ((!args || args.radiusPort === undefined) && !opts.urn) {
+            if (args?.radiusPort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'radiusPort'");
             }
-            if ((!args || args.radiusRetries === undefined) && !opts.urn) {
+            if (args?.radiusRetries === undefined && !opts.urn) {
                 throw new Error("Missing required property 'radiusRetries'");
             }
-            if ((!args || args.radiusServers === undefined) && !opts.urn) {
+            if (args?.radiusServers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'radiusServers'");
             }
-            if ((!args || args.radiusTimeout === undefined) && !opts.urn) {
+            if (args?.radiusTimeout === undefined && !opts.urn) {
                 throw new Error("Missing required property 'radiusTimeout'");
             }
-            if ((!args || args.sharedSecret === undefined) && !opts.urn) {
+            if (args?.sharedSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sharedSecret'");
             }
-            resourceInputs["authenticationProtocol"] = args ? args.authenticationProtocol : undefined;
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["displayLabel"] = args ? args.displayLabel : undefined;
-            resourceInputs["radiusPort"] = args ? args.radiusPort : undefined;
-            resourceInputs["radiusRetries"] = args ? args.radiusRetries : undefined;
-            resourceInputs["radiusServers"] = args ? args.radiusServers : undefined;
-            resourceInputs["radiusTimeout"] = args ? args.radiusTimeout : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["authenticationProtocol"] = args?.authenticationProtocol;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["displayLabel"] = args?.displayLabel;
+            resourceInputs["radiusPort"] = args?.radiusPort;
+            resourceInputs["radiusRetries"] = args?.radiusRetries;
+            resourceInputs["radiusServers"] = args?.radiusServers;
+            resourceInputs["radiusTimeout"] = args?.radiusTimeout;
+            resourceInputs["region"] = args?.region;
             resourceInputs["sharedSecret"] = args?.sharedSecret ? pulumi.secret(args.sharedSecret) : undefined;
-            resourceInputs["useSameUsername"] = args ? args.useSameUsername : undefined;
+            resourceInputs["useSameUsername"] = args?.useSameUsername;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sharedSecret"] };

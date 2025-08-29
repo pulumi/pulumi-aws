@@ -215,32 +215,32 @@ export class Integration extends pulumi.CustomResource {
     /**
      * List of cache key parameters for the integration.
      */
-    public readonly cacheKeyParameters!: pulumi.Output<string[] | undefined>;
+    declare public readonly cacheKeyParameters: pulumi.Output<string[] | undefined>;
     /**
      * Integration's cache namespace.
      */
-    public readonly cacheNamespace!: pulumi.Output<string>;
+    declare public readonly cacheNamespace: pulumi.Output<string>;
     /**
      * ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      */
-    public readonly connectionId!: pulumi.Output<string | undefined>;
+    declare public readonly connectionId: pulumi.Output<string | undefined>;
     /**
      * Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
      */
-    public readonly connectionType!: pulumi.Output<string | undefined>;
+    declare public readonly connectionType: pulumi.Output<string | undefined>;
     /**
      * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
      */
-    public readonly contentHandling!: pulumi.Output<string | undefined>;
+    declare public readonly contentHandling: pulumi.Output<string | undefined>;
     /**
      * Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
      */
-    public readonly credentials!: pulumi.Output<string | undefined>;
+    declare public readonly credentials: pulumi.Output<string | undefined>;
     /**
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
      * when calling the associated resource.
      */
-    public readonly httpMethod!: pulumi.Output<string>;
+    declare public readonly httpMethod: pulumi.Output<string>;
     /**
      * Integration HTTP method
      * (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
@@ -248,50 +248,50 @@ export class Integration extends pulumi.CustomResource {
      * Not all methods are compatible with all `AWS` integrations.
      * e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
      */
-    public readonly integrationHttpMethod!: pulumi.Output<string | undefined>;
+    declare public readonly integrationHttpMethod: pulumi.Output<string | undefined>;
     /**
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      */
-    public readonly passthroughBehavior!: pulumi.Output<string>;
+    declare public readonly passthroughBehavior: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
-    public readonly requestParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly requestParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of the integration's request templates.
      */
-    public readonly requestTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly requestTemplates: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * API resource ID.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * ID of the associated REST API.
      */
-    public readonly restApi!: pulumi.Output<string>;
+    declare public readonly restApi: pulumi.Output<string>;
     /**
      * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      */
-    public readonly timeoutMilliseconds!: pulumi.Output<number | undefined>;
+    declare public readonly timeoutMilliseconds: pulumi.Output<number | undefined>;
     /**
      * TLS configuration. See below.
      */
-    public readonly tlsConfig!: pulumi.Output<outputs.apigateway.IntegrationTlsConfig | undefined>;
+    declare public readonly tlsConfig: pulumi.Output<outputs.apigateway.IntegrationTlsConfig | undefined>;
     /**
      * Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
      * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
      * e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
      */
-    public readonly uri!: pulumi.Output<string | undefined>;
+    declare public readonly uri: pulumi.Output<string | undefined>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -306,56 +306,56 @@ export class Integration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            resourceInputs["cacheKeyParameters"] = state ? state.cacheKeyParameters : undefined;
-            resourceInputs["cacheNamespace"] = state ? state.cacheNamespace : undefined;
-            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
-            resourceInputs["connectionType"] = state ? state.connectionType : undefined;
-            resourceInputs["contentHandling"] = state ? state.contentHandling : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
-            resourceInputs["integrationHttpMethod"] = state ? state.integrationHttpMethod : undefined;
-            resourceInputs["passthroughBehavior"] = state ? state.passthroughBehavior : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
-            resourceInputs["requestTemplates"] = state ? state.requestTemplates : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["restApi"] = state ? state.restApi : undefined;
-            resourceInputs["timeoutMilliseconds"] = state ? state.timeoutMilliseconds : undefined;
-            resourceInputs["tlsConfig"] = state ? state.tlsConfig : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["cacheKeyParameters"] = state?.cacheKeyParameters;
+            resourceInputs["cacheNamespace"] = state?.cacheNamespace;
+            resourceInputs["connectionId"] = state?.connectionId;
+            resourceInputs["connectionType"] = state?.connectionType;
+            resourceInputs["contentHandling"] = state?.contentHandling;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["httpMethod"] = state?.httpMethod;
+            resourceInputs["integrationHttpMethod"] = state?.integrationHttpMethod;
+            resourceInputs["passthroughBehavior"] = state?.passthroughBehavior;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["requestParameters"] = state?.requestParameters;
+            resourceInputs["requestTemplates"] = state?.requestTemplates;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["restApi"] = state?.restApi;
+            resourceInputs["timeoutMilliseconds"] = state?.timeoutMilliseconds;
+            resourceInputs["tlsConfig"] = state?.tlsConfig;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.httpMethod === undefined) && !opts.urn) {
+            if (args?.httpMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.restApi === undefined) && !opts.urn) {
+            if (args?.restApi === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["cacheKeyParameters"] = args ? args.cacheKeyParameters : undefined;
-            resourceInputs["cacheNamespace"] = args ? args.cacheNamespace : undefined;
-            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["contentHandling"] = args ? args.contentHandling : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
-            resourceInputs["integrationHttpMethod"] = args ? args.integrationHttpMethod : undefined;
-            resourceInputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
-            resourceInputs["requestTemplates"] = args ? args.requestTemplates : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["restApi"] = args ? args.restApi : undefined;
-            resourceInputs["timeoutMilliseconds"] = args ? args.timeoutMilliseconds : undefined;
-            resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["cacheKeyParameters"] = args?.cacheKeyParameters;
+            resourceInputs["cacheNamespace"] = args?.cacheNamespace;
+            resourceInputs["connectionId"] = args?.connectionId;
+            resourceInputs["connectionType"] = args?.connectionType;
+            resourceInputs["contentHandling"] = args?.contentHandling;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["httpMethod"] = args?.httpMethod;
+            resourceInputs["integrationHttpMethod"] = args?.integrationHttpMethod;
+            resourceInputs["passthroughBehavior"] = args?.passthroughBehavior;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["requestParameters"] = args?.requestParameters;
+            resourceInputs["requestTemplates"] = args?.requestTemplates;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["restApi"] = args?.restApi;
+            resourceInputs["timeoutMilliseconds"] = args?.timeoutMilliseconds;
+            resourceInputs["tlsConfig"] = args?.tlsConfig;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["uri"] = args?.uri;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Integration.__pulumiType, name, resourceInputs, opts);

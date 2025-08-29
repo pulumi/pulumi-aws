@@ -207,93 +207,93 @@ export class Domain extends pulumi.CustomResource {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    public readonly accessPolicies!: pulumi.Output<string>;
+    declare public readonly accessPolicies: pulumi.Output<string>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      */
-    public readonly advancedOptions!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly advancedOptions: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
      */
-    public readonly advancedSecurityOptions!: pulumi.Output<outputs.elasticsearch.DomainAdvancedSecurityOptions>;
+    declare public readonly advancedSecurityOptions: pulumi.Output<outputs.elasticsearch.DomainAdvancedSecurityOptions>;
     /**
      * ARN of the domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */
-    public readonly autoTuneOptions!: pulumi.Output<outputs.elasticsearch.DomainAutoTuneOptions>;
+    declare public readonly autoTuneOptions: pulumi.Output<outputs.elasticsearch.DomainAutoTuneOptions>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
-    public readonly clusterConfig!: pulumi.Output<outputs.elasticsearch.DomainClusterConfig>;
+    declare public readonly clusterConfig: pulumi.Output<outputs.elasticsearch.DomainClusterConfig>;
     /**
      * Configuration block for authenticating Kibana with Cognito. Detailed below.
      */
-    public readonly cognitoOptions!: pulumi.Output<outputs.elasticsearch.DomainCognitoOptions | undefined>;
+    declare public readonly cognitoOptions: pulumi.Output<outputs.elasticsearch.DomainCognitoOptions | undefined>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
-    public readonly domainEndpointOptions!: pulumi.Output<outputs.elasticsearch.DomainDomainEndpointOptions>;
+    declare public readonly domainEndpointOptions: pulumi.Output<outputs.elasticsearch.DomainDomainEndpointOptions>;
     /**
      * Unique identifier for the domain.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * Name of the domain.
      *
      * The following arguments are optional:
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
      */
-    public readonly ebsOptions!: pulumi.Output<outputs.elasticsearch.DomainEbsOptions>;
+    declare public readonly ebsOptions: pulumi.Output<outputs.elasticsearch.DomainEbsOptions>;
     /**
      * Version of Elasticsearch to deploy. Defaults to `1.5`.
      */
-    public readonly elasticsearchVersion!: pulumi.Output<string | undefined>;
+    declare public readonly elasticsearchVersion: pulumi.Output<string | undefined>;
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
      */
-    public readonly encryptAtRest!: pulumi.Output<outputs.elasticsearch.DomainEncryptAtRest>;
+    declare public readonly encryptAtRest: pulumi.Output<outputs.elasticsearch.DomainEncryptAtRest>;
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * Domain-specific endpoint for kibana without https scheme.
      */
-    public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly kibanaEndpoint: pulumi.Output<string>;
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
-    public readonly logPublishingOptions!: pulumi.Output<outputs.elasticsearch.DomainLogPublishingOption[] | undefined>;
+    declare public readonly logPublishingOptions: pulumi.Output<outputs.elasticsearch.DomainLogPublishingOption[] | undefined>;
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      */
-    public readonly nodeToNodeEncryption!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryption>;
+    declare public readonly nodeToNodeEncryption: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryption>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */
-    public readonly snapshotOptions!: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
+    declare public readonly snapshotOptions: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
      */
-    public readonly vpcOptions!: pulumi.Output<outputs.elasticsearch.DomainVpcOptions | undefined>;
+    declare public readonly vpcOptions: pulumi.Output<outputs.elasticsearch.DomainVpcOptions | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -308,47 +308,47 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["accessPolicies"] = state ? state.accessPolicies : undefined;
-            resourceInputs["advancedOptions"] = state ? state.advancedOptions : undefined;
-            resourceInputs["advancedSecurityOptions"] = state ? state.advancedSecurityOptions : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoTuneOptions"] = state ? state.autoTuneOptions : undefined;
-            resourceInputs["clusterConfig"] = state ? state.clusterConfig : undefined;
-            resourceInputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
-            resourceInputs["domainEndpointOptions"] = state ? state.domainEndpointOptions : undefined;
-            resourceInputs["domainId"] = state ? state.domainId : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["ebsOptions"] = state ? state.ebsOptions : undefined;
-            resourceInputs["elasticsearchVersion"] = state ? state.elasticsearchVersion : undefined;
-            resourceInputs["encryptAtRest"] = state ? state.encryptAtRest : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
-            resourceInputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
-            resourceInputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcOptions"] = state ? state.vpcOptions : undefined;
+            resourceInputs["accessPolicies"] = state?.accessPolicies;
+            resourceInputs["advancedOptions"] = state?.advancedOptions;
+            resourceInputs["advancedSecurityOptions"] = state?.advancedSecurityOptions;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoTuneOptions"] = state?.autoTuneOptions;
+            resourceInputs["clusterConfig"] = state?.clusterConfig;
+            resourceInputs["cognitoOptions"] = state?.cognitoOptions;
+            resourceInputs["domainEndpointOptions"] = state?.domainEndpointOptions;
+            resourceInputs["domainId"] = state?.domainId;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["ebsOptions"] = state?.ebsOptions;
+            resourceInputs["elasticsearchVersion"] = state?.elasticsearchVersion;
+            resourceInputs["encryptAtRest"] = state?.encryptAtRest;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["kibanaEndpoint"] = state?.kibanaEndpoint;
+            resourceInputs["logPublishingOptions"] = state?.logPublishingOptions;
+            resourceInputs["nodeToNodeEncryption"] = state?.nodeToNodeEncryption;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["snapshotOptions"] = state?.snapshotOptions;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcOptions"] = state?.vpcOptions;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            resourceInputs["advancedOptions"] = args ? args.advancedOptions : undefined;
-            resourceInputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
-            resourceInputs["autoTuneOptions"] = args ? args.autoTuneOptions : undefined;
-            resourceInputs["clusterConfig"] = args ? args.clusterConfig : undefined;
-            resourceInputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
-            resourceInputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["ebsOptions"] = args ? args.ebsOptions : undefined;
-            resourceInputs["elasticsearchVersion"] = args ? args.elasticsearchVersion : undefined;
-            resourceInputs["encryptAtRest"] = args ? args.encryptAtRest : undefined;
-            resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
-            resourceInputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
+            resourceInputs["accessPolicies"] = args?.accessPolicies;
+            resourceInputs["advancedOptions"] = args?.advancedOptions;
+            resourceInputs["advancedSecurityOptions"] = args?.advancedSecurityOptions;
+            resourceInputs["autoTuneOptions"] = args?.autoTuneOptions;
+            resourceInputs["clusterConfig"] = args?.clusterConfig;
+            resourceInputs["cognitoOptions"] = args?.cognitoOptions;
+            resourceInputs["domainEndpointOptions"] = args?.domainEndpointOptions;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["ebsOptions"] = args?.ebsOptions;
+            resourceInputs["elasticsearchVersion"] = args?.elasticsearchVersion;
+            resourceInputs["encryptAtRest"] = args?.encryptAtRest;
+            resourceInputs["logPublishingOptions"] = args?.logPublishingOptions;
+            resourceInputs["nodeToNodeEncryption"] = args?.nodeToNodeEncryption;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["snapshotOptions"] = args?.snapshotOptions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcOptions"] = args?.vpcOptions;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

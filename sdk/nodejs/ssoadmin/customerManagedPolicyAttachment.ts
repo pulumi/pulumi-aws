@@ -84,19 +84,19 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
     /**
      * Specifies the name and path of a customer managed policy. See below.
      */
-    public readonly customerManagedPolicyReference!: pulumi.Output<outputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
+    declare public readonly customerManagedPolicyReference: pulumi.Output<outputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
-    public readonly permissionSetArn!: pulumi.Output<string>;
+    declare public readonly permissionSetArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a CustomerManagedPolicyAttachment resource with the given unique name, arguments, and options.
@@ -111,25 +111,25 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomerManagedPolicyAttachmentState | undefined;
-            resourceInputs["customerManagedPolicyReference"] = state ? state.customerManagedPolicyReference : undefined;
-            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
-            resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["customerManagedPolicyReference"] = state?.customerManagedPolicyReference;
+            resourceInputs["instanceArn"] = state?.instanceArn;
+            resourceInputs["permissionSetArn"] = state?.permissionSetArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as CustomerManagedPolicyAttachmentArgs | undefined;
-            if ((!args || args.customerManagedPolicyReference === undefined) && !opts.urn) {
+            if (args?.customerManagedPolicyReference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerManagedPolicyReference'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
+            if (args?.permissionSetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
-            resourceInputs["customerManagedPolicyReference"] = args ? args.customerManagedPolicyReference : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["customerManagedPolicyReference"] = args?.customerManagedPolicyReference;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["permissionSetArn"] = args?.permissionSetArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomerManagedPolicyAttachment.__pulumiType, name, resourceInputs, opts);

@@ -50,48 +50,48 @@ export class Grant extends pulumi.CustomResource {
     /**
      * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
      */
-    public readonly constraints!: pulumi.Output<outputs.kms.GrantConstraint[] | undefined>;
+    declare public readonly constraints: pulumi.Output<outputs.kms.GrantConstraint[] | undefined>;
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
      */
-    public readonly grantCreationTokens!: pulumi.Output<string[] | undefined>;
+    declare public readonly grantCreationTokens: pulumi.Output<string[] | undefined>;
     /**
      * The unique identifier for the grant.
      */
-    public /*out*/ readonly grantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly grantId: pulumi.Output<string>;
     /**
      * The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
      */
-    public /*out*/ readonly grantToken!: pulumi.Output<string>;
+    declare public /*out*/ readonly grantToken: pulumi.Output<string>;
     /**
      * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
-    public readonly granteePrincipal!: pulumi.Output<string>;
+    declare public readonly granteePrincipal: pulumi.Output<string>;
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
      */
-    public readonly keyId!: pulumi.Output<string>;
+    declare public readonly keyId: pulumi.Output<string>;
     /**
      * A friendly name for identifying the grant.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      */
-    public readonly operations!: pulumi.Output<string[]>;
+    declare public readonly operations: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
-    public readonly retireOnDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly retireOnDelete: pulumi.Output<boolean | undefined>;
     /**
      * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
-    public readonly retiringPrincipal!: pulumi.Output<string | undefined>;
+    declare public readonly retiringPrincipal: pulumi.Output<string | undefined>;
 
     /**
      * Create a Grant resource with the given unique name, arguments, and options.
@@ -106,37 +106,37 @@ export class Grant extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GrantState | undefined;
-            resourceInputs["constraints"] = state ? state.constraints : undefined;
-            resourceInputs["grantCreationTokens"] = state ? state.grantCreationTokens : undefined;
-            resourceInputs["grantId"] = state ? state.grantId : undefined;
-            resourceInputs["grantToken"] = state ? state.grantToken : undefined;
-            resourceInputs["granteePrincipal"] = state ? state.granteePrincipal : undefined;
-            resourceInputs["keyId"] = state ? state.keyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["operations"] = state ? state.operations : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["retireOnDelete"] = state ? state.retireOnDelete : undefined;
-            resourceInputs["retiringPrincipal"] = state ? state.retiringPrincipal : undefined;
+            resourceInputs["constraints"] = state?.constraints;
+            resourceInputs["grantCreationTokens"] = state?.grantCreationTokens;
+            resourceInputs["grantId"] = state?.grantId;
+            resourceInputs["grantToken"] = state?.grantToken;
+            resourceInputs["granteePrincipal"] = state?.granteePrincipal;
+            resourceInputs["keyId"] = state?.keyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["operations"] = state?.operations;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["retireOnDelete"] = state?.retireOnDelete;
+            resourceInputs["retiringPrincipal"] = state?.retiringPrincipal;
         } else {
             const args = argsOrState as GrantArgs | undefined;
-            if ((!args || args.granteePrincipal === undefined) && !opts.urn) {
+            if (args?.granteePrincipal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'granteePrincipal'");
             }
-            if ((!args || args.keyId === undefined) && !opts.urn) {
+            if (args?.keyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if ((!args || args.operations === undefined) && !opts.urn) {
+            if (args?.operations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operations'");
             }
-            resourceInputs["constraints"] = args ? args.constraints : undefined;
-            resourceInputs["grantCreationTokens"] = args ? args.grantCreationTokens : undefined;
-            resourceInputs["granteePrincipal"] = args ? args.granteePrincipal : undefined;
-            resourceInputs["keyId"] = args ? args.keyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["operations"] = args ? args.operations : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["retireOnDelete"] = args ? args.retireOnDelete : undefined;
-            resourceInputs["retiringPrincipal"] = args ? args.retiringPrincipal : undefined;
+            resourceInputs["constraints"] = args?.constraints;
+            resourceInputs["grantCreationTokens"] = args?.grantCreationTokens;
+            resourceInputs["granteePrincipal"] = args?.granteePrincipal;
+            resourceInputs["keyId"] = args?.keyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["operations"] = args?.operations;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["retireOnDelete"] = args?.retireOnDelete;
+            resourceInputs["retiringPrincipal"] = args?.retiringPrincipal;
             resourceInputs["grantId"] = undefined /*out*/;
             resourceInputs["grantToken"] = undefined /*out*/;
         }

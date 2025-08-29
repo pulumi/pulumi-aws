@@ -66,27 +66,27 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * AWS assigned RevocationId, (number).
      */
-    public /*out*/ readonly revocationId!: pulumi.Output<number>;
+    declare public /*out*/ readonly revocationId: pulumi.Output<number>;
     /**
      * S3 Bucket name holding the client certificate CA bundle.
      */
-    public readonly revocationsS3Bucket!: pulumi.Output<string>;
+    declare public readonly revocationsS3Bucket: pulumi.Output<string>;
     /**
      * S3 object key holding the client certificate CA bundle.
      */
-    public readonly revocationsS3Key!: pulumi.Output<string>;
+    declare public readonly revocationsS3Key: pulumi.Output<string>;
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
-    public readonly revocationsS3ObjectVersion!: pulumi.Output<string | undefined>;
+    declare public readonly revocationsS3ObjectVersion: pulumi.Output<string | undefined>;
     /**
      * Trust Store ARN.
      */
-    public readonly trustStoreArn!: pulumi.Output<string>;
+    declare public readonly trustStoreArn: pulumi.Output<string>;
 
     /**
      * Create a TrustStoreRevocation resource with the given unique name, arguments, and options.
@@ -101,28 +101,28 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrustStoreRevocationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["revocationId"] = state ? state.revocationId : undefined;
-            resourceInputs["revocationsS3Bucket"] = state ? state.revocationsS3Bucket : undefined;
-            resourceInputs["revocationsS3Key"] = state ? state.revocationsS3Key : undefined;
-            resourceInputs["revocationsS3ObjectVersion"] = state ? state.revocationsS3ObjectVersion : undefined;
-            resourceInputs["trustStoreArn"] = state ? state.trustStoreArn : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["revocationId"] = state?.revocationId;
+            resourceInputs["revocationsS3Bucket"] = state?.revocationsS3Bucket;
+            resourceInputs["revocationsS3Key"] = state?.revocationsS3Key;
+            resourceInputs["revocationsS3ObjectVersion"] = state?.revocationsS3ObjectVersion;
+            resourceInputs["trustStoreArn"] = state?.trustStoreArn;
         } else {
             const args = argsOrState as TrustStoreRevocationArgs | undefined;
-            if ((!args || args.revocationsS3Bucket === undefined) && !opts.urn) {
+            if (args?.revocationsS3Bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'revocationsS3Bucket'");
             }
-            if ((!args || args.revocationsS3Key === undefined) && !opts.urn) {
+            if (args?.revocationsS3Key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'revocationsS3Key'");
             }
-            if ((!args || args.trustStoreArn === undefined) && !opts.urn) {
+            if (args?.trustStoreArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trustStoreArn'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["revocationsS3Bucket"] = args ? args.revocationsS3Bucket : undefined;
-            resourceInputs["revocationsS3Key"] = args ? args.revocationsS3Key : undefined;
-            resourceInputs["revocationsS3ObjectVersion"] = args ? args.revocationsS3ObjectVersion : undefined;
-            resourceInputs["trustStoreArn"] = args ? args.trustStoreArn : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["revocationsS3Bucket"] = args?.revocationsS3Bucket;
+            resourceInputs["revocationsS3Key"] = args?.revocationsS3Key;
+            resourceInputs["revocationsS3ObjectVersion"] = args?.revocationsS3ObjectVersion;
+            resourceInputs["trustStoreArn"] = args?.trustStoreArn;
             resourceInputs["revocationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

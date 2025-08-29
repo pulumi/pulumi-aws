@@ -61,50 +61,50 @@ export class Project extends pulumi.CustomResource {
     /**
      * Timestamp of when the project was made.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Creator of the project.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Description of project.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * List of error messages if operation cannot be completed.
      */
-    public /*out*/ readonly failureReasons!: pulumi.Output<outputs.datazone.ProjectFailureReason[]>;
+    declare public /*out*/ readonly failureReasons: pulumi.Output<outputs.datazone.ProjectFailureReason[]>;
     /**
      * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      */
-    public readonly glossaryTerms!: pulumi.Output<string[] | undefined>;
+    declare public readonly glossaryTerms: pulumi.Output<string[] | undefined>;
     /**
      * Timestamp of when the project was last updated.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
      */
-    public /*out*/ readonly projectStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectStatus: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Optional flag to delete all child entities within the project.
      */
-    public readonly skipDeletionCheck!: pulumi.Output<boolean | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.datazone.ProjectTimeouts | undefined>;
+    declare public readonly skipDeletionCheck: pulumi.Output<boolean | undefined>;
+    declare public readonly timeouts: pulumi.Output<outputs.datazone.ProjectTimeouts | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -119,30 +119,30 @@ export class Project extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
-            resourceInputs["failureReasons"] = state ? state.failureReasons : undefined;
-            resourceInputs["glossaryTerms"] = state ? state.glossaryTerms : undefined;
-            resourceInputs["lastUpdatedAt"] = state ? state.lastUpdatedAt : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectStatus"] = state ? state.projectStatus : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["skipDeletionCheck"] = state ? state.skipDeletionCheck : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["domainIdentifier"] = state?.domainIdentifier;
+            resourceInputs["failureReasons"] = state?.failureReasons;
+            resourceInputs["glossaryTerms"] = state?.glossaryTerms;
+            resourceInputs["lastUpdatedAt"] = state?.lastUpdatedAt;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectStatus"] = state?.projectStatus;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["skipDeletionCheck"] = state?.skipDeletionCheck;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["skipDeletionCheck"] = args ? args.skipDeletionCheck : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["glossaryTerms"] = args?.glossaryTerms;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["skipDeletionCheck"] = args?.skipDeletionCheck;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["failureReasons"] = undefined /*out*/;

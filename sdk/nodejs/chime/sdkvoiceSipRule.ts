@@ -69,29 +69,29 @@ export class SdkvoiceSipRule extends pulumi.CustomResource {
     /**
      * Enables or disables a rule. You must disable rules before you can delete them.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the SIP rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
      */
-    public readonly targetApplications!: pulumi.Output<outputs.chime.SdkvoiceSipRuleTargetApplication[]>;
+    declare public readonly targetApplications: pulumi.Output<outputs.chime.SdkvoiceSipRuleTargetApplication[]>;
     /**
      * The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
      */
-    public readonly triggerType!: pulumi.Output<string>;
+    declare public readonly triggerType: pulumi.Output<string>;
     /**
      * If `triggerType` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `triggerType` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
      *
      * The following arguments are optional:
      */
-    public readonly triggerValue!: pulumi.Output<string>;
+    declare public readonly triggerValue: pulumi.Output<string>;
 
     /**
      * Create a SdkvoiceSipRule resource with the given unique name, arguments, and options.
@@ -106,29 +106,29 @@ export class SdkvoiceSipRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SdkvoiceSipRuleState | undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["targetApplications"] = state ? state.targetApplications : undefined;
-            resourceInputs["triggerType"] = state ? state.triggerType : undefined;
-            resourceInputs["triggerValue"] = state ? state.triggerValue : undefined;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["targetApplications"] = state?.targetApplications;
+            resourceInputs["triggerType"] = state?.triggerType;
+            resourceInputs["triggerValue"] = state?.triggerValue;
         } else {
             const args = argsOrState as SdkvoiceSipRuleArgs | undefined;
-            if ((!args || args.targetApplications === undefined) && !opts.urn) {
+            if (args?.targetApplications === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetApplications'");
             }
-            if ((!args || args.triggerType === undefined) && !opts.urn) {
+            if (args?.triggerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerType'");
             }
-            if ((!args || args.triggerValue === undefined) && !opts.urn) {
+            if (args?.triggerValue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerValue'");
             }
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["targetApplications"] = args ? args.targetApplications : undefined;
-            resourceInputs["triggerType"] = args ? args.triggerType : undefined;
-            resourceInputs["triggerValue"] = args ? args.triggerValue : undefined;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["targetApplications"] = args?.targetApplications;
+            resourceInputs["triggerType"] = args?.triggerType;
+            resourceInputs["triggerValue"] = args?.triggerValue;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SdkvoiceSipRule.__pulumiType, name, resourceInputs, opts);

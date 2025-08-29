@@ -62,52 +62,52 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) identifying the repository association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the repository association.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      */
-    public /*out*/ readonly connectionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionArn: pulumi.Output<string>;
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
      */
-    public readonly kmsKeyDetails!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
+    declare public readonly kmsKeyDetails: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
     /**
      * The name of the repository.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The owner of the repository.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * The provider type of the repository association.
      */
-    public /*out*/ readonly providerType!: pulumi.Output<string>;
+    declare public /*out*/ readonly providerType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
      *
      * The following arguments are optional:
      */
-    public readonly repository!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationRepository>;
-    public /*out*/ readonly s3RepositoryDetails!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail[]>;
+    declare public readonly repository: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationRepository>;
+    declare public /*out*/ readonly s3RepositoryDetails: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail[]>;
     /**
      * The state of the repository association.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * A description of why the repository association is in the current state.
      */
-    public /*out*/ readonly stateReason!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly stateReason: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RepositoryAssociation resource with the given unique name, arguments, and options.
@@ -122,29 +122,29 @@ export class RepositoryAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryAssociationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["associationId"] = state ? state.associationId : undefined;
-            resourceInputs["connectionArn"] = state ? state.connectionArn : undefined;
-            resourceInputs["kmsKeyDetails"] = state ? state.kmsKeyDetails : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["providerType"] = state ? state.providerType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["s3RepositoryDetails"] = state ? state.s3RepositoryDetails : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["stateReason"] = state ? state.stateReason : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["associationId"] = state?.associationId;
+            resourceInputs["connectionArn"] = state?.connectionArn;
+            resourceInputs["kmsKeyDetails"] = state?.kmsKeyDetails;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["providerType"] = state?.providerType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["s3RepositoryDetails"] = state?.s3RepositoryDetails;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["stateReason"] = state?.stateReason;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as RepositoryAssociationArgs | undefined;
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["kmsKeyDetails"] = args ? args.kmsKeyDetails : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["kmsKeyDetails"] = args?.kmsKeyDetails;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["connectionArn"] = undefined /*out*/;

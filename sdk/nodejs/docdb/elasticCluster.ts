@@ -67,74 +67,74 @@ export class ElasticCluster extends pulumi.CustomResource {
     /**
      * Name of the Elastic DocumentDB cluster administrator
      */
-    public readonly adminUserName!: pulumi.Output<string>;
+    declare public readonly adminUserName: pulumi.Output<string>;
     /**
      * Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
      */
-    public readonly adminUserPassword!: pulumi.Output<string>;
+    declare public readonly adminUserPassword: pulumi.Output<string>;
     /**
      * ARN of the DocumentDB Elastic Cluster
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
      */
-    public readonly authType!: pulumi.Output<string>;
+    declare public readonly authType: pulumi.Output<string>;
     /**
      * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
      */
-    public readonly backupRetentionPeriod!: pulumi.Output<number>;
+    declare public readonly backupRetentionPeriod: pulumi.Output<number>;
     /**
      * The DNS address of the DocDB instance
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * Name of the Elastic DocumentDB cluster
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
      */
-    public readonly preferredBackupWindow!: pulumi.Output<string>;
+    declare public readonly preferredBackupWindow: pulumi.Output<string>;
     /**
      * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
      */
-    public readonly shardCapacity!: pulumi.Output<number>;
+    declare public readonly shardCapacity: pulumi.Output<number>;
     /**
      * Number of shards assigned to the elastic cluster. Maximum is 32
      *
      * The following arguments are optional:
      */
-    public readonly shardCount!: pulumi.Output<number>;
+    declare public readonly shardCount: pulumi.Output<number>;
     /**
      * IDs of subnets in which the Elastic DocumentDB Cluster operates.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.docdb.ElasticClusterTimeouts | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.docdb.ElasticClusterTimeouts | undefined>;
     /**
      * List of VPC security groups to associate with the Elastic DocumentDB Cluster
      *
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
 
     /**
      * Create a ElasticCluster resource with the given unique name, arguments, and options.
@@ -149,56 +149,56 @@ export class ElasticCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ElasticClusterState | undefined;
-            resourceInputs["adminUserName"] = state ? state.adminUserName : undefined;
-            resourceInputs["adminUserPassword"] = state ? state.adminUserPassword : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["authType"] = state ? state.authType : undefined;
-            resourceInputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["shardCapacity"] = state ? state.shardCapacity : undefined;
-            resourceInputs["shardCount"] = state ? state.shardCount : undefined;
-            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["adminUserName"] = state?.adminUserName;
+            resourceInputs["adminUserPassword"] = state?.adminUserPassword;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["authType"] = state?.authType;
+            resourceInputs["backupRetentionPeriod"] = state?.backupRetentionPeriod;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["preferredBackupWindow"] = state?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["shardCapacity"] = state?.shardCapacity;
+            resourceInputs["shardCount"] = state?.shardCount;
+            resourceInputs["subnetIds"] = state?.subnetIds;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
         } else {
             const args = argsOrState as ElasticClusterArgs | undefined;
-            if ((!args || args.adminUserName === undefined) && !opts.urn) {
+            if (args?.adminUserName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUserName'");
             }
-            if ((!args || args.adminUserPassword === undefined) && !opts.urn) {
+            if (args?.adminUserPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUserPassword'");
             }
-            if ((!args || args.authType === undefined) && !opts.urn) {
+            if (args?.authType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            if ((!args || args.shardCapacity === undefined) && !opts.urn) {
+            if (args?.shardCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shardCapacity'");
             }
-            if ((!args || args.shardCount === undefined) && !opts.urn) {
+            if (args?.shardCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shardCount'");
             }
-            resourceInputs["adminUserName"] = args ? args.adminUserName : undefined;
+            resourceInputs["adminUserName"] = args?.adminUserName;
             resourceInputs["adminUserPassword"] = args?.adminUserPassword ? pulumi.secret(args.adminUserPassword) : undefined;
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["shardCapacity"] = args ? args.shardCapacity : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["backupRetentionPeriod"] = args?.backupRetentionPeriod;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["shardCapacity"] = args?.shardCapacity;
+            resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

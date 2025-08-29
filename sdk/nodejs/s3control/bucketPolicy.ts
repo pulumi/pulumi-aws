@@ -72,15 +72,15 @@ export class BucketPolicy extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the bucket.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * JSON string of the resource policy.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a BucketPolicy resource with the given unique name, arguments, and options.
@@ -95,20 +95,20 @@ export class BucketPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketPolicyState | undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as BucketPolicyArgs | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketPolicy.__pulumiType, name, resourceInputs, opts);

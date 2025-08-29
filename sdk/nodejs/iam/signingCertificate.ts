@@ -79,19 +79,19 @@ export class SigningCertificate extends pulumi.CustomResource {
     /**
      * The contents of the signing certificate in PEM-encoded format.
      */
-    public readonly certificateBody!: pulumi.Output<string>;
+    declare public readonly certificateBody: pulumi.Output<string>;
     /**
      * The ID for the signing certificate.
      */
-    public /*out*/ readonly certificateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateId: pulumi.Output<string>;
     /**
      * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The name of the user the signing certificate is for.
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a SigningCertificate resource with the given unique name, arguments, and options.
@@ -106,21 +106,21 @@ export class SigningCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SigningCertificateState | undefined;
-            resourceInputs["certificateBody"] = state ? state.certificateBody : undefined;
-            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["certificateBody"] = state?.certificateBody;
+            resourceInputs["certificateId"] = state?.certificateId;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["userName"] = state?.userName;
         } else {
             const args = argsOrState as SigningCertificateArgs | undefined;
-            if ((!args || args.certificateBody === undefined) && !opts.urn) {
+            if (args?.certificateBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateBody'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["certificateBody"] = args?.certificateBody;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["certificateId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

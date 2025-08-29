@@ -107,73 +107,73 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the connector.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Information about the capacity allocated to the connector. See `capacity` Block for details.
      */
-    public readonly capacity!: pulumi.Output<outputs.mskconnect.ConnectorCapacity>;
+    declare public readonly capacity: pulumi.Output<outputs.mskconnect.ConnectorCapacity>;
     /**
      * A map of keys to values that represent the configuration for the connector.
      */
-    public readonly connectorConfiguration!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly connectorConfiguration: pulumi.Output<{[key: string]: string}>;
     /**
      * A summary description of the connector.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      */
-    public readonly kafkaCluster!: pulumi.Output<outputs.mskconnect.ConnectorKafkaCluster>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.mskconnect.ConnectorKafkaCluster>;
     /**
      * Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
      */
-    public readonly kafkaClusterClientAuthentication!: pulumi.Output<outputs.mskconnect.ConnectorKafkaClusterClientAuthentication>;
+    declare public readonly kafkaClusterClientAuthentication: pulumi.Output<outputs.mskconnect.ConnectorKafkaClusterClientAuthentication>;
     /**
      * Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
      */
-    public readonly kafkaClusterEncryptionInTransit!: pulumi.Output<outputs.mskconnect.ConnectorKafkaClusterEncryptionInTransit>;
+    declare public readonly kafkaClusterEncryptionInTransit: pulumi.Output<outputs.mskconnect.ConnectorKafkaClusterEncryptionInTransit>;
     /**
      * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
      */
-    public readonly kafkaconnectVersion!: pulumi.Output<string>;
+    declare public readonly kafkaconnectVersion: pulumi.Output<string>;
     /**
      * Details about log delivery. See `logDelivery` Block for details.
      */
-    public readonly logDelivery!: pulumi.Output<outputs.mskconnect.ConnectorLogDelivery | undefined>;
+    declare public readonly logDelivery: pulumi.Output<outputs.mskconnect.ConnectorLogDelivery | undefined>;
     /**
      * The name of the connector.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies which plugins to use for the connector. See `plugin` Block for details.
      */
-    public readonly plugins!: pulumi.Output<outputs.mskconnect.ConnectorPlugin[]>;
+    declare public readonly plugins: pulumi.Output<outputs.mskconnect.ConnectorPlugin[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      *
      * The following arguments are optional:
      */
-    public readonly serviceExecutionRoleArn!: pulumi.Output<string>;
+    declare public readonly serviceExecutionRoleArn: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The current version of the connector.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
     /**
      * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
      */
-    public readonly workerConfiguration!: pulumi.Output<outputs.mskconnect.ConnectorWorkerConfiguration | undefined>;
+    declare public readonly workerConfiguration: pulumi.Output<outputs.mskconnect.ConnectorWorkerConfiguration | undefined>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -188,63 +188,63 @@ export class Connector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectorState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["connectorConfiguration"] = state ? state.connectorConfiguration : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["kafkaClusterClientAuthentication"] = state ? state.kafkaClusterClientAuthentication : undefined;
-            resourceInputs["kafkaClusterEncryptionInTransit"] = state ? state.kafkaClusterEncryptionInTransit : undefined;
-            resourceInputs["kafkaconnectVersion"] = state ? state.kafkaconnectVersion : undefined;
-            resourceInputs["logDelivery"] = state ? state.logDelivery : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["plugins"] = state ? state.plugins : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serviceExecutionRoleArn"] = state ? state.serviceExecutionRoleArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["workerConfiguration"] = state ? state.workerConfiguration : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["connectorConfiguration"] = state?.connectorConfiguration;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["kafkaClusterClientAuthentication"] = state?.kafkaClusterClientAuthentication;
+            resourceInputs["kafkaClusterEncryptionInTransit"] = state?.kafkaClusterEncryptionInTransit;
+            resourceInputs["kafkaconnectVersion"] = state?.kafkaconnectVersion;
+            resourceInputs["logDelivery"] = state?.logDelivery;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["plugins"] = state?.plugins;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serviceExecutionRoleArn"] = state?.serviceExecutionRoleArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["workerConfiguration"] = state?.workerConfiguration;
         } else {
             const args = argsOrState as ConnectorArgs | undefined;
-            if ((!args || args.capacity === undefined) && !opts.urn) {
+            if (args?.capacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.connectorConfiguration === undefined) && !opts.urn) {
+            if (args?.connectorConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorConfiguration'");
             }
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
+            if (args?.kafkaCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
-            if ((!args || args.kafkaClusterClientAuthentication === undefined) && !opts.urn) {
+            if (args?.kafkaClusterClientAuthentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaClusterClientAuthentication'");
             }
-            if ((!args || args.kafkaClusterEncryptionInTransit === undefined) && !opts.urn) {
+            if (args?.kafkaClusterEncryptionInTransit === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaClusterEncryptionInTransit'");
             }
-            if ((!args || args.kafkaconnectVersion === undefined) && !opts.urn) {
+            if (args?.kafkaconnectVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaconnectVersion'");
             }
-            if ((!args || args.plugins === undefined) && !opts.urn) {
+            if (args?.plugins === undefined && !opts.urn) {
                 throw new Error("Missing required property 'plugins'");
             }
-            if ((!args || args.serviceExecutionRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRoleArn'");
             }
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["connectorConfiguration"] = args ? args.connectorConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["kafkaClusterClientAuthentication"] = args ? args.kafkaClusterClientAuthentication : undefined;
-            resourceInputs["kafkaClusterEncryptionInTransit"] = args ? args.kafkaClusterEncryptionInTransit : undefined;
-            resourceInputs["kafkaconnectVersion"] = args ? args.kafkaconnectVersion : undefined;
-            resourceInputs["logDelivery"] = args ? args.logDelivery : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["plugins"] = args ? args.plugins : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workerConfiguration"] = args ? args.workerConfiguration : undefined;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["connectorConfiguration"] = args?.connectorConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["kafkaClusterClientAuthentication"] = args?.kafkaClusterClientAuthentication;
+            resourceInputs["kafkaClusterEncryptionInTransit"] = args?.kafkaClusterEncryptionInTransit;
+            resourceInputs["kafkaconnectVersion"] = args?.kafkaconnectVersion;
+            resourceInputs["logDelivery"] = args?.logDelivery;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["plugins"] = args?.plugins;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serviceExecutionRoleArn"] = args?.serviceExecutionRoleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workerConfiguration"] = args?.workerConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

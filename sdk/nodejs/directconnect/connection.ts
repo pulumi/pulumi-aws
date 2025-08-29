@@ -92,81 +92,81 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The ARN of the connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      */
-    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html) and [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
      */
-    public readonly bandwidth!: pulumi.Output<string>;
+    declare public readonly bandwidth: pulumi.Output<string>;
     /**
      * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `noEncrypt`, `shouldEncrypt`, and `mustEncrypt`.
      */
-    public readonly encryptionMode!: pulumi.Output<string>;
+    declare public readonly encryptionMode: pulumi.Output<string>;
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
-    public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
+    declare public /*out*/ readonly hasLogicalRedundancy: pulumi.Output<string>;
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      */
-    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Boolean value indicating whether the connection supports MAC Security (MACsec).
      */
-    public /*out*/ readonly macsecCapable!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly macsecCapable: pulumi.Output<boolean>;
     /**
      * The name of the connection.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the AWS account that owns the connection.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      */
-    public /*out*/ readonly partnerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly partnerName: pulumi.Output<string>;
     /**
      * The MAC Security (MACsec) port link status of the connection.
      */
-    public /*out*/ readonly portEncryptionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly portEncryptionStatus: pulumi.Output<string>;
     /**
      * The name of the service provider associated with the connection.
      */
-    public readonly providerName!: pulumi.Output<string>;
+    declare public readonly providerName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      *
      * > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
      */
-    public readonly requestMacsec!: pulumi.Output<boolean | undefined>;
+    declare public readonly requestMacsec: pulumi.Output<boolean | undefined>;
     /**
      * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
      */
-    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The VLAN ID.
      */
-    public /*out*/ readonly vlanId!: pulumi.Output<number>;
+    declare public /*out*/ readonly vlanId: pulumi.Output<number>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -181,42 +181,42 @@ export class Connection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
-            resourceInputs["bandwidth"] = state ? state.bandwidth : undefined;
-            resourceInputs["encryptionMode"] = state ? state.encryptionMode : undefined;
-            resourceInputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
-            resourceInputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["macsecCapable"] = state ? state.macsecCapable : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            resourceInputs["partnerName"] = state ? state.partnerName : undefined;
-            resourceInputs["portEncryptionStatus"] = state ? state.portEncryptionStatus : undefined;
-            resourceInputs["providerName"] = state ? state.providerName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["requestMacsec"] = state ? state.requestMacsec : undefined;
-            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vlanId"] = state ? state.vlanId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsDevice"] = state?.awsDevice;
+            resourceInputs["bandwidth"] = state?.bandwidth;
+            resourceInputs["encryptionMode"] = state?.encryptionMode;
+            resourceInputs["hasLogicalRedundancy"] = state?.hasLogicalRedundancy;
+            resourceInputs["jumboFrameCapable"] = state?.jumboFrameCapable;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["macsecCapable"] = state?.macsecCapable;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
+            resourceInputs["partnerName"] = state?.partnerName;
+            resourceInputs["portEncryptionStatus"] = state?.portEncryptionStatus;
+            resourceInputs["providerName"] = state?.providerName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["requestMacsec"] = state?.requestMacsec;
+            resourceInputs["skipDestroy"] = state?.skipDestroy;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vlanId"] = state?.vlanId;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if ((!args || args.bandwidth === undefined) && !opts.urn) {
+            if (args?.bandwidth === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bandwidth'");
             }
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            resourceInputs["bandwidth"] = args ? args.bandwidth : undefined;
-            resourceInputs["encryptionMode"] = args ? args.encryptionMode : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["providerName"] = args ? args.providerName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["requestMacsec"] = args ? args.requestMacsec : undefined;
-            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bandwidth"] = args?.bandwidth;
+            resourceInputs["encryptionMode"] = args?.encryptionMode;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["providerName"] = args?.providerName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["requestMacsec"] = args?.requestMacsec;
+            resourceInputs["skipDestroy"] = args?.skipDestroy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsDevice"] = undefined /*out*/;
             resourceInputs["hasLogicalRedundancy"] = undefined /*out*/;

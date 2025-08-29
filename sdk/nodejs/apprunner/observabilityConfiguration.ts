@@ -66,39 +66,39 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
     /**
      * ARN of this observability configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether the observability configuration has the highest `observabilityConfigurationRevision` among all configurations that share the same `observabilityConfigurationName`.
      */
-    public /*out*/ readonly latest!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly latest: pulumi.Output<boolean>;
     /**
      * Name of the observability configuration.
      */
-    public readonly observabilityConfigurationName!: pulumi.Output<string>;
+    declare public readonly observabilityConfigurationName: pulumi.Output<string>;
     /**
      * The revision of this observability configuration.
      */
-    public /*out*/ readonly observabilityConfigurationRevision!: pulumi.Output<number>;
+    declare public /*out*/ readonly observabilityConfigurationRevision: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
      */
-    public readonly traceConfiguration!: pulumi.Output<outputs.apprunner.ObservabilityConfigurationTraceConfiguration | undefined>;
+    declare public readonly traceConfiguration: pulumi.Output<outputs.apprunner.ObservabilityConfigurationTraceConfiguration | undefined>;
 
     /**
      * Create a ObservabilityConfiguration resource with the given unique name, arguments, and options.
@@ -113,24 +113,24 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ObservabilityConfigurationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["latest"] = state ? state.latest : undefined;
-            resourceInputs["observabilityConfigurationName"] = state ? state.observabilityConfigurationName : undefined;
-            resourceInputs["observabilityConfigurationRevision"] = state ? state.observabilityConfigurationRevision : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["traceConfiguration"] = state ? state.traceConfiguration : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["latest"] = state?.latest;
+            resourceInputs["observabilityConfigurationName"] = state?.observabilityConfigurationName;
+            resourceInputs["observabilityConfigurationRevision"] = state?.observabilityConfigurationRevision;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["traceConfiguration"] = state?.traceConfiguration;
         } else {
             const args = argsOrState as ObservabilityConfigurationArgs | undefined;
-            if ((!args || args.observabilityConfigurationName === undefined) && !opts.urn) {
+            if (args?.observabilityConfigurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'observabilityConfigurationName'");
             }
-            resourceInputs["observabilityConfigurationName"] = args ? args.observabilityConfigurationName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["traceConfiguration"] = args ? args.traceConfiguration : undefined;
+            resourceInputs["observabilityConfigurationName"] = args?.observabilityConfigurationName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["traceConfiguration"] = args?.traceConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["latest"] = undefined /*out*/;
             resourceInputs["observabilityConfigurationRevision"] = undefined /*out*/;

@@ -113,135 +113,135 @@ export class Topic extends pulumi.CustomResource {
     /**
      * IAM role for failure feedback
      */
-    public readonly applicationFailureFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly applicationFailureFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    public readonly applicationSuccessFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly applicationSuccessFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    public readonly applicationSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
+    declare public readonly applicationSuccessFeedbackSampleRate: pulumi.Output<number | undefined>;
     /**
      * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
      */
-    public readonly archivePolicy!: pulumi.Output<string | undefined>;
+    declare public readonly archivePolicy: pulumi.Output<string | undefined>;
     /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The oldest timestamp at which a FIFO topic subscriber can start a replay.
      */
-    public /*out*/ readonly beginningArchiveTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly beginningArchiveTime: pulumi.Output<string>;
     /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      */
-    public readonly contentBasedDeduplication!: pulumi.Output<boolean | undefined>;
+    declare public readonly contentBasedDeduplication: pulumi.Output<boolean | undefined>;
     /**
      * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      */
-    public readonly deliveryPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryPolicy: pulumi.Output<string | undefined>;
     /**
      * The display name for the topic
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
      */
-    public readonly fifoThroughputScope!: pulumi.Output<string>;
+    declare public readonly fifoThroughputScope: pulumi.Output<string>;
     /**
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
      */
-    public readonly fifoTopic!: pulumi.Output<boolean | undefined>;
+    declare public readonly fifoTopic: pulumi.Output<boolean | undefined>;
     /**
      * IAM role for failure feedback
      */
-    public readonly firehoseFailureFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly firehoseFailureFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    public readonly firehoseSuccessFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly firehoseSuccessFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    public readonly firehoseSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
+    declare public readonly firehoseSuccessFeedbackSampleRate: pulumi.Output<number | undefined>;
     /**
      * IAM role for failure feedback
      */
-    public readonly httpFailureFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly httpFailureFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    public readonly httpSuccessFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly httpSuccessFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    public readonly httpSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
+    declare public readonly httpSuccessFeedbackSampleRate: pulumi.Output<number | undefined>;
     /**
      * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
      */
-    public readonly kmsMasterKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsMasterKeyId: pulumi.Output<string | undefined>;
     /**
      * IAM role for failure feedback
      */
-    public readonly lambdaFailureFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly lambdaFailureFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    public readonly lambdaSuccessFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly lambdaSuccessFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    public readonly lambdaSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
+    declare public readonly lambdaSuccessFeedbackSampleRate: pulumi.Output<number | undefined>;
     /**
      * The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * The AWS Account ID of the SNS topic owner
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * The fully-formed AWS policy as JSON.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
      */
-    public readonly signatureVersion!: pulumi.Output<number>;
+    declare public readonly signatureVersion: pulumi.Output<number>;
     /**
      * IAM role for failure feedback
      */
-    public readonly sqsFailureFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly sqsFailureFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    public readonly sqsSuccessFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly sqsSuccessFeedbackRoleArn: pulumi.Output<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    public readonly sqsSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
+    declare public readonly sqsSuccessFeedbackSampleRate: pulumi.Output<number | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
      */
-    public readonly tracingConfig!: pulumi.Output<string>;
+    declare public readonly tracingConfig: pulumi.Output<string>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -256,70 +256,70 @@ export class Topic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicState | undefined;
-            resourceInputs["applicationFailureFeedbackRoleArn"] = state ? state.applicationFailureFeedbackRoleArn : undefined;
-            resourceInputs["applicationSuccessFeedbackRoleArn"] = state ? state.applicationSuccessFeedbackRoleArn : undefined;
-            resourceInputs["applicationSuccessFeedbackSampleRate"] = state ? state.applicationSuccessFeedbackSampleRate : undefined;
-            resourceInputs["archivePolicy"] = state ? state.archivePolicy : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["beginningArchiveTime"] = state ? state.beginningArchiveTime : undefined;
-            resourceInputs["contentBasedDeduplication"] = state ? state.contentBasedDeduplication : undefined;
-            resourceInputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["fifoThroughputScope"] = state ? state.fifoThroughputScope : undefined;
-            resourceInputs["fifoTopic"] = state ? state.fifoTopic : undefined;
-            resourceInputs["firehoseFailureFeedbackRoleArn"] = state ? state.firehoseFailureFeedbackRoleArn : undefined;
-            resourceInputs["firehoseSuccessFeedbackRoleArn"] = state ? state.firehoseSuccessFeedbackRoleArn : undefined;
-            resourceInputs["firehoseSuccessFeedbackSampleRate"] = state ? state.firehoseSuccessFeedbackSampleRate : undefined;
-            resourceInputs["httpFailureFeedbackRoleArn"] = state ? state.httpFailureFeedbackRoleArn : undefined;
-            resourceInputs["httpSuccessFeedbackRoleArn"] = state ? state.httpSuccessFeedbackRoleArn : undefined;
-            resourceInputs["httpSuccessFeedbackSampleRate"] = state ? state.httpSuccessFeedbackSampleRate : undefined;
-            resourceInputs["kmsMasterKeyId"] = state ? state.kmsMasterKeyId : undefined;
-            resourceInputs["lambdaFailureFeedbackRoleArn"] = state ? state.lambdaFailureFeedbackRoleArn : undefined;
-            resourceInputs["lambdaSuccessFeedbackRoleArn"] = state ? state.lambdaSuccessFeedbackRoleArn : undefined;
-            resourceInputs["lambdaSuccessFeedbackSampleRate"] = state ? state.lambdaSuccessFeedbackSampleRate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["signatureVersion"] = state ? state.signatureVersion : undefined;
-            resourceInputs["sqsFailureFeedbackRoleArn"] = state ? state.sqsFailureFeedbackRoleArn : undefined;
-            resourceInputs["sqsSuccessFeedbackRoleArn"] = state ? state.sqsSuccessFeedbackRoleArn : undefined;
-            resourceInputs["sqsSuccessFeedbackSampleRate"] = state ? state.sqsSuccessFeedbackSampleRate : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["tracingConfig"] = state ? state.tracingConfig : undefined;
+            resourceInputs["applicationFailureFeedbackRoleArn"] = state?.applicationFailureFeedbackRoleArn;
+            resourceInputs["applicationSuccessFeedbackRoleArn"] = state?.applicationSuccessFeedbackRoleArn;
+            resourceInputs["applicationSuccessFeedbackSampleRate"] = state?.applicationSuccessFeedbackSampleRate;
+            resourceInputs["archivePolicy"] = state?.archivePolicy;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["beginningArchiveTime"] = state?.beginningArchiveTime;
+            resourceInputs["contentBasedDeduplication"] = state?.contentBasedDeduplication;
+            resourceInputs["deliveryPolicy"] = state?.deliveryPolicy;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["fifoThroughputScope"] = state?.fifoThroughputScope;
+            resourceInputs["fifoTopic"] = state?.fifoTopic;
+            resourceInputs["firehoseFailureFeedbackRoleArn"] = state?.firehoseFailureFeedbackRoleArn;
+            resourceInputs["firehoseSuccessFeedbackRoleArn"] = state?.firehoseSuccessFeedbackRoleArn;
+            resourceInputs["firehoseSuccessFeedbackSampleRate"] = state?.firehoseSuccessFeedbackSampleRate;
+            resourceInputs["httpFailureFeedbackRoleArn"] = state?.httpFailureFeedbackRoleArn;
+            resourceInputs["httpSuccessFeedbackRoleArn"] = state?.httpSuccessFeedbackRoleArn;
+            resourceInputs["httpSuccessFeedbackSampleRate"] = state?.httpSuccessFeedbackSampleRate;
+            resourceInputs["kmsMasterKeyId"] = state?.kmsMasterKeyId;
+            resourceInputs["lambdaFailureFeedbackRoleArn"] = state?.lambdaFailureFeedbackRoleArn;
+            resourceInputs["lambdaSuccessFeedbackRoleArn"] = state?.lambdaSuccessFeedbackRoleArn;
+            resourceInputs["lambdaSuccessFeedbackSampleRate"] = state?.lambdaSuccessFeedbackSampleRate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["signatureVersion"] = state?.signatureVersion;
+            resourceInputs["sqsFailureFeedbackRoleArn"] = state?.sqsFailureFeedbackRoleArn;
+            resourceInputs["sqsSuccessFeedbackRoleArn"] = state?.sqsSuccessFeedbackRoleArn;
+            resourceInputs["sqsSuccessFeedbackSampleRate"] = state?.sqsSuccessFeedbackSampleRate;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tracingConfig"] = state?.tracingConfig;
         } else {
             const args = argsOrState as TopicArgs | undefined;
-            resourceInputs["applicationFailureFeedbackRoleArn"] = args ? args.applicationFailureFeedbackRoleArn : undefined;
-            resourceInputs["applicationSuccessFeedbackRoleArn"] = args ? args.applicationSuccessFeedbackRoleArn : undefined;
-            resourceInputs["applicationSuccessFeedbackSampleRate"] = args ? args.applicationSuccessFeedbackSampleRate : undefined;
-            resourceInputs["archivePolicy"] = args ? args.archivePolicy : undefined;
-            resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
-            resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["fifoThroughputScope"] = args ? args.fifoThroughputScope : undefined;
-            resourceInputs["fifoTopic"] = args ? args.fifoTopic : undefined;
-            resourceInputs["firehoseFailureFeedbackRoleArn"] = args ? args.firehoseFailureFeedbackRoleArn : undefined;
-            resourceInputs["firehoseSuccessFeedbackRoleArn"] = args ? args.firehoseSuccessFeedbackRoleArn : undefined;
-            resourceInputs["firehoseSuccessFeedbackSampleRate"] = args ? args.firehoseSuccessFeedbackSampleRate : undefined;
-            resourceInputs["httpFailureFeedbackRoleArn"] = args ? args.httpFailureFeedbackRoleArn : undefined;
-            resourceInputs["httpSuccessFeedbackRoleArn"] = args ? args.httpSuccessFeedbackRoleArn : undefined;
-            resourceInputs["httpSuccessFeedbackSampleRate"] = args ? args.httpSuccessFeedbackSampleRate : undefined;
-            resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
-            resourceInputs["lambdaFailureFeedbackRoleArn"] = args ? args.lambdaFailureFeedbackRoleArn : undefined;
-            resourceInputs["lambdaSuccessFeedbackRoleArn"] = args ? args.lambdaSuccessFeedbackRoleArn : undefined;
-            resourceInputs["lambdaSuccessFeedbackSampleRate"] = args ? args.lambdaSuccessFeedbackSampleRate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["signatureVersion"] = args ? args.signatureVersion : undefined;
-            resourceInputs["sqsFailureFeedbackRoleArn"] = args ? args.sqsFailureFeedbackRoleArn : undefined;
-            resourceInputs["sqsSuccessFeedbackRoleArn"] = args ? args.sqsSuccessFeedbackRoleArn : undefined;
-            resourceInputs["sqsSuccessFeedbackSampleRate"] = args ? args.sqsSuccessFeedbackSampleRate : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
+            resourceInputs["applicationFailureFeedbackRoleArn"] = args?.applicationFailureFeedbackRoleArn;
+            resourceInputs["applicationSuccessFeedbackRoleArn"] = args?.applicationSuccessFeedbackRoleArn;
+            resourceInputs["applicationSuccessFeedbackSampleRate"] = args?.applicationSuccessFeedbackSampleRate;
+            resourceInputs["archivePolicy"] = args?.archivePolicy;
+            resourceInputs["contentBasedDeduplication"] = args?.contentBasedDeduplication;
+            resourceInputs["deliveryPolicy"] = args?.deliveryPolicy;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["fifoThroughputScope"] = args?.fifoThroughputScope;
+            resourceInputs["fifoTopic"] = args?.fifoTopic;
+            resourceInputs["firehoseFailureFeedbackRoleArn"] = args?.firehoseFailureFeedbackRoleArn;
+            resourceInputs["firehoseSuccessFeedbackRoleArn"] = args?.firehoseSuccessFeedbackRoleArn;
+            resourceInputs["firehoseSuccessFeedbackSampleRate"] = args?.firehoseSuccessFeedbackSampleRate;
+            resourceInputs["httpFailureFeedbackRoleArn"] = args?.httpFailureFeedbackRoleArn;
+            resourceInputs["httpSuccessFeedbackRoleArn"] = args?.httpSuccessFeedbackRoleArn;
+            resourceInputs["httpSuccessFeedbackSampleRate"] = args?.httpSuccessFeedbackSampleRate;
+            resourceInputs["kmsMasterKeyId"] = args?.kmsMasterKeyId;
+            resourceInputs["lambdaFailureFeedbackRoleArn"] = args?.lambdaFailureFeedbackRoleArn;
+            resourceInputs["lambdaSuccessFeedbackRoleArn"] = args?.lambdaSuccessFeedbackRoleArn;
+            resourceInputs["lambdaSuccessFeedbackSampleRate"] = args?.lambdaSuccessFeedbackSampleRate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["signatureVersion"] = args?.signatureVersion;
+            resourceInputs["sqsFailureFeedbackRoleArn"] = args?.sqsFailureFeedbackRoleArn;
+            resourceInputs["sqsSuccessFeedbackRoleArn"] = args?.sqsSuccessFeedbackRoleArn;
+            resourceInputs["sqsSuccessFeedbackSampleRate"] = args?.sqsSuccessFeedbackSampleRate;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tracingConfig"] = args?.tracingConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["beginningArchiveTime"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

@@ -83,40 +83,40 @@ export class S3Location extends pulumi.CustomResource {
     /**
      * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
      */
-    public readonly agentArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly agentArns: pulumi.Output<string[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
-    public readonly s3BucketArn!: pulumi.Output<string>;
+    declare public readonly s3BucketArn: pulumi.Output<string>;
     /**
      * Configuration block containing information for connecting to S3.
      */
-    public readonly s3Config!: pulumi.Output<outputs.datasync.S3LocationS3Config>;
+    declare public readonly s3Config: pulumi.Output<outputs.datasync.S3LocationS3Config>;
     /**
      * Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      */
-    public readonly s3StorageClass!: pulumi.Output<string>;
+    declare public readonly s3StorageClass: pulumi.Output<string>;
     /**
      * Prefix to perform actions as source or destination.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    declare public readonly subdirectory: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
 
     /**
      * Create a S3Location resource with the given unique name, arguments, and options.
@@ -131,34 +131,34 @@ export class S3Location extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as S3LocationState | undefined;
-            resourceInputs["agentArns"] = state ? state.agentArns : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
-            resourceInputs["s3Config"] = state ? state.s3Config : undefined;
-            resourceInputs["s3StorageClass"] = state ? state.s3StorageClass : undefined;
-            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["agentArns"] = state?.agentArns;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["s3BucketArn"] = state?.s3BucketArn;
+            resourceInputs["s3Config"] = state?.s3Config;
+            resourceInputs["s3StorageClass"] = state?.s3StorageClass;
+            resourceInputs["subdirectory"] = state?.subdirectory;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as S3LocationArgs | undefined;
-            if ((!args || args.s3BucketArn === undefined) && !opts.urn) {
+            if (args?.s3BucketArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3BucketArn'");
             }
-            if ((!args || args.s3Config === undefined) && !opts.urn) {
+            if (args?.s3Config === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Config'");
             }
-            if ((!args || args.subdirectory === undefined) && !opts.urn) {
+            if (args?.subdirectory === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subdirectory'");
             }
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
-            resourceInputs["s3Config"] = args ? args.s3Config : undefined;
-            resourceInputs["s3StorageClass"] = args ? args.s3StorageClass : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["s3BucketArn"] = args?.s3BucketArn;
+            resourceInputs["s3Config"] = args?.s3Config;
+            resourceInputs["s3StorageClass"] = args?.s3StorageClass;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;

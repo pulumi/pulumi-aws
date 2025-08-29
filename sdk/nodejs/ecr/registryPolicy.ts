@@ -74,15 +74,15 @@ export class RegistryPolicy extends pulumi.CustomResource {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The registry ID where the registry was created.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly registryId: pulumi.Output<string>;
 
     /**
      * Create a RegistryPolicy resource with the given unique name, arguments, and options.
@@ -97,16 +97,16 @@ export class RegistryPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryPolicyState | undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["registryId"] = state?.registryId;
         } else {
             const args = argsOrState as RegistryPolicyArgs | undefined;
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

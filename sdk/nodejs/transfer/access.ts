@@ -85,39 +85,39 @@ export class Access extends pulumi.CustomResource {
     /**
      * The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
      */
-    public readonly externalId!: pulumi.Output<string>;
+    declare public readonly externalId: pulumi.Output<string>;
     /**
      * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      */
-    public readonly homeDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly homeDirectory: pulumi.Output<string | undefined>;
     /**
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      */
-    public readonly homeDirectoryMappings!: pulumi.Output<outputs.transfer.AccessHomeDirectoryMapping[] | undefined>;
+    declare public readonly homeDirectoryMappings: pulumi.Output<outputs.transfer.AccessHomeDirectoryMapping[] | undefined>;
     /**
      * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
      */
-    public readonly homeDirectoryType!: pulumi.Output<string | undefined>;
+    declare public readonly homeDirectoryType: pulumi.Output<string | undefined>;
     /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      */
-    public readonly policy!: pulumi.Output<string | undefined>;
+    declare public readonly policy: pulumi.Output<string | undefined>;
     /**
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
      */
-    public readonly posixProfile!: pulumi.Output<outputs.transfer.AccessPosixProfile | undefined>;
+    declare public readonly posixProfile: pulumi.Output<outputs.transfer.AccessPosixProfile | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    declare public readonly role: pulumi.Output<string | undefined>;
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
 
     /**
      * Create a Access resource with the given unique name, arguments, and options.
@@ -132,32 +132,32 @@ export class Access extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessState | undefined;
-            resourceInputs["externalId"] = state ? state.externalId : undefined;
-            resourceInputs["homeDirectory"] = state ? state.homeDirectory : undefined;
-            resourceInputs["homeDirectoryMappings"] = state ? state.homeDirectoryMappings : undefined;
-            resourceInputs["homeDirectoryType"] = state ? state.homeDirectoryType : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["posixProfile"] = state ? state.posixProfile : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["externalId"] = state?.externalId;
+            resourceInputs["homeDirectory"] = state?.homeDirectory;
+            resourceInputs["homeDirectoryMappings"] = state?.homeDirectoryMappings;
+            resourceInputs["homeDirectoryType"] = state?.homeDirectoryType;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["posixProfile"] = state?.posixProfile;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as AccessArgs | undefined;
-            if ((!args || args.externalId === undefined) && !opts.urn) {
+            if (args?.externalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'externalId'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["externalId"] = args ? args.externalId : undefined;
-            resourceInputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            resourceInputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
-            resourceInputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["posixProfile"] = args ? args.posixProfile : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["externalId"] = args?.externalId;
+            resourceInputs["homeDirectory"] = args?.homeDirectory;
+            resourceInputs["homeDirectoryMappings"] = args?.homeDirectoryMappings;
+            resourceInputs["homeDirectoryType"] = args?.homeDirectoryType;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["posixProfile"] = args?.posixProfile;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["serverId"] = args?.serverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Access.__pulumiType, name, resourceInputs, opts);

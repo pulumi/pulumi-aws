@@ -154,54 +154,54 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the data source
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      */
-    public readonly credentials!: pulumi.Output<outputs.quicksight.DataSourceCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.quicksight.DataSourceCredentials | undefined>;
     /**
      * An identifier for the data source.
      */
-    public readonly dataSourceId!: pulumi.Output<string>;
+    declare public readonly dataSourceId: pulumi.Output<string>;
     /**
      * A name for the data source, maximum of 128 characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parameters used to connect to this data source (exactly one).
      */
-    public readonly parameters!: pulumi.Output<outputs.quicksight.DataSourceParameters>;
+    declare public readonly parameters: pulumi.Output<outputs.quicksight.DataSourceParameters>;
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourcePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.DataSourcePermission[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      */
-    public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties>;
+    declare public readonly sslProperties: pulumi.Output<outputs.quicksight.DataSourceSslProperties>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      *
      * The following arguments are optional:
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
      */
-    public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
+    declare public readonly vpcConnectionProperties: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -216,41 +216,41 @@ export class DataSource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSourceState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["dataSourceId"] = state ? state.dataSourceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sslProperties"] = state ? state.sslProperties : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["vpcConnectionProperties"] = state ? state.vpcConnectionProperties : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["dataSourceId"] = state?.dataSourceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sslProperties"] = state?.sslProperties;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["vpcConnectionProperties"] = state?.vpcConnectionProperties;
         } else {
             const args = argsOrState as DataSourceArgs | undefined;
-            if ((!args || args.dataSourceId === undefined) && !opts.urn) {
+            if (args?.dataSourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sslProperties"] = args ? args.sslProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vpcConnectionProperties"] = args ? args.vpcConnectionProperties : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["dataSourceId"] = args?.dataSourceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sslProperties"] = args?.sslProperties;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vpcConnectionProperties"] = args?.vpcConnectionProperties;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

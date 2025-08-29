@@ -73,19 +73,19 @@ export class DomainIdentity extends pulumi.CustomResource {
     /**
      * The ARN of the domain identity.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The domain name to assign to SES
      */
-    public readonly domain!: pulumi.Output<string>;
+    declare public readonly domain: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      */
-    public /*out*/ readonly verificationToken!: pulumi.Output<string>;
+    declare public /*out*/ readonly verificationToken: pulumi.Output<string>;
 
     /**
      * Create a DomainIdentity resource with the given unique name, arguments, and options.
@@ -100,17 +100,17 @@ export class DomainIdentity extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainIdentityState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["verificationToken"] = state ? state.verificationToken : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["verificationToken"] = state?.verificationToken;
         } else {
             const args = argsOrState as DomainIdentityArgs | undefined;
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["region"] = args?.region;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["verificationToken"] = undefined /*out*/;
         }

@@ -161,58 +161,58 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly actionGroupExecutor!: pulumi.Output<outputs.bedrock.AgentAgentActionGroupActionGroupExecutor | undefined>;
+    declare public readonly actionGroupExecutor: pulumi.Output<outputs.bedrock.AgentAgentActionGroupActionGroupExecutor | undefined>;
     /**
      * Unique identifier of the action group.
      */
-    public /*out*/ readonly actionGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly actionGroupId: pulumi.Output<string>;
     /**
      * Name of the action group.
      */
-    public readonly actionGroupName!: pulumi.Output<string>;
+    declare public readonly actionGroupName: pulumi.Output<string>;
     /**
      * Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      */
-    public readonly actionGroupState!: pulumi.Output<string>;
+    declare public readonly actionGroupState: pulumi.Output<string>;
     /**
      * The unique identifier of the agent for which to create the action group.
      */
-    public readonly agentId!: pulumi.Output<string>;
+    declare public readonly agentId: pulumi.Output<string>;
     /**
      * Version of the agent for which to create the action group. Valid values: `DRAFT`.
      */
-    public readonly agentVersion!: pulumi.Output<string>;
+    declare public readonly agentVersion: pulumi.Output<string>;
     /**
      * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` Block for details.
      */
-    public readonly apiSchema!: pulumi.Output<outputs.bedrock.AgentAgentActionGroupApiSchema | undefined>;
+    declare public readonly apiSchema: pulumi.Output<outputs.bedrock.AgentAgentActionGroupApiSchema | undefined>;
     /**
      * Description of the action group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Describes the function schema for the action group.
      * Each function represents an action in an action group.
      * See `functionSchema` Block for details.
      */
-    public readonly functionSchema!: pulumi.Output<outputs.bedrock.AgentAgentActionGroupFunctionSchema | undefined>;
+    declare public readonly functionSchema: pulumi.Output<outputs.bedrock.AgentAgentActionGroupFunctionSchema | undefined>;
     /**
      * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
      */
-    public readonly parentActionGroupSignature!: pulumi.Output<string | undefined>;
+    declare public readonly parentActionGroupSignature: pulumi.Output<string | undefined>;
     /**
      * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
      */
-    public readonly prepareAgent!: pulumi.Output<boolean>;
+    declare public readonly prepareAgent: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether the in-use check is skipped when deleting the action group.
      */
-    public readonly skipResourceInUseCheck!: pulumi.Output<boolean>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentActionGroupTimeouts | undefined>;
+    declare public readonly skipResourceInUseCheck: pulumi.Output<boolean>;
+    declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentAgentActionGroupTimeouts | undefined>;
 
     /**
      * Create a AgentAgentActionGroup resource with the given unique name, arguments, and options.
@@ -227,44 +227,44 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentAgentActionGroupState | undefined;
-            resourceInputs["actionGroupExecutor"] = state ? state.actionGroupExecutor : undefined;
-            resourceInputs["actionGroupId"] = state ? state.actionGroupId : undefined;
-            resourceInputs["actionGroupName"] = state ? state.actionGroupName : undefined;
-            resourceInputs["actionGroupState"] = state ? state.actionGroupState : undefined;
-            resourceInputs["agentId"] = state ? state.agentId : undefined;
-            resourceInputs["agentVersion"] = state ? state.agentVersion : undefined;
-            resourceInputs["apiSchema"] = state ? state.apiSchema : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["functionSchema"] = state ? state.functionSchema : undefined;
-            resourceInputs["parentActionGroupSignature"] = state ? state.parentActionGroupSignature : undefined;
-            resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["actionGroupExecutor"] = state?.actionGroupExecutor;
+            resourceInputs["actionGroupId"] = state?.actionGroupId;
+            resourceInputs["actionGroupName"] = state?.actionGroupName;
+            resourceInputs["actionGroupState"] = state?.actionGroupState;
+            resourceInputs["agentId"] = state?.agentId;
+            resourceInputs["agentVersion"] = state?.agentVersion;
+            resourceInputs["apiSchema"] = state?.apiSchema;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["functionSchema"] = state?.functionSchema;
+            resourceInputs["parentActionGroupSignature"] = state?.parentActionGroupSignature;
+            resourceInputs["prepareAgent"] = state?.prepareAgent;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["skipResourceInUseCheck"] = state?.skipResourceInUseCheck;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AgentAgentActionGroupArgs | undefined;
-            if ((!args || args.actionGroupName === undefined) && !opts.urn) {
+            if (args?.actionGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionGroupName'");
             }
-            if ((!args || args.agentId === undefined) && !opts.urn) {
+            if (args?.agentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentId'");
             }
-            if ((!args || args.agentVersion === undefined) && !opts.urn) {
+            if (args?.agentVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentVersion'");
             }
-            resourceInputs["actionGroupExecutor"] = args ? args.actionGroupExecutor : undefined;
-            resourceInputs["actionGroupName"] = args ? args.actionGroupName : undefined;
-            resourceInputs["actionGroupState"] = args ? args.actionGroupState : undefined;
-            resourceInputs["agentId"] = args ? args.agentId : undefined;
-            resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
-            resourceInputs["apiSchema"] = args ? args.apiSchema : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["functionSchema"] = args ? args.functionSchema : undefined;
-            resourceInputs["parentActionGroupSignature"] = args ? args.parentActionGroupSignature : undefined;
-            resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["skipResourceInUseCheck"] = args ? args.skipResourceInUseCheck : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["actionGroupExecutor"] = args?.actionGroupExecutor;
+            resourceInputs["actionGroupName"] = args?.actionGroupName;
+            resourceInputs["actionGroupState"] = args?.actionGroupState;
+            resourceInputs["agentId"] = args?.agentId;
+            resourceInputs["agentVersion"] = args?.agentVersion;
+            resourceInputs["apiSchema"] = args?.apiSchema;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["functionSchema"] = args?.functionSchema;
+            resourceInputs["parentActionGroupSignature"] = args?.parentActionGroupSignature;
+            resourceInputs["prepareAgent"] = args?.prepareAgent;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["skipResourceInUseCheck"] = args?.skipResourceInUseCheck;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["actionGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -74,51 +74,51 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
     /**
      * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
      */
-    public readonly blockOverrideDnsType!: pulumi.Output<string | undefined>;
+    declare public readonly blockOverrideDnsType: pulumi.Output<string | undefined>;
     /**
      * The custom DNS record to send back in response to the query.
      */
-    public readonly blockOverrideDomain!: pulumi.Output<string | undefined>;
+    declare public readonly blockOverrideDomain: pulumi.Output<string | undefined>;
     /**
      * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
      */
-    public readonly blockOverrideTtl!: pulumi.Output<number | undefined>;
+    declare public readonly blockOverrideTtl: pulumi.Output<number | undefined>;
     /**
      * The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
      */
-    public readonly blockResponse!: pulumi.Output<string | undefined>;
+    declare public readonly blockResponse: pulumi.Output<string | undefined>;
     /**
      * The ID of the domain list that you want to use in the rule.
      */
-    public readonly firewallDomainListId!: pulumi.Output<string>;
+    declare public readonly firewallDomainListId: pulumi.Output<string>;
     /**
      * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
      */
-    public readonly firewallDomainRedirectionAction!: pulumi.Output<string | undefined>;
+    declare public readonly firewallDomainRedirectionAction: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      */
-    public readonly firewallRuleGroupId!: pulumi.Output<string>;
+    declare public readonly firewallRuleGroupId: pulumi.Output<string>;
     /**
      * A name that lets you identify the rule, to manage and use it.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
      */
-    public readonly qType!: pulumi.Output<string | undefined>;
+    declare public readonly qType: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ResolverFirewallRule resource with the given unique name, arguments, and options.
@@ -133,44 +133,44 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverFirewallRuleState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["blockOverrideDnsType"] = state ? state.blockOverrideDnsType : undefined;
-            resourceInputs["blockOverrideDomain"] = state ? state.blockOverrideDomain : undefined;
-            resourceInputs["blockOverrideTtl"] = state ? state.blockOverrideTtl : undefined;
-            resourceInputs["blockResponse"] = state ? state.blockResponse : undefined;
-            resourceInputs["firewallDomainListId"] = state ? state.firewallDomainListId : undefined;
-            resourceInputs["firewallDomainRedirectionAction"] = state ? state.firewallDomainRedirectionAction : undefined;
-            resourceInputs["firewallRuleGroupId"] = state ? state.firewallRuleGroupId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["qType"] = state ? state.qType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["blockOverrideDnsType"] = state?.blockOverrideDnsType;
+            resourceInputs["blockOverrideDomain"] = state?.blockOverrideDomain;
+            resourceInputs["blockOverrideTtl"] = state?.blockOverrideTtl;
+            resourceInputs["blockResponse"] = state?.blockResponse;
+            resourceInputs["firewallDomainListId"] = state?.firewallDomainListId;
+            resourceInputs["firewallDomainRedirectionAction"] = state?.firewallDomainRedirectionAction;
+            resourceInputs["firewallRuleGroupId"] = state?.firewallRuleGroupId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["qType"] = state?.qType;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ResolverFirewallRuleArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.firewallDomainListId === undefined) && !opts.urn) {
+            if (args?.firewallDomainListId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallDomainListId'");
             }
-            if ((!args || args.firewallRuleGroupId === undefined) && !opts.urn) {
+            if (args?.firewallRuleGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallRuleGroupId'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["blockOverrideDnsType"] = args ? args.blockOverrideDnsType : undefined;
-            resourceInputs["blockOverrideDomain"] = args ? args.blockOverrideDomain : undefined;
-            resourceInputs["blockOverrideTtl"] = args ? args.blockOverrideTtl : undefined;
-            resourceInputs["blockResponse"] = args ? args.blockResponse : undefined;
-            resourceInputs["firewallDomainListId"] = args ? args.firewallDomainListId : undefined;
-            resourceInputs["firewallDomainRedirectionAction"] = args ? args.firewallDomainRedirectionAction : undefined;
-            resourceInputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["qType"] = args ? args.qType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["blockOverrideDnsType"] = args?.blockOverrideDnsType;
+            resourceInputs["blockOverrideDomain"] = args?.blockOverrideDomain;
+            resourceInputs["blockOverrideTtl"] = args?.blockOverrideTtl;
+            resourceInputs["blockResponse"] = args?.blockResponse;
+            resourceInputs["firewallDomainListId"] = args?.firewallDomainListId;
+            resourceInputs["firewallDomainRedirectionAction"] = args?.firewallDomainRedirectionAction;
+            resourceInputs["firewallRuleGroupId"] = args?.firewallRuleGroupId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["qType"] = args?.qType;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverFirewallRule.__pulumiType, name, resourceInputs, opts);

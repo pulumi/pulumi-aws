@@ -97,47 +97,47 @@ export class OptionGroup extends pulumi.CustomResource {
     /**
      * ARN of the DB option group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
-    public readonly engineName!: pulumi.Output<string>;
+    declare public readonly engineName: pulumi.Output<string>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    public readonly majorEngineVersion!: pulumi.Output<string>;
+    declare public readonly majorEngineVersion: pulumi.Output<string>;
     /**
      * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Description of the option group. Defaults to "Managed by Pulumi".
      */
-    public readonly optionGroupDescription!: pulumi.Output<string>;
+    declare public readonly optionGroupDescription: pulumi.Output<string>;
     /**
      * The options to apply. See `option` Block below for more details.
      */
-    public readonly options!: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
+    declare public readonly options: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
      */
-    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a OptionGroup resource with the given unique name, arguments, and options.
@@ -152,34 +152,34 @@ export class OptionGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OptionGroupState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["engineName"] = state ? state.engineName : undefined;
-            resourceInputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["optionGroupDescription"] = state ? state.optionGroupDescription : undefined;
-            resourceInputs["options"] = state ? state.options : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["engineName"] = state?.engineName;
+            resourceInputs["majorEngineVersion"] = state?.majorEngineVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["optionGroupDescription"] = state?.optionGroupDescription;
+            resourceInputs["options"] = state?.options;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["skipDestroy"] = state?.skipDestroy;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as OptionGroupArgs | undefined;
-            if ((!args || args.engineName === undefined) && !opts.urn) {
+            if (args?.engineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineName'");
             }
-            if ((!args || args.majorEngineVersion === undefined) && !opts.urn) {
+            if (args?.majorEngineVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'majorEngineVersion'");
             }
-            resourceInputs["engineName"] = args ? args.engineName : undefined;
-            resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) ?? "Managed by Pulumi";
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["engineName"] = args?.engineName;
+            resourceInputs["majorEngineVersion"] = args?.majorEngineVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["optionGroupDescription"] = (args?.optionGroupDescription) ?? "Managed by Pulumi";
+            resourceInputs["options"] = args?.options;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["skipDestroy"] = args?.skipDestroy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

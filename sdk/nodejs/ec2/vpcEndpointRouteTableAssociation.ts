@@ -58,15 +58,15 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      */
-    public readonly routeTableId!: pulumi.Output<string>;
+    declare public readonly routeTableId: pulumi.Output<string>;
     /**
      * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
      */
-    public readonly vpcEndpointId!: pulumi.Output<string>;
+    declare public readonly vpcEndpointId: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointRouteTableAssociation resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointRouteTableAssociationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
-            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routeTableId"] = state?.routeTableId;
+            resourceInputs["vpcEndpointId"] = state?.vpcEndpointId;
         } else {
             const args = argsOrState as VpcEndpointRouteTableAssociationArgs | undefined;
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
+            if (args?.vpcEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routeTableId"] = args?.routeTableId;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcEndpointRouteTableAssociation.__pulumiType, name, resourceInputs, opts);

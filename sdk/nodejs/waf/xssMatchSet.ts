@@ -74,15 +74,15 @@ export class XssMatchSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name or description of the SizeConstraintSet.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    public readonly xssMatchTuples!: pulumi.Output<outputs.waf.XssMatchSetXssMatchTuple[] | undefined>;
+    declare public readonly xssMatchTuples: pulumi.Output<outputs.waf.XssMatchSetXssMatchTuple[] | undefined>;
 
     /**
      * Create a XssMatchSet resource with the given unique name, arguments, and options.
@@ -97,13 +97,13 @@ export class XssMatchSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as XssMatchSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["xssMatchTuples"] = state ? state.xssMatchTuples : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["xssMatchTuples"] = state?.xssMatchTuples;
         } else {
             const args = argsOrState as XssMatchSetArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["xssMatchTuples"] = args?.xssMatchTuples;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

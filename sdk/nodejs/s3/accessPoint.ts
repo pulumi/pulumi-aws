@@ -117,70 +117,70 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Alias of the S3 Access Point.
      */
-    public /*out*/ readonly alias!: pulumi.Output<string>;
+    declare public /*out*/ readonly alias: pulumi.Output<string>;
     /**
      * ARN of the S3 Access Point.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * AWS account ID associated with the S3 bucket associated with this access point.
      */
-    public readonly bucketAccountId!: pulumi.Output<string>;
+    declare public readonly bucketAccountId: pulumi.Output<string>;
     /**
      * DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
      * VPC endpoints for the S3 Access Point.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly endpoints: pulumi.Output<{[key: string]: string}>;
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      */
-    public /*out*/ readonly hasPublicAccessPolicy!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly hasPublicAccessPolicy: pulumi.Output<boolean>;
     /**
      * Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
      */
-    public /*out*/ readonly networkOrigin!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkOrigin: pulumi.Output<string>;
     /**
      * Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
      */
-    public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.AccessPointPublicAccessBlockConfiguration | undefined>;
+    declare public readonly publicAccessBlockConfiguration: pulumi.Output<outputs.s3.AccessPointPublicAccessBlockConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
+    declare public readonly vpcConfiguration: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -195,36 +195,36 @@ export class AccessPoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPointState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["bucketAccountId"] = state ? state.bucketAccountId : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
-            resourceInputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkOrigin"] = state ? state.networkOrigin : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["publicAccessBlockConfiguration"] = state ? state.publicAccessBlockConfiguration : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["bucketAccountId"] = state?.bucketAccountId;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["endpoints"] = state?.endpoints;
+            resourceInputs["hasPublicAccessPolicy"] = state?.hasPublicAccessPolicy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkOrigin"] = state?.networkOrigin;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["publicAccessBlockConfiguration"] = state?.publicAccessBlockConfiguration;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcConfiguration"] = state?.vpcConfiguration;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["bucketAccountId"] = args ? args.bucketAccountId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["bucketAccountId"] = args?.bucketAccountId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["publicAccessBlockConfiguration"] = args?.publicAccessBlockConfiguration;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;

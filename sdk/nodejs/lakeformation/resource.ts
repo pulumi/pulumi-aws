@@ -57,37 +57,37 @@ export class Resource extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly arn!: pulumi.Output<string>;
+    declare public readonly arn: pulumi.Output<string>;
     /**
      * Flag to enable AWS LakeFormation hybrid access permission mode.
      */
-    public readonly hybridAccessEnabled!: pulumi.Output<boolean>;
+    declare public readonly hybridAccessEnabled: pulumi.Output<boolean>;
     /**
      * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Role that has read/write access to the resource.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      */
-    public readonly useServiceLinkedRole!: pulumi.Output<boolean | undefined>;
+    declare public readonly useServiceLinkedRole: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
      */
-    public readonly withFederation!: pulumi.Output<boolean>;
+    declare public readonly withFederation: pulumi.Output<boolean>;
     /**
      * Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
      *
      * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
-    public readonly withPrivilegedAccess!: pulumi.Output<boolean>;
+    declare public readonly withPrivilegedAccess: pulumi.Output<boolean>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -102,26 +102,26 @@ export class Resource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["hybridAccessEnabled"] = state ? state.hybridAccessEnabled : undefined;
-            resourceInputs["lastModified"] = state ? state.lastModified : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["useServiceLinkedRole"] = state ? state.useServiceLinkedRole : undefined;
-            resourceInputs["withFederation"] = state ? state.withFederation : undefined;
-            resourceInputs["withPrivilegedAccess"] = state ? state.withPrivilegedAccess : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["hybridAccessEnabled"] = state?.hybridAccessEnabled;
+            resourceInputs["lastModified"] = state?.lastModified;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["useServiceLinkedRole"] = state?.useServiceLinkedRole;
+            resourceInputs["withFederation"] = state?.withFederation;
+            resourceInputs["withPrivilegedAccess"] = state?.withPrivilegedAccess;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
-            if ((!args || args.arn === undefined) && !opts.urn) {
+            if (args?.arn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["hybridAccessEnabled"] = args ? args.hybridAccessEnabled : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["useServiceLinkedRole"] = args ? args.useServiceLinkedRole : undefined;
-            resourceInputs["withFederation"] = args ? args.withFederation : undefined;
-            resourceInputs["withPrivilegedAccess"] = args ? args.withPrivilegedAccess : undefined;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["hybridAccessEnabled"] = args?.hybridAccessEnabled;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["useServiceLinkedRole"] = args?.useServiceLinkedRole;
+            resourceInputs["withFederation"] = args?.withFederation;
+            resourceInputs["withPrivilegedAccess"] = args?.withPrivilegedAccess;
             resourceInputs["lastModified"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -100,41 +100,41 @@ export class IntegrationResponse extends pulumi.CustomResource {
     /**
      * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      */
-    public readonly contentHandling!: pulumi.Output<string | undefined>;
+    declare public readonly contentHandling: pulumi.Output<string | undefined>;
     /**
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      */
-    public readonly httpMethod!: pulumi.Output<string>;
+    declare public readonly httpMethod: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * API resource ID.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * Map of response parameters that can be read from the backend response. For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
      */
-    public readonly responseParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly responseParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of templates used to transform the integration response body.
      */
-    public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly responseTemplates: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ID of the associated REST API.
      */
-    public readonly restApi!: pulumi.Output<string>;
+    declare public readonly restApi: pulumi.Output<string>;
     /**
      * Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      */
-    public readonly selectionPattern!: pulumi.Output<string | undefined>;
+    declare public readonly selectionPattern: pulumi.Output<string | undefined>;
     /**
      * HTTP status code.
      *
      * The following arguments are optional:
      */
-    public readonly statusCode!: pulumi.Output<string>;
+    declare public readonly statusCode: pulumi.Output<string>;
 
     /**
      * Create a IntegrationResponse resource with the given unique name, arguments, and options.
@@ -149,38 +149,38 @@ export class IntegrationResponse extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationResponseState | undefined;
-            resourceInputs["contentHandling"] = state ? state.contentHandling : undefined;
-            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["responseParameters"] = state ? state.responseParameters : undefined;
-            resourceInputs["responseTemplates"] = state ? state.responseTemplates : undefined;
-            resourceInputs["restApi"] = state ? state.restApi : undefined;
-            resourceInputs["selectionPattern"] = state ? state.selectionPattern : undefined;
-            resourceInputs["statusCode"] = state ? state.statusCode : undefined;
+            resourceInputs["contentHandling"] = state?.contentHandling;
+            resourceInputs["httpMethod"] = state?.httpMethod;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["responseParameters"] = state?.responseParameters;
+            resourceInputs["responseTemplates"] = state?.responseTemplates;
+            resourceInputs["restApi"] = state?.restApi;
+            resourceInputs["selectionPattern"] = state?.selectionPattern;
+            resourceInputs["statusCode"] = state?.statusCode;
         } else {
             const args = argsOrState as IntegrationResponseArgs | undefined;
-            if ((!args || args.httpMethod === undefined) && !opts.urn) {
+            if (args?.httpMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.restApi === undefined) && !opts.urn) {
+            if (args?.restApi === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if ((!args || args.statusCode === undefined) && !opts.urn) {
+            if (args?.statusCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statusCode'");
             }
-            resourceInputs["contentHandling"] = args ? args.contentHandling : undefined;
-            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            resourceInputs["restApi"] = args ? args.restApi : undefined;
-            resourceInputs["selectionPattern"] = args ? args.selectionPattern : undefined;
-            resourceInputs["statusCode"] = args ? args.statusCode : undefined;
+            resourceInputs["contentHandling"] = args?.contentHandling;
+            resourceInputs["httpMethod"] = args?.httpMethod;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["responseTemplates"] = args?.responseTemplates;
+            resourceInputs["restApi"] = args?.restApi;
+            resourceInputs["selectionPattern"] = args?.selectionPattern;
+            resourceInputs["statusCode"] = args?.statusCode;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationResponse.__pulumiType, name, resourceInputs, opts);

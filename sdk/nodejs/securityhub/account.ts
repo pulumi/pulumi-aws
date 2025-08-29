@@ -57,23 +57,23 @@ export class Account extends pulumi.CustomResource {
     /**
      * ARN of the SecurityHub Hub created in the account.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
      */
-    public readonly autoEnableControls!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoEnableControls: pulumi.Output<boolean | undefined>;
     /**
      * Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
      */
-    public readonly controlFindingGenerator!: pulumi.Output<string>;
+    declare public readonly controlFindingGenerator: pulumi.Output<string>;
     /**
      * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
      */
-    public readonly enableDefaultStandards!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDefaultStandards: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -88,17 +88,17 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoEnableControls"] = state ? state.autoEnableControls : undefined;
-            resourceInputs["controlFindingGenerator"] = state ? state.controlFindingGenerator : undefined;
-            resourceInputs["enableDefaultStandards"] = state ? state.enableDefaultStandards : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoEnableControls"] = state?.autoEnableControls;
+            resourceInputs["controlFindingGenerator"] = state?.controlFindingGenerator;
+            resourceInputs["enableDefaultStandards"] = state?.enableDefaultStandards;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            resourceInputs["autoEnableControls"] = args ? args.autoEnableControls : undefined;
-            resourceInputs["controlFindingGenerator"] = args ? args.controlFindingGenerator : undefined;
-            resourceInputs["enableDefaultStandards"] = args ? args.enableDefaultStandards : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["autoEnableControls"] = args?.autoEnableControls;
+            resourceInputs["controlFindingGenerator"] = args?.controlFindingGenerator;
+            resourceInputs["enableDefaultStandards"] = args?.enableDefaultStandards;
+            resourceInputs["region"] = args?.region;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

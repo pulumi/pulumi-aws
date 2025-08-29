@@ -53,15 +53,15 @@ export class Tag extends pulumi.CustomResource {
     /**
      * Name of the Autoscaling Group to apply the tag to.
      */
-    public readonly autoscalingGroupName!: pulumi.Output<string>;
+    declare public readonly autoscalingGroupName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Tag to create. The `tag` block is documented below.
      */
-    public readonly tag!: pulumi.Output<outputs.autoscaling.TagTag>;
+    declare public readonly tag: pulumi.Output<outputs.autoscaling.TagTag>;
 
     /**
      * Create a Tag resource with the given unique name, arguments, and options.
@@ -76,20 +76,20 @@ export class Tag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
-            resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tag"] = state ? state.tag : undefined;
+            resourceInputs["autoscalingGroupName"] = state?.autoscalingGroupName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tag"] = state?.tag;
         } else {
             const args = argsOrState as TagArgs | undefined;
-            if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoscalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            if ((!args || args.tag === undefined) && !opts.urn) {
+            if (args?.tag === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tag'");
             }
-            resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tag"] = args ? args.tag : undefined;
+            resourceInputs["autoscalingGroupName"] = args?.autoscalingGroupName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tag"] = args?.tag;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Tag.__pulumiType, name, resourceInputs, opts);

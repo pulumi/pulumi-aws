@@ -67,32 +67,32 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the S3 Access Grants instance.
      */
-    public /*out*/ readonly accessGrantsInstanceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessGrantsInstanceArn: pulumi.Output<string>;
     /**
      * Unique ID of the S3 Access Grants instance.
      */
-    public /*out*/ readonly accessGrantsInstanceId!: pulumi.Output<string>;
-    public readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessGrantsInstanceId: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
      */
-    public /*out*/ readonly identityCenterApplicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
     /**
      * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      */
-    public readonly identityCenterArn!: pulumi.Output<string | undefined>;
+    declare public readonly identityCenterArn: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AccessGrantsInstance resource with the given unique name, arguments, and options.
@@ -107,20 +107,20 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessGrantsInstanceState | undefined;
-            resourceInputs["accessGrantsInstanceArn"] = state ? state.accessGrantsInstanceArn : undefined;
-            resourceInputs["accessGrantsInstanceId"] = state ? state.accessGrantsInstanceId : undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["identityCenterApplicationArn"] = state ? state.identityCenterApplicationArn : undefined;
-            resourceInputs["identityCenterArn"] = state ? state.identityCenterArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["accessGrantsInstanceArn"] = state?.accessGrantsInstanceArn;
+            resourceInputs["accessGrantsInstanceId"] = state?.accessGrantsInstanceId;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["identityCenterApplicationArn"] = state?.identityCenterApplicationArn;
+            resourceInputs["identityCenterArn"] = state?.identityCenterArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as AccessGrantsInstanceArgs | undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["identityCenterArn"] = args ? args.identityCenterArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["identityCenterArn"] = args?.identityCenterArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accessGrantsInstanceArn"] = undefined /*out*/;
             resourceInputs["accessGrantsInstanceId"] = undefined /*out*/;
             resourceInputs["identityCenterApplicationArn"] = undefined /*out*/;

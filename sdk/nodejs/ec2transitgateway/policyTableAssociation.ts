@@ -58,23 +58,23 @@ export class PolicyTableAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Identifier of the resource
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * Type of the resource
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
+    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Policy Table.
      */
-    public readonly transitGatewayPolicyTableId!: pulumi.Output<string>;
+    declare public readonly transitGatewayPolicyTableId: pulumi.Output<string>;
 
     /**
      * Create a PolicyTableAssociation resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class PolicyTableAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyTableAssociationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
-            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
-            resourceInputs["transitGatewayPolicyTableId"] = state ? state.transitGatewayPolicyTableId : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
+            resourceInputs["transitGatewayPolicyTableId"] = state?.transitGatewayPolicyTableId;
         } else {
             const args = argsOrState as PolicyTableAssociationArgs | undefined;
-            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
+            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            if ((!args || args.transitGatewayPolicyTableId === undefined) && !opts.urn) {
+            if (args?.transitGatewayPolicyTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayPolicyTableId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            resourceInputs["transitGatewayPolicyTableId"] = args ? args.transitGatewayPolicyTableId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
+            resourceInputs["transitGatewayPolicyTableId"] = args?.transitGatewayPolicyTableId;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
         }

@@ -99,67 +99,67 @@ export class User extends pulumi.CustomResource {
     /**
      * A map that contains user attributes and attribute values to be set for the user.
      */
-    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly attributes: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `clientMetadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
      */
-    public readonly clientMetadata!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public readonly clientMetadata: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
      */
-    public readonly desiredDeliveryMediums!: pulumi.Output<string[] | undefined>;
+    declare public readonly desiredDeliveryMediums: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `messageAction` argument. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * If this parameter is set to True and the `phoneNumber` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `forceAliasCreation` value. Defaults to `false`.
      */
-    public readonly forceAliasCreation!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
+    declare public readonly forceAliasCreation: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly lastModifiedDate: pulumi.Output<string>;
     /**
      * Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
      */
-    public readonly messageAction!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly mfaSettingLists!: pulumi.Output<string[]>;
+    declare public readonly messageAction: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly mfaSettingLists: pulumi.Output<string[]>;
     /**
      * The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly preferredMfaSetting!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly preferredMfaSetting: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * current user status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * unique user id that is never reassignable to another user.
      */
-    public /*out*/ readonly sub!: pulumi.Output<string>;
+    declare public /*out*/ readonly sub: pulumi.Output<string>;
     /**
      * The user's temporary password. Conflicts with `password`.
      */
-    public readonly temporaryPassword!: pulumi.Output<string | undefined>;
+    declare public readonly temporaryPassword: pulumi.Output<string | undefined>;
     /**
      * The user pool ID for the user pool where the user will be created.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
     /**
      * The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
      *
      * The following arguments are optional:
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
     /**
      * The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
      *
      * > **NOTE:** Clearing `password` or `temporaryPassword` does not reset user's password in Cognito.
      */
-    public readonly validationData!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly validationData: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -174,44 +174,44 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["attributes"] = state ? state.attributes : undefined;
-            resourceInputs["clientMetadata"] = state ? state.clientMetadata : undefined;
-            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
-            resourceInputs["desiredDeliveryMediums"] = state ? state.desiredDeliveryMediums : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["forceAliasCreation"] = state ? state.forceAliasCreation : undefined;
-            resourceInputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
-            resourceInputs["messageAction"] = state ? state.messageAction : undefined;
-            resourceInputs["mfaSettingLists"] = state ? state.mfaSettingLists : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["preferredMfaSetting"] = state ? state.preferredMfaSetting : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["sub"] = state ? state.sub : undefined;
-            resourceInputs["temporaryPassword"] = state ? state.temporaryPassword : undefined;
-            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
-            resourceInputs["validationData"] = state ? state.validationData : undefined;
+            resourceInputs["attributes"] = state?.attributes;
+            resourceInputs["clientMetadata"] = state?.clientMetadata;
+            resourceInputs["creationDate"] = state?.creationDate;
+            resourceInputs["desiredDeliveryMediums"] = state?.desiredDeliveryMediums;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["forceAliasCreation"] = state?.forceAliasCreation;
+            resourceInputs["lastModifiedDate"] = state?.lastModifiedDate;
+            resourceInputs["messageAction"] = state?.messageAction;
+            resourceInputs["mfaSettingLists"] = state?.mfaSettingLists;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["preferredMfaSetting"] = state?.preferredMfaSetting;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["sub"] = state?.sub;
+            resourceInputs["temporaryPassword"] = state?.temporaryPassword;
+            resourceInputs["userPoolId"] = state?.userPoolId;
+            resourceInputs["username"] = state?.username;
+            resourceInputs["validationData"] = state?.validationData;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["clientMetadata"] = args ? args.clientMetadata : undefined;
-            resourceInputs["desiredDeliveryMediums"] = args ? args.desiredDeliveryMediums : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["forceAliasCreation"] = args ? args.forceAliasCreation : undefined;
-            resourceInputs["messageAction"] = args ? args.messageAction : undefined;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["clientMetadata"] = args?.clientMetadata;
+            resourceInputs["desiredDeliveryMediums"] = args?.desiredDeliveryMediums;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["forceAliasCreation"] = args?.forceAliasCreation;
+            resourceInputs["messageAction"] = args?.messageAction;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["region"] = args?.region;
             resourceInputs["temporaryPassword"] = args?.temporaryPassword ? pulumi.secret(args.temporaryPassword) : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["validationData"] = args ? args.validationData : undefined;
+            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["username"] = args?.username;
+            resourceInputs["validationData"] = args?.validationData;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastModifiedDate"] = undefined /*out*/;
             resourceInputs["mfaSettingLists"] = undefined /*out*/;

@@ -70,29 +70,29 @@ export class TrafficPolicy extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the traffic policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Comment for the traffic policy.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
      *
      * The following arguments are optional:
      */
-    public readonly document!: pulumi.Output<string>;
+    declare public readonly document: pulumi.Output<string>;
     /**
      * Name of the traffic policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a TrafficPolicy resource with the given unique name, arguments, and options.
@@ -107,20 +107,20 @@ export class TrafficPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficPolicyState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["document"] = state ? state.document : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["document"] = state?.document;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as TrafficPolicyArgs | undefined;
-            if ((!args || args.document === undefined) && !opts.urn) {
+            if (args?.document === undefined && !opts.urn) {
                 throw new Error("Missing required property 'document'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["document"] = args ? args.document : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["document"] = args?.document;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

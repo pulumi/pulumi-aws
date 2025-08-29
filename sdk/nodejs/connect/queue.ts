@@ -109,55 +109,55 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Queue.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the description of the Queue.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier of the Hours of Operation.
      */
-    public readonly hoursOfOperationId!: pulumi.Output<string>;
+    declare public readonly hoursOfOperationId: pulumi.Output<string>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      */
-    public readonly maxContacts!: pulumi.Output<number | undefined>;
+    declare public readonly maxContacts: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Queue.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      */
-    public readonly outboundCallerConfig!: pulumi.Output<outputs.connect.QueueOutboundCallerConfig | undefined>;
+    declare public readonly outboundCallerConfig: pulumi.Output<outputs.connect.QueueOutboundCallerConfig | undefined>;
     /**
      * The identifier for the Queue.
      */
-    public /*out*/ readonly queueId!: pulumi.Output<string>;
+    declare public /*out*/ readonly queueId: pulumi.Output<string>;
     /**
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */
-    public readonly quickConnectIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly quickConnectIds: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -172,37 +172,37 @@ export class Queue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["hoursOfOperationId"] = state ? state.hoursOfOperationId : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["maxContacts"] = state ? state.maxContacts : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundCallerConfig"] = state ? state.outboundCallerConfig : undefined;
-            resourceInputs["queueId"] = state ? state.queueId : undefined;
-            resourceInputs["quickConnectIds"] = state ? state.quickConnectIds : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["hoursOfOperationId"] = state?.hoursOfOperationId;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["maxContacts"] = state?.maxContacts;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundCallerConfig"] = state?.outboundCallerConfig;
+            resourceInputs["queueId"] = state?.queueId;
+            resourceInputs["quickConnectIds"] = state?.quickConnectIds;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as QueueArgs | undefined;
-            if ((!args || args.hoursOfOperationId === undefined) && !opts.urn) {
+            if (args?.hoursOfOperationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hoursOfOperationId'");
             }
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hoursOfOperationId"] = args ? args.hoursOfOperationId : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["maxContacts"] = args ? args.maxContacts : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outboundCallerConfig"] = args ? args.outboundCallerConfig : undefined;
-            resourceInputs["quickConnectIds"] = args ? args.quickConnectIds : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hoursOfOperationId"] = args?.hoursOfOperationId;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["maxContacts"] = args?.maxContacts;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outboundCallerConfig"] = args?.outboundCallerConfig;
+            resourceInputs["quickConnectIds"] = args?.quickConnectIds;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["queueId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

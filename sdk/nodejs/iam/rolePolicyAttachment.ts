@@ -90,11 +90,11 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn!: pulumi.Output<string>;
+    declare public readonly policyArn: pulumi.Output<string>;
     /**
      * The name of the IAM role to which the policy should be applied
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
 
     /**
      * Create a RolePolicyAttachment resource with the given unique name, arguments, and options.
@@ -109,18 +109,18 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RolePolicyAttachmentState | undefined;
-            resourceInputs["policyArn"] = state ? state.policyArn : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["policyArn"] = state?.policyArn;
+            resourceInputs["role"] = state?.role;
         } else {
             const args = argsOrState as RolePolicyAttachmentArgs | undefined;
-            if ((!args || args.policyArn === undefined) && !opts.urn) {
+            if (args?.policyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["policyArn"] = args?.policyArn;
+            resourceInputs["role"] = args?.role;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RolePolicyAttachment.__pulumiType, name, resourceInputs, opts);

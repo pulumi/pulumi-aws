@@ -64,31 +64,31 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
-    public readonly studioLifecycleConfigAppType!: pulumi.Output<string>;
+    declare public readonly studioLifecycleConfigAppType: pulumi.Output<string>;
     /**
      * The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
      */
-    public readonly studioLifecycleConfigContent!: pulumi.Output<string>;
+    declare public readonly studioLifecycleConfigContent: pulumi.Output<string>;
     /**
      * The name of the Studio Lifecycle Configuration to create.
      */
-    public readonly studioLifecycleConfigName!: pulumi.Output<string>;
+    declare public readonly studioLifecycleConfigName: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a StudioLifecycleConfig resource with the given unique name, arguments, and options.
@@ -103,29 +103,29 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StudioLifecycleConfigState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["studioLifecycleConfigAppType"] = state ? state.studioLifecycleConfigAppType : undefined;
-            resourceInputs["studioLifecycleConfigContent"] = state ? state.studioLifecycleConfigContent : undefined;
-            resourceInputs["studioLifecycleConfigName"] = state ? state.studioLifecycleConfigName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["studioLifecycleConfigAppType"] = state?.studioLifecycleConfigAppType;
+            resourceInputs["studioLifecycleConfigContent"] = state?.studioLifecycleConfigContent;
+            resourceInputs["studioLifecycleConfigName"] = state?.studioLifecycleConfigName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as StudioLifecycleConfigArgs | undefined;
-            if ((!args || args.studioLifecycleConfigAppType === undefined) && !opts.urn) {
+            if (args?.studioLifecycleConfigAppType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigAppType'");
             }
-            if ((!args || args.studioLifecycleConfigContent === undefined) && !opts.urn) {
+            if (args?.studioLifecycleConfigContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigContent'");
             }
-            if ((!args || args.studioLifecycleConfigName === undefined) && !opts.urn) {
+            if (args?.studioLifecycleConfigName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigName'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["studioLifecycleConfigAppType"] = args ? args.studioLifecycleConfigAppType : undefined;
-            resourceInputs["studioLifecycleConfigContent"] = args ? args.studioLifecycleConfigContent : undefined;
-            resourceInputs["studioLifecycleConfigName"] = args ? args.studioLifecycleConfigName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["studioLifecycleConfigAppType"] = args?.studioLifecycleConfigAppType;
+            resourceInputs["studioLifecycleConfigContent"] = args?.studioLifecycleConfigContent;
+            resourceInputs["studioLifecycleConfigName"] = args?.studioLifecycleConfigName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

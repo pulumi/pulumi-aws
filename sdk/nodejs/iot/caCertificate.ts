@@ -90,56 +90,56 @@ export class CaCertificate extends pulumi.CustomResource {
     /**
      * Boolean flag to indicate if the certificate should be active for device authentication.
      */
-    public readonly active!: pulumi.Output<boolean>;
+    declare public readonly active: pulumi.Output<boolean>;
     /**
      * Boolean flag to indicate if the certificate should be active for device regisration.
      */
-    public readonly allowAutoRegistration!: pulumi.Output<boolean>;
+    declare public readonly allowAutoRegistration: pulumi.Output<boolean>;
     /**
      * The ARN of the created CA certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * PEM encoded CA certificate.
      */
-    public readonly caCertificatePem!: pulumi.Output<string>;
+    declare public readonly caCertificatePem: pulumi.Output<string>;
     /**
      * The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      */
-    public readonly certificateMode!: pulumi.Output<string | undefined>;
+    declare public readonly certificateMode: pulumi.Output<string | undefined>;
     /**
      * The customer version of the CA certificate.
      */
-    public /*out*/ readonly customerVersion!: pulumi.Output<number>;
+    declare public /*out*/ readonly customerVersion: pulumi.Output<number>;
     /**
      * The generation ID of the CA certificate.
      */
-    public /*out*/ readonly generationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly generationId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Information about the registration configuration. See below.
      */
-    public readonly registrationConfig!: pulumi.Output<outputs.iot.CaCertificateRegistrationConfig | undefined>;
+    declare public readonly registrationConfig: pulumi.Output<outputs.iot.CaCertificateRegistrationConfig | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * When the CA certificate is valid.
      */
-    public /*out*/ readonly validities!: pulumi.Output<outputs.iot.CaCertificateValidity[]>;
+    declare public /*out*/ readonly validities: pulumi.Output<outputs.iot.CaCertificateValidity[]>;
     /**
      * PEM encoded verification certificate containing the common name of a registration code. Review
      * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
      */
-    public readonly verificationCertificatePem!: pulumi.Output<string | undefined>;
+    declare public readonly verificationCertificatePem: pulumi.Output<string | undefined>;
 
     /**
      * Create a CaCertificate resource with the given unique name, arguments, and options.
@@ -154,37 +154,37 @@ export class CaCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CaCertificateState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["allowAutoRegistration"] = state ? state.allowAutoRegistration : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["caCertificatePem"] = state ? state.caCertificatePem : undefined;
-            resourceInputs["certificateMode"] = state ? state.certificateMode : undefined;
-            resourceInputs["customerVersion"] = state ? state.customerVersion : undefined;
-            resourceInputs["generationId"] = state ? state.generationId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["registrationConfig"] = state ? state.registrationConfig : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["validities"] = state ? state.validities : undefined;
-            resourceInputs["verificationCertificatePem"] = state ? state.verificationCertificatePem : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["allowAutoRegistration"] = state?.allowAutoRegistration;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["caCertificatePem"] = state?.caCertificatePem;
+            resourceInputs["certificateMode"] = state?.certificateMode;
+            resourceInputs["customerVersion"] = state?.customerVersion;
+            resourceInputs["generationId"] = state?.generationId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["registrationConfig"] = state?.registrationConfig;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["validities"] = state?.validities;
+            resourceInputs["verificationCertificatePem"] = state?.verificationCertificatePem;
         } else {
             const args = argsOrState as CaCertificateArgs | undefined;
-            if ((!args || args.active === undefined) && !opts.urn) {
+            if (args?.active === undefined && !opts.urn) {
                 throw new Error("Missing required property 'active'");
             }
-            if ((!args || args.allowAutoRegistration === undefined) && !opts.urn) {
+            if (args?.allowAutoRegistration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowAutoRegistration'");
             }
-            if ((!args || args.caCertificatePem === undefined) && !opts.urn) {
+            if (args?.caCertificatePem === undefined && !opts.urn) {
                 throw new Error("Missing required property 'caCertificatePem'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["allowAutoRegistration"] = args ? args.allowAutoRegistration : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["allowAutoRegistration"] = args?.allowAutoRegistration;
             resourceInputs["caCertificatePem"] = args?.caCertificatePem ? pulumi.secret(args.caCertificatePem) : undefined;
-            resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["registrationConfig"] = args ? args.registrationConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateMode"] = args?.certificateMode;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["registrationConfig"] = args?.registrationConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["verificationCertificatePem"] = args?.verificationCertificatePem ? pulumi.secret(args.verificationCertificatePem) : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["customerVersion"] = undefined /*out*/;

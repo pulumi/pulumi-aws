@@ -91,23 +91,23 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * Group(s) the policy should be applied to.
      */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
+    declare public readonly groups: pulumi.Output<string[] | undefined>;
     /**
      * Name of the attachment. This cannot be an empty string.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      */
-    public readonly policyArn!: pulumi.Output<string>;
+    declare public readonly policyArn: pulumi.Output<string>;
     /**
      * Role(s) the policy should be applied to.
      */
-    public readonly roles!: pulumi.Output<string[] | undefined>;
+    declare public readonly roles: pulumi.Output<string[] | undefined>;
     /**
      * User(s) the policy should be applied to.
      */
-    public readonly users!: pulumi.Output<string[] | undefined>;
+    declare public readonly users: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -122,21 +122,21 @@ export class PolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyAttachmentState | undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyArn"] = state ? state.policyArn : undefined;
-            resourceInputs["roles"] = state ? state.roles : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyArn"] = state?.policyArn;
+            resourceInputs["roles"] = state?.roles;
+            resourceInputs["users"] = state?.users;
         } else {
             const args = argsOrState as PolicyAttachmentArgs | undefined;
-            if ((!args || args.policyArn === undefined) && !opts.urn) {
+            if (args?.policyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyArn"] = args?.policyArn;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["users"] = args?.users;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PolicyAttachment.__pulumiType, name, resourceInputs, opts);

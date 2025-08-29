@@ -75,64 +75,64 @@ export class Subscriber extends pulumi.CustomResource {
     /**
      * The Amazon S3 or Lake Formation access type.
      */
-    public readonly accessType!: pulumi.Output<string>;
+    declare public readonly accessType: pulumi.Output<string>;
     /**
      * ARN of the Data Lake.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      */
-    public /*out*/ readonly resourceShareArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceShareArn: pulumi.Output<string>;
     /**
      * The name of the resource share.
      */
-    public /*out*/ readonly resourceShareName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceShareName: pulumi.Output<string>;
     /**
      * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
      */
-    public /*out*/ readonly roleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly roleArn: pulumi.Output<string>;
     /**
      * The ARN for the Amazon Security Lake Amazon S3 bucket.
      */
-    public /*out*/ readonly s3BucketArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly s3BucketArn: pulumi.Output<string>;
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */
-    public readonly sources!: pulumi.Output<outputs.securitylake.SubscriberSource[] | undefined>;
+    declare public readonly sources: pulumi.Output<outputs.securitylake.SubscriberSource[] | undefined>;
     /**
      * The description for your subscriber account in Security Lake.
      */
-    public readonly subscriberDescription!: pulumi.Output<string | undefined>;
+    declare public readonly subscriberDescription: pulumi.Output<string | undefined>;
     /**
      * The subscriber endpoint to which exception messages are posted.
      */
-    public /*out*/ readonly subscriberEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscriberEndpoint: pulumi.Output<string>;
     /**
      * The AWS identity used to access your data. See `subscriberIdentity` Block below.
      */
-    public readonly subscriberIdentity!: pulumi.Output<outputs.securitylake.SubscriberSubscriberIdentity | undefined>;
+    declare public readonly subscriberIdentity: pulumi.Output<outputs.securitylake.SubscriberSubscriberIdentity | undefined>;
     /**
      * The name of your Security Lake subscriber account.
      */
-    public readonly subscriberName!: pulumi.Output<string | undefined>;
+    declare public readonly subscriberName: pulumi.Output<string | undefined>;
     /**
      * The subscriber status of the Amazon Security Lake subscriber account.
      */
-    public /*out*/ readonly subscriberStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscriberStatus: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.securitylake.SubscriberTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.securitylake.SubscriberTimeouts | undefined>;
 
     /**
      * Create a Subscriber resource with the given unique name, arguments, and options.
@@ -147,32 +147,32 @@ export class Subscriber extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriberState | undefined;
-            resourceInputs["accessType"] = state ? state.accessType : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
-            resourceInputs["resourceShareName"] = state ? state.resourceShareName : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
-            resourceInputs["sources"] = state ? state.sources : undefined;
-            resourceInputs["subscriberDescription"] = state ? state.subscriberDescription : undefined;
-            resourceInputs["subscriberEndpoint"] = state ? state.subscriberEndpoint : undefined;
-            resourceInputs["subscriberIdentity"] = state ? state.subscriberIdentity : undefined;
-            resourceInputs["subscriberName"] = state ? state.subscriberName : undefined;
-            resourceInputs["subscriberStatus"] = state ? state.subscriberStatus : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["accessType"] = state?.accessType;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceShareArn"] = state?.resourceShareArn;
+            resourceInputs["resourceShareName"] = state?.resourceShareName;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["s3BucketArn"] = state?.s3BucketArn;
+            resourceInputs["sources"] = state?.sources;
+            resourceInputs["subscriberDescription"] = state?.subscriberDescription;
+            resourceInputs["subscriberEndpoint"] = state?.subscriberEndpoint;
+            resourceInputs["subscriberIdentity"] = state?.subscriberIdentity;
+            resourceInputs["subscriberName"] = state?.subscriberName;
+            resourceInputs["subscriberStatus"] = state?.subscriberStatus;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as SubscriberArgs | undefined;
-            resourceInputs["accessType"] = args ? args.accessType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["subscriberDescription"] = args ? args.subscriberDescription : undefined;
-            resourceInputs["subscriberIdentity"] = args ? args.subscriberIdentity : undefined;
-            resourceInputs["subscriberName"] = args ? args.subscriberName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["accessType"] = args?.accessType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["subscriberDescription"] = args?.subscriberDescription;
+            resourceInputs["subscriberIdentity"] = args?.subscriberIdentity;
+            resourceInputs["subscriberName"] = args?.subscriberName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resourceShareArn"] = undefined /*out*/;
             resourceInputs["resourceShareName"] = undefined /*out*/;

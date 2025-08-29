@@ -58,23 +58,23 @@ export class MetricsDestination extends pulumi.CustomResource {
     /**
      * The name of the CloudWatch RUM app monitor that will send the metrics.
      */
-    public readonly appMonitorName!: pulumi.Output<string>;
+    declare public readonly appMonitorName: pulumi.Output<string>;
     /**
      * Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
      */
-    public readonly destination!: pulumi.Output<string>;
+    declare public readonly destination: pulumi.Output<string>;
     /**
      * Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
      */
-    public readonly destinationArn!: pulumi.Output<string | undefined>;
+    declare public readonly destinationArn: pulumi.Output<string | undefined>;
     /**
      * This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
      */
-    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly iamRoleArn: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a MetricsDestination resource with the given unique name, arguments, and options.
@@ -89,24 +89,24 @@ export class MetricsDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricsDestinationState | undefined;
-            resourceInputs["appMonitorName"] = state ? state.appMonitorName : undefined;
-            resourceInputs["destination"] = state ? state.destination : undefined;
-            resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
-            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["appMonitorName"] = state?.appMonitorName;
+            resourceInputs["destination"] = state?.destination;
+            resourceInputs["destinationArn"] = state?.destinationArn;
+            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as MetricsDestinationArgs | undefined;
-            if ((!args || args.appMonitorName === undefined) && !opts.urn) {
+            if (args?.appMonitorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appMonitorName'");
             }
-            if ((!args || args.destination === undefined) && !opts.urn) {
+            if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            resourceInputs["appMonitorName"] = args ? args.appMonitorName : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["appMonitorName"] = args?.appMonitorName;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["destinationArn"] = args?.destinationArn;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MetricsDestination.__pulumiType, name, resourceInputs, opts);

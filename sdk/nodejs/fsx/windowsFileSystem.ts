@@ -96,125 +96,125 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
      */
-    public readonly activeDirectoryId!: pulumi.Output<string | undefined>;
+    declare public readonly activeDirectoryId: pulumi.Output<string | undefined>;
     /**
      * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      */
-    public readonly aliases!: pulumi.Output<string[] | undefined>;
+    declare public readonly aliases: pulumi.Output<string[] | undefined>;
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      */
-    public readonly auditLogConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemAuditLogConfiguration>;
+    declare public readonly auditLogConfiguration: pulumi.Output<outputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
-    public readonly automaticBackupRetentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly automaticBackupRetentionDays: pulumi.Output<number | undefined>;
     /**
      * The ID of the source backup to create the filesystem from.
      */
-    public readonly backupId!: pulumi.Output<string | undefined>;
+    declare public readonly backupId: pulumi.Output<string | undefined>;
     /**
      * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
      */
-    public readonly copyTagsToBackups!: pulumi.Output<boolean | undefined>;
+    declare public readonly copyTagsToBackups: pulumi.Output<boolean | undefined>;
     /**
      * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
-    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
+    declare public readonly dailyAutomaticBackupStartTime: pulumi.Output<string>;
     /**
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
-    public readonly deploymentType!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentType: pulumi.Output<string | undefined>;
     /**
      * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      */
-    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
+    declare public readonly diskIopsConfiguration: pulumi.Output<outputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * A map of tags to apply to the file system's final backup.
      */
-    public readonly finalBackupTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly finalBackupTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
      * AWS account identifier that created the file system.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The IP address of the primary, or preferred, file server.
      */
-    public /*out*/ readonly preferredFileServerIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly preferredFileServerIp: pulumi.Output<string>;
     /**
      * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      */
-    public readonly preferredSubnetId!: pulumi.Output<string>;
+    declare public readonly preferredSubnetId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      */
-    public /*out*/ readonly remoteAdministrationEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly remoteAdministrationEndpoint: pulumi.Output<string>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
      */
-    public readonly selfManagedActiveDirectory!: pulumi.Output<outputs.fsx.WindowsFileSystemSelfManagedActiveDirectory | undefined>;
+    declare public readonly selfManagedActiveDirectory: pulumi.Output<outputs.fsx.WindowsFileSystemSelfManagedActiveDirectory | undefined>;
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
-    public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipFinalBackup: pulumi.Output<boolean | undefined>;
     /**
      * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      */
-    public readonly storageCapacity!: pulumi.Output<number>;
+    declare public readonly storageCapacity: pulumi.Output<number>;
     /**
      * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
-    public readonly storageType!: pulumi.Output<string | undefined>;
+    declare public readonly storageType: pulumi.Output<string | undefined>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
      *
      * The following arguments are optional:
      */
-    public readonly throughputCapacity!: pulumi.Output<number>;
+    declare public readonly throughputCapacity: pulumi.Output<number>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string>;
+    declare public readonly weeklyMaintenanceStartTime: pulumi.Output<string>;
 
     /**
      * Create a WindowsFileSystem resource with the given unique name, arguments, and options.
@@ -229,66 +229,66 @@ export class WindowsFileSystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WindowsFileSystemState | undefined;
-            resourceInputs["activeDirectoryId"] = state ? state.activeDirectoryId : undefined;
-            resourceInputs["aliases"] = state ? state.aliases : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["auditLogConfiguration"] = state ? state.auditLogConfiguration : undefined;
-            resourceInputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
-            resourceInputs["backupId"] = state ? state.backupId : undefined;
-            resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
-            resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
-            resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
-            resourceInputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
-            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
-            resourceInputs["finalBackupTags"] = state ? state.finalBackupTags : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["preferredFileServerIp"] = state ? state.preferredFileServerIp : undefined;
-            resourceInputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["remoteAdministrationEndpoint"] = state ? state.remoteAdministrationEndpoint : undefined;
-            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["selfManagedActiveDirectory"] = state ? state.selfManagedActiveDirectory : undefined;
-            resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
-            resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
-            resourceInputs["storageType"] = state ? state.storageType : undefined;
-            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
-            resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["activeDirectoryId"] = state?.activeDirectoryId;
+            resourceInputs["aliases"] = state?.aliases;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["auditLogConfiguration"] = state?.auditLogConfiguration;
+            resourceInputs["automaticBackupRetentionDays"] = state?.automaticBackupRetentionDays;
+            resourceInputs["backupId"] = state?.backupId;
+            resourceInputs["copyTagsToBackups"] = state?.copyTagsToBackups;
+            resourceInputs["dailyAutomaticBackupStartTime"] = state?.dailyAutomaticBackupStartTime;
+            resourceInputs["deploymentType"] = state?.deploymentType;
+            resourceInputs["diskIopsConfiguration"] = state?.diskIopsConfiguration;
+            resourceInputs["dnsName"] = state?.dnsName;
+            resourceInputs["finalBackupTags"] = state?.finalBackupTags;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["preferredFileServerIp"] = state?.preferredFileServerIp;
+            resourceInputs["preferredSubnetId"] = state?.preferredSubnetId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["remoteAdministrationEndpoint"] = state?.remoteAdministrationEndpoint;
+            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
+            resourceInputs["selfManagedActiveDirectory"] = state?.selfManagedActiveDirectory;
+            resourceInputs["skipFinalBackup"] = state?.skipFinalBackup;
+            resourceInputs["storageCapacity"] = state?.storageCapacity;
+            resourceInputs["storageType"] = state?.storageType;
+            resourceInputs["subnetIds"] = state?.subnetIds;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["throughputCapacity"] = state?.throughputCapacity;
+            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["weeklyMaintenanceStartTime"] = state?.weeklyMaintenanceStartTime;
         } else {
             const args = argsOrState as WindowsFileSystemArgs | undefined;
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.throughputCapacity === undefined) && !opts.urn) {
+            if (args?.throughputCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
-            resourceInputs["activeDirectoryId"] = args ? args.activeDirectoryId : undefined;
-            resourceInputs["aliases"] = args ? args.aliases : undefined;
-            resourceInputs["auditLogConfiguration"] = args ? args.auditLogConfiguration : undefined;
-            resourceInputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
-            resourceInputs["backupId"] = args ? args.backupId : undefined;
-            resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
-            resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
-            resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
-            resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
-            resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["selfManagedActiveDirectory"] = args ? args.selfManagedActiveDirectory : undefined;
-            resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
-            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
-            resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["activeDirectoryId"] = args?.activeDirectoryId;
+            resourceInputs["aliases"] = args?.aliases;
+            resourceInputs["auditLogConfiguration"] = args?.auditLogConfiguration;
+            resourceInputs["automaticBackupRetentionDays"] = args?.automaticBackupRetentionDays;
+            resourceInputs["backupId"] = args?.backupId;
+            resourceInputs["copyTagsToBackups"] = args?.copyTagsToBackups;
+            resourceInputs["dailyAutomaticBackupStartTime"] = args?.dailyAutomaticBackupStartTime;
+            resourceInputs["deploymentType"] = args?.deploymentType;
+            resourceInputs["diskIopsConfiguration"] = args?.diskIopsConfiguration;
+            resourceInputs["finalBackupTags"] = args?.finalBackupTags;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["preferredSubnetId"] = args?.preferredSubnetId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["selfManagedActiveDirectory"] = args?.selfManagedActiveDirectory;
+            resourceInputs["skipFinalBackup"] = args?.skipFinalBackup;
+            resourceInputs["storageCapacity"] = args?.storageCapacity;
+            resourceInputs["storageType"] = args?.storageType;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throughputCapacity"] = args?.throughputCapacity;
+            resourceInputs["weeklyMaintenanceStartTime"] = args?.weeklyMaintenanceStartTime;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;

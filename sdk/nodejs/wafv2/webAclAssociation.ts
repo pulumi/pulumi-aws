@@ -50,15 +50,15 @@ export class WebAclAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
      */
-    public readonly webAclArn!: pulumi.Output<string>;
+    declare public readonly webAclArn: pulumi.Output<string>;
 
     /**
      * Create a WebAclAssociation resource with the given unique name, arguments, and options.
@@ -73,20 +73,20 @@ export class WebAclAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclAssociationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
-            resourceInputs["webAclArn"] = state ? state.webAclArn : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["webAclArn"] = state?.webAclArn;
         } else {
             const args = argsOrState as WebAclAssociationArgs | undefined;
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.webAclArn === undefined) && !opts.urn) {
+            if (args?.webAclArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webAclArn'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["webAclArn"] = args ? args.webAclArn : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["webAclArn"] = args?.webAclArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WebAclAssociation.__pulumiType, name, resourceInputs, opts);

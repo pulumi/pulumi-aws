@@ -71,25 +71,25 @@ export class ControlTowerControl extends pulumi.CustomResource {
     /**
      * The ARN of the EnabledControl resource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
      */
-    public readonly controlIdentifier!: pulumi.Output<string>;
+    declare public readonly controlIdentifier: pulumi.Output<string>;
     /**
      * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
      */
-    public readonly parameters!: pulumi.Output<outputs.controltower.ControlTowerControlParameter[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.controltower.ControlTowerControlParameter[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARN of the organizational unit.
      *
      * The following arguments are optional:
      */
-    public readonly targetIdentifier!: pulumi.Output<string>;
+    declare public readonly targetIdentifier: pulumi.Output<string>;
 
     /**
      * Create a ControlTowerControl resource with the given unique name, arguments, and options.
@@ -104,23 +104,23 @@ export class ControlTowerControl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ControlTowerControlState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["controlIdentifier"] = state ? state.controlIdentifier : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["targetIdentifier"] = state ? state.targetIdentifier : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["controlIdentifier"] = state?.controlIdentifier;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["targetIdentifier"] = state?.targetIdentifier;
         } else {
             const args = argsOrState as ControlTowerControlArgs | undefined;
-            if ((!args || args.controlIdentifier === undefined) && !opts.urn) {
+            if (args?.controlIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controlIdentifier'");
             }
-            if ((!args || args.targetIdentifier === undefined) && !opts.urn) {
+            if (args?.targetIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetIdentifier'");
             }
-            resourceInputs["controlIdentifier"] = args ? args.controlIdentifier : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
+            resourceInputs["controlIdentifier"] = args?.controlIdentifier;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["targetIdentifier"] = args?.targetIdentifier;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

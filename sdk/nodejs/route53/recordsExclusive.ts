@@ -48,14 +48,14 @@ export class RecordsExclusive extends pulumi.CustomResource {
      * A list of all resource record sets associated with the hosted zone.
      * See `resourceRecordSet` below.
      */
-    public readonly resourceRecordSets!: pulumi.Output<outputs.route53.RecordsExclusiveResourceRecordSet[] | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.route53.RecordsExclusiveTimeouts | undefined>;
+    declare public readonly resourceRecordSets: pulumi.Output<outputs.route53.RecordsExclusiveResourceRecordSet[] | undefined>;
+    declare public readonly timeouts: pulumi.Output<outputs.route53.RecordsExclusiveTimeouts | undefined>;
     /**
      * ID of the hosted zone containing the resource record sets.
      *
      * The following arguments are optional:
      */
-    public readonly zoneId!: pulumi.Output<string>;
+    declare public readonly zoneId: pulumi.Output<string>;
 
     /**
      * Create a RecordsExclusive resource with the given unique name, arguments, and options.
@@ -70,17 +70,17 @@ export class RecordsExclusive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecordsExclusiveState | undefined;
-            resourceInputs["resourceRecordSets"] = state ? state.resourceRecordSets : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["resourceRecordSets"] = state?.resourceRecordSets;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["zoneId"] = state?.zoneId;
         } else {
             const args = argsOrState as RecordsExclusiveArgs | undefined;
-            if ((!args || args.zoneId === undefined) && !opts.urn) {
+            if (args?.zoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            resourceInputs["resourceRecordSets"] = args ? args.resourceRecordSets : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["resourceRecordSets"] = args?.resourceRecordSets;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["zoneId"] = args?.zoneId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RecordsExclusive.__pulumiType, name, resourceInputs, opts);

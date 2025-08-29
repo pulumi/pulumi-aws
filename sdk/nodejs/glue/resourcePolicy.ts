@@ -68,15 +68,15 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
      */
-    public readonly enableHybrid!: pulumi.Output<string | undefined>;
+    declare public readonly enableHybrid: pulumi.Output<string | undefined>;
     /**
      * The policy to be applied to the aws glue data catalog.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -91,17 +91,17 @@ export class ResourcePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourcePolicyState | undefined;
-            resourceInputs["enableHybrid"] = state ? state.enableHybrid : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["enableHybrid"] = state?.enableHybrid;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ResourcePolicyArgs | undefined;
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["enableHybrid"] = args ? args.enableHybrid : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["enableHybrid"] = args?.enableHybrid;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourcePolicy.__pulumiType, name, resourceInputs, opts);

@@ -53,69 +53,69 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of namespace's admin user credentials secret.
      */
-    public /*out*/ readonly adminPasswordSecretArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly adminPasswordSecretArn: pulumi.Output<string>;
     /**
      * ID of the KMS key used to encrypt the namespace's admin credentials secret.
      */
-    public readonly adminPasswordSecretKmsKeyId!: pulumi.Output<string>;
+    declare public readonly adminPasswordSecretKmsKeyId: pulumi.Output<string>;
     /**
      * The password of the administrator for the first database created in the namespace.
      * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
-    public readonly adminUserPassword!: pulumi.Output<string | undefined>;
+    declare public readonly adminUserPassword: pulumi.Output<string | undefined>;
     /**
      * The username of the administrator for the first database created in the namespace.
      */
-    public readonly adminUsername!: pulumi.Output<string>;
+    declare public readonly adminUsername: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the first database created in the namespace.
      */
-    public readonly dbName!: pulumi.Output<string>;
+    declare public readonly dbName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
-    public readonly defaultIamRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly defaultIamRoleArn: pulumi.Output<string | undefined>;
     /**
      * A list of IAM roles to associate with the namespace.
      */
-    public readonly iamRoles!: pulumi.Output<string[]>;
+    declare public readonly iamRoles: pulumi.Output<string[]>;
     /**
      * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      */
-    public readonly logExports!: pulumi.Output<string[] | undefined>;
+    declare public readonly logExports: pulumi.Output<string[] | undefined>;
     /**
      * Whether to use AWS SecretManager to manage namespace's admin credentials.
      * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      */
-    public readonly manageAdminPassword!: pulumi.Output<boolean | undefined>;
+    declare public readonly manageAdminPassword: pulumi.Output<boolean | undefined>;
     /**
      * The Redshift Namespace ID.
      */
-    public /*out*/ readonly namespaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly namespaceId: pulumi.Output<string>;
     /**
      * The name of the namespace.
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -130,39 +130,39 @@ export class Namespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
-            resourceInputs["adminPasswordSecretArn"] = state ? state.adminPasswordSecretArn : undefined;
-            resourceInputs["adminPasswordSecretKmsKeyId"] = state ? state.adminPasswordSecretKmsKeyId : undefined;
-            resourceInputs["adminUserPassword"] = state ? state.adminUserPassword : undefined;
-            resourceInputs["adminUsername"] = state ? state.adminUsername : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["dbName"] = state ? state.dbName : undefined;
-            resourceInputs["defaultIamRoleArn"] = state ? state.defaultIamRoleArn : undefined;
-            resourceInputs["iamRoles"] = state ? state.iamRoles : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["logExports"] = state ? state.logExports : undefined;
-            resourceInputs["manageAdminPassword"] = state ? state.manageAdminPassword : undefined;
-            resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["adminPasswordSecretArn"] = state?.adminPasswordSecretArn;
+            resourceInputs["adminPasswordSecretKmsKeyId"] = state?.adminPasswordSecretKmsKeyId;
+            resourceInputs["adminUserPassword"] = state?.adminUserPassword;
+            resourceInputs["adminUsername"] = state?.adminUsername;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["dbName"] = state?.dbName;
+            resourceInputs["defaultIamRoleArn"] = state?.defaultIamRoleArn;
+            resourceInputs["iamRoles"] = state?.iamRoles;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["logExports"] = state?.logExports;
+            resourceInputs["manageAdminPassword"] = state?.manageAdminPassword;
+            resourceInputs["namespaceId"] = state?.namespaceId;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            resourceInputs["adminPasswordSecretKmsKeyId"] = args ? args.adminPasswordSecretKmsKeyId : undefined;
+            resourceInputs["adminPasswordSecretKmsKeyId"] = args?.adminPasswordSecretKmsKeyId;
             resourceInputs["adminUserPassword"] = args?.adminUserPassword ? pulumi.secret(args.adminUserPassword) : undefined;
             resourceInputs["adminUsername"] = args?.adminUsername ? pulumi.secret(args.adminUsername) : undefined;
-            resourceInputs["dbName"] = args ? args.dbName : undefined;
-            resourceInputs["defaultIamRoleArn"] = args ? args.defaultIamRoleArn : undefined;
-            resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logExports"] = args ? args.logExports : undefined;
-            resourceInputs["manageAdminPassword"] = args ? args.manageAdminPassword : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dbName"] = args?.dbName;
+            resourceInputs["defaultIamRoleArn"] = args?.defaultIamRoleArn;
+            resourceInputs["iamRoles"] = args?.iamRoles;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["logExports"] = args?.logExports;
+            resourceInputs["manageAdminPassword"] = args?.manageAdminPassword;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["adminPasswordSecretArn"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["namespaceId"] = undefined /*out*/;

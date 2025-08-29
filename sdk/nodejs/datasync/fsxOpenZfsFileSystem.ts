@@ -68,43 +68,43 @@ export class FsxOpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The time that the FSx for openzfs location was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
      */
-    public readonly fsxFilesystemArn!: pulumi.Output<string>;
+    declare public readonly fsxFilesystemArn: pulumi.Output<string>;
     /**
      * The type of protocol that DataSync uses to access your file system. See below.
      */
-    public readonly protocol!: pulumi.Output<outputs.datasync.FsxOpenZfsFileSystemProtocol>;
+    declare public readonly protocol: pulumi.Output<outputs.datasync.FsxOpenZfsFileSystemProtocol>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
      */
-    public readonly securityGroupArns!: pulumi.Output<string[]>;
+    declare public readonly securityGroupArns: pulumi.Output<string[]>;
     /**
      * Subdirectory to perform actions as source or destination. Must start with `/fsx`.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    declare public readonly subdirectory: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the FSx for openzfs location that was described.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
 
     /**
      * Create a FsxOpenZfsFileSystem resource with the given unique name, arguments, and options.
@@ -119,33 +119,33 @@ export class FsxOpenZfsFileSystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FsxOpenZfsFileSystemState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
-            resourceInputs["fsxFilesystemArn"] = state ? state.fsxFilesystemArn : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
-            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["creationTime"] = state?.creationTime;
+            resourceInputs["fsxFilesystemArn"] = state?.fsxFilesystemArn;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupArns"] = state?.securityGroupArns;
+            resourceInputs["subdirectory"] = state?.subdirectory;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as FsxOpenZfsFileSystemArgs | undefined;
-            if ((!args || args.fsxFilesystemArn === undefined) && !opts.urn) {
+            if (args?.fsxFilesystemArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fsxFilesystemArn'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
+            if (args?.securityGroupArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fsxFilesystemArn"] = args?.fsxFilesystemArn;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

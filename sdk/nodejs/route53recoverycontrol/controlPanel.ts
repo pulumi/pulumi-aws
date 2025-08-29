@@ -58,27 +58,27 @@ export class ControlPanel extends pulumi.CustomResource {
     /**
      * ARN of the control panel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ARN of the cluster in which this control panel will reside.
      */
-    public readonly clusterArn!: pulumi.Output<string>;
+    declare public readonly clusterArn: pulumi.Output<string>;
     /**
      * Whether a control panel is default.
      */
-    public /*out*/ readonly defaultControlPanel!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly defaultControlPanel: pulumi.Output<boolean>;
     /**
      * Name describing the control panel.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Number routing controls in a control panel.
      */
-    public /*out*/ readonly routingControlCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly routingControlCount: pulumi.Output<number>;
     /**
      * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a ControlPanel resource with the given unique name, arguments, and options.
@@ -93,19 +93,19 @@ export class ControlPanel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ControlPanelState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["clusterArn"] = state ? state.clusterArn : undefined;
-            resourceInputs["defaultControlPanel"] = state ? state.defaultControlPanel : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["routingControlCount"] = state ? state.routingControlCount : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["clusterArn"] = state?.clusterArn;
+            resourceInputs["defaultControlPanel"] = state?.defaultControlPanel;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["routingControlCount"] = state?.routingControlCount;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as ControlPanelArgs | undefined;
-            if ((!args || args.clusterArn === undefined) && !opts.urn) {
+            if (args?.clusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultControlPanel"] = undefined /*out*/;
             resourceInputs["routingControlCount"] = undefined /*out*/;

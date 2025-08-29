@@ -72,39 +72,39 @@ export class AssessmentTemplate extends pulumi.CustomResource {
     /**
      * The template assessment ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The duration of the inspector run.
      */
-    public readonly duration!: pulumi.Output<number>;
+    declare public readonly duration: pulumi.Output<number>;
     /**
      * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
      */
-    public readonly eventSubscriptions!: pulumi.Output<outputs.inspector.AssessmentTemplateEventSubscription[] | undefined>;
+    declare public readonly eventSubscriptions: pulumi.Output<outputs.inspector.AssessmentTemplateEventSubscription[] | undefined>;
     /**
      * The name of the assessment template.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The rules to be used during the run.
      */
-    public readonly rulesPackageArns!: pulumi.Output<string[]>;
+    declare public readonly rulesPackageArns: pulumi.Output<string[]>;
     /**
      * Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The assessment target ARN to attach the template to.
      */
-    public readonly targetArn!: pulumi.Output<string>;
+    declare public readonly targetArn: pulumi.Output<string>;
 
     /**
      * Create a AssessmentTemplate resource with the given unique name, arguments, and options.
@@ -119,33 +119,33 @@ export class AssessmentTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentTemplateState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["duration"] = state ? state.duration : undefined;
-            resourceInputs["eventSubscriptions"] = state ? state.eventSubscriptions : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["rulesPackageArns"] = state ? state.rulesPackageArns : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["duration"] = state?.duration;
+            resourceInputs["eventSubscriptions"] = state?.eventSubscriptions;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["rulesPackageArns"] = state?.rulesPackageArns;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetArn"] = state?.targetArn;
         } else {
             const args = argsOrState as AssessmentTemplateArgs | undefined;
-            if ((!args || args.duration === undefined) && !opts.urn) {
+            if (args?.duration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'duration'");
             }
-            if ((!args || args.rulesPackageArns === undefined) && !opts.urn) {
+            if (args?.rulesPackageArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulesPackageArns'");
             }
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["duration"] = args ? args.duration : undefined;
-            resourceInputs["eventSubscriptions"] = args ? args.eventSubscriptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["duration"] = args?.duration;
+            resourceInputs["eventSubscriptions"] = args?.eventSubscriptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["rulesPackageArns"] = args?.rulesPackageArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

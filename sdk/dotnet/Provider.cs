@@ -19,94 +19,91 @@ namespace Pulumi.Aws
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
+        /// The access key for API operations. You can retrieve this
+        /// from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         [Output("accessKey")]
         public Output<string?> AccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-        /// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
         /// </summary>
         [Output("customCaBundle")]
         public Output<string?> CustomCaBundle { get; private set; } = null!;
 
         /// <summary>
-        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the
-        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         /// </summary>
         [Output("ec2MetadataServiceEndpoint")]
         public Output<string?> Ec2MetadataServiceEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         /// </summary>
         [Output("ec2MetadataServiceEndpointMode")]
         public Output<string?> Ec2MetadataServiceEndpointMode { get; private set; } = null!;
 
         /// <summary>
-        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-        /// `http_proxy` environment variables.
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
         /// </summary>
         [Output("httpProxy")]
         public Output<string?> HttpProxy { get; private set; } = null!;
 
         /// <summary>
-        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-        /// `https_proxy` environment variables.
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
         /// </summary>
         [Output("httpsProxy")]
         public Output<string?> HttpsProxy { get; private set; } = null!;
 
         /// <summary>
-        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-        /// `no_proxy` environment variables.
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
         /// </summary>
         [Output("noProxy")]
         public Output<string?> NoProxy { get; private set; } = null!;
 
         /// <summary>
-        /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        /// The profile for API operations. If not set, the default profile
+        /// created with `aws configure` will be used.
         /// </summary>
         [Output("profile")]
         public Output<string?> Profile { get; private set; } = null!;
 
         /// <summary>
-        /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        /// The region where AWS operations will take place. Examples
+        /// are us-east-1, us-west-2, etc.
         /// </summary>
         [Output("region")]
         public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-        /// `AWS_RETRY_MODE` environment variable.
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
         /// </summary>
         [Output("retryMode")]
         public Output<string?> RetryMode { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-        /// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-        /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         /// </summary>
         [Output("s3UsEast1RegionalEndpoint")]
         public Output<string?> S3UsEast1RegionalEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
+        /// The secret key for API operations. You can retrieve this
+        /// from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         [Output("secretKey")]
         public Output<string?> SecretKey { get; private set; } = null!;
 
         /// <summary>
-        /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        /// The region where AWS STS operations will take place. Examples
+        /// are us-east-1 and us-west-2.
         /// </summary>
         [Output("stsRegion")]
         public Output<string?> StsRegion { get; private set; } = null!;
 
         /// <summary>
-        /// session token. A session token is only required if you are using temporary security credentials.
+        /// session token. A session token is only required if you are
+        /// using temporary security credentials.
         /// </summary>
         [Output("token")]
         public Output<string?> Token { get; private set; } = null!;
@@ -155,7 +152,8 @@ namespace Pulumi.Aws
         private Input<string>? _accessKey;
 
         /// <summary>
-        /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
+        /// The access key for API operations. You can retrieve this
+        /// from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         public Input<string>? AccessKey
         {
@@ -187,8 +185,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-        /// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
         /// </summary>
         [Input("customCaBundle")]
         public Input<string>? CustomCaBundle { get; set; }
@@ -200,15 +197,13 @@ namespace Pulumi.Aws
         public Input<Inputs.ProviderDefaultTagsArgs>? DefaultTags { get; set; }
 
         /// <summary>
-        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the
-        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         /// </summary>
         [Input("ec2MetadataServiceEndpoint")]
         public Input<string>? Ec2MetadataServiceEndpoint { get; set; }
 
         /// <summary>
-        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         /// </summary>
         [Input("ec2MetadataServiceEndpointMode")]
         public Input<string>? Ec2MetadataServiceEndpointMode { get; set; }
@@ -230,15 +225,13 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-        /// `http_proxy` environment variables.
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
         /// </summary>
         [Input("httpProxy")]
         public Input<string>? HttpProxy { get; set; }
 
         /// <summary>
-        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-        /// `https_proxy` environment variables.
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
         /// </summary>
         [Input("httpsProxy")]
         public Input<string>? HttpsProxy { get; set; }
@@ -256,49 +249,50 @@ namespace Pulumi.Aws
         public Input<bool>? Insecure { get; set; }
 
         /// <summary>
-        /// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+        /// The maximum number of times an AWS API request is
+        /// being executed. If the API request still fails, an error is
+        /// thrown.
         /// </summary>
         [Input("maxRetries", json: true)]
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-        /// `no_proxy` environment variables.
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
         /// </summary>
         [Input("noProxy")]
         public Input<string>? NoProxy { get; set; }
 
         /// <summary>
-        /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        /// The profile for API operations. If not set, the default profile
+        /// created with `aws configure` will be used.
         /// </summary>
         [Input("profile")]
         public Input<string>? Profile { get; set; }
 
         /// <summary>
-        /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        /// The region where AWS operations will take place. Examples
+        /// are us-east-1, us-west-2, etc.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-        /// `AWS_RETRY_MODE` environment variable.
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
         /// </summary>
         [Input("retryMode")]
         public Input<string>? RetryMode { get; set; }
 
         /// <summary>
-        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-        /// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-        /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         /// </summary>
         [Input("s3UsEast1RegionalEndpoint")]
         public Input<string>? S3UsEast1RegionalEndpoint { get; set; }
 
         /// <summary>
-        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-        /// Specific to the Amazon S3 service.
+        /// Set this to true to enable the request to use path-style addressing,
+        /// i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+        /// use virtual hosted bucket addressing when possible
+        /// (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
         /// </summary>
         [Input("s3UsePathStyle", json: true)]
         public Input<bool>? S3UsePathStyle { get; set; }
@@ -307,7 +301,8 @@ namespace Pulumi.Aws
         private Input<string>? _secretKey;
 
         /// <summary>
-        /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
+        /// The secret key for API operations. You can retrieve this
+        /// from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         public Input<string>? SecretKey
         {
@@ -344,8 +339,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-        /// available/implemented.
+        /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
         /// </summary>
         [Input("skipCredentialsValidation", json: true)]
         public Input<bool>? SkipCredentialsValidation { get; set; }
@@ -357,8 +351,7 @@ namespace Pulumi.Aws
         public Input<bool>? SkipMetadataApiCheck { get; set; }
 
         /// <summary>
-        /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-        /// not public (yet).
+        /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
         /// </summary>
         [Input("skipRegionValidation", json: true)]
         public Input<bool>? SkipRegionValidation { get; set; }
@@ -370,7 +363,8 @@ namespace Pulumi.Aws
         public Input<bool>? SkipRequestingAccountId { get; set; }
 
         /// <summary>
-        /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        /// The region where AWS STS operations will take place. Examples
+        /// are us-east-1 and us-west-2.
         /// </summary>
         [Input("stsRegion")]
         public Input<string>? StsRegion { get; set; }
@@ -379,7 +373,8 @@ namespace Pulumi.Aws
         private Input<string>? _token;
 
         /// <summary>
-        /// session token. A session token is only required if you are using temporary security credentials.
+        /// session token. A session token is only required if you are
+        /// using temporary security credentials.
         /// </summary>
         public Input<string>? Token
         {

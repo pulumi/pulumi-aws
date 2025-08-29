@@ -140,71 +140,71 @@ export class MLTransform extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Glue ML Transform.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description of the ML Transform.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
-    public readonly glueVersion!: pulumi.Output<string>;
+    declare public readonly glueVersion: pulumi.Output<string>;
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      */
-    public readonly inputRecordTables!: pulumi.Output<outputs.glue.MLTransformInputRecordTable[]>;
+    declare public readonly inputRecordTables: pulumi.Output<outputs.glue.MLTransformInputRecordTable[]>;
     /**
      * The number of labels available for this transform.
      */
-    public /*out*/ readonly labelCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly labelCount: pulumi.Output<number>;
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      */
-    public readonly maxCapacity!: pulumi.Output<number>;
+    declare public readonly maxCapacity: pulumi.Output<number>;
     /**
      * The maximum number of times to retry this ML Transform if it fails.
      */
-    public readonly maxRetries!: pulumi.Output<number | undefined>;
+    declare public readonly maxRetries: pulumi.Output<number | undefined>;
     /**
      * The name you assign to this ML Transform. It must be unique in your account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      */
-    public readonly numberOfWorkers!: pulumi.Output<number | undefined>;
+    declare public readonly numberOfWorkers: pulumi.Output<number | undefined>;
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      */
-    public readonly parameters!: pulumi.Output<outputs.glue.MLTransformParameters>;
+    declare public readonly parameters: pulumi.Output<outputs.glue.MLTransformParameters>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARN of the IAM role associated with this ML Transform.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The object that represents the schema that this transform accepts. see Schema.
      */
-    public /*out*/ readonly schemas!: pulumi.Output<outputs.glue.MLTransformSchema[]>;
+    declare public /*out*/ readonly schemas: pulumi.Output<outputs.glue.MLTransformSchema[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      */
-    public readonly workerType!: pulumi.Output<string | undefined>;
+    declare public readonly workerType: pulumi.Output<string | undefined>;
 
     /**
      * Create a MLTransform resource with the given unique name, arguments, and options.
@@ -219,47 +219,47 @@ export class MLTransform extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MLTransformState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["glueVersion"] = state ? state.glueVersion : undefined;
-            resourceInputs["inputRecordTables"] = state ? state.inputRecordTables : undefined;
-            resourceInputs["labelCount"] = state ? state.labelCount : undefined;
-            resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
-            resourceInputs["maxRetries"] = state ? state.maxRetries : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["schemas"] = state ? state.schemas : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
-            resourceInputs["workerType"] = state ? state.workerType : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["glueVersion"] = state?.glueVersion;
+            resourceInputs["inputRecordTables"] = state?.inputRecordTables;
+            resourceInputs["labelCount"] = state?.labelCount;
+            resourceInputs["maxCapacity"] = state?.maxCapacity;
+            resourceInputs["maxRetries"] = state?.maxRetries;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["numberOfWorkers"] = state?.numberOfWorkers;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["schemas"] = state?.schemas;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeout"] = state?.timeout;
+            resourceInputs["workerType"] = state?.workerType;
         } else {
             const args = argsOrState as MLTransformArgs | undefined;
-            if ((!args || args.inputRecordTables === undefined) && !opts.urn) {
+            if (args?.inputRecordTables === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputRecordTables'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
-            resourceInputs["inputRecordTables"] = args ? args.inputRecordTables : undefined;
-            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["glueVersion"] = args?.glueVersion;
+            resourceInputs["inputRecordTables"] = args?.inputRecordTables;
+            resourceInputs["maxCapacity"] = args?.maxCapacity;
+            resourceInputs["maxRetries"] = args?.maxRetries;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["numberOfWorkers"] = args?.numberOfWorkers;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["workerType"] = args?.workerType;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["labelCount"] = undefined /*out*/;
             resourceInputs["schemas"] = undefined /*out*/;

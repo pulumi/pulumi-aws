@@ -82,19 +82,19 @@ export class UploadBuffer extends pulumi.CustomResource {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    public readonly diskId!: pulumi.Output<string>;
+    declare public readonly diskId: pulumi.Output<string>;
     /**
      * Local disk path. For example, `/dev/nvme1n1`.
      */
-    public readonly diskPath!: pulumi.Output<string>;
+    declare public readonly diskPath: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    public readonly gatewayArn!: pulumi.Output<string>;
+    declare public readonly gatewayArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a UploadBuffer resource with the given unique name, arguments, and options.
@@ -109,19 +109,19 @@ export class UploadBuffer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UploadBufferState | undefined;
-            resourceInputs["diskId"] = state ? state.diskId : undefined;
-            resourceInputs["diskPath"] = state ? state.diskPath : undefined;
-            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["diskId"] = state?.diskId;
+            resourceInputs["diskPath"] = state?.diskPath;
+            resourceInputs["gatewayArn"] = state?.gatewayArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as UploadBufferArgs | undefined;
-            if ((!args || args.gatewayArn === undefined) && !opts.urn) {
+            if (args?.gatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            resourceInputs["diskId"] = args ? args.diskId : undefined;
-            resourceInputs["diskPath"] = args ? args.diskPath : undefined;
-            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["diskId"] = args?.diskId;
+            resourceInputs["diskPath"] = args?.diskPath;
+            resourceInputs["gatewayArn"] = args?.gatewayArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UploadBuffer.__pulumiType, name, resourceInputs, opts);

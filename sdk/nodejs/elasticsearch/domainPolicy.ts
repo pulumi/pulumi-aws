@@ -71,15 +71,15 @@ export class DomainPolicy extends pulumi.CustomResource {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    public readonly accessPolicies!: pulumi.Output<string>;
+    declare public readonly accessPolicies: pulumi.Output<string>;
     /**
      * Name of the domain.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a DomainPolicy resource with the given unique name, arguments, and options.
@@ -94,20 +94,20 @@ export class DomainPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainPolicyState | undefined;
-            resourceInputs["accessPolicies"] = state ? state.accessPolicies : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["accessPolicies"] = state?.accessPolicies;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as DomainPolicyArgs | undefined;
-            if ((!args || args.accessPolicies === undefined) && !opts.urn) {
+            if (args?.accessPolicies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicies'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["accessPolicies"] = args?.accessPolicies;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainPolicy.__pulumiType, name, resourceInputs, opts);

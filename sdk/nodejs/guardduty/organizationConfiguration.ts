@@ -82,7 +82,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
      * Valid values are `ALL`, `NEW`, `NONE`.
      */
-    public readonly autoEnableOrganizationMembers!: pulumi.Output<string>;
+    declare public readonly autoEnableOrganizationMembers: pulumi.Output<string>;
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      *
@@ -90,15 +90,15 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      *
      * @deprecated datasources is deprecated. Use "aws.guardduty.OrganizationConfigurationFeature" resources instead.
      */
-    public readonly datasources!: pulumi.Output<outputs.guardduty.OrganizationConfigurationDatasources>;
+    declare public readonly datasources: pulumi.Output<outputs.guardduty.OrganizationConfigurationDatasources>;
     /**
      * The detector ID of the GuardDuty account.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -113,22 +113,22 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationConfigurationState | undefined;
-            resourceInputs["autoEnableOrganizationMembers"] = state ? state.autoEnableOrganizationMembers : undefined;
-            resourceInputs["datasources"] = state ? state.datasources : undefined;
-            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["autoEnableOrganizationMembers"] = state?.autoEnableOrganizationMembers;
+            resourceInputs["datasources"] = state?.datasources;
+            resourceInputs["detectorId"] = state?.detectorId;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
-            if ((!args || args.autoEnableOrganizationMembers === undefined) && !opts.urn) {
+            if (args?.autoEnableOrganizationMembers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoEnableOrganizationMembers'");
             }
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            resourceInputs["autoEnableOrganizationMembers"] = args ? args.autoEnableOrganizationMembers : undefined;
-            resourceInputs["datasources"] = args ? args.datasources : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["autoEnableOrganizationMembers"] = args?.autoEnableOrganizationMembers;
+            resourceInputs["datasources"] = args?.datasources;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);

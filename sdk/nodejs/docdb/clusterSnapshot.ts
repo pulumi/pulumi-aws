@@ -58,53 +58,53 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
      */
-    public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly availabilityZones: pulumi.Output<string[]>;
     /**
      * The DocumentDB Cluster Identifier from which to take the snapshot.
      */
-    public readonly dbClusterIdentifier!: pulumi.Output<string>;
+    declare public readonly dbClusterIdentifier: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
      */
-    public /*out*/ readonly dbClusterSnapshotArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dbClusterSnapshotArn: pulumi.Output<string>;
     /**
      * The Identifier for the snapshot.
      */
-    public readonly dbClusterSnapshotIdentifier!: pulumi.Output<string>;
+    declare public readonly dbClusterSnapshotIdentifier: pulumi.Output<string>;
     /**
      * Specifies the name of the database engine.
      */
-    public /*out*/ readonly engine!: pulumi.Output<string>;
+    declare public /*out*/ readonly engine: pulumi.Output<string>;
     /**
      * Version of the database engine for this DocumentDB cluster snapshot.
      */
-    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly engineVersion: pulumi.Output<string>;
     /**
      * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
      */
-    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
     /**
      * Port that the DocumentDB cluster was listening on at the time of the snapshot.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public /*out*/ readonly snapshotType!: pulumi.Output<string>;
-    public /*out*/ readonly sourceDbClusterSnapshotArn!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public /*out*/ readonly snapshotType: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceDbClusterSnapshotArn: pulumi.Output<string>;
     /**
      * The status of this DocumentDB Cluster Snapshot.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Specifies whether the DocumentDB cluster snapshot is encrypted.
      */
-    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
     /**
      * The VPC ID associated with the DocumentDB cluster snapshot.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a ClusterSnapshot resource with the given unique name, arguments, and options.
@@ -119,31 +119,31 @@ export class ClusterSnapshot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterSnapshotState | undefined;
-            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            resourceInputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
-            resourceInputs["dbClusterSnapshotArn"] = state ? state.dbClusterSnapshotArn : undefined;
-            resourceInputs["dbClusterSnapshotIdentifier"] = state ? state.dbClusterSnapshotIdentifier : undefined;
-            resourceInputs["engine"] = state ? state.engine : undefined;
-            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
-            resourceInputs["sourceDbClusterSnapshotArn"] = state ? state.sourceDbClusterSnapshotArn : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["availabilityZones"] = state?.availabilityZones;
+            resourceInputs["dbClusterIdentifier"] = state?.dbClusterIdentifier;
+            resourceInputs["dbClusterSnapshotArn"] = state?.dbClusterSnapshotArn;
+            resourceInputs["dbClusterSnapshotIdentifier"] = state?.dbClusterSnapshotIdentifier;
+            resourceInputs["engine"] = state?.engine;
+            resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["snapshotType"] = state?.snapshotType;
+            resourceInputs["sourceDbClusterSnapshotArn"] = state?.sourceDbClusterSnapshotArn;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["storageEncrypted"] = state?.storageEncrypted;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as ClusterSnapshotArgs | undefined;
-            if ((!args || args.dbClusterIdentifier === undefined) && !opts.urn) {
+            if (args?.dbClusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbClusterIdentifier'");
             }
-            if ((!args || args.dbClusterSnapshotIdentifier === undefined) && !opts.urn) {
+            if (args?.dbClusterSnapshotIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbClusterSnapshotIdentifier'");
             }
-            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            resourceInputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["dbClusterIdentifier"] = args?.dbClusterIdentifier;
+            resourceInputs["dbClusterSnapshotIdentifier"] = args?.dbClusterSnapshotIdentifier;
+            resourceInputs["region"] = args?.region;
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["dbClusterSnapshotArn"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;

@@ -117,73 +117,73 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * The ARN of the Glue Table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    declare public readonly catalogId: pulumi.Output<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      *
      * The following arguments are optional:
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * Description of the table.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration block for open table formats. See `openTableFormatInput` below.
      */
-    public readonly openTableFormatInput!: pulumi.Output<outputs.glue.CatalogTableOpenTableFormatInput | undefined>;
+    declare public readonly openTableFormatInput: pulumi.Output<outputs.glue.CatalogTableOpenTableFormatInput | undefined>;
     /**
      * Owner of the table.
      */
-    public readonly owner!: pulumi.Output<string | undefined>;
+    declare public readonly owner: pulumi.Output<string | undefined>;
     /**
      * Properties associated with this table, as a list of key-value pairs.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    public readonly partitionIndices!: pulumi.Output<outputs.glue.CatalogTablePartitionIndex[]>;
+    declare public readonly partitionIndices: pulumi.Output<outputs.glue.CatalogTablePartitionIndex[]>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    public readonly partitionKeys!: pulumi.Output<outputs.glue.CatalogTablePartitionKey[] | undefined>;
+    declare public readonly partitionKeys: pulumi.Output<outputs.glue.CatalogTablePartitionKey[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Retention time for this table.
      */
-    public readonly retention!: pulumi.Output<number | undefined>;
+    declare public readonly retention: pulumi.Output<number | undefined>;
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    public readonly storageDescriptor!: pulumi.Output<outputs.glue.CatalogTableStorageDescriptor | undefined>;
+    declare public readonly storageDescriptor: pulumi.Output<outputs.glue.CatalogTableStorageDescriptor | undefined>;
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
-    public readonly tableType!: pulumi.Output<string | undefined>;
+    declare public readonly tableType: pulumi.Output<string | undefined>;
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    public readonly targetTable!: pulumi.Output<outputs.glue.CatalogTableTargetTable | undefined>;
+    declare public readonly targetTable: pulumi.Output<outputs.glue.CatalogTableTargetTable | undefined>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
-    public readonly viewExpandedText!: pulumi.Output<string | undefined>;
+    declare public readonly viewExpandedText: pulumi.Output<string | undefined>;
     /**
      * If the table is a view, the original text of the view; otherwise null.
      */
-    public readonly viewOriginalText!: pulumi.Output<string | undefined>;
+    declare public readonly viewOriginalText: pulumi.Output<string | undefined>;
 
     /**
      * Create a CatalogTable resource with the given unique name, arguments, and options.
@@ -198,44 +198,44 @@ export class CatalogTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CatalogTableState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["openTableFormatInput"] = state ? state.openTableFormatInput : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["partitionIndices"] = state ? state.partitionIndices : undefined;
-            resourceInputs["partitionKeys"] = state ? state.partitionKeys : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["retention"] = state ? state.retention : undefined;
-            resourceInputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
-            resourceInputs["tableType"] = state ? state.tableType : undefined;
-            resourceInputs["targetTable"] = state ? state.targetTable : undefined;
-            resourceInputs["viewExpandedText"] = state ? state.viewExpandedText : undefined;
-            resourceInputs["viewOriginalText"] = state ? state.viewOriginalText : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["catalogId"] = state?.catalogId;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["openTableFormatInput"] = state?.openTableFormatInput;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["partitionIndices"] = state?.partitionIndices;
+            resourceInputs["partitionKeys"] = state?.partitionKeys;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["retention"] = state?.retention;
+            resourceInputs["storageDescriptor"] = state?.storageDescriptor;
+            resourceInputs["tableType"] = state?.tableType;
+            resourceInputs["targetTable"] = state?.targetTable;
+            resourceInputs["viewExpandedText"] = state?.viewExpandedText;
+            resourceInputs["viewOriginalText"] = state?.viewOriginalText;
         } else {
             const args = argsOrState as CatalogTableArgs | undefined;
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["openTableFormatInput"] = args ? args.openTableFormatInput : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["partitionIndices"] = args ? args.partitionIndices : undefined;
-            resourceInputs["partitionKeys"] = args ? args.partitionKeys : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["retention"] = args ? args.retention : undefined;
-            resourceInputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
-            resourceInputs["tableType"] = args ? args.tableType : undefined;
-            resourceInputs["targetTable"] = args ? args.targetTable : undefined;
-            resourceInputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
-            resourceInputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["openTableFormatInput"] = args?.openTableFormatInput;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["partitionIndices"] = args?.partitionIndices;
+            resourceInputs["partitionKeys"] = args?.partitionKeys;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["retention"] = args?.retention;
+            resourceInputs["storageDescriptor"] = args?.storageDescriptor;
+            resourceInputs["tableType"] = args?.tableType;
+            resourceInputs["targetTable"] = args?.targetTable;
+            resourceInputs["viewExpandedText"] = args?.viewExpandedText;
+            resourceInputs["viewOriginalText"] = args?.viewOriginalText;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

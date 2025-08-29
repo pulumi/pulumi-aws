@@ -58,27 +58,27 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * Creation date of the deployment
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * Description of the deployment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * REST API identifier.
      */
-    public readonly restApi!: pulumi.Output<string>;
+    declare public readonly restApi: pulumi.Output<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
-    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly triggers: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map to set on the related stage.
      */
-    public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly variables: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["restApi"] = state ? state.restApi : undefined;
-            resourceInputs["triggers"] = state ? state.triggers : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["createdDate"] = state?.createdDate;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["restApi"] = state?.restApi;
+            resourceInputs["triggers"] = state?.triggers;
+            resourceInputs["variables"] = state?.variables;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
-            if ((!args || args.restApi === undefined) && !opts.urn) {
+            if (args?.restApi === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["restApi"] = args ? args.restApi : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["restApi"] = args?.restApi;
+            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["variables"] = args?.variables;
             resourceInputs["createdDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

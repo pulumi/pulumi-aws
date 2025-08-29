@@ -60,35 +60,35 @@ export class PolicyStore extends pulumi.CustomResource {
     /**
      * The ARN of the Policy Store.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
      */
-    public readonly deletionProtection!: pulumi.Output<string>;
+    declare public readonly deletionProtection: pulumi.Output<string>;
     /**
      * A description of the Policy Store.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the Policy Store.
      */
-    public /*out*/ readonly policyStoreId!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyStoreId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Validation settings for the policy store.
      */
-    public readonly validationSettings!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings | undefined>;
+    declare public readonly validationSettings: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings | undefined>;
 
     /**
      * Create a PolicyStore resource with the given unique name, arguments, and options.
@@ -103,21 +103,21 @@ export class PolicyStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyStoreState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["validationSettings"] = state ? state.validationSettings : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["deletionProtection"] = state?.deletionProtection;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["policyStoreId"] = state?.policyStoreId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["validationSettings"] = state?.validationSettings;
         } else {
             const args = argsOrState as PolicyStoreArgs | undefined;
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validationSettings"] = args ? args.validationSettings : undefined;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validationSettings"] = args?.validationSettings;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -92,19 +92,19 @@ export class TopicPolicy extends pulumi.CustomResource {
     /**
      * The ARN of the SNS topic
      */
-    public readonly arn!: pulumi.Output<string>;
+    declare public readonly arn: pulumi.Output<string>;
     /**
      * The AWS Account ID of the SNS topic owner
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * The fully-formed AWS policy as JSON.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a TopicPolicy resource with the given unique name, arguments, and options.
@@ -119,21 +119,21 @@ export class TopicPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicPolicyState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as TopicPolicyArgs | undefined;
-            if ((!args || args.arn === undefined) && !opts.urn) {
+            if (args?.arn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
             resourceInputs["owner"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

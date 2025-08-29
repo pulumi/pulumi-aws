@@ -86,52 +86,52 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Full ARN of the repository.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Encryption configuration for the repository. See below for schema.
      */
-    public readonly encryptionConfigurations!: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration[] | undefined>;
+    declare public readonly encryptionConfigurations: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration[] | undefined>;
     /**
      * If `true`, will delete the repository even if it contains images.
      * Defaults to `false`.
      */
-    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
+    declare public readonly imageScanningConfiguration: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
     /**
      * The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      */
-    public readonly imageTagMutability!: pulumi.Output<string | undefined>;
+    declare public readonly imageTagMutability: pulumi.Output<string | undefined>;
     /**
      * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
      */
-    public readonly imageTagMutabilityExclusionFilters!: pulumi.Output<outputs.ecr.RepositoryImageTagMutabilityExclusionFilter[] | undefined>;
+    declare public readonly imageTagMutabilityExclusionFilters: pulumi.Output<outputs.ecr.RepositoryImageTagMutabilityExclusionFilter[] | undefined>;
     /**
      * Name of the repository.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly registryId: pulumi.Output<string>;
     /**
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      */
-    public /*out*/ readonly repositoryUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly repositoryUrl: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -146,28 +146,28 @@ export class Repository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["encryptionConfigurations"] = state ? state.encryptionConfigurations : undefined;
-            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
-            resourceInputs["imageScanningConfiguration"] = state ? state.imageScanningConfiguration : undefined;
-            resourceInputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
-            resourceInputs["imageTagMutabilityExclusionFilters"] = state ? state.imageTagMutabilityExclusionFilters : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["registryId"] = state ? state.registryId : undefined;
-            resourceInputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["encryptionConfigurations"] = state?.encryptionConfigurations;
+            resourceInputs["forceDelete"] = state?.forceDelete;
+            resourceInputs["imageScanningConfiguration"] = state?.imageScanningConfiguration;
+            resourceInputs["imageTagMutability"] = state?.imageTagMutability;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = state?.imageTagMutabilityExclusionFilters;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["registryId"] = state?.registryId;
+            resourceInputs["repositoryUrl"] = state?.repositoryUrl;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
-            resourceInputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
-            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
-            resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
-            resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
-            resourceInputs["imageTagMutabilityExclusionFilters"] = args ? args.imageTagMutabilityExclusionFilters : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryptionConfigurations"] = args?.encryptionConfigurations;
+            resourceInputs["forceDelete"] = args?.forceDelete;
+            resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
+            resourceInputs["imageTagMutability"] = args?.imageTagMutability;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = args?.imageTagMutabilityExclusionFilters;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["registryId"] = undefined /*out*/;
             resourceInputs["repositoryUrl"] = undefined /*out*/;

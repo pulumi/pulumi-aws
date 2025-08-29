@@ -60,30 +60,30 @@ export class CustomPermissions extends pulumi.CustomResource {
     /**
      * ARN of the custom permissions profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Actions to include in the custom permissions profile. See capabilities.
      */
-    public readonly capabilities!: pulumi.Output<outputs.quicksight.CustomPermissionsCapabilities | undefined>;
+    declare public readonly capabilities: pulumi.Output<outputs.quicksight.CustomPermissionsCapabilities | undefined>;
     /**
      * Custom permissions profile name.
      *
      * The following arguments are optional:
      */
-    public readonly customPermissionsName!: pulumi.Output<string>;
+    declare public readonly customPermissionsName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CustomPermissions resource with the given unique name, arguments, and options.
@@ -98,23 +98,23 @@ export class CustomPermissions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomPermissionsState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["capabilities"] = state ? state.capabilities : undefined;
-            resourceInputs["customPermissionsName"] = state ? state.customPermissionsName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["capabilities"] = state?.capabilities;
+            resourceInputs["customPermissionsName"] = state?.customPermissionsName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as CustomPermissionsArgs | undefined;
-            if ((!args || args.customPermissionsName === undefined) && !opts.urn) {
+            if (args?.customPermissionsName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customPermissionsName'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["customPermissionsName"] = args ? args.customPermissionsName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["customPermissionsName"] = args?.customPermissionsName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -60,35 +60,35 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the bucket.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of the bucket.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * Identifier of the Outpost to contain this bucket.
      */
-    public readonly outpostId!: pulumi.Output<string>;
+    declare public readonly outpostId: pulumi.Output<string>;
     /**
      * Boolean whether Public Access Block is enabled.
      */
-    public /*out*/ readonly publicAccessBlockEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly publicAccessBlockEnabled: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -103,26 +103,26 @@ export class Bucket extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
-            resourceInputs["outpostId"] = state ? state.outpostId : undefined;
-            resourceInputs["publicAccessBlockEnabled"] = state ? state.publicAccessBlockEnabled : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["creationDate"] = state?.creationDate;
+            resourceInputs["outpostId"] = state?.outpostId;
+            resourceInputs["publicAccessBlockEnabled"] = state?.publicAccessBlockEnabled;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as BucketArgs | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.outpostId === undefined) && !opts.urn) {
+            if (args?.outpostId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["outpostId"] = args?.outpostId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["publicAccessBlockEnabled"] = undefined /*out*/;

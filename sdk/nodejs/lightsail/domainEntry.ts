@@ -63,29 +63,29 @@ export class DomainEntry extends pulumi.CustomResource {
     /**
      * Name of the Lightsail domain in which to create the entry.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Whether the entry should be an alias. Default: `false`.
      */
-    public readonly isAlias!: pulumi.Output<boolean | undefined>;
+    declare public readonly isAlias: pulumi.Output<boolean | undefined>;
     /**
      * Name of the entry record.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Target of the domain entry.
      */
-    public readonly target!: pulumi.Output<string>;
+    declare public readonly target: pulumi.Output<string>;
     /**
      * Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
      *
      * The following arguments are optional:
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a DomainEntry resource with the given unique name, arguments, and options.
@@ -100,29 +100,29 @@ export class DomainEntry extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainEntryState | undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["isAlias"] = state ? state.isAlias : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["target"] = state ? state.target : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["isAlias"] = state?.isAlias;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["target"] = state?.target;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as DomainEntryArgs | undefined;
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["isAlias"] = args ? args.isAlias : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["isAlias"] = args?.isAlias;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainEntry.__pulumiType, name, resourceInputs, opts);

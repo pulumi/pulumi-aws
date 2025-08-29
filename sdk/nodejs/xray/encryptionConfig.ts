@@ -87,15 +87,15 @@ export class EncryptionConfig extends pulumi.CustomResource {
     /**
      * An AWS KMS customer master key (CMK) ARN.
      */
-    public readonly keyId!: pulumi.Output<string | undefined>;
+    declare public readonly keyId: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a EncryptionConfig resource with the given unique name, arguments, and options.
@@ -110,17 +110,17 @@ export class EncryptionConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EncryptionConfigState | undefined;
-            resourceInputs["keyId"] = state ? state.keyId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["keyId"] = state?.keyId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as EncryptionConfigArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["keyId"] = args ? args.keyId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["keyId"] = args?.keyId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EncryptionConfig.__pulumiType, name, resourceInputs, opts);

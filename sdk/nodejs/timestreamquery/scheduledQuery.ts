@@ -324,78 +324,78 @@ export class ScheduledQuery extends pulumi.CustomResource {
     /**
      * ARN of the Scheduled Query.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Creation time for the scheduled query.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Configuration block for error reporting configuration. See below.
      */
-    public readonly errorReportConfiguration!: pulumi.Output<outputs.timestreamquery.ScheduledQueryErrorReportConfiguration>;
+    declare public readonly errorReportConfiguration: pulumi.Output<outputs.timestreamquery.ScheduledQueryErrorReportConfiguration>;
     /**
      * ARN for the IAM role that Timestream will assume when running the scheduled query.
      */
-    public readonly executionRoleArn!: pulumi.Output<string>;
+    declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
      * Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Runtime summary for the last scheduled query run.
      */
-    public readonly lastRunSummaries!: pulumi.Output<outputs.timestreamquery.ScheduledQueryLastRunSummary[] | undefined>;
+    declare public readonly lastRunSummaries: pulumi.Output<outputs.timestreamquery.ScheduledQueryLastRunSummary[] | undefined>;
     /**
      * Name of the scheduled query.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Next time the scheduled query is scheduled to run.
      */
-    public /*out*/ readonly nextInvocationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextInvocationTime: pulumi.Output<string>;
     /**
      * Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
      */
-    public readonly notificationConfiguration!: pulumi.Output<outputs.timestreamquery.ScheduledQueryNotificationConfiguration>;
+    declare public readonly notificationConfiguration: pulumi.Output<outputs.timestreamquery.ScheduledQueryNotificationConfiguration>;
     /**
      * Last time the scheduled query was run.
      */
-    public /*out*/ readonly previousInvocationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly previousInvocationTime: pulumi.Output<string>;
     /**
      * Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      */
-    public readonly queryString!: pulumi.Output<string>;
+    declare public readonly queryString: pulumi.Output<string>;
     /**
      * Runtime summary for the last five failed scheduled query runs.
      */
-    public readonly recentlyFailedRuns!: pulumi.Output<outputs.timestreamquery.ScheduledQueryRecentlyFailedRun[] | undefined>;
+    declare public readonly recentlyFailedRuns: pulumi.Output<outputs.timestreamquery.ScheduledQueryRecentlyFailedRun[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration block for schedule configuration for the query. See below.
      */
-    public readonly scheduleConfiguration!: pulumi.Output<outputs.timestreamquery.ScheduledQueryScheduleConfiguration>;
+    declare public readonly scheduleConfiguration: pulumi.Output<outputs.timestreamquery.ScheduledQueryScheduleConfiguration>;
     /**
      * State of the scheduled query, either `ENABLED` or `DISABLED`.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for writing the result of a query. See below.
      *
      * The following arguments are optional:
      */
-    public readonly targetConfiguration!: pulumi.Output<outputs.timestreamquery.ScheduledQueryTargetConfiguration>;
-    public readonly timeouts!: pulumi.Output<outputs.timestreamquery.ScheduledQueryTimeouts | undefined>;
+    declare public readonly targetConfiguration: pulumi.Output<outputs.timestreamquery.ScheduledQueryTargetConfiguration>;
+    declare public readonly timeouts: pulumi.Output<outputs.timestreamquery.ScheduledQueryTimeouts | undefined>;
 
     /**
      * Create a ScheduledQuery resource with the given unique name, arguments, and options.
@@ -410,58 +410,58 @@ export class ScheduledQuery extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledQueryState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
-            resourceInputs["errorReportConfiguration"] = state ? state.errorReportConfiguration : undefined;
-            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["lastRunSummaries"] = state ? state.lastRunSummaries : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nextInvocationTime"] = state ? state.nextInvocationTime : undefined;
-            resourceInputs["notificationConfiguration"] = state ? state.notificationConfiguration : undefined;
-            resourceInputs["previousInvocationTime"] = state ? state.previousInvocationTime : undefined;
-            resourceInputs["queryString"] = state ? state.queryString : undefined;
-            resourceInputs["recentlyFailedRuns"] = state ? state.recentlyFailedRuns : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["scheduleConfiguration"] = state ? state.scheduleConfiguration : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["targetConfiguration"] = state ? state.targetConfiguration : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["creationTime"] = state?.creationTime;
+            resourceInputs["errorReportConfiguration"] = state?.errorReportConfiguration;
+            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["lastRunSummaries"] = state?.lastRunSummaries;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nextInvocationTime"] = state?.nextInvocationTime;
+            resourceInputs["notificationConfiguration"] = state?.notificationConfiguration;
+            resourceInputs["previousInvocationTime"] = state?.previousInvocationTime;
+            resourceInputs["queryString"] = state?.queryString;
+            resourceInputs["recentlyFailedRuns"] = state?.recentlyFailedRuns;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["scheduleConfiguration"] = state?.scheduleConfiguration;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetConfiguration"] = state?.targetConfiguration;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ScheduledQueryArgs | undefined;
-            if ((!args || args.errorReportConfiguration === undefined) && !opts.urn) {
+            if (args?.errorReportConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'errorReportConfiguration'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.notificationConfiguration === undefined) && !opts.urn) {
+            if (args?.notificationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationConfiguration'");
             }
-            if ((!args || args.queryString === undefined) && !opts.urn) {
+            if (args?.queryString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            if ((!args || args.scheduleConfiguration === undefined) && !opts.urn) {
+            if (args?.scheduleConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleConfiguration'");
             }
-            if ((!args || args.targetConfiguration === undefined) && !opts.urn) {
+            if (args?.targetConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetConfiguration'");
             }
-            resourceInputs["errorReportConfiguration"] = args ? args.errorReportConfiguration : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["lastRunSummaries"] = args ? args.lastRunSummaries : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
-            resourceInputs["recentlyFailedRuns"] = args ? args.recentlyFailedRuns : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["scheduleConfiguration"] = args ? args.scheduleConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetConfiguration"] = args ? args.targetConfiguration : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["errorReportConfiguration"] = args?.errorReportConfiguration;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["lastRunSummaries"] = args?.lastRunSummaries;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationConfiguration"] = args?.notificationConfiguration;
+            resourceInputs["queryString"] = args?.queryString;
+            resourceInputs["recentlyFailedRuns"] = args?.recentlyFailedRuns;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["scheduleConfiguration"] = args?.scheduleConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetConfiguration"] = args?.targetConfiguration;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["nextInvocationTime"] = undefined /*out*/;

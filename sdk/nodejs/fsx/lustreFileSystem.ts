@@ -65,150 +65,150 @@ export class LustreFileSystem extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
      */
-    public readonly autoImportPolicy!: pulumi.Output<string>;
+    declare public readonly autoImportPolicy: pulumi.Output<string>;
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      */
-    public readonly automaticBackupRetentionDays!: pulumi.Output<number>;
+    declare public readonly automaticBackupRetentionDays: pulumi.Output<number>;
     /**
      * The ID of the source backup to create the filesystem from.
      */
-    public readonly backupId!: pulumi.Output<string | undefined>;
+    declare public readonly backupId: pulumi.Output<string | undefined>;
     /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
      */
-    public readonly copyTagsToBackups!: pulumi.Output<boolean | undefined>;
+    declare public readonly copyTagsToBackups: pulumi.Output<boolean | undefined>;
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      */
-    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
+    declare public readonly dailyAutomaticBackupStartTime: pulumi.Output<string>;
     /**
      * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
      */
-    public readonly dataCompressionType!: pulumi.Output<string | undefined>;
-    public readonly dataReadCacheConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemDataReadCacheConfiguration | undefined>;
+    declare public readonly dataCompressionType: pulumi.Output<string | undefined>;
+    declare public readonly dataReadCacheConfiguration: pulumi.Output<outputs.fsx.LustreFileSystemDataReadCacheConfiguration | undefined>;
     /**
      * The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      */
-    public readonly deploymentType!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentType: pulumi.Output<string | undefined>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      */
-    public readonly driveCacheType!: pulumi.Output<string | undefined>;
+    declare public readonly driveCacheType: pulumi.Output<string | undefined>;
     /**
      * Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
      */
-    public readonly efaEnabled!: pulumi.Output<boolean>;
+    declare public readonly efaEnabled: pulumi.Output<boolean>;
     /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      */
-    public readonly exportPath!: pulumi.Output<string>;
+    declare public readonly exportPath: pulumi.Output<string>;
     /**
      * Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
      */
-    public readonly fileSystemTypeVersion!: pulumi.Output<string>;
+    declare public readonly fileSystemTypeVersion: pulumi.Output<string>;
     /**
      * A map of tags to apply to the file system's final backup.
      *
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      */
-    public readonly finalBackupTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly finalBackupTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
      */
-    public readonly importPath!: pulumi.Output<string | undefined>;
+    declare public readonly importPath: pulumi.Output<string | undefined>;
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
      */
-    public readonly importedFileChunkSize!: pulumi.Output<number>;
+    declare public readonly importedFileChunkSize: pulumi.Output<number>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemLogConfiguration>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.fsx.LustreFileSystemLogConfiguration>;
     /**
      * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      */
-    public readonly metadataConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemMetadataConfiguration>;
+    declare public readonly metadataConfiguration: pulumi.Output<outputs.fsx.LustreFileSystemMetadataConfiguration>;
     /**
      * The value to be used when mounting the filesystem.
      */
-    public /*out*/ readonly mountName!: pulumi.Output<string>;
+    declare public /*out*/ readonly mountName: pulumi.Output<string>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
      * AWS account identifier that created the file system.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and ` SSD` storageType are 125, 250, 500, 1000.
      */
-    public readonly perUnitStorageThroughput!: pulumi.Output<number | undefined>;
+    declare public readonly perUnitStorageThroughput: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      */
-    public readonly rootSquashConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemRootSquashConfiguration | undefined>;
+    declare public readonly rootSquashConfiguration: pulumi.Output<outputs.fsx.LustreFileSystemRootSquashConfiguration | undefined>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
      *
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      */
-    public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipFinalBackup: pulumi.Output<boolean | undefined>;
     /**
      * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      */
-    public readonly storageCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly storageCapacity: pulumi.Output<number | undefined>;
     /**
      * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      */
-    public readonly storageType!: pulumi.Output<string | undefined>;
+    declare public readonly storageType: pulumi.Output<string | undefined>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
      *
      * The following arguments are optional:
      */
-    public readonly subnetIds!: pulumi.Output<string>;
+    declare public readonly subnetIds: pulumi.Output<string>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
      */
-    public readonly throughputCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly throughputCapacity: pulumi.Output<number | undefined>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string>;
+    declare public readonly weeklyMaintenanceStartTime: pulumi.Output<string>;
 
     /**
      * Create a LustreFileSystem resource with the given unique name, arguments, and options.
@@ -223,76 +223,76 @@ export class LustreFileSystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LustreFileSystemState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoImportPolicy"] = state ? state.autoImportPolicy : undefined;
-            resourceInputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
-            resourceInputs["backupId"] = state ? state.backupId : undefined;
-            resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
-            resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
-            resourceInputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
-            resourceInputs["dataReadCacheConfiguration"] = state ? state.dataReadCacheConfiguration : undefined;
-            resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
-            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
-            resourceInputs["driveCacheType"] = state ? state.driveCacheType : undefined;
-            resourceInputs["efaEnabled"] = state ? state.efaEnabled : undefined;
-            resourceInputs["exportPath"] = state ? state.exportPath : undefined;
-            resourceInputs["fileSystemTypeVersion"] = state ? state.fileSystemTypeVersion : undefined;
-            resourceInputs["finalBackupTags"] = state ? state.finalBackupTags : undefined;
-            resourceInputs["importPath"] = state ? state.importPath : undefined;
-            resourceInputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
-            resourceInputs["metadataConfiguration"] = state ? state.metadataConfiguration : undefined;
-            resourceInputs["mountName"] = state ? state.mountName : undefined;
-            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["perUnitStorageThroughput"] = state ? state.perUnitStorageThroughput : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["rootSquashConfiguration"] = state ? state.rootSquashConfiguration : undefined;
-            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
-            resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
-            resourceInputs["storageType"] = state ? state.storageType : undefined;
-            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
-            resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoImportPolicy"] = state?.autoImportPolicy;
+            resourceInputs["automaticBackupRetentionDays"] = state?.automaticBackupRetentionDays;
+            resourceInputs["backupId"] = state?.backupId;
+            resourceInputs["copyTagsToBackups"] = state?.copyTagsToBackups;
+            resourceInputs["dailyAutomaticBackupStartTime"] = state?.dailyAutomaticBackupStartTime;
+            resourceInputs["dataCompressionType"] = state?.dataCompressionType;
+            resourceInputs["dataReadCacheConfiguration"] = state?.dataReadCacheConfiguration;
+            resourceInputs["deploymentType"] = state?.deploymentType;
+            resourceInputs["dnsName"] = state?.dnsName;
+            resourceInputs["driveCacheType"] = state?.driveCacheType;
+            resourceInputs["efaEnabled"] = state?.efaEnabled;
+            resourceInputs["exportPath"] = state?.exportPath;
+            resourceInputs["fileSystemTypeVersion"] = state?.fileSystemTypeVersion;
+            resourceInputs["finalBackupTags"] = state?.finalBackupTags;
+            resourceInputs["importPath"] = state?.importPath;
+            resourceInputs["importedFileChunkSize"] = state?.importedFileChunkSize;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["logConfiguration"] = state?.logConfiguration;
+            resourceInputs["metadataConfiguration"] = state?.metadataConfiguration;
+            resourceInputs["mountName"] = state?.mountName;
+            resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["perUnitStorageThroughput"] = state?.perUnitStorageThroughput;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["rootSquashConfiguration"] = state?.rootSquashConfiguration;
+            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
+            resourceInputs["skipFinalBackup"] = state?.skipFinalBackup;
+            resourceInputs["storageCapacity"] = state?.storageCapacity;
+            resourceInputs["storageType"] = state?.storageType;
+            resourceInputs["subnetIds"] = state?.subnetIds;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["throughputCapacity"] = state?.throughputCapacity;
+            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["weeklyMaintenanceStartTime"] = state?.weeklyMaintenanceStartTime;
         } else {
             const args = argsOrState as LustreFileSystemArgs | undefined;
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["autoImportPolicy"] = args ? args.autoImportPolicy : undefined;
-            resourceInputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
-            resourceInputs["backupId"] = args ? args.backupId : undefined;
-            resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
-            resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
-            resourceInputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
-            resourceInputs["dataReadCacheConfiguration"] = args ? args.dataReadCacheConfiguration : undefined;
-            resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
-            resourceInputs["driveCacheType"] = args ? args.driveCacheType : undefined;
-            resourceInputs["efaEnabled"] = args ? args.efaEnabled : undefined;
-            resourceInputs["exportPath"] = args ? args.exportPath : undefined;
-            resourceInputs["fileSystemTypeVersion"] = args ? args.fileSystemTypeVersion : undefined;
-            resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
-            resourceInputs["importPath"] = args ? args.importPath : undefined;
-            resourceInputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["metadataConfiguration"] = args ? args.metadataConfiguration : undefined;
-            resourceInputs["perUnitStorageThroughput"] = args ? args.perUnitStorageThroughput : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["rootSquashConfiguration"] = args ? args.rootSquashConfiguration : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
-            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
-            resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["autoImportPolicy"] = args?.autoImportPolicy;
+            resourceInputs["automaticBackupRetentionDays"] = args?.automaticBackupRetentionDays;
+            resourceInputs["backupId"] = args?.backupId;
+            resourceInputs["copyTagsToBackups"] = args?.copyTagsToBackups;
+            resourceInputs["dailyAutomaticBackupStartTime"] = args?.dailyAutomaticBackupStartTime;
+            resourceInputs["dataCompressionType"] = args?.dataCompressionType;
+            resourceInputs["dataReadCacheConfiguration"] = args?.dataReadCacheConfiguration;
+            resourceInputs["deploymentType"] = args?.deploymentType;
+            resourceInputs["driveCacheType"] = args?.driveCacheType;
+            resourceInputs["efaEnabled"] = args?.efaEnabled;
+            resourceInputs["exportPath"] = args?.exportPath;
+            resourceInputs["fileSystemTypeVersion"] = args?.fileSystemTypeVersion;
+            resourceInputs["finalBackupTags"] = args?.finalBackupTags;
+            resourceInputs["importPath"] = args?.importPath;
+            resourceInputs["importedFileChunkSize"] = args?.importedFileChunkSize;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
+            resourceInputs["perUnitStorageThroughput"] = args?.perUnitStorageThroughput;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["rootSquashConfiguration"] = args?.rootSquashConfiguration;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["skipFinalBackup"] = args?.skipFinalBackup;
+            resourceInputs["storageCapacity"] = args?.storageCapacity;
+            resourceInputs["storageType"] = args?.storageType;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throughputCapacity"] = args?.throughputCapacity;
+            resourceInputs["weeklyMaintenanceStartTime"] = args?.weeklyMaintenanceStartTime;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["mountName"] = undefined /*out*/;

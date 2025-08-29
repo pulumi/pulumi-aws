@@ -72,19 +72,19 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
     /**
      * The IAM inline policy to attach to a Permission Set.
      */
-    public readonly inlinePolicy!: pulumi.Output<string>;
+    declare public readonly inlinePolicy: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
-    public readonly permissionSetArn!: pulumi.Output<string>;
+    declare public readonly permissionSetArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a PermissionSetInlinePolicy resource with the given unique name, arguments, and options.
@@ -99,25 +99,25 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionSetInlinePolicyState | undefined;
-            resourceInputs["inlinePolicy"] = state ? state.inlinePolicy : undefined;
-            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
-            resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["inlinePolicy"] = state?.inlinePolicy;
+            resourceInputs["instanceArn"] = state?.instanceArn;
+            resourceInputs["permissionSetArn"] = state?.permissionSetArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as PermissionSetInlinePolicyArgs | undefined;
-            if ((!args || args.inlinePolicy === undefined) && !opts.urn) {
+            if (args?.inlinePolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inlinePolicy'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
+            if (args?.permissionSetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
-            resourceInputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["inlinePolicy"] = args?.inlinePolicy;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["permissionSetArn"] = args?.permissionSetArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PermissionSetInlinePolicy.__pulumiType, name, resourceInputs, opts);

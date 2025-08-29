@@ -67,40 +67,40 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
     /**
      * Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
      */
-    public readonly anomalyVisibilityTime!: pulumi.Output<number>;
+    declare public readonly anomalyVisibilityTime: pulumi.Output<number>;
     /**
      * ARN of the log anomaly detector that you just created.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name for this anomaly detector.
      */
-    public readonly detectorName!: pulumi.Output<string | undefined>;
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly detectorName: pulumi.Output<string | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
      */
-    public readonly evaluationFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly evaluationFrequency: pulumi.Output<string | undefined>;
     /**
      * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
-    public readonly filterPattern!: pulumi.Output<string | undefined>;
+    declare public readonly filterPattern: pulumi.Output<string | undefined>;
     /**
      * Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
      *
      * The following arguments are optional:
      */
-    public readonly logGroupArnLists!: pulumi.Output<string[]>;
+    declare public readonly logGroupArnLists: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a LogAnomalyDetector resource with the given unique name, arguments, and options.
@@ -115,34 +115,34 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogAnomalyDetectorState | undefined;
-            resourceInputs["anomalyVisibilityTime"] = state ? state.anomalyVisibilityTime : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["detectorName"] = state ? state.detectorName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["evaluationFrequency"] = state ? state.evaluationFrequency : undefined;
-            resourceInputs["filterPattern"] = state ? state.filterPattern : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["logGroupArnLists"] = state ? state.logGroupArnLists : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["anomalyVisibilityTime"] = state?.anomalyVisibilityTime;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["detectorName"] = state?.detectorName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["evaluationFrequency"] = state?.evaluationFrequency;
+            resourceInputs["filterPattern"] = state?.filterPattern;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["logGroupArnLists"] = state?.logGroupArnLists;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as LogAnomalyDetectorArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.logGroupArnLists === undefined) && !opts.urn) {
+            if (args?.logGroupArnLists === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logGroupArnLists'");
             }
-            resourceInputs["anomalyVisibilityTime"] = args ? args.anomalyVisibilityTime : undefined;
-            resourceInputs["detectorName"] = args ? args.detectorName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
-            resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logGroupArnLists"] = args ? args.logGroupArnLists : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["anomalyVisibilityTime"] = args?.anomalyVisibilityTime;
+            resourceInputs["detectorName"] = args?.detectorName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["evaluationFrequency"] = args?.evaluationFrequency;
+            resourceInputs["filterPattern"] = args?.filterPattern;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["logGroupArnLists"] = args?.logGroupArnLists;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

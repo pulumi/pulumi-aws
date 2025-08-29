@@ -101,40 +101,40 @@ export class Replicator extends pulumi.CustomResource {
     /**
      * ARN of the Replicator.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
      * A summary description of the replicator.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A list of Kafka clusters which are targets of the replicator.
      */
-    public readonly kafkaClusters!: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
+    declare public readonly kafkaClusters: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
-    public readonly replicationInfoList!: pulumi.Output<outputs.msk.ReplicatorReplicationInfoList>;
+    declare public readonly replicationInfoList: pulumi.Output<outputs.msk.ReplicatorReplicationInfoList>;
     /**
      * The name of the replicator.
      */
-    public readonly replicatorName!: pulumi.Output<string>;
+    declare public readonly replicatorName: pulumi.Output<string>;
     /**
      * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
      */
-    public readonly serviceExecutionRoleArn!: pulumi.Output<string>;
+    declare public readonly serviceExecutionRoleArn: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Replicator resource with the given unique name, arguments, and options.
@@ -149,37 +149,37 @@ export class Replicator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicatorState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["currentVersion"] = state ? state.currentVersion : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["kafkaClusters"] = state ? state.kafkaClusters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replicationInfoList"] = state ? state.replicationInfoList : undefined;
-            resourceInputs["replicatorName"] = state ? state.replicatorName : undefined;
-            resourceInputs["serviceExecutionRoleArn"] = state ? state.serviceExecutionRoleArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["currentVersion"] = state?.currentVersion;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["kafkaClusters"] = state?.kafkaClusters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["replicationInfoList"] = state?.replicationInfoList;
+            resourceInputs["replicatorName"] = state?.replicatorName;
+            resourceInputs["serviceExecutionRoleArn"] = state?.serviceExecutionRoleArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ReplicatorArgs | undefined;
-            if ((!args || args.kafkaClusters === undefined) && !opts.urn) {
+            if (args?.kafkaClusters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaClusters'");
             }
-            if ((!args || args.replicationInfoList === undefined) && !opts.urn) {
+            if (args?.replicationInfoList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationInfoList'");
             }
-            if ((!args || args.replicatorName === undefined) && !opts.urn) {
+            if (args?.replicatorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicatorName'");
             }
-            if ((!args || args.serviceExecutionRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRoleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kafkaClusters"] = args ? args.kafkaClusters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replicationInfoList"] = args ? args.replicationInfoList : undefined;
-            resourceInputs["replicatorName"] = args ? args.replicatorName : undefined;
-            resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kafkaClusters"] = args?.kafkaClusters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replicationInfoList"] = args?.replicationInfoList;
+            resourceInputs["replicatorName"] = args?.replicatorName;
+            resourceInputs["serviceExecutionRoleArn"] = args?.serviceExecutionRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -61,23 +61,23 @@ export class OrganizationConfigurationFeature extends pulumi.CustomResource {
     /**
      * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      */
-    public readonly additionalConfigurations!: pulumi.Output<outputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration[] | undefined>;
+    declare public readonly additionalConfigurations: pulumi.Output<outputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration[] | undefined>;
     /**
      * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      */
-    public readonly autoEnable!: pulumi.Output<string>;
+    declare public readonly autoEnable: pulumi.Output<string>;
     /**
      * The ID of the detector that configures the delegated administrator.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfigurationFeature resource with the given unique name, arguments, and options.
@@ -92,24 +92,24 @@ export class OrganizationConfigurationFeature extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationConfigurationFeatureState | undefined;
-            resourceInputs["additionalConfigurations"] = state ? state.additionalConfigurations : undefined;
-            resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
-            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["additionalConfigurations"] = state?.additionalConfigurations;
+            resourceInputs["autoEnable"] = state?.autoEnable;
+            resourceInputs["detectorId"] = state?.detectorId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as OrganizationConfigurationFeatureArgs | undefined;
-            if ((!args || args.autoEnable === undefined) && !opts.urn) {
+            if (args?.autoEnable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoEnable'");
             }
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            resourceInputs["additionalConfigurations"] = args ? args.additionalConfigurations : undefined;
-            resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["additionalConfigurations"] = args?.additionalConfigurations;
+            resourceInputs["autoEnable"] = args?.autoEnable;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationConfigurationFeature.__pulumiType, name, resourceInputs, opts);

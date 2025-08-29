@@ -70,53 +70,53 @@ export class SigningProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the signing profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * A human-readable name for the signing platform associated with the signing profile.
      */
-    public /*out*/ readonly platformDisplayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly platformDisplayName: pulumi.Output<string>;
     /**
      * The ID of the platform that is used by the target signing profile.
      */
-    public readonly platformId!: pulumi.Output<string>;
+    declare public readonly platformId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Revocation information for a signing profile. See `revocationRecord` Block below for details.
      */
-    public /*out*/ readonly revocationRecords!: pulumi.Output<outputs.signer.SigningProfileRevocationRecord[]>;
+    declare public /*out*/ readonly revocationRecords: pulumi.Output<outputs.signer.SigningProfileRevocationRecord[]>;
     /**
      * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      */
-    public readonly signatureValidityPeriod!: pulumi.Output<outputs.signer.SigningProfileSignatureValidityPeriod>;
+    declare public readonly signatureValidityPeriod: pulumi.Output<outputs.signer.SigningProfileSignatureValidityPeriod>;
     /**
      * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
      */
-    public readonly signingMaterial!: pulumi.Output<outputs.signer.SigningProfileSigningMaterial>;
+    declare public readonly signingMaterial: pulumi.Output<outputs.signer.SigningProfileSigningMaterial>;
     /**
      * The status of the target signing profile.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The current version of the signing profile.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
     /**
      * The signing profile ARN, including the profile version.
      */
-    public /*out*/ readonly versionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionArn: pulumi.Output<string>;
 
     /**
      * Create a SigningProfile resource with the given unique name, arguments, and options.
@@ -131,32 +131,32 @@ export class SigningProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SigningProfileState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["platformDisplayName"] = state ? state.platformDisplayName : undefined;
-            resourceInputs["platformId"] = state ? state.platformId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["revocationRecords"] = state ? state.revocationRecords : undefined;
-            resourceInputs["signatureValidityPeriod"] = state ? state.signatureValidityPeriod : undefined;
-            resourceInputs["signingMaterial"] = state ? state.signingMaterial : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["versionArn"] = state ? state.versionArn : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["platformDisplayName"] = state?.platformDisplayName;
+            resourceInputs["platformId"] = state?.platformId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["revocationRecords"] = state?.revocationRecords;
+            resourceInputs["signatureValidityPeriod"] = state?.signatureValidityPeriod;
+            resourceInputs["signingMaterial"] = state?.signingMaterial;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["versionArn"] = state?.versionArn;
         } else {
             const args = argsOrState as SigningProfileArgs | undefined;
-            if ((!args || args.platformId === undefined) && !opts.urn) {
+            if (args?.platformId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platformId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["platformId"] = args ? args.platformId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
-            resourceInputs["signingMaterial"] = args ? args.signingMaterial : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["platformId"] = args?.platformId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["signatureValidityPeriod"] = args?.signatureValidityPeriod;
+            resourceInputs["signingMaterial"] = args?.signingMaterial;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["platformDisplayName"] = undefined /*out*/;
             resourceInputs["revocationRecords"] = undefined /*out*/;

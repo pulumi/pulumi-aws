@@ -75,156 +75,156 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
      */
-    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowMajorVersionUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether any cluster modifications
      * are applied immediately, or during the next maintenance window. Default is
      * `false`.
      */
-    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
+    declare public readonly applyImmediately: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of cluster
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A list of EC2 Availability Zones that
      * instances in the DB cluster can be created in.
      */
-    public readonly availabilityZones!: pulumi.Output<string[]>;
+    declare public readonly availabilityZones: pulumi.Output<string[]>;
     /**
      * The days to retain backups for. Default `1`
      */
-    public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly backupRetentionPeriod: pulumi.Output<number | undefined>;
     /**
      * The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
-    public readonly clusterIdentifierPrefix!: pulumi.Output<string>;
+    declare public readonly clusterIdentifierPrefix: pulumi.Output<string>;
     /**
      * List of DocumentDB Instances that are a part of this cluster
      */
-    public readonly clusterMembers!: pulumi.Output<string[]>;
+    declare public readonly clusterMembers: pulumi.Output<string[]>;
     /**
      * The DocumentDB Cluster Resource ID
      */
-    public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterResourceId: pulumi.Output<string>;
     /**
      * A cluster parameter group to associate with the cluster.
      */
-    public readonly dbClusterParameterGroupName!: pulumi.Output<string>;
+    declare public readonly dbClusterParameterGroupName: pulumi.Output<string>;
     /**
      * A DB subnet group to associate with this DB instance.
      */
-    public readonly dbSubnetGroupName!: pulumi.Output<string>;
+    declare public readonly dbSubnetGroupName: pulumi.Output<string>;
     /**
      * A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
      */
-    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      */
-    public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
+    declare public readonly enabledCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
     /**
      * The DNS address of the DocumentDB instance
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      */
-    public readonly engine!: pulumi.Output<string | undefined>;
+    declare public readonly engine: pulumi.Output<string | undefined>;
     /**
      * The database engine version. Updating this argument results in an outage.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    declare public readonly engineVersion: pulumi.Output<string>;
     /**
      * The name of your final DB snapshot
      * when this DB cluster is deleted. If omitted, no final snapshot will be
      * made.
      */
-    public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly finalSnapshotIdentifier: pulumi.Output<string | undefined>;
     /**
      * The global cluster identifier specified on `aws.docdb.GlobalCluster`.
      */
-    public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly globalClusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
-    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
      */
-    public readonly manageMasterUserPassword!: pulumi.Output<boolean | undefined>;
+    declare public readonly manageMasterUserPassword: pulumi.Output<boolean | undefined>;
     /**
      * Password for the master DB user. Note that this may
      * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
-    public readonly masterPassword!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.docdb.ClusterMasterUserSecret[]>;
+    declare public readonly masterPassword: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly masterUserSecrets: pulumi.Output<outputs.docdb.ClusterMasterUserSecret[]>;
     /**
      * Username for the master DB user.
      */
-    public readonly masterUsername!: pulumi.Output<string>;
+    declare public readonly masterUsername: pulumi.Output<string>;
     /**
      * The port on which the DB accepts connections
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
      * Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
-    public readonly preferredBackupWindow!: pulumi.Output<string>;
+    declare public readonly preferredBackupWindow: pulumi.Output<string>;
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
     /**
      * A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      */
-    public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly readerEndpoint: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      */
-    public readonly restoreToPointInTime!: pulumi.Output<outputs.docdb.ClusterRestoreToPointInTime | undefined>;
+    declare public readonly restoreToPointInTime: pulumi.Output<outputs.docdb.ClusterRestoreToPointInTime | undefined>;
     /**
      * Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
      */
-    public readonly serverlessV2ScalingConfiguration!: pulumi.Output<outputs.docdb.ClusterServerlessV2ScalingConfiguration | undefined>;
+    declare public readonly serverlessV2ScalingConfiguration: pulumi.Output<outputs.docdb.ClusterServerlessV2ScalingConfiguration | undefined>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
-    public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipFinalSnapshot: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
-    public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotIdentifier: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      */
-    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
+    declare public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
     /**
      * The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
      */
-    public readonly storageType!: pulumi.Output<string | undefined>;
+    declare public readonly storageType: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
@@ -232,7 +232,7 @@ export class Cluster extends pulumi.CustomResource {
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -247,77 +247,77 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
-            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            resourceInputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
-            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            resourceInputs["clusterIdentifierPrefix"] = state ? state.clusterIdentifierPrefix : undefined;
-            resourceInputs["clusterMembers"] = state ? state.clusterMembers : undefined;
-            resourceInputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
-            resourceInputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
-            resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
-            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
-            resourceInputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["engine"] = state ? state.engine : undefined;
-            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
-            resourceInputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
-            resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
-            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["manageMasterUserPassword"] = state ? state.manageMasterUserPassword : undefined;
-            resourceInputs["masterPassword"] = state ? state.masterPassword : undefined;
-            resourceInputs["masterUserSecrets"] = state ? state.masterUserSecrets : undefined;
-            resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            resourceInputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
-            resourceInputs["serverlessV2ScalingConfiguration"] = state ? state.serverlessV2ScalingConfiguration : undefined;
-            resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
-            resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
-            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
-            resourceInputs["storageType"] = state ? state.storageType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["allowMajorVersionUpgrade"] = state?.allowMajorVersionUpgrade;
+            resourceInputs["applyImmediately"] = state?.applyImmediately;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["availabilityZones"] = state?.availabilityZones;
+            resourceInputs["backupRetentionPeriod"] = state?.backupRetentionPeriod;
+            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
+            resourceInputs["clusterIdentifierPrefix"] = state?.clusterIdentifierPrefix;
+            resourceInputs["clusterMembers"] = state?.clusterMembers;
+            resourceInputs["clusterResourceId"] = state?.clusterResourceId;
+            resourceInputs["dbClusterParameterGroupName"] = state?.dbClusterParameterGroupName;
+            resourceInputs["dbSubnetGroupName"] = state?.dbSubnetGroupName;
+            resourceInputs["deletionProtection"] = state?.deletionProtection;
+            resourceInputs["enabledCloudwatchLogsExports"] = state?.enabledCloudwatchLogsExports;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["engine"] = state?.engine;
+            resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["finalSnapshotIdentifier"] = state?.finalSnapshotIdentifier;
+            resourceInputs["globalClusterIdentifier"] = state?.globalClusterIdentifier;
+            resourceInputs["hostedZoneId"] = state?.hostedZoneId;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["manageMasterUserPassword"] = state?.manageMasterUserPassword;
+            resourceInputs["masterPassword"] = state?.masterPassword;
+            resourceInputs["masterUserSecrets"] = state?.masterUserSecrets;
+            resourceInputs["masterUsername"] = state?.masterUsername;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["preferredBackupWindow"] = state?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
+            resourceInputs["readerEndpoint"] = state?.readerEndpoint;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["restoreToPointInTime"] = state?.restoreToPointInTime;
+            resourceInputs["serverlessV2ScalingConfiguration"] = state?.serverlessV2ScalingConfiguration;
+            resourceInputs["skipFinalSnapshot"] = state?.skipFinalSnapshot;
+            resourceInputs["snapshotIdentifier"] = state?.snapshotIdentifier;
+            resourceInputs["storageEncrypted"] = state?.storageEncrypted;
+            resourceInputs["storageType"] = state?.storageType;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
-            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["clusterIdentifierPrefix"] = args ? args.clusterIdentifierPrefix : undefined;
-            resourceInputs["clusterMembers"] = args ? args.clusterMembers : undefined;
-            resourceInputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
-            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
-            resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["manageMasterUserPassword"] = args ? args.manageMasterUserPassword : undefined;
+            resourceInputs["allowMajorVersionUpgrade"] = args?.allowMajorVersionUpgrade;
+            resourceInputs["applyImmediately"] = args?.applyImmediately;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["backupRetentionPeriod"] = args?.backupRetentionPeriod;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["clusterIdentifierPrefix"] = args?.clusterIdentifierPrefix;
+            resourceInputs["clusterMembers"] = args?.clusterMembers;
+            resourceInputs["dbClusterParameterGroupName"] = args?.dbClusterParameterGroupName;
+            resourceInputs["dbSubnetGroupName"] = args?.dbSubnetGroupName;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["enabledCloudwatchLogsExports"] = args?.enabledCloudwatchLogsExports;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["finalSnapshotIdentifier"] = args?.finalSnapshotIdentifier;
+            resourceInputs["globalClusterIdentifier"] = args?.globalClusterIdentifier;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["manageMasterUserPassword"] = args?.manageMasterUserPassword;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
-            resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
-            resourceInputs["serverlessV2ScalingConfiguration"] = args ? args.serverlessV2ScalingConfiguration : undefined;
-            resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
-            resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
-            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["masterUsername"] = args?.masterUsername;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["restoreToPointInTime"] = args?.restoreToPointInTime;
+            resourceInputs["serverlessV2ScalingConfiguration"] = args?.serverlessV2ScalingConfiguration;
+            resourceInputs["skipFinalSnapshot"] = args?.skipFinalSnapshot;
+            resourceInputs["snapshotIdentifier"] = args?.snapshotIdentifier;
+            resourceInputs["storageEncrypted"] = args?.storageEncrypted;
+            resourceInputs["storageType"] = args?.storageType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

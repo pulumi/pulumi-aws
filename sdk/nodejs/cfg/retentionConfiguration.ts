@@ -56,15 +56,15 @@ export class RetentionConfiguration extends pulumi.CustomResource {
     /**
      * The name of the retention configuration object. The object is always named **default**.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The number of days AWS Config stores historical information.
      */
-    public readonly retentionPeriodInDays!: pulumi.Output<number>;
+    declare public readonly retentionPeriodInDays: pulumi.Output<number>;
 
     /**
      * Create a RetentionConfiguration resource with the given unique name, arguments, and options.
@@ -79,16 +79,16 @@ export class RetentionConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RetentionConfigurationState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["retentionPeriodInDays"] = state ? state.retentionPeriodInDays : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["retentionPeriodInDays"] = state?.retentionPeriodInDays;
         } else {
             const args = argsOrState as RetentionConfigurationArgs | undefined;
-            if ((!args || args.retentionPeriodInDays === undefined) && !opts.urn) {
+            if (args?.retentionPeriodInDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionPeriodInDays'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["retentionPeriodInDays"] = args ? args.retentionPeriodInDays : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["retentionPeriodInDays"] = args?.retentionPeriodInDays;
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

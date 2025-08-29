@@ -63,69 +63,69 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * Potential intermediate components of a feasible path. Described below.
      */
-    public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
+    declare public /*out*/ readonly alternatePathHints: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
     /**
      * ARN of the Network Insights Analysis.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      */
-    public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
+    declare public /*out*/ readonly explanations: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
     /**
      * A list of ARNs for resources the path must traverse.
      */
-    public readonly filterInArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly filterInArns: pulumi.Output<string[] | undefined>;
     /**
      * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisForwardPathComponent[]>;
+    declare public /*out*/ readonly forwardPathComponents: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisForwardPathComponent[]>;
     /**
      * ID of the Network Insights Path to run an analysis on.
      *
      * The following arguments are optional:
      */
-    public readonly networkInsightsPathId!: pulumi.Output<string>;
+    declare public readonly networkInsightsPathId: pulumi.Output<string>;
     /**
      * Set to `true` if the destination was reachable.
      */
-    public /*out*/ readonly pathFound!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly pathFound: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisReturnPathComponent[]>;
+    declare public /*out*/ readonly returnPathComponents: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisReturnPathComponent[]>;
     /**
      * The date/time the analysis was started.
      */
-    public /*out*/ readonly startDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly startDate: pulumi.Output<string>;
     /**
      * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A message to provide more context when the `status` is `failed`.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      */
-    public readonly waitForCompletion!: pulumi.Output<boolean | undefined>;
+    declare public readonly waitForCompletion: pulumi.Output<boolean | undefined>;
     /**
      * The warning message.
      */
-    public /*out*/ readonly warningMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly warningMessage: pulumi.Output<string>;
 
     /**
      * Create a NetworkInsightsAnalysis resource with the given unique name, arguments, and options.
@@ -140,32 +140,32 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInsightsAnalysisState | undefined;
-            resourceInputs["alternatePathHints"] = state ? state.alternatePathHints : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["explanations"] = state ? state.explanations : undefined;
-            resourceInputs["filterInArns"] = state ? state.filterInArns : undefined;
-            resourceInputs["forwardPathComponents"] = state ? state.forwardPathComponents : undefined;
-            resourceInputs["networkInsightsPathId"] = state ? state.networkInsightsPathId : undefined;
-            resourceInputs["pathFound"] = state ? state.pathFound : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["returnPathComponents"] = state ? state.returnPathComponents : undefined;
-            resourceInputs["startDate"] = state ? state.startDate : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["statusMessage"] = state ? state.statusMessage : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["waitForCompletion"] = state ? state.waitForCompletion : undefined;
-            resourceInputs["warningMessage"] = state ? state.warningMessage : undefined;
+            resourceInputs["alternatePathHints"] = state?.alternatePathHints;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["explanations"] = state?.explanations;
+            resourceInputs["filterInArns"] = state?.filterInArns;
+            resourceInputs["forwardPathComponents"] = state?.forwardPathComponents;
+            resourceInputs["networkInsightsPathId"] = state?.networkInsightsPathId;
+            resourceInputs["pathFound"] = state?.pathFound;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["returnPathComponents"] = state?.returnPathComponents;
+            resourceInputs["startDate"] = state?.startDate;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["statusMessage"] = state?.statusMessage;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["waitForCompletion"] = state?.waitForCompletion;
+            resourceInputs["warningMessage"] = state?.warningMessage;
         } else {
             const args = argsOrState as NetworkInsightsAnalysisArgs | undefined;
-            if ((!args || args.networkInsightsPathId === undefined) && !opts.urn) {
+            if (args?.networkInsightsPathId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInsightsPathId'");
             }
-            resourceInputs["filterInArns"] = args ? args.filterInArns : undefined;
-            resourceInputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["waitForCompletion"] = args ? args.waitForCompletion : undefined;
+            resourceInputs["filterInArns"] = args?.filterInArns;
+            resourceInputs["networkInsightsPathId"] = args?.networkInsightsPathId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["waitForCompletion"] = args?.waitForCompletion;
             resourceInputs["alternatePathHints"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["explanations"] = undefined /*out*/;

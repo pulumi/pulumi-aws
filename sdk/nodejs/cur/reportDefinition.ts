@@ -73,59 +73,59 @@ export class ReportDefinition extends pulumi.CustomResource {
     /**
      * A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
      */
-    public readonly additionalArtifacts!: pulumi.Output<string[] | undefined>;
+    declare public readonly additionalArtifacts: pulumi.Output<string[] | undefined>;
     /**
      * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      */
-    public readonly additionalSchemaElements!: pulumi.Output<string[]>;
+    declare public readonly additionalSchemaElements: pulumi.Output<string[]>;
     /**
      * The Amazon Resource Name (ARN) specifying the cur report.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
      */
-    public readonly compression!: pulumi.Output<string>;
+    declare public readonly compression: pulumi.Output<string>;
     /**
      * Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
      */
-    public readonly format!: pulumi.Output<string>;
+    declare public readonly format: pulumi.Output<string>;
     /**
      * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
      */
-    public readonly refreshClosedReports!: pulumi.Output<boolean | undefined>;
+    declare public readonly refreshClosedReports: pulumi.Output<boolean | undefined>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
-    public readonly reportName!: pulumi.Output<string>;
+    declare public readonly reportName: pulumi.Output<string>;
     /**
      * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
      */
-    public readonly reportVersioning!: pulumi.Output<string | undefined>;
+    declare public readonly reportVersioning: pulumi.Output<string | undefined>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
-    public readonly s3Bucket!: pulumi.Output<string>;
+    declare public readonly s3Bucket: pulumi.Output<string>;
     /**
      * Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
      */
-    public readonly s3Prefix!: pulumi.Output<string>;
+    declare public readonly s3Prefix: pulumi.Output<string>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */
-    public readonly s3Region!: pulumi.Output<string>;
+    declare public readonly s3Region: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      */
-    public readonly timeUnit!: pulumi.Output<string>;
+    declare public readonly timeUnit: pulumi.Output<string>;
 
     /**
      * Create a ReportDefinition resource with the given unique name, arguments, and options.
@@ -140,58 +140,58 @@ export class ReportDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReportDefinitionState | undefined;
-            resourceInputs["additionalArtifacts"] = state ? state.additionalArtifacts : undefined;
-            resourceInputs["additionalSchemaElements"] = state ? state.additionalSchemaElements : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["compression"] = state ? state.compression : undefined;
-            resourceInputs["format"] = state ? state.format : undefined;
-            resourceInputs["refreshClosedReports"] = state ? state.refreshClosedReports : undefined;
-            resourceInputs["reportName"] = state ? state.reportName : undefined;
-            resourceInputs["reportVersioning"] = state ? state.reportVersioning : undefined;
-            resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
-            resourceInputs["s3Prefix"] = state ? state.s3Prefix : undefined;
-            resourceInputs["s3Region"] = state ? state.s3Region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeUnit"] = state ? state.timeUnit : undefined;
+            resourceInputs["additionalArtifacts"] = state?.additionalArtifacts;
+            resourceInputs["additionalSchemaElements"] = state?.additionalSchemaElements;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["compression"] = state?.compression;
+            resourceInputs["format"] = state?.format;
+            resourceInputs["refreshClosedReports"] = state?.refreshClosedReports;
+            resourceInputs["reportName"] = state?.reportName;
+            resourceInputs["reportVersioning"] = state?.reportVersioning;
+            resourceInputs["s3Bucket"] = state?.s3Bucket;
+            resourceInputs["s3Prefix"] = state?.s3Prefix;
+            resourceInputs["s3Region"] = state?.s3Region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeUnit"] = state?.timeUnit;
         } else {
             const args = argsOrState as ReportDefinitionArgs | undefined;
-            if ((!args || args.additionalSchemaElements === undefined) && !opts.urn) {
+            if (args?.additionalSchemaElements === undefined && !opts.urn) {
                 throw new Error("Missing required property 'additionalSchemaElements'");
             }
-            if ((!args || args.compression === undefined) && !opts.urn) {
+            if (args?.compression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'compression'");
             }
-            if ((!args || args.format === undefined) && !opts.urn) {
+            if (args?.format === undefined && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if ((!args || args.reportName === undefined) && !opts.urn) {
+            if (args?.reportName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportName'");
             }
-            if ((!args || args.s3Bucket === undefined) && !opts.urn) {
+            if (args?.s3Bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Bucket'");
             }
-            if ((!args || args.s3Prefix === undefined) && !opts.urn) {
+            if (args?.s3Prefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Prefix'");
             }
-            if ((!args || args.s3Region === undefined) && !opts.urn) {
+            if (args?.s3Region === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Region'");
             }
-            if ((!args || args.timeUnit === undefined) && !opts.urn) {
+            if (args?.timeUnit === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeUnit'");
             }
-            resourceInputs["additionalArtifacts"] = args ? args.additionalArtifacts : undefined;
-            resourceInputs["additionalSchemaElements"] = args ? args.additionalSchemaElements : undefined;
-            resourceInputs["compression"] = args ? args.compression : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["refreshClosedReports"] = args ? args.refreshClosedReports : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["reportVersioning"] = args ? args.reportVersioning : undefined;
-            resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
-            resourceInputs["s3Prefix"] = args ? args.s3Prefix : undefined;
-            resourceInputs["s3Region"] = args ? args.s3Region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeUnit"] = args ? args.timeUnit : undefined;
+            resourceInputs["additionalArtifacts"] = args?.additionalArtifacts;
+            resourceInputs["additionalSchemaElements"] = args?.additionalSchemaElements;
+            resourceInputs["compression"] = args?.compression;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["refreshClosedReports"] = args?.refreshClosedReports;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["reportVersioning"] = args?.reportVersioning;
+            resourceInputs["s3Bucket"] = args?.s3Bucket;
+            resourceInputs["s3Prefix"] = args?.s3Prefix;
+            resourceInputs["s3Region"] = args?.s3Region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeUnit"] = args?.timeUnit;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

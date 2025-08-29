@@ -213,73 +213,73 @@ export class Record extends pulumi.CustomResource {
      * An alias block. Conflicts with `ttl` & `records`.
      * Documented below.
      */
-    public readonly aliases!: pulumi.Output<outputs.route53.RecordAlias[] | undefined>;
+    declare public readonly aliases: pulumi.Output<outputs.route53.RecordAlias[] | undefined>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
      *
      * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
-    public readonly allowOverwrite!: pulumi.Output<boolean>;
+    declare public readonly allowOverwrite: pulumi.Output<boolean>;
     /**
      * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
      */
-    public readonly cidrRoutingPolicy!: pulumi.Output<outputs.route53.RecordCidrRoutingPolicy | undefined>;
+    declare public readonly cidrRoutingPolicy: pulumi.Output<outputs.route53.RecordCidrRoutingPolicy | undefined>;
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    public readonly failoverRoutingPolicies!: pulumi.Output<outputs.route53.RecordFailoverRoutingPolicy[] | undefined>;
+    declare public readonly failoverRoutingPolicies: pulumi.Output<outputs.route53.RecordFailoverRoutingPolicy[] | undefined>;
     /**
      * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    public readonly geolocationRoutingPolicies!: pulumi.Output<outputs.route53.RecordGeolocationRoutingPolicy[] | undefined>;
+    declare public readonly geolocationRoutingPolicies: pulumi.Output<outputs.route53.RecordGeolocationRoutingPolicy[] | undefined>;
     /**
      * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    public readonly geoproximityRoutingPolicy!: pulumi.Output<outputs.route53.RecordGeoproximityRoutingPolicy | undefined>;
+    declare public readonly geoproximityRoutingPolicy: pulumi.Output<outputs.route53.RecordGeoproximityRoutingPolicy | undefined>;
     /**
      * The health check the record should be associated with.
      */
-    public readonly healthCheckId!: pulumi.Output<string | undefined>;
+    declare public readonly healthCheckId: pulumi.Output<string | undefined>;
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    public readonly latencyRoutingPolicies!: pulumi.Output<outputs.route53.RecordLatencyRoutingPolicy[] | undefined>;
+    declare public readonly latencyRoutingPolicies: pulumi.Output<outputs.route53.RecordLatencyRoutingPolicy[] | undefined>;
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      */
-    public readonly multivalueAnswerRoutingPolicy!: pulumi.Output<boolean | undefined>;
+    declare public readonly multivalueAnswerRoutingPolicy: pulumi.Output<boolean | undefined>;
     /**
      * The name of the record.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
      */
-    public readonly records!: pulumi.Output<string[] | undefined>;
+    declare public readonly records: pulumi.Output<string[] | undefined>;
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
-    public readonly setIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly setIdentifier: pulumi.Output<string | undefined>;
     /**
      * The TTL of the record.
      */
-    public readonly ttl!: pulumi.Output<number | undefined>;
+    declare public readonly ttl: pulumi.Output<number | undefined>;
     /**
      * The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    public readonly weightedRoutingPolicies!: pulumi.Output<outputs.route53.RecordWeightedRoutingPolicy[] | undefined>;
+    declare public readonly weightedRoutingPolicies: pulumi.Output<outputs.route53.RecordWeightedRoutingPolicy[] | undefined>;
     /**
      * The ID of the hosted zone to contain this record.
      */
-    public readonly zoneId!: pulumi.Output<string>;
+    declare public readonly zoneId: pulumi.Output<string>;
 
     /**
      * Create a Record resource with the given unique name, arguments, and options.
@@ -294,50 +294,50 @@ export class Record extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecordState | undefined;
-            resourceInputs["aliases"] = state ? state.aliases : undefined;
-            resourceInputs["allowOverwrite"] = state ? state.allowOverwrite : undefined;
-            resourceInputs["cidrRoutingPolicy"] = state ? state.cidrRoutingPolicy : undefined;
-            resourceInputs["failoverRoutingPolicies"] = state ? state.failoverRoutingPolicies : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["geolocationRoutingPolicies"] = state ? state.geolocationRoutingPolicies : undefined;
-            resourceInputs["geoproximityRoutingPolicy"] = state ? state.geoproximityRoutingPolicy : undefined;
-            resourceInputs["healthCheckId"] = state ? state.healthCheckId : undefined;
-            resourceInputs["latencyRoutingPolicies"] = state ? state.latencyRoutingPolicies : undefined;
-            resourceInputs["multivalueAnswerRoutingPolicy"] = state ? state.multivalueAnswerRoutingPolicy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["records"] = state ? state.records : undefined;
-            resourceInputs["setIdentifier"] = state ? state.setIdentifier : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["weightedRoutingPolicies"] = state ? state.weightedRoutingPolicies : undefined;
-            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["aliases"] = state?.aliases;
+            resourceInputs["allowOverwrite"] = state?.allowOverwrite;
+            resourceInputs["cidrRoutingPolicy"] = state?.cidrRoutingPolicy;
+            resourceInputs["failoverRoutingPolicies"] = state?.failoverRoutingPolicies;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["geolocationRoutingPolicies"] = state?.geolocationRoutingPolicies;
+            resourceInputs["geoproximityRoutingPolicy"] = state?.geoproximityRoutingPolicy;
+            resourceInputs["healthCheckId"] = state?.healthCheckId;
+            resourceInputs["latencyRoutingPolicies"] = state?.latencyRoutingPolicies;
+            resourceInputs["multivalueAnswerRoutingPolicy"] = state?.multivalueAnswerRoutingPolicy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["records"] = state?.records;
+            resourceInputs["setIdentifier"] = state?.setIdentifier;
+            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["weightedRoutingPolicies"] = state?.weightedRoutingPolicies;
+            resourceInputs["zoneId"] = state?.zoneId;
         } else {
             const args = argsOrState as RecordArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.zoneId === undefined) && !opts.urn) {
+            if (args?.zoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            resourceInputs["aliases"] = args ? args.aliases : undefined;
-            resourceInputs["allowOverwrite"] = args ? args.allowOverwrite : undefined;
-            resourceInputs["cidrRoutingPolicy"] = args ? args.cidrRoutingPolicy : undefined;
-            resourceInputs["failoverRoutingPolicies"] = args ? args.failoverRoutingPolicies : undefined;
-            resourceInputs["geolocationRoutingPolicies"] = args ? args.geolocationRoutingPolicies : undefined;
-            resourceInputs["geoproximityRoutingPolicy"] = args ? args.geoproximityRoutingPolicy : undefined;
-            resourceInputs["healthCheckId"] = args ? args.healthCheckId : undefined;
-            resourceInputs["latencyRoutingPolicies"] = args ? args.latencyRoutingPolicies : undefined;
-            resourceInputs["multivalueAnswerRoutingPolicy"] = args ? args.multivalueAnswerRoutingPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["records"] = args ? args.records : undefined;
-            resourceInputs["setIdentifier"] = args ? args.setIdentifier : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["weightedRoutingPolicies"] = args ? args.weightedRoutingPolicies : undefined;
-            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["aliases"] = args?.aliases;
+            resourceInputs["allowOverwrite"] = args?.allowOverwrite;
+            resourceInputs["cidrRoutingPolicy"] = args?.cidrRoutingPolicy;
+            resourceInputs["failoverRoutingPolicies"] = args?.failoverRoutingPolicies;
+            resourceInputs["geolocationRoutingPolicies"] = args?.geolocationRoutingPolicies;
+            resourceInputs["geoproximityRoutingPolicy"] = args?.geoproximityRoutingPolicy;
+            resourceInputs["healthCheckId"] = args?.healthCheckId;
+            resourceInputs["latencyRoutingPolicies"] = args?.latencyRoutingPolicies;
+            resourceInputs["multivalueAnswerRoutingPolicy"] = args?.multivalueAnswerRoutingPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["records"] = args?.records;
+            resourceInputs["setIdentifier"] = args?.setIdentifier;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["weightedRoutingPolicies"] = args?.weightedRoutingPolicies;
+            resourceInputs["zoneId"] = args?.zoneId;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

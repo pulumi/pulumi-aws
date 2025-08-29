@@ -60,29 +60,29 @@ export class SnapshotCopy extends pulumi.CustomResource {
     /**
      * Identifier of the source cluster.
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
      * AWS Region to copy snapshots to.
      *
      * The following arguments are optional:
      */
-    public readonly destinationRegion!: pulumi.Output<string>;
+    declare public readonly destinationRegion: pulumi.Output<string>;
     /**
      * Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
      */
-    public readonly manualSnapshotRetentionPeriod!: pulumi.Output<number>;
+    declare public readonly manualSnapshotRetentionPeriod: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
      */
-    public readonly retentionPeriod!: pulumi.Output<number>;
+    declare public readonly retentionPeriod: pulumi.Output<number>;
     /**
      * Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
      */
-    public readonly snapshotCopyGrantName!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotCopyGrantName: pulumi.Output<string | undefined>;
 
     /**
      * Create a SnapshotCopy resource with the given unique name, arguments, and options.
@@ -97,26 +97,26 @@ export class SnapshotCopy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotCopyState | undefined;
-            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            resourceInputs["destinationRegion"] = state ? state.destinationRegion : undefined;
-            resourceInputs["manualSnapshotRetentionPeriod"] = state ? state.manualSnapshotRetentionPeriod : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
-            resourceInputs["snapshotCopyGrantName"] = state ? state.snapshotCopyGrantName : undefined;
+            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
+            resourceInputs["destinationRegion"] = state?.destinationRegion;
+            resourceInputs["manualSnapshotRetentionPeriod"] = state?.manualSnapshotRetentionPeriod;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["retentionPeriod"] = state?.retentionPeriod;
+            resourceInputs["snapshotCopyGrantName"] = state?.snapshotCopyGrantName;
         } else {
             const args = argsOrState as SnapshotCopyArgs | undefined;
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if ((!args || args.destinationRegion === undefined) && !opts.urn) {
+            if (args?.destinationRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationRegion'");
             }
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["destinationRegion"] = args ? args.destinationRegion : undefined;
-            resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["destinationRegion"] = args?.destinationRegion;
+            resourceInputs["manualSnapshotRetentionPeriod"] = args?.manualSnapshotRetentionPeriod;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["snapshotCopyGrantName"] = args?.snapshotCopyGrantName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SnapshotCopy.__pulumiType, name, resourceInputs, opts);

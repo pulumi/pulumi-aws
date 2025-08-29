@@ -58,19 +58,19 @@ export class Region extends pulumi.CustomResource {
     /**
      * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
      */
-    public readonly accountId!: pulumi.Output<string | undefined>;
+    declare public readonly accountId: pulumi.Output<string | undefined>;
     /**
      * Whether the region is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The region opt status.
      */
-    public /*out*/ readonly optStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly optStatus: pulumi.Output<string>;
     /**
      * The region name to manage.
      */
-    public readonly regionName!: pulumi.Output<string>;
+    declare public readonly regionName: pulumi.Output<string>;
 
     /**
      * Create a Region resource with the given unique name, arguments, and options.
@@ -85,21 +85,21 @@ export class Region extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegionState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["optStatus"] = state ? state.optStatus : undefined;
-            resourceInputs["regionName"] = state ? state.regionName : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["optStatus"] = state?.optStatus;
+            resourceInputs["regionName"] = state?.regionName;
         } else {
             const args = argsOrState as RegionArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.regionName === undefined) && !opts.urn) {
+            if (args?.regionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regionName'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["regionName"] = args ? args.regionName : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["regionName"] = args?.regionName;
             resourceInputs["optStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -73,24 +73,24 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**
      * ARN assigned by AWS for this provider.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
      */
-    public readonly clientIdLists!: pulumi.Output<string[]>;
+    declare public readonly clientIdLists: pulumi.Output<string[]>;
     /**
      * Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly thumbprintLists!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly thumbprintLists: pulumi.Output<string[]>;
     /**
      * URL of the identity provider, corresponding to the `iss` claim.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a OpenIdConnectProvider resource with the given unique name, arguments, and options.
@@ -105,24 +105,24 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenIdConnectProviderState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["clientIdLists"] = state ? state.clientIdLists : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["thumbprintLists"] = state ? state.thumbprintLists : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["clientIdLists"] = state?.clientIdLists;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["thumbprintLists"] = state?.thumbprintLists;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as OpenIdConnectProviderArgs | undefined;
-            if ((!args || args.clientIdLists === undefined) && !opts.urn) {
+            if (args?.clientIdLists === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientIdLists'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["clientIdLists"] = args ? args.clientIdLists : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thumbprintLists"] = args ? args.thumbprintLists : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["clientIdLists"] = args?.clientIdLists;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thumbprintLists"] = args?.thumbprintLists;
+            resourceInputs["url"] = args?.url;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

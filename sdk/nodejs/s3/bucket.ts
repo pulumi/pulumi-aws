@@ -73,71 +73,71 @@ export class Bucket extends pulumi.CustomResource {
      *
      * @deprecated acceleration_status is deprecated. Use the aws.s3.BucketAccelerateConfiguration resource instead.
      */
-    public readonly accelerationStatus!: pulumi.Output<string>;
+    declare public readonly accelerationStatus: pulumi.Output<string>;
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
      *
      * @deprecated acl is deprecated. Use the aws.s3.BucketAcl resource instead.
      */
-    public readonly acl!: pulumi.Output<string>;
+    declare public readonly acl: pulumi.Output<string>;
     /**
      * ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */
-    public /*out*/ readonly bucketDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly bucketDomainName: pulumi.Output<string>;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
-    public readonly bucketPrefix!: pulumi.Output<string>;
+    declare public readonly bucketPrefix: pulumi.Output<string>;
     /**
      * AWS region this bucket resides in.
      */
-    public /*out*/ readonly bucketRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly bucketRegion: pulumi.Output<string>;
     /**
      * The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      */
-    public /*out*/ readonly bucketRegionalDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly bucketRegionalDomainName: pulumi.Output<string>;
     /**
      * Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfiguration` instead.
      *
      * @deprecated cors_rule is deprecated. Use the aws.s3.BucketCorsConfiguration resource instead.
      */
-    public readonly corsRules!: pulumi.Output<outputs.s3.BucketCorsRule[]>;
+    declare public readonly corsRules: pulumi.Output<outputs.s3.BucketCorsRule[]>;
     /**
      * Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
-    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
      *
      * @deprecated grant is deprecated. Use the aws.s3.BucketAcl resource instead.
      */
-    public readonly grants!: pulumi.Output<outputs.s3.BucketGrant[]>;
+    declare public readonly grants: pulumi.Output<outputs.s3.BucketGrant[]>;
     /**
      * [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
-    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
     /**
      * Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketLifecycleConfiguration` instead.
      *
      * @deprecated lifecycle_rule is deprecated. Use the aws.s3.BucketLifecycleConfiguration resource instead.
      */
-    public readonly lifecycleRules!: pulumi.Output<outputs.s3.BucketLifecycleRule[]>;
+    declare public readonly lifecycleRules: pulumi.Output<outputs.s3.BucketLifecycleRule[]>;
     /**
      * Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketLogging` instead.
      *
      * @deprecated logging is deprecated. Use the aws.s3.BucketLogging resource instead.
      */
-    public readonly logging!: pulumi.Output<outputs.s3.BucketLogging>;
+    declare public readonly logging: pulumi.Output<outputs.s3.BucketLogging>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
@@ -145,11 +145,11 @@ export class Bucket extends pulumi.CustomResource {
      *
      * @deprecated object_lock_configuration is deprecated. Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfiguration resource instead.
      */
-    public readonly objectLockConfiguration!: pulumi.Output<outputs.s3.BucketObjectLockConfiguration>;
+    declare public readonly objectLockConfiguration: pulumi.Output<outputs.s3.BucketObjectLockConfiguration>;
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      */
-    public readonly objectLockEnabled!: pulumi.Output<boolean>;
+    declare public readonly objectLockEnabled: pulumi.Output<boolean>;
     /**
      * Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
      * The provider will only perform drift detection if a configuration value is provided.
@@ -157,18 +157,18 @@ export class Bucket extends pulumi.CustomResource {
      *
      * @deprecated policy is deprecated. Use the aws.s3.BucketPolicy resource instead.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketReplicationConfig` instead.
      *
      * @deprecated replication_configuration is deprecated. Use the aws.s3.BucketReplicationConfig resource instead.
      */
-    public readonly replicationConfiguration!: pulumi.Output<outputs.s3.BucketReplicationConfiguration>;
+    declare public readonly replicationConfiguration: pulumi.Output<outputs.s3.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
@@ -178,7 +178,7 @@ export class Bucket extends pulumi.CustomResource {
      *
      * @deprecated request_payer is deprecated. Use the aws.s3.BucketRequestPaymentConfiguration resource instead.
      */
-    public readonly requestPayer!: pulumi.Output<string>;
+    declare public readonly requestPayer: pulumi.Output<string>;
     /**
      * Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
      * The provider will only perform drift detection if a configuration value is provided.
@@ -186,42 +186,42 @@ export class Bucket extends pulumi.CustomResource {
      *
      * @deprecated server_side_encryption_configuration is deprecated. Use the aws.s3.BucketServerSideEncryptionConfiguration resource instead.
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfiguration>;
+    declare public readonly serverSideEncryptionConfiguration: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * The following arguments are deprecated, and will be removed in a future major version:
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioning` instead.
      *
      * @deprecated versioning is deprecated. Use the aws.s3.BucketVersioning resource instead.
      */
-    public readonly versioning!: pulumi.Output<outputs.s3.BucketVersioning>;
+    declare public readonly versioning: pulumi.Output<outputs.s3.BucketVersioning>;
     /**
      * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      *
      * @deprecated website is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
      */
-    public readonly website!: pulumi.Output<outputs.s3.BucketWebsite>;
+    declare public readonly website: pulumi.Output<outputs.s3.BucketWebsite>;
     /**
      * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      *
      * @deprecated website_domain is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
      */
-    public /*out*/ readonly websiteDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly websiteDomain: pulumi.Output<string>;
     /**
      * (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      *
      * @deprecated website_endpoint is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
      */
-    public /*out*/ readonly websiteEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly websiteEndpoint: pulumi.Output<string>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -236,54 +236,54 @@ export class Bucket extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketState | undefined;
-            resourceInputs["accelerationStatus"] = state ? state.accelerationStatus : undefined;
-            resourceInputs["acl"] = state ? state.acl : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["bucketDomainName"] = state ? state.bucketDomainName : undefined;
-            resourceInputs["bucketPrefix"] = state ? state.bucketPrefix : undefined;
-            resourceInputs["bucketRegion"] = state ? state.bucketRegion : undefined;
-            resourceInputs["bucketRegionalDomainName"] = state ? state.bucketRegionalDomainName : undefined;
-            resourceInputs["corsRules"] = state ? state.corsRules : undefined;
-            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            resourceInputs["grants"] = state ? state.grants : undefined;
-            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            resourceInputs["lifecycleRules"] = state ? state.lifecycleRules : undefined;
-            resourceInputs["logging"] = state ? state.logging : undefined;
-            resourceInputs["objectLockConfiguration"] = state ? state.objectLockConfiguration : undefined;
-            resourceInputs["objectLockEnabled"] = state ? state.objectLockEnabled : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
-            resourceInputs["requestPayer"] = state ? state.requestPayer : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["versioning"] = state ? state.versioning : undefined;
-            resourceInputs["website"] = state ? state.website : undefined;
-            resourceInputs["websiteDomain"] = state ? state.websiteDomain : undefined;
-            resourceInputs["websiteEndpoint"] = state ? state.websiteEndpoint : undefined;
+            resourceInputs["accelerationStatus"] = state?.accelerationStatus;
+            resourceInputs["acl"] = state?.acl;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["bucketDomainName"] = state?.bucketDomainName;
+            resourceInputs["bucketPrefix"] = state?.bucketPrefix;
+            resourceInputs["bucketRegion"] = state?.bucketRegion;
+            resourceInputs["bucketRegionalDomainName"] = state?.bucketRegionalDomainName;
+            resourceInputs["corsRules"] = state?.corsRules;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
+            resourceInputs["grants"] = state?.grants;
+            resourceInputs["hostedZoneId"] = state?.hostedZoneId;
+            resourceInputs["lifecycleRules"] = state?.lifecycleRules;
+            resourceInputs["logging"] = state?.logging;
+            resourceInputs["objectLockConfiguration"] = state?.objectLockConfiguration;
+            resourceInputs["objectLockEnabled"] = state?.objectLockEnabled;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["replicationConfiguration"] = state?.replicationConfiguration;
+            resourceInputs["requestPayer"] = state?.requestPayer;
+            resourceInputs["serverSideEncryptionConfiguration"] = state?.serverSideEncryptionConfiguration;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["versioning"] = state?.versioning;
+            resourceInputs["website"] = state?.website;
+            resourceInputs["websiteDomain"] = state?.websiteDomain;
+            resourceInputs["websiteEndpoint"] = state?.websiteEndpoint;
         } else {
             const args = argsOrState as BucketArgs | undefined;
-            resourceInputs["accelerationStatus"] = args ? args.accelerationStatus : undefined;
-            resourceInputs["acl"] = args ? args.acl : undefined;
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
-            resourceInputs["corsRules"] = args ? args.corsRules : undefined;
-            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            resourceInputs["grants"] = args ? args.grants : undefined;
-            resourceInputs["lifecycleRules"] = args ? args.lifecycleRules : undefined;
-            resourceInputs["logging"] = args ? args.logging : undefined;
-            resourceInputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
-            resourceInputs["objectLockEnabled"] = args ? args.objectLockEnabled : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
-            resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versioning"] = args ? args.versioning : undefined;
-            resourceInputs["website"] = args ? args.website : undefined;
+            resourceInputs["accelerationStatus"] = args?.accelerationStatus;
+            resourceInputs["acl"] = args?.acl;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["bucketPrefix"] = args?.bucketPrefix;
+            resourceInputs["corsRules"] = args?.corsRules;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
+            resourceInputs["grants"] = args?.grants;
+            resourceInputs["lifecycleRules"] = args?.lifecycleRules;
+            resourceInputs["logging"] = args?.logging;
+            resourceInputs["objectLockConfiguration"] = args?.objectLockConfiguration;
+            resourceInputs["objectLockEnabled"] = args?.objectLockEnabled;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replicationConfiguration"] = args?.replicationConfiguration;
+            resourceInputs["requestPayer"] = args?.requestPayer;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versioning"] = args?.versioning;
+            resourceInputs["website"] = args?.website;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bucketDomainName"] = undefined /*out*/;
             resourceInputs["bucketRegion"] = undefined /*out*/;

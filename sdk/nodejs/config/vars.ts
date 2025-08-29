@@ -11,7 +11,8 @@ declare var exports: any;
 const __config = new pulumi.Config("aws");
 
 /**
- * The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+ * The access key for API operations. You can retrieve this
+ * from the 'Security & Credentials' section of the AWS console.
  */
 export declare const accessKey: string | undefined;
 Object.defineProperty(exports, "accessKey", {
@@ -46,8 +47,7 @@ Object.defineProperty(exports, "assumeRoles", {
 });
 
 /**
- * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
- * variable. (Setting `caBundle` in the shared config file is not supported.)
+ * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `caBundle` in the shared config file is not supported.)
  */
 export declare const customCaBundle: string | undefined;
 Object.defineProperty(exports, "customCaBundle", {
@@ -69,8 +69,7 @@ Object.defineProperty(exports, "defaultTags", {
 });
 
 /**
- * Address of the EC2 metadata service endpoint to use. Can also be configured using the
- * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+ * Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
  */
 export declare const ec2MetadataServiceEndpoint: string | undefined;
 Object.defineProperty(exports, "ec2MetadataServiceEndpoint", {
@@ -81,8 +80,7 @@ Object.defineProperty(exports, "ec2MetadataServiceEndpoint", {
 });
 
 /**
- * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
- * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+ * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
  */
 export declare const ec2MetadataServiceEndpointMode: string | undefined;
 Object.defineProperty(exports, "ec2MetadataServiceEndpointMode", {
@@ -109,8 +107,7 @@ Object.defineProperty(exports, "forbiddenAccountIds", {
 });
 
 /**
- * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
- * `httpProxy` environment variables.
+ * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `httpProxy` environment variables.
  */
 export declare const httpProxy: string | undefined;
 Object.defineProperty(exports, "httpProxy", {
@@ -121,8 +118,7 @@ Object.defineProperty(exports, "httpProxy", {
 });
 
 /**
- * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
- * `httpsProxy` environment variables.
+ * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `httpsProxy` environment variables.
  */
 export declare const httpsProxy: string | undefined;
 Object.defineProperty(exports, "httpsProxy", {
@@ -155,7 +151,9 @@ Object.defineProperty(exports, "insecure", {
 });
 
 /**
- * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+ * The maximum number of times an AWS API request is
+ * being executed. If the API request still fails, an error is
+ * thrown.
  */
 export declare const maxRetries: number | undefined;
 Object.defineProperty(exports, "maxRetries", {
@@ -166,8 +164,7 @@ Object.defineProperty(exports, "maxRetries", {
 });
 
 /**
- * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
- * `noProxy` environment variables.
+ * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `noProxy` environment variables.
  */
 export declare const noProxy: string | undefined;
 Object.defineProperty(exports, "noProxy", {
@@ -178,7 +175,8 @@ Object.defineProperty(exports, "noProxy", {
 });
 
 /**
- * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+ * The profile for API operations. If not set, the default profile
+ * created with `aws configure` will be used.
  */
 export declare const profile: string | undefined;
 Object.defineProperty(exports, "profile", {
@@ -189,7 +187,8 @@ Object.defineProperty(exports, "profile", {
 });
 
 /**
- * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+ * The region where AWS operations will take place. Examples
+ * are us-east-1, us-west-2, etc.
  */
 export declare const region: string | undefined;
 Object.defineProperty(exports, "region", {
@@ -200,8 +199,7 @@ Object.defineProperty(exports, "region", {
 });
 
 /**
- * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
- * `AWS_RETRY_MODE` environment variable.
+ * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
  */
 export declare const retryMode: string | undefined;
 Object.defineProperty(exports, "retryMode", {
@@ -212,9 +210,7 @@ Object.defineProperty(exports, "retryMode", {
 });
 
 /**
- * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
- * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
- * variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
+ * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
  */
 export declare const s3UsEast1RegionalEndpoint: string | undefined;
 Object.defineProperty(exports, "s3UsEast1RegionalEndpoint", {
@@ -225,9 +221,10 @@ Object.defineProperty(exports, "s3UsEast1RegionalEndpoint", {
 });
 
 /**
- * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
- * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
- * Specific to the Amazon S3 service.
+ * Set this to true to enable the request to use path-style addressing,
+ * i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+ * use virtual hosted bucket addressing when possible
+ * (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
  */
 export declare const s3UsePathStyle: boolean | undefined;
 Object.defineProperty(exports, "s3UsePathStyle", {
@@ -238,7 +235,8 @@ Object.defineProperty(exports, "s3UsePathStyle", {
 });
 
 /**
- * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+ * The secret key for API operations. You can retrieve this
+ * from the 'Security & Credentials' section of the AWS console.
  */
 export declare const secretKey: string | undefined;
 Object.defineProperty(exports, "secretKey", {
@@ -271,8 +269,7 @@ Object.defineProperty(exports, "sharedCredentialsFiles", {
 });
 
 /**
- * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
- * available/implemented.
+ * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
  */
 export declare const skipCredentialsValidation: boolean;
 Object.defineProperty(exports, "skipCredentialsValidation", {
@@ -294,8 +291,7 @@ Object.defineProperty(exports, "skipMetadataApiCheck", {
 });
 
 /**
- * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
- * not public (yet).
+ * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
  */
 export declare const skipRegionValidation: boolean;
 Object.defineProperty(exports, "skipRegionValidation", {
@@ -317,7 +313,8 @@ Object.defineProperty(exports, "skipRequestingAccountId", {
 });
 
 /**
- * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+ * The region where AWS STS operations will take place. Examples
+ * are us-east-1 and us-west-2.
  */
 export declare const stsRegion: string | undefined;
 Object.defineProperty(exports, "stsRegion", {
@@ -328,7 +325,8 @@ Object.defineProperty(exports, "stsRegion", {
 });
 
 /**
- * session token. A session token is only required if you are using temporary security credentials.
+ * session token. A session token is only required if you are
+ * using temporary security credentials.
  */
 export declare const token: string | undefined;
 Object.defineProperty(exports, "token", {

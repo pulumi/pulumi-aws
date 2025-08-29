@@ -65,35 +65,35 @@ export class Project extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Project.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description for the project.
      */
-    public readonly projectDescription!: pulumi.Output<string | undefined>;
+    declare public readonly projectDescription: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
      * The name of the Project.
      */
-    public readonly projectName!: pulumi.Output<string>;
+    declare public readonly projectName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      */
-    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<outputs.sagemaker.ProjectServiceCatalogProvisioningDetails>;
+    declare public readonly serviceCatalogProvisioningDetails: pulumi.Output<outputs.sagemaker.ProjectServiceCatalogProvisioningDetails>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -108,27 +108,27 @@ export class Project extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["projectDescription"] = state ? state.projectDescription : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["projectName"] = state ? state.projectName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serviceCatalogProvisioningDetails"] = state ? state.serviceCatalogProvisioningDetails : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["projectDescription"] = state?.projectDescription;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["projectName"] = state?.projectName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serviceCatalogProvisioningDetails"] = state?.serviceCatalogProvisioningDetails;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.serviceCatalogProvisioningDetails === undefined) && !opts.urn) {
+            if (args?.serviceCatalogProvisioningDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceCatalogProvisioningDetails'");
             }
-            resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serviceCatalogProvisioningDetails"] = args ? args.serviceCatalogProvisioningDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["projectDescription"] = args?.projectDescription;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serviceCatalogProvisioningDetails"] = args?.serviceCatalogProvisioningDetails;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["projectId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

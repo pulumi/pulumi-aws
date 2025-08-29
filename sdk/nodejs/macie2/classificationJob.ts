@@ -70,65 +70,65 @@ export class ClassificationJob extends pulumi.CustomResource {
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the job was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The custom data identifiers to use for data analysis and classification.
      */
-    public readonly customDataIdentifierIds!: pulumi.Output<string[]>;
+    declare public readonly customDataIdentifierIds: pulumi.Output<string[]>;
     /**
      * A custom description of the job. The description can contain as many as 200 characters.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
      */
-    public readonly initialRun!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly jobArn!: pulumi.Output<string>;
-    public /*out*/ readonly jobId!: pulumi.Output<string>;
+    declare public readonly initialRun: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly jobArn: pulumi.Output<string>;
+    declare public /*out*/ readonly jobId: pulumi.Output<string>;
     /**
      * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
      */
-    public readonly jobStatus!: pulumi.Output<string>;
+    declare public readonly jobStatus: pulumi.Output<string>;
     /**
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
      */
-    public readonly jobType!: pulumi.Output<string>;
+    declare public readonly jobType: pulumi.Output<string>;
     /**
      * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */
-    public readonly s3JobDefinition!: pulumi.Output<outputs.macie2.ClassificationJobS3JobDefinition>;
+    declare public readonly s3JobDefinition: pulumi.Output<outputs.macie2.ClassificationJobS3JobDefinition>;
     /**
      * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      */
-    public readonly samplingPercentage!: pulumi.Output<number>;
+    declare public readonly samplingPercentage: pulumi.Output<number>;
     /**
      * The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
      */
-    public readonly scheduleFrequency!: pulumi.Output<outputs.macie2.ClassificationJobScheduleFrequency>;
+    declare public readonly scheduleFrequency: pulumi.Output<outputs.macie2.ClassificationJobScheduleFrequency>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      */
-    public /*out*/ readonly userPausedDetails!: pulumi.Output<outputs.macie2.ClassificationJobUserPausedDetail[]>;
+    declare public /*out*/ readonly userPausedDetails: pulumi.Output<outputs.macie2.ClassificationJobUserPausedDetail[]>;
 
     /**
      * Create a ClassificationJob resource with the given unique name, arguments, and options.
@@ -143,43 +143,43 @@ export class ClassificationJob extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClassificationJobState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["customDataIdentifierIds"] = state ? state.customDataIdentifierIds : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["initialRun"] = state ? state.initialRun : undefined;
-            resourceInputs["jobArn"] = state ? state.jobArn : undefined;
-            resourceInputs["jobId"] = state ? state.jobId : undefined;
-            resourceInputs["jobStatus"] = state ? state.jobStatus : undefined;
-            resourceInputs["jobType"] = state ? state.jobType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["s3JobDefinition"] = state ? state.s3JobDefinition : undefined;
-            resourceInputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
-            resourceInputs["scheduleFrequency"] = state ? state.scheduleFrequency : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["userPausedDetails"] = state ? state.userPausedDetails : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["customDataIdentifierIds"] = state?.customDataIdentifierIds;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["initialRun"] = state?.initialRun;
+            resourceInputs["jobArn"] = state?.jobArn;
+            resourceInputs["jobId"] = state?.jobId;
+            resourceInputs["jobStatus"] = state?.jobStatus;
+            resourceInputs["jobType"] = state?.jobType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["s3JobDefinition"] = state?.s3JobDefinition;
+            resourceInputs["samplingPercentage"] = state?.samplingPercentage;
+            resourceInputs["scheduleFrequency"] = state?.scheduleFrequency;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["userPausedDetails"] = state?.userPausedDetails;
         } else {
             const args = argsOrState as ClassificationJobArgs | undefined;
-            if ((!args || args.jobType === undefined) && !opts.urn) {
+            if (args?.jobType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobType'");
             }
-            if ((!args || args.s3JobDefinition === undefined) && !opts.urn) {
+            if (args?.s3JobDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3JobDefinition'");
             }
-            resourceInputs["customDataIdentifierIds"] = args ? args.customDataIdentifierIds : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["initialRun"] = args ? args.initialRun : undefined;
-            resourceInputs["jobStatus"] = args ? args.jobStatus : undefined;
-            resourceInputs["jobType"] = args ? args.jobType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["s3JobDefinition"] = args ? args.s3JobDefinition : undefined;
-            resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
-            resourceInputs["scheduleFrequency"] = args ? args.scheduleFrequency : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customDataIdentifierIds"] = args?.customDataIdentifierIds;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["initialRun"] = args?.initialRun;
+            resourceInputs["jobStatus"] = args?.jobStatus;
+            resourceInputs["jobType"] = args?.jobType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["s3JobDefinition"] = args?.s3JobDefinition;
+            resourceInputs["samplingPercentage"] = args?.samplingPercentage;
+            resourceInputs["scheduleFrequency"] = args?.scheduleFrequency;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["jobArn"] = undefined /*out*/;
             resourceInputs["jobId"] = undefined /*out*/;

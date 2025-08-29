@@ -63,15 +63,15 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
-    public readonly dhcpOptionsId!: pulumi.Output<string>;
+    declare public readonly dhcpOptionsId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcDhcpOptionsAssociation resource with the given unique name, arguments, and options.
@@ -86,20 +86,20 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcDhcpOptionsAssociationState | undefined;
-            resourceInputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["dhcpOptionsId"] = state?.dhcpOptionsId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as VpcDhcpOptionsAssociationArgs | undefined;
-            if ((!args || args.dhcpOptionsId === undefined) && !opts.urn) {
+            if (args?.dhcpOptionsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dhcpOptionsId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["dhcpOptionsId"] = args?.dhcpOptionsId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vpcId"] = args?.vpcId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcDhcpOptionsAssociation.__pulumiType, name, resourceInputs, opts);

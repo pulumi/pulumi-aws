@@ -68,15 +68,15 @@ export class InstanceGroup extends pulumi.CustomResource {
     /**
      * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
      */
-    public readonly autoscalingPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly autoscalingPolicy: pulumi.Output<string | undefined>;
     /**
      * If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
      */
-    public readonly bidPrice!: pulumi.Output<string | undefined>;
+    declare public readonly bidPrice: pulumi.Output<string | undefined>;
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
      *
@@ -101,39 +101,39 @@ export class InstanceGroup extends pulumi.CustomResource {
      * `});
      * ```
      */
-    public readonly configurationsJson!: pulumi.Output<string | undefined>;
+    declare public readonly configurationsJson: pulumi.Output<string | undefined>;
     /**
      * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ebsConfigs!: pulumi.Output<outputs.emr.InstanceGroupEbsConfig[]>;
+    declare public readonly ebsConfigs: pulumi.Output<outputs.emr.InstanceGroupEbsConfig[]>;
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */
-    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
+    declare public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
     /**
      * target number of instances for the instance group. defaults to 0.
      */
-    public readonly instanceCount!: pulumi.Output<number>;
+    declare public readonly instanceCount: pulumi.Output<number>;
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The number of instances currently running in this instance group.
      */
-    public /*out*/ readonly runningInstanceCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly runningInstanceCount: pulumi.Output<number>;
     /**
      * The current status of the instance group.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a InstanceGroup resource with the given unique name, arguments, and options.
@@ -148,36 +148,36 @@ export class InstanceGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceGroupState | undefined;
-            resourceInputs["autoscalingPolicy"] = state ? state.autoscalingPolicy : undefined;
-            resourceInputs["bidPrice"] = state ? state.bidPrice : undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["configurationsJson"] = state ? state.configurationsJson : undefined;
-            resourceInputs["ebsConfigs"] = state ? state.ebsConfigs : undefined;
-            resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
-            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["runningInstanceCount"] = state ? state.runningInstanceCount : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["autoscalingPolicy"] = state?.autoscalingPolicy;
+            resourceInputs["bidPrice"] = state?.bidPrice;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["configurationsJson"] = state?.configurationsJson;
+            resourceInputs["ebsConfigs"] = state?.ebsConfigs;
+            resourceInputs["ebsOptimized"] = state?.ebsOptimized;
+            resourceInputs["instanceCount"] = state?.instanceCount;
+            resourceInputs["instanceType"] = state?.instanceType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["runningInstanceCount"] = state?.runningInstanceCount;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as InstanceGroupArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["autoscalingPolicy"] = args ? args.autoscalingPolicy : undefined;
-            resourceInputs["bidPrice"] = args ? args.bidPrice : undefined;
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["configurationsJson"] = args ? args.configurationsJson : undefined;
-            resourceInputs["ebsConfigs"] = args ? args.ebsConfigs : undefined;
-            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["autoscalingPolicy"] = args?.autoscalingPolicy;
+            resourceInputs["bidPrice"] = args?.bidPrice;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["configurationsJson"] = args?.configurationsJson;
+            resourceInputs["ebsConfigs"] = args?.ebsConfigs;
+            resourceInputs["ebsOptimized"] = args?.ebsOptimized;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
             resourceInputs["runningInstanceCount"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

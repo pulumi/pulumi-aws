@@ -98,15 +98,15 @@ export class ResourceDataSync extends pulumi.CustomResource {
     /**
      * Name for the configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon S3 configuration details for the sync.
      */
-    public readonly s3Destination!: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination>;
+    declare public readonly s3Destination: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination>;
 
     /**
      * Create a ResourceDataSync resource with the given unique name, arguments, and options.
@@ -121,17 +121,17 @@ export class ResourceDataSync extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceDataSyncState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["s3Destination"] = state ? state.s3Destination : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["s3Destination"] = state?.s3Destination;
         } else {
             const args = argsOrState as ResourceDataSyncArgs | undefined;
-            if ((!args || args.s3Destination === undefined) && !opts.urn) {
+            if (args?.s3Destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Destination'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["s3Destination"] = args?.s3Destination;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceDataSync.__pulumiType, name, resourceInputs, opts);

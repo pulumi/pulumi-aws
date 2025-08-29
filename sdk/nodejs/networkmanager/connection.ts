@@ -61,41 +61,41 @@ export class Connection extends pulumi.CustomResource {
     /**
      * ARN of the connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ID of the second device in the connection.
      */
-    public readonly connectedDeviceId!: pulumi.Output<string>;
+    declare public readonly connectedDeviceId: pulumi.Output<string>;
     /**
      * ID of the link for the second device.
      */
-    public readonly connectedLinkId!: pulumi.Output<string | undefined>;
+    declare public readonly connectedLinkId: pulumi.Output<string | undefined>;
     /**
      * Description of the connection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * ID of the first device in the connection.
      */
-    public readonly deviceId!: pulumi.Output<string>;
+    declare public readonly deviceId: pulumi.Output<string>;
     /**
      * ID of the global network.
      *
      * The following arguments are optional:
      */
-    public readonly globalNetworkId!: pulumi.Output<string>;
+    declare public readonly globalNetworkId: pulumi.Output<string>;
     /**
      * ID of the link for the first device.
      */
-    public readonly linkId!: pulumi.Output<string | undefined>;
+    declare public readonly linkId: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -110,33 +110,33 @@ export class Connection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["connectedDeviceId"] = state ? state.connectedDeviceId : undefined;
-            resourceInputs["connectedLinkId"] = state ? state.connectedLinkId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["deviceId"] = state ? state.deviceId : undefined;
-            resourceInputs["globalNetworkId"] = state ? state.globalNetworkId : undefined;
-            resourceInputs["linkId"] = state ? state.linkId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["connectedDeviceId"] = state?.connectedDeviceId;
+            resourceInputs["connectedLinkId"] = state?.connectedLinkId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["deviceId"] = state?.deviceId;
+            resourceInputs["globalNetworkId"] = state?.globalNetworkId;
+            resourceInputs["linkId"] = state?.linkId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if ((!args || args.connectedDeviceId === undefined) && !opts.urn) {
+            if (args?.connectedDeviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectedDeviceId'");
             }
-            if ((!args || args.deviceId === undefined) && !opts.urn) {
+            if (args?.deviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceId'");
             }
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["connectedDeviceId"] = args ? args.connectedDeviceId : undefined;
-            resourceInputs["connectedLinkId"] = args ? args.connectedLinkId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["linkId"] = args ? args.linkId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectedDeviceId"] = args?.connectedDeviceId;
+            resourceInputs["connectedLinkId"] = args?.connectedLinkId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceId"] = args?.deviceId;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["linkId"] = args?.linkId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

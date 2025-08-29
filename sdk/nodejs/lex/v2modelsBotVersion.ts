@@ -67,25 +67,25 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
     /**
      * Idientifier of the bot to create the version for.
      */
-    public readonly botId!: pulumi.Output<string>;
+    declare public readonly botId: pulumi.Output<string>;
     /**
      * Version number assigned to the version.
      */
-    public readonly botVersion!: pulumi.Output<string>;
+    declare public readonly botVersion: pulumi.Output<string>;
     /**
      * A description of the version. Use the description to help identify the version in lists.
      * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
      */
-    public readonly localeSpecification!: pulumi.Output<{[key: string]: outputs.lex.V2modelsBotVersionLocaleSpecification}>;
+    declare public readonly localeSpecification: pulumi.Output<{[key: string]: outputs.lex.V2modelsBotVersionLocaleSpecification}>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotVersionTimeouts | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsBotVersionTimeouts | undefined>;
 
     /**
      * Create a V2modelsBotVersion resource with the given unique name, arguments, and options.
@@ -100,26 +100,26 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as V2modelsBotVersionState | undefined;
-            resourceInputs["botId"] = state ? state.botId : undefined;
-            resourceInputs["botVersion"] = state ? state.botVersion : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["localeSpecification"] = state ? state.localeSpecification : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["botId"] = state?.botId;
+            resourceInputs["botVersion"] = state?.botVersion;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["localeSpecification"] = state?.localeSpecification;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as V2modelsBotVersionArgs | undefined;
-            if ((!args || args.botId === undefined) && !opts.urn) {
+            if (args?.botId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            if ((!args || args.localeSpecification === undefined) && !opts.urn) {
+            if (args?.localeSpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localeSpecification'");
             }
-            resourceInputs["botId"] = args ? args.botId : undefined;
-            resourceInputs["botVersion"] = args ? args.botVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["localeSpecification"] = args ? args.localeSpecification : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["botId"] = args?.botId;
+            resourceInputs["botVersion"] = args?.botVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["localeSpecification"] = args?.localeSpecification;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["timeouts"] = args?.timeouts;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(V2modelsBotVersion.__pulumiType, name, resourceInputs, opts);

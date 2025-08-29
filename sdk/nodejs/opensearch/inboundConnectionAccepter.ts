@@ -72,15 +72,15 @@ export class InboundConnectionAccepter extends pulumi.CustomResource {
     /**
      * Specifies the ID of the connection to accept.
      */
-    public readonly connectionId!: pulumi.Output<string>;
+    declare public readonly connectionId: pulumi.Output<string>;
     /**
      * Status of the connection request.
      */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a InboundConnectionAccepter resource with the given unique name, arguments, and options.
@@ -95,16 +95,16 @@ export class InboundConnectionAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InboundConnectionAccepterState | undefined;
-            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
-            resourceInputs["connectionStatus"] = state ? state.connectionStatus : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["connectionId"] = state?.connectionId;
+            resourceInputs["connectionStatus"] = state?.connectionStatus;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as InboundConnectionAccepterArgs | undefined;
-            if ((!args || args.connectionId === undefined) && !opts.urn) {
+            if (args?.connectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["connectionId"] = args?.connectionId;
+            resourceInputs["region"] = args?.region;
             resourceInputs["connectionStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

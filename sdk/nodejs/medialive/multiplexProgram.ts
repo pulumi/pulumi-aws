@@ -90,22 +90,22 @@ export class MultiplexProgram extends pulumi.CustomResource {
     /**
      * Multiplex ID.
      */
-    public readonly multiplexId!: pulumi.Output<string>;
+    declare public readonly multiplexId: pulumi.Output<string>;
     /**
      * MultiplexProgram settings. See Multiplex Program Settings for more details.
      *
      * The following arguments are optional:
      */
-    public readonly multiplexProgramSettings!: pulumi.Output<outputs.medialive.MultiplexProgramMultiplexProgramSettings | undefined>;
+    declare public readonly multiplexProgramSettings: pulumi.Output<outputs.medialive.MultiplexProgramMultiplexProgramSettings | undefined>;
     /**
      * Unique program name.
      */
-    public readonly programName!: pulumi.Output<string>;
+    declare public readonly programName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.medialive.MultiplexProgramTimeouts | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.medialive.MultiplexProgramTimeouts | undefined>;
 
     /**
      * Create a MultiplexProgram resource with the given unique name, arguments, and options.
@@ -120,24 +120,24 @@ export class MultiplexProgram extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MultiplexProgramState | undefined;
-            resourceInputs["multiplexId"] = state ? state.multiplexId : undefined;
-            resourceInputs["multiplexProgramSettings"] = state ? state.multiplexProgramSettings : undefined;
-            resourceInputs["programName"] = state ? state.programName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["multiplexId"] = state?.multiplexId;
+            resourceInputs["multiplexProgramSettings"] = state?.multiplexProgramSettings;
+            resourceInputs["programName"] = state?.programName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as MultiplexProgramArgs | undefined;
-            if ((!args || args.multiplexId === undefined) && !opts.urn) {
+            if (args?.multiplexId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'multiplexId'");
             }
-            if ((!args || args.programName === undefined) && !opts.urn) {
+            if (args?.programName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'programName'");
             }
-            resourceInputs["multiplexId"] = args ? args.multiplexId : undefined;
-            resourceInputs["multiplexProgramSettings"] = args ? args.multiplexProgramSettings : undefined;
-            resourceInputs["programName"] = args ? args.programName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["multiplexId"] = args?.multiplexId;
+            resourceInputs["multiplexProgramSettings"] = args?.multiplexProgramSettings;
+            resourceInputs["programName"] = args?.programName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["timeouts"] = args?.timeouts;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MultiplexProgram.__pulumiType, name, resourceInputs, opts);

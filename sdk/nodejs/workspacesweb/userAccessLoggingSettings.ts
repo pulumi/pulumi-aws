@@ -80,29 +80,29 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
     /**
      * List of web portal ARNs that this user access logging settings resource is associated with.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * ARN of the Kinesis stream.
      *
      * The following arguments are optional:
      */
-    public readonly kinesisStreamArn!: pulumi.Output<string>;
+    declare public readonly kinesisStreamArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of the user access logging settings resource.
      */
-    public /*out*/ readonly userAccessLoggingSettingsArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly userAccessLoggingSettingsArn: pulumi.Output<string>;
 
     /**
      * Create a UserAccessLoggingSettings resource with the given unique name, arguments, and options.
@@ -117,20 +117,20 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserAccessLoggingSettingsState | undefined;
-            resourceInputs["associatedPortalArns"] = state ? state.associatedPortalArns : undefined;
-            resourceInputs["kinesisStreamArn"] = state ? state.kinesisStreamArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["userAccessLoggingSettingsArn"] = state ? state.userAccessLoggingSettingsArn : undefined;
+            resourceInputs["associatedPortalArns"] = state?.associatedPortalArns;
+            resourceInputs["kinesisStreamArn"] = state?.kinesisStreamArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["userAccessLoggingSettingsArn"] = state?.userAccessLoggingSettingsArn;
         } else {
             const args = argsOrState as UserAccessLoggingSettingsArgs | undefined;
-            if ((!args || args.kinesisStreamArn === undefined) && !opts.urn) {
+            if (args?.kinesisStreamArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kinesisStreamArn'");
             }
-            resourceInputs["kinesisStreamArn"] = args ? args.kinesisStreamArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["kinesisStreamArn"] = args?.kinesisStreamArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["userAccessLoggingSettingsArn"] = undefined /*out*/;

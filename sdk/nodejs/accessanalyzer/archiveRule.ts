@@ -77,19 +77,19 @@ export class ArchiveRule extends pulumi.CustomResource {
     /**
      * Analyzer name.
      */
-    public readonly analyzerName!: pulumi.Output<string>;
+    declare public readonly analyzerName: pulumi.Output<string>;
     /**
      * Filter criteria for the archive rule. See Filter for more details.
      */
-    public readonly filters!: pulumi.Output<outputs.accessanalyzer.ArchiveRuleFilter[]>;
+    declare public readonly filters: pulumi.Output<outputs.accessanalyzer.ArchiveRuleFilter[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Rule name.
      */
-    public readonly ruleName!: pulumi.Output<string>;
+    declare public readonly ruleName: pulumi.Output<string>;
 
     /**
      * Create a ArchiveRule resource with the given unique name, arguments, and options.
@@ -104,25 +104,25 @@ export class ArchiveRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ArchiveRuleState | undefined;
-            resourceInputs["analyzerName"] = state ? state.analyzerName : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["ruleName"] = state ? state.ruleName : undefined;
+            resourceInputs["analyzerName"] = state?.analyzerName;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["ruleName"] = state?.ruleName;
         } else {
             const args = argsOrState as ArchiveRuleArgs | undefined;
-            if ((!args || args.analyzerName === undefined) && !opts.urn) {
+            if (args?.analyzerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'analyzerName'");
             }
-            if ((!args || args.filters === undefined) && !opts.urn) {
+            if (args?.filters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.ruleName === undefined) && !opts.urn) {
+            if (args?.ruleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            resourceInputs["analyzerName"] = args ? args.analyzerName : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["analyzerName"] = args?.analyzerName;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["ruleName"] = args?.ruleName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ArchiveRule.__pulumiType, name, resourceInputs, opts);

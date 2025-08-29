@@ -63,19 +63,19 @@ export class KeyvaluestoreKey extends pulumi.CustomResource {
     /**
      * Key to put.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the Key Value Store.
      */
-    public readonly keyValueStoreArn!: pulumi.Output<string>;
+    declare public readonly keyValueStoreArn: pulumi.Output<string>;
     /**
      * Total size of the Key Value Store in bytes.
      */
-    public /*out*/ readonly totalSizeInBytes!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalSizeInBytes: pulumi.Output<number>;
     /**
      * Value to put.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a KeyvaluestoreKey resource with the given unique name, arguments, and options.
@@ -90,24 +90,24 @@ export class KeyvaluestoreKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyvaluestoreKeyState | undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["keyValueStoreArn"] = state ? state.keyValueStoreArn : undefined;
-            resourceInputs["totalSizeInBytes"] = state ? state.totalSizeInBytes : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["keyValueStoreArn"] = state?.keyValueStoreArn;
+            resourceInputs["totalSizeInBytes"] = state?.totalSizeInBytes;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as KeyvaluestoreKeyArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.keyValueStoreArn === undefined) && !opts.urn) {
+            if (args?.keyValueStoreArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyValueStoreArn'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["keyValueStoreArn"] = args ? args.keyValueStoreArn : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["keyValueStoreArn"] = args?.keyValueStoreArn;
+            resourceInputs["value"] = args?.value;
             resourceInputs["totalSizeInBytes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -69,25 +69,25 @@ export class RoutingControl extends pulumi.CustomResource {
     /**
      * ARN of the routing control.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ARN of the cluster in which this routing control will reside.
      */
-    public readonly clusterArn!: pulumi.Output<string>;
+    declare public readonly clusterArn: pulumi.Output<string>;
     /**
      * ARN of the control panel in which this routing control will reside.
      */
-    public readonly controlPanelArn!: pulumi.Output<string>;
+    declare public readonly controlPanelArn: pulumi.Output<string>;
     /**
      * The name describing the routing control.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a RoutingControl resource with the given unique name, arguments, and options.
@@ -102,19 +102,19 @@ export class RoutingControl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoutingControlState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["clusterArn"] = state ? state.clusterArn : undefined;
-            resourceInputs["controlPanelArn"] = state ? state.controlPanelArn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["clusterArn"] = state?.clusterArn;
+            resourceInputs["controlPanelArn"] = state?.controlPanelArn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as RoutingControlArgs | undefined;
-            if ((!args || args.clusterArn === undefined) && !opts.urn) {
+            if (args?.clusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["controlPanelArn"] = args?.controlPanelArn;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

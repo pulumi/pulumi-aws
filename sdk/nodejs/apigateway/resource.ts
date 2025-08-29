@@ -65,23 +65,23 @@ export class Resource extends pulumi.CustomResource {
     /**
      * ID of the parent API resource
      */
-    public readonly parentId!: pulumi.Output<string>;
+    declare public readonly parentId: pulumi.Output<string>;
     /**
      * Complete path for this API resource, including all parent paths.
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    declare public /*out*/ readonly path: pulumi.Output<string>;
     /**
      * Last path segment of this API resource.
      */
-    public readonly pathPart!: pulumi.Output<string>;
+    declare public readonly pathPart: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<string>;
+    declare public readonly restApi: pulumi.Output<string>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -96,26 +96,26 @@ export class Resource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceState | undefined;
-            resourceInputs["parentId"] = state ? state.parentId : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["pathPart"] = state ? state.pathPart : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["parentId"] = state?.parentId;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["pathPart"] = state?.pathPart;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["restApi"] = state?.restApi;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
-            if ((!args || args.parentId === undefined) && !opts.urn) {
+            if (args?.parentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if ((!args || args.pathPart === undefined) && !opts.urn) {
+            if (args?.pathPart === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pathPart'");
             }
-            if ((!args || args.restApi === undefined) && !opts.urn) {
+            if (args?.restApi === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            resourceInputs["parentId"] = args ? args.parentId : undefined;
-            resourceInputs["pathPart"] = args ? args.pathPart : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["parentId"] = args?.parentId;
+            resourceInputs["pathPart"] = args?.pathPart;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["restApi"] = args?.restApi;
             resourceInputs["path"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -61,47 +61,47 @@ export class StandardsControl extends pulumi.CustomResource {
     /**
      * The identifier of the security standard control.
      */
-    public /*out*/ readonly controlId!: pulumi.Output<string>;
+    declare public /*out*/ readonly controlId: pulumi.Output<string>;
     /**
      * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
      */
-    public readonly controlStatus!: pulumi.Output<string>;
+    declare public readonly controlStatus: pulumi.Output<string>;
     /**
      * The date and time that the status of the security standard control was most recently updated.
      */
-    public /*out*/ readonly controlStatusUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly controlStatusUpdatedAt: pulumi.Output<string>;
     /**
      * The standard control longer description. Provides information about what the control is checking for.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
      */
-    public readonly disabledReason!: pulumi.Output<string>;
+    declare public readonly disabledReason: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The list of requirements that are related to this control.
      */
-    public /*out*/ readonly relatedRequirements!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly relatedRequirements: pulumi.Output<string[]>;
     /**
      * A link to remediation information for the control in the Security Hub user documentation.
      */
-    public /*out*/ readonly remediationUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly remediationUrl: pulumi.Output<string>;
     /**
      * The severity of findings generated from this security standard control.
      */
-    public /*out*/ readonly severityRating!: pulumi.Output<string>;
+    declare public /*out*/ readonly severityRating: pulumi.Output<string>;
     /**
      * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      */
-    public readonly standardsControlArn!: pulumi.Output<string>;
+    declare public readonly standardsControlArn: pulumi.Output<string>;
     /**
      * The standard control title.
      */
-    public /*out*/ readonly title!: pulumi.Output<string>;
+    declare public /*out*/ readonly title: pulumi.Output<string>;
 
     /**
      * Create a StandardsControl resource with the given unique name, arguments, and options.
@@ -116,29 +116,29 @@ export class StandardsControl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandardsControlState | undefined;
-            resourceInputs["controlId"] = state ? state.controlId : undefined;
-            resourceInputs["controlStatus"] = state ? state.controlStatus : undefined;
-            resourceInputs["controlStatusUpdatedAt"] = state ? state.controlStatusUpdatedAt : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["disabledReason"] = state ? state.disabledReason : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["relatedRequirements"] = state ? state.relatedRequirements : undefined;
-            resourceInputs["remediationUrl"] = state ? state.remediationUrl : undefined;
-            resourceInputs["severityRating"] = state ? state.severityRating : undefined;
-            resourceInputs["standardsControlArn"] = state ? state.standardsControlArn : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["controlId"] = state?.controlId;
+            resourceInputs["controlStatus"] = state?.controlStatus;
+            resourceInputs["controlStatusUpdatedAt"] = state?.controlStatusUpdatedAt;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["disabledReason"] = state?.disabledReason;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["relatedRequirements"] = state?.relatedRequirements;
+            resourceInputs["remediationUrl"] = state?.remediationUrl;
+            resourceInputs["severityRating"] = state?.severityRating;
+            resourceInputs["standardsControlArn"] = state?.standardsControlArn;
+            resourceInputs["title"] = state?.title;
         } else {
             const args = argsOrState as StandardsControlArgs | undefined;
-            if ((!args || args.controlStatus === undefined) && !opts.urn) {
+            if (args?.controlStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controlStatus'");
             }
-            if ((!args || args.standardsControlArn === undefined) && !opts.urn) {
+            if (args?.standardsControlArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'standardsControlArn'");
             }
-            resourceInputs["controlStatus"] = args ? args.controlStatus : undefined;
-            resourceInputs["disabledReason"] = args ? args.disabledReason : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["standardsControlArn"] = args ? args.standardsControlArn : undefined;
+            resourceInputs["controlStatus"] = args?.controlStatus;
+            resourceInputs["disabledReason"] = args?.disabledReason;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["standardsControlArn"] = args?.standardsControlArn;
             resourceInputs["controlId"] = undefined /*out*/;
             resourceInputs["controlStatusUpdatedAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

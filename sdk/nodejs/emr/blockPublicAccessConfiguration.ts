@@ -115,15 +115,15 @@ export class BlockPublicAccessConfiguration extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly blockPublicSecurityGroupRules!: pulumi.Output<boolean>;
+    declare public readonly blockPublicSecurityGroupRules: pulumi.Output<boolean>;
     /**
      * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      */
-    public readonly permittedPublicSecurityGroupRuleRanges!: pulumi.Output<outputs.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange[] | undefined>;
+    declare public readonly permittedPublicSecurityGroupRuleRanges: pulumi.Output<outputs.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a BlockPublicAccessConfiguration resource with the given unique name, arguments, and options.
@@ -138,17 +138,17 @@ export class BlockPublicAccessConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BlockPublicAccessConfigurationState | undefined;
-            resourceInputs["blockPublicSecurityGroupRules"] = state ? state.blockPublicSecurityGroupRules : undefined;
-            resourceInputs["permittedPublicSecurityGroupRuleRanges"] = state ? state.permittedPublicSecurityGroupRuleRanges : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["blockPublicSecurityGroupRules"] = state?.blockPublicSecurityGroupRules;
+            resourceInputs["permittedPublicSecurityGroupRuleRanges"] = state?.permittedPublicSecurityGroupRuleRanges;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as BlockPublicAccessConfigurationArgs | undefined;
-            if ((!args || args.blockPublicSecurityGroupRules === undefined) && !opts.urn) {
+            if (args?.blockPublicSecurityGroupRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blockPublicSecurityGroupRules'");
             }
-            resourceInputs["blockPublicSecurityGroupRules"] = args ? args.blockPublicSecurityGroupRules : undefined;
-            resourceInputs["permittedPublicSecurityGroupRuleRanges"] = args ? args.permittedPublicSecurityGroupRuleRanges : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["blockPublicSecurityGroupRules"] = args?.blockPublicSecurityGroupRules;
+            resourceInputs["permittedPublicSecurityGroupRuleRanges"] = args?.permittedPublicSecurityGroupRuleRanges;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BlockPublicAccessConfiguration.__pulumiType, name, resourceInputs, opts);

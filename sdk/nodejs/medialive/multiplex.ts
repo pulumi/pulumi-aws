@@ -79,34 +79,34 @@ export class Multiplex extends pulumi.CustomResource {
     /**
      * ARN of the Multiplex.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A list of availability zones. You must specify exactly two.
      */
-    public readonly availabilityZones!: pulumi.Output<string[]>;
+    declare public readonly availabilityZones: pulumi.Output<string[]>;
     /**
      * Multiplex settings. See Multiplex Settings for more details.
      */
-    public readonly multiplexSettings!: pulumi.Output<outputs.medialive.MultiplexMultiplexSettings | undefined>;
+    declare public readonly multiplexSettings: pulumi.Output<outputs.medialive.MultiplexMultiplexSettings | undefined>;
     /**
      * name of Multiplex.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether to start the Multiplex. Defaults to `false`.
      */
-    public readonly startMultiplex!: pulumi.Output<boolean | undefined>;
+    declare public readonly startMultiplex: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Multiplex resource with the given unique name, arguments, and options.
@@ -121,25 +121,25 @@ export class Multiplex extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MultiplexState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            resourceInputs["multiplexSettings"] = state ? state.multiplexSettings : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["startMultiplex"] = state ? state.startMultiplex : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["availabilityZones"] = state?.availabilityZones;
+            resourceInputs["multiplexSettings"] = state?.multiplexSettings;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["startMultiplex"] = state?.startMultiplex;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as MultiplexArgs | undefined;
-            if ((!args || args.availabilityZones === undefined) && !opts.urn) {
+            if (args?.availabilityZones === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZones'");
             }
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["multiplexSettings"] = args ? args.multiplexSettings : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["startMultiplex"] = args ? args.startMultiplex : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["multiplexSettings"] = args?.multiplexSettings;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["startMultiplex"] = args?.startMultiplex;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -62,28 +62,28 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
     /**
      * AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
      * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
      * * PUT Object calls fail if the request includes a public ACL.
      */
-    public readonly blockPublicAcls!: pulumi.Output<boolean | undefined>;
+    declare public readonly blockPublicAcls: pulumi.Output<boolean | undefined>;
     /**
      * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      */
-    public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
+    declare public readonly blockPublicPolicy: pulumi.Output<boolean | undefined>;
     /**
      * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
      * * Ignore all public ACLs on buckets in this account and any objects that they contain.
      */
-    public readonly ignorePublicAcls!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignorePublicAcls: pulumi.Output<boolean | undefined>;
     /**
      * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access buckets with public policies.
      */
-    public readonly restrictPublicBuckets!: pulumi.Output<boolean | undefined>;
+    declare public readonly restrictPublicBuckets: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AccountPublicAccessBlock resource with the given unique name, arguments, and options.
@@ -98,18 +98,18 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountPublicAccessBlockState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["blockPublicAcls"] = state ? state.blockPublicAcls : undefined;
-            resourceInputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
-            resourceInputs["ignorePublicAcls"] = state ? state.ignorePublicAcls : undefined;
-            resourceInputs["restrictPublicBuckets"] = state ? state.restrictPublicBuckets : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["blockPublicAcls"] = state?.blockPublicAcls;
+            resourceInputs["blockPublicPolicy"] = state?.blockPublicPolicy;
+            resourceInputs["ignorePublicAcls"] = state?.ignorePublicAcls;
+            resourceInputs["restrictPublicBuckets"] = state?.restrictPublicBuckets;
         } else {
             const args = argsOrState as AccountPublicAccessBlockArgs | undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["blockPublicAcls"] = args ? args.blockPublicAcls : undefined;
-            resourceInputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
-            resourceInputs["ignorePublicAcls"] = args ? args.ignorePublicAcls : undefined;
-            resourceInputs["restrictPublicBuckets"] = args ? args.restrictPublicBuckets : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["blockPublicAcls"] = args?.blockPublicAcls;
+            resourceInputs["blockPublicPolicy"] = args?.blockPublicPolicy;
+            resourceInputs["ignorePublicAcls"] = args?.ignorePublicAcls;
+            resourceInputs["restrictPublicBuckets"] = args?.restrictPublicBuckets;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountPublicAccessBlock.__pulumiType, name, resourceInputs, opts);

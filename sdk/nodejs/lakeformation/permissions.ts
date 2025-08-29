@@ -206,39 +206,39 @@ export class Permissions extends pulumi.CustomResource {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    public readonly catalogId!: pulumi.Output<string | undefined>;
+    declare public readonly catalogId: pulumi.Output<string | undefined>;
     /**
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
-    public readonly catalogResource!: pulumi.Output<boolean | undefined>;
+    declare public readonly catalogResource: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      */
-    public readonly dataCellsFilter!: pulumi.Output<outputs.lakeformation.PermissionsDataCellsFilter | undefined>;
+    declare public readonly dataCellsFilter: pulumi.Output<outputs.lakeformation.PermissionsDataCellsFilter | undefined>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    public readonly dataLocation!: pulumi.Output<outputs.lakeformation.PermissionsDataLocation>;
+    declare public readonly dataLocation: pulumi.Output<outputs.lakeformation.PermissionsDataLocation>;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    public readonly database!: pulumi.Output<outputs.lakeformation.PermissionsDatabase>;
+    declare public readonly database: pulumi.Output<outputs.lakeformation.PermissionsDatabase>;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    public readonly lfTag!: pulumi.Output<outputs.lakeformation.PermissionsLfTag>;
+    declare public readonly lfTag: pulumi.Output<outputs.lakeformation.PermissionsLfTag>;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    public readonly lfTagPolicy!: pulumi.Output<outputs.lakeformation.PermissionsLfTagPolicy>;
+    declare public readonly lfTagPolicy: pulumi.Output<outputs.lakeformation.PermissionsLfTagPolicy>;
     /**
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
-    public readonly permissions!: pulumi.Output<string[]>;
+    declare public readonly permissions: pulumi.Output<string[]>;
     /**
      * Subset of `permissions` which the principal can pass.
      */
-    public readonly permissionsWithGrantOptions!: pulumi.Output<string[]>;
+    declare public readonly permissionsWithGrantOptions: pulumi.Output<string[]>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      *
@@ -246,21 +246,21 @@ export class Permissions extends pulumi.CustomResource {
      *
      * One of the following is required:
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    public readonly table!: pulumi.Output<outputs.lakeformation.PermissionsTable>;
+    declare public readonly table: pulumi.Output<outputs.lakeformation.PermissionsTable>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.PermissionsTableWithColumns>;
+    declare public readonly tableWithColumns: pulumi.Output<outputs.lakeformation.PermissionsTableWithColumns>;
 
     /**
      * Create a Permissions resource with the given unique name, arguments, and options.
@@ -275,40 +275,40 @@ export class Permissions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionsState | undefined;
-            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
-            resourceInputs["catalogResource"] = state ? state.catalogResource : undefined;
-            resourceInputs["dataCellsFilter"] = state ? state.dataCellsFilter : undefined;
-            resourceInputs["dataLocation"] = state ? state.dataLocation : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["lfTag"] = state ? state.lfTag : undefined;
-            resourceInputs["lfTagPolicy"] = state ? state.lfTagPolicy : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["permissionsWithGrantOptions"] = state ? state.permissionsWithGrantOptions : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
-            resourceInputs["tableWithColumns"] = state ? state.tableWithColumns : undefined;
+            resourceInputs["catalogId"] = state?.catalogId;
+            resourceInputs["catalogResource"] = state?.catalogResource;
+            resourceInputs["dataCellsFilter"] = state?.dataCellsFilter;
+            resourceInputs["dataLocation"] = state?.dataLocation;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["lfTag"] = state?.lfTag;
+            resourceInputs["lfTagPolicy"] = state?.lfTagPolicy;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["permissionsWithGrantOptions"] = state?.permissionsWithGrantOptions;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["table"] = state?.table;
+            resourceInputs["tableWithColumns"] = state?.tableWithColumns;
         } else {
             const args = argsOrState as PermissionsArgs | undefined;
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["catalogResource"] = args ? args.catalogResource : undefined;
-            resourceInputs["dataCellsFilter"] = args ? args.dataCellsFilter : undefined;
-            resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["lfTag"] = args ? args.lfTag : undefined;
-            resourceInputs["lfTagPolicy"] = args ? args.lfTagPolicy : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["permissionsWithGrantOptions"] = args ? args.permissionsWithGrantOptions : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
-            resourceInputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["catalogResource"] = args?.catalogResource;
+            resourceInputs["dataCellsFilter"] = args?.dataCellsFilter;
+            resourceInputs["dataLocation"] = args?.dataLocation;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["lfTag"] = args?.lfTag;
+            resourceInputs["lfTagPolicy"] = args?.lfTagPolicy;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["permissionsWithGrantOptions"] = args?.permissionsWithGrantOptions;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["table"] = args?.table;
+            resourceInputs["tableWithColumns"] = args?.tableWithColumns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Permissions.__pulumiType, name, resourceInputs, opts);

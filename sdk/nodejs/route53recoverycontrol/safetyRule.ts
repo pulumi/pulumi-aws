@@ -86,41 +86,41 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * ARN of the safety rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
      */
-    public readonly assertedControls!: pulumi.Output<string[] | undefined>;
+    declare public readonly assertedControls: pulumi.Output<string[] | undefined>;
     /**
      * ARN of the control panel in which this safety rule will reside.
      */
-    public readonly controlPanelArn!: pulumi.Output<string>;
+    declare public readonly controlPanelArn: pulumi.Output<string>;
     /**
      * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
      */
-    public readonly gatingControls!: pulumi.Output<string[] | undefined>;
+    declare public readonly gatingControls: pulumi.Output<string[] | undefined>;
     /**
      * Name describing the safety rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration block for safety rule criteria. See below.
      */
-    public readonly ruleConfig!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleRuleConfig>;
+    declare public readonly ruleConfig: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleRuleConfig>;
     /**
      * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      */
-    public readonly targetControls!: pulumi.Output<string[] | undefined>;
+    declare public readonly targetControls: pulumi.Output<string[] | undefined>;
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
      *
      * The following arguments are optional:
      */
-    public readonly waitPeriodMs!: pulumi.Output<number>;
+    declare public readonly waitPeriodMs: pulumi.Output<number>;
 
     /**
      * Create a SafetyRule resource with the given unique name, arguments, and options.
@@ -135,33 +135,33 @@ export class SafetyRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SafetyRuleState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["assertedControls"] = state ? state.assertedControls : undefined;
-            resourceInputs["controlPanelArn"] = state ? state.controlPanelArn : undefined;
-            resourceInputs["gatingControls"] = state ? state.gatingControls : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ruleConfig"] = state ? state.ruleConfig : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["targetControls"] = state ? state.targetControls : undefined;
-            resourceInputs["waitPeriodMs"] = state ? state.waitPeriodMs : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["assertedControls"] = state?.assertedControls;
+            resourceInputs["controlPanelArn"] = state?.controlPanelArn;
+            resourceInputs["gatingControls"] = state?.gatingControls;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ruleConfig"] = state?.ruleConfig;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["targetControls"] = state?.targetControls;
+            resourceInputs["waitPeriodMs"] = state?.waitPeriodMs;
         } else {
             const args = argsOrState as SafetyRuleArgs | undefined;
-            if ((!args || args.controlPanelArn === undefined) && !opts.urn) {
+            if (args?.controlPanelArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controlPanelArn'");
             }
-            if ((!args || args.ruleConfig === undefined) && !opts.urn) {
+            if (args?.ruleConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleConfig'");
             }
-            if ((!args || args.waitPeriodMs === undefined) && !opts.urn) {
+            if (args?.waitPeriodMs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'waitPeriodMs'");
             }
-            resourceInputs["assertedControls"] = args ? args.assertedControls : undefined;
-            resourceInputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
-            resourceInputs["gatingControls"] = args ? args.gatingControls : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ruleConfig"] = args ? args.ruleConfig : undefined;
-            resourceInputs["targetControls"] = args ? args.targetControls : undefined;
-            resourceInputs["waitPeriodMs"] = args ? args.waitPeriodMs : undefined;
+            resourceInputs["assertedControls"] = args?.assertedControls;
+            resourceInputs["controlPanelArn"] = args?.controlPanelArn;
+            resourceInputs["gatingControls"] = args?.gatingControls;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ruleConfig"] = args?.ruleConfig;
+            resourceInputs["targetControls"] = args?.targetControls;
+            resourceInputs["waitPeriodMs"] = args?.waitPeriodMs;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

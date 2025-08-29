@@ -85,76 +85,76 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
      */
-    public readonly deleteAllPolicyResources!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteAllPolicyResources: pulumi.Output<boolean | undefined>;
     /**
      * If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
      */
-    public readonly deleteUnusedFmManagedResources!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteUnusedFmManagedResources: pulumi.Output<boolean | undefined>;
     /**
      * The description of the AWS Network Firewall firewall policy.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
      */
-    public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyExcludeMap | undefined>;
+    declare public readonly excludeMap: pulumi.Output<outputs.fms.PolicyExcludeMap | undefined>;
     /**
      * A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
      */
-    public readonly excludeResourceTags!: pulumi.Output<boolean>;
+    declare public readonly excludeResourceTags: pulumi.Output<boolean>;
     /**
      * A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
      */
-    public readonly includeMap!: pulumi.Output<outputs.fms.PolicyIncludeMap | undefined>;
+    declare public readonly includeMap: pulumi.Output<outputs.fms.PolicyIncludeMap | undefined>;
     /**
      * The friendly name of the AWS Firewall Manager Policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A unique identifier for each update to the policy.
      */
-    public /*out*/ readonly policyUpdateToken!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyUpdateToken: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
-    public readonly remediationEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly resourceSetIds!: pulumi.Output<string[]>;
+    declare public readonly remediationEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly resourceSetIds: pulumi.Output<string[]>;
     /**
      * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
      */
-    public readonly resourceTagLogicalOperator!: pulumi.Output<string>;
+    declare public readonly resourceTagLogicalOperator: pulumi.Output<string>;
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */
-    public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly resourceTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      */
-    public readonly resourceType!: pulumi.Output<string>;
+    declare public readonly resourceType: pulumi.Output<string>;
     /**
      * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
      */
-    public readonly resourceTypeLists!: pulumi.Output<string[]>;
+    declare public readonly resourceTypeLists: pulumi.Output<string[]>;
     /**
      * The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
      */
-    public readonly securityServicePolicyData!: pulumi.Output<outputs.fms.PolicySecurityServicePolicyData>;
+    declare public readonly securityServicePolicyData: pulumi.Output<outputs.fms.PolicySecurityServicePolicyData>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -169,49 +169,49 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["deleteAllPolicyResources"] = state ? state.deleteAllPolicyResources : undefined;
-            resourceInputs["deleteUnusedFmManagedResources"] = state ? state.deleteUnusedFmManagedResources : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["excludeMap"] = state ? state.excludeMap : undefined;
-            resourceInputs["excludeResourceTags"] = state ? state.excludeResourceTags : undefined;
-            resourceInputs["includeMap"] = state ? state.includeMap : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyUpdateToken"] = state ? state.policyUpdateToken : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["remediationEnabled"] = state ? state.remediationEnabled : undefined;
-            resourceInputs["resourceSetIds"] = state ? state.resourceSetIds : undefined;
-            resourceInputs["resourceTagLogicalOperator"] = state ? state.resourceTagLogicalOperator : undefined;
-            resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
-            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
-            resourceInputs["resourceTypeLists"] = state ? state.resourceTypeLists : undefined;
-            resourceInputs["securityServicePolicyData"] = state ? state.securityServicePolicyData : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["deleteAllPolicyResources"] = state?.deleteAllPolicyResources;
+            resourceInputs["deleteUnusedFmManagedResources"] = state?.deleteUnusedFmManagedResources;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["excludeMap"] = state?.excludeMap;
+            resourceInputs["excludeResourceTags"] = state?.excludeResourceTags;
+            resourceInputs["includeMap"] = state?.includeMap;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyUpdateToken"] = state?.policyUpdateToken;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["remediationEnabled"] = state?.remediationEnabled;
+            resourceInputs["resourceSetIds"] = state?.resourceSetIds;
+            resourceInputs["resourceTagLogicalOperator"] = state?.resourceTagLogicalOperator;
+            resourceInputs["resourceTags"] = state?.resourceTags;
+            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["resourceTypeLists"] = state?.resourceTypeLists;
+            resourceInputs["securityServicePolicyData"] = state?.securityServicePolicyData;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.excludeResourceTags === undefined) && !opts.urn) {
+            if (args?.excludeResourceTags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'excludeResourceTags'");
             }
-            if ((!args || args.securityServicePolicyData === undefined) && !opts.urn) {
+            if (args?.securityServicePolicyData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityServicePolicyData'");
             }
-            resourceInputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
-            resourceInputs["deleteUnusedFmManagedResources"] = args ? args.deleteUnusedFmManagedResources : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["excludeMap"] = args ? args.excludeMap : undefined;
-            resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
-            resourceInputs["includeMap"] = args ? args.includeMap : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
-            resourceInputs["resourceSetIds"] = args ? args.resourceSetIds : undefined;
-            resourceInputs["resourceTagLogicalOperator"] = args ? args.resourceTagLogicalOperator : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["resourceTypeLists"] = args ? args.resourceTypeLists : undefined;
-            resourceInputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deleteAllPolicyResources"] = args?.deleteAllPolicyResources;
+            resourceInputs["deleteUnusedFmManagedResources"] = args?.deleteUnusedFmManagedResources;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["excludeMap"] = args?.excludeMap;
+            resourceInputs["excludeResourceTags"] = args?.excludeResourceTags;
+            resourceInputs["includeMap"] = args?.includeMap;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["remediationEnabled"] = args?.remediationEnabled;
+            resourceInputs["resourceSetIds"] = args?.resourceSetIds;
+            resourceInputs["resourceTagLogicalOperator"] = args?.resourceTagLogicalOperator;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["resourceTypeLists"] = args?.resourceTypeLists;
+            resourceInputs["securityServicePolicyData"] = args?.securityServicePolicyData;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyUpdateToken"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

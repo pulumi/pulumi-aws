@@ -91,51 +91,51 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
     /**
      * Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
      */
-    public readonly activeDirectoryConfiguration!: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfiguration | undefined>;
+    declare public readonly activeDirectoryConfiguration: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfiguration | undefined>;
     /**
      * Amazon Resource Name of the storage virtual machine.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineEndpoint[]>;
+    declare public /*out*/ readonly endpoints: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineEndpoint[]>;
     /**
      * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      */
-    public readonly fileSystemId!: pulumi.Output<string>;
+    declare public readonly fileSystemId: pulumi.Output<string>;
     /**
      * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      */
-    public readonly rootVolumeSecurityStyle!: pulumi.Output<string | undefined>;
+    declare public readonly rootVolumeSecurityStyle: pulumi.Output<string | undefined>;
     /**
      * Describes the SVM's subtype, e.g. `DEFAULT`
      */
-    public /*out*/ readonly subtype!: pulumi.Output<string>;
+    declare public /*out*/ readonly subtype: pulumi.Output<string>;
     /**
      * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
      */
-    public readonly svmAdminPassword!: pulumi.Output<string | undefined>;
+    declare public readonly svmAdminPassword: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The SVM's UUID (universally unique identifier).
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
 
     /**
      * Create a OntapStorageVirtualMachine resource with the given unique name, arguments, and options.
@@ -150,30 +150,30 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OntapStorageVirtualMachineState | undefined;
-            resourceInputs["activeDirectoryConfiguration"] = state ? state.activeDirectoryConfiguration : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
-            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["rootVolumeSecurityStyle"] = state ? state.rootVolumeSecurityStyle : undefined;
-            resourceInputs["subtype"] = state ? state.subtype : undefined;
-            resourceInputs["svmAdminPassword"] = state ? state.svmAdminPassword : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["uuid"] = state ? state.uuid : undefined;
+            resourceInputs["activeDirectoryConfiguration"] = state?.activeDirectoryConfiguration;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["endpoints"] = state?.endpoints;
+            resourceInputs["fileSystemId"] = state?.fileSystemId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["rootVolumeSecurityStyle"] = state?.rootVolumeSecurityStyle;
+            resourceInputs["subtype"] = state?.subtype;
+            resourceInputs["svmAdminPassword"] = state?.svmAdminPassword;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["uuid"] = state?.uuid;
         } else {
             const args = argsOrState as OntapStorageVirtualMachineArgs | undefined;
-            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
+            if (args?.fileSystemId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            resourceInputs["activeDirectoryConfiguration"] = args ? args.activeDirectoryConfiguration : undefined;
-            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["rootVolumeSecurityStyle"] = args ? args.rootVolumeSecurityStyle : undefined;
+            resourceInputs["activeDirectoryConfiguration"] = args?.activeDirectoryConfiguration;
+            resourceInputs["fileSystemId"] = args?.fileSystemId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["rootVolumeSecurityStyle"] = args?.rootVolumeSecurityStyle;
             resourceInputs["svmAdminPassword"] = args?.svmAdminPassword ? pulumi.secret(args.svmAdminPassword) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["subtype"] = undefined /*out*/;

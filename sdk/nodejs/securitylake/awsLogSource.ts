@@ -70,11 +70,11 @@ export class AwsLogSource extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      */
-    public readonly source!: pulumi.Output<outputs.securitylake.AwsLogSourceSource | undefined>;
+    declare public readonly source: pulumi.Output<outputs.securitylake.AwsLogSourceSource | undefined>;
 
     /**
      * Create a AwsLogSource resource with the given unique name, arguments, and options.
@@ -89,12 +89,12 @@ export class AwsLogSource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AwsLogSourceState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["source"] = state?.source;
         } else {
             const args = argsOrState as AwsLogSourceArgs | undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["source"] = args?.source;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AwsLogSource.__pulumiType, name, resourceInputs, opts);

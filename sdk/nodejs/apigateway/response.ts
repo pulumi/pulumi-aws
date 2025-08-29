@@ -66,27 +66,27 @@ export class Response extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of parameters (paths, query strings and headers) of the Gateway Response.
      */
-    public readonly responseParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly responseParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of templates used to transform the response body.
      */
-    public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly responseTemplates: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Response type of the associated GatewayResponse.
      */
-    public readonly responseType!: pulumi.Output<string>;
+    declare public readonly responseType: pulumi.Output<string>;
     /**
      * String identifier of the associated REST API.
      */
-    public readonly restApiId!: pulumi.Output<string>;
+    declare public readonly restApiId: pulumi.Output<string>;
     /**
      * HTTP status code of the Gateway Response.
      */
-    public readonly statusCode!: pulumi.Output<string | undefined>;
+    declare public readonly statusCode: pulumi.Output<string | undefined>;
 
     /**
      * Create a Response resource with the given unique name, arguments, and options.
@@ -101,26 +101,26 @@ export class Response extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResponseState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["responseParameters"] = state ? state.responseParameters : undefined;
-            resourceInputs["responseTemplates"] = state ? state.responseTemplates : undefined;
-            resourceInputs["responseType"] = state ? state.responseType : undefined;
-            resourceInputs["restApiId"] = state ? state.restApiId : undefined;
-            resourceInputs["statusCode"] = state ? state.statusCode : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["responseParameters"] = state?.responseParameters;
+            resourceInputs["responseTemplates"] = state?.responseTemplates;
+            resourceInputs["responseType"] = state?.responseType;
+            resourceInputs["restApiId"] = state?.restApiId;
+            resourceInputs["statusCode"] = state?.statusCode;
         } else {
             const args = argsOrState as ResponseArgs | undefined;
-            if ((!args || args.responseType === undefined) && !opts.urn) {
+            if (args?.responseType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'responseType'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            resourceInputs["responseType"] = args ? args.responseType : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["statusCode"] = args ? args.statusCode : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["responseTemplates"] = args?.responseTemplates;
+            resourceInputs["responseType"] = args?.responseType;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["statusCode"] = args?.statusCode;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Response.__pulumiType, name, resourceInputs, opts);

@@ -109,45 +109,45 @@ export class JobQueue extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the job queue.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      */
-    public readonly computeEnvironmentOrders!: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[] | undefined>;
+    declare public readonly computeEnvironmentOrders: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[] | undefined>;
     /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
-    public readonly jobStateTimeLimitActions!: pulumi.Output<outputs.batch.JobQueueJobStateTimeLimitAction[] | undefined>;
+    declare public readonly jobStateTimeLimitActions: pulumi.Output<outputs.batch.JobQueueJobStateTimeLimitAction[] | undefined>;
     /**
      * Specifies the name of the job queue.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The priority of the job queue. Job queues with a higher priority
      * are evaluated first when associated with the same compute environment.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
      */
-    public readonly schedulingPolicyArn!: pulumi.Output<string | undefined>;
+    declare public readonly schedulingPolicyArn: pulumi.Output<string | undefined>;
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.batch.JobQueueTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.batch.JobQueueTimeouts | undefined>;
 
     /**
      * Create a JobQueue resource with the given unique name, arguments, and options.
@@ -162,34 +162,34 @@ export class JobQueue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobQueueState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["computeEnvironmentOrders"] = state ? state.computeEnvironmentOrders : undefined;
-            resourceInputs["jobStateTimeLimitActions"] = state ? state.jobStateTimeLimitActions : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["schedulingPolicyArn"] = state ? state.schedulingPolicyArn : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["computeEnvironmentOrders"] = state?.computeEnvironmentOrders;
+            resourceInputs["jobStateTimeLimitActions"] = state?.jobStateTimeLimitActions;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["schedulingPolicyArn"] = state?.schedulingPolicyArn;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as JobQueueArgs | undefined;
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["computeEnvironmentOrders"] = args ? args.computeEnvironmentOrders : undefined;
-            resourceInputs["jobStateTimeLimitActions"] = args ? args.jobStateTimeLimitActions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["computeEnvironmentOrders"] = args?.computeEnvironmentOrders;
+            resourceInputs["jobStateTimeLimitActions"] = args?.jobStateTimeLimitActions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["schedulingPolicyArn"] = args?.schedulingPolicyArn;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

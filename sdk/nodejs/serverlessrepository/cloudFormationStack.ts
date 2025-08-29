@@ -68,39 +68,39 @@ export class CloudFormationStack extends pulumi.CustomResource {
     /**
      * The ARN of the application from the Serverless Application Repository.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
      */
-    public readonly capabilities!: pulumi.Output<string[]>;
+    declare public readonly capabilities: pulumi.Output<string[]>;
     /**
      * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of outputs from the stack.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly outputs: pulumi.Output<{[key: string]: string}>;
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string}>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The version of the application to deploy. If not supplied, deploys the latest version.
      */
-    public readonly semanticVersion!: pulumi.Output<string>;
+    declare public readonly semanticVersion: pulumi.Output<string>;
     /**
      * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CloudFormationStack resource with the given unique name, arguments, and options.
@@ -115,30 +115,30 @@ export class CloudFormationStack extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CloudFormationStackState | undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["capabilities"] = state ? state.capabilities : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputs"] = state ? state.outputs : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["semanticVersion"] = state ? state.semanticVersion : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["capabilities"] = state?.capabilities;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputs"] = state?.outputs;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["semanticVersion"] = state?.semanticVersion;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as CloudFormationStackArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.capabilities === undefined) && !opts.urn) {
+            if (args?.capabilities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capabilities'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["semanticVersion"] = args ? args.semanticVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["semanticVersion"] = args?.semanticVersion;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["outputs"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

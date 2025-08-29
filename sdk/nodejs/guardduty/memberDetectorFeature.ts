@@ -58,27 +58,27 @@ export class MemberDetectorFeature extends pulumi.CustomResource {
     /**
      * Member account ID to be updated.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Additional feature configuration block. See below.
      */
-    public readonly additionalConfigurations!: pulumi.Output<outputs.guardduty.MemberDetectorFeatureAdditionalConfiguration[] | undefined>;
+    declare public readonly additionalConfigurations: pulumi.Output<outputs.guardduty.MemberDetectorFeatureAdditionalConfiguration[] | undefined>;
     /**
      * Amazon GuardDuty detector ID.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
 
     /**
      * Create a MemberDetectorFeature resource with the given unique name, arguments, and options.
@@ -93,29 +93,29 @@ export class MemberDetectorFeature extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberDetectorFeatureState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["additionalConfigurations"] = state ? state.additionalConfigurations : undefined;
-            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["additionalConfigurations"] = state?.additionalConfigurations;
+            resourceInputs["detectorId"] = state?.detectorId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as MemberDetectorFeatureArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["additionalConfigurations"] = args ? args.additionalConfigurations : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["additionalConfigurations"] = args?.additionalConfigurations;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MemberDetectorFeature.__pulumiType, name, resourceInputs, opts);

@@ -51,42 +51,42 @@ export class AgentAgentAlias extends pulumi.CustomResource {
     /**
      * ARN of the alias.
      */
-    public /*out*/ readonly agentAliasArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentAliasArn: pulumi.Output<string>;
     /**
      * Unique identifier of the alias.
      */
-    public /*out*/ readonly agentAliasId!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentAliasId: pulumi.Output<string>;
     /**
      * Name of the alias.
      */
-    public readonly agentAliasName!: pulumi.Output<string>;
+    declare public readonly agentAliasName: pulumi.Output<string>;
     /**
      * Identifier of the agent to create an alias for.
      *
      * The following arguments are optional:
      */
-    public readonly agentId!: pulumi.Output<string>;
+    declare public readonly agentId: pulumi.Output<string>;
     /**
      * Description of the alias.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      */
-    public readonly routingConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentAliasRoutingConfiguration[]>;
+    declare public readonly routingConfigurations: pulumi.Output<outputs.bedrock.AgentAgentAliasRoutingConfiguration[]>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentAliasTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentAgentAliasTimeouts | undefined>;
 
     /**
      * Create a AgentAgentAlias resource with the given unique name, arguments, and options.
@@ -101,31 +101,31 @@ export class AgentAgentAlias extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentAgentAliasState | undefined;
-            resourceInputs["agentAliasArn"] = state ? state.agentAliasArn : undefined;
-            resourceInputs["agentAliasId"] = state ? state.agentAliasId : undefined;
-            resourceInputs["agentAliasName"] = state ? state.agentAliasName : undefined;
-            resourceInputs["agentId"] = state ? state.agentId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routingConfigurations"] = state ? state.routingConfigurations : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["agentAliasArn"] = state?.agentAliasArn;
+            resourceInputs["agentAliasId"] = state?.agentAliasId;
+            resourceInputs["agentAliasName"] = state?.agentAliasName;
+            resourceInputs["agentId"] = state?.agentId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routingConfigurations"] = state?.routingConfigurations;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AgentAgentAliasArgs | undefined;
-            if ((!args || args.agentAliasName === undefined) && !opts.urn) {
+            if (args?.agentAliasName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentAliasName'");
             }
-            if ((!args || args.agentId === undefined) && !opts.urn) {
+            if (args?.agentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentId'");
             }
-            resourceInputs["agentAliasName"] = args ? args.agentAliasName : undefined;
-            resourceInputs["agentId"] = args ? args.agentId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routingConfigurations"] = args ? args.routingConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["agentAliasName"] = args?.agentAliasName;
+            resourceInputs["agentId"] = args?.agentId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routingConfigurations"] = args?.routingConfigurations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["agentAliasArn"] = undefined /*out*/;
             resourceInputs["agentAliasId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

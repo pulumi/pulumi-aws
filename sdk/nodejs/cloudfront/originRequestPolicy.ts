@@ -79,31 +79,31 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
     /**
      * The origin request policy ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Comment to describe the origin request policy.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      */
-    public readonly cookiesConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyCookiesConfig>;
+    declare public readonly cookiesConfig: pulumi.Output<outputs.cloudfront.OriginRequestPolicyCookiesConfig>;
     /**
      * The current version of the origin request policy.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      */
-    public readonly headersConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyHeadersConfig>;
+    declare public readonly headersConfig: pulumi.Output<outputs.cloudfront.OriginRequestPolicyHeadersConfig>;
     /**
      * Unique name to identify the origin request policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      */
-    public readonly queryStringsConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyQueryStringsConfig>;
+    declare public readonly queryStringsConfig: pulumi.Output<outputs.cloudfront.OriginRequestPolicyQueryStringsConfig>;
 
     /**
      * Create a OriginRequestPolicy resource with the given unique name, arguments, and options.
@@ -118,29 +118,29 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginRequestPolicyState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["cookiesConfig"] = state ? state.cookiesConfig : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["headersConfig"] = state ? state.headersConfig : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queryStringsConfig"] = state ? state.queryStringsConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["cookiesConfig"] = state?.cookiesConfig;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["headersConfig"] = state?.headersConfig;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queryStringsConfig"] = state?.queryStringsConfig;
         } else {
             const args = argsOrState as OriginRequestPolicyArgs | undefined;
-            if ((!args || args.cookiesConfig === undefined) && !opts.urn) {
+            if (args?.cookiesConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cookiesConfig'");
             }
-            if ((!args || args.headersConfig === undefined) && !opts.urn) {
+            if (args?.headersConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'headersConfig'");
             }
-            if ((!args || args.queryStringsConfig === undefined) && !opts.urn) {
+            if (args?.queryStringsConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryStringsConfig'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["cookiesConfig"] = args ? args.cookiesConfig : undefined;
-            resourceInputs["headersConfig"] = args ? args.headersConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryStringsConfig"] = args ? args.queryStringsConfig : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["cookiesConfig"] = args?.cookiesConfig;
+            resourceInputs["headersConfig"] = args?.headersConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryStringsConfig"] = args?.queryStringsConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }

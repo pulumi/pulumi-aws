@@ -89,19 +89,19 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     /**
      * The ARN of the environment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The number of minutes until the running instance is shut down after the environment has last been used.
      */
-    public readonly automaticStopTimeMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly automaticStopTimeMinutes: pulumi.Output<number | undefined>;
     /**
      * The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
      */
-    public readonly connectionType!: pulumi.Output<string | undefined>;
+    declare public readonly connectionType: pulumi.Output<string | undefined>;
     /**
      * The description of the environment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
      * * `amazonlinux-2-x86_64`
@@ -113,39 +113,39 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      */
-    public readonly imageId!: pulumi.Output<string>;
+    declare public readonly imageId: pulumi.Output<string>;
     /**
      * The type of instance to connect to the environment, e.g., `t2.micro`.
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * The name of the environment.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
      */
-    public readonly ownerArn!: pulumi.Output<string>;
+    declare public readonly ownerArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the environment (e.g., `ssh` or `ec2`).
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a EnvironmentEC2 resource with the given unique name, arguments, and options.
@@ -160,37 +160,37 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentEC2State | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["automaticStopTimeMinutes"] = state ? state.automaticStopTimeMinutes : undefined;
-            resourceInputs["connectionType"] = state ? state.connectionType : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["imageId"] = state ? state.imageId : undefined;
-            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ownerArn"] = state ? state.ownerArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["automaticStopTimeMinutes"] = state?.automaticStopTimeMinutes;
+            resourceInputs["connectionType"] = state?.connectionType;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["imageId"] = state?.imageId;
+            resourceInputs["instanceType"] = state?.instanceType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ownerArn"] = state?.ownerArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as EnvironmentEC2Args | undefined;
-            if ((!args || args.imageId === undefined) && !opts.urn) {
+            if (args?.imageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageId'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["automaticStopTimeMinutes"] = args ? args.automaticStopTimeMinutes : undefined;
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ownerArn"] = args ? args.ownerArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["automaticStopTimeMinutes"] = args?.automaticStopTimeMinutes;
+            resourceInputs["connectionType"] = args?.connectionType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ownerArn"] = args?.ownerArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

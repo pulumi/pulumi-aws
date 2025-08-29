@@ -84,44 +84,44 @@ export class RouteServer extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly amazonSideAsn!: pulumi.Output<number>;
+    declare public readonly amazonSideAsn: pulumi.Output<number>;
     /**
      * The ARN of the route server.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
      */
-    public readonly persistRoutes!: pulumi.Output<string>;
+    declare public readonly persistRoutes: pulumi.Output<string>;
     /**
      * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
      */
-    public readonly persistRoutesDuration!: pulumi.Output<number | undefined>;
+    declare public readonly persistRoutesDuration: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The unique identifier of the route server.
      */
-    public /*out*/ readonly routeServerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly routeServerId: pulumi.Output<string>;
     /**
      * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
      */
-    public readonly snsNotificationsEnabled!: pulumi.Output<boolean>;
+    declare public readonly snsNotificationsEnabled: pulumi.Output<boolean>;
     /**
      * The ARN of the SNS topic where notifications are published.
      */
-    public /*out*/ readonly snsTopicArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly snsTopicArn: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.vpc.RouteServerTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerTimeouts | undefined>;
 
     /**
      * Create a RouteServer resource with the given unique name, arguments, and options.
@@ -136,29 +136,29 @@ export class RouteServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteServerState | undefined;
-            resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["persistRoutes"] = state ? state.persistRoutes : undefined;
-            resourceInputs["persistRoutesDuration"] = state ? state.persistRoutesDuration : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
-            resourceInputs["snsNotificationsEnabled"] = state ? state.snsNotificationsEnabled : undefined;
-            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["amazonSideAsn"] = state?.amazonSideAsn;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["persistRoutes"] = state?.persistRoutes;
+            resourceInputs["persistRoutesDuration"] = state?.persistRoutesDuration;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routeServerId"] = state?.routeServerId;
+            resourceInputs["snsNotificationsEnabled"] = state?.snsNotificationsEnabled;
+            resourceInputs["snsTopicArn"] = state?.snsTopicArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as RouteServerArgs | undefined;
-            if ((!args || args.amazonSideAsn === undefined) && !opts.urn) {
+            if (args?.amazonSideAsn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amazonSideAsn'");
             }
-            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            resourceInputs["persistRoutes"] = args ? args.persistRoutes : undefined;
-            resourceInputs["persistRoutesDuration"] = args ? args.persistRoutesDuration : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["snsNotificationsEnabled"] = args ? args.snsNotificationsEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
+            resourceInputs["persistRoutes"] = args?.persistRoutes;
+            resourceInputs["persistRoutesDuration"] = args?.persistRoutesDuration;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["snsNotificationsEnabled"] = args?.snsNotificationsEnabled;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["routeServerId"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;

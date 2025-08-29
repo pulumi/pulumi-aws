@@ -63,27 +63,27 @@ export class SshKey extends pulumi.CustomResource {
     /**
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      */
-    public readonly encoding!: pulumi.Output<string>;
+    declare public readonly encoding: pulumi.Output<string>;
     /**
      * The MD5 message digest of the SSH public key.
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      */
-    public readonly publicKey!: pulumi.Output<string>;
+    declare public readonly publicKey: pulumi.Output<string>;
     /**
      * The unique identifier for the SSH public key.
      */
-    public /*out*/ readonly sshPublicKeyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly sshPublicKeyId: pulumi.Output<string>;
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * The name of the IAM user to associate the SSH public key with.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a SshKey resource with the given unique name, arguments, and options.
@@ -98,27 +98,27 @@ export class SshKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SshKeyState | undefined;
-            resourceInputs["encoding"] = state ? state.encoding : undefined;
-            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
-            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
-            resourceInputs["sshPublicKeyId"] = state ? state.sshPublicKeyId : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["encoding"] = state?.encoding;
+            resourceInputs["fingerprint"] = state?.fingerprint;
+            resourceInputs["publicKey"] = state?.publicKey;
+            resourceInputs["sshPublicKeyId"] = state?.sshPublicKeyId;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
-            if ((!args || args.encoding === undefined) && !opts.urn) {
+            if (args?.encoding === undefined && !opts.urn) {
                 throw new Error("Missing required property 'encoding'");
             }
-            if ((!args || args.publicKey === undefined) && !opts.urn) {
+            if (args?.publicKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["encoding"] = args ? args.encoding : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["encoding"] = args?.encoding;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["username"] = args?.username;
             resourceInputs["fingerprint"] = undefined /*out*/;
             resourceInputs["sshPublicKeyId"] = undefined /*out*/;
         }

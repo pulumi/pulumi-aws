@@ -66,33 +66,33 @@ export class ProfilingGroup extends pulumi.CustomResource {
     /**
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      */
-    public readonly agentOrchestrationConfig!: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig | undefined>;
+    declare public readonly agentOrchestrationConfig: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig | undefined>;
     /**
      * ARN of the profiling group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Compute platform of the profiling group.
      */
-    public readonly computePlatform!: pulumi.Output<string>;
+    declare public readonly computePlatform: pulumi.Output<string>;
     /**
      * Name of the profiling group.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ProfilingGroup resource with the given unique name, arguments, and options.
@@ -107,20 +107,20 @@ export class ProfilingGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfilingGroupState | undefined;
-            resourceInputs["agentOrchestrationConfig"] = state ? state.agentOrchestrationConfig : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["computePlatform"] = state ? state.computePlatform : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["agentOrchestrationConfig"] = state?.agentOrchestrationConfig;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["computePlatform"] = state?.computePlatform;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ProfilingGroupArgs | undefined;
-            resourceInputs["agentOrchestrationConfig"] = args ? args.agentOrchestrationConfig : undefined;
-            resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentOrchestrationConfig"] = args?.agentOrchestrationConfig;
+            resourceInputs["computePlatform"] = args?.computePlatform;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

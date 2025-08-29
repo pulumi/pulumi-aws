@@ -66,45 +66,45 @@ export class ServiceQuota extends pulumi.CustomResource {
     /**
      * Whether the service quota can be increased.
      */
-    public /*out*/ readonly adjustable!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly adjustable: pulumi.Output<boolean>;
     /**
      * Amazon Resource Name (ARN) of the service quota.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Default value of the service quota.
      */
-    public /*out*/ readonly defaultValue!: pulumi.Output<number>;
+    declare public /*out*/ readonly defaultValue: pulumi.Output<number>;
     /**
      * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      */
-    public readonly quotaCode!: pulumi.Output<string>;
+    declare public readonly quotaCode: pulumi.Output<string>;
     /**
      * Name of the quota.
      */
-    public /*out*/ readonly quotaName!: pulumi.Output<string>;
+    declare public /*out*/ readonly quotaName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public /*out*/ readonly requestId!: pulumi.Output<string>;
-    public /*out*/ readonly requestStatus!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public /*out*/ readonly requestId: pulumi.Output<string>;
+    declare public /*out*/ readonly requestStatus: pulumi.Output<string>;
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
-    public readonly serviceCode!: pulumi.Output<string>;
+    declare public readonly serviceCode: pulumi.Output<string>;
     /**
      * Name of the service.
      */
-    public /*out*/ readonly serviceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceName: pulumi.Output<string>;
     /**
      * Information about the measurement.
      */
-    public /*out*/ readonly usageMetrics!: pulumi.Output<outputs.servicequotas.ServiceQuotaUsageMetric[]>;
+    declare public /*out*/ readonly usageMetrics: pulumi.Output<outputs.servicequotas.ServiceQuotaUsageMetric[]>;
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      */
-    public readonly value!: pulumi.Output<number>;
+    declare public readonly value: pulumi.Output<number>;
 
     /**
      * Create a ServiceQuota resource with the given unique name, arguments, and options.
@@ -119,33 +119,33 @@ export class ServiceQuota extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceQuotaState | undefined;
-            resourceInputs["adjustable"] = state ? state.adjustable : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["defaultValue"] = state ? state.defaultValue : undefined;
-            resourceInputs["quotaCode"] = state ? state.quotaCode : undefined;
-            resourceInputs["quotaName"] = state ? state.quotaName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["requestId"] = state ? state.requestId : undefined;
-            resourceInputs["requestStatus"] = state ? state.requestStatus : undefined;
-            resourceInputs["serviceCode"] = state ? state.serviceCode : undefined;
-            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
-            resourceInputs["usageMetrics"] = state ? state.usageMetrics : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["adjustable"] = state?.adjustable;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["defaultValue"] = state?.defaultValue;
+            resourceInputs["quotaCode"] = state?.quotaCode;
+            resourceInputs["quotaName"] = state?.quotaName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["requestId"] = state?.requestId;
+            resourceInputs["requestStatus"] = state?.requestStatus;
+            resourceInputs["serviceCode"] = state?.serviceCode;
+            resourceInputs["serviceName"] = state?.serviceName;
+            resourceInputs["usageMetrics"] = state?.usageMetrics;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as ServiceQuotaArgs | undefined;
-            if ((!args || args.quotaCode === undefined) && !opts.urn) {
+            if (args?.quotaCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'quotaCode'");
             }
-            if ((!args || args.serviceCode === undefined) && !opts.urn) {
+            if (args?.serviceCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceCode'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["quotaCode"] = args ? args.quotaCode : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serviceCode"] = args ? args.serviceCode : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["quotaCode"] = args?.quotaCode;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serviceCode"] = args?.serviceCode;
+            resourceInputs["value"] = args?.value;
             resourceInputs["adjustable"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultValue"] = undefined /*out*/;

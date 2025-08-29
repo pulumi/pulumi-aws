@@ -64,43 +64,43 @@ export class BotAlias extends pulumi.CustomResource {
     /**
      * The ARN of the bot alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the bot.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * The version of the bot.
      */
-    public readonly botVersion!: pulumi.Output<string>;
+    declare public readonly botVersion: pulumi.Output<string>;
     /**
      * Checksum of the bot alias.
      */
-    public /*out*/ readonly checksum!: pulumi.Output<string>;
+    declare public /*out*/ readonly checksum: pulumi.Output<string>;
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      */
-    public readonly conversationLogs!: pulumi.Output<outputs.lex.BotAliasConversationLogs | undefined>;
+    declare public readonly conversationLogs: pulumi.Output<outputs.lex.BotAliasConversationLogs | undefined>;
     /**
      * The date that the bot alias was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * A description of the alias. Must be less than or equal to 200 characters in length.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
     /**
      * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a BotAlias resource with the given unique name, arguments, and options.
@@ -115,30 +115,30 @@ export class BotAlias extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BotAliasState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["botVersion"] = state ? state.botVersion : undefined;
-            resourceInputs["checksum"] = state ? state.checksum : undefined;
-            resourceInputs["conversationLogs"] = state ? state.conversationLogs : undefined;
-            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["botVersion"] = state?.botVersion;
+            resourceInputs["checksum"] = state?.checksum;
+            resourceInputs["conversationLogs"] = state?.conversationLogs;
+            resourceInputs["createdDate"] = state?.createdDate;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["lastUpdatedDate"] = state?.lastUpdatedDate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as BotAliasArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.botVersion === undefined) && !opts.urn) {
+            if (args?.botVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botVersion'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["botVersion"] = args ? args.botVersion : undefined;
-            resourceInputs["conversationLogs"] = args ? args.conversationLogs : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["botVersion"] = args?.botVersion;
+            resourceInputs["conversationLogs"] = args?.conversationLogs;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["checksum"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;

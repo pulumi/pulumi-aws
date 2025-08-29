@@ -94,23 +94,23 @@ export class Account extends pulumi.CustomResource {
     /**
      * The version of the API keys used for the account.
      */
-    public /*out*/ readonly apiKeyVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiKeyVersion: pulumi.Output<string>;
     /**
      * ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      */
-    public readonly cloudwatchRoleArn!: pulumi.Output<string>;
+    declare public readonly cloudwatchRoleArn: pulumi.Output<string>;
     /**
      * A list of features supported for the account.
      */
-    public /*out*/ readonly features!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly features: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Account-Level throttle settings. See exported fields below.
      */
-    public /*out*/ readonly throttleSettings!: pulumi.Output<outputs.apigateway.AccountThrottleSetting[]>;
+    declare public /*out*/ readonly throttleSettings: pulumi.Output<outputs.apigateway.AccountThrottleSetting[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -125,15 +125,15 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["apiKeyVersion"] = state ? state.apiKeyVersion : undefined;
-            resourceInputs["cloudwatchRoleArn"] = state ? state.cloudwatchRoleArn : undefined;
-            resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["throttleSettings"] = state ? state.throttleSettings : undefined;
+            resourceInputs["apiKeyVersion"] = state?.apiKeyVersion;
+            resourceInputs["cloudwatchRoleArn"] = state?.cloudwatchRoleArn;
+            resourceInputs["features"] = state?.features;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["throttleSettings"] = state?.throttleSettings;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            resourceInputs["cloudwatchRoleArn"] = args ? args.cloudwatchRoleArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["cloudwatchRoleArn"] = args?.cloudwatchRoleArn;
+            resourceInputs["region"] = args?.region;
             resourceInputs["apiKeyVersion"] = undefined /*out*/;
             resourceInputs["features"] = undefined /*out*/;
             resourceInputs["throttleSettings"] = undefined /*out*/;

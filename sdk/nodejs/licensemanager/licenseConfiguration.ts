@@ -79,47 +79,47 @@ export class LicenseConfiguration extends pulumi.CustomResource {
     /**
      * The license configuration ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description of the license configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Number of licenses managed by the license configuration.
      */
-    public readonly licenseCount!: pulumi.Output<number | undefined>;
+    declare public readonly licenseCount: pulumi.Output<number | undefined>;
     /**
      * Sets the number of available licenses as a hard limit.
      */
-    public readonly licenseCountHardLimit!: pulumi.Output<boolean | undefined>;
+    declare public readonly licenseCountHardLimit: pulumi.Output<boolean | undefined>;
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      */
-    public readonly licenseCountingType!: pulumi.Output<string>;
+    declare public readonly licenseCountingType: pulumi.Output<string>;
     /**
      * Array of configured License Manager rules.
      */
-    public readonly licenseRules!: pulumi.Output<string[] | undefined>;
+    declare public readonly licenseRules: pulumi.Output<string[] | undefined>;
     /**
      * Name of the license configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Account ID of the owner of the license configuration.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a LicenseConfiguration resource with the given unique name, arguments, and options.
@@ -134,30 +134,30 @@ export class LicenseConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LicenseConfigurationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["licenseCount"] = state ? state.licenseCount : undefined;
-            resourceInputs["licenseCountHardLimit"] = state ? state.licenseCountHardLimit : undefined;
-            resourceInputs["licenseCountingType"] = state ? state.licenseCountingType : undefined;
-            resourceInputs["licenseRules"] = state ? state.licenseRules : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["licenseCount"] = state?.licenseCount;
+            resourceInputs["licenseCountHardLimit"] = state?.licenseCountHardLimit;
+            resourceInputs["licenseCountingType"] = state?.licenseCountingType;
+            resourceInputs["licenseRules"] = state?.licenseRules;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as LicenseConfigurationArgs | undefined;
-            if ((!args || args.licenseCountingType === undefined) && !opts.urn) {
+            if (args?.licenseCountingType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseCountingType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["licenseCount"] = args ? args.licenseCount : undefined;
-            resourceInputs["licenseCountHardLimit"] = args ? args.licenseCountHardLimit : undefined;
-            resourceInputs["licenseCountingType"] = args ? args.licenseCountingType : undefined;
-            resourceInputs["licenseRules"] = args ? args.licenseRules : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["licenseCount"] = args?.licenseCount;
+            resourceInputs["licenseCountHardLimit"] = args?.licenseCountHardLimit;
+            resourceInputs["licenseCountingType"] = args?.licenseCountingType;
+            resourceInputs["licenseRules"] = args?.licenseRules;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

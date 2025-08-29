@@ -61,40 +61,40 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     /**
      * The ARN of the Association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The account that created the association.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The IDs of the security groups.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * The following arguments are optional:
      */
-    public readonly serviceNetworkIdentifier!: pulumi.Output<string>;
+    declare public readonly serviceNetworkIdentifier: pulumi.Output<string>;
     /**
      * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC.
      */
-    public readonly vpcIdentifier!: pulumi.Output<string>;
+    declare public readonly vpcIdentifier: pulumi.Output<string>;
 
     /**
      * Create a ServiceNetworkVpcAssociation resource with the given unique name, arguments, and options.
@@ -109,28 +109,28 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceNetworkVpcAssociationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["serviceNetworkIdentifier"] = state ? state.serviceNetworkIdentifier : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcIdentifier"] = state ? state.vpcIdentifier : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
+            resourceInputs["serviceNetworkIdentifier"] = state?.serviceNetworkIdentifier;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcIdentifier"] = state?.vpcIdentifier;
         } else {
             const args = argsOrState as ServiceNetworkVpcAssociationArgs | undefined;
-            if ((!args || args.serviceNetworkIdentifier === undefined) && !opts.urn) {
+            if (args?.serviceNetworkIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceNetworkIdentifier'");
             }
-            if ((!args || args.vpcIdentifier === undefined) && !opts.urn) {
+            if (args?.vpcIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcIdentifier'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["serviceNetworkIdentifier"] = args ? args.serviceNetworkIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcIdentifier"] = args ? args.vpcIdentifier : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["serviceNetworkIdentifier"] = args?.serviceNetworkIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcIdentifier"] = args?.vpcIdentifier;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

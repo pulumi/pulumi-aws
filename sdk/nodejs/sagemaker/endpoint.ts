@@ -66,31 +66,31 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
      */
-    public readonly deploymentConfig!: pulumi.Output<outputs.sagemaker.EndpointDeploymentConfig | undefined>;
+    declare public readonly deploymentConfig: pulumi.Output<outputs.sagemaker.EndpointDeploymentConfig | undefined>;
     /**
      * The name of the endpoint configuration to use.
      */
-    public readonly endpointConfigName!: pulumi.Output<string>;
+    declare public readonly endpointConfigName: pulumi.Output<string>;
     /**
      * The name of the endpoint. If omitted, the provider will assign a random, unique name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -105,23 +105,23 @@ export class Endpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["deploymentConfig"] = state ? state.deploymentConfig : undefined;
-            resourceInputs["endpointConfigName"] = state ? state.endpointConfigName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["deploymentConfig"] = state?.deploymentConfig;
+            resourceInputs["endpointConfigName"] = state?.endpointConfigName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if ((!args || args.endpointConfigName === undefined) && !opts.urn) {
+            if (args?.endpointConfigName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointConfigName'");
             }
-            resourceInputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
-            resourceInputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deploymentConfig"] = args?.deploymentConfig;
+            resourceInputs["endpointConfigName"] = args?.endpointConfigName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

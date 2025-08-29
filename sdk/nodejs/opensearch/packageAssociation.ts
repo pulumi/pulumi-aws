@@ -67,16 +67,16 @@ export class PackageAssociation extends pulumi.CustomResource {
     /**
      * Name of the domain to associate the package with.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Internal ID of the package to associate with a domain.
      */
-    public readonly packageId!: pulumi.Output<string>;
-    public /*out*/ readonly referencePath!: pulumi.Output<string>;
+    declare public readonly packageId: pulumi.Output<string>;
+    declare public /*out*/ readonly referencePath: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a PackageAssociation resource with the given unique name, arguments, and options.
@@ -91,21 +91,21 @@ export class PackageAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PackageAssociationState | undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["packageId"] = state ? state.packageId : undefined;
-            resourceInputs["referencePath"] = state ? state.referencePath : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["packageId"] = state?.packageId;
+            resourceInputs["referencePath"] = state?.referencePath;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as PackageAssociationArgs | undefined;
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.packageId === undefined) && !opts.urn) {
+            if (args?.packageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageId'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["packageId"] = args ? args.packageId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["packageId"] = args?.packageId;
+            resourceInputs["region"] = args?.region;
             resourceInputs["referencePath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -63,43 +63,43 @@ export class Database extends pulumi.CustomResource {
     /**
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
-    public readonly aclConfiguration!: pulumi.Output<outputs.athena.DatabaseAclConfiguration | undefined>;
+    declare public readonly aclConfiguration: pulumi.Output<outputs.athena.DatabaseAclConfiguration | undefined>;
     /**
      * Name of S3 bucket to save the results of the query execution.
      */
-    public readonly bucket!: pulumi.Output<string | undefined>;
+    declare public readonly bucket: pulumi.Output<string | undefined>;
     /**
      * Description of the database.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.athena.DatabaseEncryptionConfiguration | undefined>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.athena.DatabaseEncryptionConfiguration | undefined>;
     /**
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      */
-    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
      * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
-    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Name of the database to create.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Key-value map of custom metadata properties for the database definition.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly properties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Name of the workgroup.
      */
-    public readonly workgroup!: pulumi.Output<string | undefined>;
+    declare public readonly workgroup: pulumi.Output<string | undefined>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -114,28 +114,28 @@ export class Database extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
-            resourceInputs["aclConfiguration"] = state ? state.aclConfiguration : undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
-            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
-            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["workgroup"] = state ? state.workgroup : undefined;
+            resourceInputs["aclConfiguration"] = state?.aclConfiguration;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["encryptionConfiguration"] = state?.encryptionConfiguration;
+            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["workgroup"] = state?.workgroup;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            resourceInputs["aclConfiguration"] = args ? args.aclConfiguration : undefined;
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
-            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
+            resourceInputs["aclConfiguration"] = args?.aclConfiguration;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["workgroup"] = args?.workgroup;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Database.__pulumiType, name, resourceInputs, opts);

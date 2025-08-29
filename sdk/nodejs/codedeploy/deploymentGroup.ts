@@ -201,95 +201,95 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Configuration block of alarms associated with the deployment group (documented below).
      */
-    public readonly alarmConfiguration!: pulumi.Output<outputs.codedeploy.DeploymentGroupAlarmConfiguration | undefined>;
+    declare public readonly alarmConfiguration: pulumi.Output<outputs.codedeploy.DeploymentGroupAlarmConfiguration | undefined>;
     /**
      * The name of the application.
      */
-    public readonly appName!: pulumi.Output<string>;
+    declare public readonly appName: pulumi.Output<string>;
     /**
      * The ARN of the CodeDeploy deployment group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      */
-    public readonly autoRollbackConfiguration!: pulumi.Output<outputs.codedeploy.DeploymentGroupAutoRollbackConfiguration | undefined>;
+    declare public readonly autoRollbackConfiguration: pulumi.Output<outputs.codedeploy.DeploymentGroupAutoRollbackConfiguration | undefined>;
     /**
      * Autoscaling groups associated with the deployment group.
      */
-    public readonly autoscalingGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly autoscalingGroups: pulumi.Output<string[] | undefined>;
     /**
      * Configuration block of the blue/green deployment options for a deployment group (documented below).
      */
-    public readonly blueGreenDeploymentConfig!: pulumi.Output<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfig>;
+    declare public readonly blueGreenDeploymentConfig: pulumi.Output<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfig>;
     /**
      * The destination platform type for the deployment.
      */
-    public /*out*/ readonly computePlatform!: pulumi.Output<string>;
+    declare public /*out*/ readonly computePlatform: pulumi.Output<string>;
     /**
      * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
      */
-    public readonly deploymentConfigName!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentConfigName: pulumi.Output<string | undefined>;
     /**
      * The ID of the CodeDeploy deployment group.
      */
-    public /*out*/ readonly deploymentGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentGroupId: pulumi.Output<string>;
     /**
      * The name of the deployment group.
      */
-    public readonly deploymentGroupName!: pulumi.Output<string>;
+    declare public readonly deploymentGroupName: pulumi.Output<string>;
     /**
      * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
      */
-    public readonly deploymentStyle!: pulumi.Output<outputs.codedeploy.DeploymentGroupDeploymentStyle | undefined>;
+    declare public readonly deploymentStyle: pulumi.Output<outputs.codedeploy.DeploymentGroupDeploymentStyle | undefined>;
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      */
-    public readonly ec2TagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2TagFilter[] | undefined>;
+    declare public readonly ec2TagFilters: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2TagFilter[] | undefined>;
     /**
      * Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
      */
-    public readonly ec2TagSets!: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2TagSet[] | undefined>;
+    declare public readonly ec2TagSets: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2TagSet[] | undefined>;
     /**
      * Configuration block(s) of the ECS services for a deployment group (documented below).
      */
-    public readonly ecsService!: pulumi.Output<outputs.codedeploy.DeploymentGroupEcsService | undefined>;
+    declare public readonly ecsService: pulumi.Output<outputs.codedeploy.DeploymentGroupEcsService | undefined>;
     /**
      * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      */
-    public readonly loadBalancerInfo!: pulumi.Output<outputs.codedeploy.DeploymentGroupLoadBalancerInfo | undefined>;
+    declare public readonly loadBalancerInfo: pulumi.Output<outputs.codedeploy.DeploymentGroupLoadBalancerInfo | undefined>;
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      */
-    public readonly onPremisesInstanceTagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupOnPremisesInstanceTagFilter[] | undefined>;
+    declare public readonly onPremisesInstanceTagFilters: pulumi.Output<outputs.codedeploy.DeploymentGroupOnPremisesInstanceTagFilter[] | undefined>;
     /**
      * Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
      */
-    public readonly outdatedInstancesStrategy!: pulumi.Output<string | undefined>;
+    declare public readonly outdatedInstancesStrategy: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The service role ARN that allows deployments.
      */
-    public readonly serviceRoleArn!: pulumi.Output<string>;
+    declare public readonly serviceRoleArn: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
      */
-    public readonly terminationHookEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly terminationHookEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
-    public readonly triggerConfigurations!: pulumi.Output<outputs.codedeploy.DeploymentGroupTriggerConfiguration[] | undefined>;
+    declare public readonly triggerConfigurations: pulumi.Output<outputs.codedeploy.DeploymentGroupTriggerConfiguration[] | undefined>;
 
     /**
      * Create a DeploymentGroup resource with the given unique name, arguments, and options.
@@ -304,59 +304,59 @@ export class DeploymentGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentGroupState | undefined;
-            resourceInputs["alarmConfiguration"] = state ? state.alarmConfiguration : undefined;
-            resourceInputs["appName"] = state ? state.appName : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoRollbackConfiguration"] = state ? state.autoRollbackConfiguration : undefined;
-            resourceInputs["autoscalingGroups"] = state ? state.autoscalingGroups : undefined;
-            resourceInputs["blueGreenDeploymentConfig"] = state ? state.blueGreenDeploymentConfig : undefined;
-            resourceInputs["computePlatform"] = state ? state.computePlatform : undefined;
-            resourceInputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
-            resourceInputs["deploymentGroupId"] = state ? state.deploymentGroupId : undefined;
-            resourceInputs["deploymentGroupName"] = state ? state.deploymentGroupName : undefined;
-            resourceInputs["deploymentStyle"] = state ? state.deploymentStyle : undefined;
-            resourceInputs["ec2TagFilters"] = state ? state.ec2TagFilters : undefined;
-            resourceInputs["ec2TagSets"] = state ? state.ec2TagSets : undefined;
-            resourceInputs["ecsService"] = state ? state.ecsService : undefined;
-            resourceInputs["loadBalancerInfo"] = state ? state.loadBalancerInfo : undefined;
-            resourceInputs["onPremisesInstanceTagFilters"] = state ? state.onPremisesInstanceTagFilters : undefined;
-            resourceInputs["outdatedInstancesStrategy"] = state ? state.outdatedInstancesStrategy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["terminationHookEnabled"] = state ? state.terminationHookEnabled : undefined;
-            resourceInputs["triggerConfigurations"] = state ? state.triggerConfigurations : undefined;
+            resourceInputs["alarmConfiguration"] = state?.alarmConfiguration;
+            resourceInputs["appName"] = state?.appName;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoRollbackConfiguration"] = state?.autoRollbackConfiguration;
+            resourceInputs["autoscalingGroups"] = state?.autoscalingGroups;
+            resourceInputs["blueGreenDeploymentConfig"] = state?.blueGreenDeploymentConfig;
+            resourceInputs["computePlatform"] = state?.computePlatform;
+            resourceInputs["deploymentConfigName"] = state?.deploymentConfigName;
+            resourceInputs["deploymentGroupId"] = state?.deploymentGroupId;
+            resourceInputs["deploymentGroupName"] = state?.deploymentGroupName;
+            resourceInputs["deploymentStyle"] = state?.deploymentStyle;
+            resourceInputs["ec2TagFilters"] = state?.ec2TagFilters;
+            resourceInputs["ec2TagSets"] = state?.ec2TagSets;
+            resourceInputs["ecsService"] = state?.ecsService;
+            resourceInputs["loadBalancerInfo"] = state?.loadBalancerInfo;
+            resourceInputs["onPremisesInstanceTagFilters"] = state?.onPremisesInstanceTagFilters;
+            resourceInputs["outdatedInstancesStrategy"] = state?.outdatedInstancesStrategy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serviceRoleArn"] = state?.serviceRoleArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["terminationHookEnabled"] = state?.terminationHookEnabled;
+            resourceInputs["triggerConfigurations"] = state?.triggerConfigurations;
         } else {
             const args = argsOrState as DeploymentGroupArgs | undefined;
-            if ((!args || args.appName === undefined) && !opts.urn) {
+            if (args?.appName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
-            if ((!args || args.deploymentGroupName === undefined) && !opts.urn) {
+            if (args?.deploymentGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentGroupName'");
             }
-            if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            resourceInputs["alarmConfiguration"] = args ? args.alarmConfiguration : undefined;
-            resourceInputs["appName"] = args ? args.appName : undefined;
-            resourceInputs["autoRollbackConfiguration"] = args ? args.autoRollbackConfiguration : undefined;
-            resourceInputs["autoscalingGroups"] = args ? args.autoscalingGroups : undefined;
-            resourceInputs["blueGreenDeploymentConfig"] = args ? args.blueGreenDeploymentConfig : undefined;
-            resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
-            resourceInputs["deploymentGroupName"] = args ? args.deploymentGroupName : undefined;
-            resourceInputs["deploymentStyle"] = args ? args.deploymentStyle : undefined;
-            resourceInputs["ec2TagFilters"] = args ? args.ec2TagFilters : undefined;
-            resourceInputs["ec2TagSets"] = args ? args.ec2TagSets : undefined;
-            resourceInputs["ecsService"] = args ? args.ecsService : undefined;
-            resourceInputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
-            resourceInputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
-            resourceInputs["outdatedInstancesStrategy"] = args ? args.outdatedInstancesStrategy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminationHookEnabled"] = args ? args.terminationHookEnabled : undefined;
-            resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
+            resourceInputs["alarmConfiguration"] = args?.alarmConfiguration;
+            resourceInputs["appName"] = args?.appName;
+            resourceInputs["autoRollbackConfiguration"] = args?.autoRollbackConfiguration;
+            resourceInputs["autoscalingGroups"] = args?.autoscalingGroups;
+            resourceInputs["blueGreenDeploymentConfig"] = args?.blueGreenDeploymentConfig;
+            resourceInputs["deploymentConfigName"] = args?.deploymentConfigName;
+            resourceInputs["deploymentGroupName"] = args?.deploymentGroupName;
+            resourceInputs["deploymentStyle"] = args?.deploymentStyle;
+            resourceInputs["ec2TagFilters"] = args?.ec2TagFilters;
+            resourceInputs["ec2TagSets"] = args?.ec2TagSets;
+            resourceInputs["ecsService"] = args?.ecsService;
+            resourceInputs["loadBalancerInfo"] = args?.loadBalancerInfo;
+            resourceInputs["onPremisesInstanceTagFilters"] = args?.onPremisesInstanceTagFilters;
+            resourceInputs["outdatedInstancesStrategy"] = args?.outdatedInstancesStrategy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serviceRoleArn"] = args?.serviceRoleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminationHookEnabled"] = args?.terminationHookEnabled;
+            resourceInputs["triggerConfigurations"] = args?.triggerConfigurations;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["computePlatform"] = undefined /*out*/;
             resourceInputs["deploymentGroupId"] = undefined /*out*/;

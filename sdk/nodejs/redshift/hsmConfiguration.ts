@@ -62,43 +62,43 @@ export class HsmConfiguration extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A text description of the HSM configuration to be created.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The identifier to be assigned to the new Amazon Redshift HSM configuration.
      */
-    public readonly hsmConfigurationIdentifier!: pulumi.Output<string>;
+    declare public readonly hsmConfigurationIdentifier: pulumi.Output<string>;
     /**
      * The IP address that the Amazon Redshift cluster must use to access the HSM.
      */
-    public readonly hsmIpAddress!: pulumi.Output<string>;
+    declare public readonly hsmIpAddress: pulumi.Output<string>;
     /**
      * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
      */
-    public readonly hsmPartitionName!: pulumi.Output<string>;
+    declare public readonly hsmPartitionName: pulumi.Output<string>;
     /**
      * The password required to access the HSM partition.
      */
-    public readonly hsmPartitionPassword!: pulumi.Output<string>;
+    declare public readonly hsmPartitionPassword: pulumi.Output<string>;
     /**
      * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
      */
-    public readonly hsmServerPublicCertificate!: pulumi.Output<string>;
+    declare public readonly hsmServerPublicCertificate: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a HsmConfiguration resource with the given unique name, arguments, and options.
@@ -113,44 +113,44 @@ export class HsmConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HsmConfigurationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["hsmConfigurationIdentifier"] = state ? state.hsmConfigurationIdentifier : undefined;
-            resourceInputs["hsmIpAddress"] = state ? state.hsmIpAddress : undefined;
-            resourceInputs["hsmPartitionName"] = state ? state.hsmPartitionName : undefined;
-            resourceInputs["hsmPartitionPassword"] = state ? state.hsmPartitionPassword : undefined;
-            resourceInputs["hsmServerPublicCertificate"] = state ? state.hsmServerPublicCertificate : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["hsmConfigurationIdentifier"] = state?.hsmConfigurationIdentifier;
+            resourceInputs["hsmIpAddress"] = state?.hsmIpAddress;
+            resourceInputs["hsmPartitionName"] = state?.hsmPartitionName;
+            resourceInputs["hsmPartitionPassword"] = state?.hsmPartitionPassword;
+            resourceInputs["hsmServerPublicCertificate"] = state?.hsmServerPublicCertificate;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as HsmConfigurationArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.hsmConfigurationIdentifier === undefined) && !opts.urn) {
+            if (args?.hsmConfigurationIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hsmConfigurationIdentifier'");
             }
-            if ((!args || args.hsmIpAddress === undefined) && !opts.urn) {
+            if (args?.hsmIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hsmIpAddress'");
             }
-            if ((!args || args.hsmPartitionName === undefined) && !opts.urn) {
+            if (args?.hsmPartitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hsmPartitionName'");
             }
-            if ((!args || args.hsmPartitionPassword === undefined) && !opts.urn) {
+            if (args?.hsmPartitionPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hsmPartitionPassword'");
             }
-            if ((!args || args.hsmServerPublicCertificate === undefined) && !opts.urn) {
+            if (args?.hsmServerPublicCertificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hsmServerPublicCertificate'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hsmConfigurationIdentifier"] = args ? args.hsmConfigurationIdentifier : undefined;
-            resourceInputs["hsmIpAddress"] = args ? args.hsmIpAddress : undefined;
-            resourceInputs["hsmPartitionName"] = args ? args.hsmPartitionName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hsmConfigurationIdentifier"] = args?.hsmConfigurationIdentifier;
+            resourceInputs["hsmIpAddress"] = args?.hsmIpAddress;
+            resourceInputs["hsmPartitionName"] = args?.hsmPartitionName;
             resourceInputs["hsmPartitionPassword"] = args?.hsmPartitionPassword ? pulumi.secret(args.hsmPartitionPassword) : undefined;
-            resourceInputs["hsmServerPublicCertificate"] = args ? args.hsmServerPublicCertificate : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hsmServerPublicCertificate"] = args?.hsmServerPublicCertificate;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

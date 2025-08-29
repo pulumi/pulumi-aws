@@ -167,60 +167,60 @@ export class User extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the user.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
      */
-    public readonly directoryUserId!: pulumi.Output<string>;
+    declare public readonly directoryUserId: pulumi.Output<string>;
     /**
      * The identifier of the hierarchy group for the user.
      */
-    public readonly hierarchyGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly hierarchyGroupId: pulumi.Output<string | undefined>;
     /**
      * A block that contains information about the identity of the user. Documented below.
      */
-    public readonly identityInfo!: pulumi.Output<outputs.connect.UserIdentityInfo | undefined>;
+    declare public readonly identityInfo: pulumi.Output<outputs.connect.UserIdentityInfo | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * A block that contains information about the phone settings for the user. Documented below.
      */
-    public readonly phoneConfig!: pulumi.Output<outputs.connect.UserPhoneConfig>;
+    declare public readonly phoneConfig: pulumi.Output<outputs.connect.UserPhoneConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The identifier of the routing profile for the user.
      */
-    public readonly routingProfileId!: pulumi.Output<string>;
+    declare public readonly routingProfileId: pulumi.Output<string>;
     /**
      * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      */
-    public readonly securityProfileIds!: pulumi.Output<string[]>;
+    declare public readonly securityProfileIds: pulumi.Output<string[]>;
     /**
      * Tags to apply to the user. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The identifier for the user.
      */
-    public /*out*/ readonly userId!: pulumi.Output<string>;
+    declare public /*out*/ readonly userId: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -235,45 +235,45 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["directoryUserId"] = state ? state.directoryUserId : undefined;
-            resourceInputs["hierarchyGroupId"] = state ? state.hierarchyGroupId : undefined;
-            resourceInputs["identityInfo"] = state ? state.identityInfo : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["phoneConfig"] = state ? state.phoneConfig : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routingProfileId"] = state ? state.routingProfileId : undefined;
-            resourceInputs["securityProfileIds"] = state ? state.securityProfileIds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["directoryUserId"] = state?.directoryUserId;
+            resourceInputs["hierarchyGroupId"] = state?.hierarchyGroupId;
+            resourceInputs["identityInfo"] = state?.identityInfo;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["phoneConfig"] = state?.phoneConfig;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routingProfileId"] = state?.routingProfileId;
+            resourceInputs["securityProfileIds"] = state?.securityProfileIds;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.phoneConfig === undefined) && !opts.urn) {
+            if (args?.phoneConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phoneConfig'");
             }
-            if ((!args || args.routingProfileId === undefined) && !opts.urn) {
+            if (args?.routingProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingProfileId'");
             }
-            if ((!args || args.securityProfileIds === undefined) && !opts.urn) {
+            if (args?.securityProfileIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityProfileIds'");
             }
-            resourceInputs["directoryUserId"] = args ? args.directoryUserId : undefined;
-            resourceInputs["hierarchyGroupId"] = args ? args.hierarchyGroupId : undefined;
-            resourceInputs["identityInfo"] = args ? args.identityInfo : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["directoryUserId"] = args?.directoryUserId;
+            resourceInputs["hierarchyGroupId"] = args?.hierarchyGroupId;
+            resourceInputs["identityInfo"] = args?.identityInfo;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["phoneConfig"] = args ? args.phoneConfig : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routingProfileId"] = args ? args.routingProfileId : undefined;
-            resourceInputs["securityProfileIds"] = args ? args.securityProfileIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["phoneConfig"] = args?.phoneConfig;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routingProfileId"] = args?.routingProfileId;
+            resourceInputs["securityProfileIds"] = args?.securityProfileIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;

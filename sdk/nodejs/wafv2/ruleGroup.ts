@@ -89,53 +89,53 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * The ARN of the WAF rule group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      */
-    public readonly capacity!: pulumi.Output<number>;
+    declare public readonly capacity: pulumi.Output<number>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      */
-    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.RuleGroupCustomResponseBody[] | undefined>;
+    declare public readonly customResponseBodies: pulumi.Output<outputs.wafv2.RuleGroupCustomResponseBody[] | undefined>;
     /**
      * A friendly description of the rule group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lockToken!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lockToken: pulumi.Output<string>;
     /**
      * A friendly name of the rule group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
-    public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
-    public readonly rulesJson!: pulumi.Output<string | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
+    declare public readonly rulesJson: pulumi.Output<string | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      */
-    public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
+    declare public readonly visibilityConfig: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -150,42 +150,42 @@ export class RuleGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleGroupState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["lockToken"] = state ? state.lockToken : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["rulesJson"] = state ? state.rulesJson : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["customResponseBodies"] = state?.customResponseBodies;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["lockToken"] = state?.lockToken;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["rulesJson"] = state?.rulesJson;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["visibilityConfig"] = state?.visibilityConfig;
         } else {
             const args = argsOrState as RuleGroupArgs | undefined;
-            if ((!args || args.capacity === undefined) && !opts.urn) {
+            if (args?.capacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
+            if (args?.visibilityConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["rulesJson"] = args ? args.rulesJson : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["customResponseBodies"] = args?.customResponseBodies;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["rulesJson"] = args?.rulesJson;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["visibilityConfig"] = args?.visibilityConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["lockToken"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

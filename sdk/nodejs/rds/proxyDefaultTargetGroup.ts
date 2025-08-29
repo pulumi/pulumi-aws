@@ -89,23 +89,23 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    public readonly connectionPoolConfig!: pulumi.Output<outputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    declare public readonly connectionPoolConfig: pulumi.Output<outputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
     /**
      * Name of the RDS DB Proxy.
      */
-    public readonly dbProxyName!: pulumi.Output<string>;
+    declare public readonly dbProxyName: pulumi.Output<string>;
     /**
      * The name of the default target group.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ProxyDefaultTargetGroup resource with the given unique name, arguments, and options.
@@ -120,19 +120,19 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyDefaultTargetGroupState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["connectionPoolConfig"] = state ? state.connectionPoolConfig : undefined;
-            resourceInputs["dbProxyName"] = state ? state.dbProxyName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["connectionPoolConfig"] = state?.connectionPoolConfig;
+            resourceInputs["dbProxyName"] = state?.dbProxyName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ProxyDefaultTargetGroupArgs | undefined;
-            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
+            if (args?.dbProxyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            resourceInputs["connectionPoolConfig"] = args ? args.connectionPoolConfig : undefined;
-            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["connectionPoolConfig"] = args?.connectionPoolConfig;
+            resourceInputs["dbProxyName"] = args?.dbProxyName;
+            resourceInputs["region"] = args?.region;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

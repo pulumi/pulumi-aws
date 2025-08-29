@@ -85,43 +85,43 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The domain's ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The service endpoint for updating documents in a search domain.
      */
-    public /*out*/ readonly documentServiceEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly documentServiceEndpoint: pulumi.Output<string>;
     /**
      * An internally generated unique identifier for the domain.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * Domain endpoint options. Documented below.
      */
-    public readonly endpointOptions!: pulumi.Output<outputs.cloudsearch.DomainEndpointOptions>;
+    declare public readonly endpointOptions: pulumi.Output<outputs.cloudsearch.DomainEndpointOptions>;
     /**
      * The index fields for documents added to the domain. Documented below.
      */
-    public readonly indexFields!: pulumi.Output<outputs.cloudsearch.DomainIndexField[] | undefined>;
+    declare public readonly indexFields: pulumi.Output<outputs.cloudsearch.DomainIndexField[] | undefined>;
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      */
-    public readonly multiAz!: pulumi.Output<boolean>;
+    declare public readonly multiAz: pulumi.Output<boolean>;
     /**
      * The name of the CloudSearch domain.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Domain scaling parameters. Documented below.
      */
-    public readonly scalingParameters!: pulumi.Output<outputs.cloudsearch.DomainScalingParameters>;
+    declare public readonly scalingParameters: pulumi.Output<outputs.cloudsearch.DomainScalingParameters>;
     /**
      * The service endpoint for requesting search results from a search domain.
      */
-    public /*out*/ readonly searchServiceEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly searchServiceEndpoint: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -136,24 +136,24 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["documentServiceEndpoint"] = state ? state.documentServiceEndpoint : undefined;
-            resourceInputs["domainId"] = state ? state.domainId : undefined;
-            resourceInputs["endpointOptions"] = state ? state.endpointOptions : undefined;
-            resourceInputs["indexFields"] = state ? state.indexFields : undefined;
-            resourceInputs["multiAz"] = state ? state.multiAz : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["scalingParameters"] = state ? state.scalingParameters : undefined;
-            resourceInputs["searchServiceEndpoint"] = state ? state.searchServiceEndpoint : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["documentServiceEndpoint"] = state?.documentServiceEndpoint;
+            resourceInputs["domainId"] = state?.domainId;
+            resourceInputs["endpointOptions"] = state?.endpointOptions;
+            resourceInputs["indexFields"] = state?.indexFields;
+            resourceInputs["multiAz"] = state?.multiAz;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["scalingParameters"] = state?.scalingParameters;
+            resourceInputs["searchServiceEndpoint"] = state?.searchServiceEndpoint;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            resourceInputs["endpointOptions"] = args ? args.endpointOptions : undefined;
-            resourceInputs["indexFields"] = args ? args.indexFields : undefined;
-            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["scalingParameters"] = args ? args.scalingParameters : undefined;
+            resourceInputs["endpointOptions"] = args?.endpointOptions;
+            resourceInputs["indexFields"] = args?.indexFields;
+            resourceInputs["multiAz"] = args?.multiAz;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["scalingParameters"] = args?.scalingParameters;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["documentServiceEndpoint"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;

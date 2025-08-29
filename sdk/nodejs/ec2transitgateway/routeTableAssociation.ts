@@ -58,27 +58,27 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
      */
-    public readonly replaceExistingAssociation!: pulumi.Output<boolean | undefined>;
+    declare public readonly replaceExistingAssociation: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of the resource
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * Type of the resource
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
+    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
+    declare public readonly transitGatewayRouteTableId: pulumi.Output<string>;
 
     /**
      * Create a RouteTableAssociation resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class RouteTableAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteTableAssociationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replaceExistingAssociation"] = state ? state.replaceExistingAssociation : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
-            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
-            resourceInputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["replaceExistingAssociation"] = state?.replaceExistingAssociation;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
+            resourceInputs["transitGatewayRouteTableId"] = state?.transitGatewayRouteTableId;
         } else {
             const args = argsOrState as RouteTableAssociationArgs | undefined;
-            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
+            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
+            if (args?.transitGatewayRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replaceExistingAssociation"] = args ? args.replaceExistingAssociation : undefined;
-            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replaceExistingAssociation"] = args?.replaceExistingAssociation;
+            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
+            resourceInputs["transitGatewayRouteTableId"] = args?.transitGatewayRouteTableId;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
         }

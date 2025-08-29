@@ -318,121 +318,121 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
      */
-    public readonly accessConfig!: pulumi.Output<outputs.eks.ClusterAccessConfig>;
+    declare public readonly accessConfig: pulumi.Output<outputs.eks.ClusterAccessConfig>;
     /**
      * ARN of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
      */
-    public readonly bootstrapSelfManagedAddons!: pulumi.Output<boolean | undefined>;
+    declare public readonly bootstrapSelfManagedAddons: pulumi.Output<boolean | undefined>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
+    declare public /*out*/ readonly certificateAuthority: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterId: pulumi.Output<string>;
     /**
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      */
-    public readonly computeConfig!: pulumi.Output<outputs.eks.ClusterComputeConfig | undefined>;
+    declare public readonly computeConfig: pulumi.Output<outputs.eks.ClusterComputeConfig | undefined>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
      */
-    public readonly defaultAddonsToRemoves!: pulumi.Output<string[] | undefined>;
+    declare public readonly defaultAddonsToRemoves: pulumi.Output<string[] | undefined>;
     /**
      * Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
      */
-    public readonly deletionProtection!: pulumi.Output<boolean>;
+    declare public readonly deletionProtection: pulumi.Output<boolean>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
-    public readonly enabledClusterLogTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly enabledClusterLogTypes: pulumi.Output<string[] | undefined>;
     /**
      * Configuration block with encryption configuration for the cluster. Detailed below.
      */
-    public readonly encryptionConfig!: pulumi.Output<outputs.eks.ClusterEncryptionConfig | undefined>;
+    declare public readonly encryptionConfig: pulumi.Output<outputs.eks.ClusterEncryptionConfig | undefined>;
     /**
      * Endpoint for your Kubernetes API server.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
      */
-    public readonly forceUpdateVersion!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceUpdateVersion: pulumi.Output<boolean | undefined>;
     /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      */
-    public /*out*/ readonly identities!: pulumi.Output<outputs.eks.ClusterIdentity[]>;
+    declare public /*out*/ readonly identities: pulumi.Output<outputs.eks.ClusterIdentity[]>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig>;
+    declare public readonly kubernetesNetworkConfig: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
      */
-    public readonly outpostConfig!: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
+    declare public readonly outpostConfig: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
     /**
      * Platform version for the cluster.
      */
-    public /*out*/ readonly platformVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly platformVersion: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      */
-    public readonly remoteNetworkConfig!: pulumi.Output<outputs.eks.ClusterRemoteNetworkConfig | undefined>;
+    declare public readonly remoteNetworkConfig: pulumi.Output<outputs.eks.ClusterRemoteNetworkConfig | undefined>;
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Configuration block with storage configuration for EKS Auto Mode. Detailed below.
      */
-    public readonly storageConfig!: pulumi.Output<outputs.eks.ClusterStorageConfig | undefined>;
+    declare public readonly storageConfig: pulumi.Output<outputs.eks.ClusterStorageConfig | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
      */
-    public readonly upgradePolicy!: pulumi.Output<outputs.eks.ClusterUpgradePolicy>;
+    declare public readonly upgradePolicy: pulumi.Output<outputs.eks.ClusterUpgradePolicy>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
      *
      * The following arguments are optional:
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.eks.ClusterVpcConfig>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.eks.ClusterVpcConfig>;
     /**
      * Configuration block with zonal shift configuration for the cluster. Detailed below.
      */
-    public readonly zonalShiftConfig!: pulumi.Output<outputs.eks.ClusterZonalShiftConfig | undefined>;
+    declare public readonly zonalShiftConfig: pulumi.Output<outputs.eks.ClusterZonalShiftConfig | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -447,63 +447,63 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["accessConfig"] = state ? state.accessConfig : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bootstrapSelfManagedAddons"] = state ? state.bootstrapSelfManagedAddons : undefined;
-            resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["computeConfig"] = state ? state.computeConfig : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["defaultAddonsToRemoves"] = state ? state.defaultAddonsToRemoves : undefined;
-            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
-            resourceInputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
-            resourceInputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["forceUpdateVersion"] = state ? state.forceUpdateVersion : undefined;
-            resourceInputs["identities"] = state ? state.identities : undefined;
-            resourceInputs["kubernetesNetworkConfig"] = state ? state.kubernetesNetworkConfig : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outpostConfig"] = state ? state.outpostConfig : undefined;
-            resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["remoteNetworkConfig"] = state ? state.remoteNetworkConfig : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["storageConfig"] = state ? state.storageConfig : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["upgradePolicy"] = state ? state.upgradePolicy : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
-            resourceInputs["zonalShiftConfig"] = state ? state.zonalShiftConfig : undefined;
+            resourceInputs["accessConfig"] = state?.accessConfig;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bootstrapSelfManagedAddons"] = state?.bootstrapSelfManagedAddons;
+            resourceInputs["certificateAuthority"] = state?.certificateAuthority;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["computeConfig"] = state?.computeConfig;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["defaultAddonsToRemoves"] = state?.defaultAddonsToRemoves;
+            resourceInputs["deletionProtection"] = state?.deletionProtection;
+            resourceInputs["enabledClusterLogTypes"] = state?.enabledClusterLogTypes;
+            resourceInputs["encryptionConfig"] = state?.encryptionConfig;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["forceUpdateVersion"] = state?.forceUpdateVersion;
+            resourceInputs["identities"] = state?.identities;
+            resourceInputs["kubernetesNetworkConfig"] = state?.kubernetesNetworkConfig;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outpostConfig"] = state?.outpostConfig;
+            resourceInputs["platformVersion"] = state?.platformVersion;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["remoteNetworkConfig"] = state?.remoteNetworkConfig;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["storageConfig"] = state?.storageConfig;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["upgradePolicy"] = state?.upgradePolicy;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["vpcConfig"] = state?.vpcConfig;
+            resourceInputs["zonalShiftConfig"] = state?.zonalShiftConfig;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.vpcConfig === undefined) && !opts.urn) {
+            if (args?.vpcConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
-            resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
-            resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
-            resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
-            resourceInputs["defaultAddonsToRemoves"] = args ? args.defaultAddonsToRemoves : undefined;
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
-            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            resourceInputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
-            resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["remoteNetworkConfig"] = args ? args.remoteNetworkConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["storageConfig"] = args ? args.storageConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            resourceInputs["zonalShiftConfig"] = args ? args.zonalShiftConfig : undefined;
+            resourceInputs["accessConfig"] = args?.accessConfig;
+            resourceInputs["bootstrapSelfManagedAddons"] = args?.bootstrapSelfManagedAddons;
+            resourceInputs["computeConfig"] = args?.computeConfig;
+            resourceInputs["defaultAddonsToRemoves"] = args?.defaultAddonsToRemoves;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["enabledClusterLogTypes"] = args?.enabledClusterLogTypes;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
+            resourceInputs["forceUpdateVersion"] = args?.forceUpdateVersion;
+            resourceInputs["kubernetesNetworkConfig"] = args?.kubernetesNetworkConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outpostConfig"] = args?.outpostConfig;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["remoteNetworkConfig"] = args?.remoteNetworkConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["storageConfig"] = args?.storageConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradePolicy"] = args?.upgradePolicy;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
+            resourceInputs["zonalShiftConfig"] = args?.zonalShiftConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateAuthority"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

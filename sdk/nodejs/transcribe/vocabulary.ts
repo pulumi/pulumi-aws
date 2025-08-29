@@ -76,38 +76,38 @@ export class Vocabulary extends pulumi.CustomResource {
     /**
      * ARN of the Vocabulary.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Generated download URI.
      */
-    public /*out*/ readonly downloadUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly downloadUri: pulumi.Output<string>;
     /**
      * The language code you selected for your vocabulary.
      */
-    public readonly languageCode!: pulumi.Output<string>;
+    declare public readonly languageCode: pulumi.Output<string>;
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
-    public readonly phrases!: pulumi.Output<string[] | undefined>;
+    declare public readonly phrases: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      */
-    public readonly vocabularyFileUri!: pulumi.Output<string>;
+    declare public readonly vocabularyFileUri: pulumi.Output<string>;
     /**
      * The name of the Vocabulary.
      *
      * The following arguments are optional:
      */
-    public readonly vocabularyName!: pulumi.Output<string>;
+    declare public readonly vocabularyName: pulumi.Output<string>;
 
     /**
      * Create a Vocabulary resource with the given unique name, arguments, and options.
@@ -122,29 +122,29 @@ export class Vocabulary extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VocabularyState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["downloadUri"] = state ? state.downloadUri : undefined;
-            resourceInputs["languageCode"] = state ? state.languageCode : undefined;
-            resourceInputs["phrases"] = state ? state.phrases : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vocabularyFileUri"] = state ? state.vocabularyFileUri : undefined;
-            resourceInputs["vocabularyName"] = state ? state.vocabularyName : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["downloadUri"] = state?.downloadUri;
+            resourceInputs["languageCode"] = state?.languageCode;
+            resourceInputs["phrases"] = state?.phrases;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vocabularyFileUri"] = state?.vocabularyFileUri;
+            resourceInputs["vocabularyName"] = state?.vocabularyName;
         } else {
             const args = argsOrState as VocabularyArgs | undefined;
-            if ((!args || args.languageCode === undefined) && !opts.urn) {
+            if (args?.languageCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'languageCode'");
             }
-            if ((!args || args.vocabularyName === undefined) && !opts.urn) {
+            if (args?.vocabularyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vocabularyName'");
             }
-            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
-            resourceInputs["phrases"] = args ? args.phrases : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vocabularyFileUri"] = args ? args.vocabularyFileUri : undefined;
-            resourceInputs["vocabularyName"] = args ? args.vocabularyName : undefined;
+            resourceInputs["languageCode"] = args?.languageCode;
+            resourceInputs["phrases"] = args?.phrases;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vocabularyFileUri"] = args?.vocabularyFileUri;
+            resourceInputs["vocabularyName"] = args?.vocabularyName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["downloadUri"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -105,39 +105,39 @@ export class Inventory extends pulumi.CustomResource {
     /**
      * Name of the source bucket that inventory lists the objects for.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Contains information about where to publish the inventory results (documented below).
      */
-    public readonly destination!: pulumi.Output<outputs.s3.InventoryDestination>;
+    declare public readonly destination: pulumi.Output<outputs.s3.InventoryDestination>;
     /**
      * Specifies whether the inventory is enabled or disabled.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
      */
-    public readonly filter!: pulumi.Output<outputs.s3.InventoryFilter | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.s3.InventoryFilter | undefined>;
     /**
      * Object versions to include in the inventory list. Valid values: `All`, `Current`.
      */
-    public readonly includedObjectVersions!: pulumi.Output<string>;
+    declare public readonly includedObjectVersions: pulumi.Output<string>;
     /**
      * Unique identifier of the inventory configuration for the bucket.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
      */
-    public readonly optionalFields!: pulumi.Output<string[] | undefined>;
+    declare public readonly optionalFields: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies the schedule for generating inventory results (documented below).
      */
-    public readonly schedule!: pulumi.Output<outputs.s3.InventorySchedule>;
+    declare public readonly schedule: pulumi.Output<outputs.s3.InventorySchedule>;
 
     /**
      * Create a Inventory resource with the given unique name, arguments, and options.
@@ -152,38 +152,38 @@ export class Inventory extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InventoryState | undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["destination"] = state ? state.destination : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["includedObjectVersions"] = state ? state.includedObjectVersions : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["optionalFields"] = state ? state.optionalFields : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["destination"] = state?.destination;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["includedObjectVersions"] = state?.includedObjectVersions;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["optionalFields"] = state?.optionalFields;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["schedule"] = state?.schedule;
         } else {
             const args = argsOrState as InventoryArgs | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.destination === undefined) && !opts.urn) {
+            if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.includedObjectVersions === undefined) && !opts.urn) {
+            if (args?.includedObjectVersions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'includedObjectVersions'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["includedObjectVersions"] = args ? args.includedObjectVersions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["optionalFields"] = args ? args.optionalFields : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["includedObjectVersions"] = args?.includedObjectVersions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["optionalFields"] = args?.optionalFields;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["schedule"] = args?.schedule;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Inventory.__pulumiType, name, resourceInputs, opts);

@@ -97,35 +97,35 @@ export class Workforce extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
      */
-    public readonly cognitoConfig!: pulumi.Output<outputs.sagemaker.WorkforceCognitoConfig | undefined>;
+    declare public readonly cognitoConfig: pulumi.Output<outputs.sagemaker.WorkforceCognitoConfig | undefined>;
     /**
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
      */
-    public readonly oidcConfig!: pulumi.Output<outputs.sagemaker.WorkforceOidcConfig | undefined>;
+    declare public readonly oidcConfig: pulumi.Output<outputs.sagemaker.WorkforceOidcConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
      */
-    public readonly sourceIpConfig!: pulumi.Output<outputs.sagemaker.WorkforceSourceIpConfig>;
+    declare public readonly sourceIpConfig: pulumi.Output<outputs.sagemaker.WorkforceSourceIpConfig>;
     /**
      * The subdomain for your OIDC Identity Provider.
      */
-    public /*out*/ readonly subdomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly subdomain: pulumi.Output<string>;
     /**
      * The name of the Workforce (must be unique).
      */
-    public readonly workforceName!: pulumi.Output<string>;
+    declare public readonly workforceName: pulumi.Output<string>;
     /**
      * configure a workforce using VPC. see Workforce VPC Config details below.
      */
-    public readonly workforceVpcConfig!: pulumi.Output<outputs.sagemaker.WorkforceWorkforceVpcConfig | undefined>;
+    declare public readonly workforceVpcConfig: pulumi.Output<outputs.sagemaker.WorkforceWorkforceVpcConfig | undefined>;
 
     /**
      * Create a Workforce resource with the given unique name, arguments, and options.
@@ -140,25 +140,25 @@ export class Workforce extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkforceState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cognitoConfig"] = state ? state.cognitoConfig : undefined;
-            resourceInputs["oidcConfig"] = state ? state.oidcConfig : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sourceIpConfig"] = state ? state.sourceIpConfig : undefined;
-            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
-            resourceInputs["workforceName"] = state ? state.workforceName : undefined;
-            resourceInputs["workforceVpcConfig"] = state ? state.workforceVpcConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cognitoConfig"] = state?.cognitoConfig;
+            resourceInputs["oidcConfig"] = state?.oidcConfig;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sourceIpConfig"] = state?.sourceIpConfig;
+            resourceInputs["subdomain"] = state?.subdomain;
+            resourceInputs["workforceName"] = state?.workforceName;
+            resourceInputs["workforceVpcConfig"] = state?.workforceVpcConfig;
         } else {
             const args = argsOrState as WorkforceArgs | undefined;
-            if ((!args || args.workforceName === undefined) && !opts.urn) {
+            if (args?.workforceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workforceName'");
             }
-            resourceInputs["cognitoConfig"] = args ? args.cognitoConfig : undefined;
-            resourceInputs["oidcConfig"] = args ? args.oidcConfig : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sourceIpConfig"] = args ? args.sourceIpConfig : undefined;
-            resourceInputs["workforceName"] = args ? args.workforceName : undefined;
-            resourceInputs["workforceVpcConfig"] = args ? args.workforceVpcConfig : undefined;
+            resourceInputs["cognitoConfig"] = args?.cognitoConfig;
+            resourceInputs["oidcConfig"] = args?.oidcConfig;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sourceIpConfig"] = args?.sourceIpConfig;
+            resourceInputs["workforceName"] = args?.workforceName;
+            resourceInputs["workforceVpcConfig"] = args?.workforceVpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["subdomain"] = undefined /*out*/;
         }

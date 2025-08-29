@@ -153,67 +153,67 @@ export class Feature extends pulumi.CustomResource {
     /**
      * The ARN of the feature.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The date and time that the feature is created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
      */
-    public readonly defaultVariation!: pulumi.Output<string>;
+    declare public readonly defaultVariation: pulumi.Output<string>;
     /**
      * Specifies the description of the feature.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
      */
-    public readonly entityOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly entityOverrides: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more blocks that define the evaluation rules for the feature. Detailed below
      */
-    public /*out*/ readonly evaluationRules!: pulumi.Output<outputs.evidently.FeatureEvaluationRule[]>;
+    declare public /*out*/ readonly evaluationRules: pulumi.Output<outputs.evidently.FeatureEvaluationRule[]>;
     /**
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      */
-    public readonly evaluationStrategy!: pulumi.Output<string>;
+    declare public readonly evaluationStrategy: pulumi.Output<string>;
     /**
      * The date and time that the feature was most recently updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name or ARN of the project that is to contain the new feature.
      */
-    public readonly project!: pulumi.Output<string>;
+    declare public readonly project: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
      */
-    public /*out*/ readonly valueType!: pulumi.Output<string>;
+    declare public /*out*/ readonly valueType: pulumi.Output<string>;
     /**
      * One or more blocks that contain the configuration of the feature's different variations. Detailed below
      */
-    public readonly variations!: pulumi.Output<outputs.evidently.FeatureVariation[]>;
+    declare public readonly variations: pulumi.Output<outputs.evidently.FeatureVariation[]>;
 
     /**
      * Create a Feature resource with the given unique name, arguments, and options.
@@ -228,39 +228,39 @@ export class Feature extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FeatureState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
-            resourceInputs["defaultVariation"] = state ? state.defaultVariation : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["entityOverrides"] = state ? state.entityOverrides : undefined;
-            resourceInputs["evaluationRules"] = state ? state.evaluationRules : undefined;
-            resourceInputs["evaluationStrategy"] = state ? state.evaluationStrategy : undefined;
-            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["project"] = state ? state.project : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["valueType"] = state ? state.valueType : undefined;
-            resourceInputs["variations"] = state ? state.variations : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["createdTime"] = state?.createdTime;
+            resourceInputs["defaultVariation"] = state?.defaultVariation;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["entityOverrides"] = state?.entityOverrides;
+            resourceInputs["evaluationRules"] = state?.evaluationRules;
+            resourceInputs["evaluationStrategy"] = state?.evaluationStrategy;
+            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["project"] = state?.project;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["valueType"] = state?.valueType;
+            resourceInputs["variations"] = state?.variations;
         } else {
             const args = argsOrState as FeatureArgs | undefined;
-            if ((!args || args.project === undefined) && !opts.urn) {
+            if (args?.project === undefined && !opts.urn) {
                 throw new Error("Missing required property 'project'");
             }
-            if ((!args || args.variations === undefined) && !opts.urn) {
+            if (args?.variations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variations'");
             }
-            resourceInputs["defaultVariation"] = args ? args.defaultVariation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["entityOverrides"] = args ? args.entityOverrides : undefined;
-            resourceInputs["evaluationStrategy"] = args ? args.evaluationStrategy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["project"] = args ? args.project : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variations"] = args ? args.variations : undefined;
+            resourceInputs["defaultVariation"] = args?.defaultVariation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["entityOverrides"] = args?.entityOverrides;
+            resourceInputs["evaluationStrategy"] = args?.evaluationStrategy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["project"] = args?.project;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variations"] = args?.variations;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["evaluationRules"] = undefined /*out*/;

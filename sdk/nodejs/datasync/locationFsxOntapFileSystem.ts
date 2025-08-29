@@ -51,45 +51,45 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
     /**
      * ARN of the DataSync Location for the FSx Ontap File System.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * ARN of the FSx Ontap File System.
      */
-    public /*out*/ readonly fsxFilesystemArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fsxFilesystemArn: pulumi.Output<string>;
     /**
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
      */
-    public readonly protocol!: pulumi.Output<outputs.datasync.LocationFsxOntapFileSystemProtocol>;
+    declare public readonly protocol: pulumi.Output<outputs.datasync.LocationFsxOntapFileSystemProtocol>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
      * * Network File System (NFS): TCP ports 111, 635, and 2049
      * * Server Message Block (SMB): TCP port 445
      */
-    public readonly securityGroupArns!: pulumi.Output<string[]>;
+    declare public readonly securityGroupArns: pulumi.Output<string[]>;
     /**
      * The ARN of the SVM in your file system where you want to copy data to of from.
      *
      * The following arguments are optional:
      */
-    public readonly storageVirtualMachineArn!: pulumi.Output<string>;
+    declare public readonly storageVirtualMachineArn: pulumi.Output<string>;
     /**
      * Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    declare public readonly subdirectory: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * URI of the FSx ONTAP file system location
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
 
     /**
      * Create a LocationFsxOntapFileSystem resource with the given unique name, arguments, and options.
@@ -104,34 +104,34 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocationFsxOntapFileSystemState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
-            resourceInputs["fsxFilesystemArn"] = state ? state.fsxFilesystemArn : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
-            resourceInputs["storageVirtualMachineArn"] = state ? state.storageVirtualMachineArn : undefined;
-            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["creationTime"] = state?.creationTime;
+            resourceInputs["fsxFilesystemArn"] = state?.fsxFilesystemArn;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupArns"] = state?.securityGroupArns;
+            resourceInputs["storageVirtualMachineArn"] = state?.storageVirtualMachineArn;
+            resourceInputs["subdirectory"] = state?.subdirectory;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as LocationFsxOntapFileSystemArgs | undefined;
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
+            if (args?.securityGroupArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            if ((!args || args.storageVirtualMachineArn === undefined) && !opts.urn) {
+            if (args?.storageVirtualMachineArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageVirtualMachineArn'");
             }
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["storageVirtualMachineArn"] = args ? args.storageVirtualMachineArn : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["storageVirtualMachineArn"] = args?.storageVirtualMachineArn;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["fsxFilesystemArn"] = undefined /*out*/;

@@ -121,39 +121,39 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * The description of the scheduled action.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether to enable the scheduled action. Default is `true` .
      */
-    public readonly enable!: pulumi.Output<boolean | undefined>;
+    declare public readonly enable: pulumi.Output<boolean | undefined>;
     /**
      * The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
      */
-    public readonly endTime!: pulumi.Output<string | undefined>;
+    declare public readonly endTime: pulumi.Output<string | undefined>;
     /**
      * The IAM role to assume to run the scheduled action.
      */
-    public readonly iamRole!: pulumi.Output<string>;
+    declare public readonly iamRole: pulumi.Output<string>;
     /**
      * The scheduled action name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
      */
-    public readonly schedule!: pulumi.Output<string>;
+    declare public readonly schedule: pulumi.Output<string>;
     /**
      * The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
      */
-    public readonly startTime!: pulumi.Output<string | undefined>;
+    declare public readonly startTime: pulumi.Output<string | undefined>;
     /**
      * Target action. Documented below.
      */
-    public readonly targetAction!: pulumi.Output<outputs.redshift.ScheduledActionTargetAction>;
+    declare public readonly targetAction: pulumi.Output<outputs.redshift.ScheduledActionTargetAction>;
 
     /**
      * Create a ScheduledAction resource with the given unique name, arguments, and options.
@@ -168,35 +168,35 @@ export class ScheduledAction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledActionState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enable"] = state ? state.enable : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["iamRole"] = state ? state.iamRole : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["targetAction"] = state ? state.targetAction : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enable"] = state?.enable;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["iamRole"] = state?.iamRole;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["targetAction"] = state?.targetAction;
         } else {
             const args = argsOrState as ScheduledActionArgs | undefined;
-            if ((!args || args.iamRole === undefined) && !opts.urn) {
+            if (args?.iamRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamRole'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            if ((!args || args.targetAction === undefined) && !opts.urn) {
+            if (args?.targetAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetAction'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["iamRole"] = args ? args.iamRole : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["targetAction"] = args ? args.targetAction : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["iamRole"] = args?.iamRole;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["targetAction"] = args?.targetAction;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScheduledAction.__pulumiType, name, resourceInputs, opts);

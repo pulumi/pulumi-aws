@@ -80,41 +80,41 @@ export class TableReplica extends pulumi.CustomResource {
     /**
      * ARN of the table replica.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether deletion protection is enabled (true) or disabled (false) on the table replica.
      */
-    public readonly deletionProtectionEnabled!: pulumi.Output<boolean>;
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean>;
     /**
      * ARN of the _main_ or global table which this resource will replicate.
      *
      * The following arguments are optional:
      */
-    public readonly globalTableArn!: pulumi.Output<string>;
+    declare public readonly globalTableArn: pulumi.Output<string>;
     /**
      * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string>;
+    declare public readonly kmsKeyArn: pulumi.Output<string>;
     /**
      * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      */
-    public readonly pointInTimeRecovery!: pulumi.Output<boolean | undefined>;
+    declare public readonly pointInTimeRecovery: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
      */
-    public readonly tableClassOverride!: pulumi.Output<string | undefined>;
+    declare public readonly tableClassOverride: pulumi.Output<string | undefined>;
     /**
      * Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a TableReplica resource with the given unique name, arguments, and options.
@@ -129,27 +129,27 @@ export class TableReplica extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableReplicaState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["deletionProtectionEnabled"] = state ? state.deletionProtectionEnabled : undefined;
-            resourceInputs["globalTableArn"] = state ? state.globalTableArn : undefined;
-            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tableClassOverride"] = state ? state.tableClassOverride : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["deletionProtectionEnabled"] = state?.deletionProtectionEnabled;
+            resourceInputs["globalTableArn"] = state?.globalTableArn;
+            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
+            resourceInputs["pointInTimeRecovery"] = state?.pointInTimeRecovery;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tableClassOverride"] = state?.tableClassOverride;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as TableReplicaArgs | undefined;
-            if ((!args || args.globalTableArn === undefined) && !opts.urn) {
+            if (args?.globalTableArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalTableArn'");
             }
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["globalTableArn"] = args ? args.globalTableArn : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tableClassOverride"] = args ? args.tableClassOverride : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["globalTableArn"] = args?.globalTableArn;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["pointInTimeRecovery"] = args?.pointInTimeRecovery;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tableClassOverride"] = args?.tableClassOverride;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

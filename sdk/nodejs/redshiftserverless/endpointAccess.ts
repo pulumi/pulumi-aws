@@ -61,43 +61,43 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The DNS address of the VPC endpoint.
      */
-    public /*out*/ readonly address!: pulumi.Output<string>;
+    declare public /*out*/ readonly address: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the endpoint.
      */
-    public readonly endpointName!: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string>;
     /**
      * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
      */
-    public readonly ownerAccount!: pulumi.Output<string | undefined>;
+    declare public readonly ownerAccount: pulumi.Output<string | undefined>;
     /**
      * The port that Amazon Redshift Serverless listens on.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * An array of VPC subnet IDs to associate with the endpoint.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
      */
-    public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.redshiftserverless.EndpointAccessVpcEndpoint[]>;
+    declare public /*out*/ readonly vpcEndpoints: pulumi.Output<outputs.redshiftserverless.EndpointAccessVpcEndpoint[]>;
     /**
      * An array of security group IDs to associate with the workgroup.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
     /**
      * The name of the workgroup.
      */
-    public readonly workgroupName!: pulumi.Output<string>;
+    declare public readonly workgroupName: pulumi.Output<string>;
 
     /**
      * Create a EndpointAccess resource with the given unique name, arguments, and options.
@@ -112,33 +112,33 @@ export class EndpointAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointAccessState | undefined;
-            resourceInputs["address"] = state ? state.address : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["endpointName"] = state ? state.endpointName : undefined;
-            resourceInputs["ownerAccount"] = state ? state.ownerAccount : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
-            resourceInputs["vpcEndpoints"] = state ? state.vpcEndpoints : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
-            resourceInputs["workgroupName"] = state ? state.workgroupName : undefined;
+            resourceInputs["address"] = state?.address;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["endpointName"] = state?.endpointName;
+            resourceInputs["ownerAccount"] = state?.ownerAccount;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["subnetIds"] = state?.subnetIds;
+            resourceInputs["vpcEndpoints"] = state?.vpcEndpoints;
+            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
+            resourceInputs["workgroupName"] = state?.workgroupName;
         } else {
             const args = argsOrState as EndpointAccessArgs | undefined;
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.workgroupName === undefined) && !opts.urn) {
+            if (args?.workgroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workgroupName'");
             }
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["ownerAccount"] = args?.ownerAccount;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["workgroupName"] = args?.workgroupName;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;

@@ -143,33 +143,33 @@ export class MethodResponse extends pulumi.CustomResource {
     /**
      * The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      */
-    public readonly httpMethod!: pulumi.Output<string>;
+    declare public readonly httpMethod: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Resource identifier for the method resource.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
      */
-    public readonly responseModels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly responseModels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
      *
      * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
      */
-    public readonly responseParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
+    declare public readonly responseParameters: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
      * The string identifier of the associated REST API.
      */
-    public readonly restApi!: pulumi.Output<string>;
+    declare public readonly restApi: pulumi.Output<string>;
     /**
      * The method response's status code.
      */
-    public readonly statusCode!: pulumi.Output<string>;
+    declare public readonly statusCode: pulumi.Output<string>;
 
     /**
      * Create a MethodResponse resource with the given unique name, arguments, and options.
@@ -184,34 +184,34 @@ export class MethodResponse extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MethodResponseState | undefined;
-            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["responseModels"] = state ? state.responseModels : undefined;
-            resourceInputs["responseParameters"] = state ? state.responseParameters : undefined;
-            resourceInputs["restApi"] = state ? state.restApi : undefined;
-            resourceInputs["statusCode"] = state ? state.statusCode : undefined;
+            resourceInputs["httpMethod"] = state?.httpMethod;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["responseModels"] = state?.responseModels;
+            resourceInputs["responseParameters"] = state?.responseParameters;
+            resourceInputs["restApi"] = state?.restApi;
+            resourceInputs["statusCode"] = state?.statusCode;
         } else {
             const args = argsOrState as MethodResponseArgs | undefined;
-            if ((!args || args.httpMethod === undefined) && !opts.urn) {
+            if (args?.httpMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.restApi === undefined) && !opts.urn) {
+            if (args?.restApi === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if ((!args || args.statusCode === undefined) && !opts.urn) {
+            if (args?.statusCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statusCode'");
             }
-            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["responseModels"] = args ? args.responseModels : undefined;
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["restApi"] = args ? args.restApi : undefined;
-            resourceInputs["statusCode"] = args ? args.statusCode : undefined;
+            resourceInputs["httpMethod"] = args?.httpMethod;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["responseModels"] = args?.responseModels;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["restApi"] = args?.restApi;
+            resourceInputs["statusCode"] = args?.statusCode;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MethodResponse.__pulumiType, name, resourceInputs, opts);

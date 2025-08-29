@@ -86,39 +86,39 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
     /**
      * The ARN of the IAM role.
      */
-    public readonly iamRoleArn!: pulumi.Output<string>;
+    declare public readonly iamRoleArn: pulumi.Output<string>;
     /**
      * The name of the backup restore testing selection.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARNs for the protected resources.
      */
-    public readonly protectedResourceArns!: pulumi.Output<string[]>;
+    declare public readonly protectedResourceArns: pulumi.Output<string[]>;
     /**
      * The conditions for the protected resource.
      */
-    public readonly protectedResourceConditions!: pulumi.Output<outputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
+    declare public readonly protectedResourceConditions: pulumi.Output<outputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
     /**
      * The type of the protected resource.
      */
-    public readonly protectedResourceType!: pulumi.Output<string>;
+    declare public readonly protectedResourceType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      */
-    public readonly restoreMetadataOverrides!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly restoreMetadataOverrides: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the restore testing plan.
      */
-    public readonly restoreTestingPlanName!: pulumi.Output<string>;
+    declare public readonly restoreTestingPlanName: pulumi.Output<string>;
     /**
      * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      */
-    public readonly validationWindowHours!: pulumi.Output<number>;
+    declare public readonly validationWindowHours: pulumi.Output<number>;
 
     /**
      * Create a RestoreTestingSelection resource with the given unique name, arguments, and options.
@@ -133,35 +133,35 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestoreTestingSelectionState | undefined;
-            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protectedResourceArns"] = state ? state.protectedResourceArns : undefined;
-            resourceInputs["protectedResourceConditions"] = state ? state.protectedResourceConditions : undefined;
-            resourceInputs["protectedResourceType"] = state ? state.protectedResourceType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["restoreMetadataOverrides"] = state ? state.restoreMetadataOverrides : undefined;
-            resourceInputs["restoreTestingPlanName"] = state ? state.restoreTestingPlanName : undefined;
-            resourceInputs["validationWindowHours"] = state ? state.validationWindowHours : undefined;
+            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protectedResourceArns"] = state?.protectedResourceArns;
+            resourceInputs["protectedResourceConditions"] = state?.protectedResourceConditions;
+            resourceInputs["protectedResourceType"] = state?.protectedResourceType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["restoreMetadataOverrides"] = state?.restoreMetadataOverrides;
+            resourceInputs["restoreTestingPlanName"] = state?.restoreTestingPlanName;
+            resourceInputs["validationWindowHours"] = state?.validationWindowHours;
         } else {
             const args = argsOrState as RestoreTestingSelectionArgs | undefined;
-            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
+            if (args?.iamRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.protectedResourceType === undefined) && !opts.urn) {
+            if (args?.protectedResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protectedResourceType'");
             }
-            if ((!args || args.restoreTestingPlanName === undefined) && !opts.urn) {
+            if (args?.restoreTestingPlanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restoreTestingPlanName'");
             }
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protectedResourceArns"] = args ? args.protectedResourceArns : undefined;
-            resourceInputs["protectedResourceConditions"] = args ? args.protectedResourceConditions : undefined;
-            resourceInputs["protectedResourceType"] = args ? args.protectedResourceType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["restoreMetadataOverrides"] = args ? args.restoreMetadataOverrides : undefined;
-            resourceInputs["restoreTestingPlanName"] = args ? args.restoreTestingPlanName : undefined;
-            resourceInputs["validationWindowHours"] = args ? args.validationWindowHours : undefined;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protectedResourceArns"] = args?.protectedResourceArns;
+            resourceInputs["protectedResourceConditions"] = args?.protectedResourceConditions;
+            resourceInputs["protectedResourceType"] = args?.protectedResourceType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["restoreMetadataOverrides"] = args?.restoreMetadataOverrides;
+            resourceInputs["restoreTestingPlanName"] = args?.restoreTestingPlanName;
+            resourceInputs["validationWindowHours"] = args?.validationWindowHours;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RestoreTestingSelection.__pulumiType, name, resourceInputs, opts);

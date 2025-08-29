@@ -87,39 +87,39 @@ export class EmailChannel extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      */
-    public readonly configurationSet!: pulumi.Output<string | undefined>;
+    declare public readonly configurationSet: pulumi.Output<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      */
-    public readonly fromAddress!: pulumi.Output<string>;
+    declare public readonly fromAddress: pulumi.Output<string>;
     /**
      * The ARN of an identity verified with SES.
      */
-    public readonly identity!: pulumi.Output<string>;
+    declare public readonly identity: pulumi.Output<string>;
     /**
      * Messages per second that can be sent.
      */
-    public /*out*/ readonly messagesPerSecond!: pulumi.Output<number>;
+    declare public /*out*/ readonly messagesPerSecond: pulumi.Output<number>;
     /**
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
      */
-    public readonly orchestrationSendingRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly orchestrationSendingRoleArn: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a EmailChannel resource with the given unique name, arguments, and options.
@@ -134,34 +134,34 @@ export class EmailChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailChannelState | undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["configurationSet"] = state ? state.configurationSet : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fromAddress"] = state ? state.fromAddress : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["messagesPerSecond"] = state ? state.messagesPerSecond : undefined;
-            resourceInputs["orchestrationSendingRoleArn"] = state ? state.orchestrationSendingRoleArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["configurationSet"] = state?.configurationSet;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fromAddress"] = state?.fromAddress;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["messagesPerSecond"] = state?.messagesPerSecond;
+            resourceInputs["orchestrationSendingRoleArn"] = state?.orchestrationSendingRoleArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
         } else {
             const args = argsOrState as EmailChannelArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.fromAddress === undefined) && !opts.urn) {
+            if (args?.fromAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fromAddress'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["configurationSet"] = args ? args.configurationSet : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["fromAddress"] = args ? args.fromAddress : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["orchestrationSendingRoleArn"] = args ? args.orchestrationSendingRoleArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["configurationSet"] = args?.configurationSet;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["fromAddress"] = args?.fromAddress;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["orchestrationSendingRoleArn"] = args?.orchestrationSendingRoleArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["messagesPerSecond"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

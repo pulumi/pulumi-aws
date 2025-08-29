@@ -46,43 +46,43 @@ export class LicenseGrant extends pulumi.CustomResource {
     /**
      * A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
      */
-    public readonly allowedOperations!: pulumi.Output<string[]>;
+    declare public readonly allowedOperations: pulumi.Output<string[]>;
     /**
      * The grant ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The home region for the license.
      */
-    public /*out*/ readonly homeRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly homeRegion: pulumi.Output<string>;
     /**
      * The ARN of the license to grant.
      */
-    public readonly licenseArn!: pulumi.Output<string>;
+    declare public readonly licenseArn: pulumi.Output<string>;
     /**
      * The Name of the grant.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parent ARN.
      */
-    public /*out*/ readonly parentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly parentArn: pulumi.Output<string>;
     /**
      * The target account for the grant in the form of the ARN for an account principal of the root user.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The grant status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The grant version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a LicenseGrant resource with the given unique name, arguments, and options.
@@ -97,32 +97,32 @@ export class LicenseGrant extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LicenseGrantState | undefined;
-            resourceInputs["allowedOperations"] = state ? state.allowedOperations : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["homeRegion"] = state ? state.homeRegion : undefined;
-            resourceInputs["licenseArn"] = state ? state.licenseArn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentArn"] = state ? state.parentArn : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["allowedOperations"] = state?.allowedOperations;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["homeRegion"] = state?.homeRegion;
+            resourceInputs["licenseArn"] = state?.licenseArn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentArn"] = state?.parentArn;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as LicenseGrantArgs | undefined;
-            if ((!args || args.allowedOperations === undefined) && !opts.urn) {
+            if (args?.allowedOperations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowedOperations'");
             }
-            if ((!args || args.licenseArn === undefined) && !opts.urn) {
+            if (args?.licenseArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseArn'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["allowedOperations"] = args ? args.allowedOperations : undefined;
-            resourceInputs["licenseArn"] = args ? args.licenseArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["allowedOperations"] = args?.allowedOperations;
+            resourceInputs["licenseArn"] = args?.licenseArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["region"] = args?.region;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeRegion"] = undefined /*out*/;
             resourceInputs["parentArn"] = undefined /*out*/;

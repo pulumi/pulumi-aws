@@ -83,125 +83,125 @@ export class SmbFileShare extends pulumi.CustomResource {
     /**
      * The files and folders on this share will only be visible to users with read access. Default value is `false`.
      */
-    public readonly accessBasedEnumeration!: pulumi.Output<boolean | undefined>;
+    declare public readonly accessBasedEnumeration: pulumi.Output<boolean | undefined>;
     /**
      * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
-    public readonly adminUserLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly adminUserLists: pulumi.Output<string[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the SMB File Share.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
      */
-    public readonly auditDestinationArn!: pulumi.Output<string | undefined>;
+    declare public readonly auditDestinationArn: pulumi.Output<string | undefined>;
     /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
-    public readonly authentication!: pulumi.Output<string | undefined>;
+    declare public readonly authentication: pulumi.Output<string | undefined>;
     /**
      * The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
      */
-    public readonly bucketRegion!: pulumi.Output<string | undefined>;
+    declare public readonly bucketRegion: pulumi.Output<string | undefined>;
     /**
      * Refresh cache information. see `cacheAttributes` Block for more details.
      */
-    public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.SmbFileShareCacheAttributes | undefined>;
+    declare public readonly cacheAttributes: pulumi.Output<outputs.storagegateway.SmbFileShareCacheAttributes | undefined>;
     /**
      * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
      */
-    public readonly caseSensitivity!: pulumi.Output<string | undefined>;
+    declare public readonly caseSensitivity: pulumi.Output<string | undefined>;
     /**
      * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
-    public readonly defaultStorageClass!: pulumi.Output<string | undefined>;
+    declare public readonly defaultStorageClass: pulumi.Output<string | undefined>;
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
      */
-    public readonly fileShareName!: pulumi.Output<string>;
+    declare public readonly fileShareName: pulumi.Output<string>;
     /**
      * ID of the SMB File Share.
      */
-    public /*out*/ readonly fileshareId!: pulumi.Output<string>;
+    declare public /*out*/ readonly fileshareId: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */
-    public readonly gatewayArn!: pulumi.Output<string>;
+    declare public readonly gatewayArn: pulumi.Output<string>;
     /**
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      */
-    public readonly guessMimeTypeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly guessMimeTypeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
-    public readonly invalidUserLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly invalidUserLists: pulumi.Output<string[] | undefined>;
     /**
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      */
-    public readonly kmsEncrypted!: pulumi.Output<boolean | undefined>;
+    declare public readonly kmsEncrypted: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the backed storage used for storing file data.
      */
-    public readonly locationArn!: pulumi.Output<string>;
+    declare public readonly locationArn: pulumi.Output<string>;
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      */
-    public readonly notificationPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly notificationPolicy: pulumi.Output<string | undefined>;
     /**
      * Access Control List permission for S3 objects. Defaults to `private`.
      */
-    public readonly objectAcl!: pulumi.Output<string | undefined>;
+    declare public readonly objectAcl: pulumi.Output<string | undefined>;
     /**
      * Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
      */
-    public readonly oplocksEnabled!: pulumi.Output<boolean>;
+    declare public readonly oplocksEnabled: pulumi.Output<boolean>;
     /**
      * File share path used by the NFS client to identify the mount point.
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    declare public /*out*/ readonly path: pulumi.Output<string>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
-    public readonly readOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly readOnly: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
-    public readonly requesterPays!: pulumi.Output<boolean | undefined>;
+    declare public readonly requesterPays: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
      */
-    public readonly smbAclEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly smbAclEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
      */
-    public readonly validUserLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly validUserLists: pulumi.Output<string[] | undefined>;
     /**
      * The DNS name of the VPC endpoint for S3 private link.
      */
-    public readonly vpcEndpointDnsName!: pulumi.Output<string | undefined>;
+    declare public readonly vpcEndpointDnsName: pulumi.Output<string | undefined>;
 
     /**
      * Create a SmbFileShare resource with the given unique name, arguments, and options.
@@ -216,73 +216,73 @@ export class SmbFileShare extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SmbFileShareState | undefined;
-            resourceInputs["accessBasedEnumeration"] = state ? state.accessBasedEnumeration : undefined;
-            resourceInputs["adminUserLists"] = state ? state.adminUserLists : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
-            resourceInputs["authentication"] = state ? state.authentication : undefined;
-            resourceInputs["bucketRegion"] = state ? state.bucketRegion : undefined;
-            resourceInputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
-            resourceInputs["caseSensitivity"] = state ? state.caseSensitivity : undefined;
-            resourceInputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
-            resourceInputs["fileShareName"] = state ? state.fileShareName : undefined;
-            resourceInputs["fileshareId"] = state ? state.fileshareId : undefined;
-            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            resourceInputs["guessMimeTypeEnabled"] = state ? state.guessMimeTypeEnabled : undefined;
-            resourceInputs["invalidUserLists"] = state ? state.invalidUserLists : undefined;
-            resourceInputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
-            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            resourceInputs["locationArn"] = state ? state.locationArn : undefined;
-            resourceInputs["notificationPolicy"] = state ? state.notificationPolicy : undefined;
-            resourceInputs["objectAcl"] = state ? state.objectAcl : undefined;
-            resourceInputs["oplocksEnabled"] = state ? state.oplocksEnabled : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["readOnly"] = state ? state.readOnly : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["requesterPays"] = state ? state.requesterPays : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["smbAclEnabled"] = state ? state.smbAclEnabled : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["validUserLists"] = state ? state.validUserLists : undefined;
-            resourceInputs["vpcEndpointDnsName"] = state ? state.vpcEndpointDnsName : undefined;
+            resourceInputs["accessBasedEnumeration"] = state?.accessBasedEnumeration;
+            resourceInputs["adminUserLists"] = state?.adminUserLists;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["auditDestinationArn"] = state?.auditDestinationArn;
+            resourceInputs["authentication"] = state?.authentication;
+            resourceInputs["bucketRegion"] = state?.bucketRegion;
+            resourceInputs["cacheAttributes"] = state?.cacheAttributes;
+            resourceInputs["caseSensitivity"] = state?.caseSensitivity;
+            resourceInputs["defaultStorageClass"] = state?.defaultStorageClass;
+            resourceInputs["fileShareName"] = state?.fileShareName;
+            resourceInputs["fileshareId"] = state?.fileshareId;
+            resourceInputs["gatewayArn"] = state?.gatewayArn;
+            resourceInputs["guessMimeTypeEnabled"] = state?.guessMimeTypeEnabled;
+            resourceInputs["invalidUserLists"] = state?.invalidUserLists;
+            resourceInputs["kmsEncrypted"] = state?.kmsEncrypted;
+            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
+            resourceInputs["locationArn"] = state?.locationArn;
+            resourceInputs["notificationPolicy"] = state?.notificationPolicy;
+            resourceInputs["objectAcl"] = state?.objectAcl;
+            resourceInputs["oplocksEnabled"] = state?.oplocksEnabled;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["readOnly"] = state?.readOnly;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["requesterPays"] = state?.requesterPays;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["smbAclEnabled"] = state?.smbAclEnabled;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["validUserLists"] = state?.validUserLists;
+            resourceInputs["vpcEndpointDnsName"] = state?.vpcEndpointDnsName;
         } else {
             const args = argsOrState as SmbFileShareArgs | undefined;
-            if ((!args || args.gatewayArn === undefined) && !opts.urn) {
+            if (args?.gatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if ((!args || args.locationArn === undefined) && !opts.urn) {
+            if (args?.locationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationArn'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["accessBasedEnumeration"] = args ? args.accessBasedEnumeration : undefined;
-            resourceInputs["adminUserLists"] = args ? args.adminUserLists : undefined;
-            resourceInputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
-            resourceInputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
-            resourceInputs["caseSensitivity"] = args ? args.caseSensitivity : undefined;
-            resourceInputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
-            resourceInputs["fileShareName"] = args ? args.fileShareName : undefined;
-            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            resourceInputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
-            resourceInputs["invalidUserLists"] = args ? args.invalidUserLists : undefined;
-            resourceInputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["locationArn"] = args ? args.locationArn : undefined;
-            resourceInputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
-            resourceInputs["objectAcl"] = args ? args.objectAcl : undefined;
-            resourceInputs["oplocksEnabled"] = args ? args.oplocksEnabled : undefined;
-            resourceInputs["readOnly"] = args ? args.readOnly : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["requesterPays"] = args ? args.requesterPays : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["smbAclEnabled"] = args ? args.smbAclEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validUserLists"] = args ? args.validUserLists : undefined;
-            resourceInputs["vpcEndpointDnsName"] = args ? args.vpcEndpointDnsName : undefined;
+            resourceInputs["accessBasedEnumeration"] = args?.accessBasedEnumeration;
+            resourceInputs["adminUserLists"] = args?.adminUserLists;
+            resourceInputs["auditDestinationArn"] = args?.auditDestinationArn;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["bucketRegion"] = args?.bucketRegion;
+            resourceInputs["cacheAttributes"] = args?.cacheAttributes;
+            resourceInputs["caseSensitivity"] = args?.caseSensitivity;
+            resourceInputs["defaultStorageClass"] = args?.defaultStorageClass;
+            resourceInputs["fileShareName"] = args?.fileShareName;
+            resourceInputs["gatewayArn"] = args?.gatewayArn;
+            resourceInputs["guessMimeTypeEnabled"] = args?.guessMimeTypeEnabled;
+            resourceInputs["invalidUserLists"] = args?.invalidUserLists;
+            resourceInputs["kmsEncrypted"] = args?.kmsEncrypted;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["locationArn"] = args?.locationArn;
+            resourceInputs["notificationPolicy"] = args?.notificationPolicy;
+            resourceInputs["objectAcl"] = args?.objectAcl;
+            resourceInputs["oplocksEnabled"] = args?.oplocksEnabled;
+            resourceInputs["readOnly"] = args?.readOnly;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["requesterPays"] = args?.requesterPays;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["smbAclEnabled"] = args?.smbAclEnabled;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validUserLists"] = args?.validUserLists;
+            resourceInputs["vpcEndpointDnsName"] = args?.vpcEndpointDnsName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileshareId"] = undefined /*out*/;
             resourceInputs["path"] = undefined /*out*/;

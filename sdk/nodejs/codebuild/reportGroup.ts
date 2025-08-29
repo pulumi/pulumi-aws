@@ -90,39 +90,39 @@ export class ReportGroup extends pulumi.CustomResource {
     /**
      * The ARN of Report Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The date and time this Report Group was created.
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
      */
-    public readonly deleteReports!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteReports: pulumi.Output<boolean | undefined>;
     /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      */
-    public readonly exportConfig!: pulumi.Output<outputs.codebuild.ReportGroupExportConfig>;
+    declare public readonly exportConfig: pulumi.Output<outputs.codebuild.ReportGroupExportConfig>;
     /**
      * The name of a Report Group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a ReportGroup resource with the given unique name, arguments, and options.
@@ -137,29 +137,29 @@ export class ReportGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReportGroupState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["deleteReports"] = state ? state.deleteReports : undefined;
-            resourceInputs["exportConfig"] = state ? state.exportConfig : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["deleteReports"] = state?.deleteReports;
+            resourceInputs["exportConfig"] = state?.exportConfig;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ReportGroupArgs | undefined;
-            if ((!args || args.exportConfig === undefined) && !opts.urn) {
+            if (args?.exportConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exportConfig'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["deleteReports"] = args ? args.deleteReports : undefined;
-            resourceInputs["exportConfig"] = args ? args.exportConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["deleteReports"] = args?.deleteReports;
+            resourceInputs["exportConfig"] = args?.exportConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

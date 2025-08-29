@@ -69,41 +69,41 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
     /**
      * The ARN of the traffic mirror target.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the traffic mirror session.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
      */
-    public readonly gatewayLoadBalancerEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayLoadBalancerEndpointId: pulumi.Output<string | undefined>;
     /**
      * The network interface ID that is associated with the target.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
+    declare public readonly networkInterfaceId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
-    public readonly networkLoadBalancerArn!: pulumi.Output<string | undefined>;
+    declare public readonly networkLoadBalancerArn: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the traffic mirror target.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a TrafficMirrorTarget resource with the given unique name, arguments, and options.
@@ -118,23 +118,23 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficMirrorTargetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["gatewayLoadBalancerEndpointId"] = state ? state.gatewayLoadBalancerEndpointId : undefined;
-            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            resourceInputs["networkLoadBalancerArn"] = state ? state.networkLoadBalancerArn : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["gatewayLoadBalancerEndpointId"] = state?.gatewayLoadBalancerEndpointId;
+            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
+            resourceInputs["networkLoadBalancerArn"] = state?.networkLoadBalancerArn;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as TrafficMirrorTargetArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["gatewayLoadBalancerEndpointId"] = args ? args.gatewayLoadBalancerEndpointId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["gatewayLoadBalancerEndpointId"] = args?.gatewayLoadBalancerEndpointId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["networkLoadBalancerArn"] = args?.networkLoadBalancerArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

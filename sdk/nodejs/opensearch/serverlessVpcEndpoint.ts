@@ -64,26 +64,26 @@ export class ServerlessVpcEndpoint extends pulumi.CustomResource {
     /**
      * Name of the interface endpoint.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
      * One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
-    public readonly timeouts!: pulumi.Output<outputs.opensearch.ServerlessVpcEndpointTimeouts | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
+    declare public readonly timeouts: pulumi.Output<outputs.opensearch.ServerlessVpcEndpointTimeouts | undefined>;
     /**
      * ID of the VPC from which you'll access OpenSearch Serverless.
      *
      * The following arguments are optional:
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a ServerlessVpcEndpoint resource with the given unique name, arguments, and options.
@@ -98,26 +98,26 @@ export class ServerlessVpcEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerlessVpcEndpointState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
+            resourceInputs["subnetIds"] = state?.subnetIds;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as ServerlessVpcEndpointArgs | undefined;
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["vpcId"] = args?.vpcId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServerlessVpcEndpoint.__pulumiType, name, resourceInputs, opts);

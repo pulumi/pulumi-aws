@@ -63,35 +63,35 @@ export class Member extends pulumi.CustomResource {
     /**
      * AWS account ID for member account.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The detector ID of the GuardDuty account where you want to create member accounts.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * Boolean whether an email notification is sent to the accounts. Defaults to `false`.
      */
-    public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableEmailNotification: pulumi.Output<boolean | undefined>;
     /**
      * Email address for member account.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * Message for invitation.
      */
-    public readonly invitationMessage!: pulumi.Output<string | undefined>;
+    declare public readonly invitationMessage: pulumi.Output<string | undefined>;
     /**
      * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
      */
-    public readonly invite!: pulumi.Output<boolean | undefined>;
+    declare public readonly invite: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
-    public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly relationshipStatus: pulumi.Output<string>;
 
     /**
      * Create a Member resource with the given unique name, arguments, and options.
@@ -106,32 +106,32 @@ export class Member extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
-            resourceInputs["disableEmailNotification"] = state ? state.disableEmailNotification : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["invitationMessage"] = state ? state.invitationMessage : undefined;
-            resourceInputs["invite"] = state ? state.invite : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["detectorId"] = state?.detectorId;
+            resourceInputs["disableEmailNotification"] = state?.disableEmailNotification;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["invitationMessage"] = state?.invitationMessage;
+            resourceInputs["invite"] = state?.invite;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["relationshipStatus"] = state?.relationshipStatus;
         } else {
             const args = argsOrState as MemberArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["invitationMessage"] = args ? args.invitationMessage : undefined;
-            resourceInputs["invite"] = args ? args.invite : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["disableEmailNotification"] = args?.disableEmailNotification;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["invitationMessage"] = args?.invitationMessage;
+            resourceInputs["invite"] = args?.invite;
+            resourceInputs["region"] = args?.region;
             resourceInputs["relationshipStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

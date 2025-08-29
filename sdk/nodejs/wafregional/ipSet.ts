@@ -70,19 +70,19 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * The ARN of the WAF IPSet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
      */
-    public readonly ipSetDescriptors!: pulumi.Output<outputs.wafregional.IpSetIpSetDescriptor[] | undefined>;
+    declare public readonly ipSetDescriptors: pulumi.Output<outputs.wafregional.IpSetIpSetDescriptor[] | undefined>;
     /**
      * The name or description of the IPSet.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -97,15 +97,15 @@ export class IpSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["ipSetDescriptors"] = state ? state.ipSetDescriptors : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["ipSetDescriptors"] = state?.ipSetDescriptors;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as IpSetArgs | undefined;
-            resourceInputs["ipSetDescriptors"] = args ? args.ipSetDescriptors : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["ipSetDescriptors"] = args?.ipSetDescriptors;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

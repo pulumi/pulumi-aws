@@ -58,19 +58,19 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * System-generated unique identifier.
      */
-    public /*out*/ readonly configurationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    public readonly repositoryName!: pulumi.Output<string>;
+    declare public readonly repositoryName: pulumi.Output<string>;
     /**
      * The name of the trigger.
      */
-    public readonly triggers!: pulumi.Output<outputs.codecommit.TriggerTrigger[]>;
+    declare public readonly triggers: pulumi.Output<outputs.codecommit.TriggerTrigger[]>;
 
     /**
      * Create a Trigger resource with the given unique name, arguments, and options.
@@ -85,21 +85,21 @@ export class Trigger extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerState | undefined;
-            resourceInputs["configurationId"] = state ? state.configurationId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
-            resourceInputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["configurationId"] = state?.configurationId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["repositoryName"] = state?.repositoryName;
+            resourceInputs["triggers"] = state?.triggers;
         } else {
             const args = argsOrState as TriggerArgs | undefined;
-            if ((!args || args.repositoryName === undefined) && !opts.urn) {
+            if (args?.repositoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            if ((!args || args.triggers === undefined) && !opts.urn) {
+            if (args?.triggers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggers'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["triggers"] = args?.triggers;
             resourceInputs["configurationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

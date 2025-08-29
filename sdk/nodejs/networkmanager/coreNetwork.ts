@@ -345,15 +345,15 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * Core Network ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
      */
-    public readonly basePolicyDocument!: pulumi.Output<string | undefined>;
+    declare public readonly basePolicyDocument: pulumi.Output<string | undefined>;
     /**
      * List of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      */
-    public readonly basePolicyRegions!: pulumi.Output<string[] | undefined>;
+    declare public readonly basePolicyRegions: pulumi.Output<string[] | undefined>;
     /**
      * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      *
@@ -382,41 +382,41 @@ export class CoreNetwork extends pulumi.CustomResource {
      * }
      * ```
      */
-    public readonly createBasePolicy!: pulumi.Output<boolean | undefined>;
+    declare public readonly createBasePolicy: pulumi.Output<boolean | undefined>;
     /**
      * Timestamp when a core network was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Description of the Core Network.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * One or more blocks detailing the edges within a core network. Detailed below.
      */
-    public /*out*/ readonly edges!: pulumi.Output<outputs.networkmanager.CoreNetworkEdge[]>;
+    declare public /*out*/ readonly edges: pulumi.Output<outputs.networkmanager.CoreNetworkEdge[]>;
     /**
      * ID of the global network that a core network will be a part of.
      *
      * The following arguments are optional:
      */
-    public readonly globalNetworkId!: pulumi.Output<string>;
+    declare public readonly globalNetworkId: pulumi.Output<string>;
     /**
      * One or more blocks detailing the segments within a core network. Detailed below.
      */
-    public /*out*/ readonly segments!: pulumi.Output<outputs.networkmanager.CoreNetworkSegment[]>;
+    declare public /*out*/ readonly segments: pulumi.Output<outputs.networkmanager.CoreNetworkSegment[]>;
     /**
      * Current state of a core network.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CoreNetwork resource with the given unique name, arguments, and options.
@@ -431,29 +431,29 @@ export class CoreNetwork extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CoreNetworkState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["basePolicyDocument"] = state ? state.basePolicyDocument : undefined;
-            resourceInputs["basePolicyRegions"] = state ? state.basePolicyRegions : undefined;
-            resourceInputs["createBasePolicy"] = state ? state.createBasePolicy : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["edges"] = state ? state.edges : undefined;
-            resourceInputs["globalNetworkId"] = state ? state.globalNetworkId : undefined;
-            resourceInputs["segments"] = state ? state.segments : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["basePolicyDocument"] = state?.basePolicyDocument;
+            resourceInputs["basePolicyRegions"] = state?.basePolicyRegions;
+            resourceInputs["createBasePolicy"] = state?.createBasePolicy;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["edges"] = state?.edges;
+            resourceInputs["globalNetworkId"] = state?.globalNetworkId;
+            resourceInputs["segments"] = state?.segments;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as CoreNetworkArgs | undefined;
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["basePolicyDocument"] = args ? args.basePolicyDocument : undefined;
-            resourceInputs["basePolicyRegions"] = args ? args.basePolicyRegions : undefined;
-            resourceInputs["createBasePolicy"] = args ? args.createBasePolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["basePolicyDocument"] = args?.basePolicyDocument;
+            resourceInputs["basePolicyRegions"] = args?.basePolicyRegions;
+            resourceInputs["createBasePolicy"] = args?.createBasePolicy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edges"] = undefined /*out*/;

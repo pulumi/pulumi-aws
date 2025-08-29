@@ -71,82 +71,82 @@ export class Stage extends pulumi.CustomResource {
     /**
      * Enables access logs for the API stage. See Access Log Settings below.
      */
-    public readonly accessLogSettings!: pulumi.Output<outputs.apigateway.StageAccessLogSettings | undefined>;
+    declare public readonly accessLogSettings: pulumi.Output<outputs.apigateway.StageAccessLogSettings | undefined>;
     /**
      * ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether a cache cluster is enabled for the stage
      */
-    public readonly cacheClusterEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly cacheClusterEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
-    public readonly cacheClusterSize!: pulumi.Output<string | undefined>;
+    declare public readonly cacheClusterSize: pulumi.Output<string | undefined>;
     /**
      * Configuration settings of a canary deployment. See Canary Settings below.
      */
-    public readonly canarySettings!: pulumi.Output<outputs.apigateway.StageCanarySettings | undefined>;
+    declare public readonly canarySettings: pulumi.Output<outputs.apigateway.StageCanarySettings | undefined>;
     /**
      * Identifier of a client certificate for the stage.
      */
-    public readonly clientCertificateId!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificateId: pulumi.Output<string | undefined>;
     /**
      * ID of the deployment that the stage points to
      */
-    public readonly deployment!: pulumi.Output<string>;
+    declare public readonly deployment: pulumi.Output<string>;
     /**
      * Description of the stage.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Version of the associated API documentation.
      */
-    public readonly documentationVersion!: pulumi.Output<string | undefined>;
+    declare public readonly documentationVersion: pulumi.Output<string | undefined>;
     /**
      * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
-    public /*out*/ readonly executionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly executionArn: pulumi.Output<string>;
     /**
      * URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
-    public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly invokeUrl: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<string>;
+    declare public readonly restApi: pulumi.Output<string>;
     /**
      * Name of the stage
      */
-    public readonly stageName!: pulumi.Output<string>;
+    declare public readonly stageName: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Map that defines the stage variables.
      */
-    public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly variables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ARN of the WebAcl associated with the Stage.
      */
-    public /*out*/ readonly webAclArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly webAclArn: pulumi.Output<string>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
-    public readonly xrayTracingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly xrayTracingEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -161,50 +161,50 @@ export class Stage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StageState | undefined;
-            resourceInputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cacheClusterEnabled"] = state ? state.cacheClusterEnabled : undefined;
-            resourceInputs["cacheClusterSize"] = state ? state.cacheClusterSize : undefined;
-            resourceInputs["canarySettings"] = state ? state.canarySettings : undefined;
-            resourceInputs["clientCertificateId"] = state ? state.clientCertificateId : undefined;
-            resourceInputs["deployment"] = state ? state.deployment : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["documentationVersion"] = state ? state.documentationVersion : undefined;
-            resourceInputs["executionArn"] = state ? state.executionArn : undefined;
-            resourceInputs["invokeUrl"] = state ? state.invokeUrl : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["restApi"] = state ? state.restApi : undefined;
-            resourceInputs["stageName"] = state ? state.stageName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
-            resourceInputs["webAclArn"] = state ? state.webAclArn : undefined;
-            resourceInputs["xrayTracingEnabled"] = state ? state.xrayTracingEnabled : undefined;
+            resourceInputs["accessLogSettings"] = state?.accessLogSettings;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cacheClusterEnabled"] = state?.cacheClusterEnabled;
+            resourceInputs["cacheClusterSize"] = state?.cacheClusterSize;
+            resourceInputs["canarySettings"] = state?.canarySettings;
+            resourceInputs["clientCertificateId"] = state?.clientCertificateId;
+            resourceInputs["deployment"] = state?.deployment;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["documentationVersion"] = state?.documentationVersion;
+            resourceInputs["executionArn"] = state?.executionArn;
+            resourceInputs["invokeUrl"] = state?.invokeUrl;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["restApi"] = state?.restApi;
+            resourceInputs["stageName"] = state?.stageName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["variables"] = state?.variables;
+            resourceInputs["webAclArn"] = state?.webAclArn;
+            resourceInputs["xrayTracingEnabled"] = state?.xrayTracingEnabled;
         } else {
             const args = argsOrState as StageArgs | undefined;
-            if ((!args || args.deployment === undefined) && !opts.urn) {
+            if (args?.deployment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deployment'");
             }
-            if ((!args || args.restApi === undefined) && !opts.urn) {
+            if (args?.restApi === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if ((!args || args.stageName === undefined) && !opts.urn) {
+            if (args?.stageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stageName'");
             }
-            resourceInputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
-            resourceInputs["cacheClusterEnabled"] = args ? args.cacheClusterEnabled : undefined;
-            resourceInputs["cacheClusterSize"] = args ? args.cacheClusterSize : undefined;
-            resourceInputs["canarySettings"] = args ? args.canarySettings : undefined;
-            resourceInputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
-            resourceInputs["deployment"] = args ? args.deployment : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["documentationVersion"] = args ? args.documentationVersion : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["restApi"] = args ? args.restApi : undefined;
-            resourceInputs["stageName"] = args ? args.stageName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
-            resourceInputs["xrayTracingEnabled"] = args ? args.xrayTracingEnabled : undefined;
+            resourceInputs["accessLogSettings"] = args?.accessLogSettings;
+            resourceInputs["cacheClusterEnabled"] = args?.cacheClusterEnabled;
+            resourceInputs["cacheClusterSize"] = args?.cacheClusterSize;
+            resourceInputs["canarySettings"] = args?.canarySettings;
+            resourceInputs["clientCertificateId"] = args?.clientCertificateId;
+            resourceInputs["deployment"] = args?.deployment;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["documentationVersion"] = args?.documentationVersion;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["restApi"] = args?.restApi;
+            resourceInputs["stageName"] = args?.stageName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variables"] = args?.variables;
+            resourceInputs["xrayTracingEnabled"] = args?.xrayTracingEnabled;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["executionArn"] = undefined /*out*/;
             resourceInputs["invokeUrl"] = undefined /*out*/;

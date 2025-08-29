@@ -75,27 +75,27 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The ARN of the WAF rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
-    public readonly metricName!: pulumi.Output<string>;
+    declare public readonly metricName: pulumi.Output<string>;
     /**
      * The name or description of the rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The objects to include in a rule (documented below).
      */
-    public readonly predicates!: pulumi.Output<outputs.waf.RulePredicate[] | undefined>;
+    declare public readonly predicates: pulumi.Output<outputs.waf.RulePredicate[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -110,21 +110,21 @@ export class Rule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["metricName"] = state ? state.metricName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["predicates"] = state ? state.predicates : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["metricName"] = state?.metricName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["predicates"] = state?.predicates;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as RuleArgs | undefined;
-            if ((!args || args.metricName === undefined) && !opts.urn) {
+            if (args?.metricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["predicates"] = args ? args.predicates : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["predicates"] = args?.predicates;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -79,17 +79,17 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
-    public readonly filters!: pulumi.Output<outputs.devopsguru.NotificationChannelFilters | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.devopsguru.NotificationChannelFilters | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * SNS noficiation channel configurations. See the `sns` argument reference below.
      *
      * The following arguments are optional:
      */
-    public readonly sns!: pulumi.Output<outputs.devopsguru.NotificationChannelSns | undefined>;
+    declare public readonly sns: pulumi.Output<outputs.devopsguru.NotificationChannelSns | undefined>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -104,14 +104,14 @@ export class NotificationChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationChannelState | undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sns"] = state ? state.sns : undefined;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sns"] = state?.sns;
         } else {
             const args = argsOrState as NotificationChannelArgs | undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sns"] = args ? args.sns : undefined;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sns"] = args?.sns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotificationChannel.__pulumiType, name, resourceInputs, opts);

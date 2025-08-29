@@ -109,47 +109,47 @@ export class VirtualGateway extends pulumi.CustomResource {
     /**
      * ARN of the virtual gateway.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Creation date of the virtual gateway.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * Last update date of the virtual gateway.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
     /**
      * Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      */
-    public readonly meshName!: pulumi.Output<string>;
+    declare public readonly meshName: pulumi.Output<string>;
     /**
      * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
-    public readonly meshOwner!: pulumi.Output<string>;
+    declare public readonly meshOwner: pulumi.Output<string>;
     /**
      * Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Resource owner's AWS account ID.
      */
-    public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceOwner: pulumi.Output<string>;
     /**
      * Virtual gateway specification to apply.
      */
-    public readonly spec!: pulumi.Output<outputs.appmesh.VirtualGatewaySpec>;
+    declare public readonly spec: pulumi.Output<outputs.appmesh.VirtualGatewaySpec>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VirtualGateway resource with the given unique name, arguments, and options.
@@ -164,31 +164,31 @@ export class VirtualGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualGatewayState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
-            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            resourceInputs["meshName"] = state ? state.meshName : undefined;
-            resourceInputs["meshOwner"] = state ? state.meshOwner : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
-            resourceInputs["spec"] = state ? state.spec : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["createdDate"] = state?.createdDate;
+            resourceInputs["lastUpdatedDate"] = state?.lastUpdatedDate;
+            resourceInputs["meshName"] = state?.meshName;
+            resourceInputs["meshOwner"] = state?.meshOwner;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceOwner"] = state?.resourceOwner;
+            resourceInputs["spec"] = state?.spec;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as VirtualGatewayArgs | undefined;
-            if ((!args || args.meshName === undefined) && !opts.urn) {
+            if (args?.meshName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'meshName'");
             }
-            if ((!args || args.spec === undefined) && !opts.urn) {
+            if (args?.spec === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spec'");
             }
-            resourceInputs["meshName"] = args ? args.meshName : undefined;
-            resourceInputs["meshOwner"] = args ? args.meshOwner : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["spec"] = args ? args.spec : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["meshName"] = args?.meshName;
+            resourceInputs["meshOwner"] = args?.meshOwner;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["spec"] = args?.spec;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["lastUpdatedDate"] = undefined /*out*/;

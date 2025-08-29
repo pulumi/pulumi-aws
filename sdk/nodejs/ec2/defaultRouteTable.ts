@@ -94,41 +94,41 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * The ARN of the route table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ID of the default route table.
      *
      * The following arguments are optional:
      */
-    public readonly defaultRouteTableId!: pulumi.Output<string>;
+    declare public readonly defaultRouteTableId: pulumi.Output<string>;
     /**
      * ID of the AWS account that owns the route table.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * List of virtual gateways for propagation.
      */
-    public readonly propagatingVgws!: pulumi.Output<string[] | undefined>;
+    declare public readonly propagatingVgws: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Set of objects. Detailed below
      */
-    public readonly routes!: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
+    declare public readonly routes: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * ID of the VPC.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a DefaultRouteTable resource with the given unique name, arguments, and options.
@@ -143,25 +143,25 @@ export class DefaultRouteTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultRouteTableState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routes"] = state ? state.routes : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["defaultRouteTableId"] = state?.defaultRouteTableId;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["propagatingVgws"] = state?.propagatingVgws;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routes"] = state?.routes;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as DefaultRouteTableArgs | undefined;
-            if ((!args || args.defaultRouteTableId === undefined) && !opts.urn) {
+            if (args?.defaultRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultRouteTableId'");
             }
-            resourceInputs["defaultRouteTableId"] = args ? args.defaultRouteTableId : undefined;
-            resourceInputs["propagatingVgws"] = args ? args.propagatingVgws : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultRouteTableId"] = args?.defaultRouteTableId;
+            resourceInputs["propagatingVgws"] = args?.propagatingVgws;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

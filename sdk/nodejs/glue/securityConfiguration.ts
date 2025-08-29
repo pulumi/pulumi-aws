@@ -72,15 +72,15 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.glue.SecurityConfigurationEncryptionConfiguration>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.glue.SecurityConfigurationEncryptionConfiguration>;
     /**
      * Name of the security configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a SecurityConfiguration resource with the given unique name, arguments, and options.
@@ -95,17 +95,17 @@ export class SecurityConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityConfigurationState | undefined;
-            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["encryptionConfiguration"] = state?.encryptionConfiguration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as SecurityConfigurationArgs | undefined;
-            if ((!args || args.encryptionConfiguration === undefined) && !opts.urn) {
+            if (args?.encryptionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'encryptionConfiguration'");
             }
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityConfiguration.__pulumiType, name, resourceInputs, opts);

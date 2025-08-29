@@ -692,79 +692,79 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream
      */
-    public readonly arn!: pulumi.Output<string>;
+    declare public readonly arn: pulumi.Output<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      */
-    public readonly destination!: pulumi.Output<string>;
-    public readonly destinationId!: pulumi.Output<string>;
+    declare public readonly destination: pulumi.Output<string>;
+    declare public readonly destinationId: pulumi.Output<string>;
     /**
      * Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
      */
-    public readonly elasticsearchConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration | undefined>;
+    declare public readonly elasticsearchConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration | undefined>;
     /**
      * Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
      */
-    public readonly extendedS3Configuration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamExtendedS3Configuration | undefined>;
+    declare public readonly extendedS3Configuration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamExtendedS3Configuration | undefined>;
     /**
      * Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
      */
-    public readonly httpEndpointConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration | undefined>;
+    declare public readonly httpEndpointConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration | undefined>;
     /**
      * Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
      */
-    public readonly icebergConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamIcebergConfiguration | undefined>;
+    declare public readonly icebergConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamIcebergConfiguration | undefined>;
     /**
      * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      */
-    public readonly kinesisSourceConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration | undefined>;
+    declare public readonly kinesisSourceConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration | undefined>;
     /**
      * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
      */
-    public readonly mskSourceConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamMskSourceConfiguration | undefined>;
+    declare public readonly mskSourceConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamMskSourceConfiguration | undefined>;
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
      */
-    public readonly opensearchConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamOpensearchConfiguration | undefined>;
+    declare public readonly opensearchConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamOpensearchConfiguration | undefined>;
     /**
      * Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
      */
-    public readonly opensearchserverlessConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfiguration | undefined>;
+    declare public readonly opensearchserverlessConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfiguration | undefined>;
     /**
      * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
      */
-    public readonly redshiftConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration | undefined>;
+    declare public readonly redshiftConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
      */
-    public readonly serverSideEncryption!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamServerSideEncryption | undefined>;
+    declare public readonly serverSideEncryption: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamServerSideEncryption | undefined>;
     /**
      * Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
      */
-    public readonly snowflakeConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration | undefined>;
+    declare public readonly snowflakeConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration | undefined>;
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
      *
      * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
-    public readonly splunkConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
+    declare public readonly splunkConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly versionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly versionId: pulumi.Output<string>;
 
     /**
      * Create a FirehoseDeliveryStream resource with the given unique name, arguments, and options.
@@ -779,50 +779,50 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirehoseDeliveryStreamState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["destination"] = state ? state.destination : undefined;
-            resourceInputs["destinationId"] = state ? state.destinationId : undefined;
-            resourceInputs["elasticsearchConfiguration"] = state ? state.elasticsearchConfiguration : undefined;
-            resourceInputs["extendedS3Configuration"] = state ? state.extendedS3Configuration : undefined;
-            resourceInputs["httpEndpointConfiguration"] = state ? state.httpEndpointConfiguration : undefined;
-            resourceInputs["icebergConfiguration"] = state ? state.icebergConfiguration : undefined;
-            resourceInputs["kinesisSourceConfiguration"] = state ? state.kinesisSourceConfiguration : undefined;
-            resourceInputs["mskSourceConfiguration"] = state ? state.mskSourceConfiguration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["opensearchConfiguration"] = state ? state.opensearchConfiguration : undefined;
-            resourceInputs["opensearchserverlessConfiguration"] = state ? state.opensearchserverlessConfiguration : undefined;
-            resourceInputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
-            resourceInputs["snowflakeConfiguration"] = state ? state.snowflakeConfiguration : undefined;
-            resourceInputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["destination"] = state?.destination;
+            resourceInputs["destinationId"] = state?.destinationId;
+            resourceInputs["elasticsearchConfiguration"] = state?.elasticsearchConfiguration;
+            resourceInputs["extendedS3Configuration"] = state?.extendedS3Configuration;
+            resourceInputs["httpEndpointConfiguration"] = state?.httpEndpointConfiguration;
+            resourceInputs["icebergConfiguration"] = state?.icebergConfiguration;
+            resourceInputs["kinesisSourceConfiguration"] = state?.kinesisSourceConfiguration;
+            resourceInputs["mskSourceConfiguration"] = state?.mskSourceConfiguration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["opensearchConfiguration"] = state?.opensearchConfiguration;
+            resourceInputs["opensearchserverlessConfiguration"] = state?.opensearchserverlessConfiguration;
+            resourceInputs["redshiftConfiguration"] = state?.redshiftConfiguration;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serverSideEncryption"] = state?.serverSideEncryption;
+            resourceInputs["snowflakeConfiguration"] = state?.snowflakeConfiguration;
+            resourceInputs["splunkConfiguration"] = state?.splunkConfiguration;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["versionId"] = state?.versionId;
         } else {
             const args = argsOrState as FirehoseDeliveryStreamArgs | undefined;
-            if ((!args || args.destination === undefined) && !opts.urn) {
+            if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["destinationId"] = args ? args.destinationId : undefined;
-            resourceInputs["elasticsearchConfiguration"] = args ? args.elasticsearchConfiguration : undefined;
-            resourceInputs["extendedS3Configuration"] = args ? args.extendedS3Configuration : undefined;
-            resourceInputs["httpEndpointConfiguration"] = args ? args.httpEndpointConfiguration : undefined;
-            resourceInputs["icebergConfiguration"] = args ? args.icebergConfiguration : undefined;
-            resourceInputs["kinesisSourceConfiguration"] = args ? args.kinesisSourceConfiguration : undefined;
-            resourceInputs["mskSourceConfiguration"] = args ? args.mskSourceConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["opensearchConfiguration"] = args ? args.opensearchConfiguration : undefined;
-            resourceInputs["opensearchserverlessConfiguration"] = args ? args.opensearchserverlessConfiguration : undefined;
-            resourceInputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
-            resourceInputs["snowflakeConfiguration"] = args ? args.snowflakeConfiguration : undefined;
-            resourceInputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["destinationId"] = args?.destinationId;
+            resourceInputs["elasticsearchConfiguration"] = args?.elasticsearchConfiguration;
+            resourceInputs["extendedS3Configuration"] = args?.extendedS3Configuration;
+            resourceInputs["httpEndpointConfiguration"] = args?.httpEndpointConfiguration;
+            resourceInputs["icebergConfiguration"] = args?.icebergConfiguration;
+            resourceInputs["kinesisSourceConfiguration"] = args?.kinesisSourceConfiguration;
+            resourceInputs["mskSourceConfiguration"] = args?.mskSourceConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["opensearchConfiguration"] = args?.opensearchConfiguration;
+            resourceInputs["opensearchserverlessConfiguration"] = args?.opensearchserverlessConfiguration;
+            resourceInputs["redshiftConfiguration"] = args?.redshiftConfiguration;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serverSideEncryption"] = args?.serverSideEncryption;
+            resourceInputs["snowflakeConfiguration"] = args?.snowflakeConfiguration;
+            resourceInputs["splunkConfiguration"] = args?.splunkConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versionId"] = args?.versionId;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

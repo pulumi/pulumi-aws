@@ -79,8 +79,8 @@ export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      */
-    public readonly roleArn!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.shield.DrtAccessRoleArnAssociationTimeouts | undefined>;
+    declare public readonly roleArn: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.shield.DrtAccessRoleArnAssociationTimeouts | undefined>;
 
     /**
      * Create a DrtAccessRoleArnAssociation resource with the given unique name, arguments, and options.
@@ -95,15 +95,15 @@ export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DrtAccessRoleArnAssociationState | undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as DrtAccessRoleArnAssociationArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["timeouts"] = args?.timeouts;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DrtAccessRoleArnAssociation.__pulumiType, name, resourceInputs, opts);
