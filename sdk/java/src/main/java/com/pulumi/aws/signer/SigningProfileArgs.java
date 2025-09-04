@@ -94,6 +94,21 @@ public final class SigningProfileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Map of key-value pairs for signing. These can include any information that you want to use during signing.
+     * 
+     */
+    @Import(name="signingParameters")
+    private @Nullable Output<Map<String,String>> signingParameters;
+
+    /**
+     * @return Map of key-value pairs for signing. These can include any information that you want to use during signing.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> signingParameters() {
+        return Optional.ofNullable(this.signingParameters);
+    }
+
+    /**
      * A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -117,6 +132,7 @@ public final class SigningProfileArgs extends com.pulumi.resources.ResourceArgs 
         this.region = $.region;
         this.signatureValidityPeriod = $.signatureValidityPeriod;
         this.signingMaterial = $.signingMaterial;
+        this.signingParameters = $.signingParameters;
         this.tags = $.tags;
     }
 
@@ -238,6 +254,27 @@ public final class SigningProfileArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder signingMaterial(SigningProfileSigningMaterialArgs signingMaterial) {
             return signingMaterial(Output.of(signingMaterial));
+        }
+
+        /**
+         * @param signingParameters Map of key-value pairs for signing. These can include any information that you want to use during signing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signingParameters(@Nullable Output<Map<String,String>> signingParameters) {
+            $.signingParameters = signingParameters;
+            return this;
+        }
+
+        /**
+         * @param signingParameters Map of key-value pairs for signing. These can include any information that you want to use during signing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signingParameters(Map<String,String> signingParameters) {
+            return signingParameters(Output.of(signingParameters));
         }
 
         /**

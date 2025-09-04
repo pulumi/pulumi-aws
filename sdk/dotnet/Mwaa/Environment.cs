@@ -391,6 +391,12 @@ namespace Pulumi.Aws.Mwaa
         [Output("weeklyMaintenanceWindowStart")]
         public Output<string> WeeklyMaintenanceWindowStart { get; private set; } = null!;
 
+        /// <summary>
+        /// Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+        /// </summary>
+        [Output("workerReplacementStrategy")]
+        public Output<string> WorkerReplacementStrategy { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Environment resource with the given unique name, arguments, and options.
@@ -612,6 +618,12 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Input("weeklyMaintenanceWindowStart")]
         public Input<string>? WeeklyMaintenanceWindowStart { get; set; }
+
+        /// <summary>
+        /// Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+        /// </summary>
+        [Input("workerReplacementStrategy")]
+        public Input<string>? WorkerReplacementStrategy { get; set; }
 
         public EnvironmentArgs()
         {
@@ -855,6 +867,12 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Input("weeklyMaintenanceWindowStart")]
         public Input<string>? WeeklyMaintenanceWindowStart { get; set; }
+
+        /// <summary>
+        /// Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+        /// </summary>
+        [Input("workerReplacementStrategy")]
+        public Input<string>? WorkerReplacementStrategy { get; set; }
 
         public EnvironmentState()
         {

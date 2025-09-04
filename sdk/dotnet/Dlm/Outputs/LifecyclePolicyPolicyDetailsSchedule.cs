@@ -13,6 +13,10 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsSchedule
     {
+        /// <summary>
+        /// Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+        /// </summary>
+        public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleArchiveRule? ArchiveRule;
         public readonly bool? CopyTags;
         /// <summary>
         /// See the `create_rule` block. Max of 1 per schedule.
@@ -44,6 +48,8 @@ namespace Pulumi.Aws.Dlm.Outputs
 
         [OutputConstructor]
         private LifecyclePolicyPolicyDetailsSchedule(
+            Outputs.LifecyclePolicyPolicyDetailsScheduleArchiveRule? archiveRule,
+
             bool? copyTags,
 
             Outputs.LifecyclePolicyPolicyDetailsScheduleCreateRule createRule,
@@ -64,6 +70,7 @@ namespace Pulumi.Aws.Dlm.Outputs
 
             ImmutableDictionary<string, string>? variableTags)
         {
+            ArchiveRule = archiveRule;
             CopyTags = copyTags;
             CreateRule = createRule;
             CrossRegionCopyRules = crossRegionCopyRules;

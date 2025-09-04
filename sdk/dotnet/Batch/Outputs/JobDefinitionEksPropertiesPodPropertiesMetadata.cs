@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobDefinitionEksPropertiesPodPropertiesMetadata
     {
         /// <summary>
-        /// Key-value pairs used to identify, sort, and organize cube resources.
+        /// Key-value pairs used to identify, sort, and organize kubernetes resources.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Labels;
 

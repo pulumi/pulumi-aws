@@ -106,7 +106,10 @@ namespace Pulumi.Aws.Dlm
     ///         State = "ENABLED",
     ///         PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
     ///         {
-    ///             ResourceTypes = "VOLUME",
+    ///             ResourceTypes = new[]
+    ///             {
+    ///                 "VOLUME",
+    ///             },
     ///             Schedules = new[]
     ///             {
     ///                 new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
@@ -132,6 +135,44 @@ namespace Pulumi.Aws.Dlm
     ///             TargetTags = 
     ///             {
     ///                 { "Snapshot", "true" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Example Default Policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Dlm.LifecyclePolicy("example", new()
+    ///     {
+    ///         Description = "tf-acc-basic",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         DefaultPolicy = "VOLUME",
+    ///         PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
+    ///         {
+    ///             CreateInterval = 5,
+    ///             ResourceType = "VOLUME",
+    ///             PolicyLanguage = "SIMPLIFIED",
+    ///             Exclusions = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsExclusionsArgs
+    ///             {
+    ///                 ExcludeBootVolumes = false,
+    ///                 ExcludeTags = 
+    ///                 {
+    ///                     { "test", "exclude" },
+    ///                 },
+    ///                 ExcludeVolumeTypes = new[]
+    ///                 {
+    ///                     "gp2",
+    ///                 },
     ///             },
     ///         },
     ///     });
@@ -196,7 +237,10 @@ namespace Pulumi.Aws.Dlm
     ///         State = "ENABLED",
     ///         PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
     ///         {
-    ///             ResourceTypes = "VOLUME",
+    ///             ResourceTypes = new[]
+    ///             {
+    ///                 "VOLUME",
+    ///             },
     ///             Schedules = new[]
     ///             {
     ///                 new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
@@ -310,6 +354,68 @@ namespace Pulumi.Aws.Dlm
     /// });
     /// ```
     /// 
+    /// ### Example Post/Pre Scripts
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = Aws.Iam.GetPolicy.Invoke(new()
+    ///     {
+    ///         Name = "AWSDataLifecycleManagerSSMFullAccess",
+    ///     });
+    /// 
+    ///     var example = new Aws.Iam.RolePolicyAttachment("example", new()
+    ///     {
+    ///         Role = testAwsIamRole.Id,
+    ///         PolicyArn = exampleAwsIamPolicy.Arn,
+    ///     });
+    /// 
+    ///     var exampleLifecyclePolicy = new Aws.Dlm.LifecyclePolicy("example", new()
+    ///     {
+    ///         Description = "tf-acc-basic",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
+    ///         {
+    ///             ResourceTypes = new[]
+    ///             {
+    ///                 "INSTANCE",
+    ///             },
+    ///             Schedules = new[]
+    ///             {
+    ///                 new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
+    ///                 {
+    ///                     Name = "Windows VSS",
+    ///                     CreateRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs
+    ///                     {
+    ///                         Interval = 12,
+    ///                         Scripts = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs
+    ///                         {
+    ///                             ExecuteOperationOnScriptFailure = false,
+    ///                             ExecutionHandler = "AWS_VSS_BACKUP",
+    ///                             MaximumRetryCount = 2,
+    ///                         },
+    ///                     },
+    ///                     RetainRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs
+    ///                     {
+    ///                         Count = 10,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TargetTags = 
+    ///             {
+    ///                 { "tag1", "Windows" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
@@ -326,6 +432,12 @@ namespace Pulumi.Aws.Dlm
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+        /// </summary>
+        [Output("defaultPolicy")]
+        public Output<string?> DefaultPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A description for the DLM lifecycle policy.
@@ -416,6 +528,12 @@ namespace Pulumi.Aws.Dlm
     public sealed class LifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+        /// </summary>
+        [Input("defaultPolicy")]
+        public Input<string>? DefaultPolicy { get; set; }
+
+        /// <summary>
         /// A description for the DLM lifecycle policy.
         /// </summary>
         [Input("description", required: true)]
@@ -470,6 +588,12 @@ namespace Pulumi.Aws.Dlm
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+        /// </summary>
+        [Input("defaultPolicy")]
+        public Input<string>? DefaultPolicy { get; set; }
 
         /// <summary>
         /// A description for the DLM lifecycle policy.

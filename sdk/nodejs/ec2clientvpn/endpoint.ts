@@ -72,95 +72,103 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The ARN of the Client VPN endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    public readonly authenticationOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointAuthenticationOption[]>;
+    declare public readonly authenticationOptions: pulumi.Output<outputs.ec2clientvpn.EndpointAuthenticationOption[]>;
     /**
-     * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+     * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
      */
-    public readonly clientCidrBlock!: pulumi.Output<string>;
+    declare public readonly clientCidrBlock: pulumi.Output<string | undefined>;
     /**
      * The options for managing connection authorization for new client connections.
      */
-    public readonly clientConnectOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientConnectOptions>;
+    declare public readonly clientConnectOptions: pulumi.Output<outputs.ec2clientvpn.EndpointClientConnectOptions>;
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
-    public readonly clientLoginBannerOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    declare public readonly clientLoginBannerOptions: pulumi.Output<outputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
     /**
      * Options for enforce administrator defined routes on devices connected through the VPN.
      */
-    public readonly clientRouteEnforcementOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
+    declare public readonly clientRouteEnforcementOptions: pulumi.Output<outputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
     /**
      * Information about the client connection logging options.
      */
-    public readonly connectionLogOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointConnectionLogOptions>;
+    declare public readonly connectionLogOptions: pulumi.Output<outputs.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
      * A brief description of the Client VPN endpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
      */
-    public readonly disconnectOnSessionTimeout!: pulumi.Output<boolean>;
+    declare public readonly disconnectOnSessionTimeout: pulumi.Output<boolean>;
     /**
      * The DNS name to be used by clients when establishing their VPN session.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */
-    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsServers: pulumi.Output<string[] | undefined>;
+    /**
+     * IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+     */
+    declare public readonly endpointIpAddressType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      */
-    public readonly selfServicePortal!: pulumi.Output<string | undefined>;
+    declare public readonly selfServicePortal: pulumi.Output<string | undefined>;
     /**
      * The URL of the self-service portal.
      */
-    public /*out*/ readonly selfServicePortalUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly selfServicePortalUrl: pulumi.Output<string>;
     /**
      * The ARN of the ACM server certificate.
      */
-    public readonly serverCertificateArn!: pulumi.Output<string>;
+    declare public readonly serverCertificateArn: pulumi.Output<string>;
     /**
      * The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
      */
-    public readonly sessionTimeoutHours!: pulumi.Output<number | undefined>;
+    declare public readonly sessionTimeoutHours: pulumi.Output<number | undefined>;
     /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
-    public readonly splitTunnel!: pulumi.Output<boolean | undefined>;
+    declare public readonly splitTunnel: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
+     */
+    declare public readonly trafficIpAddressType: pulumi.Output<string>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
-    public readonly transportProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly transportProtocol: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
     /**
      * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
      */
-    public readonly vpnPort!: pulumi.Output<number | undefined>;
+    declare public readonly vpnPort: pulumi.Output<number | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -175,62 +183,63 @@ export class Endpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["authenticationOptions"] = state ? state.authenticationOptions : undefined;
-            resourceInputs["clientCidrBlock"] = state ? state.clientCidrBlock : undefined;
-            resourceInputs["clientConnectOptions"] = state ? state.clientConnectOptions : undefined;
-            resourceInputs["clientLoginBannerOptions"] = state ? state.clientLoginBannerOptions : undefined;
-            resourceInputs["clientRouteEnforcementOptions"] = state ? state.clientRouteEnforcementOptions : undefined;
-            resourceInputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["disconnectOnSessionTimeout"] = state ? state.disconnectOnSessionTimeout : undefined;
-            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
-            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["selfServicePortal"] = state ? state.selfServicePortal : undefined;
-            resourceInputs["selfServicePortalUrl"] = state ? state.selfServicePortalUrl : undefined;
-            resourceInputs["serverCertificateArn"] = state ? state.serverCertificateArn : undefined;
-            resourceInputs["sessionTimeoutHours"] = state ? state.sessionTimeoutHours : undefined;
-            resourceInputs["splitTunnel"] = state ? state.splitTunnel : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["transportProtocol"] = state ? state.transportProtocol : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
-            resourceInputs["vpnPort"] = state ? state.vpnPort : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["authenticationOptions"] = state?.authenticationOptions;
+            resourceInputs["clientCidrBlock"] = state?.clientCidrBlock;
+            resourceInputs["clientConnectOptions"] = state?.clientConnectOptions;
+            resourceInputs["clientLoginBannerOptions"] = state?.clientLoginBannerOptions;
+            resourceInputs["clientRouteEnforcementOptions"] = state?.clientRouteEnforcementOptions;
+            resourceInputs["connectionLogOptions"] = state?.connectionLogOptions;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["disconnectOnSessionTimeout"] = state?.disconnectOnSessionTimeout;
+            resourceInputs["dnsName"] = state?.dnsName;
+            resourceInputs["dnsServers"] = state?.dnsServers;
+            resourceInputs["endpointIpAddressType"] = state?.endpointIpAddressType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
+            resourceInputs["selfServicePortal"] = state?.selfServicePortal;
+            resourceInputs["selfServicePortalUrl"] = state?.selfServicePortalUrl;
+            resourceInputs["serverCertificateArn"] = state?.serverCertificateArn;
+            resourceInputs["sessionTimeoutHours"] = state?.sessionTimeoutHours;
+            resourceInputs["splitTunnel"] = state?.splitTunnel;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["trafficIpAddressType"] = state?.trafficIpAddressType;
+            resourceInputs["transportProtocol"] = state?.transportProtocol;
+            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["vpnPort"] = state?.vpnPort;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if ((!args || args.authenticationOptions === undefined) && !opts.urn) {
+            if (args?.authenticationOptions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationOptions'");
             }
-            if ((!args || args.clientCidrBlock === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clientCidrBlock'");
-            }
-            if ((!args || args.connectionLogOptions === undefined) && !opts.urn) {
+            if (args?.connectionLogOptions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionLogOptions'");
             }
-            if ((!args || args.serverCertificateArn === undefined) && !opts.urn) {
+            if (args?.serverCertificateArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverCertificateArn'");
             }
-            resourceInputs["authenticationOptions"] = args ? args.authenticationOptions : undefined;
-            resourceInputs["clientCidrBlock"] = args ? args.clientCidrBlock : undefined;
-            resourceInputs["clientConnectOptions"] = args ? args.clientConnectOptions : undefined;
-            resourceInputs["clientLoginBannerOptions"] = args ? args.clientLoginBannerOptions : undefined;
-            resourceInputs["clientRouteEnforcementOptions"] = args ? args.clientRouteEnforcementOptions : undefined;
-            resourceInputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disconnectOnSessionTimeout"] = args ? args.disconnectOnSessionTimeout : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["selfServicePortal"] = args ? args.selfServicePortal : undefined;
-            resourceInputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
-            resourceInputs["sessionTimeoutHours"] = args ? args.sessionTimeoutHours : undefined;
-            resourceInputs["splitTunnel"] = args ? args.splitTunnel : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transportProtocol"] = args ? args.transportProtocol : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
-            resourceInputs["vpnPort"] = args ? args.vpnPort : undefined;
+            resourceInputs["authenticationOptions"] = args?.authenticationOptions;
+            resourceInputs["clientCidrBlock"] = args?.clientCidrBlock;
+            resourceInputs["clientConnectOptions"] = args?.clientConnectOptions;
+            resourceInputs["clientLoginBannerOptions"] = args?.clientLoginBannerOptions;
+            resourceInputs["clientRouteEnforcementOptions"] = args?.clientRouteEnforcementOptions;
+            resourceInputs["connectionLogOptions"] = args?.connectionLogOptions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disconnectOnSessionTimeout"] = args?.disconnectOnSessionTimeout;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["endpointIpAddressType"] = args?.endpointIpAddressType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["selfServicePortal"] = args?.selfServicePortal;
+            resourceInputs["serverCertificateArn"] = args?.serverCertificateArn;
+            resourceInputs["sessionTimeoutHours"] = args?.sessionTimeoutHours;
+            resourceInputs["splitTunnel"] = args?.splitTunnel;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficIpAddressType"] = args?.trafficIpAddressType;
+            resourceInputs["transportProtocol"] = args?.transportProtocol;
+            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["vpnPort"] = args?.vpnPort;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["selfServicePortalUrl"] = undefined /*out*/;
@@ -254,7 +263,7 @@ export interface EndpointState {
      */
     authenticationOptions?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
-     * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+     * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
      */
     clientCidrBlock?: pulumi.Input<string>;
     /**
@@ -289,6 +298,10 @@ export interface EndpointState {
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+     */
+    endpointIpAddressType?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -326,6 +339,10 @@ export interface EndpointState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
+     */
+    trafficIpAddressType?: pulumi.Input<string>;
+    /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
     transportProtocol?: pulumi.Input<string>;
@@ -348,9 +365,9 @@ export interface EndpointArgs {
      */
     authenticationOptions: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
-     * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+     * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
      */
-    clientCidrBlock: pulumi.Input<string>;
+    clientCidrBlock?: pulumi.Input<string>;
     /**
      * The options for managing connection authorization for new client connections.
      */
@@ -380,6 +397,10 @@ export interface EndpointArgs {
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+     */
+    endpointIpAddressType?: pulumi.Input<string>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
@@ -407,6 +428,10 @@ export interface EndpointArgs {
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
+     */
+    trafficIpAddressType?: pulumi.Input<string>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */

@@ -55,15 +55,19 @@ export class ContributorInsights extends pulumi.CustomResource {
     /**
      * The global secondary index name
      */
-    public readonly indexName!: pulumi.Output<string | undefined>;
+    declare public readonly indexName: pulumi.Output<string | undefined>;
+    /**
+     * argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+     */
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name of the table to enable contributor insights
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
 
     /**
      * Create a ContributorInsights resource with the given unique name, arguments, and options.
@@ -78,17 +82,19 @@ export class ContributorInsights extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContributorInsightsState | undefined;
-            resourceInputs["indexName"] = state ? state.indexName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["indexName"] = state?.indexName;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as ContributorInsightsArgs | undefined;
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["indexName"] = args ? args.indexName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tableName"] = args?.tableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ContributorInsights.__pulumiType, name, resourceInputs, opts);
@@ -103,6 +109,10 @@ export interface ContributorInsightsState {
      * The global secondary index name
      */
     indexName?: pulumi.Input<string>;
+    /**
+     * argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+     */
+    mode?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -121,6 +131,10 @@ export interface ContributorInsightsArgs {
      * The global secondary index name
      */
     indexName?: pulumi.Input<string>;
+    /**
+     * argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+     */
+    mode?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

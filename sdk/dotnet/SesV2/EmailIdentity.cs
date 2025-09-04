@@ -161,6 +161,12 @@ namespace Pulumi.Aws.SesV2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        /// </summary>
+        [Output("verificationStatus")]
+        public Output<string> VerificationStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether or not the identity is verified.
         /// </summary>
         [Output("verifiedForSendingStatus")]
@@ -319,6 +325,12 @@ namespace Pulumi.Aws.SesV2
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        /// </summary>
+        [Input("verificationStatus")]
+        public Input<string>? VerificationStatus { get; set; }
 
         /// <summary>
         /// Specifies whether or not the identity is verified.

@@ -13,10 +13,26 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInterfaceAttachmentResult
     {
+        /// <summary>
+        /// ID of the network interface attachment.
+        /// </summary>
         public readonly string AttachmentId;
+        /// <summary>
+        /// Device index of the network interface attachment on the instance.
+        /// </summary>
         public readonly int DeviceIndex;
+        /// <summary>
+        /// ID of the instance.
+        /// </summary>
         public readonly string InstanceId;
+        /// <summary>
+        /// AWS account ID of the owner of the instance.
+        /// </summary>
         public readonly string InstanceOwnerId;
+        /// <summary>
+        /// Index of the network card.
+        /// </summary>
+        public readonly int NetworkCardIndex;
 
         [OutputConstructor]
         private GetNetworkInterfaceAttachmentResult(
@@ -26,12 +42,15 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string instanceId,
 
-            string instanceOwnerId)
+            string instanceOwnerId,
+
+            int networkCardIndex)
         {
             AttachmentId = attachmentId;
             DeviceIndex = deviceIndex;
             InstanceId = instanceId;
             InstanceOwnerId = instanceOwnerId;
+            NetworkCardIndex = networkCardIndex;
         }
     }
 }

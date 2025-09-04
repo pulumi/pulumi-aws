@@ -21,11 +21,23 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` - (String) ID of the Route53 Resolver rule association.
+ *
+ * #### Optional
+ *
+ * - `account_id` (String) AWS Account where this resource is managed.
+ *
+ * - `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
  *
- * ```sh
- * $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
- * ```
+ * console
+ *
+ * % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
  */
 export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**
@@ -58,19 +70,19 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**
      * A name for the association that you're creating between a resolver rule and a VPC.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */
-    public readonly resolverRuleId!: pulumi.Output<string>;
+    declare public readonly resolverRuleId: pulumi.Output<string>;
     /**
      * The ID of the VPC that you want to associate the resolver rule with.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a ResolverRuleAssociation resource with the given unique name, arguments, and options.
@@ -85,22 +97,22 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverRuleAssociationState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resolverRuleId"] = state ? state.resolverRuleId : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resolverRuleId"] = state?.resolverRuleId;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as ResolverRuleAssociationArgs | undefined;
-            if ((!args || args.resolverRuleId === undefined) && !opts.urn) {
+            if (args?.resolverRuleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resolverRuleId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resolverRuleId"] = args?.resolverRuleId;
+            resourceInputs["vpcId"] = args?.vpcId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverRuleAssociation.__pulumiType, name, resourceInputs, opts);

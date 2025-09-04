@@ -47,21 +47,21 @@ export class GcmChannel extends pulumi.CustomResource {
     /**
      * Platform credential API key from Google.
      */
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
      * The application ID.
      */
-    public readonly applicationId!: pulumi.Output<string>;
-    public readonly defaultAuthenticationMethod!: pulumi.Output<string | undefined>;
+    declare public readonly applicationId: pulumi.Output<string>;
+    declare public readonly defaultAuthenticationMethod: pulumi.Output<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly serviceJson!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly serviceJson: pulumi.Output<string | undefined>;
 
     /**
      * Create a GcmChannel resource with the given unique name, arguments, and options.
@@ -76,22 +76,22 @@ export class GcmChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GcmChannelState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["defaultAuthenticationMethod"] = state ? state.defaultAuthenticationMethod : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serviceJson"] = state ? state.serviceJson : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["defaultAuthenticationMethod"] = state?.defaultAuthenticationMethod;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serviceJson"] = state?.serviceJson;
         } else {
             const args = argsOrState as GcmChannelArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["defaultAuthenticationMethod"] = args?.defaultAuthenticationMethod;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["region"] = args?.region;
             resourceInputs["serviceJson"] = args?.serviceJson ? pulumi.secret(args.serviceJson) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

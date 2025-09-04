@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesMetadata {
     /**
-     * @return Key-value pairs used to identify, sort, and organize cube resources.
+     * @return Key-value pairs used to identify, sort, and organize kubernetes resources.
      * 
      */
     private @Nullable Map<String,String> labels;
 
     private JobDefinitionEksPropertiesPodPropertiesMetadata() {}
     /**
-     * @return Key-value pairs used to identify, sort, and organize cube resources.
+     * @return Key-value pairs used to identify, sort, and organize kubernetes resources.
      * 
      */
     public Map<String,String> labels() {

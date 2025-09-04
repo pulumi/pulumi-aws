@@ -265,6 +265,7 @@ class Endpoints(dict):
                  apprunner: Optional[_builtins.str] = None,
                  appstream: Optional[_builtins.str] = None,
                  appsync: Optional[_builtins.str] = None,
+                 arcregionswitch: Optional[_builtins.str] = None,
                  athena: Optional[_builtins.str] = None,
                  auditmanager: Optional[_builtins.str] = None,
                  autoscaling: Optional[_builtins.str] = None,
@@ -566,6 +567,7 @@ class Endpoints(dict):
         :param _builtins.str apprunner: Use this to override the default service endpoint URL
         :param _builtins.str appstream: Use this to override the default service endpoint URL
         :param _builtins.str appsync: Use this to override the default service endpoint URL
+        :param _builtins.str arcregionswitch: Use this to override the default service endpoint URL
         :param _builtins.str athena: Use this to override the default service endpoint URL
         :param _builtins.str auditmanager: Use this to override the default service endpoint URL
         :param _builtins.str autoscaling: Use this to override the default service endpoint URL
@@ -890,6 +892,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "appstream", appstream)
         if appsync is not None:
             pulumi.set(__self__, "appsync", appsync)
+        if arcregionswitch is not None:
+            pulumi.set(__self__, "arcregionswitch", arcregionswitch)
         if athena is not None:
             pulumi.set(__self__, "athena", athena)
         if auditmanager is not None:
@@ -1628,6 +1632,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "appsync")
+
+    @_builtins.property
+    @pulumi.getter
+    def arcregionswitch(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "arcregionswitch")
 
     @_builtins.property
     @pulumi.getter

@@ -18,6 +18,14 @@ namespace Pulumi.Aws.Inspector2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaAwsAccountId> AwsAccountIds;
         /// <summary>
+        /// (Optional) The project name in a code repository. Documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FilterFilterCriteriaCodeRepositoryProjectName> CodeRepositoryProjectNames;
+        /// <summary>
+        /// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FilterFilterCriteriaCodeRepositoryProviderType> CodeRepositoryProviderTypes;
+        /// <summary>
         /// (Optional) The ID of the component. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaCodeVulnerabilityDetectorName> CodeVulnerabilityDetectorNames;
@@ -57,6 +65,14 @@ namespace Pulumi.Aws.Inspector2.Outputs
         /// (Optional) The SHA256 hash of the ECR image. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageHash> EcrImageHashes;
+        /// <summary>
+        /// (Optional)  The number of the ECR images in use. Documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageInUseCount> EcrImageInUseCounts;
+        /// <summary>
+        /// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageLastInUseAt> EcrImageLastInUseAts;
         /// <summary>
         /// (Optional) The date range when the image was pushed. Documented below.
         /// </summary>
@@ -186,6 +202,10 @@ namespace Pulumi.Aws.Inspector2.Outputs
         private FilterFilterCriteria(
             ImmutableArray<Outputs.FilterFilterCriteriaAwsAccountId> awsAccountIds,
 
+            ImmutableArray<Outputs.FilterFilterCriteriaCodeRepositoryProjectName> codeRepositoryProjectNames,
+
+            ImmutableArray<Outputs.FilterFilterCriteriaCodeRepositoryProviderType> codeRepositoryProviderTypes,
+
             ImmutableArray<Outputs.FilterFilterCriteriaCodeVulnerabilityDetectorName> codeVulnerabilityDetectorNames,
 
             ImmutableArray<Outputs.FilterFilterCriteriaCodeVulnerabilityDetectorTag> codeVulnerabilityDetectorTags,
@@ -205,6 +225,10 @@ namespace Pulumi.Aws.Inspector2.Outputs
             ImmutableArray<Outputs.FilterFilterCriteriaEcrImageArchitecture> ecrImageArchitectures,
 
             ImmutableArray<Outputs.FilterFilterCriteriaEcrImageHash> ecrImageHashes,
+
+            ImmutableArray<Outputs.FilterFilterCriteriaEcrImageInUseCount> ecrImageInUseCounts,
+
+            ImmutableArray<Outputs.FilterFilterCriteriaEcrImageLastInUseAt> ecrImageLastInUseAts,
 
             ImmutableArray<Outputs.FilterFilterCriteriaEcrImagePushedAt> ecrImagePushedAts,
 
@@ -269,6 +293,8 @@ namespace Pulumi.Aws.Inspector2.Outputs
             ImmutableArray<Outputs.FilterFilterCriteriaVulnerablePackage> vulnerablePackages)
         {
             AwsAccountIds = awsAccountIds;
+            CodeRepositoryProjectNames = codeRepositoryProjectNames;
+            CodeRepositoryProviderTypes = codeRepositoryProviderTypes;
             CodeVulnerabilityDetectorNames = codeVulnerabilityDetectorNames;
             CodeVulnerabilityDetectorTags = codeVulnerabilityDetectorTags;
             CodeVulnerabilityFilePaths = codeVulnerabilityFilePaths;
@@ -279,6 +305,8 @@ namespace Pulumi.Aws.Inspector2.Outputs
             Ec2InstanceVpcIds = ec2InstanceVpcIds;
             EcrImageArchitectures = ecrImageArchitectures;
             EcrImageHashes = ecrImageHashes;
+            EcrImageInUseCounts = ecrImageInUseCounts;
+            EcrImageLastInUseAts = ecrImageLastInUseAts;
             EcrImagePushedAts = ecrImagePushedAts;
             EcrImageRegistries = ecrImageRegistries;
             EcrImageRepositoryNames = ecrImageRepositoryNames;

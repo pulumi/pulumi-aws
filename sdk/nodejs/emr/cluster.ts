@@ -310,32 +310,32 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
      */
-    public readonly additionalInfo!: pulumi.Output<string | undefined>;
+    declare public readonly additionalInfo: pulumi.Output<string | undefined>;
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
      */
-    public readonly applications!: pulumi.Output<string[] | undefined>;
+    declare public readonly applications: pulumi.Output<string[] | undefined>;
     /**
      * ARN of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
      */
-    public readonly autoTerminationPolicy!: pulumi.Output<outputs.emr.ClusterAutoTerminationPolicy | undefined>;
+    declare public readonly autoTerminationPolicy: pulumi.Output<outputs.emr.ClusterAutoTerminationPolicy | undefined>;
     /**
      * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */
-    public readonly autoscalingRole!: pulumi.Output<string | undefined>;
+    declare public readonly autoscalingRole: pulumi.Output<string | undefined>;
     /**
      * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
      */
-    public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapAction[] | undefined>;
-    public /*out*/ readonly clusterState!: pulumi.Output<string>;
+    declare public readonly bootstrapActions: pulumi.Output<outputs.emr.ClusterBootstrapAction[] | undefined>;
+    declare public /*out*/ readonly clusterState: pulumi.Output<string>;
     /**
      * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      */
-    public readonly configurations!: pulumi.Output<string | undefined>;
+    declare public readonly configurations: pulumi.Output<string | undefined>;
     /**
      * JSON string for supplying list of configurations for the EMR cluster.
      *
@@ -362,123 +362,123 @@ export class Cluster extends pulumi.CustomResource {
      * `});
      * ```
      */
-    public readonly configurationsJson!: pulumi.Output<string | undefined>;
+    declare public readonly configurationsJson: pulumi.Output<string | undefined>;
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
      */
-    public readonly coreInstanceFleet!: pulumi.Output<outputs.emr.ClusterCoreInstanceFleet>;
+    declare public readonly coreInstanceFleet: pulumi.Output<outputs.emr.ClusterCoreInstanceFleet>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      */
-    public readonly coreInstanceGroup!: pulumi.Output<outputs.emr.ClusterCoreInstanceGroup>;
+    declare public readonly coreInstanceGroup: pulumi.Output<outputs.emr.ClusterCoreInstanceGroup>;
     /**
      * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
      */
-    public readonly customAmiId!: pulumi.Output<string | undefined>;
+    declare public readonly customAmiId: pulumi.Output<string | undefined>;
     /**
      * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
      */
-    public readonly ebsRootVolumeSize!: pulumi.Output<number | undefined>;
+    declare public readonly ebsRootVolumeSize: pulumi.Output<number | undefined>;
     /**
      * Attributes for the EC2 instances running the job flow. See below.
      */
-    public readonly ec2Attributes!: pulumi.Output<outputs.emr.ClusterEc2Attributes | undefined>;
+    declare public readonly ec2Attributes: pulumi.Output<outputs.emr.ClusterEc2Attributes | undefined>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
-    public readonly keepJobFlowAliveWhenNoSteps!: pulumi.Output<boolean>;
+    declare public readonly keepJobFlowAliveWhenNoSteps: pulumi.Output<boolean>;
     /**
      * Kerberos configuration for the cluster. See below.
      */
-    public readonly kerberosAttributes!: pulumi.Output<outputs.emr.ClusterKerberosAttributes | undefined>;
+    declare public readonly kerberosAttributes: pulumi.Output<outputs.emr.ClusterKerberosAttributes | undefined>;
     /**
      * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
      */
-    public readonly listStepsStates!: pulumi.Output<string[] | undefined>;
+    declare public readonly listStepsStates: pulumi.Output<string[] | undefined>;
     /**
      * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      */
-    public readonly logEncryptionKmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly logEncryptionKmsKeyId: pulumi.Output<string | undefined>;
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
      */
-    public readonly logUri!: pulumi.Output<string | undefined>;
+    declare public readonly logUri: pulumi.Output<string | undefined>;
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
      */
-    public readonly masterInstanceFleet!: pulumi.Output<outputs.emr.ClusterMasterInstanceFleet>;
+    declare public readonly masterInstanceFleet: pulumi.Output<outputs.emr.ClusterMasterInstanceFleet>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      */
-    public readonly masterInstanceGroup!: pulumi.Output<outputs.emr.ClusterMasterInstanceGroup>;
+    declare public readonly masterInstanceGroup: pulumi.Output<outputs.emr.ClusterMasterInstanceGroup>;
     /**
      * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
      */
-    public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
+    declare public /*out*/ readonly masterPublicDns: pulumi.Output<string>;
     /**
      * Name of the job flow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
      */
-    public readonly osReleaseLabel!: pulumi.Output<string | undefined>;
+    declare public readonly osReleaseLabel: pulumi.Output<string | undefined>;
     /**
      * The specified placement group configuration for an Amazon EMR cluster.
      */
-    public readonly placementGroupConfigs!: pulumi.Output<outputs.emr.ClusterPlacementGroupConfig[] | undefined>;
+    declare public readonly placementGroupConfigs: pulumi.Output<outputs.emr.ClusterPlacementGroupConfig[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Release label for the Amazon EMR release.
      */
-    public readonly releaseLabel!: pulumi.Output<string>;
+    declare public readonly releaseLabel: pulumi.Output<string>;
     /**
      * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      */
-    public readonly scaleDownBehavior!: pulumi.Output<string>;
+    declare public readonly scaleDownBehavior: pulumi.Output<string>;
     /**
      * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
      */
-    public readonly securityConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly securityConfiguration: pulumi.Output<string | undefined>;
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      *
      * The following arguments are optional:
      */
-    public readonly serviceRole!: pulumi.Output<string>;
+    declare public readonly serviceRole: pulumi.Output<string>;
     /**
      * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
      */
-    public readonly stepConcurrencyLevel!: pulumi.Output<number | undefined>;
+    declare public readonly stepConcurrencyLevel: pulumi.Output<number | undefined>;
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */
-    public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
+    declare public readonly steps: pulumi.Output<outputs.emr.ClusterStep[]>;
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
-    public readonly terminationProtection!: pulumi.Output<boolean>;
+    declare public readonly terminationProtection: pulumi.Output<boolean>;
     /**
      * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
      */
-    public readonly unhealthyNodeReplacement!: pulumi.Output<boolean | undefined>;
+    declare public readonly unhealthyNodeReplacement: pulumi.Output<boolean | undefined>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      *
      * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
      */
-    public readonly visibleToAllUsers!: pulumi.Output<boolean | undefined>;
+    declare public readonly visibleToAllUsers: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -493,84 +493,84 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["additionalInfo"] = state ? state.additionalInfo : undefined;
-            resourceInputs["applications"] = state ? state.applications : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoTerminationPolicy"] = state ? state.autoTerminationPolicy : undefined;
-            resourceInputs["autoscalingRole"] = state ? state.autoscalingRole : undefined;
-            resourceInputs["bootstrapActions"] = state ? state.bootstrapActions : undefined;
-            resourceInputs["clusterState"] = state ? state.clusterState : undefined;
-            resourceInputs["configurations"] = state ? state.configurations : undefined;
-            resourceInputs["configurationsJson"] = state ? state.configurationsJson : undefined;
-            resourceInputs["coreInstanceFleet"] = state ? state.coreInstanceFleet : undefined;
-            resourceInputs["coreInstanceGroup"] = state ? state.coreInstanceGroup : undefined;
-            resourceInputs["customAmiId"] = state ? state.customAmiId : undefined;
-            resourceInputs["ebsRootVolumeSize"] = state ? state.ebsRootVolumeSize : undefined;
-            resourceInputs["ec2Attributes"] = state ? state.ec2Attributes : undefined;
-            resourceInputs["keepJobFlowAliveWhenNoSteps"] = state ? state.keepJobFlowAliveWhenNoSteps : undefined;
-            resourceInputs["kerberosAttributes"] = state ? state.kerberosAttributes : undefined;
-            resourceInputs["listStepsStates"] = state ? state.listStepsStates : undefined;
-            resourceInputs["logEncryptionKmsKeyId"] = state ? state.logEncryptionKmsKeyId : undefined;
-            resourceInputs["logUri"] = state ? state.logUri : undefined;
-            resourceInputs["masterInstanceFleet"] = state ? state.masterInstanceFleet : undefined;
-            resourceInputs["masterInstanceGroup"] = state ? state.masterInstanceGroup : undefined;
-            resourceInputs["masterPublicDns"] = state ? state.masterPublicDns : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["osReleaseLabel"] = state ? state.osReleaseLabel : undefined;
-            resourceInputs["placementGroupConfigs"] = state ? state.placementGroupConfigs : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
-            resourceInputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
-            resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
-            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
-            resourceInputs["stepConcurrencyLevel"] = state ? state.stepConcurrencyLevel : undefined;
-            resourceInputs["steps"] = state ? state.steps : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["terminationProtection"] = state ? state.terminationProtection : undefined;
-            resourceInputs["unhealthyNodeReplacement"] = state ? state.unhealthyNodeReplacement : undefined;
-            resourceInputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
+            resourceInputs["additionalInfo"] = state?.additionalInfo;
+            resourceInputs["applications"] = state?.applications;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoTerminationPolicy"] = state?.autoTerminationPolicy;
+            resourceInputs["autoscalingRole"] = state?.autoscalingRole;
+            resourceInputs["bootstrapActions"] = state?.bootstrapActions;
+            resourceInputs["clusterState"] = state?.clusterState;
+            resourceInputs["configurations"] = state?.configurations;
+            resourceInputs["configurationsJson"] = state?.configurationsJson;
+            resourceInputs["coreInstanceFleet"] = state?.coreInstanceFleet;
+            resourceInputs["coreInstanceGroup"] = state?.coreInstanceGroup;
+            resourceInputs["customAmiId"] = state?.customAmiId;
+            resourceInputs["ebsRootVolumeSize"] = state?.ebsRootVolumeSize;
+            resourceInputs["ec2Attributes"] = state?.ec2Attributes;
+            resourceInputs["keepJobFlowAliveWhenNoSteps"] = state?.keepJobFlowAliveWhenNoSteps;
+            resourceInputs["kerberosAttributes"] = state?.kerberosAttributes;
+            resourceInputs["listStepsStates"] = state?.listStepsStates;
+            resourceInputs["logEncryptionKmsKeyId"] = state?.logEncryptionKmsKeyId;
+            resourceInputs["logUri"] = state?.logUri;
+            resourceInputs["masterInstanceFleet"] = state?.masterInstanceFleet;
+            resourceInputs["masterInstanceGroup"] = state?.masterInstanceGroup;
+            resourceInputs["masterPublicDns"] = state?.masterPublicDns;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["osReleaseLabel"] = state?.osReleaseLabel;
+            resourceInputs["placementGroupConfigs"] = state?.placementGroupConfigs;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["releaseLabel"] = state?.releaseLabel;
+            resourceInputs["scaleDownBehavior"] = state?.scaleDownBehavior;
+            resourceInputs["securityConfiguration"] = state?.securityConfiguration;
+            resourceInputs["serviceRole"] = state?.serviceRole;
+            resourceInputs["stepConcurrencyLevel"] = state?.stepConcurrencyLevel;
+            resourceInputs["steps"] = state?.steps;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["terminationProtection"] = state?.terminationProtection;
+            resourceInputs["unhealthyNodeReplacement"] = state?.unhealthyNodeReplacement;
+            resourceInputs["visibleToAllUsers"] = state?.visibleToAllUsers;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.releaseLabel === undefined) && !opts.urn) {
+            if (args?.releaseLabel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'releaseLabel'");
             }
-            if ((!args || args.serviceRole === undefined) && !opts.urn) {
+            if (args?.serviceRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            resourceInputs["additionalInfo"] = args ? args.additionalInfo : undefined;
-            resourceInputs["applications"] = args ? args.applications : undefined;
-            resourceInputs["autoTerminationPolicy"] = args ? args.autoTerminationPolicy : undefined;
-            resourceInputs["autoscalingRole"] = args ? args.autoscalingRole : undefined;
-            resourceInputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
-            resourceInputs["configurations"] = args ? args.configurations : undefined;
-            resourceInputs["configurationsJson"] = args ? args.configurationsJson : undefined;
-            resourceInputs["coreInstanceFleet"] = args ? args.coreInstanceFleet : undefined;
-            resourceInputs["coreInstanceGroup"] = args ? args.coreInstanceGroup : undefined;
-            resourceInputs["customAmiId"] = args ? args.customAmiId : undefined;
-            resourceInputs["ebsRootVolumeSize"] = args ? args.ebsRootVolumeSize : undefined;
-            resourceInputs["ec2Attributes"] = args ? args.ec2Attributes : undefined;
-            resourceInputs["keepJobFlowAliveWhenNoSteps"] = args ? args.keepJobFlowAliveWhenNoSteps : undefined;
-            resourceInputs["kerberosAttributes"] = args ? args.kerberosAttributes : undefined;
-            resourceInputs["listStepsStates"] = args ? args.listStepsStates : undefined;
-            resourceInputs["logEncryptionKmsKeyId"] = args ? args.logEncryptionKmsKeyId : undefined;
-            resourceInputs["logUri"] = args ? args.logUri : undefined;
-            resourceInputs["masterInstanceFleet"] = args ? args.masterInstanceFleet : undefined;
-            resourceInputs["masterInstanceGroup"] = args ? args.masterInstanceGroup : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["osReleaseLabel"] = args ? args.osReleaseLabel : undefined;
-            resourceInputs["placementGroupConfigs"] = args ? args.placementGroupConfigs : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
-            resourceInputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
-            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
-            resourceInputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminationProtection"] = args ? args.terminationProtection : undefined;
-            resourceInputs["unhealthyNodeReplacement"] = args ? args.unhealthyNodeReplacement : undefined;
-            resourceInputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
+            resourceInputs["additionalInfo"] = args?.additionalInfo;
+            resourceInputs["applications"] = args?.applications;
+            resourceInputs["autoTerminationPolicy"] = args?.autoTerminationPolicy;
+            resourceInputs["autoscalingRole"] = args?.autoscalingRole;
+            resourceInputs["bootstrapActions"] = args?.bootstrapActions;
+            resourceInputs["configurations"] = args?.configurations;
+            resourceInputs["configurationsJson"] = args?.configurationsJson;
+            resourceInputs["coreInstanceFleet"] = args?.coreInstanceFleet;
+            resourceInputs["coreInstanceGroup"] = args?.coreInstanceGroup;
+            resourceInputs["customAmiId"] = args?.customAmiId;
+            resourceInputs["ebsRootVolumeSize"] = args?.ebsRootVolumeSize;
+            resourceInputs["ec2Attributes"] = args?.ec2Attributes;
+            resourceInputs["keepJobFlowAliveWhenNoSteps"] = args?.keepJobFlowAliveWhenNoSteps;
+            resourceInputs["kerberosAttributes"] = args?.kerberosAttributes;
+            resourceInputs["listStepsStates"] = args?.listStepsStates;
+            resourceInputs["logEncryptionKmsKeyId"] = args?.logEncryptionKmsKeyId;
+            resourceInputs["logUri"] = args?.logUri;
+            resourceInputs["masterInstanceFleet"] = args?.masterInstanceFleet;
+            resourceInputs["masterInstanceGroup"] = args?.masterInstanceGroup;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["osReleaseLabel"] = args?.osReleaseLabel;
+            resourceInputs["placementGroupConfigs"] = args?.placementGroupConfigs;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["releaseLabel"] = args?.releaseLabel;
+            resourceInputs["scaleDownBehavior"] = args?.scaleDownBehavior;
+            resourceInputs["securityConfiguration"] = args?.securityConfiguration;
+            resourceInputs["serviceRole"] = args?.serviceRole;
+            resourceInputs["stepConcurrencyLevel"] = args?.stepConcurrencyLevel;
+            resourceInputs["steps"] = args?.steps;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminationProtection"] = args?.terminationProtection;
+            resourceInputs["unhealthyNodeReplacement"] = args?.unhealthyNodeReplacement;
+            resourceInputs["visibleToAllUsers"] = args?.visibleToAllUsers;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterState"] = undefined /*out*/;
             resourceInputs["masterPublicDns"] = undefined /*out*/;

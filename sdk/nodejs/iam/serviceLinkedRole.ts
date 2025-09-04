@@ -55,43 +55,43 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the role.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
      */
-    public readonly awsServiceName!: pulumi.Output<string>;
+    declare public readonly awsServiceName: pulumi.Output<string>;
     /**
      * The creation date of the IAM role.
      */
-    public /*out*/ readonly createDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createDate: pulumi.Output<string>;
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      */
-    public readonly customSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly customSuffix: pulumi.Output<string | undefined>;
     /**
      * The description of the role.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the role.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The path of the role.
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    declare public /*out*/ readonly path: pulumi.Output<string>;
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The stable and unique string identifying the role.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
 
     /**
      * Create a ServiceLinkedRole resource with the given unique name, arguments, and options.
@@ -106,25 +106,25 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceLinkedRoleState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsServiceName"] = state ? state.awsServiceName : undefined;
-            resourceInputs["createDate"] = state ? state.createDate : undefined;
-            resourceInputs["customSuffix"] = state ? state.customSuffix : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsServiceName"] = state?.awsServiceName;
+            resourceInputs["createDate"] = state?.createDate;
+            resourceInputs["customSuffix"] = state?.customSuffix;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["uniqueId"] = state?.uniqueId;
         } else {
             const args = argsOrState as ServiceLinkedRoleArgs | undefined;
-            if ((!args || args.awsServiceName === undefined) && !opts.urn) {
+            if (args?.awsServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsServiceName'");
             }
-            resourceInputs["awsServiceName"] = args ? args.awsServiceName : undefined;
-            resourceInputs["customSuffix"] = args ? args.customSuffix : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsServiceName"] = args?.awsServiceName;
+            resourceInputs["customSuffix"] = args?.customSuffix;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

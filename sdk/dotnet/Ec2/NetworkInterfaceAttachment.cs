@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
+        /// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+        /// </summary>
+        [Output("networkCardIndex")]
+        public Output<int> NetworkCardIndex { get; private set; } = null!;
+
+        /// <summary>
         /// ENI ID to attach.
         /// </summary>
         [Output("networkInterfaceId")]
@@ -138,6 +144,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
+        /// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+        /// </summary>
+        [Input("networkCardIndex")]
+        public Input<int>? NetworkCardIndex { get; set; }
+
+        /// <summary>
         /// ENI ID to attach.
         /// </summary>
         [Input("networkInterfaceId", required: true)]
@@ -174,6 +186,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        /// <summary>
+        /// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+        /// </summary>
+        [Input("networkCardIndex")]
+        public Input<int>? NetworkCardIndex { get; set; }
 
         /// <summary>
         /// ENI ID to attach.

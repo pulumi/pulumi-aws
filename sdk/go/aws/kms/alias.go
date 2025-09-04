@@ -49,11 +49,23 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` - (String) Name of the KMS key alias.
+//
+// #### Optional
+//
+// - `account_id` (String) AWS Account where this resource is managed.
+//
+// - `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import KMS aliases using the `name`. For example:
 //
-// ```sh
-// $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
-// ```
+// console
+//
+// % pulumi import aws_kms_alias.a alias/my-key-alias
 type Alias struct {
 	pulumi.CustomResourceState
 

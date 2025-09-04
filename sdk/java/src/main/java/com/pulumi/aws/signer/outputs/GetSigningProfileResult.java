@@ -5,6 +5,7 @@ package com.pulumi.aws.signer.outputs;
 
 import com.pulumi.aws.signer.outputs.GetSigningProfileRevocationRecord;
 import com.pulumi.aws.signer.outputs.GetSigningProfileSignatureValidityPeriod;
+import com.pulumi.aws.signer.outputs.GetSigningProfileSigningMaterial;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -46,6 +47,16 @@ public final class GetSigningProfileResult {
      * 
      */
     private List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
+    /**
+     * @return AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
+     * 
+     */
+    private List<GetSigningProfileSigningMaterial> signingMaterials;
+    /**
+     * @return Map of key-value pairs for signing.
+     * 
+     */
+    private Map<String,String> signingParameters;
     /**
      * @return Status of the target signing profile.
      * 
@@ -117,6 +128,20 @@ public final class GetSigningProfileResult {
         return this.signatureValidityPeriods;
     }
     /**
+     * @return AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
+     * 
+     */
+    public List<GetSigningProfileSigningMaterial> signingMaterials() {
+        return this.signingMaterials;
+    }
+    /**
+     * @return Map of key-value pairs for signing.
+     * 
+     */
+    public Map<String,String> signingParameters() {
+        return this.signingParameters;
+    }
+    /**
      * @return Status of the target signing profile.
      * 
      */
@@ -162,6 +187,8 @@ public final class GetSigningProfileResult {
         private String region;
         private List<GetSigningProfileRevocationRecord> revocationRecords;
         private List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
+        private List<GetSigningProfileSigningMaterial> signingMaterials;
+        private Map<String,String> signingParameters;
         private String status;
         private Map<String,String> tags;
         private String version;
@@ -177,6 +204,8 @@ public final class GetSigningProfileResult {
     	      this.region = defaults.region;
     	      this.revocationRecords = defaults.revocationRecords;
     	      this.signatureValidityPeriods = defaults.signatureValidityPeriods;
+    	      this.signingMaterials = defaults.signingMaterials;
+    	      this.signingParameters = defaults.signingParameters;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
@@ -254,6 +283,25 @@ public final class GetSigningProfileResult {
             return signatureValidityPeriods(List.of(signatureValidityPeriods));
         }
         @CustomType.Setter
+        public Builder signingMaterials(List<GetSigningProfileSigningMaterial> signingMaterials) {
+            if (signingMaterials == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "signingMaterials");
+            }
+            this.signingMaterials = signingMaterials;
+            return this;
+        }
+        public Builder signingMaterials(GetSigningProfileSigningMaterial... signingMaterials) {
+            return signingMaterials(List.of(signingMaterials));
+        }
+        @CustomType.Setter
+        public Builder signingParameters(Map<String,String> signingParameters) {
+            if (signingParameters == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "signingParameters");
+            }
+            this.signingParameters = signingParameters;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetSigningProfileResult", "status");
@@ -295,6 +343,8 @@ public final class GetSigningProfileResult {
             _resultValue.region = region;
             _resultValue.revocationRecords = revocationRecords;
             _resultValue.signatureValidityPeriods = signatureValidityPeriods;
+            _resultValue.signingMaterials = signingMaterials;
+            _resultValue.signingParameters = signingParameters;
             _resultValue.status = status;
             _resultValue.tags = tags;
             _resultValue.version = version;

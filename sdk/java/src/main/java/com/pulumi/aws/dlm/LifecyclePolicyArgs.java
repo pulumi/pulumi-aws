@@ -19,6 +19,21 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
     public static final LifecyclePolicyArgs Empty = new LifecyclePolicyArgs();
 
     /**
+     * Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+     * 
+     */
+    @Import(name="defaultPolicy")
+    private @Nullable Output<String> defaultPolicy;
+
+    /**
+     * @return Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+     * 
+     */
+    public Optional<Output<String>> defaultPolicy() {
+        return Optional.ofNullable(this.defaultPolicy);
+    }
+
+    /**
      * A description for the DLM lifecycle policy.
      * 
      */
@@ -111,6 +126,7 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
     private LifecyclePolicyArgs() {}
 
     private LifecyclePolicyArgs(LifecyclePolicyArgs $) {
+        this.defaultPolicy = $.defaultPolicy;
         this.description = $.description;
         this.executionRoleArn = $.executionRoleArn;
         this.policyDetails = $.policyDetails;
@@ -135,6 +151,27 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(LifecyclePolicyArgs defaults) {
             $ = new LifecyclePolicyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param defaultPolicy Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultPolicy(@Nullable Output<String> defaultPolicy) {
+            $.defaultPolicy = defaultPolicy;
+            return this;
+        }
+
+        /**
+         * @param defaultPolicy Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultPolicy(String defaultPolicy) {
+            return defaultPolicy(Output.of(defaultPolicy));
         }
 
         /**

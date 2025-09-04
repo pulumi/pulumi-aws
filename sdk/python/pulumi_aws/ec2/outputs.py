@@ -12409,6 +12409,8 @@ class NetworkInterfaceAttachment(dict):
             suggest = "device_index"
         elif key == "attachmentId":
             suggest = "attachment_id"
+        elif key == "networkCardIndex":
+            suggest = "network_card_index"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceAttachment. Access the value via the '{suggest}' property getter instead.")
@@ -12424,15 +12426,19 @@ class NetworkInterfaceAttachment(dict):
     def __init__(__self__, *,
                  device_index: _builtins.int,
                  instance: _builtins.str,
-                 attachment_id: Optional[_builtins.str] = None):
+                 attachment_id: Optional[_builtins.str] = None,
+                 network_card_index: Optional[_builtins.int] = None):
         """
         :param _builtins.int device_index: Integer to define the devices index.
         :param _builtins.str instance: ID of the instance to attach to.
+        :param _builtins.int network_card_index: Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "instance", instance)
         if attachment_id is not None:
             pulumi.set(__self__, "attachment_id", attachment_id)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
 
     @_builtins.property
     @pulumi.getter(name="deviceIndex")
@@ -12454,6 +12460,14 @@ class NetworkInterfaceAttachment(dict):
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "attachment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[_builtins.int]:
+        """
+        Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+        """
+        return pulumi.get(self, "network_card_index")
 
 
 @pulumi.output_type
@@ -22984,31 +22998,60 @@ class GetNetworkInterfaceAttachmentResult(dict):
                  attachment_id: _builtins.str,
                  device_index: _builtins.int,
                  instance_id: _builtins.str,
-                 instance_owner_id: _builtins.str):
+                 instance_owner_id: _builtins.str,
+                 network_card_index: _builtins.int):
+        """
+        :param _builtins.str attachment_id: ID of the network interface attachment.
+        :param _builtins.int device_index: Device index of the network interface attachment on the instance.
+        :param _builtins.str instance_id: ID of the instance.
+        :param _builtins.str instance_owner_id: AWS account ID of the owner of the instance.
+        :param _builtins.int network_card_index: Index of the network card.
+        """
         pulumi.set(__self__, "attachment_id", attachment_id)
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "instance_owner_id", instance_owner_id)
+        pulumi.set(__self__, "network_card_index", network_card_index)
 
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> _builtins.str:
+        """
+        ID of the network interface attachment.
+        """
         return pulumi.get(self, "attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> _builtins.int:
+        """
+        Device index of the network interface attachment on the instance.
+        """
         return pulumi.get(self, "device_index")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> _builtins.str:
+        """
+        ID of the instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter(name="instanceOwnerId")
     def instance_owner_id(self) -> _builtins.str:
+        """
+        AWS account ID of the owner of the instance.
+        """
         return pulumi.get(self, "instance_owner_id")
+
+    @_builtins.property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> _builtins.int:
+        """
+        Index of the network card.
+        """
+        return pulumi.get(self, "network_card_index")
 
 
 @pulumi.output_type
@@ -24227,6 +24270,7 @@ class GetVpcIpamsIpamResult(dict):
                  enable_private_gua: _builtins.bool,
                  id: _builtins.str,
                  ipam_region: _builtins.str,
+                 metered_account: _builtins.str,
                  operating_regions: Sequence['outputs.GetVpcIpamsIpamOperatingRegionResult'],
                  owner_id: _builtins.str,
                  private_default_scope_id: _builtins.str,
@@ -24261,6 +24305,7 @@ class GetVpcIpamsIpamResult(dict):
         pulumi.set(__self__, "enable_private_gua", enable_private_gua)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "ipam_region", ipam_region)
+        pulumi.set(__self__, "metered_account", metered_account)
         pulumi.set(__self__, "operating_regions", operating_regions)
         pulumi.set(__self__, "owner_id", owner_id)
         pulumi.set(__self__, "private_default_scope_id", private_default_scope_id)
@@ -24326,6 +24371,11 @@ class GetVpcIpamsIpamResult(dict):
         Region that the IPAM exists in.
         """
         return pulumi.get(self, "ipam_region")
+
+    @_builtins.property
+    @pulumi.getter(name="meteredAccount")
+    def metered_account(self) -> _builtins.str:
+        return pulumi.get(self, "metered_account")
 
     @_builtins.property
     @pulumi.getter(name="operatingRegions")

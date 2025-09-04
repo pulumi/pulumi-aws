@@ -78,6 +78,20 @@ public class ContributorInsights extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.indexName);
     }
     /**
+     * argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+     * 
+     */
+    @Export(name="mode", refs={String.class}, tree="[0]")
+    private Output<String> mode;
+
+    /**
+     * @return argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+     * 
+     */
+    public Output<String> mode() {
+        return this.mode;
+    }
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */

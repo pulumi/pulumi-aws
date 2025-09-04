@@ -68,8 +68,8 @@ type Endpoint struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions EndpointAuthenticationOptionArrayOutput `pulumi:"authenticationOptions"`
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-	ClientCidrBlock pulumi.StringOutput `pulumi:"clientCidrBlock"`
+	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
+	ClientCidrBlock pulumi.StringPtrOutput `pulumi:"clientCidrBlock"`
 	// The options for managing connection authorization for new client connections.
 	ClientConnectOptions EndpointClientConnectOptionsOutput `pulumi:"clientConnectOptions"`
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
@@ -86,6 +86,8 @@ type Endpoint struct {
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+	// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+	EndpointIpAddressType pulumi.StringOutput `pulumi:"endpointIpAddressType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -104,6 +106,8 @@ type Endpoint struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
+	TrafficIpAddressType pulumi.StringOutput `pulumi:"trafficIpAddressType"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrOutput `pulumi:"transportProtocol"`
 	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
@@ -121,9 +125,6 @@ func NewEndpoint(ctx *pulumi.Context,
 
 	if args.AuthenticationOptions == nil {
 		return nil, errors.New("invalid value for required argument 'AuthenticationOptions'")
-	}
-	if args.ClientCidrBlock == nil {
-		return nil, errors.New("invalid value for required argument 'ClientCidrBlock'")
 	}
 	if args.ConnectionLogOptions == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionLogOptions'")
@@ -158,7 +159,7 @@ type endpointState struct {
 	Arn *string `pulumi:"arn"`
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
 	ClientCidrBlock *string `pulumi:"clientCidrBlock"`
 	// The options for managing connection authorization for new client connections.
 	ClientConnectOptions *EndpointClientConnectOptions `pulumi:"clientConnectOptions"`
@@ -176,6 +177,8 @@ type endpointState struct {
 	DnsName *string `pulumi:"dnsName"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers []string `pulumi:"dnsServers"`
+	// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+	EndpointIpAddressType *string `pulumi:"endpointIpAddressType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -194,6 +197,8 @@ type endpointState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
+	TrafficIpAddressType *string `pulumi:"trafficIpAddressType"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol *string `pulumi:"transportProtocol"`
 	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
@@ -207,7 +212,7 @@ type EndpointState struct {
 	Arn pulumi.StringPtrInput
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions EndpointAuthenticationOptionArrayInput
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
 	ClientCidrBlock pulumi.StringPtrInput
 	// The options for managing connection authorization for new client connections.
 	ClientConnectOptions EndpointClientConnectOptionsPtrInput
@@ -225,6 +230,8 @@ type EndpointState struct {
 	DnsName pulumi.StringPtrInput
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayInput
+	// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+	EndpointIpAddressType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -243,6 +250,8 @@ type EndpointState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
+	TrafficIpAddressType pulumi.StringPtrInput
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrInput
 	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
@@ -258,8 +267,8 @@ func (EndpointState) ElementType() reflect.Type {
 type endpointArgs struct {
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-	ClientCidrBlock string `pulumi:"clientCidrBlock"`
+	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
+	ClientCidrBlock *string `pulumi:"clientCidrBlock"`
 	// The options for managing connection authorization for new client connections.
 	ClientConnectOptions *EndpointClientConnectOptions `pulumi:"clientConnectOptions"`
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
@@ -274,6 +283,8 @@ type endpointArgs struct {
 	DisconnectOnSessionTimeout *bool `pulumi:"disconnectOnSessionTimeout"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers []string `pulumi:"dnsServers"`
+	// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+	EndpointIpAddressType *string `pulumi:"endpointIpAddressType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -288,6 +299,8 @@ type endpointArgs struct {
 	SplitTunnel *bool `pulumi:"splitTunnel"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
+	TrafficIpAddressType *string `pulumi:"trafficIpAddressType"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol *string `pulumi:"transportProtocol"`
 	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
@@ -300,8 +313,8 @@ type endpointArgs struct {
 type EndpointArgs struct {
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions EndpointAuthenticationOptionArrayInput
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-	ClientCidrBlock pulumi.StringInput
+	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
+	ClientCidrBlock pulumi.StringPtrInput
 	// The options for managing connection authorization for new client connections.
 	ClientConnectOptions EndpointClientConnectOptionsPtrInput
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
@@ -316,6 +329,8 @@ type EndpointArgs struct {
 	DisconnectOnSessionTimeout pulumi.BoolPtrInput
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayInput
+	// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+	EndpointIpAddressType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -330,6 +345,8 @@ type EndpointArgs struct {
 	SplitTunnel pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
+	TrafficIpAddressType pulumi.StringPtrInput
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrInput
 	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
@@ -435,9 +452,9 @@ func (o EndpointOutput) AuthenticationOptions() EndpointAuthenticationOptionArra
 	return o.ApplyT(func(v *Endpoint) EndpointAuthenticationOptionArrayOutput { return v.AuthenticationOptions }).(EndpointAuthenticationOptionArrayOutput)
 }
 
-// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-func (o EndpointOutput) ClientCidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ClientCidrBlock }).(pulumi.StringOutput)
+// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
+func (o EndpointOutput) ClientCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ClientCidrBlock }).(pulumi.StringPtrOutput)
 }
 
 // The options for managing connection authorization for new client connections.
@@ -478,6 +495,11 @@ func (o EndpointOutput) DnsName() pulumi.StringOutput {
 // Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 func (o EndpointOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringArrayOutput { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+func (o EndpointOutput) EndpointIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointIpAddressType }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -523,6 +545,11 @@ func (o EndpointOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
+func (o EndpointOutput) TrafficIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.TrafficIpAddressType }).(pulumi.StringOutput)
 }
 
 // The transport protocol to be used by the VPN session. Default value is `udp`.

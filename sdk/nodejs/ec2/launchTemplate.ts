@@ -49,167 +49,167 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the launch template.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    public readonly blockDeviceMappings!: pulumi.Output<outputs.ec2.LaunchTemplateBlockDeviceMapping[] | undefined>;
+    declare public readonly blockDeviceMappings: pulumi.Output<outputs.ec2.LaunchTemplateBlockDeviceMapping[] | undefined>;
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
-    public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.LaunchTemplateCapacityReservationSpecification | undefined>;
+    declare public readonly capacityReservationSpecification: pulumi.Output<outputs.ec2.LaunchTemplateCapacityReservationSpecification | undefined>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    public readonly cpuOptions!: pulumi.Output<outputs.ec2.LaunchTemplateCpuOptions | undefined>;
+    declare public readonly cpuOptions: pulumi.Output<outputs.ec2.LaunchTemplateCpuOptions | undefined>;
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    public readonly creditSpecification!: pulumi.Output<outputs.ec2.LaunchTemplateCreditSpecification | undefined>;
+    declare public readonly creditSpecification: pulumi.Output<outputs.ec2.LaunchTemplateCreditSpecification | undefined>;
     /**
      * Default Version of the launch template.
      */
-    public readonly defaultVersion!: pulumi.Output<number>;
+    declare public readonly defaultVersion: pulumi.Output<number>;
     /**
      * Description of the launch template.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
      */
-    public readonly disableApiStop!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableApiStop: pulumi.Output<boolean | undefined>;
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
      */
-    public readonly disableApiTermination!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableApiTermination: pulumi.Output<boolean | undefined>;
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      */
-    public readonly ebsOptimized!: pulumi.Output<string | undefined>;
+    declare public readonly ebsOptimized: pulumi.Output<string | undefined>;
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.LaunchTemplateEnclaveOptions | undefined>;
+    declare public readonly enclaveOptions: pulumi.Output<outputs.ec2.LaunchTemplateEnclaveOptions | undefined>;
     /**
      * The hibernation options for the instance. See Hibernation Options below for more details.
      */
-    public readonly hibernationOptions!: pulumi.Output<outputs.ec2.LaunchTemplateHibernationOptions | undefined>;
+    declare public readonly hibernationOptions: pulumi.Output<outputs.ec2.LaunchTemplateHibernationOptions | undefined>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    public readonly iamInstanceProfile!: pulumi.Output<outputs.ec2.LaunchTemplateIamInstanceProfile | undefined>;
+    declare public readonly iamInstanceProfile: pulumi.Output<outputs.ec2.LaunchTemplateIamInstanceProfile | undefined>;
     /**
      * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      */
-    public readonly imageId!: pulumi.Output<string | undefined>;
+    declare public readonly imageId: pulumi.Output<string | undefined>;
     /**
      * Shutdown behavior for the instance. Can be `stop` or `terminate`.
      * (Default: `stop`).
      */
-    public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly instanceInitiatedShutdownBehavior: pulumi.Output<string | undefined>;
     /**
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      */
-    public readonly instanceMarketOptions!: pulumi.Output<outputs.ec2.LaunchTemplateInstanceMarketOptions | undefined>;
+    declare public readonly instanceMarketOptions: pulumi.Output<outputs.ec2.LaunchTemplateInstanceMarketOptions | undefined>;
     /**
      * The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
      */
-    public readonly instanceRequirements!: pulumi.Output<outputs.ec2.LaunchTemplateInstanceRequirements | undefined>;
+    declare public readonly instanceRequirements: pulumi.Output<outputs.ec2.LaunchTemplateInstanceRequirements | undefined>;
     /**
      * The type of the instance. If present then `instanceRequirements` cannot be present.
      */
-    public readonly instanceType!: pulumi.Output<string | undefined>;
+    declare public readonly instanceType: pulumi.Output<string | undefined>;
     /**
      * The kernel ID.
      */
-    public readonly kernelId!: pulumi.Output<string | undefined>;
+    declare public readonly kernelId: pulumi.Output<string | undefined>;
     /**
      * The key name to use for the instance.
      */
-    public readonly keyName!: pulumi.Output<string | undefined>;
+    declare public readonly keyName: pulumi.Output<string | undefined>;
     /**
      * The latest version of the launch template.
      */
-    public /*out*/ readonly latestVersion!: pulumi.Output<number>;
+    declare public /*out*/ readonly latestVersion: pulumi.Output<number>;
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
-    public readonly licenseSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateLicenseSpecification[] | undefined>;
+    declare public readonly licenseSpecifications: pulumi.Output<outputs.ec2.LaunchTemplateLicenseSpecification[] | undefined>;
     /**
      * The maintenance options for the instance. See Maintenance Options below for more details.
      */
-    public readonly maintenanceOptions!: pulumi.Output<outputs.ec2.LaunchTemplateMaintenanceOptions | undefined>;
+    declare public readonly maintenanceOptions: pulumi.Output<outputs.ec2.LaunchTemplateMaintenanceOptions | undefined>;
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */
-    public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchTemplateMetadataOptions>;
+    declare public readonly metadataOptions: pulumi.Output<outputs.ec2.LaunchTemplateMetadataOptions>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
-    public readonly monitoring!: pulumi.Output<outputs.ec2.LaunchTemplateMonitoring | undefined>;
+    declare public readonly monitoring: pulumi.Output<outputs.ec2.LaunchTemplateMonitoring | undefined>;
     /**
      * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.ec2.LaunchTemplateNetworkInterface[] | undefined>;
+    declare public readonly networkInterfaces: pulumi.Output<outputs.ec2.LaunchTemplateNetworkInterface[] | undefined>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
-    public readonly placement!: pulumi.Output<outputs.ec2.LaunchTemplatePlacement | undefined>;
+    declare public readonly placement: pulumi.Output<outputs.ec2.LaunchTemplatePlacement | undefined>;
     /**
      * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.LaunchTemplatePrivateDnsNameOptions | undefined>;
+    declare public readonly privateDnsNameOptions: pulumi.Output<outputs.ec2.LaunchTemplatePrivateDnsNameOptions | undefined>;
     /**
      * The ID of the RAM disk.
      */
-    public readonly ramDiskId!: pulumi.Output<string | undefined>;
+    declare public readonly ramDiskId: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.
      */
-    public readonly securityGroupNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupNames: pulumi.Output<string[] | undefined>;
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      */
-    public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
+    declare public readonly tagSpecifications: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
     /**
      * A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to update Default Version each update. Conflicts with `defaultVersion`.
      */
-    public readonly updateDefaultVersion!: pulumi.Output<boolean | undefined>;
+    declare public readonly updateDefaultVersion: pulumi.Output<boolean | undefined>;
     /**
      * The base64-encoded user data to provide when launching the instance.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
     /**
      * A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a LaunchTemplate resource with the given unique name, arguments, and options.
@@ -224,83 +224,83 @@ export class LaunchTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LaunchTemplateState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
-            resourceInputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
-            resourceInputs["cpuOptions"] = state ? state.cpuOptions : undefined;
-            resourceInputs["creditSpecification"] = state ? state.creditSpecification : undefined;
-            resourceInputs["defaultVersion"] = state ? state.defaultVersion : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["disableApiStop"] = state ? state.disableApiStop : undefined;
-            resourceInputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
-            resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            resourceInputs["enclaveOptions"] = state ? state.enclaveOptions : undefined;
-            resourceInputs["hibernationOptions"] = state ? state.hibernationOptions : undefined;
-            resourceInputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
-            resourceInputs["imageId"] = state ? state.imageId : undefined;
-            resourceInputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
-            resourceInputs["instanceMarketOptions"] = state ? state.instanceMarketOptions : undefined;
-            resourceInputs["instanceRequirements"] = state ? state.instanceRequirements : undefined;
-            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
-            resourceInputs["kernelId"] = state ? state.kernelId : undefined;
-            resourceInputs["keyName"] = state ? state.keyName : undefined;
-            resourceInputs["latestVersion"] = state ? state.latestVersion : undefined;
-            resourceInputs["licenseSpecifications"] = state ? state.licenseSpecifications : undefined;
-            resourceInputs["maintenanceOptions"] = state ? state.maintenanceOptions : undefined;
-            resourceInputs["metadataOptions"] = state ? state.metadataOptions : undefined;
-            resourceInputs["monitoring"] = state ? state.monitoring : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            resourceInputs["placement"] = state ? state.placement : undefined;
-            resourceInputs["privateDnsNameOptions"] = state ? state.privateDnsNameOptions : undefined;
-            resourceInputs["ramDiskId"] = state ? state.ramDiskId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
-            resourceInputs["tagSpecifications"] = state ? state.tagSpecifications : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["updateDefaultVersion"] = state ? state.updateDefaultVersion : undefined;
-            resourceInputs["userData"] = state ? state.userData : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["blockDeviceMappings"] = state?.blockDeviceMappings;
+            resourceInputs["capacityReservationSpecification"] = state?.capacityReservationSpecification;
+            resourceInputs["cpuOptions"] = state?.cpuOptions;
+            resourceInputs["creditSpecification"] = state?.creditSpecification;
+            resourceInputs["defaultVersion"] = state?.defaultVersion;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["disableApiStop"] = state?.disableApiStop;
+            resourceInputs["disableApiTermination"] = state?.disableApiTermination;
+            resourceInputs["ebsOptimized"] = state?.ebsOptimized;
+            resourceInputs["enclaveOptions"] = state?.enclaveOptions;
+            resourceInputs["hibernationOptions"] = state?.hibernationOptions;
+            resourceInputs["iamInstanceProfile"] = state?.iamInstanceProfile;
+            resourceInputs["imageId"] = state?.imageId;
+            resourceInputs["instanceInitiatedShutdownBehavior"] = state?.instanceInitiatedShutdownBehavior;
+            resourceInputs["instanceMarketOptions"] = state?.instanceMarketOptions;
+            resourceInputs["instanceRequirements"] = state?.instanceRequirements;
+            resourceInputs["instanceType"] = state?.instanceType;
+            resourceInputs["kernelId"] = state?.kernelId;
+            resourceInputs["keyName"] = state?.keyName;
+            resourceInputs["latestVersion"] = state?.latestVersion;
+            resourceInputs["licenseSpecifications"] = state?.licenseSpecifications;
+            resourceInputs["maintenanceOptions"] = state?.maintenanceOptions;
+            resourceInputs["metadataOptions"] = state?.metadataOptions;
+            resourceInputs["monitoring"] = state?.monitoring;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["networkInterfaces"] = state?.networkInterfaces;
+            resourceInputs["placement"] = state?.placement;
+            resourceInputs["privateDnsNameOptions"] = state?.privateDnsNameOptions;
+            resourceInputs["ramDiskId"] = state?.ramDiskId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupNames"] = state?.securityGroupNames;
+            resourceInputs["tagSpecifications"] = state?.tagSpecifications;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["updateDefaultVersion"] = state?.updateDefaultVersion;
+            resourceInputs["userData"] = state?.userData;
+            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
         } else {
             const args = argsOrState as LaunchTemplateArgs | undefined;
-            resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            resourceInputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
-            resourceInputs["cpuOptions"] = args ? args.cpuOptions : undefined;
-            resourceInputs["creditSpecification"] = args ? args.creditSpecification : undefined;
-            resourceInputs["defaultVersion"] = args ? args.defaultVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disableApiStop"] = args ? args.disableApiStop : undefined;
-            resourceInputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
-            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            resourceInputs["enclaveOptions"] = args ? args.enclaveOptions : undefined;
-            resourceInputs["hibernationOptions"] = args ? args.hibernationOptions : undefined;
-            resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
-            resourceInputs["instanceMarketOptions"] = args ? args.instanceMarketOptions : undefined;
-            resourceInputs["instanceRequirements"] = args ? args.instanceRequirements : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["kernelId"] = args ? args.kernelId : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["licenseSpecifications"] = args ? args.licenseSpecifications : undefined;
-            resourceInputs["maintenanceOptions"] = args ? args.maintenanceOptions : undefined;
-            resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
-            resourceInputs["monitoring"] = args ? args.monitoring : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            resourceInputs["placement"] = args ? args.placement : undefined;
-            resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
-            resourceInputs["ramDiskId"] = args ? args.ramDiskId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["updateDefaultVersion"] = args ? args.updateDefaultVersion : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["blockDeviceMappings"] = args?.blockDeviceMappings;
+            resourceInputs["capacityReservationSpecification"] = args?.capacityReservationSpecification;
+            resourceInputs["cpuOptions"] = args?.cpuOptions;
+            resourceInputs["creditSpecification"] = args?.creditSpecification;
+            resourceInputs["defaultVersion"] = args?.defaultVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disableApiStop"] = args?.disableApiStop;
+            resourceInputs["disableApiTermination"] = args?.disableApiTermination;
+            resourceInputs["ebsOptimized"] = args?.ebsOptimized;
+            resourceInputs["enclaveOptions"] = args?.enclaveOptions;
+            resourceInputs["hibernationOptions"] = args?.hibernationOptions;
+            resourceInputs["iamInstanceProfile"] = args?.iamInstanceProfile;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["instanceInitiatedShutdownBehavior"] = args?.instanceInitiatedShutdownBehavior;
+            resourceInputs["instanceMarketOptions"] = args?.instanceMarketOptions;
+            resourceInputs["instanceRequirements"] = args?.instanceRequirements;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["kernelId"] = args?.kernelId;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["licenseSpecifications"] = args?.licenseSpecifications;
+            resourceInputs["maintenanceOptions"] = args?.maintenanceOptions;
+            resourceInputs["metadataOptions"] = args?.metadataOptions;
+            resourceInputs["monitoring"] = args?.monitoring;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["placement"] = args?.placement;
+            resourceInputs["privateDnsNameOptions"] = args?.privateDnsNameOptions;
+            resourceInputs["ramDiskId"] = args?.ramDiskId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupNames"] = args?.securityGroupNames;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["updateDefaultVersion"] = args?.updateDefaultVersion;
+            resourceInputs["userData"] = args?.userData;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["latestVersion"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -540,6 +540,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
+     * The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
+     * 
+     */
+    @Export(name="secondaryIpsAutoAssignedPerSubnet", refs={Integer.class}, tree="[0]")
+    private Output<Integer> secondaryIpsAutoAssignedPerSubnet;
+
+    /**
+     * @return The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
+     * 
+     */
+    public Output<Integer> secondaryIpsAutoAssignedPerSubnet() {
+        return this.secondaryIpsAutoAssignedPerSubnet;
+    }
+    /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */

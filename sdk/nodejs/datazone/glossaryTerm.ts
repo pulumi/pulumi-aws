@@ -125,46 +125,46 @@ export class GlossaryTerm extends pulumi.CustomResource {
     /**
      * Time of glossary term creation.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Creator of glossary term.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Identifier of domain.
      */
-    public readonly domainIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly domainIdentifier: pulumi.Output<string | undefined>;
     /**
      * Identifier of glossary.
      */
-    public readonly glossaryIdentifier!: pulumi.Output<string>;
+    declare public readonly glossaryIdentifier: pulumi.Output<string>;
     /**
      * Long description of entry.
      */
-    public readonly longDescription!: pulumi.Output<string | undefined>;
+    declare public readonly longDescription: pulumi.Output<string | undefined>;
     /**
      * Name of glossary term.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Short description of entry.
      */
-    public readonly shortDescription!: pulumi.Output<string | undefined>;
+    declare public readonly shortDescription: pulumi.Output<string | undefined>;
     /**
      * If glossary term is ENABLED or DISABLED.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Object classifying the term relations through the following attributes:
      */
-    public readonly termRelations!: pulumi.Output<outputs.datazone.GlossaryTermTermRelations | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.datazone.GlossaryTermTimeouts | undefined>;
+    declare public readonly termRelations: pulumi.Output<outputs.datazone.GlossaryTermTermRelations | undefined>;
+    declare public readonly timeouts: pulumi.Output<outputs.datazone.GlossaryTermTimeouts | undefined>;
 
     /**
      * Create a GlossaryTerm resource with the given unique name, arguments, and options.
@@ -179,31 +179,31 @@ export class GlossaryTerm extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlossaryTermState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
-            resourceInputs["glossaryIdentifier"] = state ? state.glossaryIdentifier : undefined;
-            resourceInputs["longDescription"] = state ? state.longDescription : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["shortDescription"] = state ? state.shortDescription : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["termRelations"] = state ? state.termRelations : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["domainIdentifier"] = state?.domainIdentifier;
+            resourceInputs["glossaryIdentifier"] = state?.glossaryIdentifier;
+            resourceInputs["longDescription"] = state?.longDescription;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["shortDescription"] = state?.shortDescription;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["termRelations"] = state?.termRelations;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as GlossaryTermArgs | undefined;
-            if ((!args || args.glossaryIdentifier === undefined) && !opts.urn) {
+            if (args?.glossaryIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'glossaryIdentifier'");
             }
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["glossaryIdentifier"] = args ? args.glossaryIdentifier : undefined;
-            resourceInputs["longDescription"] = args ? args.longDescription : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["shortDescription"] = args ? args.shortDescription : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["termRelations"] = args ? args.termRelations : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["glossaryIdentifier"] = args?.glossaryIdentifier;
+            resourceInputs["longDescription"] = args?.longDescription;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["shortDescription"] = args?.shortDescription;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["termRelations"] = args?.termRelations;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
         }

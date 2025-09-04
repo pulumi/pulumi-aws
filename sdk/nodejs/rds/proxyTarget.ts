@@ -100,47 +100,47 @@ export class ProxyTarget extends pulumi.CustomResource {
      *
      * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
-    public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dbClusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * DB instance identifier.
      */
-    public readonly dbInstanceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dbInstanceIdentifier: pulumi.Output<string | undefined>;
     /**
      * The name of the DB proxy.
      */
-    public readonly dbProxyName!: pulumi.Output<string>;
+    declare public readonly dbProxyName: pulumi.Output<string>;
     /**
      * Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * Port for the target RDS DB Instance or Aurora DB Cluster.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
      * Identifier representing the DB Instance or DB Cluster target.
      */
-    public /*out*/ readonly rdsResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly rdsResourceId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
      */
-    public /*out*/ readonly targetArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetArn: pulumi.Output<string>;
     /**
      * The name of the target group.
      */
-    public readonly targetGroupName!: pulumi.Output<string>;
+    declare public readonly targetGroupName: pulumi.Output<string>;
     /**
      * DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
      */
-    public /*out*/ readonly trackedClusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly trackedClusterId: pulumi.Output<string>;
     /**
      * Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ProxyTarget resource with the given unique name, arguments, and options.
@@ -155,30 +155,30 @@ export class ProxyTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyTargetState | undefined;
-            resourceInputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
-            resourceInputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
-            resourceInputs["dbProxyName"] = state ? state.dbProxyName : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["rdsResourceId"] = state ? state.rdsResourceId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
-            resourceInputs["targetGroupName"] = state ? state.targetGroupName : undefined;
-            resourceInputs["trackedClusterId"] = state ? state.trackedClusterId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["dbClusterIdentifier"] = state?.dbClusterIdentifier;
+            resourceInputs["dbInstanceIdentifier"] = state?.dbInstanceIdentifier;
+            resourceInputs["dbProxyName"] = state?.dbProxyName;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["rdsResourceId"] = state?.rdsResourceId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["targetArn"] = state?.targetArn;
+            resourceInputs["targetGroupName"] = state?.targetGroupName;
+            resourceInputs["trackedClusterId"] = state?.trackedClusterId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ProxyTargetArgs | undefined;
-            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
+            if (args?.dbProxyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            if ((!args || args.targetGroupName === undefined) && !opts.urn) {
+            if (args?.targetGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
-            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
-            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["targetGroupName"] = args ? args.targetGroupName : undefined;
+            resourceInputs["dbClusterIdentifier"] = args?.dbClusterIdentifier;
+            resourceInputs["dbInstanceIdentifier"] = args?.dbInstanceIdentifier;
+            resourceInputs["dbProxyName"] = args?.dbProxyName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["targetGroupName"] = args?.targetGroupName;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["rdsResourceId"] = undefined /*out*/;

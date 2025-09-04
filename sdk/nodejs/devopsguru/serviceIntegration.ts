@@ -91,19 +91,19 @@ export class ServiceIntegration extends pulumi.CustomResource {
     /**
      * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      */
-    public readonly kmsServerSideEncryption!: pulumi.Output<outputs.devopsguru.ServiceIntegrationKmsServerSideEncryption | undefined>;
+    declare public readonly kmsServerSideEncryption: pulumi.Output<outputs.devopsguru.ServiceIntegrationKmsServerSideEncryption | undefined>;
     /**
      * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      */
-    public readonly logsAnomalyDetection!: pulumi.Output<outputs.devopsguru.ServiceIntegrationLogsAnomalyDetection | undefined>;
+    declare public readonly logsAnomalyDetection: pulumi.Output<outputs.devopsguru.ServiceIntegrationLogsAnomalyDetection | undefined>;
     /**
      * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      */
-    public readonly opsCenter!: pulumi.Output<outputs.devopsguru.ServiceIntegrationOpsCenter | undefined>;
+    declare public readonly opsCenter: pulumi.Output<outputs.devopsguru.ServiceIntegrationOpsCenter | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ServiceIntegration resource with the given unique name, arguments, and options.
@@ -118,16 +118,16 @@ export class ServiceIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceIntegrationState | undefined;
-            resourceInputs["kmsServerSideEncryption"] = state ? state.kmsServerSideEncryption : undefined;
-            resourceInputs["logsAnomalyDetection"] = state ? state.logsAnomalyDetection : undefined;
-            resourceInputs["opsCenter"] = state ? state.opsCenter : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["kmsServerSideEncryption"] = state?.kmsServerSideEncryption;
+            resourceInputs["logsAnomalyDetection"] = state?.logsAnomalyDetection;
+            resourceInputs["opsCenter"] = state?.opsCenter;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ServiceIntegrationArgs | undefined;
-            resourceInputs["kmsServerSideEncryption"] = args ? args.kmsServerSideEncryption : undefined;
-            resourceInputs["logsAnomalyDetection"] = args ? args.logsAnomalyDetection : undefined;
-            resourceInputs["opsCenter"] = args ? args.opsCenter : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["kmsServerSideEncryption"] = args?.kmsServerSideEncryption;
+            resourceInputs["logsAnomalyDetection"] = args?.logsAnomalyDetection;
+            resourceInputs["opsCenter"] = args?.opsCenter;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceIntegration.__pulumiType, name, resourceInputs, opts);

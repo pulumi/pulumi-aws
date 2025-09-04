@@ -94,6 +94,36 @@ public final class ExternalKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+     * 
+     */
+    @Import(name="keySpec")
+    private @Nullable Output<String> keySpec;
+
+    /**
+     * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+     * 
+     */
+    public Optional<Output<String>> keySpec() {
+        return Optional.ofNullable(this.keySpec);
+    }
+
+    /**
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+     * 
+     */
+    @Import(name="keyUsage")
+    private @Nullable Output<String> keyUsage;
+
+    /**
+     * @return Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+     * 
+     */
+    public Optional<Output<String>> keyUsage() {
+        return Optional.ofNullable(this.keyUsage);
+    }
+
+    /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
@@ -176,6 +206,8 @@ public final class ExternalKeyArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.enabled = $.enabled;
         this.keyMaterialBase64 = $.keyMaterialBase64;
+        this.keySpec = $.keySpec;
+        this.keyUsage = $.keyUsage;
         this.multiRegion = $.multiRegion;
         this.policy = $.policy;
         this.region = $.region;
@@ -304,6 +336,48 @@ public final class ExternalKeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder keyMaterialBase64(String keyMaterialBase64) {
             return keyMaterialBase64(Output.of(keyMaterialBase64));
+        }
+
+        /**
+         * @param keySpec Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keySpec(@Nullable Output<String> keySpec) {
+            $.keySpec = keySpec;
+            return this;
+        }
+
+        /**
+         * @param keySpec Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keySpec(String keySpec) {
+            return keySpec(Output.of(keySpec));
+        }
+
+        /**
+         * @param keyUsage Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyUsage(@Nullable Output<String> keyUsage) {
+            $.keyUsage = keyUsage;
+            return this;
+        }
+
+        /**
+         * @param keyUsage Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyUsage(String keyUsage) {
+            return keyUsage(Output.of(keyUsage));
         }
 
         /**

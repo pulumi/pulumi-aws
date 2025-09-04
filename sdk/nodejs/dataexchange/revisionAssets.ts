@@ -66,44 +66,44 @@ export class RevisionAssets extends pulumi.CustomResource {
     /**
      * The ARN of the Data Exchange Revision Assets.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A block to define the asset associated with the revision. See Asset for more details.
      *
      * The following arguments are optional:
      */
-    public readonly assets!: pulumi.Output<outputs.dataexchange.RevisionAssetsAsset[] | undefined>;
+    declare public readonly assets: pulumi.Output<outputs.dataexchange.RevisionAssetsAsset[] | undefined>;
     /**
      * A comment for the revision. Maximum length is 16,348 characters.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The timestamp when the revision was created, in RFC3339 format.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Unique identifier for the data set associated with the revision.
      */
-    public readonly dataSetId!: pulumi.Output<string>;
-    public readonly finalized!: pulumi.Output<boolean>;
-    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataSetId: pulumi.Output<string>;
+    declare public readonly finalized: pulumi.Output<boolean>;
+    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.dataexchange.RevisionAssetsTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.dataexchange.RevisionAssetsTimeouts | undefined>;
     /**
      * The timestamp when the revision was last updated, in RFC3339 format.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a RevisionAssets resource with the given unique name, arguments, and options.
@@ -118,31 +118,31 @@ export class RevisionAssets extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RevisionAssetsState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["assets"] = state ? state.assets : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["dataSetId"] = state ? state.dataSetId : undefined;
-            resourceInputs["finalized"] = state ? state.finalized : undefined;
-            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["assets"] = state?.assets;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["dataSetId"] = state?.dataSetId;
+            resourceInputs["finalized"] = state?.finalized;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
             const args = argsOrState as RevisionAssetsArgs | undefined;
-            if ((!args || args.dataSetId === undefined) && !opts.urn) {
+            if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            resourceInputs["assets"] = args ? args.assets : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
-            resourceInputs["finalized"] = args ? args.finalized : undefined;
-            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["assets"] = args?.assets;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["dataSetId"] = args?.dataSetId;
+            resourceInputs["finalized"] = args?.finalized;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

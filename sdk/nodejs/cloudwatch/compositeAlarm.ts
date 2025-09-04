@@ -73,51 +73,51 @@ export class CompositeAlarm extends pulumi.CustomResource {
     /**
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      */
-    public readonly actionsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly actionsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Actions will be suppressed if the suppressor alarm is in the ALARM state.
      */
-    public readonly actionsSuppressor!: pulumi.Output<outputs.cloudwatch.CompositeAlarmActionsSuppressor | undefined>;
+    declare public readonly actionsSuppressor: pulumi.Output<outputs.cloudwatch.CompositeAlarmActionsSuppressor | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    public readonly alarmActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly alarmActions: pulumi.Output<string[] | undefined>;
     /**
      * The description for the composite alarm.
      */
-    public readonly alarmDescription!: pulumi.Output<string | undefined>;
+    declare public readonly alarmDescription: pulumi.Output<string | undefined>;
     /**
      * The name for the composite alarm. This name must be unique within the region.
      */
-    public readonly alarmName!: pulumi.Output<string>;
+    declare public readonly alarmName: pulumi.Output<string>;
     /**
      * An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
      */
-    public readonly alarmRule!: pulumi.Output<string>;
+    declare public readonly alarmRule: pulumi.Output<string>;
     /**
      * The ARN of the composite alarm.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    public readonly insufficientDataActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly insufficientDataActions: pulumi.Output<string[] | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    public readonly okActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly okActions: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CompositeAlarm resource with the given unique name, arguments, and options.
@@ -132,36 +132,36 @@ export class CompositeAlarm extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CompositeAlarmState | undefined;
-            resourceInputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
-            resourceInputs["actionsSuppressor"] = state ? state.actionsSuppressor : undefined;
-            resourceInputs["alarmActions"] = state ? state.alarmActions : undefined;
-            resourceInputs["alarmDescription"] = state ? state.alarmDescription : undefined;
-            resourceInputs["alarmName"] = state ? state.alarmName : undefined;
-            resourceInputs["alarmRule"] = state ? state.alarmRule : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["insufficientDataActions"] = state ? state.insufficientDataActions : undefined;
-            resourceInputs["okActions"] = state ? state.okActions : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["actionsEnabled"] = state?.actionsEnabled;
+            resourceInputs["actionsSuppressor"] = state?.actionsSuppressor;
+            resourceInputs["alarmActions"] = state?.alarmActions;
+            resourceInputs["alarmDescription"] = state?.alarmDescription;
+            resourceInputs["alarmName"] = state?.alarmName;
+            resourceInputs["alarmRule"] = state?.alarmRule;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["insufficientDataActions"] = state?.insufficientDataActions;
+            resourceInputs["okActions"] = state?.okActions;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as CompositeAlarmArgs | undefined;
-            if ((!args || args.alarmName === undefined) && !opts.urn) {
+            if (args?.alarmName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alarmName'");
             }
-            if ((!args || args.alarmRule === undefined) && !opts.urn) {
+            if (args?.alarmRule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alarmRule'");
             }
-            resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
-            resourceInputs["actionsSuppressor"] = args ? args.actionsSuppressor : undefined;
-            resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
-            resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
-            resourceInputs["alarmName"] = args ? args.alarmName : undefined;
-            resourceInputs["alarmRule"] = args ? args.alarmRule : undefined;
-            resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
-            resourceInputs["okActions"] = args ? args.okActions : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionsEnabled"] = args?.actionsEnabled;
+            resourceInputs["actionsSuppressor"] = args?.actionsSuppressor;
+            resourceInputs["alarmActions"] = args?.alarmActions;
+            resourceInputs["alarmDescription"] = args?.alarmDescription;
+            resourceInputs["alarmName"] = args?.alarmName;
+            resourceInputs["alarmRule"] = args?.alarmRule;
+            resourceInputs["insufficientDataActions"] = args?.insufficientDataActions;
+            resourceInputs["okActions"] = args?.okActions;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

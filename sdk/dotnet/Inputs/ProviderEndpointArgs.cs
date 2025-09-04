@@ -153,6 +153,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("arcregionswitch")]
+        public Input<string>? Arcregionswitch { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("athena")]
         public Input<string>? Athena { get; set; }
 

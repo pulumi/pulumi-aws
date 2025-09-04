@@ -398,14 +398,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsMasterKeyId);
     }
     /**
-     * Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+     * Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 1048576 bytes (1024 KiB). The default for this attribute is 262144 (256 KiB).
      * 
      */
     @Export(name="maxMessageSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxMessageSize;
 
     /**
-     * @return Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+     * @return Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 1048576 bytes (1024 KiB). The default for this attribute is 262144 (256 KiB).
      * 
      */
     public Output<Optional<Integer>> maxMessageSize() {

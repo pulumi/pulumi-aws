@@ -65,38 +65,38 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * Number of data processing units currently allocated.
      */
-    public /*out*/ readonly allocatedDpus!: pulumi.Output<number>;
+    declare public /*out*/ readonly allocatedDpus: pulumi.Output<number>;
     /**
      * ARN of the Capacity Reservation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of the capacity reservation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Status of the capacity reservation.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Number of data processing units requested. Must be at least `24` units.
      *
      * The following arguments are optional:
      */
-    public readonly targetDpus!: pulumi.Output<number>;
-    public readonly timeouts!: pulumi.Output<outputs.athena.CapacityReservationTimeouts | undefined>;
+    declare public readonly targetDpus: pulumi.Output<number>;
+    declare public readonly timeouts: pulumi.Output<outputs.athena.CapacityReservationTimeouts | undefined>;
 
     /**
      * Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -111,25 +111,25 @@ export class CapacityReservation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CapacityReservationState | undefined;
-            resourceInputs["allocatedDpus"] = state ? state.allocatedDpus : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["targetDpus"] = state ? state.targetDpus : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["allocatedDpus"] = state?.allocatedDpus;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetDpus"] = state?.targetDpus;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as CapacityReservationArgs | undefined;
-            if ((!args || args.targetDpus === undefined) && !opts.urn) {
+            if (args?.targetDpus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetDpus'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDpus"] = args ? args.targetDpus : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDpus"] = args?.targetDpus;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["allocatedDpus"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -79,6 +79,14 @@ export interface GetSigningProfileResult {
      */
     readonly signatureValidityPeriods: outputs.signer.GetSigningProfileSignatureValidityPeriod[];
     /**
+     * AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
+     */
+    readonly signingMaterials: outputs.signer.GetSigningProfileSigningMaterial[];
+    /**
+     * Map of key-value pairs for signing.
+     */
+    readonly signingParameters: {[key: string]: string};
+    /**
      * Status of the target signing profile.
      */
     readonly status: string;

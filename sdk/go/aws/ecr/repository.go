@@ -82,11 +82,23 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` - (String) Name of the ECR repository.
+//
+// #### Optional
+//
+// - `account_id` (String) AWS Account where this resource is managed.
+//
+// - `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import ECR Repositories using the `name`. For example:
 //
-// ```sh
-// $ pulumi import aws:ecr/repository:Repository service test-service
-// ```
+// console
+//
+// % pulumi import aws_ecr_repository.service test-service
 type Repository struct {
 	pulumi.CustomResourceState
 

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dlm.inputs;
 
+import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs;
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs;
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs;
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs;
@@ -24,6 +25,21 @@ import javax.annotation.Nullable;
 public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LifecyclePolicyPolicyDetailsScheduleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleArgs();
+
+    /**
+     * Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+     * 
+     */
+    @Import(name="archiveRule")
+    private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs> archiveRule;
+
+    /**
+     * @return Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+     * 
+     */
+    public Optional<Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs>> archiveRule() {
+        return Optional.ofNullable(this.archiveRule);
+    }
 
     @Import(name="copyTags")
     private @Nullable Output<Boolean> copyTags;
@@ -146,6 +162,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     private LifecyclePolicyPolicyDetailsScheduleArgs() {}
 
     private LifecyclePolicyPolicyDetailsScheduleArgs(LifecyclePolicyPolicyDetailsScheduleArgs $) {
+        this.archiveRule = $.archiveRule;
         this.copyTags = $.copyTags;
         this.createRule = $.createRule;
         this.crossRegionCopyRules = $.crossRegionCopyRules;
@@ -174,6 +191,27 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
 
         public Builder(LifecyclePolicyPolicyDetailsScheduleArgs defaults) {
             $ = new LifecyclePolicyPolicyDetailsScheduleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param archiveRule Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder archiveRule(@Nullable Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs> archiveRule) {
+            $.archiveRule = archiveRule;
+            return this;
+        }
+
+        /**
+         * @param archiveRule Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder archiveRule(LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs archiveRule) {
+            return archiveRule(Output.of(archiveRule));
         }
 
         public Builder copyTags(@Nullable Output<Boolean> copyTags) {

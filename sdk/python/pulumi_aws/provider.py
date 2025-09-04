@@ -55,44 +55,42 @@ class ProviderArgs:
                  use_fips_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[_builtins.str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-        :param pulumi.Input[_builtins.str] custom_ca_bundle: File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-               variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        :param pulumi.Input[_builtins.str] access_key: The access key for API operations. You can retrieve this
+               from the 'Security & Credentials' section of the AWS console.
+        :param pulumi.Input[_builtins.str] custom_ca_bundle: File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: Configuration block with settings to default resource tags across all resources.
-        :param pulumi.Input[_builtins.str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the
-               `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
-        :param pulumi.Input[_builtins.str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-               `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
-        :param pulumi.Input[_builtins.str] http_proxy: URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-               `http_proxy` environment variables.
-        :param pulumi.Input[_builtins.str] https_proxy: URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-               `https_proxy` environment variables.
+        :param pulumi.Input[_builtins.str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        :param pulumi.Input[_builtins.str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        :param pulumi.Input[_builtins.str] http_proxy: URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
+        :param pulumi.Input[_builtins.str] https_proxy: URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
         :param pulumi.Input['ProviderIgnoreTagsArgs'] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
         :param pulumi.Input[_builtins.bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
-        :param pulumi.Input[_builtins.int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
-        :param pulumi.Input[_builtins.str] no_proxy: Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-               `no_proxy` environment variables.
-        :param pulumi.Input[_builtins.str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
-        :param pulumi.Input[_builtins.str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-        :param pulumi.Input[_builtins.str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-               `AWS_RETRY_MODE` environment variable.
-        :param pulumi.Input[_builtins.str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-               values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-               variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
-        :param pulumi.Input[_builtins.bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-               default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-               Specific to the Amazon S3 service.
-        :param pulumi.Input[_builtins.str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        :param pulumi.Input[_builtins.int] max_retries: The maximum number of times an AWS API request is
+               being executed. If the API request still fails, an error is
+               thrown.
+        :param pulumi.Input[_builtins.str] no_proxy: Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
+        :param pulumi.Input[_builtins.str] profile: The profile for API operations. If not set, the default profile
+               created with `aws configure` will be used.
+        :param pulumi.Input[_builtins.str] region: The region where AWS operations will take place. Examples
+               are us-east-1, us-west-2, etc.
+        :param pulumi.Input[_builtins.str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
+        :param pulumi.Input[_builtins.str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        :param pulumi.Input[_builtins.bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing,
+               i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+               use virtual hosted bucket addressing when possible
+               (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
+        :param pulumi.Input[_builtins.str] secret_key: The secret key for API operations. You can retrieve this
+               from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_config_files: List of paths to shared config files. If not set, defaults to [~/.aws/config].
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_credentials_files: List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
-        :param pulumi.Input[_builtins.bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-               available/implemented.
+        :param pulumi.Input[_builtins.bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
         :param pulumi.Input[_builtins.bool] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
-        :param pulumi.Input[_builtins.bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-               not public (yet).
+        :param pulumi.Input[_builtins.bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
         :param pulumi.Input[_builtins.bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
-        :param pulumi.Input[_builtins.str] sts_region: The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
-        :param pulumi.Input[_builtins.str] token: session token. A session token is only required if you are using temporary security credentials.
+        :param pulumi.Input[_builtins.str] sts_region: The region where AWS STS operations will take place. Examples
+               are us-east-1 and us-west-2.
+        :param pulumi.Input[_builtins.str] token: session token. A session token is only required if you are
+               using temporary security credentials.
         :param pulumi.Input[_builtins.int] token_bucket_rate_limiter_capacity: The capacity of the AWS SDK's token bucket rate limiter.
         :param pulumi.Input[_builtins.bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
         :param pulumi.Input[_builtins.bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
@@ -174,7 +172,8 @@ class ProviderArgs:
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        The access key for API operations. You can retrieve this
+        from the 'Security & Credentials' section of the AWS console.
         """
         return pulumi.get(self, "access_key")
 
@@ -213,8 +212,7 @@ class ProviderArgs:
     @pulumi.getter(name="customCaBundle")
     def custom_ca_bundle(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-        variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
         """
         return pulumi.get(self, "custom_ca_bundle")
 
@@ -238,8 +236,7 @@ class ProviderArgs:
     @pulumi.getter(name="ec2MetadataServiceEndpoint")
     def ec2_metadata_service_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Address of the EC2 metadata service endpoint to use. Can also be configured using the
-        `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         """
         return pulumi.get(self, "ec2_metadata_service_endpoint")
 
@@ -251,8 +248,7 @@ class ProviderArgs:
     @pulumi.getter(name="ec2MetadataServiceEndpointMode")
     def ec2_metadata_service_endpoint_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-        `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         """
         return pulumi.get(self, "ec2_metadata_service_endpoint_mode")
 
@@ -282,8 +278,7 @@ class ProviderArgs:
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-        `http_proxy` environment variables.
+        URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
         """
         return pulumi.get(self, "http_proxy")
 
@@ -295,8 +290,7 @@ class ProviderArgs:
     @pulumi.getter(name="httpsProxy")
     def https_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-        `https_proxy` environment variables.
+        URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
         """
         return pulumi.get(self, "https_proxy")
 
@@ -332,7 +326,9 @@ class ProviderArgs:
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+        The maximum number of times an AWS API request is
+        being executed. If the API request still fails, an error is
+        thrown.
         """
         return pulumi.get(self, "max_retries")
 
@@ -344,8 +340,7 @@ class ProviderArgs:
     @pulumi.getter(name="noProxy")
     def no_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-        `no_proxy` environment variables.
+        Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
         """
         return pulumi.get(self, "no_proxy")
 
@@ -357,7 +352,8 @@ class ProviderArgs:
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        The profile for API operations. If not set, the default profile
+        created with `aws configure` will be used.
         """
         return pulumi.get(self, "profile")
 
@@ -369,7 +365,8 @@ class ProviderArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        The region where AWS operations will take place. Examples
+        are us-east-1, us-west-2, etc.
         """
         return pulumi.get(self, "region")
 
@@ -381,8 +378,7 @@ class ProviderArgs:
     @pulumi.getter(name="retryMode")
     def retry_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-        `AWS_RETRY_MODE` environment variable.
+        Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
         """
         return pulumi.get(self, "retry_mode")
 
@@ -394,9 +390,7 @@ class ProviderArgs:
     @pulumi.getter(name="s3UsEast1RegionalEndpoint")
     def s3_us_east1_regional_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-        values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-        variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         """
         return pulumi.get(self, "s3_us_east1_regional_endpoint")
 
@@ -408,9 +402,10 @@ class ProviderArgs:
     @pulumi.getter(name="s3UsePathStyle")
     def s3_use_path_style(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-        default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-        Specific to the Amazon S3 service.
+        Set this to true to enable the request to use path-style addressing,
+        i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+        use virtual hosted bucket addressing when possible
+        (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
         """
         return pulumi.get(self, "s3_use_path_style")
 
@@ -422,7 +417,8 @@ class ProviderArgs:
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        The secret key for API operations. You can retrieve this
+        from the 'Security & Credentials' section of the AWS console.
         """
         return pulumi.get(self, "secret_key")
 
@@ -458,8 +454,7 @@ class ProviderArgs:
     @pulumi.getter(name="skipCredentialsValidation")
     def skip_credentials_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-        available/implemented.
+        Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
         """
         return pulumi.get(self, "skip_credentials_validation")
 
@@ -483,8 +478,7 @@ class ProviderArgs:
     @pulumi.getter(name="skipRegionValidation")
     def skip_region_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-        not public (yet).
+        Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
         """
         return pulumi.get(self, "skip_region_validation")
 
@@ -508,7 +502,8 @@ class ProviderArgs:
     @pulumi.getter(name="stsRegion")
     def sts_region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        The region where AWS STS operations will take place. Examples
+        are us-east-1 and us-west-2.
         """
         return pulumi.get(self, "sts_region")
 
@@ -520,7 +515,8 @@ class ProviderArgs:
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        session token. A session token is only required if you are using temporary security credentials.
+        session token. A session token is only required if you are
+        using temporary security credentials.
         """
         return pulumi.get(self, "token")
 
@@ -613,44 +609,42 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-        :param pulumi.Input[_builtins.str] custom_ca_bundle: File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-               variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        :param pulumi.Input[_builtins.str] access_key: The access key for API operations. You can retrieve this
+               from the 'Security & Credentials' section of the AWS console.
+        :param pulumi.Input[_builtins.str] custom_ca_bundle: File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
         :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: Configuration block with settings to default resource tags across all resources.
-        :param pulumi.Input[_builtins.str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the
-               `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
-        :param pulumi.Input[_builtins.str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-               `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
-        :param pulumi.Input[_builtins.str] http_proxy: URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-               `http_proxy` environment variables.
-        :param pulumi.Input[_builtins.str] https_proxy: URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-               `https_proxy` environment variables.
+        :param pulumi.Input[_builtins.str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        :param pulumi.Input[_builtins.str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        :param pulumi.Input[_builtins.str] http_proxy: URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
+        :param pulumi.Input[_builtins.str] https_proxy: URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
         :param pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
         :param pulumi.Input[_builtins.bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
-        :param pulumi.Input[_builtins.int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
-        :param pulumi.Input[_builtins.str] no_proxy: Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-               `no_proxy` environment variables.
-        :param pulumi.Input[_builtins.str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
-        :param pulumi.Input[_builtins.str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-        :param pulumi.Input[_builtins.str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-               `AWS_RETRY_MODE` environment variable.
-        :param pulumi.Input[_builtins.str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-               values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-               variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
-        :param pulumi.Input[_builtins.bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-               default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-               Specific to the Amazon S3 service.
-        :param pulumi.Input[_builtins.str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        :param pulumi.Input[_builtins.int] max_retries: The maximum number of times an AWS API request is
+               being executed. If the API request still fails, an error is
+               thrown.
+        :param pulumi.Input[_builtins.str] no_proxy: Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
+        :param pulumi.Input[_builtins.str] profile: The profile for API operations. If not set, the default profile
+               created with `aws configure` will be used.
+        :param pulumi.Input[_builtins.str] region: The region where AWS operations will take place. Examples
+               are us-east-1, us-west-2, etc.
+        :param pulumi.Input[_builtins.str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
+        :param pulumi.Input[_builtins.str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        :param pulumi.Input[_builtins.bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing,
+               i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+               use virtual hosted bucket addressing when possible
+               (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
+        :param pulumi.Input[_builtins.str] secret_key: The secret key for API operations. You can retrieve this
+               from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_config_files: List of paths to shared config files. If not set, defaults to [~/.aws/config].
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_credentials_files: List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
-        :param pulumi.Input[_builtins.bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-               available/implemented.
+        :param pulumi.Input[_builtins.bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
         :param pulumi.Input[_builtins.bool] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
-        :param pulumi.Input[_builtins.bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-               not public (yet).
+        :param pulumi.Input[_builtins.bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
         :param pulumi.Input[_builtins.bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
-        :param pulumi.Input[_builtins.str] sts_region: The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
-        :param pulumi.Input[_builtins.str] token: session token. A session token is only required if you are using temporary security credentials.
+        :param pulumi.Input[_builtins.str] sts_region: The region where AWS STS operations will take place. Examples
+               are us-east-1 and us-west-2.
+        :param pulumi.Input[_builtins.str] token: session token. A session token is only required if you are
+               using temporary security credentials.
         :param pulumi.Input[_builtins.int] token_bucket_rate_limiter_capacity: The capacity of the AWS SDK's token bucket rate limiter.
         :param pulumi.Input[_builtins.bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
         :param pulumi.Input[_builtins.bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
@@ -775,7 +769,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="accessKey")
     def access_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        The access key for API operations. You can retrieve this
+        from the 'Security & Credentials' section of the AWS console.
         """
         return pulumi.get(self, "access_key")
 
@@ -783,8 +778,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="customCaBundle")
     def custom_ca_bundle(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-        variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
         """
         return pulumi.get(self, "custom_ca_bundle")
 
@@ -792,8 +786,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="ec2MetadataServiceEndpoint")
     def ec2_metadata_service_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Address of the EC2 metadata service endpoint to use. Can also be configured using the
-        `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         """
         return pulumi.get(self, "ec2_metadata_service_endpoint")
 
@@ -801,8 +794,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="ec2MetadataServiceEndpointMode")
     def ec2_metadata_service_endpoint_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-        `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         """
         return pulumi.get(self, "ec2_metadata_service_endpoint_mode")
 
@@ -810,8 +802,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-        `http_proxy` environment variables.
+        URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
         """
         return pulumi.get(self, "http_proxy")
 
@@ -819,8 +810,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="httpsProxy")
     def https_proxy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-        `https_proxy` environment variables.
+        URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
         """
         return pulumi.get(self, "https_proxy")
 
@@ -828,8 +818,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="noProxy")
     def no_proxy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-        `no_proxy` environment variables.
+        Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
         """
         return pulumi.get(self, "no_proxy")
 
@@ -837,7 +826,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def profile(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        The profile for API operations. If not set, the default profile
+        created with `aws configure` will be used.
         """
         return pulumi.get(self, "profile")
 
@@ -845,7 +835,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        The region where AWS operations will take place. Examples
+        are us-east-1, us-west-2, etc.
         """
         return pulumi.get(self, "region")
 
@@ -853,8 +844,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="retryMode")
     def retry_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-        `AWS_RETRY_MODE` environment variable.
+        Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
         """
         return pulumi.get(self, "retry_mode")
 
@@ -862,9 +852,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="s3UsEast1RegionalEndpoint")
     def s3_us_east1_regional_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-        values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-        variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         """
         return pulumi.get(self, "s3_us_east1_regional_endpoint")
 
@@ -872,7 +860,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        The secret key for API operations. You can retrieve this
+        from the 'Security & Credentials' section of the AWS console.
         """
         return pulumi.get(self, "secret_key")
 
@@ -880,7 +869,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="stsRegion")
     def sts_region(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        The region where AWS STS operations will take place. Examples
+        are us-east-1 and us-west-2.
         """
         return pulumi.get(self, "sts_region")
 
@@ -888,7 +878,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        session token. A session token is only required if you are using temporary security credentials.
+        session token. A session token is only required if you are
+        using temporary security credentials.
         """
         return pulumi.get(self, "token")
 

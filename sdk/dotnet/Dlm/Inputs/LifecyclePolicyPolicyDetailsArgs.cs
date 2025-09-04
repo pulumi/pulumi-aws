@@ -18,14 +18,41 @@ namespace Pulumi.Aws.Dlm.Inputs
         [Input("action")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsActionArgs>? Action { get; set; }
 
+        [Input("copyTags")]
+        public Input<bool>? CopyTags { get; set; }
+
+        /// <summary>
+        /// How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
+        /// </summary>
+        [Input("createInterval")]
+        public Input<int>? CreateInterval { get; set; }
+
         /// <summary>
         /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
         /// </summary>
         [Input("eventSource")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsEventSourceArgs>? EventSource { get; set; }
 
+        /// <summary>
+        /// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+        /// </summary>
+        [Input("exclusions")]
+        public Input<Inputs.LifecyclePolicyPolicyDetailsExclusionsArgs>? Exclusions { get; set; }
+
+        /// <summary>
+        /// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+        /// </summary>
+        [Input("extendDeletion")]
+        public Input<bool>? ExtendDeletion { get; set; }
+
         [Input("parameters")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsParametersArgs>? Parameters { get; set; }
+
+        /// <summary>
+        /// Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
+        /// </summary>
+        [Input("policyLanguage")]
+        public Input<string>? PolicyLanguage { get; set; }
 
         /// <summary>
         /// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
@@ -39,6 +66,12 @@ namespace Pulumi.Aws.Dlm.Inputs
         [Input("resourceLocations")]
         public Input<string>? ResourceLocations { get; set; }
 
+        /// <summary>
+        /// Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
+        /// </summary>
+        [Input("resourceType")]
+        public Input<string>? ResourceType { get; set; }
+
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
 
@@ -50,6 +83,12 @@ namespace Pulumi.Aws.Dlm.Inputs
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
             set => _resourceTypes = value;
         }
+
+        /// <summary>
+        /// Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
+        /// </summary>
+        [Input("retainInterval")]
+        public Input<int>? RetainInterval { get; set; }
 
         [Input("schedules")]
         private InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleArgs>? _schedules;

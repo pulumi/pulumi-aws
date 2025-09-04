@@ -55,14 +55,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+     * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
      * 
      */
     @Import(name="clientCidrBlock")
     private @Nullable Output<String> clientCidrBlock;
 
     /**
-     * @return The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+     * @return The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
      * 
      */
     public Optional<Output<String>> clientCidrBlock() {
@@ -187,6 +187,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> dnsServers() {
         return Optional.ofNullable(this.dnsServers);
+    }
+
+    /**
+     * IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+     * 
+     */
+    @Import(name="endpointIpAddressType")
+    private @Nullable Output<String> endpointIpAddressType;
+
+    /**
+     * @return IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+     * 
+     */
+    public Optional<Output<String>> endpointIpAddressType() {
+        return Optional.ofNullable(this.endpointIpAddressType);
     }
 
     /**
@@ -325,6 +340,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+     * 
+     */
+    @Import(name="trafficIpAddressType")
+    private @Nullable Output<String> trafficIpAddressType;
+
+    /**
+     * @return IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+     * 
+     */
+    public Optional<Output<String>> trafficIpAddressType() {
+        return Optional.ofNullable(this.trafficIpAddressType);
+    }
+
+    /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      * 
      */
@@ -383,6 +413,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.disconnectOnSessionTimeout = $.disconnectOnSessionTimeout;
         this.dnsName = $.dnsName;
         this.dnsServers = $.dnsServers;
+        this.endpointIpAddressType = $.endpointIpAddressType;
         this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.selfServicePortal = $.selfServicePortal;
@@ -392,6 +423,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.splitTunnel = $.splitTunnel;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.trafficIpAddressType = $.trafficIpAddressType;
         this.transportProtocol = $.transportProtocol;
         this.vpcId = $.vpcId;
         this.vpnPort = $.vpnPort;
@@ -468,7 +500,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCidrBlock The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+         * @param clientCidrBlock The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
          * 
          * @return builder
          * 
@@ -479,7 +511,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCidrBlock The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+         * @param clientCidrBlock The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
          * 
          * @return builder
          * 
@@ -664,6 +696,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
+        }
+
+        /**
+         * @param endpointIpAddressType IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointIpAddressType(@Nullable Output<String> endpointIpAddressType) {
+            $.endpointIpAddressType = endpointIpAddressType;
+            return this;
+        }
+
+        /**
+         * @param endpointIpAddressType IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointIpAddressType(String endpointIpAddressType) {
+            return endpointIpAddressType(Output.of(endpointIpAddressType));
         }
 
         /**
@@ -863,6 +916,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param trafficIpAddressType IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trafficIpAddressType(@Nullable Output<String> trafficIpAddressType) {
+            $.trafficIpAddressType = trafficIpAddressType;
+            return this;
+        }
+
+        /**
+         * @param trafficIpAddressType IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trafficIpAddressType(String trafficIpAddressType) {
+            return trafficIpAddressType(Output.of(trafficIpAddressType));
         }
 
         /**

@@ -143,6 +143,21 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * 
+     */
+    @Import(name="verificationStatus")
+    private @Nullable Output<String> verificationStatus;
+
+    /**
+     * @return The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * 
+     */
+    public Optional<Output<String>> verificationStatus() {
+        return Optional.ofNullable(this.verificationStatus);
+    }
+
+    /**
      * Specifies whether or not the identity is verified.
      * 
      */
@@ -168,6 +183,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.verificationStatus = $.verificationStatus;
         this.verifiedForSendingStatus = $.verifiedForSendingStatus;
     }
 
@@ -359,6 +375,27 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param verificationStatus The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verificationStatus(@Nullable Output<String> verificationStatus) {
+            $.verificationStatus = verificationStatus;
+            return this;
+        }
+
+        /**
+         * @param verificationStatus The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verificationStatus(String verificationStatus) {
+            return verificationStatus(Output.of(verificationStatus));
         }
 
         /**

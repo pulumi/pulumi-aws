@@ -79,6 +79,8 @@ type VpcIpam struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua pulumi.BoolPtrOutput `pulumi:"enablePrivateGua"`
+	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+	MeteredAccount pulumi.StringOutput `pulumi:"meteredAccount"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions VpcIpamOperatingRegionArrayOutput `pulumi:"operatingRegions"`
 	// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
@@ -143,6 +145,8 @@ type vpcIpamState struct {
 	Description *string `pulumi:"description"`
 	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua *bool `pulumi:"enablePrivateGua"`
+	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+	MeteredAccount *string `pulumi:"meteredAccount"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions []VpcIpamOperatingRegion `pulumi:"operatingRegions"`
 	// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
@@ -175,6 +179,8 @@ type VpcIpamState struct {
 	Description pulumi.StringPtrInput
 	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua pulumi.BoolPtrInput
+	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+	MeteredAccount pulumi.StringPtrInput
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions VpcIpamOperatingRegionArrayInput
 	// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
@@ -205,6 +211,8 @@ type vpcIpamArgs struct {
 	Description *string `pulumi:"description"`
 	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua *bool `pulumi:"enablePrivateGua"`
+	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+	MeteredAccount *string `pulumi:"meteredAccount"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions []VpcIpamOperatingRegion `pulumi:"operatingRegions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -223,6 +231,8 @@ type VpcIpamArgs struct {
 	Description pulumi.StringPtrInput
 	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua pulumi.BoolPtrInput
+	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+	MeteredAccount pulumi.StringPtrInput
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions VpcIpamOperatingRegionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -348,6 +358,11 @@ func (o VpcIpamOutput) Description() pulumi.StringPtrOutput {
 // Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 func (o VpcIpamOutput) EnablePrivateGua() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.BoolPtrOutput { return v.EnablePrivateGua }).(pulumi.BoolPtrOutput)
+}
+
+// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+func (o VpcIpamOutput) MeteredAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.MeteredAccount }).(pulumi.StringOutput)
 }
 
 // Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.

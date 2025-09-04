@@ -262,6 +262,8 @@ type Environment struct {
 	WebserverVpcEndpointService pulumi.StringOutput `pulumi:"webserverVpcEndpointService"`
 	// Specifies the start date for the weekly maintenance window.
 	WeeklyMaintenanceWindowStart pulumi.StringOutput `pulumi:"weeklyMaintenanceWindowStart"`
+	// Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+	WorkerReplacementStrategy pulumi.StringOutput `pulumi:"workerReplacementStrategy"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -383,6 +385,8 @@ type environmentState struct {
 	WebserverVpcEndpointService *string `pulumi:"webserverVpcEndpointService"`
 	// Specifies the start date for the weekly maintenance window.
 	WeeklyMaintenanceWindowStart *string `pulumi:"weeklyMaintenanceWindowStart"`
+	// Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+	WorkerReplacementStrategy *string `pulumi:"workerReplacementStrategy"`
 }
 
 type EnvironmentState struct {
@@ -456,6 +460,8 @@ type EnvironmentState struct {
 	WebserverVpcEndpointService pulumi.StringPtrInput
 	// Specifies the start date for the weekly maintenance window.
 	WeeklyMaintenanceWindowStart pulumi.StringPtrInput
+	// Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+	WorkerReplacementStrategy pulumi.StringPtrInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {
@@ -515,6 +521,8 @@ type environmentArgs struct {
 	WebserverAccessMode *string `pulumi:"webserverAccessMode"`
 	// Specifies the start date for the weekly maintenance window.
 	WeeklyMaintenanceWindowStart *string `pulumi:"weeklyMaintenanceWindowStart"`
+	// Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+	WorkerReplacementStrategy *string `pulumi:"workerReplacementStrategy"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -571,6 +579,8 @@ type EnvironmentArgs struct {
 	WebserverAccessMode pulumi.StringPtrInput
 	// Specifies the start date for the weekly maintenance window.
 	WeeklyMaintenanceWindowStart pulumi.StringPtrInput
+	// Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+	WorkerReplacementStrategy pulumi.StringPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -833,6 +843,11 @@ func (o EnvironmentOutput) WebserverVpcEndpointService() pulumi.StringOutput {
 // Specifies the start date for the weekly maintenance window.
 func (o EnvironmentOutput) WeeklyMaintenanceWindowStart() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.WeeklyMaintenanceWindowStart }).(pulumi.StringOutput)
+}
+
+// Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+func (o EnvironmentOutput) WorkerReplacementStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.WorkerReplacementStrategy }).(pulumi.StringOutput)
 }
 
 type EnvironmentArrayOutput struct{ *pulumi.OutputState }

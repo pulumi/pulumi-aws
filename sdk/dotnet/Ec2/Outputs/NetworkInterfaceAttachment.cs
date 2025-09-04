@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// ID of the instance to attach to.
         /// </summary>
         public readonly string Instance;
+        /// <summary>
+        /// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+        /// </summary>
+        public readonly int? NetworkCardIndex;
 
         [OutputConstructor]
         private NetworkInterfaceAttachment(
@@ -29,11 +33,14 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int deviceIndex,
 
-            string instance)
+            string instance,
+
+            int? networkCardIndex)
         {
             AttachmentId = attachmentId;
             DeviceIndex = deviceIndex;
             Instance = instance;
+            NetworkCardIndex = networkCardIndex;
         }
     }
 }

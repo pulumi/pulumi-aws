@@ -69,6 +69,8 @@ type ThingPrincipalAttachment struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the thing.
 	Thing pulumi.StringOutput `pulumi:"thing"`
+	// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+	ThingPrincipalType pulumi.StringOutput `pulumi:"thingPrincipalType"`
 }
 
 // NewThingPrincipalAttachment registers a new resource with the given unique name, arguments, and options.
@@ -113,6 +115,8 @@ type thingPrincipalAttachmentState struct {
 	Region *string `pulumi:"region"`
 	// The name of the thing.
 	Thing *string `pulumi:"thing"`
+	// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+	ThingPrincipalType *string `pulumi:"thingPrincipalType"`
 }
 
 type ThingPrincipalAttachmentState struct {
@@ -122,6 +126,8 @@ type ThingPrincipalAttachmentState struct {
 	Region pulumi.StringPtrInput
 	// The name of the thing.
 	Thing pulumi.StringPtrInput
+	// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+	ThingPrincipalType pulumi.StringPtrInput
 }
 
 func (ThingPrincipalAttachmentState) ElementType() reflect.Type {
@@ -135,6 +141,8 @@ type thingPrincipalAttachmentArgs struct {
 	Region *string `pulumi:"region"`
 	// The name of the thing.
 	Thing string `pulumi:"thing"`
+	// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+	ThingPrincipalType *string `pulumi:"thingPrincipalType"`
 }
 
 // The set of arguments for constructing a ThingPrincipalAttachment resource.
@@ -145,6 +153,8 @@ type ThingPrincipalAttachmentArgs struct {
 	Region pulumi.StringPtrInput
 	// The name of the thing.
 	Thing pulumi.StringInput
+	// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+	ThingPrincipalType pulumi.StringPtrInput
 }
 
 func (ThingPrincipalAttachmentArgs) ElementType() reflect.Type {
@@ -247,6 +257,11 @@ func (o ThingPrincipalAttachmentOutput) Region() pulumi.StringOutput {
 // The name of the thing.
 func (o ThingPrincipalAttachmentOutput) Thing() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.Thing }).(pulumi.StringOutput)
+}
+
+// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+func (o ThingPrincipalAttachmentOutput) ThingPrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.ThingPrincipalType }).(pulumi.StringOutput)
 }
 
 type ThingPrincipalAttachmentArrayOutput struct{ *pulumi.OutputState }

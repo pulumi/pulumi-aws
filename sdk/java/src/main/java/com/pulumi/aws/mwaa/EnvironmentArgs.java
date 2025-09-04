@@ -410,6 +410,21 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.weeklyMaintenanceWindowStart);
     }
 
+    /**
+     * Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+     * 
+     */
+    @Import(name="workerReplacementStrategy")
+    private @Nullable Output<String> workerReplacementStrategy;
+
+    /**
+     * @return Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+     * 
+     */
+    public Optional<Output<String>> workerReplacementStrategy() {
+        return Optional.ofNullable(this.workerReplacementStrategy);
+    }
+
     private EnvironmentArgs() {}
 
     private EnvironmentArgs(EnvironmentArgs $) {
@@ -439,6 +454,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.webserverAccessMode = $.webserverAccessMode;
         this.weeklyMaintenanceWindowStart = $.weeklyMaintenanceWindowStart;
+        this.workerReplacementStrategy = $.workerReplacementStrategy;
     }
 
     public static Builder builder() {
@@ -1003,6 +1019,27 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder weeklyMaintenanceWindowStart(String weeklyMaintenanceWindowStart) {
             return weeklyMaintenanceWindowStart(Output.of(weeklyMaintenanceWindowStart));
+        }
+
+        /**
+         * @param workerReplacementStrategy Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workerReplacementStrategy(@Nullable Output<String> workerReplacementStrategy) {
+            $.workerReplacementStrategy = workerReplacementStrategy;
+            return this;
+        }
+
+        /**
+         * @param workerReplacementStrategy Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workerReplacementStrategy(String workerReplacementStrategy) {
+            return workerReplacementStrategy(Output.of(workerReplacementStrategy));
         }
 
         public EnvironmentArgs build() {

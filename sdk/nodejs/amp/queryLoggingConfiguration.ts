@@ -62,18 +62,18 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block for the logging destinations. See `destinations`.
      */
-    public readonly destinations!: pulumi.Output<outputs.amp.QueryLoggingConfigurationDestination[] | undefined>;
+    declare public readonly destinations: pulumi.Output<outputs.amp.QueryLoggingConfigurationDestination[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.amp.QueryLoggingConfigurationTimeouts | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.amp.QueryLoggingConfigurationTimeouts | undefined>;
     /**
      * The ID of the AMP workspace for which to configure query logging.
      *
      * The following arguments are optional:
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a QueryLoggingConfiguration resource with the given unique name, arguments, and options.
@@ -88,19 +88,19 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueryLoggingConfigurationState | undefined;
-            resourceInputs["destinations"] = state ? state.destinations : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["destinations"] = state?.destinations;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as QueryLoggingConfigurationArgs | undefined;
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(QueryLoggingConfiguration.__pulumiType, name, resourceInputs, opts);

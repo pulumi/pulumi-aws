@@ -24,11 +24,23 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` - (String) Name of the KMS key alias.
+ *
+ * #### Optional
+ *
+ * - `account_id` (String) AWS Account where this resource is managed.
+ *
+ * - `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import KMS aliases using the `name`. For example:
  *
- * ```sh
- * $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
- * ```
+ * console
+ *
+ * % pulumi import aws_kms_alias.a alias/my-key-alias
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -61,28 +73,28 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the key alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates an unique alias beginning with the specified prefix.
      * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      */
-    public /*out*/ readonly targetKeyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetKeyArn: pulumi.Output<string>;
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      */
-    public readonly targetKeyId!: pulumi.Output<string>;
+    declare public readonly targetKeyId: pulumi.Output<string>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -97,21 +109,21 @@ export class Alias extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AliasState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["targetKeyArn"] = state ? state.targetKeyArn : undefined;
-            resourceInputs["targetKeyId"] = state ? state.targetKeyId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["targetKeyArn"] = state?.targetKeyArn;
+            resourceInputs["targetKeyId"] = state?.targetKeyId;
         } else {
             const args = argsOrState as AliasArgs | undefined;
-            if ((!args || args.targetKeyId === undefined) && !opts.urn) {
+            if (args?.targetKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetKeyId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["targetKeyId"] = args ? args.targetKeyId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["targetKeyId"] = args?.targetKeyId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["targetKeyArn"] = undefined /*out*/;
         }

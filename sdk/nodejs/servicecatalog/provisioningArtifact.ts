@@ -68,57 +68,57 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      */
-    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
     /**
      * Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * Time when the provisioning artifact was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
      */
-    public readonly disableTemplateValidation!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableTemplateValidation: pulumi.Output<boolean | undefined>;
     /**
      * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
      */
-    public readonly guidance!: pulumi.Output<string | undefined>;
+    declare public readonly guidance: pulumi.Output<string | undefined>;
     /**
      * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Identifier of the product.
      */
-    public readonly productId!: pulumi.Output<string>;
+    declare public readonly productId: pulumi.Output<string>;
     /**
      * Provisioning artifact identifier.
      */
-    public /*out*/ readonly provisioningArtifactId!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningArtifactId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      */
-    public readonly templatePhysicalId!: pulumi.Output<string | undefined>;
+    declare public readonly templatePhysicalId: pulumi.Output<string | undefined>;
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
      *
      * The following arguments are optional:
      */
-    public readonly templateUrl!: pulumi.Output<string | undefined>;
+    declare public readonly templateUrl: pulumi.Output<string | undefined>;
     /**
      * Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProvisioningArtifact resource with the given unique name, arguments, and options.
@@ -133,35 +133,35 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisioningArtifactState | undefined;
-            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["disableTemplateValidation"] = state ? state.disableTemplateValidation : undefined;
-            resourceInputs["guidance"] = state ? state.guidance : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["productId"] = state ? state.productId : undefined;
-            resourceInputs["provisioningArtifactId"] = state ? state.provisioningArtifactId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["templatePhysicalId"] = state ? state.templatePhysicalId : undefined;
-            resourceInputs["templateUrl"] = state ? state.templateUrl : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["acceptLanguage"] = state?.acceptLanguage;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["createdTime"] = state?.createdTime;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["disableTemplateValidation"] = state?.disableTemplateValidation;
+            resourceInputs["guidance"] = state?.guidance;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["productId"] = state?.productId;
+            resourceInputs["provisioningArtifactId"] = state?.provisioningArtifactId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["templatePhysicalId"] = state?.templatePhysicalId;
+            resourceInputs["templateUrl"] = state?.templateUrl;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ProvisioningArtifactArgs | undefined;
-            if ((!args || args.productId === undefined) && !opts.urn) {
+            if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disableTemplateValidation"] = args ? args.disableTemplateValidation : undefined;
-            resourceInputs["guidance"] = args ? args.guidance : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["templatePhysicalId"] = args ? args.templatePhysicalId : undefined;
-            resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disableTemplateValidation"] = args?.disableTemplateValidation;
+            resourceInputs["guidance"] = args?.guidance;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["templatePhysicalId"] = args?.templatePhysicalId;
+            resourceInputs["templateUrl"] = args?.templateUrl;
+            resourceInputs["type"] = args?.type;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["provisioningArtifactId"] = undefined /*out*/;
         }

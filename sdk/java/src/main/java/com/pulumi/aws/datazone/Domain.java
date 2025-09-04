@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.aws.datazone.Domain;
  * import com.pulumi.aws.datazone.DomainArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -80,28 +81,149 @@ import javax.annotation.Nullable;
  *                         )
  *                     ))
  *                 )))
- *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name("domain_execution_policy")
- *                 .policy(serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "datazone:*", 
- *                                 "ram:*", 
- *                                 "sso:*", 
- *                                 "kms:*"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Resource", "*")
- *                         )))
+ *             .build());
+ * 
+ *         var domainExecutionRoleRolePolicy = new RolePolicy("domainExecutionRoleRolePolicy", RolePolicyArgs.builder()
+ *             .role(domainExecutionRole.name())
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "datazone:*", 
+ *                             "ram:*", 
+ *                             "sso:*", 
+ *                             "kms:*"
+ *                         )),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", "*")
  *                     )))
- *                 .build())
+ *                 )))
  *             .build());
  * 
  *         var example = new Domain("example", DomainArgs.builder()
  *             .name("example")
  *             .domainExecutionRole(domainExecutionRole.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### V2 Domain
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.datazone.Domain;
+ * import com.pulumi.aws.datazone.DomainArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         // IAM role for Domain Execution
+ *         final var assumeRoleDomainExecution = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(                
+ *                     "sts:AssumeRole",
+ *                     "sts:TagSession",
+ *                     "sts:SetContext")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("datazone.amazonaws.com")
+ *                     .build())
+ *                 .conditions(                
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("StringEquals")
+ *                         .values(current.accountId())
+ *                         .variable("aws:SourceAccount")
+ *                         .build(),
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("ForAllValues:StringLike")
+ *                         .values("datazone*")
+ *                         .variable("aws:TagKeys")
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var domainExecution = new Role("domainExecution", RoleArgs.builder()
+ *             .assumeRolePolicy(assumeRoleDomainExecution.json())
+ *             .name("example-domain-execution-role")
+ *             .build());
+ * 
+ *         final var domainExecutionRole = IamFunctions.getPolicy(GetPolicyArgs.builder()
+ *             .name("SageMakerStudioDomainExecutionRolePolicy")
+ *             .build());
+ * 
+ *         var domainExecutionRolePolicyAttachment = new RolePolicyAttachment("domainExecutionRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
+ *             .policyArn(domainExecutionRole.arn())
+ *             .role(domainExecution.name())
+ *             .build());
+ * 
+ *         // IAM role for Domain Service
+ *         final var assumeRoleDomainService = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("sts:AssumeRole")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("datazone.amazonaws.com")
+ *                     .build())
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test("StringEquals")
+ *                     .values(current.accountId())
+ *                     .variable("aws:SourceAccount")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var domainService = new Role("domainService", RoleArgs.builder()
+ *             .assumeRolePolicy(assumeRoleDomainService.json())
+ *             .name("example-domain-service-role")
+ *             .build());
+ * 
+ *         final var domainServiceRole = IamFunctions.getPolicy(GetPolicyArgs.builder()
+ *             .name("SageMakerStudioDomainServiceRolePolicy")
+ *             .build());
+ * 
+ *         var domainServiceRolePolicyAttachment = new RolePolicyAttachment("domainServiceRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
+ *             .policyArn(domainServiceRole.arn())
+ *             .role(domainService.name())
+ *             .build());
+ * 
+ *         // DataZone Domain V2
+ *         var example = new Domain("example", DomainArgs.builder()
+ *             .name("example-domain")
+ *             .domainExecutionRole(domainExecution.arn())
+ *             .domainVersion("V2")
+ *             .serviceRole(domainService.arn())
  *             .build());
  * 
  *     }
@@ -168,6 +290,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.domainExecutionRole;
     }
     /**
+     * Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+     * 
+     */
+    @Export(name="domainVersion", refs={String.class}, tree="[0]")
+    private Output<String> domainVersion;
+
+    /**
+     * @return Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+     * 
+     */
+    public Output<String> domainVersion() {
+        return this.domainVersion;
+    }
+    /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      * 
      */
@@ -222,6 +358,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> region() {
         return this.region;
+    }
+    /**
+     * ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * 
+     */
+    @Export(name="serviceRole", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> serviceRole;
+
+    /**
+     * @return ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * 
+     */
+    public Output<Optional<String>> serviceRole() {
+        return Codegen.optional(this.serviceRole);
     }
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.

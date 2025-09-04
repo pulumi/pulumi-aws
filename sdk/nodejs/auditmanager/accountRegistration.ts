@@ -66,23 +66,23 @@ export class AccountRegistration extends pulumi.CustomResource {
     /**
      * Identifier for the delegated administrator account.
      */
-    public readonly delegatedAdminAccount!: pulumi.Output<string | undefined>;
+    declare public readonly delegatedAdminAccount: pulumi.Output<string | undefined>;
     /**
      * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
      */
-    public readonly deregisterOnDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly deregisterOnDestroy: pulumi.Output<boolean | undefined>;
     /**
      * KMS key identifier.
      */
-    public readonly kmsKey!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKey: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Status of the account registration request.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a AccountRegistration resource with the given unique name, arguments, and options.
@@ -97,17 +97,17 @@ export class AccountRegistration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountRegistrationState | undefined;
-            resourceInputs["delegatedAdminAccount"] = state ? state.delegatedAdminAccount : undefined;
-            resourceInputs["deregisterOnDestroy"] = state ? state.deregisterOnDestroy : undefined;
-            resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["delegatedAdminAccount"] = state?.delegatedAdminAccount;
+            resourceInputs["deregisterOnDestroy"] = state?.deregisterOnDestroy;
+            resourceInputs["kmsKey"] = state?.kmsKey;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as AccountRegistrationArgs | undefined;
-            resourceInputs["delegatedAdminAccount"] = args ? args.delegatedAdminAccount : undefined;
-            resourceInputs["deregisterOnDestroy"] = args ? args.deregisterOnDestroy : undefined;
-            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["delegatedAdminAccount"] = args?.delegatedAdminAccount;
+            resourceInputs["deregisterOnDestroy"] = args?.deregisterOnDestroy;
+            resourceInputs["kmsKey"] = args?.kmsKey;
+            resourceInputs["region"] = args?.region;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

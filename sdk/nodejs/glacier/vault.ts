@@ -90,35 +90,35 @@ export class Vault extends pulumi.CustomResource {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      */
-    public readonly accessPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly accessPolicy: pulumi.Output<string | undefined>;
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The URI of the vault that was created.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    public readonly notification!: pulumi.Output<outputs.glacier.VaultNotification | undefined>;
+    declare public readonly notification: pulumi.Output<outputs.glacier.VaultNotification | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Vault resource with the given unique name, arguments, and options.
@@ -133,21 +133,21 @@ export class Vault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultState | undefined;
-            resourceInputs["accessPolicy"] = state ? state.accessPolicy : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notification"] = state ? state.notification : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["accessPolicy"] = state?.accessPolicy;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notification"] = state?.notification;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as VaultArgs | undefined;
-            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notification"] = args ? args.notification : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessPolicy"] = args?.accessPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notification"] = args?.notification;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

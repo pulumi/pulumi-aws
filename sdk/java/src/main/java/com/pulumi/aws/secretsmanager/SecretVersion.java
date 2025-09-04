@@ -105,14 +105,6 @@ import javax.annotation.Nullable;
  * 
  * Reading key-value pairs from JSON back into a native map
  * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example &#39;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#39;
- * ```
- * 
  */
 @ResourceType(type="aws:secretsmanager/secretVersion:SecretVersion")
 public class SecretVersion extends com.pulumi.resources.CustomResource {

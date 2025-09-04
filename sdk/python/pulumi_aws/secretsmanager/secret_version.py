@@ -284,14 +284,6 @@ class SecretVersion(pulumi.CustomResource):
 
         Reading key-value pairs from JSON back into a native map
 
-        ## Import
-
-        Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
-
-        ```sh
-        $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -348,14 +340,6 @@ class SecretVersion(pulumi.CustomResource):
         ```
 
         Reading key-value pairs from JSON back into a native map
-
-        ## Import
-
-        Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
-
-        ```sh
-        $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
-        ```
 
         :param str resource_name: The name of the resource.
         :param SecretVersionArgs args: The arguments to use to populate this resource's properties.

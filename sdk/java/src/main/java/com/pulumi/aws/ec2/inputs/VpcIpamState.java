@@ -111,6 +111,21 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+     * 
+     */
+    @Import(name="meteredAccount")
+    private @Nullable Output<String> meteredAccount;
+
+    /**
+     * @return AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+     * 
+     */
+    public Optional<Output<String>> meteredAccount() {
+        return Optional.ofNullable(this.meteredAccount);
+    }
+
+    /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
      * 
      */
@@ -241,6 +256,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         this.defaultResourceDiscoveryId = $.defaultResourceDiscoveryId;
         this.description = $.description;
         this.enablePrivateGua = $.enablePrivateGua;
+        this.meteredAccount = $.meteredAccount;
         this.operatingRegions = $.operatingRegions;
         this.privateDefaultScopeId = $.privateDefaultScopeId;
         this.publicDefaultScopeId = $.publicDefaultScopeId;
@@ -393,6 +409,27 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enablePrivateGua(Boolean enablePrivateGua) {
             return enablePrivateGua(Output.of(enablePrivateGua));
+        }
+
+        /**
+         * @param meteredAccount AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder meteredAccount(@Nullable Output<String> meteredAccount) {
+            $.meteredAccount = meteredAccount;
+            return this;
+        }
+
+        /**
+         * @param meteredAccount AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder meteredAccount(String meteredAccount) {
+            return meteredAccount(Output.of(meteredAccount));
         }
 
         /**

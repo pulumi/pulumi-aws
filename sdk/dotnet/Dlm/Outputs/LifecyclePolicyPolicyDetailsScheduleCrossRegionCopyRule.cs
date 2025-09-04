@@ -18,7 +18,11 @@ namespace Pulumi.Aws.Dlm.Outputs
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule? DeprecateRule;
         public readonly bool Encrypted;
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule? RetainRule;
-        public readonly string Target;
+        public readonly string? Target;
+        /// <summary>
+        /// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+        /// </summary>
+        public readonly string? TargetRegion;
 
         [OutputConstructor]
         private LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule(
@@ -32,7 +36,9 @@ namespace Pulumi.Aws.Dlm.Outputs
 
             Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule? retainRule,
 
-            string target)
+            string? target,
+
+            string? targetRegion)
         {
             CmkArn = cmkArn;
             CopyTags = copyTags;
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.Dlm.Outputs
             Encrypted = encrypted;
             RetainRule = retainRule;
             Target = target;
+            TargetRegion = targetRegion;
         }
     }
 }

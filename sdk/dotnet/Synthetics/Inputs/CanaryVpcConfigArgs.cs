@@ -12,6 +12,12 @@ namespace Pulumi.Aws.Synthetics.Inputs
 
     public sealed class CanaryVpcConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+        /// </summary>
+        [Input("ipv6AllowedForDualStack")]
+        public Input<bool>? Ipv6AllowedForDualStack { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 

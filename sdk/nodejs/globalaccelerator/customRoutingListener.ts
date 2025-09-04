@@ -74,12 +74,12 @@ export class CustomRoutingListener extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of a custom routing accelerator.
      */
-    public readonly acceleratorArn!: pulumi.Output<string>;
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public readonly acceleratorArn: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
-    public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.CustomRoutingListenerPortRange[]>;
+    declare public readonly portRanges: pulumi.Output<outputs.globalaccelerator.CustomRoutingListenerPortRange[]>;
 
     /**
      * Create a CustomRoutingListener resource with the given unique name, arguments, and options.
@@ -94,19 +94,19 @@ export class CustomRoutingListener extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomRoutingListenerState | undefined;
-            resourceInputs["acceleratorArn"] = state ? state.acceleratorArn : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["portRanges"] = state ? state.portRanges : undefined;
+            resourceInputs["acceleratorArn"] = state?.acceleratorArn;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["portRanges"] = state?.portRanges;
         } else {
             const args = argsOrState as CustomRoutingListenerArgs | undefined;
-            if ((!args || args.acceleratorArn === undefined) && !opts.urn) {
+            if (args?.acceleratorArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'acceleratorArn'");
             }
-            if ((!args || args.portRanges === undefined) && !opts.urn) {
+            if (args?.portRanges === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portRanges'");
             }
-            resourceInputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
-            resourceInputs["portRanges"] = args ? args.portRanges : undefined;
+            resourceInputs["acceleratorArn"] = args?.acceleratorArn;
+            resourceInputs["portRanges"] = args?.portRanges;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

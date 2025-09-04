@@ -78,42 +78,42 @@ export class Statement extends pulumi.CustomResource {
     /**
      * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      */
-    public readonly clusterIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly clusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * The name of the database.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * The database user name.
      */
-    public readonly dbUser!: pulumi.Output<string | undefined>;
-    public readonly parameters!: pulumi.Output<outputs.redshiftdata.StatementParameter[] | undefined>;
+    declare public readonly dbUser: pulumi.Output<string | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.redshiftdata.StatementParameter[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name or ARN of the secret that enables access to the database.
      */
-    public readonly secretArn!: pulumi.Output<string | undefined>;
+    declare public readonly secretArn: pulumi.Output<string | undefined>;
     /**
      * The SQL statement text to run.
      *
      * The following arguments are optional:
      */
-    public readonly sql!: pulumi.Output<string>;
+    declare public readonly sql: pulumi.Output<string>;
     /**
      * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      */
-    public readonly statementName!: pulumi.Output<string | undefined>;
+    declare public readonly statementName: pulumi.Output<string | undefined>;
     /**
      * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
      */
-    public readonly withEvent!: pulumi.Output<boolean | undefined>;
+    declare public readonly withEvent: pulumi.Output<boolean | undefined>;
     /**
      * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
      */
-    public readonly workgroupName!: pulumi.Output<string | undefined>;
+    declare public readonly workgroupName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Statement resource with the given unique name, arguments, and options.
@@ -128,34 +128,34 @@ export class Statement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StatementState | undefined;
-            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["dbUser"] = state ? state.dbUser : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["secretArn"] = state ? state.secretArn : undefined;
-            resourceInputs["sql"] = state ? state.sql : undefined;
-            resourceInputs["statementName"] = state ? state.statementName : undefined;
-            resourceInputs["withEvent"] = state ? state.withEvent : undefined;
-            resourceInputs["workgroupName"] = state ? state.workgroupName : undefined;
+            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["dbUser"] = state?.dbUser;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["secretArn"] = state?.secretArn;
+            resourceInputs["sql"] = state?.sql;
+            resourceInputs["statementName"] = state?.statementName;
+            resourceInputs["withEvent"] = state?.withEvent;
+            resourceInputs["workgroupName"] = state?.workgroupName;
         } else {
             const args = argsOrState as StatementArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.sql === undefined) && !opts.urn) {
+            if (args?.sql === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sql'");
             }
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["dbUser"] = args ? args.dbUser : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["secretArn"] = args ? args.secretArn : undefined;
-            resourceInputs["sql"] = args ? args.sql : undefined;
-            resourceInputs["statementName"] = args ? args.statementName : undefined;
-            resourceInputs["withEvent"] = args ? args.withEvent : undefined;
-            resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["dbUser"] = args?.dbUser;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["secretArn"] = args?.secretArn;
+            resourceInputs["sql"] = args?.sql;
+            resourceInputs["statementName"] = args?.statementName;
+            resourceInputs["withEvent"] = args?.withEvent;
+            resourceInputs["workgroupName"] = args?.workgroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Statement.__pulumiType, name, resourceInputs, opts);

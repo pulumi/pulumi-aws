@@ -102,7 +102,9 @@ import (
 //				ExecutionRoleArn: dlmLifecycleRole.Arn,
 //				State:            pulumi.String("ENABLED"),
 //				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					ResourceTypes: pulumi.StringArray("VOLUME"),
+//					ResourceTypes: pulumi.StringArray{
+//						pulumi.String("VOLUME"),
+//					},
 //					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
 //						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
 //							Name: pulumi.String("2 weeks of daily snapshots"),
@@ -122,6 +124,48 @@ import (
 //					},
 //					TargetTags: pulumi.StringMap{
 //						"Snapshot": pulumi.String("true"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Example Default Policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dlm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
+//				Description:      pulumi.String("tf-acc-basic"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				DefaultPolicy:    pulumi.String("VOLUME"),
+//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
+//					CreateInterval: pulumi.Int(5),
+//					ResourceType:   pulumi.String("VOLUME"),
+//					PolicyLanguage: pulumi.String("SIMPLIFIED"),
+//					Exclusions: &dlm.LifecyclePolicyPolicyDetailsExclusionsArgs{
+//						ExcludeBootVolumes: pulumi.Bool(false),
+//						ExcludeTags: pulumi.StringMap{
+//							"test": pulumi.String("exclude"),
+//						},
+//						ExcludeVolumeTypes: pulumi.StringArray{
+//							pulumi.String("gp2"),
+//						},
 //					},
 //				},
 //			})
@@ -195,7 +239,9 @@ import (
 //				ExecutionRoleArn: pulumi.Any(dlmLifecycleRole.Arn),
 //				State:            pulumi.String("ENABLED"),
 //				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					ResourceTypes: pulumi.StringArray("VOLUME"),
+//					ResourceTypes: pulumi.StringArray{
+//						pulumi.String("VOLUME"),
+//					},
 //					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
 //						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
 //							Name: pulumi.String("2 weeks of daily snapshots"),
@@ -311,6 +357,71 @@ import (
 //
 // ```
 //
+// ### Example Post/Pre Scripts
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dlm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
+//				Name: pulumi.StringRef("AWSDataLifecycleManagerSSMFullAccess"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//				Role:      pulumi.Any(testAwsIamRole.Id),
+//				PolicyArn: pulumi.Any(exampleAwsIamPolicy.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
+//				Description:      pulumi.String("tf-acc-basic"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
+//					ResourceTypes: pulumi.StringArray{
+//						pulumi.String("INSTANCE"),
+//					},
+//					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
+//						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
+//							Name: pulumi.String("Windows VSS"),
+//							CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
+//								Interval: pulumi.Int(12),
+//								Scripts: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs{
+//									ExecuteOperationOnScriptFailure: pulumi.Bool(false),
+//									ExecutionHandler:                pulumi.String("AWS_VSS_BACKUP"),
+//									MaximumRetryCount:               pulumi.Int(2),
+//								},
+//							},
+//							RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
+//								Count: pulumi.Int(10),
+//							},
+//						},
+//					},
+//					TargetTags: pulumi.StringMap{
+//						"tag1": pulumi.String("Windows"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
@@ -323,6 +434,8 @@ type LifecyclePolicy struct {
 
 	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+	DefaultPolicy pulumi.StringPtrOutput `pulumi:"defaultPolicy"`
 	// A description for the DLM lifecycle policy.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
@@ -380,6 +493,8 @@ func GetLifecyclePolicy(ctx *pulumi.Context,
 type lifecyclePolicyState struct {
 	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
 	Arn *string `pulumi:"arn"`
+	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+	DefaultPolicy *string `pulumi:"defaultPolicy"`
 	// A description for the DLM lifecycle policy.
 	Description *string `pulumi:"description"`
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
@@ -399,6 +514,8 @@ type lifecyclePolicyState struct {
 type LifecyclePolicyState struct {
 	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
 	Arn pulumi.StringPtrInput
+	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+	DefaultPolicy pulumi.StringPtrInput
 	// A description for the DLM lifecycle policy.
 	Description pulumi.StringPtrInput
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
@@ -420,6 +537,8 @@ func (LifecyclePolicyState) ElementType() reflect.Type {
 }
 
 type lifecyclePolicyArgs struct {
+	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+	DefaultPolicy *string `pulumi:"defaultPolicy"`
 	// A description for the DLM lifecycle policy.
 	Description string `pulumi:"description"`
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
@@ -436,6 +555,8 @@ type lifecyclePolicyArgs struct {
 
 // The set of arguments for constructing a LifecyclePolicy resource.
 type LifecyclePolicyArgs struct {
+	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+	DefaultPolicy pulumi.StringPtrInput
 	// A description for the DLM lifecycle policy.
 	Description pulumi.StringInput
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
@@ -540,6 +661,11 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 // Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
 func (o LifecyclePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+func (o LifecyclePolicyOutput) DefaultPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.DefaultPolicy }).(pulumi.StringPtrOutput)
 }
 
 // A description for the DLM lifecycle policy.

@@ -105,23 +105,23 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Kinesis data streams where real-time log data is sent.
      */
-    public readonly endpoint!: pulumi.Output<outputs.cloudfront.RealtimeLogConfigEndpoint>;
+    declare public readonly endpoint: pulumi.Output<outputs.cloudfront.RealtimeLogConfigEndpoint>;
     /**
      * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      */
-    public readonly fields!: pulumi.Output<string[]>;
+    declare public readonly fields: pulumi.Output<string[]>;
     /**
      * The unique name to identify this real-time log configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      */
-    public readonly samplingRate!: pulumi.Output<number>;
+    declare public readonly samplingRate: pulumi.Output<number>;
 
     /**
      * Create a RealtimeLogConfig resource with the given unique name, arguments, and options.
@@ -136,26 +136,26 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RealtimeLogConfigState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["fields"] = state ? state.fields : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["samplingRate"] = state ? state.samplingRate : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["fields"] = state?.fields;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["samplingRate"] = state?.samplingRate;
         } else {
             const args = argsOrState as RealtimeLogConfigArgs | undefined;
-            if ((!args || args.endpoint === undefined) && !opts.urn) {
+            if (args?.endpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpoint'");
             }
-            if ((!args || args.fields === undefined) && !opts.urn) {
+            if (args?.fields === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fields'");
             }
-            if ((!args || args.samplingRate === undefined) && !opts.urn) {
+            if (args?.samplingRate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'samplingRate'");
             }
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["samplingRate"] = args ? args.samplingRate : undefined;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["samplingRate"] = args?.samplingRate;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

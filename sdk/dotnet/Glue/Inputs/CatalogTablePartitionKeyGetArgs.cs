@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// Map of key-value pairs.
+        /// </summary>
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
+
         /// <summary>
         /// Datatype of data in the Partition Key.
         /// </summary>

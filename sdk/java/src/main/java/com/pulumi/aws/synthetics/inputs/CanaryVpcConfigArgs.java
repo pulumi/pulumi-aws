@@ -5,6 +5,7 @@ package com.pulumi.aws.synthetics.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class CanaryVpcConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CanaryVpcConfigArgs Empty = new CanaryVpcConfigArgs();
+
+    /**
+     * If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+     * 
+     */
+    @Import(name="ipv6AllowedForDualStack")
+    private @Nullable Output<Boolean> ipv6AllowedForDualStack;
+
+    /**
+     * @return If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> ipv6AllowedForDualStack() {
+        return Optional.ofNullable(this.ipv6AllowedForDualStack);
+    }
 
     /**
      * IDs of the security groups for this canary.
@@ -64,6 +80,7 @@ public final class CanaryVpcConfigArgs extends com.pulumi.resources.ResourceArgs
     private CanaryVpcConfigArgs() {}
 
     private CanaryVpcConfigArgs(CanaryVpcConfigArgs $) {
+        this.ipv6AllowedForDualStack = $.ipv6AllowedForDualStack;
         this.securityGroupIds = $.securityGroupIds;
         this.subnetIds = $.subnetIds;
         this.vpcId = $.vpcId;
@@ -85,6 +102,27 @@ public final class CanaryVpcConfigArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(CanaryVpcConfigArgs defaults) {
             $ = new CanaryVpcConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param ipv6AllowedForDualStack If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6AllowedForDualStack(@Nullable Output<Boolean> ipv6AllowedForDualStack) {
+            $.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
+            return this;
+        }
+
+        /**
+         * @param ipv6AllowedForDualStack If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6AllowedForDualStack(Boolean ipv6AllowedForDualStack) {
+            return ipv6AllowedForDualStack(Output.of(ipv6AllowedForDualStack));
         }
 
         /**

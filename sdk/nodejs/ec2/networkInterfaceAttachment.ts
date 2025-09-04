@@ -59,27 +59,31 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**
      * The ENI Attachment ID.
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentId: pulumi.Output<string>;
     /**
      * Network interface index (int).
      */
-    public readonly deviceIndex!: pulumi.Output<number>;
+    declare public readonly deviceIndex: pulumi.Output<number>;
     /**
      * Instance ID to attach.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
+    /**
+     * Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+     */
+    declare public readonly networkCardIndex: pulumi.Output<number>;
     /**
      * ENI ID to attach.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string>;
+    declare public readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The status of the Network Interface Attachment.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceAttachment resource with the given unique name, arguments, and options.
@@ -94,27 +98,29 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceAttachmentState | undefined;
-            resourceInputs["attachmentId"] = state ? state.attachmentId : undefined;
-            resourceInputs["deviceIndex"] = state ? state.deviceIndex : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["attachmentId"] = state?.attachmentId;
+            resourceInputs["deviceIndex"] = state?.deviceIndex;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["networkCardIndex"] = state?.networkCardIndex;
+            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as NetworkInterfaceAttachmentArgs | undefined;
-            if ((!args || args.deviceIndex === undefined) && !opts.urn) {
+            if (args?.deviceIndex === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceIndex'");
             }
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            resourceInputs["deviceIndex"] = args ? args.deviceIndex : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["deviceIndex"] = args?.deviceIndex;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["networkCardIndex"] = args?.networkCardIndex;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["region"] = args?.region;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
@@ -139,6 +145,10 @@ export interface NetworkInterfaceAttachmentState {
      * Instance ID to attach.
      */
     instanceId?: pulumi.Input<string>;
+    /**
+     * Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+     */
+    networkCardIndex?: pulumi.Input<number>;
     /**
      * ENI ID to attach.
      */
@@ -165,6 +175,10 @@ export interface NetworkInterfaceAttachmentArgs {
      * Instance ID to attach.
      */
     instanceId: pulumi.Input<string>;
+    /**
+     * Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+     */
+    networkCardIndex?: pulumi.Input<number>;
     /**
      * ENI ID to attach.
      */

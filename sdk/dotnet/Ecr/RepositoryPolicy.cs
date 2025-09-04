@@ -80,11 +80,23 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `repository` - (String) Name of the ECR repository.
+    /// 
+    /// #### Optional
+    /// 
+    /// - `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// - `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_ecr_repository_policy.example example
     /// </summary>
     [AwsResourceType("aws:ecr/repositoryPolicy:RepositoryPolicy")]
     public partial class RepositoryPolicy : global::Pulumi.CustomResource

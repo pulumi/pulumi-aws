@@ -172,11 +172,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `id` - (String) ID of the routing table.
+    /// 
+    /// #### Optional
+    /// 
+    /// - `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// - `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Route Tables using the route table `id`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_route_table.public_rt rtb-4e616f6d69
     /// </summary>
     [AwsResourceType("aws:ec2/routeTable:RouteTable")]
     public partial class RouteTable : global::Pulumi.CustomResource

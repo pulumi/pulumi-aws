@@ -77,94 +77,94 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * ARN of the appstream fleet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration block for the desired capacity of the fleet. See below.
      */
-    public readonly computeCapacity!: pulumi.Output<outputs.appstream.FleetComputeCapacity>;
+    declare public readonly computeCapacity: pulumi.Output<outputs.appstream.FleetComputeCapacity>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Description to display.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Amount of time that a streaming session remains active after users disconnect.
      */
-    public readonly disconnectTimeoutInSeconds!: pulumi.Output<number>;
+    declare public readonly disconnectTimeoutInSeconds: pulumi.Output<number>;
     /**
      * Human-readable friendly name for the AppStream fleet.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
      */
-    public readonly domainJoinInfo!: pulumi.Output<outputs.appstream.FleetDomainJoinInfo>;
+    declare public readonly domainJoinInfo: pulumi.Output<outputs.appstream.FleetDomainJoinInfo>;
     /**
      * Enables or disables default internet access for the fleet.
      */
-    public readonly enableDefaultInternetAccess!: pulumi.Output<boolean>;
+    declare public readonly enableDefaultInternetAccess: pulumi.Output<boolean>;
     /**
      * Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
      */
-    public readonly fleetType!: pulumi.Output<string>;
+    declare public readonly fleetType: pulumi.Output<string>;
     /**
      * ARN of the IAM role to apply to the fleet.
      */
-    public readonly iamRoleArn!: pulumi.Output<string>;
+    declare public readonly iamRoleArn: pulumi.Output<string>;
     /**
      * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and `3600 `seconds.
      */
-    public readonly idleDisconnectTimeoutInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly idleDisconnectTimeoutInSeconds: pulumi.Output<number | undefined>;
     /**
      * ARN of the public, private, or shared image to use.
      */
-    public readonly imageArn!: pulumi.Output<string>;
+    declare public readonly imageArn: pulumi.Output<string>;
     /**
      * Name of the image used to create the fleet.
      */
-    public readonly imageName!: pulumi.Output<string>;
+    declare public readonly imageName: pulumi.Output<string>;
     /**
      * Instance type to use when launching fleet instances.
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
      */
-    public readonly maxSessionsPerInstance!: pulumi.Output<number | undefined>;
+    declare public readonly maxSessionsPerInstance: pulumi.Output<number | undefined>;
     /**
      * Maximum amount of time that a streaming session can remain active, in seconds.
      */
-    public readonly maxUserDurationInSeconds!: pulumi.Output<number>;
+    declare public readonly maxUserDurationInSeconds: pulumi.Output<number>;
     /**
      * Unique name for the fleet.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
      */
-    public readonly streamView!: pulumi.Output<string>;
+    declare public readonly streamView: pulumi.Output<string>;
     /**
      * Map of tags to attach to AppStream instances.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.appstream.FleetVpcConfig>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.appstream.FleetVpcConfig>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -179,56 +179,56 @@ export class Fleet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["computeCapacity"] = state ? state.computeCapacity : undefined;
-            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["disconnectTimeoutInSeconds"] = state ? state.disconnectTimeoutInSeconds : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["domainJoinInfo"] = state ? state.domainJoinInfo : undefined;
-            resourceInputs["enableDefaultInternetAccess"] = state ? state.enableDefaultInternetAccess : undefined;
-            resourceInputs["fleetType"] = state ? state.fleetType : undefined;
-            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            resourceInputs["idleDisconnectTimeoutInSeconds"] = state ? state.idleDisconnectTimeoutInSeconds : undefined;
-            resourceInputs["imageArn"] = state ? state.imageArn : undefined;
-            resourceInputs["imageName"] = state ? state.imageName : undefined;
-            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
-            resourceInputs["maxSessionsPerInstance"] = state ? state.maxSessionsPerInstance : undefined;
-            resourceInputs["maxUserDurationInSeconds"] = state ? state.maxUserDurationInSeconds : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["streamView"] = state ? state.streamView : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["computeCapacity"] = state?.computeCapacity;
+            resourceInputs["createdTime"] = state?.createdTime;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["disconnectTimeoutInSeconds"] = state?.disconnectTimeoutInSeconds;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["domainJoinInfo"] = state?.domainJoinInfo;
+            resourceInputs["enableDefaultInternetAccess"] = state?.enableDefaultInternetAccess;
+            resourceInputs["fleetType"] = state?.fleetType;
+            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
+            resourceInputs["idleDisconnectTimeoutInSeconds"] = state?.idleDisconnectTimeoutInSeconds;
+            resourceInputs["imageArn"] = state?.imageArn;
+            resourceInputs["imageName"] = state?.imageName;
+            resourceInputs["instanceType"] = state?.instanceType;
+            resourceInputs["maxSessionsPerInstance"] = state?.maxSessionsPerInstance;
+            resourceInputs["maxUserDurationInSeconds"] = state?.maxUserDurationInSeconds;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["streamView"] = state?.streamView;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcConfig"] = state?.vpcConfig;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            if ((!args || args.computeCapacity === undefined) && !opts.urn) {
+            if (args?.computeCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeCapacity'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["computeCapacity"] = args ? args.computeCapacity : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disconnectTimeoutInSeconds"] = args ? args.disconnectTimeoutInSeconds : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
-            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
-            resourceInputs["fleetType"] = args ? args.fleetType : undefined;
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["idleDisconnectTimeoutInSeconds"] = args ? args.idleDisconnectTimeoutInSeconds : undefined;
-            resourceInputs["imageArn"] = args ? args.imageArn : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["maxSessionsPerInstance"] = args ? args.maxSessionsPerInstance : undefined;
-            resourceInputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["streamView"] = args ? args.streamView : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["computeCapacity"] = args?.computeCapacity;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disconnectTimeoutInSeconds"] = args?.disconnectTimeoutInSeconds;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainJoinInfo"] = args?.domainJoinInfo;
+            resourceInputs["enableDefaultInternetAccess"] = args?.enableDefaultInternetAccess;
+            resourceInputs["fleetType"] = args?.fleetType;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["idleDisconnectTimeoutInSeconds"] = args?.idleDisconnectTimeoutInSeconds;
+            resourceInputs["imageArn"] = args?.imageArn;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["maxSessionsPerInstance"] = args?.maxSessionsPerInstance;
+            resourceInputs["maxUserDurationInSeconds"] = args?.maxUserDurationInSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["streamView"] = args?.streamView;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

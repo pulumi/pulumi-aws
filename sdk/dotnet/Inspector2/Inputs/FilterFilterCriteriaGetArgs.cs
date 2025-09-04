@@ -24,6 +24,30 @@ namespace Pulumi.Aws.Inspector2.Inputs
             set => _awsAccountIds = value;
         }
 
+        [Input("codeRepositoryProjectNames")]
+        private InputList<Inputs.FilterFilterCriteriaCodeRepositoryProjectNameGetArgs>? _codeRepositoryProjectNames;
+
+        /// <summary>
+        /// (Optional) The project name in a code repository. Documented below.
+        /// </summary>
+        public InputList<Inputs.FilterFilterCriteriaCodeRepositoryProjectNameGetArgs> CodeRepositoryProjectNames
+        {
+            get => _codeRepositoryProjectNames ?? (_codeRepositoryProjectNames = new InputList<Inputs.FilterFilterCriteriaCodeRepositoryProjectNameGetArgs>());
+            set => _codeRepositoryProjectNames = value;
+        }
+
+        [Input("codeRepositoryProviderTypes")]
+        private InputList<Inputs.FilterFilterCriteriaCodeRepositoryProviderTypeGetArgs>? _codeRepositoryProviderTypes;
+
+        /// <summary>
+        /// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+        /// </summary>
+        public InputList<Inputs.FilterFilterCriteriaCodeRepositoryProviderTypeGetArgs> CodeRepositoryProviderTypes
+        {
+            get => _codeRepositoryProviderTypes ?? (_codeRepositoryProviderTypes = new InputList<Inputs.FilterFilterCriteriaCodeRepositoryProviderTypeGetArgs>());
+            set => _codeRepositoryProviderTypes = value;
+        }
+
         [Input("codeVulnerabilityDetectorNames")]
         private InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityDetectorNameGetArgs>? _codeVulnerabilityDetectorNames;
 
@@ -142,6 +166,30 @@ namespace Pulumi.Aws.Inspector2.Inputs
         {
             get => _ecrImageHashes ?? (_ecrImageHashes = new InputList<Inputs.FilterFilterCriteriaEcrImageHashGetArgs>());
             set => _ecrImageHashes = value;
+        }
+
+        [Input("ecrImageInUseCounts")]
+        private InputList<Inputs.FilterFilterCriteriaEcrImageInUseCountGetArgs>? _ecrImageInUseCounts;
+
+        /// <summary>
+        /// (Optional)  The number of the ECR images in use. Documented below.
+        /// </summary>
+        public InputList<Inputs.FilterFilterCriteriaEcrImageInUseCountGetArgs> EcrImageInUseCounts
+        {
+            get => _ecrImageInUseCounts ?? (_ecrImageInUseCounts = new InputList<Inputs.FilterFilterCriteriaEcrImageInUseCountGetArgs>());
+            set => _ecrImageInUseCounts = value;
+        }
+
+        [Input("ecrImageLastInUseAts")]
+        private InputList<Inputs.FilterFilterCriteriaEcrImageLastInUseAtGetArgs>? _ecrImageLastInUseAts;
+
+        /// <summary>
+        /// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+        /// </summary>
+        public InputList<Inputs.FilterFilterCriteriaEcrImageLastInUseAtGetArgs> EcrImageLastInUseAts
+        {
+            get => _ecrImageLastInUseAts ?? (_ecrImageLastInUseAts = new InputList<Inputs.FilterFilterCriteriaEcrImageLastInUseAtGetArgs>());
+            set => _ecrImageLastInUseAts = value;
         }
 
         [Input("ecrImagePushedAts")]

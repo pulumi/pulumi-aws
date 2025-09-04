@@ -304,6 +304,20 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
+     * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * 
+     */
+    @Export(name="verificationStatus", refs={String.class}, tree="[0]")
+    private Output<String> verificationStatus;
+
+    /**
+     * @return The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * 
+     */
+    public Output<String> verificationStatus() {
+        return this.verificationStatus;
+    }
+    /**
      * Specifies whether or not the identity is verified.
      * 
      */

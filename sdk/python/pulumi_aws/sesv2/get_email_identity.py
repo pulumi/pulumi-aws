@@ -27,7 +27,7 @@ class GetEmailIdentityResult:
     """
     A collection of values returned by getEmailIdentity.
     """
-    def __init__(__self__, arn=None, configuration_set_name=None, dkim_signing_attributes=None, email_identity=None, id=None, identity_type=None, region=None, tags=None, verified_for_sending_status=None):
+    def __init__(__self__, arn=None, configuration_set_name=None, dkim_signing_attributes=None, email_identity=None, id=None, identity_type=None, region=None, tags=None, verification_status=None, verified_for_sending_status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,9 @@ class GetEmailIdentityResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if verification_status and not isinstance(verification_status, str):
+            raise TypeError("Expected argument 'verification_status' to be a str")
+        pulumi.set(__self__, "verification_status", verification_status)
         if verified_for_sending_status and not isinstance(verified_for_sending_status, bool):
             raise TypeError("Expected argument 'verified_for_sending_status' to be a bool")
         pulumi.set(__self__, "verified_for_sending_status", verified_for_sending_status)
@@ -112,6 +115,14 @@ class GetEmailIdentityResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="verificationStatus")
+    def verification_status(self) -> _builtins.str:
+        """
+        The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        """
+        return pulumi.get(self, "verification_status")
+
+    @_builtins.property
     @pulumi.getter(name="verifiedForSendingStatus")
     def verified_for_sending_status(self) -> _builtins.bool:
         """
@@ -134,6 +145,7 @@ class AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
             identity_type=self.identity_type,
             region=self.region,
             tags=self.tags,
+            verification_status=self.verification_status,
             verified_for_sending_status=self.verified_for_sending_status)
 
 
@@ -176,6 +188,7 @@ def get_email_identity(email_identity: Optional[_builtins.str] = None,
         identity_type=pulumi.get(__ret__, 'identity_type'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
+        verification_status=pulumi.get(__ret__, 'verification_status'),
         verified_for_sending_status=pulumi.get(__ret__, 'verified_for_sending_status'))
 def get_email_identity_output(email_identity: Optional[pulumi.Input[_builtins.str]] = None,
                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -215,4 +228,5 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[_builtins.st
         identity_type=pulumi.get(__response__, 'identity_type'),
         region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
+        verification_status=pulumi.get(__response__, 'verification_status'),
         verified_for_sending_status=pulumi.get(__response__, 'verified_for_sending_status')))

@@ -182,9 +182,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+        /// Association information for an Elastic IP address (IPv4) associated with the network interface. See association below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceAssociationResult> Associations;
+        /// <summary>
+        /// Attachment of the ENI. See attachment below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceAttachmentResult> Attachments;
         /// <summary>
         /// Availability Zone.

@@ -12,6 +12,12 @@ namespace Pulumi.Aws.Dlm.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailsScheduleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+        /// </summary>
+        [Input("archiveRule")]
+        public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs>? ArchiveRule { get; set; }
+
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
 

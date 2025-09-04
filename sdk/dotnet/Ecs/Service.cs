@@ -161,6 +161,31 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
+    /// ### Blue/Green Deployment with SIGINT Rollback
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
+    ///         DeploymentConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationArgs
+    ///         {
+    ///             Strategy = "BLUE_GREEN",
+    ///         },
+    ///         SigintRollback = true,
+    ///         WaitForSteadyState = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Redeploy Service On Every Apply
     /// 
     /// The key used with `triggers` is arbitrary.
@@ -236,7 +261,7 @@ namespace Pulumi.Aws.Ecs
         /// Configuration block for deployment settings. See below.
         /// </summary>
         [Output("deploymentConfiguration")]
-        public Output<Outputs.ServiceDeploymentConfiguration?> DeploymentConfiguration { get; private set; } = null!;
+        public Output<Outputs.ServiceDeploymentConfiguration> DeploymentConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for deployment controller configuration. See below.
@@ -372,6 +397,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Output("serviceRegistries")]
         public Output<Outputs.ServiceServiceRegistries?> ServiceRegistries { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+        /// </summary>
+        [Output("sigintRollback")]
+        public Output<bool?> SigintRollback { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -656,6 +687,12 @@ namespace Pulumi.Aws.Ecs
         [Input("serviceRegistries")]
         public Input<Inputs.ServiceServiceRegistriesArgs>? ServiceRegistries { get; set; }
 
+        /// <summary>
+        /// Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+        /// </summary>
+        [Input("sigintRollback")]
+        public Input<bool>? SigintRollback { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -918,6 +955,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("serviceRegistries")]
         public Input<Inputs.ServiceServiceRegistriesGetArgs>? ServiceRegistries { get; set; }
+
+        /// <summary>
+        /// Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+        /// </summary>
+        [Input("sigintRollback")]
+        public Input<bool>? SigintRollback { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -65,47 +65,47 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM.
      */
-    public /*out*/ readonly ipamArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamArn: pulumi.Output<string>;
     /**
      * The ID of the IPAM to associate.
      */
-    public readonly ipamId!: pulumi.Output<string>;
+    declare public readonly ipamId: pulumi.Output<string>;
     /**
      * The home region of the IPAM.
      */
-    public /*out*/ readonly ipamRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamRegion: pulumi.Output<string>;
     /**
      * The ID of the Resource Discovery to associate.
      */
-    public readonly ipamResourceDiscoveryId!: pulumi.Output<string>;
+    declare public readonly ipamResourceDiscoveryId: pulumi.Output<string>;
     /**
      * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The account ID for the account that manages the Resource Discovery
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The lifecycle state of the association when you associate or disassociate a resource discovery.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * A map of tags to add to the IPAM resource discovery association resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VpcIpamResourceDiscoveryAssociation resource with the given unique name, arguments, and options.
@@ -120,29 +120,29 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamResourceDiscoveryAssociationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["ipamArn"] = state ? state.ipamArn : undefined;
-            resourceInputs["ipamId"] = state ? state.ipamId : undefined;
-            resourceInputs["ipamRegion"] = state ? state.ipamRegion : undefined;
-            resourceInputs["ipamResourceDiscoveryId"] = state ? state.ipamResourceDiscoveryId : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["ipamArn"] = state?.ipamArn;
+            resourceInputs["ipamId"] = state?.ipamId;
+            resourceInputs["ipamRegion"] = state?.ipamRegion;
+            resourceInputs["ipamResourceDiscoveryId"] = state?.ipamResourceDiscoveryId;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as VpcIpamResourceDiscoveryAssociationArgs | undefined;
-            if ((!args || args.ipamId === undefined) && !opts.urn) {
+            if (args?.ipamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamId'");
             }
-            if ((!args || args.ipamResourceDiscoveryId === undefined) && !opts.urn) {
+            if (args?.ipamResourceDiscoveryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamResourceDiscoveryId'");
             }
-            resourceInputs["ipamId"] = args ? args.ipamId : undefined;
-            resourceInputs["ipamResourceDiscoveryId"] = args ? args.ipamResourceDiscoveryId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ipamId"] = args?.ipamId;
+            resourceInputs["ipamResourceDiscoveryId"] = args?.ipamResourceDiscoveryId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamRegion"] = undefined /*out*/;

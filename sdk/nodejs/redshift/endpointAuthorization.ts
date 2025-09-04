@@ -58,39 +58,39 @@ export class EndpointAuthorization extends pulumi.CustomResource {
     /**
      * The Amazon Web Services account ID to grant access to.
      */
-    public readonly account!: pulumi.Output<string>;
+    declare public readonly account: pulumi.Output<string>;
     /**
      * Indicates whether all VPCs in the grantee account are allowed access to the cluster.
      */
-    public /*out*/ readonly allowedAllVpcs!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly allowedAllVpcs: pulumi.Output<boolean>;
     /**
      * The cluster identifier of the cluster to grant access to.
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
      * The number of Redshift-managed VPC endpoints created for the authorization.
      */
-    public /*out*/ readonly endpointCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly endpointCount: pulumi.Output<number>;
     /**
      * Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
      */
-    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Web Services account ID of the grantee of the cluster.
      */
-    public /*out*/ readonly grantee!: pulumi.Output<string>;
+    declare public /*out*/ readonly grantee: pulumi.Output<string>;
     /**
      * The Amazon Web Services account ID of the cluster owner.
      */
-    public /*out*/ readonly grantor!: pulumi.Output<string>;
+    declare public /*out*/ readonly grantor: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      */
-    public readonly vpcIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a EndpointAuthorization resource with the given unique name, arguments, and options.
@@ -105,28 +105,28 @@ export class EndpointAuthorization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointAuthorizationState | undefined;
-            resourceInputs["account"] = state ? state.account : undefined;
-            resourceInputs["allowedAllVpcs"] = state ? state.allowedAllVpcs : undefined;
-            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            resourceInputs["endpointCount"] = state ? state.endpointCount : undefined;
-            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
-            resourceInputs["grantee"] = state ? state.grantee : undefined;
-            resourceInputs["grantor"] = state ? state.grantor : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["vpcIds"] = state ? state.vpcIds : undefined;
+            resourceInputs["account"] = state?.account;
+            resourceInputs["allowedAllVpcs"] = state?.allowedAllVpcs;
+            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
+            resourceInputs["endpointCount"] = state?.endpointCount;
+            resourceInputs["forceDelete"] = state?.forceDelete;
+            resourceInputs["grantee"] = state?.grantee;
+            resourceInputs["grantor"] = state?.grantor;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["vpcIds"] = state?.vpcIds;
         } else {
             const args = argsOrState as EndpointAuthorizationArgs | undefined;
-            if ((!args || args.account === undefined) && !opts.urn) {
+            if (args?.account === undefined && !opts.urn) {
                 throw new Error("Missing required property 'account'");
             }
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            resourceInputs["account"] = args ? args.account : undefined;
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vpcIds"] = args ? args.vpcIds : undefined;
+            resourceInputs["account"] = args?.account;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["forceDelete"] = args?.forceDelete;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vpcIds"] = args?.vpcIds;
             resourceInputs["allowedAllVpcs"] = undefined /*out*/;
             resourceInputs["endpointCount"] = undefined /*out*/;
             resourceInputs["grantee"] = undefined /*out*/;

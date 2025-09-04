@@ -124,6 +124,55 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Example Default Policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dlm.LifecyclePolicy;
+ * import com.pulumi.aws.dlm.LifecyclePolicyArgs;
+ * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsArgs;
+ * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsExclusionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LifecyclePolicy("example", LifecyclePolicyArgs.builder()
+ *             .description("tf-acc-basic")
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .defaultPolicy("VOLUME")
+ *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
+ *                 .createInterval(5)
+ *                 .resourceType("VOLUME")
+ *                 .policyLanguage("SIMPLIFIED")
+ *                 .exclusions(LifecyclePolicyPolicyDetailsExclusionsArgs.builder()
+ *                     .excludeBootVolumes(false)
+ *                     .excludeTags(Map.of("test", "exclude"))
+ *                     .excludeVolumeTypes("gp2")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example Cross-Region Snapshot Copy Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -298,6 +347,74 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Example Post/Pre Scripts
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.dlm.LifecyclePolicy;
+ * import com.pulumi.aws.dlm.LifecyclePolicyArgs;
+ * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var test = IamFunctions.getPolicy(GetPolicyArgs.builder()
+ *             .name("AWSDataLifecycleManagerSSMFullAccess")
+ *             .build());
+ * 
+ *         var example = new RolePolicyAttachment("example", RolePolicyAttachmentArgs.builder()
+ *             .role(testAwsIamRole.id())
+ *             .policyArn(exampleAwsIamPolicy.arn())
+ *             .build());
+ * 
+ *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
+ *             .description("tf-acc-basic")
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
+ *                 .resourceTypes("INSTANCE")
+ *                 .schedules(LifecyclePolicyPolicyDetailsScheduleArgs.builder()
+ *                     .name("Windows VSS")
+ *                     .createRule(LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.builder()
+ *                         .interval(12)
+ *                         .scripts(LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs.builder()
+ *                             .executeOperationOnScriptFailure(false)
+ *                             .executionHandler("AWS_VSS_BACKUP")
+ *                             .maximumRetryCount(2)
+ *                             .build())
+ *                         .build())
+ *                     .retainRule(LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs.builder()
+ *                         .count(10)
+ *                         .build())
+ *                     .build())
+ *                 .targetTags(Map.of("tag1", "Windows"))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
@@ -322,6 +439,20 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+     * 
+     */
+    @Export(name="defaultPolicy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> defaultPolicy;
+
+    /**
+     * @return Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+     * 
+     */
+    public Output<Optional<String>> defaultPolicy() {
+        return Codegen.optional(this.defaultPolicy);
     }
     /**
      * A description for the DLM lifecycle policy.

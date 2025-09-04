@@ -70,130 +70,130 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The name of the Access Control List to associate with the cluster.
      */
-    public readonly aclName!: pulumi.Output<string>;
+    declare public readonly aclName: pulumi.Output<string>;
     /**
      * The ARN of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
      */
-    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.memorydb.ClusterClusterEndpoint[]>;
+    declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly clusterEndpoints: pulumi.Output<outputs.memorydb.ClusterClusterEndpoint[]>;
     /**
      * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
      */
-    public readonly dataTiering!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataTiering: pulumi.Output<boolean | undefined>;
     /**
      * Description for the cluster. Defaults to `"Managed by Pulumi"`.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
      */
-    public readonly engine!: pulumi.Output<string>;
+    declare public readonly engine: pulumi.Output<string>;
     /**
      * Patch version number of the engine used by the cluster.
      */
-    public /*out*/ readonly enginePatchVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly enginePatchVersion: pulumi.Output<string>;
     /**
      * Version number of the engine to be used for the cluster. Downgrades are not supported.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    declare public readonly engineVersion: pulumi.Output<string>;
     /**
      * Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
      */
-    public readonly finalSnapshotName!: pulumi.Output<string | undefined>;
+    declare public readonly finalSnapshotName: pulumi.Output<string | undefined>;
     /**
      * ARN of the KMS key used to encrypt the cluster at rest.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      */
-    public readonly maintenanceWindow!: pulumi.Output<string>;
+    declare public readonly maintenanceWindow: pulumi.Output<string>;
     /**
      * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
      */
-    public readonly multiRegionClusterName!: pulumi.Output<string | undefined>;
+    declare public readonly multiRegionClusterName: pulumi.Output<string | undefined>;
     /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      *
      * The following arguments are optional:
      */
-    public readonly nodeType!: pulumi.Output<string>;
+    declare public readonly nodeType: pulumi.Output<string>;
     /**
      * The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      */
-    public readonly numReplicasPerShard!: pulumi.Output<number | undefined>;
+    declare public readonly numReplicasPerShard: pulumi.Output<number | undefined>;
     /**
      * The number of shards in the cluster. Defaults to `1`.
      */
-    public readonly numShards!: pulumi.Output<number | undefined>;
+    declare public readonly numShards: pulumi.Output<number | undefined>;
     /**
      * The name of the parameter group associated with the cluster.
      */
-    public readonly parameterGroupName!: pulumi.Output<string>;
+    declare public readonly parameterGroupName: pulumi.Output<string>;
     /**
      * The port number on which each of the nodes accepts connections. Defaults to `6379`.
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Set of VPC Security Group ID-s to associate with this cluster.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * Set of shards in this cluster.
      */
-    public /*out*/ readonly shards!: pulumi.Output<outputs.memorydb.ClusterShard[]>;
+    declare public /*out*/ readonly shards: pulumi.Output<outputs.memorydb.ClusterShard[]>;
     /**
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      */
-    public readonly snapshotArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly snapshotArns: pulumi.Output<string[] | undefined>;
     /**
      * The name of a snapshot from which to restore data into the new cluster.
      */
-    public readonly snapshotName!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotName: pulumi.Output<string | undefined>;
     /**
      * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      */
-    public readonly snapshotRetentionLimit!: pulumi.Output<number>;
+    declare public readonly snapshotRetentionLimit: pulumi.Output<number>;
     /**
      * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      */
-    public readonly snapshotWindow!: pulumi.Output<string>;
+    declare public readonly snapshotWindow: pulumi.Output<string>;
     /**
      * ARN of the SNS topic to which cluster notifications are sent.
      */
-    public readonly snsTopicArn!: pulumi.Output<string | undefined>;
+    declare public readonly snsTopicArn: pulumi.Output<string | undefined>;
     /**
      * The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      */
-    public readonly subnetGroupName!: pulumi.Output<string>;
+    declare public readonly subnetGroupName: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      */
-    public readonly tlsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tlsEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -208,73 +208,73 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["aclName"] = state ? state.aclName : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            resourceInputs["clusterEndpoints"] = state ? state.clusterEndpoints : undefined;
-            resourceInputs["dataTiering"] = state ? state.dataTiering : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["engine"] = state ? state.engine : undefined;
-            resourceInputs["enginePatchVersion"] = state ? state.enginePatchVersion : undefined;
-            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
-            resourceInputs["finalSnapshotName"] = state ? state.finalSnapshotName : undefined;
-            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            resourceInputs["multiRegionClusterName"] = state ? state.multiRegionClusterName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["nodeType"] = state ? state.nodeType : undefined;
-            resourceInputs["numReplicasPerShard"] = state ? state.numReplicasPerShard : undefined;
-            resourceInputs["numShards"] = state ? state.numShards : undefined;
-            resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["shards"] = state ? state.shards : undefined;
-            resourceInputs["snapshotArns"] = state ? state.snapshotArns : undefined;
-            resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
-            resourceInputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
-            resourceInputs["snapshotWindow"] = state ? state.snapshotWindow : undefined;
-            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
-            resourceInputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
+            resourceInputs["aclName"] = state?.aclName;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoMinorVersionUpgrade"] = state?.autoMinorVersionUpgrade;
+            resourceInputs["clusterEndpoints"] = state?.clusterEndpoints;
+            resourceInputs["dataTiering"] = state?.dataTiering;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["engine"] = state?.engine;
+            resourceInputs["enginePatchVersion"] = state?.enginePatchVersion;
+            resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["finalSnapshotName"] = state?.finalSnapshotName;
+            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
+            resourceInputs["maintenanceWindow"] = state?.maintenanceWindow;
+            resourceInputs["multiRegionClusterName"] = state?.multiRegionClusterName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["nodeType"] = state?.nodeType;
+            resourceInputs["numReplicasPerShard"] = state?.numReplicasPerShard;
+            resourceInputs["numShards"] = state?.numShards;
+            resourceInputs["parameterGroupName"] = state?.parameterGroupName;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
+            resourceInputs["shards"] = state?.shards;
+            resourceInputs["snapshotArns"] = state?.snapshotArns;
+            resourceInputs["snapshotName"] = state?.snapshotName;
+            resourceInputs["snapshotRetentionLimit"] = state?.snapshotRetentionLimit;
+            resourceInputs["snapshotWindow"] = state?.snapshotWindow;
+            resourceInputs["snsTopicArn"] = state?.snsTopicArn;
+            resourceInputs["subnetGroupName"] = state?.subnetGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tlsEnabled"] = state?.tlsEnabled;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.aclName === undefined) && !opts.urn) {
+            if (args?.aclName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aclName'");
             }
-            if ((!args || args.nodeType === undefined) && !opts.urn) {
+            if (args?.nodeType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            resourceInputs["aclName"] = args ? args.aclName : undefined;
-            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            resourceInputs["dataTiering"] = args ? args.dataTiering : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["multiRegionClusterName"] = args ? args.multiRegionClusterName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
-            resourceInputs["numReplicasPerShard"] = args ? args.numReplicasPerShard : undefined;
-            resourceInputs["numShards"] = args ? args.numShards : undefined;
-            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
-            resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
-            resourceInputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
-            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
+            resourceInputs["aclName"] = args?.aclName;
+            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
+            resourceInputs["dataTiering"] = args?.dataTiering;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["finalSnapshotName"] = args?.finalSnapshotName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["multiRegionClusterName"] = args?.multiRegionClusterName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["nodeType"] = args?.nodeType;
+            resourceInputs["numReplicasPerShard"] = args?.numReplicasPerShard;
+            resourceInputs["numShards"] = args?.numShards;
+            resourceInputs["parameterGroupName"] = args?.parameterGroupName;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["snapshotArns"] = args?.snapshotArns;
+            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["snapshotRetentionLimit"] = args?.snapshotRetentionLimit;
+            resourceInputs["snapshotWindow"] = args?.snapshotWindow;
+            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
+            resourceInputs["subnetGroupName"] = args?.subnetGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsEnabled"] = args?.tlsEnabled;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterEndpoints"] = undefined /*out*/;
             resourceInputs["enginePatchVersion"] = undefined /*out*/;

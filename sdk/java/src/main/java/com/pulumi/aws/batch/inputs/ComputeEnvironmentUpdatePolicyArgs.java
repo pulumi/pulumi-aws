@@ -32,14 +32,14 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+     * Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
      * 
      */
     @Import(name="terminateJobsOnUpdate")
     private @Nullable Output<Boolean> terminateJobsOnUpdate;
 
     /**
-     * @return Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+     * @return Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
      * 
      */
     public Optional<Output<Boolean>> terminateJobsOnUpdate() {
@@ -93,7 +93,7 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param terminateJobsOnUpdate Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+         * @param terminateJobsOnUpdate Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param terminateJobsOnUpdate Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+         * @param terminateJobsOnUpdate Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
          * 
          * @return builder
          * 

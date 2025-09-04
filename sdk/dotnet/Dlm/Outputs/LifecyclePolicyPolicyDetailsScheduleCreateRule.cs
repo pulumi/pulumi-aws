@@ -24,6 +24,10 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+        /// </summary>
+        public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts? Scripts;
+        /// <summary>
         /// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
         /// </summary>
         public readonly string? Times;
@@ -38,12 +42,15 @@ namespace Pulumi.Aws.Dlm.Outputs
 
             string? location,
 
+            Outputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts? scripts,
+
             string? times)
         {
             CronExpression = cronExpression;
             Interval = interval;
             IntervalUnit = intervalUnit;
             Location = location;
+            Scripts = scripts;
             Times = times;
         }
     }

@@ -352,6 +352,10 @@ class CanaryTimelineArgs:
 
 if not MYPY:
     class CanaryVpcConfigArgsDict(TypedDict):
+        ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+        """
         security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         IDs of the security groups for this canary.
@@ -370,20 +374,36 @@ elif False:
 @pulumi.input_type
 class CanaryVpcConfigArgs:
     def __init__(__self__, *,
+                 ipv6_allowed_for_dual_stack: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        :param pulumi.Input[_builtins.bool] ipv6_allowed_for_dual_stack: If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of the security groups for this canary.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the subnets where this canary is to run.
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC where this canary is to run.
         """
+        if ipv6_allowed_for_dual_stack is not None:
+            pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6AllowedForDualStack")
+    def ipv6_allowed_for_dual_stack(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+        """
+        return pulumi.get(self, "ipv6_allowed_for_dual_stack")
+
+    @ipv6_allowed_for_dual_stack.setter
+    def ipv6_allowed_for_dual_stack(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "ipv6_allowed_for_dual_stack", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")

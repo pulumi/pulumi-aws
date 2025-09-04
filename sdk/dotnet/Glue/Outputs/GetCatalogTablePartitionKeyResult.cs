@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Map of initialization parameters for the SerDe, in key-value form.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Parameters;
+        /// <summary>
         /// Datatype of data in the Column.
         /// </summary>
         public readonly string Type;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.Glue.Outputs
 
             string name,
 
+            ImmutableDictionary<string, string> parameters,
+
             string type)
         {
             Comment = comment;
             Name = name;
+            Parameters = parameters;
             Type = type;
         }
     }

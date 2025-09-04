@@ -115,6 +115,10 @@ export interface GetEndpointResult {
      * Information about the DNS servers to be used for DNS resolution.
      */
     readonly dnsServers: string[];
+    /**
+     * IP address type for the Client VPN endpoint.
+     */
+    readonly endpointIpAddressType: string;
     readonly filters?: outputs.ec2clientvpn.GetEndpointFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -146,6 +150,10 @@ export interface GetEndpointResult {
      */
     readonly splitTunnel: boolean;
     readonly tags: {[key: string]: string};
+    /**
+     * IP address type for traffic within the Client VPN tunnel.
+     */
+    readonly trafficIpAddressType: string;
     /**
      * Transport protocol used by the Client VPN endpoint.
      */

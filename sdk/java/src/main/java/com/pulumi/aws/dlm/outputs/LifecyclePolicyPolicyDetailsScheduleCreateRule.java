@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dlm.outputs;
 
+import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -24,6 +25,11 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
      * 
      */
     private @Nullable String location;
+    /**
+     * @return Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+     * 
+     */
+    private @Nullable LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts scripts;
     /**
      * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
@@ -52,6 +58,13 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
         return Optional.ofNullable(this.location);
     }
     /**
+     * @return Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+     * 
+     */
+    public Optional<LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts> scripts() {
+        return Optional.ofNullable(this.scripts);
+    }
+    /**
      * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
@@ -72,6 +85,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
         private @Nullable Integer interval;
         private @Nullable String intervalUnit;
         private @Nullable String location;
+        private @Nullable LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts scripts;
         private @Nullable String times;
         public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsScheduleCreateRule defaults) {
@@ -80,6 +94,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
     	      this.interval = defaults.interval;
     	      this.intervalUnit = defaults.intervalUnit;
     	      this.location = defaults.location;
+    	      this.scripts = defaults.scripts;
     	      this.times = defaults.times;
         }
 
@@ -108,6 +123,12 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
             return this;
         }
         @CustomType.Setter
+        public Builder scripts(@Nullable LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts scripts) {
+
+            this.scripts = scripts;
+            return this;
+        }
+        @CustomType.Setter
         public Builder times(@Nullable String times) {
 
             this.times = times;
@@ -119,6 +140,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
             _resultValue.interval = interval;
             _resultValue.intervalUnit = intervalUnit;
             _resultValue.location = location;
+            _resultValue.scripts = scripts;
             _resultValue.times = times;
             return _resultValue;
         }

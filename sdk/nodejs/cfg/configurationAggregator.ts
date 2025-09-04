@@ -101,33 +101,33 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    public readonly accountAggregationSource!: pulumi.Output<outputs.cfg.ConfigurationAggregatorAccountAggregationSource | undefined>;
+    declare public readonly accountAggregationSource: pulumi.Output<outputs.cfg.ConfigurationAggregatorAccountAggregationSource | undefined>;
     /**
      * The ARN of the aggregator
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the configuration aggregator.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The organization to aggregate config data from as documented below.
      */
-    public readonly organizationAggregationSource!: pulumi.Output<outputs.cfg.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
+    declare public readonly organizationAggregationSource: pulumi.Output<outputs.cfg.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ConfigurationAggregator resource with the given unique name, arguments, and options.
@@ -142,20 +142,20 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationAggregatorState | undefined;
-            resourceInputs["accountAggregationSource"] = state ? state.accountAggregationSource : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["organizationAggregationSource"] = state ? state.organizationAggregationSource : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["accountAggregationSource"] = state?.accountAggregationSource;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["organizationAggregationSource"] = state?.organizationAggregationSource;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ConfigurationAggregatorArgs | undefined;
-            resourceInputs["accountAggregationSource"] = args ? args.accountAggregationSource : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountAggregationSource"] = args?.accountAggregationSource;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["organizationAggregationSource"] = args?.organizationAggregationSource;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

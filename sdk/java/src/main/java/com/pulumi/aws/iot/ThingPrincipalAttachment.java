@@ -114,6 +114,20 @@ public class ThingPrincipalAttachment extends com.pulumi.resources.CustomResourc
     public Output<String> thing() {
         return this.thing;
     }
+    /**
+     * The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+     * 
+     */
+    @Export(name="thingPrincipalType", refs={String.class}, tree="[0]")
+    private Output<String> thingPrincipalType;
+
+    /**
+     * @return The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+     * 
+     */
+    public Output<String> thingPrincipalType() {
+        return this.thingPrincipalType;
+    }
 
     /**
      *

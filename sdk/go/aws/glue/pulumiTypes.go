@@ -1820,6 +1820,8 @@ type CatalogTablePartitionKey struct {
 	Comment *string `pulumi:"comment"`
 	// Name of the Partition Key.
 	Name string `pulumi:"name"`
+	// Map of key-value pairs.
+	Parameters map[string]string `pulumi:"parameters"`
 	// Datatype of data in the Partition Key.
 	Type *string `pulumi:"type"`
 }
@@ -1840,6 +1842,8 @@ type CatalogTablePartitionKeyArgs struct {
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// Name of the Partition Key.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Map of key-value pairs.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Datatype of data in the Partition Key.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -1903,6 +1907,11 @@ func (o CatalogTablePartitionKeyOutput) Comment() pulumi.StringPtrOutput {
 // Name of the Partition Key.
 func (o CatalogTablePartitionKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTablePartitionKey) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Map of key-value pairs.
+func (o CatalogTablePartitionKeyOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CatalogTablePartitionKey) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // Datatype of data in the Partition Key.
@@ -10617,6 +10626,8 @@ type GetCatalogTablePartitionKey struct {
 	Comment string `pulumi:"comment"`
 	// Name of the table.
 	Name string `pulumi:"name"`
+	// Map of initialization parameters for the SerDe, in key-value form.
+	Parameters map[string]string `pulumi:"parameters"`
 	// Datatype of data in the Column.
 	Type string `pulumi:"type"`
 }
@@ -10637,6 +10648,8 @@ type GetCatalogTablePartitionKeyArgs struct {
 	Comment pulumi.StringInput `pulumi:"comment"`
 	// Name of the table.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Datatype of data in the Column.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10700,6 +10713,11 @@ func (o GetCatalogTablePartitionKeyOutput) Comment() pulumi.StringOutput {
 // Name of the table.
 func (o GetCatalogTablePartitionKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogTablePartitionKey) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Map of initialization parameters for the SerDe, in key-value form.
+func (o GetCatalogTablePartitionKeyOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionKey) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // Datatype of data in the Column.

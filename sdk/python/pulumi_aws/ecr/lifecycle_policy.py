@@ -223,11 +223,23 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `repository` - (String) Name of the ECR repository.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+
+        - `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
 
-        ```sh
-        $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
-        ```
+        console
+
+        % pulumi import aws_ecr_lifecycle_policy.example tf-example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,11 +322,23 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `repository` - (String) Name of the ECR repository.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+
+        - `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
 
-        ```sh
-        $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
-        ```
+        console
+
+        % pulumi import aws_ecr_lifecycle_policy.example tf-example
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

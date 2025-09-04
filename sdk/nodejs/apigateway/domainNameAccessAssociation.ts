@@ -59,31 +59,31 @@ export class DomainNameAccessAssociation extends pulumi.CustomResource {
     /**
      * The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      */
-    public readonly accessAssociationSource!: pulumi.Output<string>;
+    declare public readonly accessAssociationSource: pulumi.Output<string>;
     /**
      * The type of the domain name access association source. Valid values are `VPCE`.
      */
-    public readonly accessAssociationSourceType!: pulumi.Output<string>;
+    declare public readonly accessAssociationSourceType: pulumi.Output<string>;
     /**
      * ARN of the domain name access association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ARN of the domain name.
      */
-    public readonly domainNameArn!: pulumi.Output<string>;
+    declare public readonly domainNameArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DomainNameAccessAssociation resource with the given unique name, arguments, and options.
@@ -98,29 +98,29 @@ export class DomainNameAccessAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainNameAccessAssociationState | undefined;
-            resourceInputs["accessAssociationSource"] = state ? state.accessAssociationSource : undefined;
-            resourceInputs["accessAssociationSourceType"] = state ? state.accessAssociationSourceType : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["domainNameArn"] = state ? state.domainNameArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["accessAssociationSource"] = state?.accessAssociationSource;
+            resourceInputs["accessAssociationSourceType"] = state?.accessAssociationSourceType;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["domainNameArn"] = state?.domainNameArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as DomainNameAccessAssociationArgs | undefined;
-            if ((!args || args.accessAssociationSource === undefined) && !opts.urn) {
+            if (args?.accessAssociationSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessAssociationSource'");
             }
-            if ((!args || args.accessAssociationSourceType === undefined) && !opts.urn) {
+            if (args?.accessAssociationSourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessAssociationSourceType'");
             }
-            if ((!args || args.domainNameArn === undefined) && !opts.urn) {
+            if (args?.domainNameArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainNameArn'");
             }
-            resourceInputs["accessAssociationSource"] = args ? args.accessAssociationSource : undefined;
-            resourceInputs["accessAssociationSourceType"] = args ? args.accessAssociationSourceType : undefined;
-            resourceInputs["domainNameArn"] = args ? args.domainNameArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessAssociationSource"] = args?.accessAssociationSource;
+            resourceInputs["accessAssociationSourceType"] = args?.accessAssociationSourceType;
+            resourceInputs["domainNameArn"] = args?.domainNameArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

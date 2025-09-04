@@ -167,6 +167,20 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enablePrivateGua);
     }
     /**
+     * AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+     * 
+     */
+    @Export(name="meteredAccount", refs={String.class}, tree="[0]")
+    private Output<String> meteredAccount;
+
+    /**
+     * @return AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
+     * 
+     */
+    public Output<String> meteredAccount() {
+        return this.meteredAccount;
+    }
+    /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
      * 
      */

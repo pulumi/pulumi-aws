@@ -551,7 +551,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> engine;
+    private Output<String> engine;
 
     /**
      * @return Name of the cache engine to be used for the clusters in this replication group.
@@ -559,8 +559,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * Default is `redis`.
      * 
      */
-    public Output<Optional<String>> engine() {
-        return Codegen.optional(this.engine);
+    public Output<String> engine() {
+        return this.engine;
     }
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.

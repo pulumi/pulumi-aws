@@ -55,11 +55,11 @@ export class AccountSuppressionAttributes extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      */
-    public readonly suppressedReasons!: pulumi.Output<string[]>;
+    declare public readonly suppressedReasons: pulumi.Output<string[]>;
 
     /**
      * Create a AccountSuppressionAttributes resource with the given unique name, arguments, and options.
@@ -74,15 +74,15 @@ export class AccountSuppressionAttributes extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountSuppressionAttributesState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["suppressedReasons"] = state ? state.suppressedReasons : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["suppressedReasons"] = state?.suppressedReasons;
         } else {
             const args = argsOrState as AccountSuppressionAttributesArgs | undefined;
-            if ((!args || args.suppressedReasons === undefined) && !opts.urn) {
+            if (args?.suppressedReasons === undefined && !opts.urn) {
                 throw new Error("Missing required property 'suppressedReasons'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["suppressedReasons"] = args ? args.suppressedReasons : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["suppressedReasons"] = args?.suppressedReasons;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountSuppressionAttributes.__pulumiType, name, resourceInputs, opts);

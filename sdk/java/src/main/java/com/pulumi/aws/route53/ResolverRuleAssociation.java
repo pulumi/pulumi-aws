@@ -54,11 +54,23 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` - (String) ID of the Route53 Resolver rule association.
+ * 
+ * #### Optional
+ * 
+ * - `account_id` (String) AWS Account where this resource is managed.
+ * 
+ * - `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
  * 
- * ```sh
- * $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
- * ```
+ * console
+ * 
+ * % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
  * 
  */
 @ResourceType(type="aws:route53/resolverRuleAssociation:ResolverRuleAssociation")

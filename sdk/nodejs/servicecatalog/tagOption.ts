@@ -60,22 +60,22 @@ export class TagOption extends pulumi.CustomResource {
     /**
      * Whether tag option is active. Default is `true`.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * Tag option key.
      */
-    public readonly key!: pulumi.Output<string>;
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Tag option value.
      *
      * The following arguments are optional:
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a TagOption resource with the given unique name, arguments, and options.
@@ -90,23 +90,23 @@ export class TagOption extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagOptionState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as TagOptionArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["value"] = args?.value;
             resourceInputs["owner"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

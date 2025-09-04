@@ -67,6 +67,12 @@ namespace Pulumi.Aws.Iot
         [Output("thing")]
         public Output<string> Thing { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+        /// </summary>
+        [Output("thingPrincipalType")]
+        public Output<string> ThingPrincipalType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ThingPrincipalAttachment resource with the given unique name, arguments, and options.
@@ -131,6 +137,12 @@ namespace Pulumi.Aws.Iot
         [Input("thing", required: true)]
         public Input<string> Thing { get; set; } = null!;
 
+        /// <summary>
+        /// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+        /// </summary>
+        [Input("thingPrincipalType")]
+        public Input<string>? ThingPrincipalType { get; set; }
+
         public ThingPrincipalAttachmentArgs()
         {
         }
@@ -156,6 +168,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("thing")]
         public Input<string>? Thing { get; set; }
+
+        /// <summary>
+        /// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+        /// </summary>
+        [Input("thingPrincipalType")]
+        public Input<string>? ThingPrincipalType { get; set; }
 
         public ThingPrincipalAttachmentState()
         {

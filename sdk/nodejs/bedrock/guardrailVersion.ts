@@ -64,26 +64,26 @@ export class GuardrailVersion extends pulumi.CustomResource {
     /**
      * Description of the Guardrail version.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Guardrail ARN.
      *
      * The following arguments are optional:
      */
-    public readonly guardrailArn!: pulumi.Output<string>;
+    declare public readonly guardrailArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      */
-    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.GuardrailVersionTimeouts | undefined>;
+    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
+    declare public readonly timeouts: pulumi.Output<outputs.bedrock.GuardrailVersionTimeouts | undefined>;
     /**
      * Guardrail version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a GuardrailVersion resource with the given unique name, arguments, and options.
@@ -98,22 +98,22 @@ export class GuardrailVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GuardrailVersionState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["guardrailArn"] = state ? state.guardrailArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["guardrailArn"] = state?.guardrailArn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["skipDestroy"] = state?.skipDestroy;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as GuardrailVersionArgs | undefined;
-            if ((!args || args.guardrailArn === undefined) && !opts.urn) {
+            if (args?.guardrailArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'guardrailArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["guardrailArn"] = args ? args.guardrailArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["guardrailArn"] = args?.guardrailArn;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["skipDestroy"] = args?.skipDestroy;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

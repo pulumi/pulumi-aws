@@ -57,71 +57,71 @@ export class TransitGateway extends pulumi.CustomResource {
      *
      * > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
      */
-    public readonly amazonSideAsn!: pulumi.Output<number | undefined>;
+    declare public readonly amazonSideAsn: pulumi.Output<number | undefined>;
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Identifier of the default association route table
      */
-    public /*out*/ readonly associationDefaultRouteTableId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationDefaultRouteTableId: pulumi.Output<string>;
     /**
      * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    public readonly autoAcceptSharedAttachments!: pulumi.Output<string | undefined>;
+    declare public readonly autoAcceptSharedAttachments: pulumi.Output<string | undefined>;
     /**
      * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    public readonly defaultRouteTableAssociation!: pulumi.Output<string | undefined>;
+    declare public readonly defaultRouteTableAssociation: pulumi.Output<string | undefined>;
     /**
      * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    public readonly defaultRouteTablePropagation!: pulumi.Output<string | undefined>;
+    declare public readonly defaultRouteTablePropagation: pulumi.Output<string | undefined>;
     /**
      * Description of the EC2 Transit Gateway.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    public readonly dnsSupport!: pulumi.Output<string | undefined>;
+    declare public readonly dnsSupport: pulumi.Output<string | undefined>;
     /**
      * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    public readonly multicastSupport!: pulumi.Output<string | undefined>;
+    declare public readonly multicastSupport: pulumi.Output<string | undefined>;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Identifier of the default propagation route table
      */
-    public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string>;
+    declare public /*out*/ readonly propagationDefaultRouteTableId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    public readonly securityGroupReferencingSupport!: pulumi.Output<string | undefined>;
+    declare public readonly securityGroupReferencingSupport: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
      */
-    public readonly transitGatewayCidrBlocks!: pulumi.Output<string[] | undefined>;
+    declare public readonly transitGatewayCidrBlocks: pulumi.Output<string[] | undefined>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    public readonly vpnEcmpSupport!: pulumi.Output<string | undefined>;
+    declare public readonly vpnEcmpSupport: pulumi.Output<string | undefined>;
 
     /**
      * Create a TransitGateway resource with the given unique name, arguments, and options.
@@ -136,37 +136,37 @@ export class TransitGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitGatewayState | undefined;
-            resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["associationDefaultRouteTableId"] = state ? state.associationDefaultRouteTableId : undefined;
-            resourceInputs["autoAcceptSharedAttachments"] = state ? state.autoAcceptSharedAttachments : undefined;
-            resourceInputs["defaultRouteTableAssociation"] = state ? state.defaultRouteTableAssociation : undefined;
-            resourceInputs["defaultRouteTablePropagation"] = state ? state.defaultRouteTablePropagation : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dnsSupport"] = state ? state.dnsSupport : undefined;
-            resourceInputs["multicastSupport"] = state ? state.multicastSupport : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["propagationDefaultRouteTableId"] = state ? state.propagationDefaultRouteTableId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityGroupReferencingSupport"] = state ? state.securityGroupReferencingSupport : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["transitGatewayCidrBlocks"] = state ? state.transitGatewayCidrBlocks : undefined;
-            resourceInputs["vpnEcmpSupport"] = state ? state.vpnEcmpSupport : undefined;
+            resourceInputs["amazonSideAsn"] = state?.amazonSideAsn;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["associationDefaultRouteTableId"] = state?.associationDefaultRouteTableId;
+            resourceInputs["autoAcceptSharedAttachments"] = state?.autoAcceptSharedAttachments;
+            resourceInputs["defaultRouteTableAssociation"] = state?.defaultRouteTableAssociation;
+            resourceInputs["defaultRouteTablePropagation"] = state?.defaultRouteTablePropagation;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dnsSupport"] = state?.dnsSupport;
+            resourceInputs["multicastSupport"] = state?.multicastSupport;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["propagationDefaultRouteTableId"] = state?.propagationDefaultRouteTableId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityGroupReferencingSupport"] = state?.securityGroupReferencingSupport;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["transitGatewayCidrBlocks"] = state?.transitGatewayCidrBlocks;
+            resourceInputs["vpnEcmpSupport"] = state?.vpnEcmpSupport;
         } else {
             const args = argsOrState as TransitGatewayArgs | undefined;
-            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            resourceInputs["autoAcceptSharedAttachments"] = args ? args.autoAcceptSharedAttachments : undefined;
-            resourceInputs["defaultRouteTableAssociation"] = args ? args.defaultRouteTableAssociation : undefined;
-            resourceInputs["defaultRouteTablePropagation"] = args ? args.defaultRouteTablePropagation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
-            resourceInputs["multicastSupport"] = args ? args.multicastSupport : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityGroupReferencingSupport"] = args ? args.securityGroupReferencingSupport : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
-            resourceInputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
+            resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
+            resourceInputs["autoAcceptSharedAttachments"] = args?.autoAcceptSharedAttachments;
+            resourceInputs["defaultRouteTableAssociation"] = args?.defaultRouteTableAssociation;
+            resourceInputs["defaultRouteTablePropagation"] = args?.defaultRouteTablePropagation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dnsSupport"] = args?.dnsSupport;
+            resourceInputs["multicastSupport"] = args?.multicastSupport;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityGroupReferencingSupport"] = args?.securityGroupReferencingSupport;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayCidrBlocks"] = args?.transitGatewayCidrBlocks;
+            resourceInputs["vpnEcmpSupport"] = args?.vpnEcmpSupport;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationDefaultRouteTableId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;

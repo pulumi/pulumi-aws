@@ -120,6 +120,7 @@ class _EmailIdentityState:
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 verification_status: Optional[pulumi.Input[_builtins.str]] = None,
                  verified_for_sending_status: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EmailIdentity resources.
@@ -133,6 +134,7 @@ class _EmailIdentityState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] verification_status: The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
         :param pulumi.Input[_builtins.bool] verified_for_sending_status: Specifies whether or not the identity is verified.
         """
         if arn is not None:
@@ -151,6 +153,8 @@ class _EmailIdentityState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if verification_status is not None:
+            pulumi.set(__self__, "verification_status", verification_status)
         if verified_for_sending_status is not None:
             pulumi.set(__self__, "verified_for_sending_status", verified_for_sending_status)
 
@@ -251,6 +255,18 @@ class _EmailIdentityState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @_builtins.property
+    @pulumi.getter(name="verificationStatus")
+    def verification_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        """
+        return pulumi.get(self, "verification_status")
+
+    @verification_status.setter
+    def verification_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "verification_status", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedForSendingStatus")
@@ -450,6 +466,7 @@ class EmailIdentity(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["identity_type"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["verification_status"] = None
             __props__.__dict__["verified_for_sending_status"] = None
         super(EmailIdentity, __self__).__init__(
             'aws:sesv2/emailIdentity:EmailIdentity',
@@ -469,6 +486,7 @@ class EmailIdentity(pulumi.CustomResource):
             region: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            verification_status: Optional[pulumi.Input[_builtins.str]] = None,
             verified_for_sending_status: Optional[pulumi.Input[_builtins.bool]] = None) -> 'EmailIdentity':
         """
         Get an existing EmailIdentity resource's state with the given name, id, and optional extra
@@ -487,6 +505,7 @@ class EmailIdentity(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] verification_status: The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
         :param pulumi.Input[_builtins.bool] verified_for_sending_status: Specifies whether or not the identity is verified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -501,6 +520,7 @@ class EmailIdentity(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["verification_status"] = verification_status
         __props__.__dict__["verified_for_sending_status"] = verified_for_sending_status
         return EmailIdentity(resource_name, opts=opts, __props__=__props__)
 
@@ -569,6 +589,14 @@ class EmailIdentity(pulumi.CustomResource):
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @_builtins.property
+    @pulumi.getter(name="verificationStatus")
+    def verification_status(self) -> pulumi.Output[_builtins.str]:
+        """
+        The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        """
+        return pulumi.get(self, "verification_status")
 
     @_builtins.property
     @pulumi.getter(name="verifiedForSendingStatus")

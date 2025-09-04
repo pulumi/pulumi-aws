@@ -347,7 +347,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Default is `redis`.
         /// </summary>
         [Output("engine")]
-        public Output<string?> Engine { get; private set; } = null!;
+        public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Version number of the cache engine to be used for the cache clusters in this replication group.

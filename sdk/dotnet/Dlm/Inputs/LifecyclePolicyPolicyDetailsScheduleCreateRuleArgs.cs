@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+        /// </summary>
+        [Input("scripts")]
+        public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs>? Scripts { get; set; }
+
+        /// <summary>
         /// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
         /// </summary>
         [Input("times")]

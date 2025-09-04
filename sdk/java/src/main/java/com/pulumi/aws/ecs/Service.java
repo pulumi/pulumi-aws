@@ -253,6 +253,48 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Blue/Green Deployment with SIGINT Rollback
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Service;
+ * import com.pulumi.aws.ecs.ServiceArgs;
+ * import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Service("example", ServiceArgs.builder()
+ *             .name("example")
+ *             .cluster(exampleAwsEcsCluster.id())
+ *             .deploymentConfiguration(ServiceDeploymentConfigurationArgs.builder()
+ *                 .strategy("BLUE_GREEN")
+ *                 .build())
+ *             .sigintRollback(true)
+ *             .waitForSteadyState(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Redeploy Service On Every Apply
  * 
  * The key used with `triggers` is arbitrary.
@@ -391,14 +433,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="deploymentConfiguration", refs={ServiceDeploymentConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ ServiceDeploymentConfiguration> deploymentConfiguration;
+    private Output<ServiceDeploymentConfiguration> deploymentConfiguration;
 
     /**
      * @return Configuration block for deployment settings. See below.
      * 
      */
-    public Output<Optional<ServiceDeploymentConfiguration>> deploymentConfiguration() {
-        return Codegen.optional(this.deploymentConfiguration);
+    public Output<ServiceDeploymentConfiguration> deploymentConfiguration() {
+        return this.deploymentConfiguration;
     }
     /**
      * Configuration block for deployment controller configuration. See below.
@@ -713,6 +755,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ServiceServiceRegistries>> serviceRegistries() {
         return Codegen.optional(this.serviceRegistries);
+    }
+    /**
+     * Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+     * 
+     */
+    @Export(name="sigintRollback", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> sigintRollback;
+
+    /**
+     * @return Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+     * 
+     */
+    public Output<Optional<Boolean>> sigintRollback() {
+        return Codegen.optional(this.sigintRollback);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -907,7 +907,7 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) KubernetesNamespace() pulum
 type ComputeEnvironmentUpdatePolicy struct {
 	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
 	JobExecutionTimeoutMinutes *int `pulumi:"jobExecutionTimeoutMinutes"`
-	// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+	// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
 	TerminateJobsOnUpdate *bool `pulumi:"terminateJobsOnUpdate"`
 }
 
@@ -925,7 +925,7 @@ type ComputeEnvironmentUpdatePolicyInput interface {
 type ComputeEnvironmentUpdatePolicyArgs struct {
 	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
 	JobExecutionTimeoutMinutes pulumi.IntPtrInput `pulumi:"jobExecutionTimeoutMinutes"`
-	// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+	// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
 	TerminateJobsOnUpdate pulumi.BoolPtrInput `pulumi:"terminateJobsOnUpdate"`
 }
 
@@ -1011,7 +1011,7 @@ func (o ComputeEnvironmentUpdatePolicyOutput) JobExecutionTimeoutMinutes() pulum
 	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *int { return v.JobExecutionTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *bool { return v.TerminateJobsOnUpdate }).(pulumi.BoolPtrOutput)
 }
@@ -1050,7 +1050,7 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) JobExecutionTimeoutMinutes() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyPtrOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentUpdatePolicy) *bool {
 		if v == nil {
@@ -3070,7 +3070,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutp
 }
 
 type JobDefinitionEksPropertiesPodPropertiesMetadata struct {
-	// Key-value pairs used to identify, sort, and organize cube resources.
+	// Key-value pairs used to identify, sort, and organize kubernetes resources.
 	Labels map[string]string `pulumi:"labels"`
 }
 
@@ -3086,7 +3086,7 @@ type JobDefinitionEksPropertiesPodPropertiesMetadataInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesMetadataArgs struct {
-	// Key-value pairs used to identify, sort, and organize cube resources.
+	// Key-value pairs used to identify, sort, and organize kubernetes resources.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
 }
 
@@ -3167,7 +3167,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesMetadataOutput) ToJobDefinitionEk
 	}).(JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput)
 }
 
-// Key-value pairs used to identify, sort, and organize cube resources.
+// Key-value pairs used to identify, sort, and organize kubernetes resources.
 func (o JobDefinitionEksPropertiesPodPropertiesMetadataOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesMetadata) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
@@ -3196,7 +3196,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput) Elem() JobDefi
 	}).(JobDefinitionEksPropertiesPodPropertiesMetadataOutput)
 }
 
-// Key-value pairs used to identify, sort, and organize cube resources.
+// Key-value pairs used to identify, sort, and organize kubernetes resources.
 func (o JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesMetadata) map[string]string {
 		if v == nil {

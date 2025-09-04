@@ -117,8 +117,10 @@ type LookupEndpointResult struct {
 	// DNS name to be used by clients when connecting to the Client VPN endpoint.
 	DnsName string `pulumi:"dnsName"`
 	// Information about the DNS servers to be used for DNS resolution.
-	DnsServers []string            `pulumi:"dnsServers"`
-	Filters    []GetEndpointFilter `pulumi:"filters"`
+	DnsServers []string `pulumi:"dnsServers"`
+	// IP address type for the Client VPN endpoint.
+	EndpointIpAddressType string              `pulumi:"endpointIpAddressType"`
+	Filters               []GetEndpointFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
@@ -135,6 +137,8 @@ type LookupEndpointResult struct {
 	// Whether split-tunnel is enabled in the AWS Client VPN endpoint.
 	SplitTunnel bool              `pulumi:"splitTunnel"`
 	Tags        map[string]string `pulumi:"tags"`
+	// IP address type for traffic within the Client VPN tunnel.
+	TrafficIpAddressType string `pulumi:"trafficIpAddressType"`
 	// Transport protocol used by the Client VPN endpoint.
 	TransportProtocol string `pulumi:"transportProtocol"`
 	// ID of the VPC associated with the Client VPN endpoint.
@@ -239,6 +243,11 @@ func (o LookupEndpointResultOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
+// IP address type for the Client VPN endpoint.
+func (o LookupEndpointResultOutput) EndpointIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEndpointResult) string { return v.EndpointIpAddressType }).(pulumi.StringOutput)
+}
+
 func (o LookupEndpointResultOutput) Filters() GetEndpointFilterArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointFilter { return v.Filters }).(GetEndpointFilterArrayOutput)
 }
@@ -284,6 +293,11 @@ func (o LookupEndpointResultOutput) SplitTunnel() pulumi.BoolOutput {
 
 func (o LookupEndpointResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupEndpointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// IP address type for traffic within the Client VPN tunnel.
+func (o LookupEndpointResultOutput) TrafficIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEndpointResult) string { return v.TrafficIpAddressType }).(pulumi.StringOutput)
 }
 
 // Transport protocol used by the Client VPN endpoint.

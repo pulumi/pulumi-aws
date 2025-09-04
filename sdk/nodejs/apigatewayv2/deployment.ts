@@ -52,23 +52,23 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * API identifier.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * Whether the deployment was automatically released.
      */
-    public /*out*/ readonly autoDeployed!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly autoDeployed: pulumi.Output<boolean>;
     /**
      * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
-    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly triggers: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -83,20 +83,20 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            resourceInputs["apiId"] = state ? state.apiId : undefined;
-            resourceInputs["autoDeployed"] = state ? state.autoDeployed : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["apiId"] = state?.apiId;
+            resourceInputs["autoDeployed"] = state?.autoDeployed;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["triggers"] = state?.triggers;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["triggers"] = args?.triggers;
             resourceInputs["autoDeployed"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

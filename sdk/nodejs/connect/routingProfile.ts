@@ -77,48 +77,48 @@ export class RoutingProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Routing Profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the default outbound queue for the Routing Profile.
      */
-    public readonly defaultOutboundQueueId!: pulumi.Output<string>;
+    declare public readonly defaultOutboundQueueId: pulumi.Output<string>;
     /**
      * Specifies the description of the Routing Profile.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      */
-    public readonly mediaConcurrencies!: pulumi.Output<outputs.connect.RoutingProfileMediaConcurrency[]>;
+    declare public readonly mediaConcurrencies: pulumi.Output<outputs.connect.RoutingProfileMediaConcurrency[]>;
     /**
      * Specifies the name of the Routing Profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
-    public readonly queueConfigs!: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
+    declare public readonly queueConfigs: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The identifier for the Routing Profile.
      */
-    public /*out*/ readonly routingProfileId!: pulumi.Output<string>;
+    declare public /*out*/ readonly routingProfileId: pulumi.Output<string>;
     /**
      * Tags to apply to the Routing Profile. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RoutingProfile resource with the given unique name, arguments, and options.
@@ -133,39 +133,39 @@ export class RoutingProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoutingProfileState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["defaultOutboundQueueId"] = state ? state.defaultOutboundQueueId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["mediaConcurrencies"] = state ? state.mediaConcurrencies : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queueConfigs"] = state ? state.queueConfigs : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routingProfileId"] = state ? state.routingProfileId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["defaultOutboundQueueId"] = state?.defaultOutboundQueueId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["mediaConcurrencies"] = state?.mediaConcurrencies;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queueConfigs"] = state?.queueConfigs;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routingProfileId"] = state?.routingProfileId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as RoutingProfileArgs | undefined;
-            if ((!args || args.defaultOutboundQueueId === undefined) && !opts.urn) {
+            if (args?.defaultOutboundQueueId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultOutboundQueueId'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.mediaConcurrencies === undefined) && !opts.urn) {
+            if (args?.mediaConcurrencies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mediaConcurrencies'");
             }
-            resourceInputs["defaultOutboundQueueId"] = args ? args.defaultOutboundQueueId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["mediaConcurrencies"] = args ? args.mediaConcurrencies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queueConfigs"] = args ? args.queueConfigs : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultOutboundQueueId"] = args?.defaultOutboundQueueId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["mediaConcurrencies"] = args?.mediaConcurrencies;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queueConfigs"] = args?.queueConfigs;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["routingProfileId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

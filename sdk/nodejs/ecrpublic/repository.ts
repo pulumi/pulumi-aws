@@ -76,36 +76,36 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Full ARN of the repository.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Catalog data configuration for the repository. See below for schema.
      */
-    public readonly catalogData!: pulumi.Output<outputs.ecrpublic.RepositoryCatalogData | undefined>;
-    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly catalogData: pulumi.Output<outputs.ecrpublic.RepositoryCatalogData | undefined>;
+    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly registryId: pulumi.Output<string>;
     /**
      * Name of the repository.
      */
-    public readonly repositoryName!: pulumi.Output<string>;
+    declare public readonly repositoryName: pulumi.Output<string>;
     /**
      * The URI of the repository.
      */
-    public /*out*/ readonly repositoryUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly repositoryUri: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -120,25 +120,25 @@ export class Repository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["catalogData"] = state ? state.catalogData : undefined;
-            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["registryId"] = state ? state.registryId : undefined;
-            resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
-            resourceInputs["repositoryUri"] = state ? state.repositoryUri : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["catalogData"] = state?.catalogData;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["registryId"] = state?.registryId;
+            resourceInputs["repositoryName"] = state?.repositoryName;
+            resourceInputs["repositoryUri"] = state?.repositoryUri;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
-            if ((!args || args.repositoryName === undefined) && !opts.urn) {
+            if (args?.repositoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            resourceInputs["catalogData"] = args ? args.catalogData : undefined;
-            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["catalogData"] = args?.catalogData;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["registryId"] = undefined /*out*/;
             resourceInputs["repositoryUri"] = undefined /*out*/;

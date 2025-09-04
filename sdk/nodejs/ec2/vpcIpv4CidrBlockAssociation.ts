@@ -76,23 +76,23 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
     /**
      * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      */
-    public readonly cidrBlock!: pulumi.Output<string>;
+    declare public readonly cidrBlock: pulumi.Output<string>;
     /**
      * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      */
-    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly ipv4IpamPoolId: pulumi.Output<string | undefined>;
     /**
      * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      */
-    public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly ipv4NetmaskLength: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the VPC to make the association with.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcIpv4CidrBlockAssociation resource with the given unique name, arguments, and options.
@@ -107,21 +107,21 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpv4CidrBlockAssociationState | undefined;
-            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            resourceInputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
-            resourceInputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["cidrBlock"] = state?.cidrBlock;
+            resourceInputs["ipv4IpamPoolId"] = state?.ipv4IpamPoolId;
+            resourceInputs["ipv4NetmaskLength"] = state?.ipv4NetmaskLength;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as VpcIpv4CidrBlockAssociationArgs | undefined;
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["cidrBlock"] = args?.cidrBlock;
+            resourceInputs["ipv4IpamPoolId"] = args?.ipv4IpamPoolId;
+            resourceInputs["ipv4NetmaskLength"] = args?.ipv4NetmaskLength;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vpcId"] = args?.vpcId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcIpv4CidrBlockAssociation.__pulumiType, name, resourceInputs, opts);

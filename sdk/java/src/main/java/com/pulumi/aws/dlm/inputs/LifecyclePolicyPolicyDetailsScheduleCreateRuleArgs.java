@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dlm.inputs;
 
+import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -61,6 +62,21 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
     }
 
     /**
+     * Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+     * 
+     */
+    @Import(name="scripts")
+    private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs> scripts;
+
+    /**
+     * @return Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+     * 
+     */
+    public Optional<Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs>> scripts() {
+        return Optional.ofNullable(this.scripts);
+    }
+
+    /**
      * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
@@ -82,6 +98,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         this.interval = $.interval;
         this.intervalUnit = $.intervalUnit;
         this.location = $.location;
+        this.scripts = $.scripts;
         this.times = $.times;
     }
 
@@ -161,6 +178,27 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param scripts Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scripts(@Nullable Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs> scripts) {
+            $.scripts = scripts;
+            return this;
+        }
+
+        /**
+         * @param scripts Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scripts(LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs scripts) {
+            return scripts(Output.of(scripts));
         }
 
         /**

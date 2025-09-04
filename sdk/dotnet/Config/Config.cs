@@ -34,7 +34,8 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _accessKey = new __Value<string?>(() => __config.Get("accessKey"));
         /// <summary>
-        /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
+        /// The access key for API operations. You can retrieve this
+        /// from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         public static string? AccessKey
         {
@@ -65,8 +66,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _customCaBundle = new __Value<string?>(() => __config.Get("customCaBundle"));
         /// <summary>
-        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-        /// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
         /// </summary>
         public static string? CustomCaBundle
         {
@@ -86,8 +86,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _ec2MetadataServiceEndpoint = new __Value<string?>(() => __config.Get("ec2MetadataServiceEndpoint"));
         /// <summary>
-        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the
-        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         /// </summary>
         public static string? Ec2MetadataServiceEndpoint
         {
@@ -97,8 +96,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _ec2MetadataServiceEndpointMode = new __Value<string?>(() => __config.Get("ec2MetadataServiceEndpointMode"));
         /// <summary>
-        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         /// </summary>
         public static string? Ec2MetadataServiceEndpointMode
         {
@@ -122,8 +120,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _httpProxy = new __Value<string?>(() => __config.Get("httpProxy"));
         /// <summary>
-        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-        /// `http_proxy` environment variables.
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
         /// </summary>
         public static string? HttpProxy
         {
@@ -133,8 +130,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _httpsProxy = new __Value<string?>(() => __config.Get("httpsProxy"));
         /// <summary>
-        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-        /// `https_proxy` environment variables.
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
         /// </summary>
         public static string? HttpsProxy
         {
@@ -164,7 +160,9 @@ namespace Pulumi.Aws
 
         private static readonly __Value<int?> _maxRetries = new __Value<int?>(() => __config.GetInt32("maxRetries"));
         /// <summary>
-        /// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+        /// The maximum number of times an AWS API request is
+        /// being executed. If the API request still fails, an error is
+        /// thrown.
         /// </summary>
         public static int? MaxRetries
         {
@@ -174,8 +172,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _noProxy = new __Value<string?>(() => __config.Get("noProxy"));
         /// <summary>
-        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-        /// `no_proxy` environment variables.
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
         /// </summary>
         public static string? NoProxy
         {
@@ -185,7 +182,8 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _profile = new __Value<string?>(() => __config.Get("profile"));
         /// <summary>
-        /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        /// The profile for API operations. If not set, the default profile
+        /// created with `aws configure` will be used.
         /// </summary>
         public static string? Profile
         {
@@ -195,7 +193,8 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _region = new __Value<string?>(() => __config.Get("region") ?? Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION"));
         /// <summary>
-        /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        /// The region where AWS operations will take place. Examples
+        /// are us-east-1, us-west-2, etc.
         /// </summary>
         public static string? Region
         {
@@ -205,8 +204,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _retryMode = new __Value<string?>(() => __config.Get("retryMode"));
         /// <summary>
-        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-        /// `AWS_RETRY_MODE` environment variable.
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
         /// </summary>
         public static string? RetryMode
         {
@@ -216,9 +214,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _s3UsEast1RegionalEndpoint = new __Value<string?>(() => __config.Get("s3UsEast1RegionalEndpoint"));
         /// <summary>
-        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-        /// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-        /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         /// </summary>
         public static string? S3UsEast1RegionalEndpoint
         {
@@ -228,9 +224,10 @@ namespace Pulumi.Aws
 
         private static readonly __Value<bool?> _s3UsePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3UsePathStyle"));
         /// <summary>
-        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-        /// Specific to the Amazon S3 service.
+        /// Set this to true to enable the request to use path-style addressing,
+        /// i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+        /// use virtual hosted bucket addressing when possible
+        /// (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
         /// </summary>
         public static bool? S3UsePathStyle
         {
@@ -240,7 +237,8 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _secretKey = new __Value<string?>(() => __config.Get("secretKey"));
         /// <summary>
-        /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
+        /// The secret key for API operations. You can retrieve this
+        /// from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         public static string? SecretKey
         {
@@ -270,8 +268,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<bool?> _skipCredentialsValidation = new __Value<bool?>(() => __config.GetBoolean("skipCredentialsValidation") ?? false);
         /// <summary>
-        /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-        /// available/implemented.
+        /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
         /// </summary>
         public static bool? SkipCredentialsValidation
         {
@@ -291,8 +288,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<bool?> _skipRegionValidation = new __Value<bool?>(() => __config.GetBoolean("skipRegionValidation") ?? true);
         /// <summary>
-        /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-        /// not public (yet).
+        /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
         /// </summary>
         public static bool? SkipRegionValidation
         {
@@ -312,7 +308,8 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _stsRegion = new __Value<string?>(() => __config.Get("stsRegion"));
         /// <summary>
-        /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        /// The region where AWS STS operations will take place. Examples
+        /// are us-east-1 and us-west-2.
         /// </summary>
         public static string? StsRegion
         {
@@ -322,7 +319,8 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token"));
         /// <summary>
-        /// session token. A session token is only required if you are using temporary security credentials.
+        /// session token. A session token is only required if you are
+        /// using temporary security credentials.
         /// </summary>
         public static string? Token
         {
@@ -531,6 +529,10 @@ namespace Pulumi.Aws
             /// Use this to override the default service endpoint URL
             /// </summary>
                 public string? Appsync { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
+                public string? Arcregionswitch { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>

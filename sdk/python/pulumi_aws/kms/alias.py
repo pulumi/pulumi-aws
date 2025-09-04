@@ -225,11 +225,23 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Name of the KMS key alias.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+
+        - `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import KMS aliases using the `name`. For example:
 
-        ```sh
-        $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
-        ```
+        console
+
+        % pulumi import aws_kms_alias.a alias/my-key-alias
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,11 +276,23 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Name of the KMS key alias.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+
+        - `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import KMS aliases using the `name`. For example:
 
-        ```sh
-        $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
-        ```
+        console
+
+        % pulumi import aws_kms_alias.a alias/my-key-alias
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

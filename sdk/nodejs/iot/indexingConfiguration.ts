@@ -76,15 +76,15 @@ export class IndexingConfiguration extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Thing group indexing configuration. See below.
      */
-    public readonly thingGroupIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
+    declare public readonly thingGroupIndexingConfiguration: pulumi.Output<outputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
     /**
      * Thing indexing configuration. See below.
      */
-    public readonly thingIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingIndexingConfiguration>;
+    declare public readonly thingIndexingConfiguration: pulumi.Output<outputs.iot.IndexingConfigurationThingIndexingConfiguration>;
 
     /**
      * Create a IndexingConfiguration resource with the given unique name, arguments, and options.
@@ -99,14 +99,14 @@ export class IndexingConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IndexingConfigurationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["thingGroupIndexingConfiguration"] = state ? state.thingGroupIndexingConfiguration : undefined;
-            resourceInputs["thingIndexingConfiguration"] = state ? state.thingIndexingConfiguration : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["thingGroupIndexingConfiguration"] = state?.thingGroupIndexingConfiguration;
+            resourceInputs["thingIndexingConfiguration"] = state?.thingIndexingConfiguration;
         } else {
             const args = argsOrState as IndexingConfigurationArgs | undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["thingGroupIndexingConfiguration"] = args ? args.thingGroupIndexingConfiguration : undefined;
-            resourceInputs["thingIndexingConfiguration"] = args ? args.thingIndexingConfiguration : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["thingGroupIndexingConfiguration"] = args?.thingGroupIndexingConfiguration;
+            resourceInputs["thingIndexingConfiguration"] = args?.thingIndexingConfiguration;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IndexingConfiguration.__pulumiType, name, resourceInputs, opts);

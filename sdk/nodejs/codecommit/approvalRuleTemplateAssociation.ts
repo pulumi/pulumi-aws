@@ -58,15 +58,15 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
     /**
      * The name for the approval rule template.
      */
-    public readonly approvalRuleTemplateName!: pulumi.Output<string>;
+    declare public readonly approvalRuleTemplateName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name of the repository that you want to associate with the template.
      */
-    public readonly repositoryName!: pulumi.Output<string>;
+    declare public readonly repositoryName: pulumi.Output<string>;
 
     /**
      * Create a ApprovalRuleTemplateAssociation resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApprovalRuleTemplateAssociationState | undefined;
-            resourceInputs["approvalRuleTemplateName"] = state ? state.approvalRuleTemplateName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
+            resourceInputs["approvalRuleTemplateName"] = state?.approvalRuleTemplateName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["repositoryName"] = state?.repositoryName;
         } else {
             const args = argsOrState as ApprovalRuleTemplateAssociationArgs | undefined;
-            if ((!args || args.approvalRuleTemplateName === undefined) && !opts.urn) {
+            if (args?.approvalRuleTemplateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'approvalRuleTemplateName'");
             }
-            if ((!args || args.repositoryName === undefined) && !opts.urn) {
+            if (args?.repositoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            resourceInputs["approvalRuleTemplateName"] = args ? args.approvalRuleTemplateName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["approvalRuleTemplateName"] = args?.approvalRuleTemplateName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["repositoryName"] = args?.repositoryName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApprovalRuleTemplateAssociation.__pulumiType, name, resourceInputs, opts);

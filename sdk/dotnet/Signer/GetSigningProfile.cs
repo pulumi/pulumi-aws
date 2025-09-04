@@ -180,6 +180,14 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSigningProfileSignatureValidityPeriodResult> SignatureValidityPeriods;
         /// <summary>
+        /// AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSigningProfileSigningMaterialResult> SigningMaterials;
+        /// <summary>
+        /// Map of key-value pairs for signing.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> SigningParameters;
+        /// <summary>
         /// Status of the target signing profile.
         /// </summary>
         public readonly string Status;
@@ -214,6 +222,10 @@ namespace Pulumi.Aws.Signer
 
             ImmutableArray<Outputs.GetSigningProfileSignatureValidityPeriodResult> signatureValidityPeriods,
 
+            ImmutableArray<Outputs.GetSigningProfileSigningMaterialResult> signingMaterials,
+
+            ImmutableDictionary<string, string> signingParameters,
+
             string status,
 
             ImmutableDictionary<string, string> tags,
@@ -230,6 +242,8 @@ namespace Pulumi.Aws.Signer
             Region = region;
             RevocationRecords = revocationRecords;
             SignatureValidityPeriods = signatureValidityPeriods;
+            SigningMaterials = signingMaterials;
+            SigningParameters = signingParameters;
             Status = status;
             Tags = tags;
             Version = version;

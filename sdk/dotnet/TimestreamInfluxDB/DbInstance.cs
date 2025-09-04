@@ -297,7 +297,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+        /// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
         /// </summary>
         [Output("influxAuthParametersSecretArn")]
         public Output<string> InfluxAuthParametersSecretArn { get; private set; } = null!;
@@ -645,7 +645,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+        /// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
         /// </summary>
         [Input("influxAuthParametersSecretArn")]
         public Input<string>? InfluxAuthParametersSecretArn { get; set; }

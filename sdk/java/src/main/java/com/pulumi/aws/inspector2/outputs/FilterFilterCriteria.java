@@ -4,6 +4,8 @@
 package com.pulumi.aws.inspector2.outputs;
 
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaAwsAccountId;
+import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaCodeRepositoryProjectName;
+import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaCodeRepositoryProviderType;
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaCodeVulnerabilityDetectorName;
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaCodeVulnerabilityDetectorTag;
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaCodeVulnerabilityFilePath;
@@ -14,6 +16,8 @@ import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaEc2InstanceSubnetId
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaEc2InstanceVpcId;
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaEcrImageArchitecture;
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaEcrImageHash;
+import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaEcrImageInUseCount;
+import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaEcrImageLastInUseAt;
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaEcrImagePushedAt;
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaEcrImageRegistry;
 import com.pulumi.aws.inspector2.outputs.FilterFilterCriteriaEcrImageRepositoryName;
@@ -57,6 +61,16 @@ public final class FilterFilterCriteria {
      * 
      */
     private @Nullable List<FilterFilterCriteriaAwsAccountId> awsAccountIds;
+    /**
+     * @return (Optional) The project name in a code repository. Documented below.
+     * 
+     */
+    private @Nullable List<FilterFilterCriteriaCodeRepositoryProjectName> codeRepositoryProjectNames;
+    /**
+     * @return (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+     * 
+     */
+    private @Nullable List<FilterFilterCriteriaCodeRepositoryProviderType> codeRepositoryProviderTypes;
     /**
      * @return (Optional) The ID of the component. Documented below.
      * 
@@ -107,6 +121,16 @@ public final class FilterFilterCriteria {
      * 
      */
     private @Nullable List<FilterFilterCriteriaEcrImageHash> ecrImageHashes;
+    /**
+     * @return (Optional)  The number of the ECR images in use. Documented below.
+     * 
+     */
+    private @Nullable List<FilterFilterCriteriaEcrImageInUseCount> ecrImageInUseCounts;
+    /**
+     * @return (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+     * 
+     */
+    private @Nullable List<FilterFilterCriteriaEcrImageLastInUseAt> ecrImageLastInUseAts;
     /**
      * @return (Optional) The date range when the image was pushed. Documented below.
      * 
@@ -272,6 +296,20 @@ public final class FilterFilterCriteria {
         return this.awsAccountIds == null ? List.of() : this.awsAccountIds;
     }
     /**
+     * @return (Optional) The project name in a code repository. Documented below.
+     * 
+     */
+    public List<FilterFilterCriteriaCodeRepositoryProjectName> codeRepositoryProjectNames() {
+        return this.codeRepositoryProjectNames == null ? List.of() : this.codeRepositoryProjectNames;
+    }
+    /**
+     * @return (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+     * 
+     */
+    public List<FilterFilterCriteriaCodeRepositoryProviderType> codeRepositoryProviderTypes() {
+        return this.codeRepositoryProviderTypes == null ? List.of() : this.codeRepositoryProviderTypes;
+    }
+    /**
      * @return (Optional) The ID of the component. Documented below.
      * 
      */
@@ -340,6 +378,20 @@ public final class FilterFilterCriteria {
      */
     public List<FilterFilterCriteriaEcrImageHash> ecrImageHashes() {
         return this.ecrImageHashes == null ? List.of() : this.ecrImageHashes;
+    }
+    /**
+     * @return (Optional)  The number of the ECR images in use. Documented below.
+     * 
+     */
+    public List<FilterFilterCriteriaEcrImageInUseCount> ecrImageInUseCounts() {
+        return this.ecrImageInUseCounts == null ? List.of() : this.ecrImageInUseCounts;
+    }
+    /**
+     * @return (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+     * 
+     */
+    public List<FilterFilterCriteriaEcrImageLastInUseAt> ecrImageLastInUseAts() {
+        return this.ecrImageLastInUseAts == null ? List.of() : this.ecrImageLastInUseAts;
     }
     /**
      * @return (Optional) The date range when the image was pushed. Documented below.
@@ -569,6 +621,8 @@ public final class FilterFilterCriteria {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FilterFilterCriteriaAwsAccountId> awsAccountIds;
+        private @Nullable List<FilterFilterCriteriaCodeRepositoryProjectName> codeRepositoryProjectNames;
+        private @Nullable List<FilterFilterCriteriaCodeRepositoryProviderType> codeRepositoryProviderTypes;
         private @Nullable List<FilterFilterCriteriaCodeVulnerabilityDetectorName> codeVulnerabilityDetectorNames;
         private @Nullable List<FilterFilterCriteriaCodeVulnerabilityDetectorTag> codeVulnerabilityDetectorTags;
         private @Nullable List<FilterFilterCriteriaCodeVulnerabilityFilePath> codeVulnerabilityFilePaths;
@@ -579,6 +633,8 @@ public final class FilterFilterCriteria {
         private @Nullable List<FilterFilterCriteriaEc2InstanceVpcId> ec2InstanceVpcIds;
         private @Nullable List<FilterFilterCriteriaEcrImageArchitecture> ecrImageArchitectures;
         private @Nullable List<FilterFilterCriteriaEcrImageHash> ecrImageHashes;
+        private @Nullable List<FilterFilterCriteriaEcrImageInUseCount> ecrImageInUseCounts;
+        private @Nullable List<FilterFilterCriteriaEcrImageLastInUseAt> ecrImageLastInUseAts;
         private @Nullable List<FilterFilterCriteriaEcrImagePushedAt> ecrImagePushedAts;
         private @Nullable List<FilterFilterCriteriaEcrImageRegistry> ecrImageRegistries;
         private @Nullable List<FilterFilterCriteriaEcrImageRepositoryName> ecrImageRepositoryNames;
@@ -614,6 +670,8 @@ public final class FilterFilterCriteria {
         public Builder(FilterFilterCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsAccountIds = defaults.awsAccountIds;
+    	      this.codeRepositoryProjectNames = defaults.codeRepositoryProjectNames;
+    	      this.codeRepositoryProviderTypes = defaults.codeRepositoryProviderTypes;
     	      this.codeVulnerabilityDetectorNames = defaults.codeVulnerabilityDetectorNames;
     	      this.codeVulnerabilityDetectorTags = defaults.codeVulnerabilityDetectorTags;
     	      this.codeVulnerabilityFilePaths = defaults.codeVulnerabilityFilePaths;
@@ -624,6 +682,8 @@ public final class FilterFilterCriteria {
     	      this.ec2InstanceVpcIds = defaults.ec2InstanceVpcIds;
     	      this.ecrImageArchitectures = defaults.ecrImageArchitectures;
     	      this.ecrImageHashes = defaults.ecrImageHashes;
+    	      this.ecrImageInUseCounts = defaults.ecrImageInUseCounts;
+    	      this.ecrImageLastInUseAts = defaults.ecrImageLastInUseAts;
     	      this.ecrImagePushedAts = defaults.ecrImagePushedAts;
     	      this.ecrImageRegistries = defaults.ecrImageRegistries;
     	      this.ecrImageRepositoryNames = defaults.ecrImageRepositoryNames;
@@ -665,6 +725,24 @@ public final class FilterFilterCriteria {
         }
         public Builder awsAccountIds(FilterFilterCriteriaAwsAccountId... awsAccountIds) {
             return awsAccountIds(List.of(awsAccountIds));
+        }
+        @CustomType.Setter
+        public Builder codeRepositoryProjectNames(@Nullable List<FilterFilterCriteriaCodeRepositoryProjectName> codeRepositoryProjectNames) {
+
+            this.codeRepositoryProjectNames = codeRepositoryProjectNames;
+            return this;
+        }
+        public Builder codeRepositoryProjectNames(FilterFilterCriteriaCodeRepositoryProjectName... codeRepositoryProjectNames) {
+            return codeRepositoryProjectNames(List.of(codeRepositoryProjectNames));
+        }
+        @CustomType.Setter
+        public Builder codeRepositoryProviderTypes(@Nullable List<FilterFilterCriteriaCodeRepositoryProviderType> codeRepositoryProviderTypes) {
+
+            this.codeRepositoryProviderTypes = codeRepositoryProviderTypes;
+            return this;
+        }
+        public Builder codeRepositoryProviderTypes(FilterFilterCriteriaCodeRepositoryProviderType... codeRepositoryProviderTypes) {
+            return codeRepositoryProviderTypes(List.of(codeRepositoryProviderTypes));
         }
         @CustomType.Setter
         public Builder codeVulnerabilityDetectorNames(@Nullable List<FilterFilterCriteriaCodeVulnerabilityDetectorName> codeVulnerabilityDetectorNames) {
@@ -755,6 +833,24 @@ public final class FilterFilterCriteria {
         }
         public Builder ecrImageHashes(FilterFilterCriteriaEcrImageHash... ecrImageHashes) {
             return ecrImageHashes(List.of(ecrImageHashes));
+        }
+        @CustomType.Setter
+        public Builder ecrImageInUseCounts(@Nullable List<FilterFilterCriteriaEcrImageInUseCount> ecrImageInUseCounts) {
+
+            this.ecrImageInUseCounts = ecrImageInUseCounts;
+            return this;
+        }
+        public Builder ecrImageInUseCounts(FilterFilterCriteriaEcrImageInUseCount... ecrImageInUseCounts) {
+            return ecrImageInUseCounts(List.of(ecrImageInUseCounts));
+        }
+        @CustomType.Setter
+        public Builder ecrImageLastInUseAts(@Nullable List<FilterFilterCriteriaEcrImageLastInUseAt> ecrImageLastInUseAts) {
+
+            this.ecrImageLastInUseAts = ecrImageLastInUseAts;
+            return this;
+        }
+        public Builder ecrImageLastInUseAts(FilterFilterCriteriaEcrImageLastInUseAt... ecrImageLastInUseAts) {
+            return ecrImageLastInUseAts(List.of(ecrImageLastInUseAts));
         }
         @CustomType.Setter
         public Builder ecrImagePushedAts(@Nullable List<FilterFilterCriteriaEcrImagePushedAt> ecrImagePushedAts) {
@@ -1038,6 +1134,8 @@ public final class FilterFilterCriteria {
         public FilterFilterCriteria build() {
             final var _resultValue = new FilterFilterCriteria();
             _resultValue.awsAccountIds = awsAccountIds;
+            _resultValue.codeRepositoryProjectNames = codeRepositoryProjectNames;
+            _resultValue.codeRepositoryProviderTypes = codeRepositoryProviderTypes;
             _resultValue.codeVulnerabilityDetectorNames = codeVulnerabilityDetectorNames;
             _resultValue.codeVulnerabilityDetectorTags = codeVulnerabilityDetectorTags;
             _resultValue.codeVulnerabilityFilePaths = codeVulnerabilityFilePaths;
@@ -1048,6 +1146,8 @@ public final class FilterFilterCriteria {
             _resultValue.ec2InstanceVpcIds = ec2InstanceVpcIds;
             _resultValue.ecrImageArchitectures = ecrImageArchitectures;
             _resultValue.ecrImageHashes = ecrImageHashes;
+            _resultValue.ecrImageInUseCounts = ecrImageInUseCounts;
+            _resultValue.ecrImageLastInUseAts = ecrImageLastInUseAts;
             _resultValue.ecrImagePushedAts = ecrImagePushedAts;
             _resultValue.ecrImageRegistries = ecrImageRegistries;
             _resultValue.ecrImageRepositoryNames = ecrImageRepositoryNames;

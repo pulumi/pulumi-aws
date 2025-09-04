@@ -17,11 +17,28 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsAction? Action;
+        public readonly bool? CopyTags;
+        /// <summary>
+        /// How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
+        /// </summary>
+        public readonly int? CreateInterval;
         /// <summary>
         /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsEventSource? EventSource;
+        /// <summary>
+        /// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+        /// </summary>
+        public readonly Outputs.LifecyclePolicyPolicyDetailsExclusions? Exclusions;
+        /// <summary>
+        /// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+        /// </summary>
+        public readonly bool? ExtendDeletion;
         public readonly Outputs.LifecyclePolicyPolicyDetailsParameters? Parameters;
+        /// <summary>
+        /// Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
+        /// </summary>
+        public readonly string? PolicyLanguage;
         /// <summary>
         /// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
         /// </summary>
@@ -31,9 +48,17 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly string? ResourceLocations;
         /// <summary>
+        /// Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
+        /// </summary>
+        public readonly string? ResourceType;
+        /// <summary>
         /// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
         /// </summary>
         public readonly ImmutableArray<string> ResourceTypes;
+        /// <summary>
+        /// Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
+        /// </summary>
+        public readonly int? RetainInterval;
         /// <summary>
         /// See the `schedule` configuration block.
         /// </summary>
@@ -49,26 +74,47 @@ namespace Pulumi.Aws.Dlm.Outputs
         private LifecyclePolicyPolicyDetails(
             Outputs.LifecyclePolicyPolicyDetailsAction? action,
 
+            bool? copyTags,
+
+            int? createInterval,
+
             Outputs.LifecyclePolicyPolicyDetailsEventSource? eventSource,
 
+            Outputs.LifecyclePolicyPolicyDetailsExclusions? exclusions,
+
+            bool? extendDeletion,
+
             Outputs.LifecyclePolicyPolicyDetailsParameters? parameters,
+
+            string? policyLanguage,
 
             string? policyType,
 
             string? resourceLocations,
 
+            string? resourceType,
+
             ImmutableArray<string> resourceTypes,
+
+            int? retainInterval,
 
             ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsSchedule> schedules,
 
             ImmutableDictionary<string, string>? targetTags)
         {
             Action = action;
+            CopyTags = copyTags;
+            CreateInterval = createInterval;
             EventSource = eventSource;
+            Exclusions = exclusions;
+            ExtendDeletion = extendDeletion;
             Parameters = parameters;
+            PolicyLanguage = policyLanguage;
             PolicyType = policyType;
             ResourceLocations = resourceLocations;
+            ResourceType = resourceType;
             ResourceTypes = resourceTypes;
+            RetainInterval = retainInterval;
             Schedules = schedules;
             TargetTags = targetTags;
         }

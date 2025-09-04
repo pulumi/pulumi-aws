@@ -16299,6 +16299,10 @@ if not MYPY:
         ID of the instance to attach to.
         """
         attachment_id: NotRequired[pulumi.Input[_builtins.str]]
+        network_card_index: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+        """
 elif False:
     NetworkInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -16307,15 +16311,19 @@ class NetworkInterfaceAttachmentArgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[_builtins.int],
                  instance: pulumi.Input[_builtins.str],
-                 attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_card_index: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] device_index: Integer to define the devices index.
         :param pulumi.Input[_builtins.str] instance: ID of the instance to attach to.
+        :param pulumi.Input[_builtins.int] network_card_index: Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "instance", instance)
         if attachment_id is not None:
             pulumi.set(__self__, "attachment_id", attachment_id)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
 
     @_builtins.property
     @pulumi.getter(name="deviceIndex")
@@ -16349,6 +16357,18 @@ class NetworkInterfaceAttachmentArgs:
     @attachment_id.setter
     def attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "attachment_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+        """
+        return pulumi.get(self, "network_card_index")
+
+    @network_card_index.setter
+    def network_card_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "network_card_index", value)
 
 
 if not MYPY:

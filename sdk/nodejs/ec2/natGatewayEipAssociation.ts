@@ -65,19 +65,19 @@ export class NatGatewayEipAssociation extends pulumi.CustomResource {
     /**
      * The ID of the Elastic IP Allocation to associate with the NAT Gateway.
      */
-    public readonly allocationId!: pulumi.Output<string>;
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public readonly allocationId: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * The ID of the NAT Gateway to associate the Elastic IP Allocation to.
      *
      * The following arguments are optional:
      */
-    public readonly natGatewayId!: pulumi.Output<string>;
+    declare public readonly natGatewayId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.ec2.NatGatewayEipAssociationTimeouts | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.ec2.NatGatewayEipAssociationTimeouts | undefined>;
 
     /**
      * Create a NatGatewayEipAssociation resource with the given unique name, arguments, and options.
@@ -92,23 +92,23 @@ export class NatGatewayEipAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatGatewayEipAssociationState | undefined;
-            resourceInputs["allocationId"] = state ? state.allocationId : undefined;
-            resourceInputs["associationId"] = state ? state.associationId : undefined;
-            resourceInputs["natGatewayId"] = state ? state.natGatewayId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["allocationId"] = state?.allocationId;
+            resourceInputs["associationId"] = state?.associationId;
+            resourceInputs["natGatewayId"] = state?.natGatewayId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as NatGatewayEipAssociationArgs | undefined;
-            if ((!args || args.allocationId === undefined) && !opts.urn) {
+            if (args?.allocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allocationId'");
             }
-            if ((!args || args.natGatewayId === undefined) && !opts.urn) {
+            if (args?.natGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'natGatewayId'");
             }
-            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
-            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["allocationId"] = args?.allocationId;
+            resourceInputs["natGatewayId"] = args?.natGatewayId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["associationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -73,39 +73,39 @@ export class ServerlessCluster extends pulumi.CustomResource {
     /**
      * The ARN of the serverless cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersSaslIam!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersSaslIam: pulumi.Output<string>;
     /**
      * Specifies client authentication information for the serverless cluster. See below.
      */
-    public readonly clientAuthentication!: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
+    declare public readonly clientAuthentication: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
     /**
      * The name of the serverless cluster.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * UUID of the serverless cluster, for use in IAM policies.
      */
-    public /*out*/ readonly clusterUuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterUuid: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * VPC configuration information. See below.
      */
-    public readonly vpcConfigs!: pulumi.Output<outputs.msk.ServerlessClusterVpcConfig[]>;
+    declare public readonly vpcConfigs: pulumi.Output<outputs.msk.ServerlessClusterVpcConfig[]>;
 
     /**
      * Create a ServerlessCluster resource with the given unique name, arguments, and options.
@@ -120,28 +120,28 @@ export class ServerlessCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerlessClusterState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bootstrapBrokersSaslIam"] = state ? state.bootstrapBrokersSaslIam : undefined;
-            resourceInputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["clusterUuid"] = state ? state.clusterUuid : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcConfigs"] = state ? state.vpcConfigs : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bootstrapBrokersSaslIam"] = state?.bootstrapBrokersSaslIam;
+            resourceInputs["clientAuthentication"] = state?.clientAuthentication;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["clusterUuid"] = state?.clusterUuid;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcConfigs"] = state?.vpcConfigs;
         } else {
             const args = argsOrState as ServerlessClusterArgs | undefined;
-            if ((!args || args.clientAuthentication === undefined) && !opts.urn) {
+            if (args?.clientAuthentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientAuthentication'");
             }
-            if ((!args || args.vpcConfigs === undefined) && !opts.urn) {
+            if (args?.vpcConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfigs'");
             }
-            resourceInputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfigs"] = args ? args.vpcConfigs : undefined;
+            resourceInputs["clientAuthentication"] = args?.clientAuthentication;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfigs"] = args?.vpcConfigs;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bootstrapBrokersSaslIam"] = undefined /*out*/;
             resourceInputs["clusterUuid"] = undefined /*out*/;

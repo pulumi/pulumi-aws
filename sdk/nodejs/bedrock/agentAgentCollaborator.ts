@@ -136,39 +136,39 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentAgentCollaborator.__pulumiType;
     }
 
-    public readonly agentDescriptor!: pulumi.Output<outputs.bedrock.AgentAgentCollaboratorAgentDescriptor | undefined>;
+    declare public readonly agentDescriptor: pulumi.Output<outputs.bedrock.AgentAgentCollaboratorAgentDescriptor | undefined>;
     /**
      * ID if the agent to associate the collaborator.
      */
-    public readonly agentId!: pulumi.Output<string>;
-    public readonly agentVersion!: pulumi.Output<string>;
+    declare public readonly agentId: pulumi.Output<string>;
+    declare public readonly agentVersion: pulumi.Output<string>;
     /**
      * Instruction to give the collaborator.
      */
-    public readonly collaborationInstruction!: pulumi.Output<string>;
+    declare public readonly collaborationInstruction: pulumi.Output<string>;
     /**
      * ID of the Agent Collaborator.
      */
-    public /*out*/ readonly collaboratorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaboratorId: pulumi.Output<string>;
     /**
      * Name of this collaborator.
      *
      * The following arguments are optional:
      */
-    public readonly collaboratorName!: pulumi.Output<string>;
+    declare public readonly collaboratorName: pulumi.Output<string>;
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
-    public readonly prepareAgent!: pulumi.Output<boolean>;
+    declare public readonly prepareAgent: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configure relaying the history to the collaborator.
      */
-    public readonly relayConversationHistory!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentCollaboratorTimeouts | undefined>;
+    declare public readonly relayConversationHistory: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentAgentCollaboratorTimeouts | undefined>;
 
     /**
      * Create a AgentAgentCollaborator resource with the given unique name, arguments, and options.
@@ -183,36 +183,36 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentAgentCollaboratorState | undefined;
-            resourceInputs["agentDescriptor"] = state ? state.agentDescriptor : undefined;
-            resourceInputs["agentId"] = state ? state.agentId : undefined;
-            resourceInputs["agentVersion"] = state ? state.agentVersion : undefined;
-            resourceInputs["collaborationInstruction"] = state ? state.collaborationInstruction : undefined;
-            resourceInputs["collaboratorId"] = state ? state.collaboratorId : undefined;
-            resourceInputs["collaboratorName"] = state ? state.collaboratorName : undefined;
-            resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["relayConversationHistory"] = state ? state.relayConversationHistory : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["agentDescriptor"] = state?.agentDescriptor;
+            resourceInputs["agentId"] = state?.agentId;
+            resourceInputs["agentVersion"] = state?.agentVersion;
+            resourceInputs["collaborationInstruction"] = state?.collaborationInstruction;
+            resourceInputs["collaboratorId"] = state?.collaboratorId;
+            resourceInputs["collaboratorName"] = state?.collaboratorName;
+            resourceInputs["prepareAgent"] = state?.prepareAgent;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["relayConversationHistory"] = state?.relayConversationHistory;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AgentAgentCollaboratorArgs | undefined;
-            if ((!args || args.agentId === undefined) && !opts.urn) {
+            if (args?.agentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentId'");
             }
-            if ((!args || args.collaborationInstruction === undefined) && !opts.urn) {
+            if (args?.collaborationInstruction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collaborationInstruction'");
             }
-            if ((!args || args.collaboratorName === undefined) && !opts.urn) {
+            if (args?.collaboratorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collaboratorName'");
             }
-            resourceInputs["agentDescriptor"] = args ? args.agentDescriptor : undefined;
-            resourceInputs["agentId"] = args ? args.agentId : undefined;
-            resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
-            resourceInputs["collaborationInstruction"] = args ? args.collaborationInstruction : undefined;
-            resourceInputs["collaboratorName"] = args ? args.collaboratorName : undefined;
-            resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["relayConversationHistory"] = args ? args.relayConversationHistory : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["agentDescriptor"] = args?.agentDescriptor;
+            resourceInputs["agentId"] = args?.agentId;
+            resourceInputs["agentVersion"] = args?.agentVersion;
+            resourceInputs["collaborationInstruction"] = args?.collaborationInstruction;
+            resourceInputs["collaboratorName"] = args?.collaboratorName;
+            resourceInputs["prepareAgent"] = args?.prepareAgent;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["relayConversationHistory"] = args?.relayConversationHistory;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["collaboratorId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

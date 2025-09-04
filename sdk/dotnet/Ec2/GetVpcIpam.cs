@@ -164,6 +164,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string IpamRegion;
         /// <summary>
+        /// AWS account that is charged for active IP addresses managed in IPAM.
+        /// </summary>
+        public readonly string MeteredAccount;
+        /// <summary>
         /// Regions that the IPAM is configured to operate in.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamOperatingRegionResult> OperatingRegions;
@@ -221,6 +225,8 @@ namespace Pulumi.Aws.Ec2
 
             string ipamRegion,
 
+            string meteredAccount,
+
             ImmutableArray<Outputs.GetVpcIpamOperatingRegionResult> operatingRegions,
 
             string ownerId,
@@ -250,6 +256,7 @@ namespace Pulumi.Aws.Ec2
             EnablePrivateGua = enablePrivateGua;
             Id = id;
             IpamRegion = ipamRegion;
+            MeteredAccount = meteredAccount;
             OperatingRegions = operatingRegions;
             OwnerId = ownerId;
             PrivateDefaultScopeId = privateDefaultScopeId;

@@ -187,63 +187,63 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the compute environment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources>;
+    declare public readonly computeResources: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources>;
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */
-    public /*out*/ readonly ecsClusterArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ecsClusterArn: pulumi.Output<string>;
     /**
      * Details for the Amazon EKS cluster that supports the compute environment. See details below.
      */
-    public readonly eksConfiguration!: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
+    declare public readonly eksConfiguration: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
-    public readonly serviceRole!: pulumi.Output<string>;
+    declare public readonly serviceRole: pulumi.Output<string>;
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The current status of the compute environment (for example, CREATING or VALID).
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      */
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Specifies the infrastructure update policy for the compute environment. See details below.
      */
-    public readonly updatePolicy!: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy>;
+    declare public readonly updatePolicy: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy>;
 
     /**
      * Create a ComputeEnvironment resource with the given unique name, arguments, and options.
@@ -258,36 +258,36 @@ export class ComputeEnvironment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComputeEnvironmentState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["computeResources"] = state ? state.computeResources : undefined;
-            resourceInputs["ecsClusterArn"] = state ? state.ecsClusterArn : undefined;
-            resourceInputs["eksConfiguration"] = state ? state.eksConfiguration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["updatePolicy"] = state ? state.updatePolicy : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["computeResources"] = state?.computeResources;
+            resourceInputs["ecsClusterArn"] = state?.ecsClusterArn;
+            resourceInputs["eksConfiguration"] = state?.eksConfiguration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serviceRole"] = state?.serviceRole;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["statusReason"] = state?.statusReason;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["updatePolicy"] = state?.updatePolicy;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["computeResources"] = args ? args.computeResources : undefined;
-            resourceInputs["eksConfiguration"] = args ? args.eksConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["updatePolicy"] = args ? args.updatePolicy : undefined;
+            resourceInputs["computeResources"] = args?.computeResources;
+            resourceInputs["eksConfiguration"] = args?.eksConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serviceRole"] = args?.serviceRole;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["updatePolicy"] = args?.updatePolicy;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ecsClusterArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

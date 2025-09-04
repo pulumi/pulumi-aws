@@ -75,6 +75,8 @@ type LookupEmailIdentityResult struct {
 	Region       string `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+	VerificationStatus string `pulumi:"verificationStatus"`
 	// Specifies whether or not the identity is verified.
 	VerifiedForSendingStatus bool `pulumi:"verifiedForSendingStatus"`
 }
@@ -154,6 +156,11 @@ func (o LookupEmailIdentityResultOutput) Region() pulumi.StringOutput {
 // Key-value mapping of resource tags.
 func (o LookupEmailIdentityResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+func (o LookupEmailIdentityResultOutput) VerificationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.VerificationStatus }).(pulumi.StringOutput)
 }
 
 // Specifies whether or not the identity is verified.

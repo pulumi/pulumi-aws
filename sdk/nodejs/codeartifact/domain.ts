@@ -55,47 +55,47 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ARN of the Domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The total size of all assets in the domain.
      */
-    public /*out*/ readonly assetSizeBytes!: pulumi.Output<string>;
+    declare public /*out*/ readonly assetSizeBytes: pulumi.Output<string>;
     /**
      * A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
      */
-    public readonly domain!: pulumi.Output<string>;
+    declare public readonly domain: pulumi.Output<string>;
     /**
      * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
      */
-    public readonly encryptionKey!: pulumi.Output<string>;
+    declare public readonly encryptionKey: pulumi.Output<string>;
     /**
      * The AWS account ID that owns the domain.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The number of repositories in the domain.
      */
-    public /*out*/ readonly repositoryCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly repositoryCount: pulumi.Output<number>;
     /**
      * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
      */
-    public /*out*/ readonly s3BucketArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly s3BucketArn: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -110,26 +110,26 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["assetSizeBytes"] = state ? state.assetSizeBytes : undefined;
-            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["encryptionKey"] = state ? state.encryptionKey : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["repositoryCount"] = state ? state.repositoryCount : undefined;
-            resourceInputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["assetSizeBytes"] = state?.assetSizeBytes;
+            resourceInputs["createdTime"] = state?.createdTime;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["encryptionKey"] = state?.encryptionKey;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["repositoryCount"] = state?.repositoryCount;
+            resourceInputs["s3BucketArn"] = state?.s3BucketArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["assetSizeBytes"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

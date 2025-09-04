@@ -119,6 +119,10 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
     /**
      * The name of the cache engine to be used for the clusters in this global replication group.
+     * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+     * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis` if `engine_version` is specified.
      * 
      */
     @Import(name="engine")
@@ -126,6 +130,10 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
     /**
      * @return The name of the cache engine to be used for the clusters in this global replication group.
+     * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+     * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis` if `engine_version` is specified.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -133,7 +141,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Redis version to use for the Global Replication Group.
+     * Engine version to use for the Global Replication Group.
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -147,7 +155,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Redis version to use for the Global Replication Group.
+     * @return Engine version to use for the Global Replication Group.
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -255,7 +263,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+     * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
      * Specifying without a major version upgrade will fail.
      * Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
@@ -265,7 +273,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
     /**
      * @return An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+     * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
      * Specifying without a major version upgrade will fail.
      * Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
@@ -496,6 +504,10 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
         /**
          * @param engine The name of the cache engine to be used for the clusters in this global replication group.
+         * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+         * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+         * Valid values are `redis` or `valkey`.
+         * Default is `redis` if `engine_version` is specified.
          * 
          * @return builder
          * 
@@ -507,6 +519,10 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
         /**
          * @param engine The name of the cache engine to be used for the clusters in this global replication group.
+         * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+         * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+         * Valid values are `redis` or `valkey`.
+         * Default is `redis` if `engine_version` is specified.
          * 
          * @return builder
          * 
@@ -516,7 +532,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param engineVersion Redis version to use for the Global Replication Group.
+         * @param engineVersion Engine version to use for the Global Replication Group.
          * When creating, by default the Global Replication Group inherits the version of the primary replication group.
          * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
          * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -534,7 +550,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param engineVersion Redis version to use for the Global Replication Group.
+         * @param engineVersion Engine version to use for the Global Replication Group.
          * When creating, by default the Global Replication Group inherits the version of the primary replication group.
          * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
          * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -691,7 +707,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
         /**
          * @param parameterGroupName An ElastiCache Parameter Group to use for the Global Replication Group.
-         * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+         * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
          * Specifying without a major version upgrade will fail.
          * Note that ElastiCache creates a copy of this parameter group for each member replication group.
          * 
@@ -705,7 +721,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
         /**
          * @param parameterGroupName An ElastiCache Parameter Group to use for the Global Replication Group.
-         * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+         * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
          * Specifying without a major version upgrade will fail.
          * Note that ElastiCache creates a copy of this parameter group for each member replication group.
          * 
