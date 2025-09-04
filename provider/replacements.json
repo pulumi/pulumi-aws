@@ -1864,7 +1864,7 @@
     },
     {
       "old": "In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n",
-      "new": "In TODO v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n"
+      "new": ""
     }
   ],
   "route53_record.html.markdown": [
@@ -2262,7 +2262,7 @@
     },
     {
       "old": "In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n",
-      "new": "In TODO v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n"
+      "new": ""
     }
   ],
   "security_group.html.markdown": [
