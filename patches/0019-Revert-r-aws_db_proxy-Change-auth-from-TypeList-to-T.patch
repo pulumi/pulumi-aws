@@ -10,7 +10,7 @@ Beyond a mechanical revert, during v5.74.0 release resolution there were some co
 resolved in favor of upstream.
 
 diff --git a/internal/service/rds/proxy.go b/internal/service/rds/proxy.go
-index 5845e8cfd4..a2bc35373e 100644
+index 5845e8cfd49..a2bc35373e9 100644
 --- a/internal/service/rds/proxy.go
 +++ b/internal/service/rds/proxy.go
 @@ -19,7 +19,6 @@ import (
@@ -57,7 +57,7 @@ index 5845e8cfd4..a2bc35373e 100644
  			DebugLogging:   aws.Bool(d.Get("debug_logging").(bool)),
  			NewDBProxyName: aws.String(nName.(string)),
 diff --git a/internal/service/rds/proxy_test.go b/internal/service/rds/proxy_test.go
-index 884f83084b..0856302c30 100644
+index 884f83084b8..0856302c30f 100644
 --- a/internal/service/rds/proxy_test.go
 +++ b/internal/service/rds/proxy_test.go
 @@ -40,12 +40,13 @@ func TestAccRDSProxy_basic(t *testing.T) {
@@ -392,14 +392,41 @@ index 884f83084b..0856302c30 100644
    recovery_window_in_days = 0
  }
  
-@@ -952,46 +954,18 @@ resource "aws_secretsmanager_secret_version" "test2" {
+@@ -952,18 +954,18 @@ resource "aws_secretsmanager_secret_version" "test2" {
    secret_id     = aws_secretsmanager_secret.test2.id
    secret_string = "{\"username\":\"db_user\",\"password\":\"db_user_password\"}"
  }
 -`, rName, nName))
++`, rName, nName)
+ }
+ 
+-func testAccProxyConfig_tags1(rName, tagKey1, tagValue1 string) string {
+-	return acctest.ConfigCompose(testAccProxyConfig_base(rName), fmt.Sprintf(`
++func testAccProxyConfig_tags(rName, key, value string) string {
++	return acctest.ConfigCompose(testAccProxyBaseConfig(rName), fmt.Sprintf(`
+ resource "aws_db_proxy" "test" {
+   depends_on = [
+     aws_secretsmanager_secret_version.test,
+     aws_iam_role_policy.test
+   ]
+ 
+-  name                   = %[1]q
++  name                   = "%[1]s"
+   engine_family          = "MYSQL"
+   role_arn               = aws_iam_role.test.arn
+   vpc_security_group_ids = [aws_security_group.test.id]
+@@ -977,37 +979,8 @@ resource "aws_db_proxy" "test" {
+   }
+ 
+   tags = {
+-    %[2]q = %[3]q
++    %[2]s = "%[3]s"
+   }
+ }
+-`, rName, tagKey1, tagValue1))
 -}
 -
--func testAccProxyConfig_tags1(rName, tagKey1, tagValue1 string) string {
+-func testAccProxyConfig_tags2(rName, tagKey1, tagValue1, tagKey2, tagValue2 string) string {
 -	return acctest.ConfigCompose(testAccProxyConfig_base(rName), fmt.Sprintf(`
 -resource "aws_db_proxy" "test" {
 -  depends_on = [
@@ -422,36 +449,9 @@ index 884f83084b..0856302c30 100644
 -
 -  tags = {
 -    %[2]q = %[3]q
+-    %[4]q = %[5]q
 -  }
 -}
--`, rName, tagKey1, tagValue1))
-+`, rName, nName)
- }
- 
--func testAccProxyConfig_tags2(rName, tagKey1, tagValue1, tagKey2, tagValue2 string) string {
--	return acctest.ConfigCompose(testAccProxyConfig_base(rName), fmt.Sprintf(`
-+func testAccProxyConfig_tags(rName, key, value string) string {
-+	return acctest.ConfigCompose(testAccProxyBaseConfig(rName), fmt.Sprintf(`
- resource "aws_db_proxy" "test" {
-   depends_on = [
-     aws_secretsmanager_secret_version.test,
-     aws_iam_role_policy.test
-   ]
- 
--  name                   = %[1]q
-+  name                   = "%[1]s"
-   engine_family          = "MYSQL"
-   role_arn               = aws_iam_role.test.arn
-   vpc_security_group_ids = [aws_security_group.test.id]
-@@ -1005,9 +979,8 @@ resource "aws_db_proxy" "test" {
-   }
- 
-   tags = {
--    %[2]q = %[3]q
--    %[4]q = %[5]q
-+    %[2]s = "%[3]s"
-   }
- }
 -`, rName, tagKey1, tagValue1, tagKey2, tagValue2))
 +`, rName, key, value))
  }

@@ -5914,6 +5914,19 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_quicksight_user_custom_permission":                            computeID("awsAccountId", "namespace", "userName"),
 		"aws_appsync_api":                                                  computeID("apiId"),
 		"aws_appsync_channel_namespace":                                    computeID("apiId", "name"),
+		"aws_workspacesweb_portal":                                         computeID("portalArn"),
+		"aws_workspacesweb_identity_provider":                              computeID("identityProviderArn"),
+		"aws_workspacesweb_trust_store":                                    computeID("trustStoreArn"),
+		"aws_workspacesweb_session_logger":                                 computeID("sessionLoggerArn"),
+
+		"aws_workspacesweb_browser_settings_association":             computeID("browserSettingsArn", "portalArn"),
+		"aws_workspacesweb_network_settings_association":             computeID("networkSettingsArn", "portalArn"),
+		"aws_workspacesweb_trust_store_association":                  computeID("trustStoreArn", "portalArn"),
+		"aws_workspacesweb_data_protection_settings_association":     computeID("dataProtectionSettingsArn", "portalArn"),
+		"aws_workspacesweb_user_access_logging_settings_association": computeID("userAccessLoggingSettingsArn", "portalArn"),
+		"aws_workspacesweb_user_settings_association":                computeID("userSettingsArn", "portalArn"),
+		"aws_workspacesweb_session_logger_association":               computeID("sessionLoggerArn", "portalArn"),
+		"aws_workspacesweb_ip_access_settings_association":           computeID("ipAccessSettingsArn", "portalArn"),
 	}
 
 	// Apply configurations
