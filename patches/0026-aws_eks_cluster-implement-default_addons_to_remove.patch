@@ -8,7 +8,7 @@ set `bootstrapSelfManagedAddons: false` and selectively add the addons
 they want with the `aws.eks.Addon` resource.
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index ebe7b37b93..067f5e9438 100644
+index f7e1c6754f..bb0619939e 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -173,6 +173,14 @@ func resourceCluster() *schema.Resource {
@@ -26,7 +26,7 @@ index ebe7b37b93..067f5e9438 100644
  			"enabled_cluster_log_types": {
  				Type:     schema.TypeSet,
  				Optional: true,
-@@ -609,6 +617,10 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta any
+@@ -605,6 +613,10 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta any
  		return sdkdiag.AppendErrorf(diags, "waiting for EKS Cluster (%s) create: %s", d.Id(), err)
  	}
  
