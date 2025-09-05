@@ -47,7 +47,10 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           submodules: true
-          persist-credentials: false
+          persist-credentials: false      
+      - id: esc-secrets
+        name: Map environment to ESC outputs
+        uses: ./.github/actions/esc-action
       # Without ldid cross-compiling Node binaries on a Linux worker intended to work on darwin-arm64 fails to sign the
       # binaries properly and they do not work as expected. See https://github.com/pulumi/pulumi-awsx/issues/1490
       - uses: MOZGIII/install-ldid-action@v1
@@ -92,11 +95,11 @@ jobs:
       - name: Build provider
         run: make "provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}"
         env:
-          AZURE_SIGNING_CLIENT_ID: ${{ secrets.AZURE_SIGNING_CLIENT_ID }}
-          AZURE_SIGNING_CLIENT_SECRET: ${{ secrets.AZURE_SIGNING_CLIENT_SECRET }}
-          AZURE_SIGNING_TENANT_ID: ${{ secrets.AZURE_SIGNING_TENANT_ID }}
-          AZURE_SIGNING_KEY_VAULT_URI: ${{ secrets.AZURE_SIGNING_KEY_VAULT_URI }}
-          SKIP_SIGNING: ${{ secrets.AZURE_SIGNING_CLIENT_ID == '' && secrets.AZURE_SIGNING_CLIENT_SECRET == '' && secrets.AZURE_SIGNING_TENANT_ID == '' && secrets.AZURE_SIGNING_KEY_VAULT_URI == '' }}
+          AZURE_SIGNING_CLIENT_ID: ${{ steps.esc-secrets.outputs.AZURE_SIGNING_CLIENT_ID }}
+          AZURE_SIGNING_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.AZURE_SIGNING_CLIENT_SECRET }}
+          AZURE_SIGNING_TENANT_ID: ${{ steps.esc-secrets.outputs.AZURE_SIGNING_TENANT_ID }}
+          AZURE_SIGNING_KEY_VAULT_URI: ${{ steps.esc-secrets.outputs.AZURE_SIGNING_KEY_VAULT_URI }}
+          SKIP_SIGNING: ${{ steps.esc-secrets.outputs.AZURE_SIGNING_CLIENT_ID == '' && secrets.AZURE_SIGNING_CLIENT_SECRET == '' && secrets.AZURE_SIGNING_TENANT_ID == '' && secrets.AZURE_SIGNING_KEY_VAULT_URI == '' }}
 
       - name: Package provider
         run: make provider_dist-${{ matrix.platform.os }}-${{ matrix.platform.arch }}

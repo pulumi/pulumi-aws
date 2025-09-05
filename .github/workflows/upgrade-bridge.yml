@@ -61,7 +61,6 @@ permissions:
   pull-requests: write
 
 env:
-  GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
   AWS_REGION: us-west-2
   OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
   PULUMI_API: https://api.pulumi-staging.io
@@ -86,7 +85,10 @@ jobs:
       uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       with:
         submodules: true
-        persist-credentials: false
+        persist-credentials: false    
+    - id: esc-secrets
+      name: Map environment to ESC outputs
+      uses: ./.github/actions/esc-action
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
@@ -119,3 +121,5 @@ jobs:
         pr-description: ${{ github.event.client_payload.pr-description }}
         pr-title-prefix: ${{ github.event.client_payload.pr-title-prefix }}
         patch-release: ${{ github.event.client_payload.patch-release }}
+      env:
+        GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_TOKEN || steps.esc-secrets.outputs.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}

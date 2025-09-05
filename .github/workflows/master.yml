@@ -71,6 +71,13 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Repo
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        persist-credentials: false    
+    - id: esc-secrets
+      name: Map environment to ESC outputs
+      uses: ./.github/actions/esc-action
     - name: check if this commit needs release
       if: ${{ env.RELEASE_BOT_ENDPOINT != '' }}
       uses: pulumi/action-release-by-pr-label@main
@@ -78,10 +85,10 @@ jobs:
         command: "release-if-needed"
         repo: ${{ github.repository }}
         commit: ${{ github.sha }}
-        slack_channel: ${{ secrets.RELEASE_OPS_SLACK_CHANNEL }}
+        slack_channel: ${{ steps.esc-secrets.outputs.RELEASE_OPS_SLACK_CHANNEL }}
       env:
-        RELEASE_BOT_ENDPOINT: ${{ secrets.RELEASE_BOT_ENDPOINT }}
-        RELEASE_BOT_KEY: ${{ secrets.RELEASE_BOT_KEY }}
+        RELEASE_BOT_ENDPOINT: ${{ steps.esc-secrets.outputs.RELEASE_BOT_ENDPOINT }}
+        RELEASE_BOT_KEY: ${{ steps.esc-secrets.outputs.RELEASE_BOT_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:

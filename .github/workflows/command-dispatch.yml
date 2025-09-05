@@ -17,7 +17,10 @@ jobs:
       uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       with:
         submodules: true
-        persist-credentials: false
+        persist-credentials: false    
+    - id: esc-secrets
+      name: Map environment to ESC outputs
+      uses: ./.github/actions/esc-action
     - uses: peter-evans/slash-command-dispatch@13bc09769d122a64f75aa5037256f6f2d78be8c4 # v4
       with:
         commands: |
@@ -27,7 +30,7 @@ jobs:
         permission: write
         reaction-token: ${{ secrets.GITHUB_TOKEN }}
         repository: pulumi/pulumi-aws
-        token: ${{ secrets.PULUMI_BOT_TOKEN }}
+        token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
 name: command-dispatch
 on:
   issue_comment:

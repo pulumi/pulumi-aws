@@ -70,6 +70,13 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Repo
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        persist-credentials: false    
+    - id: esc-secrets
+      name: Map environment to ESC outputs
+      uses: ./.github/actions/esc-action
     - id: run-url
       name: Create URL to the run output
       run: echo "run-url=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> "$GITHUB_OUTPUT"
@@ -94,7 +101,7 @@ jobs:
     steps:
     - uses: guibranco/github-status-action-v2@0849440ec82c5fa69b2377725b9b7852a3977e76 # v1.1.13
       with:
-        authToken: ${{secrets.GITHUB_TOKEN}}
+        authToken: ${{ secrets.GITHUB_TOKEN }}
         # Write an explicit status check called "Sentinel" which will only pass if this code really runs.
         # This should always be a required check for PRs.
         context: 'Sentinel'
