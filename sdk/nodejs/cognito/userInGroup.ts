@@ -77,19 +77,19 @@ export class UserInGroup extends pulumi.CustomResource {
     /**
      * The name of the group to which the user is to be added.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The user pool ID of the user and group.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
     /**
      * The username of the user to be added to the group.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a UserInGroup resource with the given unique name, arguments, and options.
@@ -104,25 +104,25 @@ export class UserInGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserInGroupState | undefined;
-            resourceInputs["groupName"] = state ? state.groupName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["groupName"] = state?.groupName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["userPoolId"] = state?.userPoolId;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as UserInGroupArgs | undefined;
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserInGroup.__pulumiType, name, resourceInputs, opts);

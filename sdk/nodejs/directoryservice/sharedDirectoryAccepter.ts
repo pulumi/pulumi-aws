@@ -64,27 +64,27 @@ export class SharedDirectoryAccepter extends pulumi.CustomResource {
     /**
      * Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
      */
-    public /*out*/ readonly method!: pulumi.Output<string>;
+    declare public /*out*/ readonly method: pulumi.Output<string>;
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      */
-    public /*out*/ readonly notes!: pulumi.Output<string>;
+    declare public /*out*/ readonly notes: pulumi.Output<string>;
     /**
      * Account identifier of the directory owner.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
      */
-    public /*out*/ readonly ownerDirectoryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerDirectoryId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */
-    public readonly sharedDirectoryId!: pulumi.Output<string>;
+    declare public readonly sharedDirectoryId: pulumi.Output<string>;
 
     /**
      * Create a SharedDirectoryAccepter resource with the given unique name, arguments, and options.
@@ -99,19 +99,19 @@ export class SharedDirectoryAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedDirectoryAccepterState | undefined;
-            resourceInputs["method"] = state ? state.method : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            resourceInputs["ownerDirectoryId"] = state ? state.ownerDirectoryId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sharedDirectoryId"] = state ? state.sharedDirectoryId : undefined;
+            resourceInputs["method"] = state?.method;
+            resourceInputs["notes"] = state?.notes;
+            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
+            resourceInputs["ownerDirectoryId"] = state?.ownerDirectoryId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sharedDirectoryId"] = state?.sharedDirectoryId;
         } else {
             const args = argsOrState as SharedDirectoryAccepterArgs | undefined;
-            if ((!args || args.sharedDirectoryId === undefined) && !opts.urn) {
+            if (args?.sharedDirectoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sharedDirectoryId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sharedDirectoryId"] = args ? args.sharedDirectoryId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sharedDirectoryId"] = args?.sharedDirectoryId;
             resourceInputs["method"] = undefined /*out*/;
             resourceInputs["notes"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;

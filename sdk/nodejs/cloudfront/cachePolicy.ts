@@ -84,35 +84,35 @@ export class CachePolicy extends pulumi.CustomResource {
     /**
      * The cache policy ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description for the cache policy.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
      */
-    public readonly defaultTtl!: pulumi.Output<number | undefined>;
+    declare public readonly defaultTtl: pulumi.Output<number | undefined>;
     /**
      * Current version of the cache policy.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    public readonly maxTtl!: pulumi.Output<number | undefined>;
+    declare public readonly maxTtl: pulumi.Output<number | undefined>;
     /**
      * Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
      */
-    public readonly minTtl!: pulumi.Output<number | undefined>;
+    declare public readonly minTtl: pulumi.Output<number | undefined>;
     /**
      * Unique name used to identify the cache policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
      */
-    public readonly parametersInCacheKeyAndForwardedToOrigin!: pulumi.Output<outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
+    declare public readonly parametersInCacheKeyAndForwardedToOrigin: pulumi.Output<outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
 
     /**
      * Create a CachePolicy resource with the given unique name, arguments, and options.
@@ -127,25 +127,25 @@ export class CachePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CachePolicyState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["maxTtl"] = state ? state.maxTtl : undefined;
-            resourceInputs["minTtl"] = state ? state.minTtl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parametersInCacheKeyAndForwardedToOrigin"] = state ? state.parametersInCacheKeyAndForwardedToOrigin : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["defaultTtl"] = state?.defaultTtl;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["maxTtl"] = state?.maxTtl;
+            resourceInputs["minTtl"] = state?.minTtl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parametersInCacheKeyAndForwardedToOrigin"] = state?.parametersInCacheKeyAndForwardedToOrigin;
         } else {
             const args = argsOrState as CachePolicyArgs | undefined;
-            if ((!args || args.parametersInCacheKeyAndForwardedToOrigin === undefined) && !opts.urn) {
+            if (args?.parametersInCacheKeyAndForwardedToOrigin === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parametersInCacheKeyAndForwardedToOrigin'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            resourceInputs["maxTtl"] = args ? args.maxTtl : undefined;
-            resourceInputs["minTtl"] = args ? args.minTtl : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parametersInCacheKeyAndForwardedToOrigin"] = args ? args.parametersInCacheKeyAndForwardedToOrigin : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["defaultTtl"] = args?.defaultTtl;
+            resourceInputs["maxTtl"] = args?.maxTtl;
+            resourceInputs["minTtl"] = args?.minTtl;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parametersInCacheKeyAndForwardedToOrigin"] = args?.parametersInCacheKeyAndForwardedToOrigin;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }

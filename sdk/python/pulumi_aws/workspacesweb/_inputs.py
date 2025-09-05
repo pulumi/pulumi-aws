@@ -25,6 +25,18 @@ __all__ = [
     'DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgsDict',
     'IpAccessSettingsIpRuleArgs',
     'IpAccessSettingsIpRuleArgsDict',
+    'PortalTimeoutsArgs',
+    'PortalTimeoutsArgsDict',
+    'SessionLoggerEventFilterArgs',
+    'SessionLoggerEventFilterArgsDict',
+    'SessionLoggerEventFilterAllArgs',
+    'SessionLoggerEventFilterAllArgsDict',
+    'SessionLoggerLogConfigurationArgs',
+    'SessionLoggerLogConfigurationArgsDict',
+    'SessionLoggerLogConfigurationS3Args',
+    'SessionLoggerLogConfigurationS3ArgsDict',
+    'TrustStoreCertificateArgs',
+    'TrustStoreCertificateArgsDict',
     'UserSettingsCookieSynchronizationConfigurationArgs',
     'UserSettingsCookieSynchronizationConfigurationArgsDict',
     'UserSettingsCookieSynchronizationConfigurationAllowlistArgs',
@@ -451,6 +463,414 @@ class IpAccessSettingsIpRuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+
+if not MYPY:
+    class PortalTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    PortalTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PortalTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class SessionLoggerEventFilterArgsDict(TypedDict):
+        all: NotRequired[pulumi.Input['SessionLoggerEventFilterAllArgsDict']]
+        """
+        Block that specifies to monitor all events. Set to `{}` to monitor all events.
+        """
+        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
+        """
+elif False:
+    SessionLoggerEventFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionLoggerEventFilterArgs:
+    def __init__(__self__, *,
+                 all: Optional[pulumi.Input['SessionLoggerEventFilterAllArgs']] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input['SessionLoggerEventFilterAllArgs'] all: Block that specifies to monitor all events. Set to `{}` to monitor all events.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def all(self) -> Optional[pulumi.Input['SessionLoggerEventFilterAllArgs']]:
+        """
+        Block that specifies to monitor all events. Set to `{}` to monitor all events.
+        """
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: Optional[pulumi.Input['SessionLoggerEventFilterAllArgs']]):
+        pulumi.set(self, "all", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "includes", value)
+
+
+if not MYPY:
+    class SessionLoggerEventFilterAllArgsDict(TypedDict):
+        pass
+elif False:
+    SessionLoggerEventFilterAllArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionLoggerEventFilterAllArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class SessionLoggerLogConfigurationArgsDict(TypedDict):
+        s3: NotRequired[pulumi.Input['SessionLoggerLogConfigurationS3ArgsDict']]
+        """
+        Configuration block for S3 log delivery. See S3 Configuration below.
+        """
+elif False:
+    SessionLoggerLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionLoggerLogConfigurationArgs:
+    def __init__(__self__, *,
+                 s3: Optional[pulumi.Input['SessionLoggerLogConfigurationS3Args']] = None):
+        """
+        :param pulumi.Input['SessionLoggerLogConfigurationS3Args'] s3: Configuration block for S3 log delivery. See S3 Configuration below.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['SessionLoggerLogConfigurationS3Args']]:
+        """
+        Configuration block for S3 log delivery. See S3 Configuration below.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['SessionLoggerLogConfigurationS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class SessionLoggerLogConfigurationS3ArgsDict(TypedDict):
+        bucket: pulumi.Input[_builtins.str]
+        """
+        S3 bucket name where logs are delivered.
+        """
+        folder_structure: pulumi.Input[_builtins.str]
+        """
+        Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
+        """
+        log_file_format: pulumi.Input[_builtins.str]
+        """
+        Format of the log file written to S3. Valid values: `Json`, `Parquet`.
+        """
+        bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Expected bucket owner of the target S3 bucket.
+        """
+        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        S3 path prefix that determines where log files are stored.
+        """
+elif False:
+    SessionLoggerLogConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionLoggerLogConfigurationS3Args:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 folder_structure: pulumi.Input[_builtins.str],
+                 log_file_format: pulumi.Input[_builtins.str],
+                 bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: S3 bucket name where logs are delivered.
+        :param pulumi.Input[_builtins.str] folder_structure: Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
+        :param pulumi.Input[_builtins.str] log_file_format: Format of the log file written to S3. Valid values: `Json`, `Parquet`.
+        :param pulumi.Input[_builtins.str] bucket_owner: Expected bucket owner of the target S3 bucket.
+        :param pulumi.Input[_builtins.str] key_prefix: S3 path prefix that determines where log files are stored.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "folder_structure", folder_structure)
+        pulumi.set(__self__, "log_file_format", log_file_format)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 bucket name where logs are delivered.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter(name="folderStructure")
+    def folder_structure(self) -> pulumi.Input[_builtins.str]:
+        """
+        Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
+        """
+        return pulumi.get(self, "folder_structure")
+
+    @folder_structure.setter
+    def folder_structure(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "folder_structure", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logFileFormat")
+    def log_file_format(self) -> pulumi.Input[_builtins.str]:
+        """
+        Format of the log file written to S3. Valid values: `Json`, `Parquet`.
+        """
+        return pulumi.get(self, "log_file_format")
+
+    @log_file_format.setter
+    def log_file_format(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_file_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Expected bucket owner of the target S3 bucket.
+        """
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket_owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        S3 path prefix that determines where log files are stored.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @key_prefix.setter
+    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_prefix", value)
+
+
+if not MYPY:
+    class TrustStoreCertificateArgsDict(TypedDict):
+        body: pulumi.Input[_builtins.str]
+        """
+        Certificate body in PEM format.
+        """
+        issuer: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Certificate issuer.
+        """
+        not_valid_after: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Date and time when the certificate expires in RFC3339 format.
+        """
+        not_valid_before: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Date and time when the certificate becomes valid in RFC3339 format.
+        """
+        subject: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Certificate subject.
+        """
+        thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Certificate thumbprint.
+        """
+elif False:
+    TrustStoreCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrustStoreCertificateArgs:
+    def __init__(__self__, *,
+                 body: pulumi.Input[_builtins.str],
+                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
+                 not_valid_after: Optional[pulumi.Input[_builtins.str]] = None,
+                 not_valid_before: Optional[pulumi.Input[_builtins.str]] = None,
+                 subject: Optional[pulumi.Input[_builtins.str]] = None,
+                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] body: Certificate body in PEM format.
+        :param pulumi.Input[_builtins.str] issuer: Certificate issuer.
+        :param pulumi.Input[_builtins.str] not_valid_after: Date and time when the certificate expires in RFC3339 format.
+        :param pulumi.Input[_builtins.str] not_valid_before: Date and time when the certificate becomes valid in RFC3339 format.
+        :param pulumi.Input[_builtins.str] subject: Certificate subject.
+        :param pulumi.Input[_builtins.str] thumbprint: Certificate thumbprint.
+        """
+        pulumi.set(__self__, "body", body)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if not_valid_after is not None:
+            pulumi.set(__self__, "not_valid_after", not_valid_after)
+        if not_valid_before is not None:
+            pulumi.set(__self__, "not_valid_before", not_valid_before)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[_builtins.str]:
+        """
+        Certificate body in PEM format.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "body", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Certificate issuer.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "issuer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notValidAfter")
+    def not_valid_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Date and time when the certificate expires in RFC3339 format.
+        """
+        return pulumi.get(self, "not_valid_after")
+
+    @not_valid_after.setter
+    def not_valid_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "not_valid_after", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notValidBefore")
+    def not_valid_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Date and time when the certificate becomes valid in RFC3339 format.
+        """
+        return pulumi.get(self, "not_valid_before")
+
+    @not_valid_before.setter
+    def not_valid_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "not_valid_before", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Certificate subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Certificate thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "thumbprint", value)
 
 
 if not MYPY:

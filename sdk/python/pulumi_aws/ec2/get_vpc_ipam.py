@@ -27,7 +27,7 @@ class GetVpcIpamResult:
     """
     A collection of values returned by getVpcIpam.
     """
-    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, enable_private_gua=None, id=None, ipam_region=None, operating_regions=None, owner_id=None, private_default_scope_id=None, public_default_scope_id=None, region=None, resource_discovery_association_count=None, scope_count=None, state=None, state_message=None, tags=None, tier=None):
+    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, enable_private_gua=None, id=None, ipam_region=None, metered_account=None, operating_regions=None, owner_id=None, private_default_scope_id=None, public_default_scope_id=None, region=None, resource_discovery_association_count=None, scope_count=None, state=None, state_message=None, tags=None, tier=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetVpcIpamResult:
         if ipam_region and not isinstance(ipam_region, str):
             raise TypeError("Expected argument 'ipam_region' to be a str")
         pulumi.set(__self__, "ipam_region", ipam_region)
+        if metered_account and not isinstance(metered_account, str):
+            raise TypeError("Expected argument 'metered_account' to be a str")
+        pulumi.set(__self__, "metered_account", metered_account)
         if operating_regions and not isinstance(operating_regions, list):
             raise TypeError("Expected argument 'operating_regions' to be a list")
         pulumi.set(__self__, "operating_regions", operating_regions)
@@ -138,6 +141,14 @@ class GetVpcIpamResult:
         Region that the IPAM exists in.
         """
         return pulumi.get(self, "ipam_region")
+
+    @_builtins.property
+    @pulumi.getter(name="meteredAccount")
+    def metered_account(self) -> _builtins.str:
+        """
+        AWS account that is charged for active IP addresses managed in IPAM.
+        """
+        return pulumi.get(self, "metered_account")
 
     @_builtins.property
     @pulumi.getter(name="operatingRegions")
@@ -238,6 +249,7 @@ class AwaitableGetVpcIpamResult(GetVpcIpamResult):
             enable_private_gua=self.enable_private_gua,
             id=self.id,
             ipam_region=self.ipam_region,
+            metered_account=self.metered_account,
             operating_regions=self.operating_regions,
             owner_id=self.owner_id,
             private_default_scope_id=self.private_default_scope_id,
@@ -286,6 +298,7 @@ def get_vpc_ipam(id: Optional[_builtins.str] = None,
         enable_private_gua=pulumi.get(__ret__, 'enable_private_gua'),
         id=pulumi.get(__ret__, 'id'),
         ipam_region=pulumi.get(__ret__, 'ipam_region'),
+        metered_account=pulumi.get(__ret__, 'metered_account'),
         operating_regions=pulumi.get(__ret__, 'operating_regions'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         private_default_scope_id=pulumi.get(__ret__, 'private_default_scope_id'),
@@ -331,6 +344,7 @@ def get_vpc_ipam_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         enable_private_gua=pulumi.get(__response__, 'enable_private_gua'),
         id=pulumi.get(__response__, 'id'),
         ipam_region=pulumi.get(__response__, 'ipam_region'),
+        metered_account=pulumi.get(__response__, 'metered_account'),
         operating_regions=pulumi.get(__response__, 'operating_regions'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         private_default_scope_id=pulumi.get(__response__, 'private_default_scope_id'),

@@ -329,6 +329,12 @@ namespace Pulumi.Aws.Alb
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
+        /// </summary>
+        [Output("secondaryIpsAutoAssignedPerSubnet")]
+        public Output<int> SecondaryIpsAutoAssignedPerSubnet { get; private set; } = null!;
+
+        /// <summary>
         /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         [Output("securityGroups")]
@@ -577,6 +583,12 @@ namespace Pulumi.Aws.Alb
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
+        /// </summary>
+        [Input("secondaryIpsAutoAssignedPerSubnet")]
+        public Input<int>? SecondaryIpsAutoAssignedPerSubnet { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 
@@ -811,6 +823,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
+        /// </summary>
+        [Input("secondaryIpsAutoAssignedPerSubnet")]
+        public Input<int>? SecondaryIpsAutoAssignedPerSubnet { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

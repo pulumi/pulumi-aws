@@ -157,63 +157,63 @@ export class Resolver extends pulumi.CustomResource {
     /**
      * API ID for the GraphQL API.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Caching Config. See Caching Config.
      */
-    public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
+    declare public readonly cachingConfig: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
-    public readonly code!: pulumi.Output<string | undefined>;
+    declare public readonly code: pulumi.Output<string | undefined>;
     /**
      * Data source name.
      */
-    public readonly dataSource!: pulumi.Output<string | undefined>;
+    declare public readonly dataSource: pulumi.Output<string | undefined>;
     /**
      * Field name from the schema defined in the GraphQL API.
      */
-    public readonly field!: pulumi.Output<string>;
+    declare public readonly field: pulumi.Output<string>;
     /**
      * Resolver type. Valid values are `UNIT` and `PIPELINE`.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */
-    public readonly maxBatchSize!: pulumi.Output<number | undefined>;
+    declare public readonly maxBatchSize: pulumi.Output<number | undefined>;
     /**
      * The caching configuration for the resolver. See Pipeline Config.
      */
-    public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
+    declare public readonly pipelineConfig: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    public readonly requestTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly requestTemplate: pulumi.Output<string | undefined>;
     /**
      * Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    public readonly responseTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly responseTemplate: pulumi.Output<string | undefined>;
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
-    public readonly runtime!: pulumi.Output<outputs.appsync.ResolverRuntime | undefined>;
+    declare public readonly runtime: pulumi.Output<outputs.appsync.ResolverRuntime | undefined>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */
-    public readonly syncConfig!: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
+    declare public readonly syncConfig: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
     /**
      * Type name from the schema defined in the GraphQL API.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a Resolver resource with the given unique name, arguments, and options.
@@ -228,46 +228,46 @@ export class Resolver extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverState | undefined;
-            resourceInputs["apiId"] = state ? state.apiId : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cachingConfig"] = state ? state.cachingConfig : undefined;
-            resourceInputs["code"] = state ? state.code : undefined;
-            resourceInputs["dataSource"] = state ? state.dataSource : undefined;
-            resourceInputs["field"] = state ? state.field : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
-            resourceInputs["pipelineConfig"] = state ? state.pipelineConfig : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["requestTemplate"] = state ? state.requestTemplate : undefined;
-            resourceInputs["responseTemplate"] = state ? state.responseTemplate : undefined;
-            resourceInputs["runtime"] = state ? state.runtime : undefined;
-            resourceInputs["syncConfig"] = state ? state.syncConfig : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["apiId"] = state?.apiId;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cachingConfig"] = state?.cachingConfig;
+            resourceInputs["code"] = state?.code;
+            resourceInputs["dataSource"] = state?.dataSource;
+            resourceInputs["field"] = state?.field;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["maxBatchSize"] = state?.maxBatchSize;
+            resourceInputs["pipelineConfig"] = state?.pipelineConfig;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["requestTemplate"] = state?.requestTemplate;
+            resourceInputs["responseTemplate"] = state?.responseTemplate;
+            resourceInputs["runtime"] = state?.runtime;
+            resourceInputs["syncConfig"] = state?.syncConfig;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ResolverArgs | undefined;
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.field === undefined) && !opts.urn) {
+            if (args?.field === undefined && !opts.urn) {
                 throw new Error("Missing required property 'field'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["cachingConfig"] = args ? args.cachingConfig : undefined;
-            resourceInputs["code"] = args ? args.code : undefined;
-            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
-            resourceInputs["field"] = args ? args.field : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
-            resourceInputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["requestTemplate"] = args ? args.requestTemplate : undefined;
-            resourceInputs["responseTemplate"] = args ? args.responseTemplate : undefined;
-            resourceInputs["runtime"] = args ? args.runtime : undefined;
-            resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["cachingConfig"] = args?.cachingConfig;
+            resourceInputs["code"] = args?.code;
+            resourceInputs["dataSource"] = args?.dataSource;
+            resourceInputs["field"] = args?.field;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["maxBatchSize"] = args?.maxBatchSize;
+            resourceInputs["pipelineConfig"] = args?.pipelineConfig;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["requestTemplate"] = args?.requestTemplate;
+            resourceInputs["responseTemplate"] = args?.responseTemplate;
+            resourceInputs["runtime"] = args?.runtime;
+            resourceInputs["syncConfig"] = args?.syncConfig;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

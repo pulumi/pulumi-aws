@@ -71,19 +71,19 @@ export class BucketRequestPaymentConfiguration extends pulumi.CustomResource {
     /**
      * Name of the bucket.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
      */
-    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
      * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      */
-    public readonly payer!: pulumi.Output<string>;
+    declare public readonly payer: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a BucketRequestPaymentConfiguration resource with the given unique name, arguments, and options.
@@ -98,22 +98,22 @@ export class BucketRequestPaymentConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketRequestPaymentConfigurationState | undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
-            resourceInputs["payer"] = state ? state.payer : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
+            resourceInputs["payer"] = state?.payer;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as BucketRequestPaymentConfigurationArgs | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.payer === undefined) && !opts.urn) {
+            if (args?.payer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'payer'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
-            resourceInputs["payer"] = args ? args.payer : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
+            resourceInputs["payer"] = args?.payer;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2" }] };

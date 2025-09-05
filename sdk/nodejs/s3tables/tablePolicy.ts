@@ -50,25 +50,25 @@ export class TablePolicy extends pulumi.CustomResource {
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Name of the namespace for this table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      */
-    public readonly resourcePolicy!: pulumi.Output<string>;
+    declare public readonly resourcePolicy: pulumi.Output<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      */
-    public readonly tableBucketArn!: pulumi.Output<string>;
+    declare public readonly tableBucketArn: pulumi.Output<string>;
 
     /**
      * Create a TablePolicy resource with the given unique name, arguments, and options.
@@ -83,27 +83,27 @@ export class TablePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TablePolicyState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespace"] = state ? state.namespace : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourcePolicy"] = state ? state.resourcePolicy : undefined;
-            resourceInputs["tableBucketArn"] = state ? state.tableBucketArn : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespace"] = state?.namespace;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourcePolicy"] = state?.resourcePolicy;
+            resourceInputs["tableBucketArn"] = state?.tableBucketArn;
         } else {
             const args = argsOrState as TablePolicyArgs | undefined;
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
+            if (args?.resourcePolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
-            if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
+            if (args?.tableBucketArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
-            resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
+            resourceInputs["tableBucketArn"] = args?.tableBucketArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TablePolicy.__pulumiType, name, resourceInputs, opts);

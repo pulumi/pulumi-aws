@@ -4,6 +4,7 @@
 package com.pulumi.aws.synthetics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CanaryVpcConfig {
+    /**
+     * @return If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+     * 
+     */
+    private @Nullable Boolean ipv6AllowedForDualStack;
     /**
      * @return IDs of the security groups for this canary.
      * 
@@ -29,6 +35,13 @@ public final class CanaryVpcConfig {
     private @Nullable String vpcId;
 
     private CanaryVpcConfig() {}
+    /**
+     * @return If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+     * 
+     */
+    public Optional<Boolean> ipv6AllowedForDualStack() {
+        return Optional.ofNullable(this.ipv6AllowedForDualStack);
+    }
     /**
      * @return IDs of the security groups for this canary.
      * 
@@ -60,17 +73,25 @@ public final class CanaryVpcConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean ipv6AllowedForDualStack;
         private @Nullable List<String> securityGroupIds;
         private @Nullable List<String> subnetIds;
         private @Nullable String vpcId;
         public Builder() {}
         public Builder(CanaryVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ipv6AllowedForDualStack = defaults.ipv6AllowedForDualStack;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
+        public Builder ipv6AllowedForDualStack(@Nullable Boolean ipv6AllowedForDualStack) {
+
+            this.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
+            return this;
+        }
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
 
@@ -97,6 +118,7 @@ public final class CanaryVpcConfig {
         }
         public CanaryVpcConfig build() {
             final var _resultValue = new CanaryVpcConfig();
+            _resultValue.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.subnetIds = subnetIds;
             _resultValue.vpcId = vpcId;

@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// Region that the IPAM exists in.
         /// </summary>
         public readonly string IpamRegion;
+        public readonly string MeteredAccount;
         /// <summary>
         /// Regions that the IPAM is configured to operate in.
         /// </summary>
@@ -94,6 +95,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string ipamRegion,
 
+            string meteredAccount,
+
             ImmutableArray<Outputs.GetVpcIpamsIpamOperatingRegionResult> operatingRegions,
 
             string ownerId,
@@ -119,6 +122,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             EnablePrivateGua = enablePrivateGua;
             Id = id;
             IpamRegion = ipamRegion;
+            MeteredAccount = meteredAccount;
             OperatingRegions = operatingRegions;
             OwnerId = ownerId;
             PrivateDefaultScopeId = privateDefaultScopeId;

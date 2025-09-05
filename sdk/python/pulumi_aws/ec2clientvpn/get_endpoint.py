@@ -28,7 +28,7 @@ class GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
-    def __init__(__self__, arn=None, authentication_options=None, client_cidr_block=None, client_connect_options=None, client_login_banner_options=None, client_route_enforcement_options=None, client_vpn_endpoint_id=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, filters=None, id=None, region=None, security_group_ids=None, self_service_portal=None, self_service_portal_url=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, tags=None, transport_protocol=None, vpc_id=None, vpn_port=None):
+    def __init__(__self__, arn=None, authentication_options=None, client_cidr_block=None, client_connect_options=None, client_login_banner_options=None, client_route_enforcement_options=None, client_vpn_endpoint_id=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, endpoint_ip_address_type=None, filters=None, id=None, region=None, security_group_ids=None, self_service_portal=None, self_service_portal_url=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, tags=None, traffic_ip_address_type=None, transport_protocol=None, vpc_id=None, vpn_port=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -62,6 +62,9 @@ class GetEndpointResult:
         if dns_servers and not isinstance(dns_servers, list):
             raise TypeError("Expected argument 'dns_servers' to be a list")
         pulumi.set(__self__, "dns_servers", dns_servers)
+        if endpoint_ip_address_type and not isinstance(endpoint_ip_address_type, str):
+            raise TypeError("Expected argument 'endpoint_ip_address_type' to be a str")
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -92,6 +95,9 @@ class GetEndpointResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if traffic_ip_address_type and not isinstance(traffic_ip_address_type, str):
+            raise TypeError("Expected argument 'traffic_ip_address_type' to be a str")
+        pulumi.set(__self__, "traffic_ip_address_type", traffic_ip_address_type)
         if transport_protocol and not isinstance(transport_protocol, str):
             raise TypeError("Expected argument 'transport_protocol' to be a str")
         pulumi.set(__self__, "transport_protocol", transport_protocol)
@@ -188,6 +194,14 @@ class GetEndpointResult:
         return pulumi.get(self, "dns_servers")
 
     @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the Client VPN endpoint.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetEndpointFilterResult']]:
         return pulumi.get(self, "filters")
@@ -259,6 +273,14 @@ class GetEndpointResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="trafficIpAddressType")
+    def traffic_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for traffic within the Client VPN tunnel.
+        """
+        return pulumi.get(self, "traffic_ip_address_type")
+
+    @_builtins.property
     @pulumi.getter(name="transportProtocol")
     def transport_protocol(self) -> _builtins.str:
         """
@@ -300,6 +322,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             description=self.description,
             dns_name=self.dns_name,
             dns_servers=self.dns_servers,
+            endpoint_ip_address_type=self.endpoint_ip_address_type,
             filters=self.filters,
             id=self.id,
             region=self.region,
@@ -310,6 +333,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             session_timeout_hours=self.session_timeout_hours,
             split_tunnel=self.split_tunnel,
             tags=self.tags,
+            traffic_ip_address_type=self.traffic_ip_address_type,
             transport_protocol=self.transport_protocol,
             vpc_id=self.vpc_id,
             vpn_port=self.vpn_port)
@@ -372,6 +396,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         dns_name=pulumi.get(__ret__, 'dns_name'),
         dns_servers=pulumi.get(__ret__, 'dns_servers'),
+        endpoint_ip_address_type=pulumi.get(__ret__, 'endpoint_ip_address_type'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
@@ -382,6 +407,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[_builtins.str] = None,
         session_timeout_hours=pulumi.get(__ret__, 'session_timeout_hours'),
         split_tunnel=pulumi.get(__ret__, 'split_tunnel'),
         tags=pulumi.get(__ret__, 'tags'),
+        traffic_ip_address_type=pulumi.get(__ret__, 'traffic_ip_address_type'),
         transport_protocol=pulumi.get(__ret__, 'transport_protocol'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpn_port=pulumi.get(__ret__, 'vpn_port'))
@@ -441,6 +467,7 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[_
         description=pulumi.get(__response__, 'description'),
         dns_name=pulumi.get(__response__, 'dns_name'),
         dns_servers=pulumi.get(__response__, 'dns_servers'),
+        endpoint_ip_address_type=pulumi.get(__response__, 'endpoint_ip_address_type'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
@@ -451,6 +478,7 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[_
         session_timeout_hours=pulumi.get(__response__, 'session_timeout_hours'),
         split_tunnel=pulumi.get(__response__, 'split_tunnel'),
         tags=pulumi.get(__response__, 'tags'),
+        traffic_ip_address_type=pulumi.get(__response__, 'traffic_ip_address_type'),
         transport_protocol=pulumi.get(__response__, 'transport_protocol'),
         vpc_id=pulumi.get(__response__, 'vpc_id'),
         vpn_port=pulumi.get(__response__, 'vpn_port')))

@@ -20,7 +20,12 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
     private @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule deprecateRule;
     private Boolean encrypted;
     private @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule retainRule;
-    private String target;
+    private @Nullable String target;
+    /**
+     * @return Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+     * 
+     */
+    private @Nullable String targetRegion;
 
     private LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule() {}
     public Optional<String> cmkArn() {
@@ -38,8 +43,15 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
     public Optional<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule> retainRule() {
         return Optional.ofNullable(this.retainRule);
     }
-    public String target() {
-        return this.target;
+    public Optional<String> target() {
+        return Optional.ofNullable(this.target);
+    }
+    /**
+     * @return Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+     * 
+     */
+    public Optional<String> targetRegion() {
+        return Optional.ofNullable(this.targetRegion);
     }
 
     public static Builder builder() {
@@ -56,7 +68,8 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
         private @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule deprecateRule;
         private Boolean encrypted;
         private @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule retainRule;
-        private String target;
+        private @Nullable String target;
+        private @Nullable String targetRegion;
         public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,6 +79,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
     	      this.encrypted = defaults.encrypted;
     	      this.retainRule = defaults.retainRule;
     	      this.target = defaults.target;
+    	      this.targetRegion = defaults.targetRegion;
         }
 
         @CustomType.Setter
@@ -101,11 +115,15 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
             return this;
         }
         @CustomType.Setter
-        public Builder target(String target) {
-            if (target == null) {
-              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule", "target");
-            }
+        public Builder target(@Nullable String target) {
+
             this.target = target;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder targetRegion(@Nullable String targetRegion) {
+
+            this.targetRegion = targetRegion;
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule build() {
@@ -116,6 +134,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
             _resultValue.encrypted = encrypted;
             _resultValue.retainRule = retainRule;
             _resultValue.target = target;
+            _resultValue.targetRegion = targetRegion;
             return _resultValue;
         }
     }

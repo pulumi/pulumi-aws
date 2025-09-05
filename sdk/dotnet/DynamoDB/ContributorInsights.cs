@@ -48,6 +48,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string?> IndexName { get; private set; } = null!;
 
         /// <summary>
+        /// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+        /// </summary>
+        [Output("mode")]
+        public Output<string> Mode { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? IndexName { get; set; }
 
         /// <summary>
+        /// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+        /// </summary>
+        [Input("mode")]
+        public Input<string>? Mode { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -136,6 +148,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
+
+        /// <summary>
+        /// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+        /// </summary>
+        [Input("mode")]
+        public Input<string>? Mode { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

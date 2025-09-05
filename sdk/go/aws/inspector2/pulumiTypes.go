@@ -16,6 +16,10 @@ var _ = internal.GetEnvOrDefault
 type FilterFilterCriteria struct {
 	// (Optional) The AWS account ID in which the finding was generated. Documented below.
 	AwsAccountIds []FilterFilterCriteriaAwsAccountId `pulumi:"awsAccountIds"`
+	// (Optional) The project name in a code repository. Documented below.
+	CodeRepositoryProjectNames []FilterFilterCriteriaCodeRepositoryProjectName `pulumi:"codeRepositoryProjectNames"`
+	// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+	CodeRepositoryProviderTypes []FilterFilterCriteriaCodeRepositoryProviderType `pulumi:"codeRepositoryProviderTypes"`
 	// (Optional) The ID of the component. Documented below.
 	CodeVulnerabilityDetectorNames []FilterFilterCriteriaCodeVulnerabilityDetectorName `pulumi:"codeVulnerabilityDetectorNames"`
 	// (Optional) The ID of the component. Documented below.
@@ -36,6 +40,10 @@ type FilterFilterCriteria struct {
 	EcrImageArchitectures []FilterFilterCriteriaEcrImageArchitecture `pulumi:"ecrImageArchitectures"`
 	// (Optional) The SHA256 hash of the ECR image. Documented below.
 	EcrImageHashes []FilterFilterCriteriaEcrImageHash `pulumi:"ecrImageHashes"`
+	// (Optional)  The number of the ECR images in use. Documented below.
+	EcrImageInUseCounts []FilterFilterCriteriaEcrImageInUseCount `pulumi:"ecrImageInUseCounts"`
+	// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+	EcrImageLastInUseAts []FilterFilterCriteriaEcrImageLastInUseAt `pulumi:"ecrImageLastInUseAts"`
 	// (Optional) The date range when the image was pushed. Documented below.
 	EcrImagePushedAts []FilterFilterCriteriaEcrImagePushedAt `pulumi:"ecrImagePushedAts"`
 	// (Optional) The registry of the ECR image. Documented below.
@@ -114,6 +122,10 @@ type FilterFilterCriteriaInput interface {
 type FilterFilterCriteriaArgs struct {
 	// (Optional) The AWS account ID in which the finding was generated. Documented below.
 	AwsAccountIds FilterFilterCriteriaAwsAccountIdArrayInput `pulumi:"awsAccountIds"`
+	// (Optional) The project name in a code repository. Documented below.
+	CodeRepositoryProjectNames FilterFilterCriteriaCodeRepositoryProjectNameArrayInput `pulumi:"codeRepositoryProjectNames"`
+	// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+	CodeRepositoryProviderTypes FilterFilterCriteriaCodeRepositoryProviderTypeArrayInput `pulumi:"codeRepositoryProviderTypes"`
 	// (Optional) The ID of the component. Documented below.
 	CodeVulnerabilityDetectorNames FilterFilterCriteriaCodeVulnerabilityDetectorNameArrayInput `pulumi:"codeVulnerabilityDetectorNames"`
 	// (Optional) The ID of the component. Documented below.
@@ -134,6 +146,10 @@ type FilterFilterCriteriaArgs struct {
 	EcrImageArchitectures FilterFilterCriteriaEcrImageArchitectureArrayInput `pulumi:"ecrImageArchitectures"`
 	// (Optional) The SHA256 hash of the ECR image. Documented below.
 	EcrImageHashes FilterFilterCriteriaEcrImageHashArrayInput `pulumi:"ecrImageHashes"`
+	// (Optional)  The number of the ECR images in use. Documented below.
+	EcrImageInUseCounts FilterFilterCriteriaEcrImageInUseCountArrayInput `pulumi:"ecrImageInUseCounts"`
+	// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+	EcrImageLastInUseAts FilterFilterCriteriaEcrImageLastInUseAtArrayInput `pulumi:"ecrImageLastInUseAts"`
 	// (Optional) The date range when the image was pushed. Documented below.
 	EcrImagePushedAts FilterFilterCriteriaEcrImagePushedAtArrayInput `pulumi:"ecrImagePushedAts"`
 	// (Optional) The registry of the ECR image. Documented below.
@@ -254,6 +270,20 @@ func (o FilterFilterCriteriaOutput) AwsAccountIds() FilterFilterCriteriaAwsAccou
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaAwsAccountId { return v.AwsAccountIds }).(FilterFilterCriteriaAwsAccountIdArrayOutput)
 }
 
+// (Optional) The project name in a code repository. Documented below.
+func (o FilterFilterCriteriaOutput) CodeRepositoryProjectNames() FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput {
+	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaCodeRepositoryProjectName {
+		return v.CodeRepositoryProjectNames
+	}).(FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput)
+}
+
+// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+func (o FilterFilterCriteriaOutput) CodeRepositoryProviderTypes() FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput {
+	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaCodeRepositoryProviderType {
+		return v.CodeRepositoryProviderTypes
+	}).(FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput)
+}
+
 // (Optional) The ID of the component. Documented below.
 func (o FilterFilterCriteriaOutput) CodeVulnerabilityDetectorNames() FilterFilterCriteriaCodeVulnerabilityDetectorNameArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaCodeVulnerabilityDetectorName {
@@ -310,6 +340,16 @@ func (o FilterFilterCriteriaOutput) EcrImageArchitectures() FilterFilterCriteria
 // (Optional) The SHA256 hash of the ECR image. Documented below.
 func (o FilterFilterCriteriaOutput) EcrImageHashes() FilterFilterCriteriaEcrImageHashArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageHash { return v.EcrImageHashes }).(FilterFilterCriteriaEcrImageHashArrayOutput)
+}
+
+// (Optional)  The number of the ECR images in use. Documented below.
+func (o FilterFilterCriteriaOutput) EcrImageInUseCounts() FilterFilterCriteriaEcrImageInUseCountArrayOutput {
+	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageInUseCount { return v.EcrImageInUseCounts }).(FilterFilterCriteriaEcrImageInUseCountArrayOutput)
+}
+
+// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+func (o FilterFilterCriteriaOutput) EcrImageLastInUseAts() FilterFilterCriteriaEcrImageLastInUseAtArrayOutput {
+	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageLastInUseAt { return v.EcrImageLastInUseAts }).(FilterFilterCriteriaEcrImageLastInUseAtArrayOutput)
 }
 
 // (Optional) The date range when the image was pushed. Documented below.
@@ -601,6 +641,218 @@ func (o FilterFilterCriteriaAwsAccountIdArrayOutput) Index(i pulumi.IntInput) Fi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFilterCriteriaAwsAccountId {
 		return vs[0].([]FilterFilterCriteriaAwsAccountId)[vs[1].(int)]
 	}).(FilterFilterCriteriaAwsAccountIdOutput)
+}
+
+type FilterFilterCriteriaCodeRepositoryProjectName struct {
+	// (Required) The comparison operator. Valid values: `EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// (Required) The value to filter on.
+	Value string `pulumi:"value"`
+}
+
+// FilterFilterCriteriaCodeRepositoryProjectNameInput is an input type that accepts FilterFilterCriteriaCodeRepositoryProjectNameArgs and FilterFilterCriteriaCodeRepositoryProjectNameOutput values.
+// You can construct a concrete instance of `FilterFilterCriteriaCodeRepositoryProjectNameInput` via:
+//
+//	FilterFilterCriteriaCodeRepositoryProjectNameArgs{...}
+type FilterFilterCriteriaCodeRepositoryProjectNameInput interface {
+	pulumi.Input
+
+	ToFilterFilterCriteriaCodeRepositoryProjectNameOutput() FilterFilterCriteriaCodeRepositoryProjectNameOutput
+	ToFilterFilterCriteriaCodeRepositoryProjectNameOutputWithContext(context.Context) FilterFilterCriteriaCodeRepositoryProjectNameOutput
+}
+
+type FilterFilterCriteriaCodeRepositoryProjectNameArgs struct {
+	// (Required) The comparison operator. Valid values: `EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// (Required) The value to filter on.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FilterFilterCriteriaCodeRepositoryProjectNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFilterCriteriaCodeRepositoryProjectName)(nil)).Elem()
+}
+
+func (i FilterFilterCriteriaCodeRepositoryProjectNameArgs) ToFilterFilterCriteriaCodeRepositoryProjectNameOutput() FilterFilterCriteriaCodeRepositoryProjectNameOutput {
+	return i.ToFilterFilterCriteriaCodeRepositoryProjectNameOutputWithContext(context.Background())
+}
+
+func (i FilterFilterCriteriaCodeRepositoryProjectNameArgs) ToFilterFilterCriteriaCodeRepositoryProjectNameOutputWithContext(ctx context.Context) FilterFilterCriteriaCodeRepositoryProjectNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFilterCriteriaCodeRepositoryProjectNameOutput)
+}
+
+// FilterFilterCriteriaCodeRepositoryProjectNameArrayInput is an input type that accepts FilterFilterCriteriaCodeRepositoryProjectNameArray and FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput values.
+// You can construct a concrete instance of `FilterFilterCriteriaCodeRepositoryProjectNameArrayInput` via:
+//
+//	FilterFilterCriteriaCodeRepositoryProjectNameArray{ FilterFilterCriteriaCodeRepositoryProjectNameArgs{...} }
+type FilterFilterCriteriaCodeRepositoryProjectNameArrayInput interface {
+	pulumi.Input
+
+	ToFilterFilterCriteriaCodeRepositoryProjectNameArrayOutput() FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput
+	ToFilterFilterCriteriaCodeRepositoryProjectNameArrayOutputWithContext(context.Context) FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput
+}
+
+type FilterFilterCriteriaCodeRepositoryProjectNameArray []FilterFilterCriteriaCodeRepositoryProjectNameInput
+
+func (FilterFilterCriteriaCodeRepositoryProjectNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFilterCriteriaCodeRepositoryProjectName)(nil)).Elem()
+}
+
+func (i FilterFilterCriteriaCodeRepositoryProjectNameArray) ToFilterFilterCriteriaCodeRepositoryProjectNameArrayOutput() FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput {
+	return i.ToFilterFilterCriteriaCodeRepositoryProjectNameArrayOutputWithContext(context.Background())
+}
+
+func (i FilterFilterCriteriaCodeRepositoryProjectNameArray) ToFilterFilterCriteriaCodeRepositoryProjectNameArrayOutputWithContext(ctx context.Context) FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput)
+}
+
+type FilterFilterCriteriaCodeRepositoryProjectNameOutput struct{ *pulumi.OutputState }
+
+func (FilterFilterCriteriaCodeRepositoryProjectNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFilterCriteriaCodeRepositoryProjectName)(nil)).Elem()
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProjectNameOutput) ToFilterFilterCriteriaCodeRepositoryProjectNameOutput() FilterFilterCriteriaCodeRepositoryProjectNameOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProjectNameOutput) ToFilterFilterCriteriaCodeRepositoryProjectNameOutputWithContext(ctx context.Context) FilterFilterCriteriaCodeRepositoryProjectNameOutput {
+	return o
+}
+
+// (Required) The comparison operator. Valid values: `EQUALS`.
+func (o FilterFilterCriteriaCodeRepositoryProjectNameOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterFilterCriteriaCodeRepositoryProjectName) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// (Required) The value to filter on.
+func (o FilterFilterCriteriaCodeRepositoryProjectNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterFilterCriteriaCodeRepositoryProjectName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFilterCriteriaCodeRepositoryProjectName)(nil)).Elem()
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput) ToFilterFilterCriteriaCodeRepositoryProjectNameArrayOutput() FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput) ToFilterFilterCriteriaCodeRepositoryProjectNameArrayOutputWithContext(ctx context.Context) FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput) Index(i pulumi.IntInput) FilterFilterCriteriaCodeRepositoryProjectNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFilterCriteriaCodeRepositoryProjectName {
+		return vs[0].([]FilterFilterCriteriaCodeRepositoryProjectName)[vs[1].(int)]
+	}).(FilterFilterCriteriaCodeRepositoryProjectNameOutput)
+}
+
+type FilterFilterCriteriaCodeRepositoryProviderType struct {
+	// (Required) The comparison operator. Valid values: `EQUALS`.
+	Comparison string `pulumi:"comparison"`
+	// (Required) The value to filter on.
+	Value string `pulumi:"value"`
+}
+
+// FilterFilterCriteriaCodeRepositoryProviderTypeInput is an input type that accepts FilterFilterCriteriaCodeRepositoryProviderTypeArgs and FilterFilterCriteriaCodeRepositoryProviderTypeOutput values.
+// You can construct a concrete instance of `FilterFilterCriteriaCodeRepositoryProviderTypeInput` via:
+//
+//	FilterFilterCriteriaCodeRepositoryProviderTypeArgs{...}
+type FilterFilterCriteriaCodeRepositoryProviderTypeInput interface {
+	pulumi.Input
+
+	ToFilterFilterCriteriaCodeRepositoryProviderTypeOutput() FilterFilterCriteriaCodeRepositoryProviderTypeOutput
+	ToFilterFilterCriteriaCodeRepositoryProviderTypeOutputWithContext(context.Context) FilterFilterCriteriaCodeRepositoryProviderTypeOutput
+}
+
+type FilterFilterCriteriaCodeRepositoryProviderTypeArgs struct {
+	// (Required) The comparison operator. Valid values: `EQUALS`.
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	// (Required) The value to filter on.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FilterFilterCriteriaCodeRepositoryProviderTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFilterCriteriaCodeRepositoryProviderType)(nil)).Elem()
+}
+
+func (i FilterFilterCriteriaCodeRepositoryProviderTypeArgs) ToFilterFilterCriteriaCodeRepositoryProviderTypeOutput() FilterFilterCriteriaCodeRepositoryProviderTypeOutput {
+	return i.ToFilterFilterCriteriaCodeRepositoryProviderTypeOutputWithContext(context.Background())
+}
+
+func (i FilterFilterCriteriaCodeRepositoryProviderTypeArgs) ToFilterFilterCriteriaCodeRepositoryProviderTypeOutputWithContext(ctx context.Context) FilterFilterCriteriaCodeRepositoryProviderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFilterCriteriaCodeRepositoryProviderTypeOutput)
+}
+
+// FilterFilterCriteriaCodeRepositoryProviderTypeArrayInput is an input type that accepts FilterFilterCriteriaCodeRepositoryProviderTypeArray and FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput values.
+// You can construct a concrete instance of `FilterFilterCriteriaCodeRepositoryProviderTypeArrayInput` via:
+//
+//	FilterFilterCriteriaCodeRepositoryProviderTypeArray{ FilterFilterCriteriaCodeRepositoryProviderTypeArgs{...} }
+type FilterFilterCriteriaCodeRepositoryProviderTypeArrayInput interface {
+	pulumi.Input
+
+	ToFilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput() FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput
+	ToFilterFilterCriteriaCodeRepositoryProviderTypeArrayOutputWithContext(context.Context) FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput
+}
+
+type FilterFilterCriteriaCodeRepositoryProviderTypeArray []FilterFilterCriteriaCodeRepositoryProviderTypeInput
+
+func (FilterFilterCriteriaCodeRepositoryProviderTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFilterCriteriaCodeRepositoryProviderType)(nil)).Elem()
+}
+
+func (i FilterFilterCriteriaCodeRepositoryProviderTypeArray) ToFilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput() FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput {
+	return i.ToFilterFilterCriteriaCodeRepositoryProviderTypeArrayOutputWithContext(context.Background())
+}
+
+func (i FilterFilterCriteriaCodeRepositoryProviderTypeArray) ToFilterFilterCriteriaCodeRepositoryProviderTypeArrayOutputWithContext(ctx context.Context) FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput)
+}
+
+type FilterFilterCriteriaCodeRepositoryProviderTypeOutput struct{ *pulumi.OutputState }
+
+func (FilterFilterCriteriaCodeRepositoryProviderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFilterCriteriaCodeRepositoryProviderType)(nil)).Elem()
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProviderTypeOutput) ToFilterFilterCriteriaCodeRepositoryProviderTypeOutput() FilterFilterCriteriaCodeRepositoryProviderTypeOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProviderTypeOutput) ToFilterFilterCriteriaCodeRepositoryProviderTypeOutputWithContext(ctx context.Context) FilterFilterCriteriaCodeRepositoryProviderTypeOutput {
+	return o
+}
+
+// (Required) The comparison operator. Valid values: `EQUALS`.
+func (o FilterFilterCriteriaCodeRepositoryProviderTypeOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterFilterCriteriaCodeRepositoryProviderType) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+// (Required) The value to filter on.
+func (o FilterFilterCriteriaCodeRepositoryProviderTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterFilterCriteriaCodeRepositoryProviderType) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFilterCriteriaCodeRepositoryProviderType)(nil)).Elem()
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput) ToFilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput() FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput) ToFilterFilterCriteriaCodeRepositoryProviderTypeArrayOutputWithContext(ctx context.Context) FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput) Index(i pulumi.IntInput) FilterFilterCriteriaCodeRepositoryProviderTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFilterCriteriaCodeRepositoryProviderType {
+		return vs[0].([]FilterFilterCriteriaCodeRepositoryProviderType)[vs[1].(int)]
+	}).(FilterFilterCriteriaCodeRepositoryProviderTypeOutput)
 }
 
 type FilterFilterCriteriaCodeVulnerabilityDetectorName struct {
@@ -1661,6 +1913,218 @@ func (o FilterFilterCriteriaEcrImageHashArrayOutput) Index(i pulumi.IntInput) Fi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFilterCriteriaEcrImageHash {
 		return vs[0].([]FilterFilterCriteriaEcrImageHash)[vs[1].(int)]
 	}).(FilterFilterCriteriaEcrImageHashOutput)
+}
+
+type FilterFilterCriteriaEcrImageInUseCount struct {
+	// (Optional) Lower bound of the range, inclusive.
+	LowerInclusive float64 `pulumi:"lowerInclusive"`
+	// (Optional) Upper bound of the range, inclusive.
+	UpperInclusive float64 `pulumi:"upperInclusive"`
+}
+
+// FilterFilterCriteriaEcrImageInUseCountInput is an input type that accepts FilterFilterCriteriaEcrImageInUseCountArgs and FilterFilterCriteriaEcrImageInUseCountOutput values.
+// You can construct a concrete instance of `FilterFilterCriteriaEcrImageInUseCountInput` via:
+//
+//	FilterFilterCriteriaEcrImageInUseCountArgs{...}
+type FilterFilterCriteriaEcrImageInUseCountInput interface {
+	pulumi.Input
+
+	ToFilterFilterCriteriaEcrImageInUseCountOutput() FilterFilterCriteriaEcrImageInUseCountOutput
+	ToFilterFilterCriteriaEcrImageInUseCountOutputWithContext(context.Context) FilterFilterCriteriaEcrImageInUseCountOutput
+}
+
+type FilterFilterCriteriaEcrImageInUseCountArgs struct {
+	// (Optional) Lower bound of the range, inclusive.
+	LowerInclusive pulumi.Float64Input `pulumi:"lowerInclusive"`
+	// (Optional) Upper bound of the range, inclusive.
+	UpperInclusive pulumi.Float64Input `pulumi:"upperInclusive"`
+}
+
+func (FilterFilterCriteriaEcrImageInUseCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFilterCriteriaEcrImageInUseCount)(nil)).Elem()
+}
+
+func (i FilterFilterCriteriaEcrImageInUseCountArgs) ToFilterFilterCriteriaEcrImageInUseCountOutput() FilterFilterCriteriaEcrImageInUseCountOutput {
+	return i.ToFilterFilterCriteriaEcrImageInUseCountOutputWithContext(context.Background())
+}
+
+func (i FilterFilterCriteriaEcrImageInUseCountArgs) ToFilterFilterCriteriaEcrImageInUseCountOutputWithContext(ctx context.Context) FilterFilterCriteriaEcrImageInUseCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFilterCriteriaEcrImageInUseCountOutput)
+}
+
+// FilterFilterCriteriaEcrImageInUseCountArrayInput is an input type that accepts FilterFilterCriteriaEcrImageInUseCountArray and FilterFilterCriteriaEcrImageInUseCountArrayOutput values.
+// You can construct a concrete instance of `FilterFilterCriteriaEcrImageInUseCountArrayInput` via:
+//
+//	FilterFilterCriteriaEcrImageInUseCountArray{ FilterFilterCriteriaEcrImageInUseCountArgs{...} }
+type FilterFilterCriteriaEcrImageInUseCountArrayInput interface {
+	pulumi.Input
+
+	ToFilterFilterCriteriaEcrImageInUseCountArrayOutput() FilterFilterCriteriaEcrImageInUseCountArrayOutput
+	ToFilterFilterCriteriaEcrImageInUseCountArrayOutputWithContext(context.Context) FilterFilterCriteriaEcrImageInUseCountArrayOutput
+}
+
+type FilterFilterCriteriaEcrImageInUseCountArray []FilterFilterCriteriaEcrImageInUseCountInput
+
+func (FilterFilterCriteriaEcrImageInUseCountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFilterCriteriaEcrImageInUseCount)(nil)).Elem()
+}
+
+func (i FilterFilterCriteriaEcrImageInUseCountArray) ToFilterFilterCriteriaEcrImageInUseCountArrayOutput() FilterFilterCriteriaEcrImageInUseCountArrayOutput {
+	return i.ToFilterFilterCriteriaEcrImageInUseCountArrayOutputWithContext(context.Background())
+}
+
+func (i FilterFilterCriteriaEcrImageInUseCountArray) ToFilterFilterCriteriaEcrImageInUseCountArrayOutputWithContext(ctx context.Context) FilterFilterCriteriaEcrImageInUseCountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFilterCriteriaEcrImageInUseCountArrayOutput)
+}
+
+type FilterFilterCriteriaEcrImageInUseCountOutput struct{ *pulumi.OutputState }
+
+func (FilterFilterCriteriaEcrImageInUseCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFilterCriteriaEcrImageInUseCount)(nil)).Elem()
+}
+
+func (o FilterFilterCriteriaEcrImageInUseCountOutput) ToFilterFilterCriteriaEcrImageInUseCountOutput() FilterFilterCriteriaEcrImageInUseCountOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaEcrImageInUseCountOutput) ToFilterFilterCriteriaEcrImageInUseCountOutputWithContext(ctx context.Context) FilterFilterCriteriaEcrImageInUseCountOutput {
+	return o
+}
+
+// (Optional) Lower bound of the range, inclusive.
+func (o FilterFilterCriteriaEcrImageInUseCountOutput) LowerInclusive() pulumi.Float64Output {
+	return o.ApplyT(func(v FilterFilterCriteriaEcrImageInUseCount) float64 { return v.LowerInclusive }).(pulumi.Float64Output)
+}
+
+// (Optional) Upper bound of the range, inclusive.
+func (o FilterFilterCriteriaEcrImageInUseCountOutput) UpperInclusive() pulumi.Float64Output {
+	return o.ApplyT(func(v FilterFilterCriteriaEcrImageInUseCount) float64 { return v.UpperInclusive }).(pulumi.Float64Output)
+}
+
+type FilterFilterCriteriaEcrImageInUseCountArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterFilterCriteriaEcrImageInUseCountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFilterCriteriaEcrImageInUseCount)(nil)).Elem()
+}
+
+func (o FilterFilterCriteriaEcrImageInUseCountArrayOutput) ToFilterFilterCriteriaEcrImageInUseCountArrayOutput() FilterFilterCriteriaEcrImageInUseCountArrayOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaEcrImageInUseCountArrayOutput) ToFilterFilterCriteriaEcrImageInUseCountArrayOutputWithContext(ctx context.Context) FilterFilterCriteriaEcrImageInUseCountArrayOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaEcrImageInUseCountArrayOutput) Index(i pulumi.IntInput) FilterFilterCriteriaEcrImageInUseCountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFilterCriteriaEcrImageInUseCount {
+		return vs[0].([]FilterFilterCriteriaEcrImageInUseCount)[vs[1].(int)]
+	}).(FilterFilterCriteriaEcrImageInUseCountOutput)
+}
+
+type FilterFilterCriteriaEcrImageLastInUseAt struct {
+	// (Required) The end of the port range, inclusive.
+	EndInclusive *string `pulumi:"endInclusive"`
+	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	StartInclusive *string `pulumi:"startInclusive"`
+}
+
+// FilterFilterCriteriaEcrImageLastInUseAtInput is an input type that accepts FilterFilterCriteriaEcrImageLastInUseAtArgs and FilterFilterCriteriaEcrImageLastInUseAtOutput values.
+// You can construct a concrete instance of `FilterFilterCriteriaEcrImageLastInUseAtInput` via:
+//
+//	FilterFilterCriteriaEcrImageLastInUseAtArgs{...}
+type FilterFilterCriteriaEcrImageLastInUseAtInput interface {
+	pulumi.Input
+
+	ToFilterFilterCriteriaEcrImageLastInUseAtOutput() FilterFilterCriteriaEcrImageLastInUseAtOutput
+	ToFilterFilterCriteriaEcrImageLastInUseAtOutputWithContext(context.Context) FilterFilterCriteriaEcrImageLastInUseAtOutput
+}
+
+type FilterFilterCriteriaEcrImageLastInUseAtArgs struct {
+	// (Required) The end of the port range, inclusive.
+	EndInclusive pulumi.StringPtrInput `pulumi:"endInclusive"`
+	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	StartInclusive pulumi.StringPtrInput `pulumi:"startInclusive"`
+}
+
+func (FilterFilterCriteriaEcrImageLastInUseAtArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFilterCriteriaEcrImageLastInUseAt)(nil)).Elem()
+}
+
+func (i FilterFilterCriteriaEcrImageLastInUseAtArgs) ToFilterFilterCriteriaEcrImageLastInUseAtOutput() FilterFilterCriteriaEcrImageLastInUseAtOutput {
+	return i.ToFilterFilterCriteriaEcrImageLastInUseAtOutputWithContext(context.Background())
+}
+
+func (i FilterFilterCriteriaEcrImageLastInUseAtArgs) ToFilterFilterCriteriaEcrImageLastInUseAtOutputWithContext(ctx context.Context) FilterFilterCriteriaEcrImageLastInUseAtOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFilterCriteriaEcrImageLastInUseAtOutput)
+}
+
+// FilterFilterCriteriaEcrImageLastInUseAtArrayInput is an input type that accepts FilterFilterCriteriaEcrImageLastInUseAtArray and FilterFilterCriteriaEcrImageLastInUseAtArrayOutput values.
+// You can construct a concrete instance of `FilterFilterCriteriaEcrImageLastInUseAtArrayInput` via:
+//
+//	FilterFilterCriteriaEcrImageLastInUseAtArray{ FilterFilterCriteriaEcrImageLastInUseAtArgs{...} }
+type FilterFilterCriteriaEcrImageLastInUseAtArrayInput interface {
+	pulumi.Input
+
+	ToFilterFilterCriteriaEcrImageLastInUseAtArrayOutput() FilterFilterCriteriaEcrImageLastInUseAtArrayOutput
+	ToFilterFilterCriteriaEcrImageLastInUseAtArrayOutputWithContext(context.Context) FilterFilterCriteriaEcrImageLastInUseAtArrayOutput
+}
+
+type FilterFilterCriteriaEcrImageLastInUseAtArray []FilterFilterCriteriaEcrImageLastInUseAtInput
+
+func (FilterFilterCriteriaEcrImageLastInUseAtArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFilterCriteriaEcrImageLastInUseAt)(nil)).Elem()
+}
+
+func (i FilterFilterCriteriaEcrImageLastInUseAtArray) ToFilterFilterCriteriaEcrImageLastInUseAtArrayOutput() FilterFilterCriteriaEcrImageLastInUseAtArrayOutput {
+	return i.ToFilterFilterCriteriaEcrImageLastInUseAtArrayOutputWithContext(context.Background())
+}
+
+func (i FilterFilterCriteriaEcrImageLastInUseAtArray) ToFilterFilterCriteriaEcrImageLastInUseAtArrayOutputWithContext(ctx context.Context) FilterFilterCriteriaEcrImageLastInUseAtArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFilterCriteriaEcrImageLastInUseAtArrayOutput)
+}
+
+type FilterFilterCriteriaEcrImageLastInUseAtOutput struct{ *pulumi.OutputState }
+
+func (FilterFilterCriteriaEcrImageLastInUseAtOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFilterCriteriaEcrImageLastInUseAt)(nil)).Elem()
+}
+
+func (o FilterFilterCriteriaEcrImageLastInUseAtOutput) ToFilterFilterCriteriaEcrImageLastInUseAtOutput() FilterFilterCriteriaEcrImageLastInUseAtOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaEcrImageLastInUseAtOutput) ToFilterFilterCriteriaEcrImageLastInUseAtOutputWithContext(ctx context.Context) FilterFilterCriteriaEcrImageLastInUseAtOutput {
+	return o
+}
+
+// (Required) The end of the port range, inclusive.
+func (o FilterFilterCriteriaEcrImageLastInUseAtOutput) EndInclusive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilterFilterCriteriaEcrImageLastInUseAt) *string { return v.EndInclusive }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+func (o FilterFilterCriteriaEcrImageLastInUseAtOutput) StartInclusive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilterFilterCriteriaEcrImageLastInUseAt) *string { return v.StartInclusive }).(pulumi.StringPtrOutput)
+}
+
+type FilterFilterCriteriaEcrImageLastInUseAtArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterFilterCriteriaEcrImageLastInUseAtArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFilterCriteriaEcrImageLastInUseAt)(nil)).Elem()
+}
+
+func (o FilterFilterCriteriaEcrImageLastInUseAtArrayOutput) ToFilterFilterCriteriaEcrImageLastInUseAtArrayOutput() FilterFilterCriteriaEcrImageLastInUseAtArrayOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaEcrImageLastInUseAtArrayOutput) ToFilterFilterCriteriaEcrImageLastInUseAtArrayOutputWithContext(ctx context.Context) FilterFilterCriteriaEcrImageLastInUseAtArrayOutput {
+	return o
+}
+
+func (o FilterFilterCriteriaEcrImageLastInUseAtArrayOutput) Index(i pulumi.IntInput) FilterFilterCriteriaEcrImageLastInUseAtOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFilterCriteriaEcrImageLastInUseAt {
+		return vs[0].([]FilterFilterCriteriaEcrImageLastInUseAt)[vs[1].(int)]
+	}).(FilterFilterCriteriaEcrImageLastInUseAtOutput)
 }
 
 type FilterFilterCriteriaEcrImagePushedAt struct {
@@ -6444,6 +6908,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaArrayInput)(nil)).Elem(), FilterFilterCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaAwsAccountIdInput)(nil)).Elem(), FilterFilterCriteriaAwsAccountIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaAwsAccountIdArrayInput)(nil)).Elem(), FilterFilterCriteriaAwsAccountIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaCodeRepositoryProjectNameInput)(nil)).Elem(), FilterFilterCriteriaCodeRepositoryProjectNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaCodeRepositoryProjectNameArrayInput)(nil)).Elem(), FilterFilterCriteriaCodeRepositoryProjectNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaCodeRepositoryProviderTypeInput)(nil)).Elem(), FilterFilterCriteriaCodeRepositoryProviderTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaCodeRepositoryProviderTypeArrayInput)(nil)).Elem(), FilterFilterCriteriaCodeRepositoryProviderTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaCodeVulnerabilityDetectorNameInput)(nil)).Elem(), FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaCodeVulnerabilityDetectorNameArrayInput)(nil)).Elem(), FilterFilterCriteriaCodeVulnerabilityDetectorNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaCodeVulnerabilityDetectorTagInput)(nil)).Elem(), FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs{})
@@ -6464,6 +6932,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImageArchitectureArrayInput)(nil)).Elem(), FilterFilterCriteriaEcrImageArchitectureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImageHashInput)(nil)).Elem(), FilterFilterCriteriaEcrImageHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImageHashArrayInput)(nil)).Elem(), FilterFilterCriteriaEcrImageHashArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImageInUseCountInput)(nil)).Elem(), FilterFilterCriteriaEcrImageInUseCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImageInUseCountArrayInput)(nil)).Elem(), FilterFilterCriteriaEcrImageInUseCountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImageLastInUseAtInput)(nil)).Elem(), FilterFilterCriteriaEcrImageLastInUseAtArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImageLastInUseAtArrayInput)(nil)).Elem(), FilterFilterCriteriaEcrImageLastInUseAtArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImagePushedAtInput)(nil)).Elem(), FilterFilterCriteriaEcrImagePushedAtArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImagePushedAtArrayInput)(nil)).Elem(), FilterFilterCriteriaEcrImagePushedAtArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFilterCriteriaEcrImageRegistryInput)(nil)).Elem(), FilterFilterCriteriaEcrImageRegistryArgs{})
@@ -6548,6 +7020,10 @@ func init() {
 	pulumi.RegisterOutputType(FilterFilterCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaAwsAccountIdOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaAwsAccountIdArrayOutput{})
+	pulumi.RegisterOutputType(FilterFilterCriteriaCodeRepositoryProjectNameOutput{})
+	pulumi.RegisterOutputType(FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput{})
+	pulumi.RegisterOutputType(FilterFilterCriteriaCodeRepositoryProviderTypeOutput{})
+	pulumi.RegisterOutputType(FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaCodeVulnerabilityDetectorNameOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaCodeVulnerabilityDetectorNameArrayOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaCodeVulnerabilityDetectorTagOutput{})
@@ -6568,6 +7044,10 @@ func init() {
 	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImageArchitectureArrayOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImageHashOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImageHashArrayOutput{})
+	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImageInUseCountOutput{})
+	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImageInUseCountArrayOutput{})
+	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImageLastInUseAtOutput{})
+	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImageLastInUseAtArrayOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImagePushedAtOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImagePushedAtArrayOutput{})
 	pulumi.RegisterOutputType(FilterFilterCriteriaEcrImageRegistryOutput{})

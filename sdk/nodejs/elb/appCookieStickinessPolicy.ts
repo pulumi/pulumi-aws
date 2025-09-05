@@ -70,26 +70,26 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
     /**
      * Application cookie whose lifetime the ELB's cookie should follow.
      */
-    public readonly cookieName!: pulumi.Output<string>;
+    declare public readonly cookieName: pulumi.Output<string>;
     /**
      * Load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    public readonly lbPort!: pulumi.Output<number>;
+    declare public readonly lbPort: pulumi.Output<number>;
     /**
      * Name of load balancer to which the policy
      * should be attached.
      */
-    public readonly loadBalancer!: pulumi.Output<string>;
+    declare public readonly loadBalancer: pulumi.Output<string>;
     /**
      * Name of the stickiness policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a AppCookieStickinessPolicy resource with the given unique name, arguments, and options.
@@ -104,27 +104,27 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppCookieStickinessPolicyState | undefined;
-            resourceInputs["cookieName"] = state ? state.cookieName : undefined;
-            resourceInputs["lbPort"] = state ? state.lbPort : undefined;
-            resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["cookieName"] = state?.cookieName;
+            resourceInputs["lbPort"] = state?.lbPort;
+            resourceInputs["loadBalancer"] = state?.loadBalancer;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as AppCookieStickinessPolicyArgs | undefined;
-            if ((!args || args.cookieName === undefined) && !opts.urn) {
+            if (args?.cookieName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cookieName'");
             }
-            if ((!args || args.lbPort === undefined) && !opts.urn) {
+            if (args?.lbPort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lbPort'");
             }
-            if ((!args || args.loadBalancer === undefined) && !opts.urn) {
+            if (args?.loadBalancer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            resourceInputs["cookieName"] = args ? args.cookieName : undefined;
-            resourceInputs["lbPort"] = args ? args.lbPort : undefined;
-            resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["cookieName"] = args?.cookieName;
+            resourceInputs["lbPort"] = args?.lbPort;
+            resourceInputs["loadBalancer"] = args?.loadBalancer;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy" }] };

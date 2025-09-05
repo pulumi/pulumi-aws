@@ -70,67 +70,67 @@ export class ReplicationTask extends pulumi.CustomResource {
     /**
      * Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      */
-    public readonly cdcStartPosition!: pulumi.Output<string>;
+    declare public readonly cdcStartPosition: pulumi.Output<string>;
     /**
      * RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      */
-    public readonly cdcStartTime!: pulumi.Output<string | undefined>;
+    declare public readonly cdcStartTime: pulumi.Output<string | undefined>;
     /**
      * Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
-    public readonly migrationType!: pulumi.Output<string>;
+    declare public readonly migrationType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ARN of the replication instance.
      */
-    public readonly replicationInstanceArn!: pulumi.Output<string>;
+    declare public readonly replicationInstanceArn: pulumi.Output<string>;
     /**
      * ARN for the replication task.
      */
-    public /*out*/ readonly replicationTaskArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly replicationTaskArn: pulumi.Output<string>;
     /**
      * Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
      */
-    public readonly replicationTaskId!: pulumi.Output<string>;
+    declare public readonly replicationTaskId: pulumi.Output<string>;
     /**
      * Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
      */
-    public readonly replicationTaskSettings!: pulumi.Output<string>;
+    declare public readonly replicationTaskSettings: pulumi.Output<string>;
     /**
      * A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
      */
-    public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly resourceIdentifier: pulumi.Output<string | undefined>;
     /**
      * ARN that uniquely identifies the source endpoint.
      */
-    public readonly sourceEndpointArn!: pulumi.Output<string>;
+    declare public readonly sourceEndpointArn: pulumi.Output<string>;
     /**
      * Whether to run or stop the replication task.
      */
-    public readonly startReplicationTask!: pulumi.Output<boolean | undefined>;
+    declare public readonly startReplicationTask: pulumi.Output<boolean | undefined>;
     /**
      * Replication Task status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      */
-    public readonly tableMappings!: pulumi.Output<string>;
+    declare public readonly tableMappings: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN that uniquely identifies the target endpoint.
      */
-    public readonly targetEndpointArn!: pulumi.Output<string>;
+    declare public readonly targetEndpointArn: pulumi.Output<string>;
 
     /**
      * Create a ReplicationTask resource with the given unique name, arguments, and options.
@@ -145,55 +145,55 @@ export class ReplicationTask extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationTaskState | undefined;
-            resourceInputs["cdcStartPosition"] = state ? state.cdcStartPosition : undefined;
-            resourceInputs["cdcStartTime"] = state ? state.cdcStartTime : undefined;
-            resourceInputs["migrationType"] = state ? state.migrationType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
-            resourceInputs["replicationTaskArn"] = state ? state.replicationTaskArn : undefined;
-            resourceInputs["replicationTaskId"] = state ? state.replicationTaskId : undefined;
-            resourceInputs["replicationTaskSettings"] = state ? state.replicationTaskSettings : undefined;
-            resourceInputs["resourceIdentifier"] = state ? state.resourceIdentifier : undefined;
-            resourceInputs["sourceEndpointArn"] = state ? state.sourceEndpointArn : undefined;
-            resourceInputs["startReplicationTask"] = state ? state.startReplicationTask : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tableMappings"] = state ? state.tableMappings : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["targetEndpointArn"] = state ? state.targetEndpointArn : undefined;
+            resourceInputs["cdcStartPosition"] = state?.cdcStartPosition;
+            resourceInputs["cdcStartTime"] = state?.cdcStartTime;
+            resourceInputs["migrationType"] = state?.migrationType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["replicationInstanceArn"] = state?.replicationInstanceArn;
+            resourceInputs["replicationTaskArn"] = state?.replicationTaskArn;
+            resourceInputs["replicationTaskId"] = state?.replicationTaskId;
+            resourceInputs["replicationTaskSettings"] = state?.replicationTaskSettings;
+            resourceInputs["resourceIdentifier"] = state?.resourceIdentifier;
+            resourceInputs["sourceEndpointArn"] = state?.sourceEndpointArn;
+            resourceInputs["startReplicationTask"] = state?.startReplicationTask;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tableMappings"] = state?.tableMappings;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetEndpointArn"] = state?.targetEndpointArn;
         } else {
             const args = argsOrState as ReplicationTaskArgs | undefined;
-            if ((!args || args.migrationType === undefined) && !opts.urn) {
+            if (args?.migrationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'migrationType'");
             }
-            if ((!args || args.replicationInstanceArn === undefined) && !opts.urn) {
+            if (args?.replicationInstanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationInstanceArn'");
             }
-            if ((!args || args.replicationTaskId === undefined) && !opts.urn) {
+            if (args?.replicationTaskId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationTaskId'");
             }
-            if ((!args || args.sourceEndpointArn === undefined) && !opts.urn) {
+            if (args?.sourceEndpointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceEndpointArn'");
             }
-            if ((!args || args.tableMappings === undefined) && !opts.urn) {
+            if (args?.tableMappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableMappings'");
             }
-            if ((!args || args.targetEndpointArn === undefined) && !opts.urn) {
+            if (args?.targetEndpointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
-            resourceInputs["cdcStartPosition"] = args ? args.cdcStartPosition : undefined;
-            resourceInputs["cdcStartTime"] = args ? args.cdcStartTime : undefined;
-            resourceInputs["migrationType"] = args ? args.migrationType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replicationInstanceArn"] = args ? args.replicationInstanceArn : undefined;
-            resourceInputs["replicationTaskId"] = args ? args.replicationTaskId : undefined;
-            resourceInputs["replicationTaskSettings"] = args ? args.replicationTaskSettings : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
-            resourceInputs["startReplicationTask"] = args ? args.startReplicationTask : undefined;
-            resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
+            resourceInputs["cdcStartPosition"] = args?.cdcStartPosition;
+            resourceInputs["cdcStartTime"] = args?.cdcStartTime;
+            resourceInputs["migrationType"] = args?.migrationType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replicationInstanceArn"] = args?.replicationInstanceArn;
+            resourceInputs["replicationTaskId"] = args?.replicationTaskId;
+            resourceInputs["replicationTaskSettings"] = args?.replicationTaskSettings;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["sourceEndpointArn"] = args?.sourceEndpointArn;
+            resourceInputs["startReplicationTask"] = args?.startReplicationTask;
+            resourceInputs["tableMappings"] = args?.tableMappings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetEndpointArn"] = args?.targetEndpointArn;
             resourceInputs["replicationTaskArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

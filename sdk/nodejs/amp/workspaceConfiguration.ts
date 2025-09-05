@@ -104,22 +104,22 @@ export class WorkspaceConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block for setting limits on metrics with specific label sets. Detailed below.
      */
-    public readonly limitsPerLabelSets!: pulumi.Output<outputs.amp.WorkspaceConfigurationLimitsPerLabelSet[] | undefined>;
+    declare public readonly limitsPerLabelSets: pulumi.Output<outputs.amp.WorkspaceConfigurationLimitsPerLabelSet[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Number of days to retain metric data in the workspace.
      */
-    public readonly retentionPeriodInDays!: pulumi.Output<number>;
-    public readonly timeouts!: pulumi.Output<outputs.amp.WorkspaceConfigurationTimeouts | undefined>;
+    declare public readonly retentionPeriodInDays: pulumi.Output<number>;
+    declare public readonly timeouts: pulumi.Output<outputs.amp.WorkspaceConfigurationTimeouts | undefined>;
     /**
      * ID of the workspace to configure.
      *
      * The following arguments are optional:
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceConfiguration resource with the given unique name, arguments, and options.
@@ -134,21 +134,21 @@ export class WorkspaceConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceConfigurationState | undefined;
-            resourceInputs["limitsPerLabelSets"] = state ? state.limitsPerLabelSets : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["retentionPeriodInDays"] = state ? state.retentionPeriodInDays : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["limitsPerLabelSets"] = state?.limitsPerLabelSets;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["retentionPeriodInDays"] = state?.retentionPeriodInDays;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as WorkspaceConfigurationArgs | undefined;
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["limitsPerLabelSets"] = args ? args.limitsPerLabelSets : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["retentionPeriodInDays"] = args ? args.retentionPeriodInDays : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["limitsPerLabelSets"] = args?.limitsPerLabelSets;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["retentionPeriodInDays"] = args?.retentionPeriodInDays;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkspaceConfiguration.__pulumiType, name, resourceInputs, opts);

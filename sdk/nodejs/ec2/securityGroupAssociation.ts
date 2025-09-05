@@ -66,19 +66,19 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      */
-    public readonly replaceDefaultAssociation!: pulumi.Output<boolean | undefined>;
+    declare public readonly replaceDefaultAssociation: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the security group to be associated with the VPC endpoint.
      */
-    public readonly securityGroupId!: pulumi.Output<string>;
+    declare public readonly securityGroupId: pulumi.Output<string>;
     /**
      * The ID of the VPC endpoint with which the security group will be associated.
      */
-    public readonly vpcEndpointId!: pulumi.Output<string>;
+    declare public readonly vpcEndpointId: pulumi.Output<string>;
 
     /**
      * Create a SecurityGroupAssociation resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityGroupAssociationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replaceDefaultAssociation"] = state ? state.replaceDefaultAssociation : undefined;
-            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
-            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["replaceDefaultAssociation"] = state?.replaceDefaultAssociation;
+            resourceInputs["securityGroupId"] = state?.securityGroupId;
+            resourceInputs["vpcEndpointId"] = state?.vpcEndpointId;
         } else {
             const args = argsOrState as SecurityGroupAssociationArgs | undefined;
-            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
+            if (args?.securityGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
+            if (args?.vpcEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replaceDefaultAssociation"] = args ? args.replaceDefaultAssociation : undefined;
-            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replaceDefaultAssociation"] = args?.replaceDefaultAssociation;
+            resourceInputs["securityGroupId"] = args?.securityGroupId;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);

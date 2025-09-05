@@ -57,7 +57,30 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Redis version to use for the Global Replication Group.
+     * The name of the cache engine to be used for the clusters in this global replication group.
+     * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+     * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis` if `engine_version` is specified.
+     * 
+     */
+    @Import(name="engine")
+    private @Nullable Output<String> engine;
+
+    /**
+     * @return The name of the cache engine to be used for the clusters in this global replication group.
+     * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+     * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis` if `engine_version` is specified.
+     * 
+     */
+    public Optional<Output<String>> engine() {
+        return Optional.ofNullable(this.engine);
+    }
+
+    /**
+     * Engine version to use for the Global Replication Group.
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -71,7 +94,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Redis version to use for the Global Replication Group.
+     * @return Engine version to use for the Global Replication Group.
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -132,7 +155,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
 
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+     * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
      * Specifying without a major version upgrade will fail.
      * Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
@@ -142,7 +165,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
 
     /**
      * @return An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+     * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
      * Specifying without a major version upgrade will fail.
      * Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
@@ -186,6 +209,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
     private GlobalReplicationGroupArgs(GlobalReplicationGroupArgs $) {
         this.automaticFailoverEnabled = $.automaticFailoverEnabled;
         this.cacheNodeType = $.cacheNodeType;
+        this.engine = $.engine;
         this.engineVersion = $.engineVersion;
         this.globalReplicationGroupDescription = $.globalReplicationGroupDescription;
         this.globalReplicationGroupIdSuffix = $.globalReplicationGroupIdSuffix;
@@ -264,7 +288,36 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param engineVersion Redis version to use for the Global Replication Group.
+         * @param engine The name of the cache engine to be used for the clusters in this global replication group.
+         * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+         * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+         * Valid values are `redis` or `valkey`.
+         * Default is `redis` if `engine_version` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engine(@Nullable Output<String> engine) {
+            $.engine = engine;
+            return this;
+        }
+
+        /**
+         * @param engine The name of the cache engine to be used for the clusters in this global replication group.
+         * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+         * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+         * Valid values are `redis` or `valkey`.
+         * Default is `redis` if `engine_version` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engine(String engine) {
+            return engine(Output.of(engine));
+        }
+
+        /**
+         * @param engineVersion Engine version to use for the Global Replication Group.
          * When creating, by default the Global Replication Group inherits the version of the primary replication group.
          * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
          * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -282,7 +335,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param engineVersion Redis version to use for the Global Replication Group.
+         * @param engineVersion Engine version to use for the Global Replication Group.
          * When creating, by default the Global Replication Group inherits the version of the primary replication group.
          * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
          * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -363,7 +416,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
 
         /**
          * @param parameterGroupName An ElastiCache Parameter Group to use for the Global Replication Group.
-         * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+         * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
          * Specifying without a major version upgrade will fail.
          * Note that ElastiCache creates a copy of this parameter group for each member replication group.
          * 
@@ -377,7 +430,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
 
         /**
          * @param parameterGroupName An ElastiCache Parameter Group to use for the Global Replication Group.
-         * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+         * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
          * Specifying without a major version upgrade will fail.
          * Note that ElastiCache creates a copy of this parameter group for each member replication group.
          * 

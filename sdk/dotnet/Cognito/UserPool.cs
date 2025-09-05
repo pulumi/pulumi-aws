@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolEmailConfiguration?> EmailConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         /// </summary>
         [Output("emailMfaConfiguration")]
         public Output<Outputs.UserPoolEmailMfaConfiguration?> EmailMfaConfiguration { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
-        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         /// </summary>
         [Output("mfaConfiguration")]
         public Output<string?> MfaConfiguration { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string?> SmsAuthenticationMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         /// </summary>
         [Output("smsConfiguration")]
         public Output<Outputs.UserPoolSmsConfiguration> SmsConfiguration { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> SmsVerificationMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         /// </summary>
         [Output("softwareTokenMfaConfiguration")]
         public Output<Outputs.UserPoolSoftwareTokenMfaConfiguration?> SoftwareTokenMfaConfiguration { get; private set; } = null!;
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolEmailConfigurationArgs>? EmailConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         /// </summary>
         [Input("emailMfaConfiguration")]
         public Input<Inputs.UserPoolEmailMfaConfigurationArgs>? EmailMfaConfiguration { get; set; }
@@ -453,7 +453,7 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolLambdaConfigArgs>? LambdaConfig { get; set; }
 
         /// <summary>
-        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         /// </summary>
         [Input("mfaConfiguration")]
         public Input<string>? MfaConfiguration { get; set; }
@@ -501,7 +501,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? SmsAuthenticationMessage { get; set; }
 
         /// <summary>
-        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         /// </summary>
         [Input("smsConfiguration")]
         public Input<Inputs.UserPoolSmsConfigurationArgs>? SmsConfiguration { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? SmsVerificationMessage { get; set; }
 
         /// <summary>
-        /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         /// </summary>
         [Input("softwareTokenMfaConfiguration")]
         public Input<Inputs.UserPoolSoftwareTokenMfaConfigurationArgs>? SoftwareTokenMfaConfiguration { get; set; }
@@ -665,7 +665,7 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolEmailConfigurationGetArgs>? EmailConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         /// </summary>
         [Input("emailMfaConfiguration")]
         public Input<Inputs.UserPoolEmailMfaConfigurationGetArgs>? EmailMfaConfiguration { get; set; }
@@ -707,7 +707,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? LastModifiedDate { get; set; }
 
         /// <summary>
-        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         /// </summary>
         [Input("mfaConfiguration")]
         public Input<string>? MfaConfiguration { get; set; }
@@ -755,7 +755,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? SmsAuthenticationMessage { get; set; }
 
         /// <summary>
-        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         /// </summary>
         [Input("smsConfiguration")]
         public Input<Inputs.UserPoolSmsConfigurationGetArgs>? SmsConfiguration { get; set; }
@@ -767,7 +767,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? SmsVerificationMessage { get; set; }
 
         /// <summary>
-        /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         /// </summary>
         [Input("softwareTokenMfaConfiguration")]
         public Input<Inputs.UserPoolSoftwareTokenMfaConfigurationGetArgs>? SoftwareTokenMfaConfiguration { get; set; }

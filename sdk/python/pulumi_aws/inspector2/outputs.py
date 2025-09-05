@@ -18,6 +18,8 @@ from . import outputs
 __all__ = [
     'FilterFilterCriteria',
     'FilterFilterCriteriaAwsAccountId',
+    'FilterFilterCriteriaCodeRepositoryProjectName',
+    'FilterFilterCriteriaCodeRepositoryProviderType',
     'FilterFilterCriteriaCodeVulnerabilityDetectorName',
     'FilterFilterCriteriaCodeVulnerabilityDetectorTag',
     'FilterFilterCriteriaCodeVulnerabilityFilePath',
@@ -28,6 +30,8 @@ __all__ = [
     'FilterFilterCriteriaEc2InstanceVpcId',
     'FilterFilterCriteriaEcrImageArchitecture',
     'FilterFilterCriteriaEcrImageHash',
+    'FilterFilterCriteriaEcrImageInUseCount',
+    'FilterFilterCriteriaEcrImageLastInUseAt',
     'FilterFilterCriteriaEcrImagePushedAt',
     'FilterFilterCriteriaEcrImageRegistry',
     'FilterFilterCriteriaEcrImageRepositoryName',
@@ -77,6 +81,10 @@ class FilterFilterCriteria(dict):
         suggest = None
         if key == "awsAccountIds":
             suggest = "aws_account_ids"
+        elif key == "codeRepositoryProjectNames":
+            suggest = "code_repository_project_names"
+        elif key == "codeRepositoryProviderTypes":
+            suggest = "code_repository_provider_types"
         elif key == "codeVulnerabilityDetectorNames":
             suggest = "code_vulnerability_detector_names"
         elif key == "codeVulnerabilityDetectorTags":
@@ -97,6 +105,10 @@ class FilterFilterCriteria(dict):
             suggest = "ecr_image_architectures"
         elif key == "ecrImageHashes":
             suggest = "ecr_image_hashes"
+        elif key == "ecrImageInUseCounts":
+            suggest = "ecr_image_in_use_counts"
+        elif key == "ecrImageLastInUseAts":
+            suggest = "ecr_image_last_in_use_ats"
         elif key == "ecrImagePushedAts":
             suggest = "ecr_image_pushed_ats"
         elif key == "ecrImageRegistries":
@@ -169,6 +181,8 @@ class FilterFilterCriteria(dict):
 
     def __init__(__self__, *,
                  aws_account_ids: Optional[Sequence['outputs.FilterFilterCriteriaAwsAccountId']] = None,
+                 code_repository_project_names: Optional[Sequence['outputs.FilterFilterCriteriaCodeRepositoryProjectName']] = None,
+                 code_repository_provider_types: Optional[Sequence['outputs.FilterFilterCriteriaCodeRepositoryProviderType']] = None,
                  code_vulnerability_detector_names: Optional[Sequence['outputs.FilterFilterCriteriaCodeVulnerabilityDetectorName']] = None,
                  code_vulnerability_detector_tags: Optional[Sequence['outputs.FilterFilterCriteriaCodeVulnerabilityDetectorTag']] = None,
                  code_vulnerability_file_paths: Optional[Sequence['outputs.FilterFilterCriteriaCodeVulnerabilityFilePath']] = None,
@@ -179,6 +193,8 @@ class FilterFilterCriteria(dict):
                  ec2_instance_vpc_ids: Optional[Sequence['outputs.FilterFilterCriteriaEc2InstanceVpcId']] = None,
                  ecr_image_architectures: Optional[Sequence['outputs.FilterFilterCriteriaEcrImageArchitecture']] = None,
                  ecr_image_hashes: Optional[Sequence['outputs.FilterFilterCriteriaEcrImageHash']] = None,
+                 ecr_image_in_use_counts: Optional[Sequence['outputs.FilterFilterCriteriaEcrImageInUseCount']] = None,
+                 ecr_image_last_in_use_ats: Optional[Sequence['outputs.FilterFilterCriteriaEcrImageLastInUseAt']] = None,
                  ecr_image_pushed_ats: Optional[Sequence['outputs.FilterFilterCriteriaEcrImagePushedAt']] = None,
                  ecr_image_registries: Optional[Sequence['outputs.FilterFilterCriteriaEcrImageRegistry']] = None,
                  ecr_image_repository_names: Optional[Sequence['outputs.FilterFilterCriteriaEcrImageRepositoryName']] = None,
@@ -212,6 +228,8 @@ class FilterFilterCriteria(dict):
                  vulnerable_packages: Optional[Sequence['outputs.FilterFilterCriteriaVulnerablePackage']] = None):
         """
         :param Sequence['FilterFilterCriteriaAwsAccountIdArgs'] aws_account_ids: (Optional) The AWS account ID in which the finding was generated. Documented below.
+        :param Sequence['FilterFilterCriteriaCodeRepositoryProjectNameArgs'] code_repository_project_names: (Optional) The project name in a code repository. Documented below.
+        :param Sequence['FilterFilterCriteriaCodeRepositoryProviderTypeArgs'] code_repository_provider_types: (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
         :param Sequence['FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs'] code_vulnerability_detector_names: (Optional) The ID of the component. Documented below.
         :param Sequence['FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs'] code_vulnerability_detector_tags: (Optional) The ID of the component. Documented below.
         :param Sequence['FilterFilterCriteriaCodeVulnerabilityFilePathArgs'] code_vulnerability_file_paths: (Optional) The ID of the component. Documented below.
@@ -222,6 +240,8 @@ class FilterFilterCriteria(dict):
         :param Sequence['FilterFilterCriteriaEc2InstanceVpcIdArgs'] ec2_instance_vpc_ids: (Optional) The ID of the VPC. Documented below.
         :param Sequence['FilterFilterCriteriaEcrImageArchitectureArgs'] ecr_image_architectures: (Optional) The architecture of the ECR image. Documented below.
         :param Sequence['FilterFilterCriteriaEcrImageHashArgs'] ecr_image_hashes: (Optional) The SHA256 hash of the ECR image. Documented below.
+        :param Sequence['FilterFilterCriteriaEcrImageInUseCountArgs'] ecr_image_in_use_counts: (Optional)  The number of the ECR images in use. Documented below.
+        :param Sequence['FilterFilterCriteriaEcrImageLastInUseAtArgs'] ecr_image_last_in_use_ats: (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
         :param Sequence['FilterFilterCriteriaEcrImagePushedAtArgs'] ecr_image_pushed_ats: (Optional) The date range when the image was pushed. Documented below.
         :param Sequence['FilterFilterCriteriaEcrImageRegistryArgs'] ecr_image_registries: (Optional) The registry of the ECR image. Documented below.
         :param Sequence['FilterFilterCriteriaEcrImageRepositoryNameArgs'] ecr_image_repository_names: (Optional) The name of the ECR repository. Documented below.
@@ -256,6 +276,10 @@ class FilterFilterCriteria(dict):
         """
         if aws_account_ids is not None:
             pulumi.set(__self__, "aws_account_ids", aws_account_ids)
+        if code_repository_project_names is not None:
+            pulumi.set(__self__, "code_repository_project_names", code_repository_project_names)
+        if code_repository_provider_types is not None:
+            pulumi.set(__self__, "code_repository_provider_types", code_repository_provider_types)
         if code_vulnerability_detector_names is not None:
             pulumi.set(__self__, "code_vulnerability_detector_names", code_vulnerability_detector_names)
         if code_vulnerability_detector_tags is not None:
@@ -276,6 +300,10 @@ class FilterFilterCriteria(dict):
             pulumi.set(__self__, "ecr_image_architectures", ecr_image_architectures)
         if ecr_image_hashes is not None:
             pulumi.set(__self__, "ecr_image_hashes", ecr_image_hashes)
+        if ecr_image_in_use_counts is not None:
+            pulumi.set(__self__, "ecr_image_in_use_counts", ecr_image_in_use_counts)
+        if ecr_image_last_in_use_ats is not None:
+            pulumi.set(__self__, "ecr_image_last_in_use_ats", ecr_image_last_in_use_ats)
         if ecr_image_pushed_ats is not None:
             pulumi.set(__self__, "ecr_image_pushed_ats", ecr_image_pushed_ats)
         if ecr_image_registries is not None:
@@ -346,6 +374,22 @@ class FilterFilterCriteria(dict):
         (Optional) The AWS account ID in which the finding was generated. Documented below.
         """
         return pulumi.get(self, "aws_account_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="codeRepositoryProjectNames")
+    def code_repository_project_names(self) -> Optional[Sequence['outputs.FilterFilterCriteriaCodeRepositoryProjectName']]:
+        """
+        (Optional) The project name in a code repository. Documented below.
+        """
+        return pulumi.get(self, "code_repository_project_names")
+
+    @_builtins.property
+    @pulumi.getter(name="codeRepositoryProviderTypes")
+    def code_repository_provider_types(self) -> Optional[Sequence['outputs.FilterFilterCriteriaCodeRepositoryProviderType']]:
+        """
+        (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+        """
+        return pulumi.get(self, "code_repository_provider_types")
 
     @_builtins.property
     @pulumi.getter(name="codeVulnerabilityDetectorNames")
@@ -426,6 +470,22 @@ class FilterFilterCriteria(dict):
         (Optional) The SHA256 hash of the ECR image. Documented below.
         """
         return pulumi.get(self, "ecr_image_hashes")
+
+    @_builtins.property
+    @pulumi.getter(name="ecrImageInUseCounts")
+    def ecr_image_in_use_counts(self) -> Optional[Sequence['outputs.FilterFilterCriteriaEcrImageInUseCount']]:
+        """
+        (Optional)  The number of the ECR images in use. Documented below.
+        """
+        return pulumi.get(self, "ecr_image_in_use_counts")
+
+    @_builtins.property
+    @pulumi.getter(name="ecrImageLastInUseAts")
+    def ecr_image_last_in_use_ats(self) -> Optional[Sequence['outputs.FilterFilterCriteriaEcrImageLastInUseAt']]:
+        """
+        (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+        """
+        return pulumi.get(self, "ecr_image_last_in_use_ats")
 
     @_builtins.property
     @pulumi.getter(name="ecrImagePushedAts")
@@ -678,6 +738,64 @@ class FilterFilterCriteria(dict):
 
 @pulumi.output_type
 class FilterFilterCriteriaAwsAccountId(dict):
+    def __init__(__self__, *,
+                 comparison: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str comparison: (Required) The comparison operator. Valid values: `EQUALS`.
+        :param _builtins.str value: (Required) The value to filter on.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> _builtins.str:
+        """
+        (Required) The comparison operator. Valid values: `EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        (Required) The value to filter on.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FilterFilterCriteriaCodeRepositoryProjectName(dict):
+    def __init__(__self__, *,
+                 comparison: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str comparison: (Required) The comparison operator. Valid values: `EQUALS`.
+        :param _builtins.str value: (Required) The value to filter on.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> _builtins.str:
+        """
+        (Required) The comparison operator. Valid values: `EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        (Required) The value to filter on.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FilterFilterCriteriaCodeRepositoryProviderType(dict):
     def __init__(__self__, *,
                  comparison: _builtins.str,
                  value: _builtins.str):
@@ -993,6 +1111,104 @@ class FilterFilterCriteriaEcrImageHash(dict):
         (Required) The value to filter on.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FilterFilterCriteriaEcrImageInUseCount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lowerInclusive":
+            suggest = "lower_inclusive"
+        elif key == "upperInclusive":
+            suggest = "upper_inclusive"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilterFilterCriteriaEcrImageInUseCount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilterFilterCriteriaEcrImageInUseCount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilterFilterCriteriaEcrImageInUseCount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lower_inclusive: _builtins.float,
+                 upper_inclusive: _builtins.float):
+        """
+        :param _builtins.float lower_inclusive: (Optional) Lower bound of the range, inclusive.
+        :param _builtins.float upper_inclusive: (Optional) Upper bound of the range, inclusive.
+        """
+        pulumi.set(__self__, "lower_inclusive", lower_inclusive)
+        pulumi.set(__self__, "upper_inclusive", upper_inclusive)
+
+    @_builtins.property
+    @pulumi.getter(name="lowerInclusive")
+    def lower_inclusive(self) -> _builtins.float:
+        """
+        (Optional) Lower bound of the range, inclusive.
+        """
+        return pulumi.get(self, "lower_inclusive")
+
+    @_builtins.property
+    @pulumi.getter(name="upperInclusive")
+    def upper_inclusive(self) -> _builtins.float:
+        """
+        (Optional) Upper bound of the range, inclusive.
+        """
+        return pulumi.get(self, "upper_inclusive")
+
+
+@pulumi.output_type
+class FilterFilterCriteriaEcrImageLastInUseAt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endInclusive":
+            suggest = "end_inclusive"
+        elif key == "startInclusive":
+            suggest = "start_inclusive"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilterFilterCriteriaEcrImageLastInUseAt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilterFilterCriteriaEcrImageLastInUseAt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilterFilterCriteriaEcrImageLastInUseAt.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_inclusive: Optional[_builtins.str] = None,
+                 start_inclusive: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str end_inclusive: (Required) The end of the port range, inclusive.
+        :param _builtins.str start_inclusive: (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+        """
+        if end_inclusive is not None:
+            pulumi.set(__self__, "end_inclusive", end_inclusive)
+        if start_inclusive is not None:
+            pulumi.set(__self__, "start_inclusive", start_inclusive)
+
+    @_builtins.property
+    @pulumi.getter(name="endInclusive")
+    def end_inclusive(self) -> Optional[_builtins.str]:
+        """
+        (Required) The end of the port range, inclusive.
+        """
+        return pulumi.get(self, "end_inclusive")
+
+    @_builtins.property
+    @pulumi.getter(name="startInclusive")
+    def start_inclusive(self) -> Optional[_builtins.str]:
+        """
+        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+        """
+        return pulumi.get(self, "start_inclusive")
 
 
 @pulumi.output_type

@@ -58,20 +58,20 @@ export class EnrollmentStatus extends pulumi.CustomResource {
     /**
      * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
      */
-    public readonly includeMemberAccounts!: pulumi.Output<boolean>;
+    declare public readonly includeMemberAccounts: pulumi.Output<boolean>;
     /**
      * The count of organization member accounts that are opted in to the service, if your account is an organization management account.
      */
-    public /*out*/ readonly numberOfMemberAccountsOptedIn!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfMemberAccountsOptedIn: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The enrollment status of the account. Valid values: `Active`, `Inactive`.
      */
-    public readonly status!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.computeoptimizer.EnrollmentStatusTimeouts | undefined>;
+    declare public readonly status: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.computeoptimizer.EnrollmentStatusTimeouts | undefined>;
 
     /**
      * Create a EnrollmentStatus resource with the given unique name, arguments, and options.
@@ -86,20 +86,20 @@ export class EnrollmentStatus extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnrollmentStatusState | undefined;
-            resourceInputs["includeMemberAccounts"] = state ? state.includeMemberAccounts : undefined;
-            resourceInputs["numberOfMemberAccountsOptedIn"] = state ? state.numberOfMemberAccountsOptedIn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["includeMemberAccounts"] = state?.includeMemberAccounts;
+            resourceInputs["numberOfMemberAccountsOptedIn"] = state?.numberOfMemberAccountsOptedIn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as EnrollmentStatusArgs | undefined;
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["includeMemberAccounts"] = args ? args.includeMemberAccounts : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["includeMemberAccounts"] = args?.includeMemberAccounts;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["numberOfMemberAccountsOptedIn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -57,11 +57,11 @@ export class EncryptionByDefault extends pulumi.CustomResource {
     /**
      * Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a EncryptionByDefault resource with the given unique name, arguments, and options.
@@ -76,12 +76,12 @@ export class EncryptionByDefault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EncryptionByDefaultState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as EncryptionByDefaultArgs | undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EncryptionByDefault.__pulumiType, name, resourceInputs, opts);

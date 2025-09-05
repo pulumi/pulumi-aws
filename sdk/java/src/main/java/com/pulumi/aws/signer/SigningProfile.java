@@ -193,6 +193,20 @@ public class SigningProfile extends com.pulumi.resources.CustomResource {
         return this.signingMaterial;
     }
     /**
+     * Map of key-value pairs for signing. These can include any information that you want to use during signing.
+     * 
+     */
+    @Export(name="signingParameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> signingParameters;
+
+    /**
+     * @return Map of key-value pairs for signing. These can include any information that you want to use during signing.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> signingParameters() {
+        return Codegen.optional(this.signingParameters);
+    }
+    /**
      * The status of the target signing profile.
      * 
      */

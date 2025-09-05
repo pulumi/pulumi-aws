@@ -781,6 +781,947 @@ func (o IpAccessSettingsIpRuleArrayOutput) Index(i pulumi.IntInput) IpAccessSett
 	}).(IpAccessSettingsIpRuleOutput)
 }
 
+type PortalTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// PortalTimeoutsInput is an input type that accepts PortalTimeoutsArgs and PortalTimeoutsOutput values.
+// You can construct a concrete instance of `PortalTimeoutsInput` via:
+//
+//	PortalTimeoutsArgs{...}
+type PortalTimeoutsInput interface {
+	pulumi.Input
+
+	ToPortalTimeoutsOutput() PortalTimeoutsOutput
+	ToPortalTimeoutsOutputWithContext(context.Context) PortalTimeoutsOutput
+}
+
+type PortalTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (PortalTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalTimeouts)(nil)).Elem()
+}
+
+func (i PortalTimeoutsArgs) ToPortalTimeoutsOutput() PortalTimeoutsOutput {
+	return i.ToPortalTimeoutsOutputWithContext(context.Background())
+}
+
+func (i PortalTimeoutsArgs) ToPortalTimeoutsOutputWithContext(ctx context.Context) PortalTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortalTimeoutsOutput)
+}
+
+func (i PortalTimeoutsArgs) ToPortalTimeoutsPtrOutput() PortalTimeoutsPtrOutput {
+	return i.ToPortalTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i PortalTimeoutsArgs) ToPortalTimeoutsPtrOutputWithContext(ctx context.Context) PortalTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortalTimeoutsOutput).ToPortalTimeoutsPtrOutputWithContext(ctx)
+}
+
+// PortalTimeoutsPtrInput is an input type that accepts PortalTimeoutsArgs, PortalTimeoutsPtr and PortalTimeoutsPtrOutput values.
+// You can construct a concrete instance of `PortalTimeoutsPtrInput` via:
+//
+//	        PortalTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PortalTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToPortalTimeoutsPtrOutput() PortalTimeoutsPtrOutput
+	ToPortalTimeoutsPtrOutputWithContext(context.Context) PortalTimeoutsPtrOutput
+}
+
+type portalTimeoutsPtrType PortalTimeoutsArgs
+
+func PortalTimeoutsPtr(v *PortalTimeoutsArgs) PortalTimeoutsPtrInput {
+	return (*portalTimeoutsPtrType)(v)
+}
+
+func (*portalTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PortalTimeouts)(nil)).Elem()
+}
+
+func (i *portalTimeoutsPtrType) ToPortalTimeoutsPtrOutput() PortalTimeoutsPtrOutput {
+	return i.ToPortalTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *portalTimeoutsPtrType) ToPortalTimeoutsPtrOutputWithContext(ctx context.Context) PortalTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortalTimeoutsPtrOutput)
+}
+
+type PortalTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (PortalTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalTimeouts)(nil)).Elem()
+}
+
+func (o PortalTimeoutsOutput) ToPortalTimeoutsOutput() PortalTimeoutsOutput {
+	return o
+}
+
+func (o PortalTimeoutsOutput) ToPortalTimeoutsOutputWithContext(ctx context.Context) PortalTimeoutsOutput {
+	return o
+}
+
+func (o PortalTimeoutsOutput) ToPortalTimeoutsPtrOutput() PortalTimeoutsPtrOutput {
+	return o.ToPortalTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o PortalTimeoutsOutput) ToPortalTimeoutsPtrOutputWithContext(ctx context.Context) PortalTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PortalTimeouts) *PortalTimeouts {
+		return &v
+	}).(PortalTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PortalTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PortalTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PortalTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PortalTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PortalTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PortalTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type PortalTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (PortalTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PortalTimeouts)(nil)).Elem()
+}
+
+func (o PortalTimeoutsPtrOutput) ToPortalTimeoutsPtrOutput() PortalTimeoutsPtrOutput {
+	return o
+}
+
+func (o PortalTimeoutsPtrOutput) ToPortalTimeoutsPtrOutputWithContext(ctx context.Context) PortalTimeoutsPtrOutput {
+	return o
+}
+
+func (o PortalTimeoutsPtrOutput) Elem() PortalTimeoutsOutput {
+	return o.ApplyT(func(v *PortalTimeouts) PortalTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret PortalTimeouts
+		return ret
+	}).(PortalTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PortalTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PortalTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PortalTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PortalTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PortalTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PortalTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type SessionLoggerEventFilter struct {
+	// Block that specifies to monitor all events. Set to `{}` to monitor all events.
+	All *SessionLoggerEventFilterAll `pulumi:"all"`
+	// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
+	Includes []string `pulumi:"includes"`
+}
+
+// SessionLoggerEventFilterInput is an input type that accepts SessionLoggerEventFilterArgs and SessionLoggerEventFilterOutput values.
+// You can construct a concrete instance of `SessionLoggerEventFilterInput` via:
+//
+//	SessionLoggerEventFilterArgs{...}
+type SessionLoggerEventFilterInput interface {
+	pulumi.Input
+
+	ToSessionLoggerEventFilterOutput() SessionLoggerEventFilterOutput
+	ToSessionLoggerEventFilterOutputWithContext(context.Context) SessionLoggerEventFilterOutput
+}
+
+type SessionLoggerEventFilterArgs struct {
+	// Block that specifies to monitor all events. Set to `{}` to monitor all events.
+	All SessionLoggerEventFilterAllPtrInput `pulumi:"all"`
+	// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (SessionLoggerEventFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerEventFilter)(nil)).Elem()
+}
+
+func (i SessionLoggerEventFilterArgs) ToSessionLoggerEventFilterOutput() SessionLoggerEventFilterOutput {
+	return i.ToSessionLoggerEventFilterOutputWithContext(context.Background())
+}
+
+func (i SessionLoggerEventFilterArgs) ToSessionLoggerEventFilterOutputWithContext(ctx context.Context) SessionLoggerEventFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerEventFilterOutput)
+}
+
+func (i SessionLoggerEventFilterArgs) ToSessionLoggerEventFilterPtrOutput() SessionLoggerEventFilterPtrOutput {
+	return i.ToSessionLoggerEventFilterPtrOutputWithContext(context.Background())
+}
+
+func (i SessionLoggerEventFilterArgs) ToSessionLoggerEventFilterPtrOutputWithContext(ctx context.Context) SessionLoggerEventFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerEventFilterOutput).ToSessionLoggerEventFilterPtrOutputWithContext(ctx)
+}
+
+// SessionLoggerEventFilterPtrInput is an input type that accepts SessionLoggerEventFilterArgs, SessionLoggerEventFilterPtr and SessionLoggerEventFilterPtrOutput values.
+// You can construct a concrete instance of `SessionLoggerEventFilterPtrInput` via:
+//
+//	        SessionLoggerEventFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SessionLoggerEventFilterPtrInput interface {
+	pulumi.Input
+
+	ToSessionLoggerEventFilterPtrOutput() SessionLoggerEventFilterPtrOutput
+	ToSessionLoggerEventFilterPtrOutputWithContext(context.Context) SessionLoggerEventFilterPtrOutput
+}
+
+type sessionLoggerEventFilterPtrType SessionLoggerEventFilterArgs
+
+func SessionLoggerEventFilterPtr(v *SessionLoggerEventFilterArgs) SessionLoggerEventFilterPtrInput {
+	return (*sessionLoggerEventFilterPtrType)(v)
+}
+
+func (*sessionLoggerEventFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerEventFilter)(nil)).Elem()
+}
+
+func (i *sessionLoggerEventFilterPtrType) ToSessionLoggerEventFilterPtrOutput() SessionLoggerEventFilterPtrOutput {
+	return i.ToSessionLoggerEventFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *sessionLoggerEventFilterPtrType) ToSessionLoggerEventFilterPtrOutputWithContext(ctx context.Context) SessionLoggerEventFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerEventFilterPtrOutput)
+}
+
+type SessionLoggerEventFilterOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerEventFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerEventFilter)(nil)).Elem()
+}
+
+func (o SessionLoggerEventFilterOutput) ToSessionLoggerEventFilterOutput() SessionLoggerEventFilterOutput {
+	return o
+}
+
+func (o SessionLoggerEventFilterOutput) ToSessionLoggerEventFilterOutputWithContext(ctx context.Context) SessionLoggerEventFilterOutput {
+	return o
+}
+
+func (o SessionLoggerEventFilterOutput) ToSessionLoggerEventFilterPtrOutput() SessionLoggerEventFilterPtrOutput {
+	return o.ToSessionLoggerEventFilterPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerEventFilterOutput) ToSessionLoggerEventFilterPtrOutputWithContext(ctx context.Context) SessionLoggerEventFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionLoggerEventFilter) *SessionLoggerEventFilter {
+		return &v
+	}).(SessionLoggerEventFilterPtrOutput)
+}
+
+// Block that specifies to monitor all events. Set to `{}` to monitor all events.
+func (o SessionLoggerEventFilterOutput) All() SessionLoggerEventFilterAllPtrOutput {
+	return o.ApplyT(func(v SessionLoggerEventFilter) *SessionLoggerEventFilterAll { return v.All }).(SessionLoggerEventFilterAllPtrOutput)
+}
+
+// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
+func (o SessionLoggerEventFilterOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SessionLoggerEventFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type SessionLoggerEventFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerEventFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerEventFilter)(nil)).Elem()
+}
+
+func (o SessionLoggerEventFilterPtrOutput) ToSessionLoggerEventFilterPtrOutput() SessionLoggerEventFilterPtrOutput {
+	return o
+}
+
+func (o SessionLoggerEventFilterPtrOutput) ToSessionLoggerEventFilterPtrOutputWithContext(ctx context.Context) SessionLoggerEventFilterPtrOutput {
+	return o
+}
+
+func (o SessionLoggerEventFilterPtrOutput) Elem() SessionLoggerEventFilterOutput {
+	return o.ApplyT(func(v *SessionLoggerEventFilter) SessionLoggerEventFilter {
+		if v != nil {
+			return *v
+		}
+		var ret SessionLoggerEventFilter
+		return ret
+	}).(SessionLoggerEventFilterOutput)
+}
+
+// Block that specifies to monitor all events. Set to `{}` to monitor all events.
+func (o SessionLoggerEventFilterPtrOutput) All() SessionLoggerEventFilterAllPtrOutput {
+	return o.ApplyT(func(v *SessionLoggerEventFilter) *SessionLoggerEventFilterAll {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(SessionLoggerEventFilterAllPtrOutput)
+}
+
+// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
+func (o SessionLoggerEventFilterPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SessionLoggerEventFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type SessionLoggerEventFilterAll struct {
+}
+
+// SessionLoggerEventFilterAllInput is an input type that accepts SessionLoggerEventFilterAllArgs and SessionLoggerEventFilterAllOutput values.
+// You can construct a concrete instance of `SessionLoggerEventFilterAllInput` via:
+//
+//	SessionLoggerEventFilterAllArgs{...}
+type SessionLoggerEventFilterAllInput interface {
+	pulumi.Input
+
+	ToSessionLoggerEventFilterAllOutput() SessionLoggerEventFilterAllOutput
+	ToSessionLoggerEventFilterAllOutputWithContext(context.Context) SessionLoggerEventFilterAllOutput
+}
+
+type SessionLoggerEventFilterAllArgs struct {
+}
+
+func (SessionLoggerEventFilterAllArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerEventFilterAll)(nil)).Elem()
+}
+
+func (i SessionLoggerEventFilterAllArgs) ToSessionLoggerEventFilterAllOutput() SessionLoggerEventFilterAllOutput {
+	return i.ToSessionLoggerEventFilterAllOutputWithContext(context.Background())
+}
+
+func (i SessionLoggerEventFilterAllArgs) ToSessionLoggerEventFilterAllOutputWithContext(ctx context.Context) SessionLoggerEventFilterAllOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerEventFilterAllOutput)
+}
+
+func (i SessionLoggerEventFilterAllArgs) ToSessionLoggerEventFilterAllPtrOutput() SessionLoggerEventFilterAllPtrOutput {
+	return i.ToSessionLoggerEventFilterAllPtrOutputWithContext(context.Background())
+}
+
+func (i SessionLoggerEventFilterAllArgs) ToSessionLoggerEventFilterAllPtrOutputWithContext(ctx context.Context) SessionLoggerEventFilterAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerEventFilterAllOutput).ToSessionLoggerEventFilterAllPtrOutputWithContext(ctx)
+}
+
+// SessionLoggerEventFilterAllPtrInput is an input type that accepts SessionLoggerEventFilterAllArgs, SessionLoggerEventFilterAllPtr and SessionLoggerEventFilterAllPtrOutput values.
+// You can construct a concrete instance of `SessionLoggerEventFilterAllPtrInput` via:
+//
+//	        SessionLoggerEventFilterAllArgs{...}
+//
+//	or:
+//
+//	        nil
+type SessionLoggerEventFilterAllPtrInput interface {
+	pulumi.Input
+
+	ToSessionLoggerEventFilterAllPtrOutput() SessionLoggerEventFilterAllPtrOutput
+	ToSessionLoggerEventFilterAllPtrOutputWithContext(context.Context) SessionLoggerEventFilterAllPtrOutput
+}
+
+type sessionLoggerEventFilterAllPtrType SessionLoggerEventFilterAllArgs
+
+func SessionLoggerEventFilterAllPtr(v *SessionLoggerEventFilterAllArgs) SessionLoggerEventFilterAllPtrInput {
+	return (*sessionLoggerEventFilterAllPtrType)(v)
+}
+
+func (*sessionLoggerEventFilterAllPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerEventFilterAll)(nil)).Elem()
+}
+
+func (i *sessionLoggerEventFilterAllPtrType) ToSessionLoggerEventFilterAllPtrOutput() SessionLoggerEventFilterAllPtrOutput {
+	return i.ToSessionLoggerEventFilterAllPtrOutputWithContext(context.Background())
+}
+
+func (i *sessionLoggerEventFilterAllPtrType) ToSessionLoggerEventFilterAllPtrOutputWithContext(ctx context.Context) SessionLoggerEventFilterAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerEventFilterAllPtrOutput)
+}
+
+type SessionLoggerEventFilterAllOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerEventFilterAllOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerEventFilterAll)(nil)).Elem()
+}
+
+func (o SessionLoggerEventFilterAllOutput) ToSessionLoggerEventFilterAllOutput() SessionLoggerEventFilterAllOutput {
+	return o
+}
+
+func (o SessionLoggerEventFilterAllOutput) ToSessionLoggerEventFilterAllOutputWithContext(ctx context.Context) SessionLoggerEventFilterAllOutput {
+	return o
+}
+
+func (o SessionLoggerEventFilterAllOutput) ToSessionLoggerEventFilterAllPtrOutput() SessionLoggerEventFilterAllPtrOutput {
+	return o.ToSessionLoggerEventFilterAllPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerEventFilterAllOutput) ToSessionLoggerEventFilterAllPtrOutputWithContext(ctx context.Context) SessionLoggerEventFilterAllPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionLoggerEventFilterAll) *SessionLoggerEventFilterAll {
+		return &v
+	}).(SessionLoggerEventFilterAllPtrOutput)
+}
+
+type SessionLoggerEventFilterAllPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerEventFilterAllPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerEventFilterAll)(nil)).Elem()
+}
+
+func (o SessionLoggerEventFilterAllPtrOutput) ToSessionLoggerEventFilterAllPtrOutput() SessionLoggerEventFilterAllPtrOutput {
+	return o
+}
+
+func (o SessionLoggerEventFilterAllPtrOutput) ToSessionLoggerEventFilterAllPtrOutputWithContext(ctx context.Context) SessionLoggerEventFilterAllPtrOutput {
+	return o
+}
+
+func (o SessionLoggerEventFilterAllPtrOutput) Elem() SessionLoggerEventFilterAllOutput {
+	return o.ApplyT(func(v *SessionLoggerEventFilterAll) SessionLoggerEventFilterAll {
+		if v != nil {
+			return *v
+		}
+		var ret SessionLoggerEventFilterAll
+		return ret
+	}).(SessionLoggerEventFilterAllOutput)
+}
+
+type SessionLoggerLogConfiguration struct {
+	// Configuration block for S3 log delivery. See S3 Configuration below.
+	S3 *SessionLoggerLogConfigurationS3 `pulumi:"s3"`
+}
+
+// SessionLoggerLogConfigurationInput is an input type that accepts SessionLoggerLogConfigurationArgs and SessionLoggerLogConfigurationOutput values.
+// You can construct a concrete instance of `SessionLoggerLogConfigurationInput` via:
+//
+//	SessionLoggerLogConfigurationArgs{...}
+type SessionLoggerLogConfigurationInput interface {
+	pulumi.Input
+
+	ToSessionLoggerLogConfigurationOutput() SessionLoggerLogConfigurationOutput
+	ToSessionLoggerLogConfigurationOutputWithContext(context.Context) SessionLoggerLogConfigurationOutput
+}
+
+type SessionLoggerLogConfigurationArgs struct {
+	// Configuration block for S3 log delivery. See S3 Configuration below.
+	S3 SessionLoggerLogConfigurationS3PtrInput `pulumi:"s3"`
+}
+
+func (SessionLoggerLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerLogConfiguration)(nil)).Elem()
+}
+
+func (i SessionLoggerLogConfigurationArgs) ToSessionLoggerLogConfigurationOutput() SessionLoggerLogConfigurationOutput {
+	return i.ToSessionLoggerLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i SessionLoggerLogConfigurationArgs) ToSessionLoggerLogConfigurationOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerLogConfigurationOutput)
+}
+
+func (i SessionLoggerLogConfigurationArgs) ToSessionLoggerLogConfigurationPtrOutput() SessionLoggerLogConfigurationPtrOutput {
+	return i.ToSessionLoggerLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SessionLoggerLogConfigurationArgs) ToSessionLoggerLogConfigurationPtrOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerLogConfigurationOutput).ToSessionLoggerLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// SessionLoggerLogConfigurationPtrInput is an input type that accepts SessionLoggerLogConfigurationArgs, SessionLoggerLogConfigurationPtr and SessionLoggerLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `SessionLoggerLogConfigurationPtrInput` via:
+//
+//	        SessionLoggerLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SessionLoggerLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSessionLoggerLogConfigurationPtrOutput() SessionLoggerLogConfigurationPtrOutput
+	ToSessionLoggerLogConfigurationPtrOutputWithContext(context.Context) SessionLoggerLogConfigurationPtrOutput
+}
+
+type sessionLoggerLogConfigurationPtrType SessionLoggerLogConfigurationArgs
+
+func SessionLoggerLogConfigurationPtr(v *SessionLoggerLogConfigurationArgs) SessionLoggerLogConfigurationPtrInput {
+	return (*sessionLoggerLogConfigurationPtrType)(v)
+}
+
+func (*sessionLoggerLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerLogConfiguration)(nil)).Elem()
+}
+
+func (i *sessionLoggerLogConfigurationPtrType) ToSessionLoggerLogConfigurationPtrOutput() SessionLoggerLogConfigurationPtrOutput {
+	return i.ToSessionLoggerLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sessionLoggerLogConfigurationPtrType) ToSessionLoggerLogConfigurationPtrOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerLogConfigurationPtrOutput)
+}
+
+type SessionLoggerLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerLogConfiguration)(nil)).Elem()
+}
+
+func (o SessionLoggerLogConfigurationOutput) ToSessionLoggerLogConfigurationOutput() SessionLoggerLogConfigurationOutput {
+	return o
+}
+
+func (o SessionLoggerLogConfigurationOutput) ToSessionLoggerLogConfigurationOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationOutput {
+	return o
+}
+
+func (o SessionLoggerLogConfigurationOutput) ToSessionLoggerLogConfigurationPtrOutput() SessionLoggerLogConfigurationPtrOutput {
+	return o.ToSessionLoggerLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerLogConfigurationOutput) ToSessionLoggerLogConfigurationPtrOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionLoggerLogConfiguration) *SessionLoggerLogConfiguration {
+		return &v
+	}).(SessionLoggerLogConfigurationPtrOutput)
+}
+
+// Configuration block for S3 log delivery. See S3 Configuration below.
+func (o SessionLoggerLogConfigurationOutput) S3() SessionLoggerLogConfigurationS3PtrOutput {
+	return o.ApplyT(func(v SessionLoggerLogConfiguration) *SessionLoggerLogConfigurationS3 { return v.S3 }).(SessionLoggerLogConfigurationS3PtrOutput)
+}
+
+type SessionLoggerLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerLogConfiguration)(nil)).Elem()
+}
+
+func (o SessionLoggerLogConfigurationPtrOutput) ToSessionLoggerLogConfigurationPtrOutput() SessionLoggerLogConfigurationPtrOutput {
+	return o
+}
+
+func (o SessionLoggerLogConfigurationPtrOutput) ToSessionLoggerLogConfigurationPtrOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationPtrOutput {
+	return o
+}
+
+func (o SessionLoggerLogConfigurationPtrOutput) Elem() SessionLoggerLogConfigurationOutput {
+	return o.ApplyT(func(v *SessionLoggerLogConfiguration) SessionLoggerLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SessionLoggerLogConfiguration
+		return ret
+	}).(SessionLoggerLogConfigurationOutput)
+}
+
+// Configuration block for S3 log delivery. See S3 Configuration below.
+func (o SessionLoggerLogConfigurationPtrOutput) S3() SessionLoggerLogConfigurationS3PtrOutput {
+	return o.ApplyT(func(v *SessionLoggerLogConfiguration) *SessionLoggerLogConfigurationS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(SessionLoggerLogConfigurationS3PtrOutput)
+}
+
+type SessionLoggerLogConfigurationS3 struct {
+	// S3 bucket name where logs are delivered.
+	Bucket string `pulumi:"bucket"`
+	// Expected bucket owner of the target S3 bucket.
+	BucketOwner *string `pulumi:"bucketOwner"`
+	// Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
+	FolderStructure string `pulumi:"folderStructure"`
+	// S3 path prefix that determines where log files are stored.
+	KeyPrefix *string `pulumi:"keyPrefix"`
+	// Format of the log file written to S3. Valid values: `Json`, `Parquet`.
+	LogFileFormat string `pulumi:"logFileFormat"`
+}
+
+// SessionLoggerLogConfigurationS3Input is an input type that accepts SessionLoggerLogConfigurationS3Args and SessionLoggerLogConfigurationS3Output values.
+// You can construct a concrete instance of `SessionLoggerLogConfigurationS3Input` via:
+//
+//	SessionLoggerLogConfigurationS3Args{...}
+type SessionLoggerLogConfigurationS3Input interface {
+	pulumi.Input
+
+	ToSessionLoggerLogConfigurationS3Output() SessionLoggerLogConfigurationS3Output
+	ToSessionLoggerLogConfigurationS3OutputWithContext(context.Context) SessionLoggerLogConfigurationS3Output
+}
+
+type SessionLoggerLogConfigurationS3Args struct {
+	// S3 bucket name where logs are delivered.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Expected bucket owner of the target S3 bucket.
+	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	// Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
+	FolderStructure pulumi.StringInput `pulumi:"folderStructure"`
+	// S3 path prefix that determines where log files are stored.
+	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	// Format of the log file written to S3. Valid values: `Json`, `Parquet`.
+	LogFileFormat pulumi.StringInput `pulumi:"logFileFormat"`
+}
+
+func (SessionLoggerLogConfigurationS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerLogConfigurationS3)(nil)).Elem()
+}
+
+func (i SessionLoggerLogConfigurationS3Args) ToSessionLoggerLogConfigurationS3Output() SessionLoggerLogConfigurationS3Output {
+	return i.ToSessionLoggerLogConfigurationS3OutputWithContext(context.Background())
+}
+
+func (i SessionLoggerLogConfigurationS3Args) ToSessionLoggerLogConfigurationS3OutputWithContext(ctx context.Context) SessionLoggerLogConfigurationS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerLogConfigurationS3Output)
+}
+
+func (i SessionLoggerLogConfigurationS3Args) ToSessionLoggerLogConfigurationS3PtrOutput() SessionLoggerLogConfigurationS3PtrOutput {
+	return i.ToSessionLoggerLogConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (i SessionLoggerLogConfigurationS3Args) ToSessionLoggerLogConfigurationS3PtrOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerLogConfigurationS3Output).ToSessionLoggerLogConfigurationS3PtrOutputWithContext(ctx)
+}
+
+// SessionLoggerLogConfigurationS3PtrInput is an input type that accepts SessionLoggerLogConfigurationS3Args, SessionLoggerLogConfigurationS3Ptr and SessionLoggerLogConfigurationS3PtrOutput values.
+// You can construct a concrete instance of `SessionLoggerLogConfigurationS3PtrInput` via:
+//
+//	        SessionLoggerLogConfigurationS3Args{...}
+//
+//	or:
+//
+//	        nil
+type SessionLoggerLogConfigurationS3PtrInput interface {
+	pulumi.Input
+
+	ToSessionLoggerLogConfigurationS3PtrOutput() SessionLoggerLogConfigurationS3PtrOutput
+	ToSessionLoggerLogConfigurationS3PtrOutputWithContext(context.Context) SessionLoggerLogConfigurationS3PtrOutput
+}
+
+type sessionLoggerLogConfigurationS3PtrType SessionLoggerLogConfigurationS3Args
+
+func SessionLoggerLogConfigurationS3Ptr(v *SessionLoggerLogConfigurationS3Args) SessionLoggerLogConfigurationS3PtrInput {
+	return (*sessionLoggerLogConfigurationS3PtrType)(v)
+}
+
+func (*sessionLoggerLogConfigurationS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerLogConfigurationS3)(nil)).Elem()
+}
+
+func (i *sessionLoggerLogConfigurationS3PtrType) ToSessionLoggerLogConfigurationS3PtrOutput() SessionLoggerLogConfigurationS3PtrOutput {
+	return i.ToSessionLoggerLogConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (i *sessionLoggerLogConfigurationS3PtrType) ToSessionLoggerLogConfigurationS3PtrOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerLogConfigurationS3PtrOutput)
+}
+
+type SessionLoggerLogConfigurationS3Output struct{ *pulumi.OutputState }
+
+func (SessionLoggerLogConfigurationS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerLogConfigurationS3)(nil)).Elem()
+}
+
+func (o SessionLoggerLogConfigurationS3Output) ToSessionLoggerLogConfigurationS3Output() SessionLoggerLogConfigurationS3Output {
+	return o
+}
+
+func (o SessionLoggerLogConfigurationS3Output) ToSessionLoggerLogConfigurationS3OutputWithContext(ctx context.Context) SessionLoggerLogConfigurationS3Output {
+	return o
+}
+
+func (o SessionLoggerLogConfigurationS3Output) ToSessionLoggerLogConfigurationS3PtrOutput() SessionLoggerLogConfigurationS3PtrOutput {
+	return o.ToSessionLoggerLogConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerLogConfigurationS3Output) ToSessionLoggerLogConfigurationS3PtrOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionLoggerLogConfigurationS3) *SessionLoggerLogConfigurationS3 {
+		return &v
+	}).(SessionLoggerLogConfigurationS3PtrOutput)
+}
+
+// S3 bucket name where logs are delivered.
+func (o SessionLoggerLogConfigurationS3Output) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Expected bucket owner of the target S3 bucket.
+func (o SessionLoggerLogConfigurationS3Output) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
+func (o SessionLoggerLogConfigurationS3Output) FolderStructure() pulumi.StringOutput {
+	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) string { return v.FolderStructure }).(pulumi.StringOutput)
+}
+
+// S3 path prefix that determines where log files are stored.
+func (o SessionLoggerLogConfigurationS3Output) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Format of the log file written to S3. Valid values: `Json`, `Parquet`.
+func (o SessionLoggerLogConfigurationS3Output) LogFileFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) string { return v.LogFileFormat }).(pulumi.StringOutput)
+}
+
+type SessionLoggerLogConfigurationS3PtrOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerLogConfigurationS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerLogConfigurationS3)(nil)).Elem()
+}
+
+func (o SessionLoggerLogConfigurationS3PtrOutput) ToSessionLoggerLogConfigurationS3PtrOutput() SessionLoggerLogConfigurationS3PtrOutput {
+	return o
+}
+
+func (o SessionLoggerLogConfigurationS3PtrOutput) ToSessionLoggerLogConfigurationS3PtrOutputWithContext(ctx context.Context) SessionLoggerLogConfigurationS3PtrOutput {
+	return o
+}
+
+func (o SessionLoggerLogConfigurationS3PtrOutput) Elem() SessionLoggerLogConfigurationS3Output {
+	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) SessionLoggerLogConfigurationS3 {
+		if v != nil {
+			return *v
+		}
+		var ret SessionLoggerLogConfigurationS3
+		return ret
+	}).(SessionLoggerLogConfigurationS3Output)
+}
+
+// S3 bucket name where logs are delivered.
+func (o SessionLoggerLogConfigurationS3PtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Expected bucket owner of the target S3 bucket.
+func (o SessionLoggerLogConfigurationS3PtrOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
+func (o SessionLoggerLogConfigurationS3PtrOutput) FolderStructure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FolderStructure
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 path prefix that determines where log files are stored.
+func (o SessionLoggerLogConfigurationS3PtrOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Format of the log file written to S3. Valid values: `Json`, `Parquet`.
+func (o SessionLoggerLogConfigurationS3PtrOutput) LogFileFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogFileFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreCertificate struct {
+	// Certificate body in PEM format.
+	Body string `pulumi:"body"`
+	// Certificate issuer.
+	Issuer *string `pulumi:"issuer"`
+	// Date and time when the certificate expires in RFC3339 format.
+	NotValidAfter *string `pulumi:"notValidAfter"`
+	// Date and time when the certificate becomes valid in RFC3339 format.
+	NotValidBefore *string `pulumi:"notValidBefore"`
+	// Certificate subject.
+	Subject *string `pulumi:"subject"`
+	// Certificate thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// TrustStoreCertificateInput is an input type that accepts TrustStoreCertificateArgs and TrustStoreCertificateOutput values.
+// You can construct a concrete instance of `TrustStoreCertificateInput` via:
+//
+//	TrustStoreCertificateArgs{...}
+type TrustStoreCertificateInput interface {
+	pulumi.Input
+
+	ToTrustStoreCertificateOutput() TrustStoreCertificateOutput
+	ToTrustStoreCertificateOutputWithContext(context.Context) TrustStoreCertificateOutput
+}
+
+type TrustStoreCertificateArgs struct {
+	// Certificate body in PEM format.
+	Body pulumi.StringInput `pulumi:"body"`
+	// Certificate issuer.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// Date and time when the certificate expires in RFC3339 format.
+	NotValidAfter pulumi.StringPtrInput `pulumi:"notValidAfter"`
+	// Date and time when the certificate becomes valid in RFC3339 format.
+	NotValidBefore pulumi.StringPtrInput `pulumi:"notValidBefore"`
+	// Certificate subject.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// Certificate thumbprint.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (TrustStoreCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCertificate)(nil)).Elem()
+}
+
+func (i TrustStoreCertificateArgs) ToTrustStoreCertificateOutput() TrustStoreCertificateOutput {
+	return i.ToTrustStoreCertificateOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCertificateArgs) ToTrustStoreCertificateOutputWithContext(ctx context.Context) TrustStoreCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCertificateOutput)
+}
+
+// TrustStoreCertificateArrayInput is an input type that accepts TrustStoreCertificateArray and TrustStoreCertificateArrayOutput values.
+// You can construct a concrete instance of `TrustStoreCertificateArrayInput` via:
+//
+//	TrustStoreCertificateArray{ TrustStoreCertificateArgs{...} }
+type TrustStoreCertificateArrayInput interface {
+	pulumi.Input
+
+	ToTrustStoreCertificateArrayOutput() TrustStoreCertificateArrayOutput
+	ToTrustStoreCertificateArrayOutputWithContext(context.Context) TrustStoreCertificateArrayOutput
+}
+
+type TrustStoreCertificateArray []TrustStoreCertificateInput
+
+func (TrustStoreCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustStoreCertificate)(nil)).Elem()
+}
+
+func (i TrustStoreCertificateArray) ToTrustStoreCertificateArrayOutput() TrustStoreCertificateArrayOutput {
+	return i.ToTrustStoreCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCertificateArray) ToTrustStoreCertificateArrayOutputWithContext(ctx context.Context) TrustStoreCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCertificateArrayOutput)
+}
+
+type TrustStoreCertificateOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCertificate)(nil)).Elem()
+}
+
+func (o TrustStoreCertificateOutput) ToTrustStoreCertificateOutput() TrustStoreCertificateOutput {
+	return o
+}
+
+func (o TrustStoreCertificateOutput) ToTrustStoreCertificateOutputWithContext(ctx context.Context) TrustStoreCertificateOutput {
+	return o
+}
+
+// Certificate body in PEM format.
+func (o TrustStoreCertificateOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustStoreCertificate) string { return v.Body }).(pulumi.StringOutput)
+}
+
+// Certificate issuer.
+func (o TrustStoreCertificateOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// Date and time when the certificate expires in RFC3339 format.
+func (o TrustStoreCertificateOutput) NotValidAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.NotValidAfter }).(pulumi.StringPtrOutput)
+}
+
+// Date and time when the certificate becomes valid in RFC3339 format.
+func (o TrustStoreCertificateOutput) NotValidBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.NotValidBefore }).(pulumi.StringPtrOutput)
+}
+
+// Certificate subject.
+func (o TrustStoreCertificateOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// Certificate thumbprint.
+func (o TrustStoreCertificateOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustStoreCertificate)(nil)).Elem()
+}
+
+func (o TrustStoreCertificateArrayOutput) ToTrustStoreCertificateArrayOutput() TrustStoreCertificateArrayOutput {
+	return o
+}
+
+func (o TrustStoreCertificateArrayOutput) ToTrustStoreCertificateArrayOutputWithContext(ctx context.Context) TrustStoreCertificateArrayOutput {
+	return o
+}
+
+func (o TrustStoreCertificateArrayOutput) Index(i pulumi.IntInput) TrustStoreCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustStoreCertificate {
+		return vs[0].([]TrustStoreCertificate)[vs[1].(int)]
+	}).(TrustStoreCertificateOutput)
+}
+
 type UserSettingsCookieSynchronizationConfiguration struct {
 	// List of cookie specifications that are allowed to be synchronized to the remote browser.
 	Allowlists []UserSettingsCookieSynchronizationConfigurationAllowlist `pulumi:"allowlists"`
@@ -1376,6 +2317,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpAccessSettingsIpRuleInput)(nil)).Elem(), IpAccessSettingsIpRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpAccessSettingsIpRuleArrayInput)(nil)).Elem(), IpAccessSettingsIpRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTimeoutsInput)(nil)).Elem(), PortalTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTimeoutsPtrInput)(nil)).Elem(), PortalTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerEventFilterInput)(nil)).Elem(), SessionLoggerEventFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerEventFilterPtrInput)(nil)).Elem(), SessionLoggerEventFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerEventFilterAllInput)(nil)).Elem(), SessionLoggerEventFilterAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerEventFilterAllPtrInput)(nil)).Elem(), SessionLoggerEventFilterAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerLogConfigurationInput)(nil)).Elem(), SessionLoggerLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerLogConfigurationPtrInput)(nil)).Elem(), SessionLoggerLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerLogConfigurationS3Input)(nil)).Elem(), SessionLoggerLogConfigurationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerLogConfigurationS3PtrInput)(nil)).Elem(), SessionLoggerLogConfigurationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCertificateInput)(nil)).Elem(), TrustStoreCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCertificateArrayInput)(nil)).Elem(), TrustStoreCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationPtrInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationAllowlistInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationAllowlistArgs{})
@@ -1394,6 +2347,18 @@ func init() {
 	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput{})
 	pulumi.RegisterOutputType(IpAccessSettingsIpRuleOutput{})
 	pulumi.RegisterOutputType(IpAccessSettingsIpRuleArrayOutput{})
+	pulumi.RegisterOutputType(PortalTimeoutsOutput{})
+	pulumi.RegisterOutputType(PortalTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(SessionLoggerEventFilterOutput{})
+	pulumi.RegisterOutputType(SessionLoggerEventFilterPtrOutput{})
+	pulumi.RegisterOutputType(SessionLoggerEventFilterAllOutput{})
+	pulumi.RegisterOutputType(SessionLoggerEventFilterAllPtrOutput{})
+	pulumi.RegisterOutputType(SessionLoggerLogConfigurationOutput{})
+	pulumi.RegisterOutputType(SessionLoggerLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SessionLoggerLogConfigurationS3Output{})
+	pulumi.RegisterOutputType(SessionLoggerLogConfigurationS3PtrOutput{})
+	pulumi.RegisterOutputType(TrustStoreCertificateOutput{})
+	pulumi.RegisterOutputType(TrustStoreCertificateArrayOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationAllowlistOutput{})

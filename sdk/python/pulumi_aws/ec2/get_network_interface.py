@@ -105,13 +105,16 @@ class GetNetworkInterfaceResult:
     @pulumi.getter
     def associations(self) -> Sequence['outputs.GetNetworkInterfaceAssociationResult']:
         """
-        Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+        Association information for an Elastic IP address (IPv4) associated with the network interface. See association below.
         """
         return pulumi.get(self, "associations")
 
     @_builtins.property
     @pulumi.getter
     def attachments(self) -> Sequence['outputs.GetNetworkInterfaceAttachmentResult']:
+        """
+        Attachment of the ENI. See attachment below.
+        """
         return pulumi.get(self, "attachments")
 
     @_builtins.property

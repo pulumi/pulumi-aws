@@ -5,10 +5,13 @@ package com.pulumi.aws.dlm.inputs;
 
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsActionArgs;
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsEventSourceArgs;
+import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsExclusionsArgs;
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsParametersArgs;
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +39,28 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
         return Optional.ofNullable(this.action);
     }
 
+    @Import(name="copyTags")
+    private @Nullable Output<Boolean> copyTags;
+
+    public Optional<Output<Boolean>> copyTags() {
+        return Optional.ofNullable(this.copyTags);
+    }
+
+    /**
+     * How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
+     * 
+     */
+    @Import(name="createInterval")
+    private @Nullable Output<Integer> createInterval;
+
+    /**
+     * @return How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
+     * 
+     */
+    public Optional<Output<Integer>> createInterval() {
+        return Optional.ofNullable(this.createInterval);
+    }
+
     /**
      * The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
      * 
@@ -51,11 +76,56 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
         return Optional.ofNullable(this.eventSource);
     }
 
+    /**
+     * Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+     * 
+     */
+    @Import(name="exclusions")
+    private @Nullable Output<LifecyclePolicyPolicyDetailsExclusionsArgs> exclusions;
+
+    /**
+     * @return Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+     * 
+     */
+    public Optional<Output<LifecyclePolicyPolicyDetailsExclusionsArgs>> exclusions() {
+        return Optional.ofNullable(this.exclusions);
+    }
+
+    /**
+     * snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+     * 
+     */
+    @Import(name="extendDeletion")
+    private @Nullable Output<Boolean> extendDeletion;
+
+    /**
+     * @return snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> extendDeletion() {
+        return Optional.ofNullable(this.extendDeletion);
+    }
+
     @Import(name="parameters")
     private @Nullable Output<LifecyclePolicyPolicyDetailsParametersArgs> parameters;
 
     public Optional<Output<LifecyclePolicyPolicyDetailsParametersArgs>> parameters() {
         return Optional.ofNullable(this.parameters);
+    }
+
+    /**
+     * Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
+     * 
+     */
+    @Import(name="policyLanguage")
+    private @Nullable Output<String> policyLanguage;
+
+    /**
+     * @return Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
+     * 
+     */
+    public Optional<Output<String>> policyLanguage() {
+        return Optional.ofNullable(this.policyLanguage);
     }
 
     /**
@@ -89,6 +159,21 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
     }
 
     /**
+     * Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
+     * 
+     */
+    @Import(name="resourceType")
+    private @Nullable Output<String> resourceType;
+
+    /**
+     * @return Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
+     * 
+     */
+    public Optional<Output<String>> resourceType() {
+        return Optional.ofNullable(this.resourceType);
+    }
+
+    /**
      * A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
      * 
      */
@@ -101,6 +186,21 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
      */
     public Optional<Output<List<String>>> resourceTypes() {
         return Optional.ofNullable(this.resourceTypes);
+    }
+
+    /**
+     * Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
+     * 
+     */
+    @Import(name="retainInterval")
+    private @Nullable Output<Integer> retainInterval;
+
+    /**
+     * @return Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
+     * 
+     */
+    public Optional<Output<Integer>> retainInterval() {
+        return Optional.ofNullable(this.retainInterval);
     }
 
     /**
@@ -141,11 +241,18 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
 
     private LifecyclePolicyPolicyDetailsArgs(LifecyclePolicyPolicyDetailsArgs $) {
         this.action = $.action;
+        this.copyTags = $.copyTags;
+        this.createInterval = $.createInterval;
         this.eventSource = $.eventSource;
+        this.exclusions = $.exclusions;
+        this.extendDeletion = $.extendDeletion;
         this.parameters = $.parameters;
+        this.policyLanguage = $.policyLanguage;
         this.policyType = $.policyType;
         this.resourceLocations = $.resourceLocations;
+        this.resourceType = $.resourceType;
         this.resourceTypes = $.resourceTypes;
+        this.retainInterval = $.retainInterval;
         this.schedules = $.schedules;
         this.targetTags = $.targetTags;
     }
@@ -189,6 +296,36 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
             return action(Output.of(action));
         }
 
+        public Builder copyTags(@Nullable Output<Boolean> copyTags) {
+            $.copyTags = copyTags;
+            return this;
+        }
+
+        public Builder copyTags(Boolean copyTags) {
+            return copyTags(Output.of(copyTags));
+        }
+
+        /**
+         * @param createInterval How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createInterval(@Nullable Output<Integer> createInterval) {
+            $.createInterval = createInterval;
+            return this;
+        }
+
+        /**
+         * @param createInterval How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createInterval(Integer createInterval) {
+            return createInterval(Output.of(createInterval));
+        }
+
         /**
          * @param eventSource The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
          * 
@@ -210,6 +347,48 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
             return eventSource(Output.of(eventSource));
         }
 
+        /**
+         * @param exclusions Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exclusions(@Nullable Output<LifecyclePolicyPolicyDetailsExclusionsArgs> exclusions) {
+            $.exclusions = exclusions;
+            return this;
+        }
+
+        /**
+         * @param exclusions Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exclusions(LifecyclePolicyPolicyDetailsExclusionsArgs exclusions) {
+            return exclusions(Output.of(exclusions));
+        }
+
+        /**
+         * @param extendDeletion snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extendDeletion(@Nullable Output<Boolean> extendDeletion) {
+            $.extendDeletion = extendDeletion;
+            return this;
+        }
+
+        /**
+         * @param extendDeletion snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extendDeletion(Boolean extendDeletion) {
+            return extendDeletion(Output.of(extendDeletion));
+        }
+
         public Builder parameters(@Nullable Output<LifecyclePolicyPolicyDetailsParametersArgs> parameters) {
             $.parameters = parameters;
             return this;
@@ -217,6 +396,27 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
 
         public Builder parameters(LifecyclePolicyPolicyDetailsParametersArgs parameters) {
             return parameters(Output.of(parameters));
+        }
+
+        /**
+         * @param policyLanguage Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyLanguage(@Nullable Output<String> policyLanguage) {
+            $.policyLanguage = policyLanguage;
+            return this;
+        }
+
+        /**
+         * @param policyLanguage Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyLanguage(String policyLanguage) {
+            return policyLanguage(Output.of(policyLanguage));
         }
 
         /**
@@ -262,6 +462,27 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
         }
 
         /**
+         * @param resourceType Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceType(@Nullable Output<String> resourceType) {
+            $.resourceType = resourceType;
+            return this;
+        }
+
+        /**
+         * @param resourceType Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceType(String resourceType) {
+            return resourceType(Output.of(resourceType));
+        }
+
+        /**
          * @param resourceTypes A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
          * 
          * @return builder
@@ -290,6 +511,27 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
          */
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
+        }
+
+        /**
+         * @param retainInterval Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retainInterval(@Nullable Output<Integer> retainInterval) {
+            $.retainInterval = retainInterval;
+            return this;
+        }
+
+        /**
+         * @param retainInterval Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retainInterval(Integer retainInterval) {
+            return retainInterval(Output.of(retainInterval));
         }
 
         /**

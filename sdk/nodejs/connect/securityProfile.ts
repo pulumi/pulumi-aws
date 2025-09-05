@@ -67,44 +67,44 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Security Profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the description of the Security Profile.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * Specifies the name of the Security Profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The organization resource identifier for the security profile.
      */
-    public /*out*/ readonly organizationResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly organizationResourceId: pulumi.Output<string>;
     /**
      * Specifies a list of permissions assigned to the security profile.
      */
-    public readonly permissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly permissions: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The identifier for the Security Profile.
      */
-    public /*out*/ readonly securityProfileId!: pulumi.Output<string>;
+    declare public /*out*/ readonly securityProfileId: pulumi.Output<string>;
     /**
      * Tags to apply to the Security Profile. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a SecurityProfile resource with the given unique name, arguments, and options.
@@ -119,27 +119,27 @@ export class SecurityProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityProfileState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["organizationResourceId"] = state ? state.organizationResourceId : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityProfileId"] = state ? state.securityProfileId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["organizationResourceId"] = state?.organizationResourceId;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityProfileId"] = state?.securityProfileId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as SecurityProfileArgs | undefined;
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["organizationResourceId"] = undefined /*out*/;
             resourceInputs["securityProfileId"] = undefined /*out*/;

@@ -157,14 +157,14 @@ public final class DbInstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+     * ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
      * 
      */
     @Import(name="influxAuthParametersSecretArn")
     private @Nullable Output<String> influxAuthParametersSecretArn;
 
     /**
-     * @return ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+     * @return ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
      * 
      */
     public Optional<Output<String>> influxAuthParametersSecretArn() {
@@ -630,7 +630,7 @@ public final class DbInstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param influxAuthParametersSecretArn ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+         * @param influxAuthParametersSecretArn ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class DbInstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param influxAuthParametersSecretArn ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+         * @param influxAuthParametersSecretArn ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
          * 
          * @return builder
          * 

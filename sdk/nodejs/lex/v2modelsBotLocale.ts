@@ -83,38 +83,38 @@ export class V2modelsBotLocale extends pulumi.CustomResource {
     /**
      * Identifier of the bot to create the locale for.
      */
-    public readonly botId!: pulumi.Output<string>;
+    declare public readonly botId: pulumi.Output<string>;
     /**
      * Version of the bot to create the locale for. This can only be the draft version of the bot.
      */
-    public readonly botVersion!: pulumi.Output<string>;
+    declare public readonly botVersion: pulumi.Output<string>;
     /**
      * Description of the bot locale. Use this to help identify the bot locale in lists.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
      */
-    public readonly localeId!: pulumi.Output<string>;
+    declare public readonly localeId: pulumi.Output<string>;
     /**
      * Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
      *
      * The following arguments are optional:
      */
-    public readonly nLuIntentConfidenceThreshold!: pulumi.Output<number>;
+    declare public readonly nLuIntentConfidenceThreshold: pulumi.Output<number>;
     /**
      * Specified locale name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotLocaleTimeouts | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsBotLocaleTimeouts | undefined>;
     /**
      * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      */
-    public readonly voiceSettings!: pulumi.Output<outputs.lex.V2modelsBotLocaleVoiceSettings | undefined>;
+    declare public readonly voiceSettings: pulumi.Output<outputs.lex.V2modelsBotLocaleVoiceSettings | undefined>;
 
     /**
      * Create a V2modelsBotLocale resource with the given unique name, arguments, and options.
@@ -129,38 +129,38 @@ export class V2modelsBotLocale extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as V2modelsBotLocaleState | undefined;
-            resourceInputs["botId"] = state ? state.botId : undefined;
-            resourceInputs["botVersion"] = state ? state.botVersion : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["localeId"] = state ? state.localeId : undefined;
-            resourceInputs["nLuIntentConfidenceThreshold"] = state ? state.nLuIntentConfidenceThreshold : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["voiceSettings"] = state ? state.voiceSettings : undefined;
+            resourceInputs["botId"] = state?.botId;
+            resourceInputs["botVersion"] = state?.botVersion;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["localeId"] = state?.localeId;
+            resourceInputs["nLuIntentConfidenceThreshold"] = state?.nLuIntentConfidenceThreshold;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["voiceSettings"] = state?.voiceSettings;
         } else {
             const args = argsOrState as V2modelsBotLocaleArgs | undefined;
-            if ((!args || args.botId === undefined) && !opts.urn) {
+            if (args?.botId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            if ((!args || args.botVersion === undefined) && !opts.urn) {
+            if (args?.botVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botVersion'");
             }
-            if ((!args || args.localeId === undefined) && !opts.urn) {
+            if (args?.localeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localeId'");
             }
-            if ((!args || args.nLuIntentConfidenceThreshold === undefined) && !opts.urn) {
+            if (args?.nLuIntentConfidenceThreshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nLuIntentConfidenceThreshold'");
             }
-            resourceInputs["botId"] = args ? args.botId : undefined;
-            resourceInputs["botVersion"] = args ? args.botVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["localeId"] = args ? args.localeId : undefined;
-            resourceInputs["nLuIntentConfidenceThreshold"] = args ? args.nLuIntentConfidenceThreshold : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["voiceSettings"] = args ? args.voiceSettings : undefined;
+            resourceInputs["botId"] = args?.botId;
+            resourceInputs["botVersion"] = args?.botVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["localeId"] = args?.localeId;
+            resourceInputs["nLuIntentConfidenceThreshold"] = args?.nLuIntentConfidenceThreshold;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["voiceSettings"] = args?.voiceSettings;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(V2modelsBotLocale.__pulumiType, name, resourceInputs, opts);

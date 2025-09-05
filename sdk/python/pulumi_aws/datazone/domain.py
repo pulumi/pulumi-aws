@@ -23,9 +23,11 @@ class DomainArgs:
     def __init__(__self__, *,
                  domain_execution_role: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_version: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on: Optional[pulumi.Input['DomainSingleSignOnArgs']] = None,
                  skip_deletion_check: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -36,21 +38,27 @@ class DomainArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the Domain.
+        :param pulumi.Input[_builtins.str] domain_version: Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
         :param pulumi.Input[_builtins.str] kms_key_identifier: ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         :param pulumi.Input[_builtins.str] name: Name of the Domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] service_role: ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
         :param pulumi.Input['DomainSingleSignOnArgs'] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         :param pulumi.Input[_builtins.bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         """
         pulumi.set(__self__, "domain_execution_role", domain_execution_role)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain_version is not None:
+            pulumi.set(__self__, "domain_version", domain_version)
         if kms_key_identifier is not None:
             pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if service_role is not None:
+            pulumi.set(__self__, "service_role", service_role)
         if single_sign_on is not None:
             pulumi.set(__self__, "single_sign_on", single_sign_on)
         if skip_deletion_check is not None:
@@ -87,6 +95,18 @@ class DomainArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="domainVersion")
+    def domain_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+        """
+        return pulumi.get(self, "domain_version")
+
+    @domain_version.setter
+    def domain_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "domain_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -121,6 +141,18 @@ class DomainArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+        """
+        return pulumi.get(self, "service_role")
+
+    @service_role.setter
+    def service_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_role", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOn")
@@ -171,10 +203,12 @@ class _DomainState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_version: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  portal_url: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on: Optional[pulumi.Input['DomainSingleSignOnArgs']] = None,
                  skip_deletion_check: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -187,10 +221,12 @@ class _DomainState:
         :param pulumi.Input[_builtins.str] domain_execution_role: ARN of the role used by DataZone to configure the Domain.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] domain_version: Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
         :param pulumi.Input[_builtins.str] kms_key_identifier: ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         :param pulumi.Input[_builtins.str] name: Name of the Domain.
         :param pulumi.Input[_builtins.str] portal_url: URL of the data portal for the Domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] service_role: ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
         :param pulumi.Input['DomainSingleSignOnArgs'] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         :param pulumi.Input[_builtins.bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -201,6 +237,8 @@ class _DomainState:
             pulumi.set(__self__, "description", description)
         if domain_execution_role is not None:
             pulumi.set(__self__, "domain_execution_role", domain_execution_role)
+        if domain_version is not None:
+            pulumi.set(__self__, "domain_version", domain_version)
         if kms_key_identifier is not None:
             pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name is not None:
@@ -209,6 +247,8 @@ class _DomainState:
             pulumi.set(__self__, "portal_url", portal_url)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if service_role is not None:
+            pulumi.set(__self__, "service_role", service_role)
         if single_sign_on is not None:
             pulumi.set(__self__, "single_sign_on", single_sign_on)
         if skip_deletion_check is not None:
@@ -259,6 +299,18 @@ class _DomainState:
         pulumi.set(self, "domain_execution_role", value)
 
     @_builtins.property
+    @pulumi.getter(name="domainVersion")
+    def domain_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+        """
+        return pulumi.get(self, "domain_version")
+
+    @domain_version.setter
+    def domain_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "domain_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -305,6 +357,18 @@ class _DomainState:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+        """
+        return pulumi.get(self, "service_role")
+
+    @service_role.setter
+    def service_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_role", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOn")
@@ -369,9 +433,11 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_version: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
                  skip_deletion_check: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -415,26 +481,91 @@ class Domain(pulumi.CustomResource):
                         },
                     },
                 ],
-            }),
-            inline_policies=[{
-                "name": "domain_execution_policy",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
+            }))
+        domain_execution_role_role_policy = aws.iam.RolePolicy("domain_execution_role",
+            role=domain_execution_role.name,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
+                        "datazone:*",
+                        "ram:*",
+                        "sso:*",
+                        "kms:*",
+                    ],
+                    "Effect": "Allow",
+                    "Resource": "*",
+                }],
+            }))
         example = aws.datazone.Domain("example",
             name="example",
             domain_execution_role=domain_execution_role.arn)
+        ```
+
+        ### V2 Domain
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        # IAM role for Domain Execution
+        assume_role_domain_execution = aws.iam.get_policy_document(statements=[{
+            "actions": [
+                "sts:AssumeRole",
+                "sts:TagSession",
+                "sts:SetContext",
+            ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
+            "conditions": [
+                {
+                    "test": "StringEquals",
+                    "values": [current.account_id],
+                    "variable": "aws:SourceAccount",
+                },
+                {
+                    "test": "ForAllValues:StringLike",
+                    "values": ["datazone*"],
+                    "variable": "aws:TagKeys",
+                },
+            ],
+        }])
+        domain_execution = aws.iam.Role("domain_execution",
+            assume_role_policy=assume_role_domain_execution.json,
+            name="example-domain-execution-role")
+        domain_execution_role = aws.iam.get_policy(name="SageMakerStudioDomainExecutionRolePolicy")
+        domain_execution_role_policy_attachment = aws.iam.RolePolicyAttachment("domain_execution",
+            policy_arn=domain_execution_role.arn,
+            role=domain_execution.name)
+        # IAM role for Domain Service
+        assume_role_domain_service = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
+            "conditions": [{
+                "test": "StringEquals",
+                "values": [current.account_id],
+                "variable": "aws:SourceAccount",
+            }],
+        }])
+        domain_service = aws.iam.Role("domain_service",
+            assume_role_policy=assume_role_domain_service.json,
+            name="example-domain-service-role")
+        domain_service_role = aws.iam.get_policy(name="SageMakerStudioDomainServiceRolePolicy")
+        domain_service_role_policy_attachment = aws.iam.RolePolicyAttachment("domain_service",
+            policy_arn=domain_service_role.arn,
+            role=domain_service.name)
+        # DataZone Domain V2
+        example = aws.datazone.Domain("example",
+            name="example-domain",
+            domain_execution_role=domain_execution.arn,
+            domain_version="V2",
+            service_role=domain_service.arn)
         ```
 
         ## Import
@@ -451,9 +582,11 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_execution_role: ARN of the role used by DataZone to configure the Domain.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] domain_version: Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
         :param pulumi.Input[_builtins.str] kms_key_identifier: ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         :param pulumi.Input[_builtins.str] name: Name of the Domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] service_role: ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
         :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         :param pulumi.Input[_builtins.bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         """
@@ -501,26 +634,91 @@ class Domain(pulumi.CustomResource):
                         },
                     },
                 ],
-            }),
-            inline_policies=[{
-                "name": "domain_execution_policy",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
+            }))
+        domain_execution_role_role_policy = aws.iam.RolePolicy("domain_execution_role",
+            role=domain_execution_role.name,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
+                        "datazone:*",
+                        "ram:*",
+                        "sso:*",
+                        "kms:*",
+                    ],
+                    "Effect": "Allow",
+                    "Resource": "*",
+                }],
+            }))
         example = aws.datazone.Domain("example",
             name="example",
             domain_execution_role=domain_execution_role.arn)
+        ```
+
+        ### V2 Domain
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        # IAM role for Domain Execution
+        assume_role_domain_execution = aws.iam.get_policy_document(statements=[{
+            "actions": [
+                "sts:AssumeRole",
+                "sts:TagSession",
+                "sts:SetContext",
+            ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
+            "conditions": [
+                {
+                    "test": "StringEquals",
+                    "values": [current.account_id],
+                    "variable": "aws:SourceAccount",
+                },
+                {
+                    "test": "ForAllValues:StringLike",
+                    "values": ["datazone*"],
+                    "variable": "aws:TagKeys",
+                },
+            ],
+        }])
+        domain_execution = aws.iam.Role("domain_execution",
+            assume_role_policy=assume_role_domain_execution.json,
+            name="example-domain-execution-role")
+        domain_execution_role = aws.iam.get_policy(name="SageMakerStudioDomainExecutionRolePolicy")
+        domain_execution_role_policy_attachment = aws.iam.RolePolicyAttachment("domain_execution",
+            policy_arn=domain_execution_role.arn,
+            role=domain_execution.name)
+        # IAM role for Domain Service
+        assume_role_domain_service = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
+            "conditions": [{
+                "test": "StringEquals",
+                "values": [current.account_id],
+                "variable": "aws:SourceAccount",
+            }],
+        }])
+        domain_service = aws.iam.Role("domain_service",
+            assume_role_policy=assume_role_domain_service.json,
+            name="example-domain-service-role")
+        domain_service_role = aws.iam.get_policy(name="SageMakerStudioDomainServiceRolePolicy")
+        domain_service_role_policy_attachment = aws.iam.RolePolicyAttachment("domain_service",
+            policy_arn=domain_service_role.arn,
+            role=domain_service.name)
+        # DataZone Domain V2
+        example = aws.datazone.Domain("example",
+            name="example-domain",
+            domain_execution_role=domain_execution.arn,
+            domain_version="V2",
+            service_role=domain_service.arn)
         ```
 
         ## Import
@@ -548,9 +746,11 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_version: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
                  skip_deletion_check: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -568,9 +768,11 @@ class Domain(pulumi.CustomResource):
             if domain_execution_role is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_execution_role'")
             __props__.__dict__["domain_execution_role"] = domain_execution_role
+            __props__.__dict__["domain_version"] = domain_version
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
+            __props__.__dict__["service_role"] = service_role
             __props__.__dict__["single_sign_on"] = single_sign_on
             __props__.__dict__["skip_deletion_check"] = skip_deletion_check
             __props__.__dict__["tags"] = tags
@@ -591,10 +793,12 @@ class Domain(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             domain_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
+            domain_version: Optional[pulumi.Input[_builtins.str]] = None,
             kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             portal_url: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
+            service_role: Optional[pulumi.Input[_builtins.str]] = None,
             single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
             skip_deletion_check: Optional[pulumi.Input[_builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -612,10 +816,12 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_execution_role: ARN of the role used by DataZone to configure the Domain.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] domain_version: Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
         :param pulumi.Input[_builtins.str] kms_key_identifier: ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         :param pulumi.Input[_builtins.str] name: Name of the Domain.
         :param pulumi.Input[_builtins.str] portal_url: URL of the data portal for the Domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] service_role: ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
         :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         :param pulumi.Input[_builtins.bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -627,10 +833,12 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
         __props__.__dict__["domain_execution_role"] = domain_execution_role
+        __props__.__dict__["domain_version"] = domain_version
         __props__.__dict__["kms_key_identifier"] = kms_key_identifier
         __props__.__dict__["name"] = name
         __props__.__dict__["portal_url"] = portal_url
         __props__.__dict__["region"] = region
+        __props__.__dict__["service_role"] = service_role
         __props__.__dict__["single_sign_on"] = single_sign_on
         __props__.__dict__["skip_deletion_check"] = skip_deletion_check
         __props__.__dict__["tags"] = tags
@@ -665,6 +873,14 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "domain_execution_role")
 
     @_builtins.property
+    @pulumi.getter(name="domainVersion")
+    def domain_version(self) -> pulumi.Output[_builtins.str]:
+        """
+        Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+        """
+        return pulumi.get(self, "domain_version")
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -695,6 +911,14 @@ class Domain(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+        """
+        return pulumi.get(self, "service_role")
 
     @_builtins.property
     @pulumi.getter(name="singleSignOn")

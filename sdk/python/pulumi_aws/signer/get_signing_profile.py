@@ -27,7 +27,7 @@ class GetSigningProfileResult:
     """
     A collection of values returned by getSigningProfile.
     """
-    def __init__(__self__, arn=None, id=None, name=None, platform_display_name=None, platform_id=None, region=None, revocation_records=None, signature_validity_periods=None, status=None, tags=None, version=None, version_arn=None):
+    def __init__(__self__, arn=None, id=None, name=None, platform_display_name=None, platform_id=None, region=None, revocation_records=None, signature_validity_periods=None, signing_materials=None, signing_parameters=None, status=None, tags=None, version=None, version_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,12 @@ class GetSigningProfileResult:
         if signature_validity_periods and not isinstance(signature_validity_periods, list):
             raise TypeError("Expected argument 'signature_validity_periods' to be a list")
         pulumi.set(__self__, "signature_validity_periods", signature_validity_periods)
+        if signing_materials and not isinstance(signing_materials, list):
+            raise TypeError("Expected argument 'signing_materials' to be a list")
+        pulumi.set(__self__, "signing_materials", signing_materials)
+        if signing_parameters and not isinstance(signing_parameters, dict):
+            raise TypeError("Expected argument 'signing_parameters' to be a dict")
+        pulumi.set(__self__, "signing_parameters", signing_parameters)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -124,6 +130,22 @@ class GetSigningProfileResult:
         return pulumi.get(self, "signature_validity_periods")
 
     @_builtins.property
+    @pulumi.getter(name="signingMaterials")
+    def signing_materials(self) -> Sequence['outputs.GetSigningProfileSigningMaterialResult']:
+        """
+        AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
+        """
+        return pulumi.get(self, "signing_materials")
+
+    @_builtins.property
+    @pulumi.getter(name="signingParameters")
+    def signing_parameters(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of key-value pairs for signing.
+        """
+        return pulumi.get(self, "signing_parameters")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
@@ -170,6 +192,8 @@ class AwaitableGetSigningProfileResult(GetSigningProfileResult):
             region=self.region,
             revocation_records=self.revocation_records,
             signature_validity_periods=self.signature_validity_periods,
+            signing_materials=self.signing_materials,
+            signing_parameters=self.signing_parameters,
             status=self.status,
             tags=self.tags,
             version=self.version,
@@ -213,6 +237,8 @@ def get_signing_profile(name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         revocation_records=pulumi.get(__ret__, 'revocation_records'),
         signature_validity_periods=pulumi.get(__ret__, 'signature_validity_periods'),
+        signing_materials=pulumi.get(__ret__, 'signing_materials'),
+        signing_parameters=pulumi.get(__ret__, 'signing_parameters'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'),
@@ -253,6 +279,8 @@ def get_signing_profile_output(name: Optional[pulumi.Input[_builtins.str]] = Non
         region=pulumi.get(__response__, 'region'),
         revocation_records=pulumi.get(__response__, 'revocation_records'),
         signature_validity_periods=pulumi.get(__response__, 'signature_validity_periods'),
+        signing_materials=pulumi.get(__response__, 'signing_materials'),
+        signing_parameters=pulumi.get(__response__, 'signing_parameters'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         version=pulumi.get(__response__, 'version'),

@@ -71,8 +71,7 @@ import (
 // However, once it is part of a Global Replication Group,
 // the Global Replication Group manages the version of all member replication groups.
 //
-// The member replication groups must have `lifecycle.ignore_changes[engineVersion]` set,
-// or the provider will always return a diff.
+// The provider is configured to ignore changes to `engine`, `engineVersion` and `parameterGroupName` inside `elasticache.ReplicationGroup` resources if they belong to a global replication group.
 //
 // In this example,
 // the primary replication group will be created with Redis 6.0,
@@ -152,8 +151,12 @@ type GlobalReplicationGroup struct {
 	// Indicates whether the Global Datastore is cluster enabled.
 	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
 	// The name of the cache engine to be used for the clusters in this global replication group.
+	// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+	// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis` if `engineVersion` is specified.
 	Engine pulumi.StringOutput `pulumi:"engine"`
-	// Redis version to use for the Global Replication Group.
+	// Engine version to use for the Global Replication Group.
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -176,7 +179,7 @@ type GlobalReplicationGroup struct {
 	// The number of node groups (shards) on the global replication group.
 	NumNodeGroups pulumi.IntOutput `pulumi:"numNodeGroups"`
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
-	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
 	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
 	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
@@ -241,8 +244,12 @@ type globalReplicationGroupState struct {
 	// Indicates whether the Global Datastore is cluster enabled.
 	ClusterEnabled *bool `pulumi:"clusterEnabled"`
 	// The name of the cache engine to be used for the clusters in this global replication group.
+	// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+	// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis` if `engineVersion` is specified.
 	Engine *string `pulumi:"engine"`
-	// Redis version to use for the Global Replication Group.
+	// Engine version to use for the Global Replication Group.
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -265,7 +272,7 @@ type globalReplicationGroupState struct {
 	// The number of node groups (shards) on the global replication group.
 	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
-	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
 	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
@@ -295,8 +302,12 @@ type GlobalReplicationGroupState struct {
 	// Indicates whether the Global Datastore is cluster enabled.
 	ClusterEnabled pulumi.BoolPtrInput
 	// The name of the cache engine to be used for the clusters in this global replication group.
+	// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+	// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis` if `engineVersion` is specified.
 	Engine pulumi.StringPtrInput
-	// Redis version to use for the Global Replication Group.
+	// Engine version to use for the Global Replication Group.
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -319,7 +330,7 @@ type GlobalReplicationGroupState struct {
 	// The number of node groups (shards) on the global replication group.
 	NumNodeGroups pulumi.IntPtrInput
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
-	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
 	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
 	ParameterGroupName pulumi.StringPtrInput
@@ -344,7 +355,13 @@ type globalReplicationGroupArgs struct {
 	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
 	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
 	CacheNodeType *string `pulumi:"cacheNodeType"`
-	// Redis version to use for the Global Replication Group.
+	// The name of the cache engine to be used for the clusters in this global replication group.
+	// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+	// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis` if `engineVersion` is specified.
+	Engine *string `pulumi:"engine"`
+	// Engine version to use for the Global Replication Group.
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -360,7 +377,7 @@ type globalReplicationGroupArgs struct {
 	// The number of node groups (shards) on the global replication group.
 	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
-	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
 	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
@@ -380,7 +397,13 @@ type GlobalReplicationGroupArgs struct {
 	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
 	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
 	CacheNodeType pulumi.StringPtrInput
-	// Redis version to use for the Global Replication Group.
+	// The name of the cache engine to be used for the clusters in this global replication group.
+	// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+	// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis` if `engineVersion` is specified.
+	Engine pulumi.StringPtrInput
+	// Engine version to use for the Global Replication Group.
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -396,7 +419,7 @@ type GlobalReplicationGroupArgs struct {
 	// The number of node groups (shards) on the global replication group.
 	NumNodeGroups pulumi.IntPtrInput
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
-	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
 	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
 	ParameterGroupName pulumi.StringPtrInput
@@ -528,11 +551,15 @@ func (o GlobalReplicationGroupOutput) ClusterEnabled() pulumi.BoolOutput {
 }
 
 // The name of the cache engine to be used for the clusters in this global replication group.
+// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+// Valid values are `redis` or `valkey`.
+// Default is `redis` if `engineVersion` is specified.
 func (o GlobalReplicationGroupOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// Redis version to use for the Global Replication Group.
+// Engine version to use for the Global Replication Group.
 // When creating, by default the Global Replication Group inherits the version of the primary replication group.
 // If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 // Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -578,7 +605,7 @@ func (o GlobalReplicationGroupOutput) NumNodeGroups() pulumi.IntOutput {
 }
 
 // An ElastiCache Parameter Group to use for the Global Replication Group.
-// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
 // Specifying without a major version upgrade will fail.
 // Note that ElastiCache creates a copy of this parameter group for each member replication group.
 func (o GlobalReplicationGroupOutput) ParameterGroupName() pulumi.StringPtrOutput {

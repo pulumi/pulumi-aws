@@ -113,46 +113,46 @@ export class Link extends pulumi.CustomResource {
     /**
      * ARN of the link.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Label that is assigned to this link.
      */
-    public /*out*/ readonly label!: pulumi.Output<string>;
+    declare public /*out*/ readonly label: pulumi.Output<string>;
     /**
      * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
      */
-    public readonly labelTemplate!: pulumi.Output<string>;
+    declare public readonly labelTemplate: pulumi.Output<string>;
     /**
      * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
      */
-    public readonly linkConfiguration!: pulumi.Output<outputs.oam.LinkLinkConfiguration | undefined>;
+    declare public readonly linkConfiguration: pulumi.Output<outputs.oam.LinkLinkConfiguration | undefined>;
     /**
      * ID string that AWS generated as part of the link ARN.
      */
-    public /*out*/ readonly linkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly linkId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Types of data that the source account shares with the monitoring account.
      */
-    public readonly resourceTypes!: pulumi.Output<string[]>;
+    declare public readonly resourceTypes: pulumi.Output<string[]>;
     /**
      * ARN of the sink that is used for this link.
      */
-    public /*out*/ readonly sinkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly sinkArn: pulumi.Output<string>;
     /**
      * Identifier of the sink to use to create this link.
      *
      * The following arguments are optional:
      */
-    public readonly sinkIdentifier!: pulumi.Output<string>;
+    declare public readonly sinkIdentifier: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Link resource with the given unique name, arguments, and options.
@@ -167,34 +167,34 @@ export class Link extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["labelTemplate"] = state ? state.labelTemplate : undefined;
-            resourceInputs["linkConfiguration"] = state ? state.linkConfiguration : undefined;
-            resourceInputs["linkId"] = state ? state.linkId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceTypes"] = state ? state.resourceTypes : undefined;
-            resourceInputs["sinkArn"] = state ? state.sinkArn : undefined;
-            resourceInputs["sinkIdentifier"] = state ? state.sinkIdentifier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["labelTemplate"] = state?.labelTemplate;
+            resourceInputs["linkConfiguration"] = state?.linkConfiguration;
+            resourceInputs["linkId"] = state?.linkId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceTypes"] = state?.resourceTypes;
+            resourceInputs["sinkArn"] = state?.sinkArn;
+            resourceInputs["sinkIdentifier"] = state?.sinkIdentifier;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as LinkArgs | undefined;
-            if ((!args || args.labelTemplate === undefined) && !opts.urn) {
+            if (args?.labelTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labelTemplate'");
             }
-            if ((!args || args.resourceTypes === undefined) && !opts.urn) {
+            if (args?.resourceTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypes'");
             }
-            if ((!args || args.sinkIdentifier === undefined) && !opts.urn) {
+            if (args?.sinkIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sinkIdentifier'");
             }
-            resourceInputs["labelTemplate"] = args ? args.labelTemplate : undefined;
-            resourceInputs["linkConfiguration"] = args ? args.linkConfiguration : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
-            resourceInputs["sinkIdentifier"] = args ? args.sinkIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["labelTemplate"] = args?.labelTemplate;
+            resourceInputs["linkConfiguration"] = args?.linkConfiguration;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceTypes"] = args?.resourceTypes;
+            resourceInputs["sinkIdentifier"] = args?.sinkIdentifier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["label"] = undefined /*out*/;
             resourceInputs["linkId"] = undefined /*out*/;

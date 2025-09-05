@@ -59,19 +59,19 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
     /**
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
-    public readonly destinationCidrBlock!: pulumi.Output<string>;
+    declare public readonly destinationCidrBlock: pulumi.Output<string>;
     /**
      * Identifier of EC2 Local Gateway Route Table.
      */
-    public readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    declare public readonly localGatewayRouteTableId: pulumi.Output<string>;
     /**
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      */
-    public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
+    declare public readonly localGatewayVirtualInterfaceGroupId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a LocalGatewayRoute resource with the given unique name, arguments, and options.
@@ -86,25 +86,25 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalGatewayRouteState | undefined;
-            resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
-            resourceInputs["localGatewayRouteTableId"] = state ? state.localGatewayRouteTableId : undefined;
-            resourceInputs["localGatewayVirtualInterfaceGroupId"] = state ? state.localGatewayVirtualInterfaceGroupId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["destinationCidrBlock"] = state?.destinationCidrBlock;
+            resourceInputs["localGatewayRouteTableId"] = state?.localGatewayRouteTableId;
+            resourceInputs["localGatewayVirtualInterfaceGroupId"] = state?.localGatewayVirtualInterfaceGroupId;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as LocalGatewayRouteArgs | undefined;
-            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
+            if (args?.destinationCidrBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
+            if (args?.localGatewayRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !opts.urn) {
+            if (args?.localGatewayVirtualInterfaceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayVirtualInterfaceGroupId'");
             }
-            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
-            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
+            resourceInputs["localGatewayRouteTableId"] = args?.localGatewayRouteTableId;
+            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args?.localGatewayVirtualInterfaceGroupId;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalGatewayRoute.__pulumiType, name, resourceInputs, opts);

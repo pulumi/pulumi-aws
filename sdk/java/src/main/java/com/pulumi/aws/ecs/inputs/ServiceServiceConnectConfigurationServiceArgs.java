@@ -22,14 +22,14 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
     public static final ServiceServiceConnectConfigurationServiceArgs Empty = new ServiceServiceConnectConfigurationServiceArgs();
 
     /**
-     * List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+     * List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
      * 
      */
     @Import(name="clientAlias")
     private @Nullable Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAlias;
 
     /**
-     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
      * 
      */
     public Optional<Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>>> clientAlias() {
@@ -141,7 +141,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param clientAlias List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * @param clientAlias List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param clientAlias List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * @param clientAlias List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param clientAlias List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * @param clientAlias List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
          * 
          * @return builder
          * 

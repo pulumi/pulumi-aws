@@ -55,15 +55,15 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
     /**
      * The SES receipt rule set ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name of the rule set
      */
-    public readonly ruleSetName!: pulumi.Output<string>;
+    declare public readonly ruleSetName: pulumi.Output<string>;
 
     /**
      * Create a ActiveReceiptRuleSet resource with the given unique name, arguments, and options.
@@ -78,16 +78,16 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActiveReceiptRuleSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["ruleSetName"] = state ? state.ruleSetName : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["ruleSetName"] = state?.ruleSetName;
         } else {
             const args = argsOrState as ActiveReceiptRuleSetArgs | undefined;
-            if ((!args || args.ruleSetName === undefined) && !opts.urn) {
+            if (args?.ruleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["ruleSetName"] = args?.ruleSetName;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

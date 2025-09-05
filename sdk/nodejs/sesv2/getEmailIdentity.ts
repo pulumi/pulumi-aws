@@ -78,6 +78,10 @@ export interface GetEmailIdentityResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     */
+    readonly verificationStatus: string;
+    /**
      * Specifies whether or not the identity is verified.
      */
     readonly verifiedForSendingStatus: boolean;

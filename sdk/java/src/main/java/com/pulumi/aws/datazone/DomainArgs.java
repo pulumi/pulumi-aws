@@ -55,6 +55,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+     * 
+     */
+    @Import(name="domainVersion")
+    private @Nullable Output<String> domainVersion;
+
+    /**
+     * @return Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+     * 
+     */
+    public Optional<Output<String>> domainVersion() {
+        return Optional.ofNullable(this.domainVersion);
+    }
+
+    /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      * 
      */
@@ -97,6 +112,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * 
+     */
+    @Import(name="serviceRole")
+    private @Nullable Output<String> serviceRole;
+
+    /**
+     * @return ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * 
+     */
+    public Optional<Output<String>> serviceRole() {
+        return Optional.ofNullable(this.serviceRole);
     }
 
     /**
@@ -148,9 +178,11 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     private DomainArgs(DomainArgs $) {
         this.description = $.description;
         this.domainExecutionRole = $.domainExecutionRole;
+        this.domainVersion = $.domainVersion;
         this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.name = $.name;
         this.region = $.region;
+        this.serviceRole = $.serviceRole;
         this.singleSignOn = $.singleSignOn;
         this.skipDeletionCheck = $.skipDeletionCheck;
         this.tags = $.tags;
@@ -222,6 +254,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param domainVersion Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainVersion(@Nullable Output<String> domainVersion) {
+            $.domainVersion = domainVersion;
+            return this;
+        }
+
+        /**
+         * @param domainVersion Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainVersion(String domainVersion) {
+            return domainVersion(Output.of(domainVersion));
+        }
+
+        /**
          * @param kmsKeyIdentifier ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
          * 
          * @return builder
@@ -282,6 +335,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param serviceRole ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRole(@Nullable Output<String> serviceRole) {
+            $.serviceRole = serviceRole;
+            return this;
+        }
+
+        /**
+         * @param serviceRole ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRole(String serviceRole) {
+            return serviceRole(Output.of(serviceRole));
         }
 
         /**

@@ -63,41 +63,41 @@ export class Map extends pulumi.CustomResource {
     /**
      * Configuration block with the map style selected from an available data provider. Detailed below.
      */
-    public readonly configuration!: pulumi.Output<outputs.location.MapConfiguration>;
+    declare public readonly configuration: pulumi.Output<outputs.location.MapConfiguration>;
     /**
      * The timestamp for when the map resource was created in ISO 8601 format.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * An optional description for the map resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
      */
-    public /*out*/ readonly mapArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly mapArn: pulumi.Output<string>;
     /**
      * The name for the map resource.
      *
      * The following arguments are optional:
      */
-    public readonly mapName!: pulumi.Output<string>;
+    declare public readonly mapName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The timestamp for when the map resource was last updated in ISO 8601 format.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a Map resource with the given unique name, arguments, and options.
@@ -112,28 +112,28 @@ export class Map extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MapState | undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["createTime"] = state ? state.createTime : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["mapArn"] = state ? state.mapArn : undefined;
-            resourceInputs["mapName"] = state ? state.mapName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["createTime"] = state?.createTime;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["mapArn"] = state?.mapArn;
+            resourceInputs["mapName"] = state?.mapName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["updateTime"] = state?.updateTime;
         } else {
             const args = argsOrState as MapArgs | undefined;
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.mapName === undefined) && !opts.urn) {
+            if (args?.mapName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mapName'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mapName"] = args ? args.mapName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mapName"] = args?.mapName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["mapArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

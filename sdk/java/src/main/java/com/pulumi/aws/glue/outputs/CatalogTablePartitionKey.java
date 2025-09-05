@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +23,11 @@ public final class CatalogTablePartitionKey {
      * 
      */
     private String name;
+    /**
+     * @return Map of key-value pairs.
+     * 
+     */
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Datatype of data in the Partition Key.
      * 
@@ -44,6 +50,13 @@ public final class CatalogTablePartitionKey {
         return this.name;
     }
     /**
+     * @return Map of key-value pairs.
+     * 
+     */
+    public Map<String,String> parameters() {
+        return this.parameters == null ? Map.of() : this.parameters;
+    }
+    /**
      * @return Datatype of data in the Partition Key.
      * 
      */
@@ -62,12 +75,14 @@ public final class CatalogTablePartitionKey {
     public static final class Builder {
         private @Nullable String comment;
         private String name;
+        private @Nullable Map<String,String> parameters;
         private @Nullable String type;
         public Builder() {}
         public Builder(CatalogTablePartitionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
     	      this.name = defaults.name;
+    	      this.parameters = defaults.parameters;
     	      this.type = defaults.type;
         }
 
@@ -86,6 +101,12 @@ public final class CatalogTablePartitionKey {
             return this;
         }
         @CustomType.Setter
+        public Builder parameters(@Nullable Map<String,String> parameters) {
+
+            this.parameters = parameters;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
 
             this.type = type;
@@ -95,6 +116,7 @@ public final class CatalogTablePartitionKey {
             final var _resultValue = new CatalogTablePartitionKey();
             _resultValue.comment = comment;
             _resultValue.name = name;
+            _resultValue.parameters = parameters;
             _resultValue.type = type;
             return _resultValue;
         }

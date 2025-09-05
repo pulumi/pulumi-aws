@@ -47,56 +47,56 @@ export class V2modelsSlot extends pulumi.CustomResource {
     /**
      * Identifier of the bot associated with the slot.
      */
-    public readonly botId!: pulumi.Output<string>;
+    declare public readonly botId: pulumi.Output<string>;
     /**
      * Version of the bot associated with the slot.
      */
-    public readonly botVersion!: pulumi.Output<string>;
+    declare public readonly botVersion: pulumi.Output<string>;
     /**
      * Description of the slot.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Identifier of the intent that contains the slot.
      */
-    public readonly intentId!: pulumi.Output<string>;
+    declare public readonly intentId: pulumi.Output<string>;
     /**
      * Identifier of the language and locale that the slot will be used in.
      */
-    public readonly localeId!: pulumi.Output<string>;
+    declare public readonly localeId: pulumi.Output<string>;
     /**
      * Whether the slot returns multiple values in one response.
      * See the `multipleValuesSetting` argument reference below.
      */
-    public readonly multipleValuesSettings!: pulumi.Output<outputs.lex.V2modelsSlotMultipleValuesSetting[] | undefined>;
+    declare public readonly multipleValuesSettings: pulumi.Output<outputs.lex.V2modelsSlotMultipleValuesSetting[] | undefined>;
     /**
      * Name of the slot.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Determines how slot values are used in Amazon CloudWatch logs.
      * See the `obfuscationSetting` argument reference below.
      */
-    public readonly obfuscationSettings!: pulumi.Output<outputs.lex.V2modelsSlotObfuscationSetting[] | undefined>;
+    declare public readonly obfuscationSettings: pulumi.Output<outputs.lex.V2modelsSlotObfuscationSetting[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Unique identifier associated with the slot.
      */
-    public /*out*/ readonly slotId!: pulumi.Output<string>;
+    declare public /*out*/ readonly slotId: pulumi.Output<string>;
     /**
      * Unique identifier for the slot type associated with this slot.
      */
-    public readonly slotTypeId!: pulumi.Output<string>;
+    declare public readonly slotTypeId: pulumi.Output<string>;
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
      * See the `subSlotSetting` argument reference below.
      */
-    public readonly subSlotSettings!: pulumi.Output<outputs.lex.V2modelsSlotSubSlotSetting[] | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsSlotTimeouts | undefined>;
-    public readonly valueElicitationSetting!: pulumi.Output<outputs.lex.V2modelsSlotValueElicitationSetting | undefined>;
+    declare public readonly subSlotSettings: pulumi.Output<outputs.lex.V2modelsSlotSubSlotSetting[] | undefined>;
+    declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsSlotTimeouts | undefined>;
+    declare public readonly valueElicitationSetting: pulumi.Output<outputs.lex.V2modelsSlotValueElicitationSetting | undefined>;
 
     /**
      * Create a V2modelsSlot resource with the given unique name, arguments, and options.
@@ -111,47 +111,47 @@ export class V2modelsSlot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as V2modelsSlotState | undefined;
-            resourceInputs["botId"] = state ? state.botId : undefined;
-            resourceInputs["botVersion"] = state ? state.botVersion : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["intentId"] = state ? state.intentId : undefined;
-            resourceInputs["localeId"] = state ? state.localeId : undefined;
-            resourceInputs["multipleValuesSettings"] = state ? state.multipleValuesSettings : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["obfuscationSettings"] = state ? state.obfuscationSettings : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["slotId"] = state ? state.slotId : undefined;
-            resourceInputs["slotTypeId"] = state ? state.slotTypeId : undefined;
-            resourceInputs["subSlotSettings"] = state ? state.subSlotSettings : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["valueElicitationSetting"] = state ? state.valueElicitationSetting : undefined;
+            resourceInputs["botId"] = state?.botId;
+            resourceInputs["botVersion"] = state?.botVersion;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["intentId"] = state?.intentId;
+            resourceInputs["localeId"] = state?.localeId;
+            resourceInputs["multipleValuesSettings"] = state?.multipleValuesSettings;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["obfuscationSettings"] = state?.obfuscationSettings;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["slotId"] = state?.slotId;
+            resourceInputs["slotTypeId"] = state?.slotTypeId;
+            resourceInputs["subSlotSettings"] = state?.subSlotSettings;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["valueElicitationSetting"] = state?.valueElicitationSetting;
         } else {
             const args = argsOrState as V2modelsSlotArgs | undefined;
-            if ((!args || args.botId === undefined) && !opts.urn) {
+            if (args?.botId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            if ((!args || args.botVersion === undefined) && !opts.urn) {
+            if (args?.botVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botVersion'");
             }
-            if ((!args || args.intentId === undefined) && !opts.urn) {
+            if (args?.intentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'intentId'");
             }
-            if ((!args || args.localeId === undefined) && !opts.urn) {
+            if (args?.localeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localeId'");
             }
-            resourceInputs["botId"] = args ? args.botId : undefined;
-            resourceInputs["botVersion"] = args ? args.botVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["intentId"] = args ? args.intentId : undefined;
-            resourceInputs["localeId"] = args ? args.localeId : undefined;
-            resourceInputs["multipleValuesSettings"] = args ? args.multipleValuesSettings : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["obfuscationSettings"] = args ? args.obfuscationSettings : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["slotTypeId"] = args ? args.slotTypeId : undefined;
-            resourceInputs["subSlotSettings"] = args ? args.subSlotSettings : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["valueElicitationSetting"] = args ? args.valueElicitationSetting : undefined;
+            resourceInputs["botId"] = args?.botId;
+            resourceInputs["botVersion"] = args?.botVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["intentId"] = args?.intentId;
+            resourceInputs["localeId"] = args?.localeId;
+            resourceInputs["multipleValuesSettings"] = args?.multipleValuesSettings;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["obfuscationSettings"] = args?.obfuscationSettings;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["slotTypeId"] = args?.slotTypeId;
+            resourceInputs["subSlotSettings"] = args?.subSlotSettings;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["valueElicitationSetting"] = args?.valueElicitationSetting;
             resourceInputs["slotId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -74,6 +74,10 @@ type LookupSigningProfileResult struct {
 	RevocationRecords []GetSigningProfileRevocationRecord `pulumi:"revocationRecords"`
 	// The validity period for a signing job.
 	SignatureValidityPeriods []GetSigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriods"`
+	// AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
+	SigningMaterials []GetSigningProfileSigningMaterial `pulumi:"signingMaterials"`
+	// Map of key-value pairs for signing.
+	SigningParameters map[string]string `pulumi:"signingParameters"`
 	// Status of the target signing profile.
 	Status string `pulumi:"status"`
 	// List of tags associated with the signing profile.
@@ -160,6 +164,16 @@ func (o LookupSigningProfileResultOutput) SignatureValidityPeriods() GetSigningP
 	return o.ApplyT(func(v LookupSigningProfileResult) []GetSigningProfileSignatureValidityPeriod {
 		return v.SignatureValidityPeriods
 	}).(GetSigningProfileSignatureValidityPeriodArrayOutput)
+}
+
+// AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
+func (o LookupSigningProfileResultOutput) SigningMaterials() GetSigningProfileSigningMaterialArrayOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) []GetSigningProfileSigningMaterial { return v.SigningMaterials }).(GetSigningProfileSigningMaterialArrayOutput)
+}
+
+// Map of key-value pairs for signing.
+func (o LookupSigningProfileResultOutput) SigningParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) map[string]string { return v.SigningParameters }).(pulumi.StringMapOutput)
 }
 
 // Status of the target signing profile.

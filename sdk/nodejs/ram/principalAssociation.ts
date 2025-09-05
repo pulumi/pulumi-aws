@@ -83,15 +83,15 @@ export class PrincipalAssociation extends pulumi.CustomResource {
     /**
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    public readonly resourceShareArn!: pulumi.Output<string>;
+    declare public readonly resourceShareArn: pulumi.Output<string>;
 
     /**
      * Create a PrincipalAssociation resource with the given unique name, arguments, and options.
@@ -106,20 +106,20 @@ export class PrincipalAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrincipalAssociationState | undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceShareArn"] = state?.resourceShareArn;
         } else {
             const args = argsOrState as PrincipalAssociationArgs | undefined;
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.resourceShareArn === undefined) && !opts.urn) {
+            if (args?.resourceShareArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceShareArn'");
             }
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceShareArn"] = args?.resourceShareArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PrincipalAssociation.__pulumiType, name, resourceInputs, opts);

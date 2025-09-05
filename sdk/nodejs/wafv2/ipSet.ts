@@ -68,44 +68,44 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
      */
-    public readonly addresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly addresses: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IP set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A friendly description of the IP set.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
      */
-    public readonly ipAddressVersion!: pulumi.Output<string>;
-    public /*out*/ readonly lockToken!: pulumi.Output<string>;
+    declare public readonly ipAddressVersion: pulumi.Output<string>;
+    declare public /*out*/ readonly lockToken: pulumi.Output<string>;
     /**
      * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -120,33 +120,33 @@ export class IpSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpSetState | undefined;
-            resourceInputs["addresses"] = state ? state.addresses : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["ipAddressVersion"] = state ? state.ipAddressVersion : undefined;
-            resourceInputs["lockToken"] = state ? state.lockToken : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["addresses"] = state?.addresses;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["ipAddressVersion"] = state?.ipAddressVersion;
+            resourceInputs["lockToken"] = state?.lockToken;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as IpSetArgs | undefined;
-            if ((!args || args.ipAddressVersion === undefined) && !opts.urn) {
+            if (args?.ipAddressVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddressVersion'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["addresses"] = args ? args.addresses : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipAddressVersion"] = args ? args.ipAddressVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addresses"] = args?.addresses;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipAddressVersion"] = args?.ipAddressVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["lockToken"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

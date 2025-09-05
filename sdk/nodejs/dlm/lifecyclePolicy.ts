@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *     executionRoleArn: dlmLifecycleRole.arn,
  *     state: "ENABLED",
  *     policyDetails: {
- *         resourceTypes: "VOLUME",
+ *         resourceTypes: ["VOLUME"],
  *         schedules: [{
  *             name: "2 weeks of daily snapshots",
  *             createRule: {
@@ -81,6 +81,31 @@ import * as utilities from "../utilities";
  *         }],
  *         targetTags: {
  *             Snapshot: "true",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Example Default Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.dlm.LifecyclePolicy("example", {
+ *     description: "tf-acc-basic",
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     defaultPolicy: "VOLUME",
+ *     policyDetails: {
+ *         createInterval: 5,
+ *         resourceType: "VOLUME",
+ *         policyLanguage: "SIMPLIFIED",
+ *         exclusions: {
+ *             excludeBootVolumes: false,
+ *             excludeTags: {
+ *                 test: "exclude",
+ *             },
+ *             excludeVolumeTypes: ["gp2"],
  *         },
  *     },
  * });
@@ -115,7 +140,7 @@ import * as utilities from "../utilities";
  *     executionRoleArn: dlmLifecycleRole.arn,
  *     state: "ENABLED",
  *     policyDetails: {
- *         resourceTypes: "VOLUME",
+ *         resourceTypes: ["VOLUME"],
  *         schedules: [{
  *             name: "2 weeks of daily snapshots",
  *             createRule: {
@@ -190,6 +215,45 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Example Post/Pre Scripts
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.iam.getPolicy({
+ *     name: "AWSDataLifecycleManagerSSMFullAccess",
+ * });
+ * const example = new aws.iam.RolePolicyAttachment("example", {
+ *     role: testAwsIamRole.id,
+ *     policyArn: exampleAwsIamPolicy.arn,
+ * });
+ * const exampleLifecyclePolicy = new aws.dlm.LifecyclePolicy("example", {
+ *     description: "tf-acc-basic",
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     policyDetails: {
+ *         resourceTypes: ["INSTANCE"],
+ *         schedules: [{
+ *             name: "Windows VSS",
+ *             createRule: {
+ *                 interval: 12,
+ *                 scripts: {
+ *                     executeOperationOnScriptFailure: false,
+ *                     executionHandler: "AWS_VSS_BACKUP",
+ *                     maximumRetryCount: 2,
+ *                 },
+ *             },
+ *             retainRule: {
+ *                 count: 10,
+ *             },
+ *         }],
+ *         targetTags: {
+ *             tag1: "Windows",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
@@ -229,35 +293,39 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+     */
+    declare public readonly defaultPolicy: pulumi.Output<string | undefined>;
     /**
      * A description for the DLM lifecycle policy.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      */
-    public readonly executionRoleArn!: pulumi.Output<string>;
+    declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    public readonly policyDetails!: pulumi.Output<outputs.dlm.LifecyclePolicyPolicyDetails>;
+    declare public readonly policyDetails: pulumi.Output<outputs.dlm.LifecyclePolicyPolicyDetails>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a LifecyclePolicy resource with the given unique name, arguments, and options.
@@ -272,31 +340,33 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LifecyclePolicyState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            resourceInputs["policyDetails"] = state ? state.policyDetails : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["defaultPolicy"] = state?.defaultPolicy;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
+            resourceInputs["policyDetails"] = state?.policyDetails;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as LifecyclePolicyArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.policyDetails === undefined) && !opts.urn) {
+            if (args?.policyDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDetails'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["policyDetails"] = args ? args.policyDetails : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultPolicy"] = args?.defaultPolicy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["policyDetails"] = args?.policyDetails;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -313,6 +383,10 @@ export interface LifecyclePolicyState {
      * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+     */
+    defaultPolicy?: pulumi.Input<string>;
     /**
      * A description for the DLM lifecycle policy.
      */
@@ -347,6 +421,10 @@ export interface LifecyclePolicyState {
  * The set of arguments for constructing a LifecyclePolicy resource.
  */
 export interface LifecyclePolicyArgs {
+    /**
+     * Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+     */
+    defaultPolicy?: pulumi.Input<string>;
     /**
      * A description for the DLM lifecycle policy.
      */

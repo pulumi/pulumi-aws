@@ -85,13 +85,19 @@ namespace Pulumi.Aws.Kms
         public Output<string?> KeyMaterialBase64 { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// </summary>
+        [Output("keySpec")]
+        public Output<string> KeySpec { get; private set; } = null!;
+
+        /// <summary>
         /// The state of the CMK.
         /// </summary>
         [Output("keyState")]
         public Output<string> KeyState { get; private set; } = null!;
 
         /// <summary>
-        /// The cryptographic operations for which you can use the CMK.
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Output("keyUsage")]
         public Output<string> KeyUsage { get; private set; } = null!;
@@ -223,6 +229,18 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
+        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// </summary>
+        [Input("keySpec")]
+        public Input<string>? KeySpec { get; set; }
+
+        /// <summary>
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        /// </summary>
+        [Input("keyUsage")]
+        public Input<string>? KeyUsage { get; set; }
+
+        /// <summary>
         /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         /// </summary>
         [Input("multiRegion")]
@@ -319,13 +337,19 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
+        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// </summary>
+        [Input("keySpec")]
+        public Input<string>? KeySpec { get; set; }
+
+        /// <summary>
         /// The state of the CMK.
         /// </summary>
         [Input("keyState")]
         public Input<string>? KeyState { get; set; }
 
         /// <summary>
-        /// The cryptographic operations for which you can use the CMK.
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }

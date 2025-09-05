@@ -492,6 +492,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        arcregionswitch: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         athena: NotRequired[pulumi.Input[_builtins.str]]
         """
         Use this to override the default service endpoint URL
@@ -1629,6 +1633,7 @@ class ProviderEndpointArgs:
                  apprunner: Optional[pulumi.Input[_builtins.str]] = None,
                  appstream: Optional[pulumi.Input[_builtins.str]] = None,
                  appsync: Optional[pulumi.Input[_builtins.str]] = None,
+                 arcregionswitch: Optional[pulumi.Input[_builtins.str]] = None,
                  athena: Optional[pulumi.Input[_builtins.str]] = None,
                  auditmanager: Optional[pulumi.Input[_builtins.str]] = None,
                  autoscaling: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1930,6 +1935,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] apprunner: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] appstream: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] appsync: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] arcregionswitch: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] athena: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] auditmanager: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] autoscaling: Use this to override the default service endpoint URL
@@ -2254,6 +2260,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "appstream", appstream)
         if appsync is not None:
             pulumi.set(__self__, "appsync", appsync)
+        if arcregionswitch is not None:
+            pulumi.set(__self__, "arcregionswitch", arcregionswitch)
         if athena is not None:
             pulumi.set(__self__, "athena", athena)
         if auditmanager is not None:
@@ -3084,6 +3092,18 @@ class ProviderEndpointArgs:
     @appsync.setter
     def appsync(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "appsync", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def arcregionswitch(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "arcregionswitch")
+
+    @arcregionswitch.setter
+    def arcregionswitch(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arcregionswitch", value)
 
     @_builtins.property
     @pulumi.getter

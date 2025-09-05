@@ -59,43 +59,43 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     /**
      * The Neptune Cluster Endpoint Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier of the endpoint.
      */
-    public readonly clusterEndpointIdentifier!: pulumi.Output<string>;
+    declare public readonly clusterEndpointIdentifier: pulumi.Output<string>;
     /**
      * The DB cluster identifier of the DB cluster associated with the endpoint.
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
      * The DNS address of the endpoint.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
      */
-    public readonly endpointType!: pulumi.Output<string>;
+    declare public readonly endpointType: pulumi.Output<string>;
     /**
      * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
      */
-    public readonly excludedMembers!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedMembers: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * List of DB instance identifiers that are part of the custom endpoint group.
      */
-    public readonly staticMembers!: pulumi.Output<string[] | undefined>;
+    declare public readonly staticMembers: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ClusterEndpoint resource with the given unique name, arguments, and options.
@@ -110,34 +110,34 @@ export class ClusterEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterEndpointState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["clusterEndpointIdentifier"] = state ? state.clusterEndpointIdentifier : undefined;
-            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["endpointType"] = state ? state.endpointType : undefined;
-            resourceInputs["excludedMembers"] = state ? state.excludedMembers : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["staticMembers"] = state ? state.staticMembers : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["clusterEndpointIdentifier"] = state?.clusterEndpointIdentifier;
+            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["endpointType"] = state?.endpointType;
+            resourceInputs["excludedMembers"] = state?.excludedMembers;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["staticMembers"] = state?.staticMembers;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ClusterEndpointArgs | undefined;
-            if ((!args || args.clusterEndpointIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterEndpointIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterEndpointIdentifier'");
             }
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if ((!args || args.endpointType === undefined) && !opts.urn) {
+            if (args?.endpointType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            resourceInputs["clusterEndpointIdentifier"] = args ? args.clusterEndpointIdentifier : undefined;
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
-            resourceInputs["excludedMembers"] = args ? args.excludedMembers : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["staticMembers"] = args ? args.staticMembers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterEndpointIdentifier"] = args?.clusterEndpointIdentifier;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["endpointType"] = args?.endpointType;
+            resourceInputs["excludedMembers"] = args?.excludedMembers;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["staticMembers"] = args?.staticMembers;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

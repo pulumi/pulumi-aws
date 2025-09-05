@@ -63,9 +63,12 @@ export interface GetNetworkInterfaceResult {
      */
     readonly arn: string;
     /**
-     * Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+     * Association information for an Elastic IP address (IPv4) associated with the network interface. See association below.
      */
     readonly associations: outputs.ec2.GetNetworkInterfaceAssociation[];
+    /**
+     * Attachment of the ENI. See attachment below.
+     */
     readonly attachments: outputs.ec2.GetNetworkInterfaceAttachment[];
     /**
      * Availability Zone.

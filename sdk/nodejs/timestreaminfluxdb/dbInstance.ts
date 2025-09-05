@@ -181,102 +181,102 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `dbStorageType` places restrictions on this argument's minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
      */
-    public readonly allocatedStorage!: pulumi.Output<number>;
+    declare public readonly allocatedStorage: pulumi.Output<number>;
     /**
      * ARN of the Timestream for InfluxDB Instance.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Availability Zone in which the DB instance resides.
      */
-    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
+    declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
     /**
      * Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
      */
-    public readonly dbInstanceType!: pulumi.Output<string>;
+    declare public readonly dbInstanceType: pulumi.Output<string>;
     /**
      * ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
      */
-    public readonly dbParameterGroupIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dbParameterGroupIdentifier: pulumi.Output<string | undefined>;
     /**
      * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
      */
-    public readonly dbStorageType!: pulumi.Output<string>;
+    declare public readonly dbStorageType: pulumi.Output<string>;
     /**
      * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
      */
-    public readonly deploymentType!: pulumi.Output<string>;
+    declare public readonly deploymentType: pulumi.Output<string>;
     /**
      * Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+     * ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
      */
-    public /*out*/ readonly influxAuthParametersSecretArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly influxAuthParametersSecretArn: pulumi.Output<string>;
     /**
      * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      */
-    public readonly logDeliveryConfiguration!: pulumi.Output<outputs.timestreaminfluxdb.DbInstanceLogDeliveryConfiguration | undefined>;
+    declare public readonly logDeliveryConfiguration: pulumi.Output<outputs.timestreaminfluxdb.DbInstanceLogDeliveryConfiguration | undefined>;
     /**
      * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
      */
-    public readonly networkType!: pulumi.Output<string>;
+    declare public readonly networkType: pulumi.Output<string>;
     /**
      * Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
-    public readonly organization!: pulumi.Output<string>;
+    declare public readonly organization: pulumi.Output<string>;
     /**
      * Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean>;
+    declare public readonly publiclyAccessible: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
      */
-    public /*out*/ readonly secondaryAvailabilityZone!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAvailabilityZone: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.timestreaminfluxdb.DbInstanceTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.timestreaminfluxdb.DbInstanceTimeouts | undefined>;
     /**
      * Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
     /**
      * List of VPC security group IDs to associate with the DB instance.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
     /**
      * List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
      *
      * The following arguments are optional:
      */
-    public readonly vpcSubnetIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSubnetIds: pulumi.Output<string[]>;
 
     /**
      * Create a DbInstance resource with the given unique name, arguments, and options.
@@ -291,76 +291,76 @@ export class DbInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DbInstanceState | undefined;
-            resourceInputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["dbInstanceType"] = state ? state.dbInstanceType : undefined;
-            resourceInputs["dbParameterGroupIdentifier"] = state ? state.dbParameterGroupIdentifier : undefined;
-            resourceInputs["dbStorageType"] = state ? state.dbStorageType : undefined;
-            resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["influxAuthParametersSecretArn"] = state ? state.influxAuthParametersSecretArn : undefined;
-            resourceInputs["logDeliveryConfiguration"] = state ? state.logDeliveryConfiguration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkType"] = state ? state.networkType : undefined;
-            resourceInputs["organization"] = state ? state.organization : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["secondaryAvailabilityZone"] = state ? state.secondaryAvailabilityZone : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
-            resourceInputs["vpcSubnetIds"] = state ? state.vpcSubnetIds : undefined;
+            resourceInputs["allocatedStorage"] = state?.allocatedStorage;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["availabilityZone"] = state?.availabilityZone;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["dbInstanceType"] = state?.dbInstanceType;
+            resourceInputs["dbParameterGroupIdentifier"] = state?.dbParameterGroupIdentifier;
+            resourceInputs["dbStorageType"] = state?.dbStorageType;
+            resourceInputs["deploymentType"] = state?.deploymentType;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["influxAuthParametersSecretArn"] = state?.influxAuthParametersSecretArn;
+            resourceInputs["logDeliveryConfiguration"] = state?.logDeliveryConfiguration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkType"] = state?.networkType;
+            resourceInputs["organization"] = state?.organization;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["secondaryAvailabilityZone"] = state?.secondaryAvailabilityZone;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["username"] = state?.username;
+            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
+            resourceInputs["vpcSubnetIds"] = state?.vpcSubnetIds;
         } else {
             const args = argsOrState as DbInstanceArgs | undefined;
-            if ((!args || args.allocatedStorage === undefined) && !opts.urn) {
+            if (args?.allocatedStorage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allocatedStorage'");
             }
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.dbInstanceType === undefined) && !opts.urn) {
+            if (args?.dbInstanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbInstanceType'");
             }
-            if ((!args || args.organization === undefined) && !opts.urn) {
+            if (args?.organization === undefined && !opts.urn) {
                 throw new Error("Missing required property 'organization'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            if ((!args || args.vpcSecurityGroupIds === undefined) && !opts.urn) {
+            if (args?.vpcSecurityGroupIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSecurityGroupIds'");
             }
-            if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
+            if (args?.vpcSubnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            resourceInputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["dbInstanceType"] = args ? args.dbInstanceType : undefined;
-            resourceInputs["dbParameterGroupIdentifier"] = args ? args.dbParameterGroupIdentifier : undefined;
-            resourceInputs["dbStorageType"] = args ? args.dbStorageType : undefined;
-            resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
-            resourceInputs["logDeliveryConfiguration"] = args ? args.logDeliveryConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkType"] = args ? args.networkType : undefined;
-            resourceInputs["organization"] = args ? args.organization : undefined;
+            resourceInputs["allocatedStorage"] = args?.allocatedStorage;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["dbInstanceType"] = args?.dbInstanceType;
+            resourceInputs["dbParameterGroupIdentifier"] = args?.dbParameterGroupIdentifier;
+            resourceInputs["dbStorageType"] = args?.dbStorageType;
+            resourceInputs["deploymentType"] = args?.deploymentType;
+            resourceInputs["logDeliveryConfiguration"] = args?.logDeliveryConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkType"] = args?.networkType;
+            resourceInputs["organization"] = args?.organization;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["username"] = args?.username;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["vpcSubnetIds"] = args?.vpcSubnetIds;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -416,7 +416,7 @@ export interface DbInstanceState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+     * ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
      */
     influxAuthParametersSecretArn?: pulumi.Input<string>;
     /**

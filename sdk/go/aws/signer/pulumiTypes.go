@@ -2027,6 +2027,103 @@ func (o GetSigningProfileSignatureValidityPeriodArrayOutput) Index(i pulumi.IntI
 	}).(GetSigningProfileSignatureValidityPeriodOutput)
 }
 
+type GetSigningProfileSigningMaterial struct {
+	// ARN of the certificate used for signing.
+	CertificateArn string `pulumi:"certificateArn"`
+}
+
+// GetSigningProfileSigningMaterialInput is an input type that accepts GetSigningProfileSigningMaterialArgs and GetSigningProfileSigningMaterialOutput values.
+// You can construct a concrete instance of `GetSigningProfileSigningMaterialInput` via:
+//
+//	GetSigningProfileSigningMaterialArgs{...}
+type GetSigningProfileSigningMaterialInput interface {
+	pulumi.Input
+
+	ToGetSigningProfileSigningMaterialOutput() GetSigningProfileSigningMaterialOutput
+	ToGetSigningProfileSigningMaterialOutputWithContext(context.Context) GetSigningProfileSigningMaterialOutput
+}
+
+type GetSigningProfileSigningMaterialArgs struct {
+	// ARN of the certificate used for signing.
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
+}
+
+func (GetSigningProfileSigningMaterialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSigningProfileSigningMaterial)(nil)).Elem()
+}
+
+func (i GetSigningProfileSigningMaterialArgs) ToGetSigningProfileSigningMaterialOutput() GetSigningProfileSigningMaterialOutput {
+	return i.ToGetSigningProfileSigningMaterialOutputWithContext(context.Background())
+}
+
+func (i GetSigningProfileSigningMaterialArgs) ToGetSigningProfileSigningMaterialOutputWithContext(ctx context.Context) GetSigningProfileSigningMaterialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSigningProfileSigningMaterialOutput)
+}
+
+// GetSigningProfileSigningMaterialArrayInput is an input type that accepts GetSigningProfileSigningMaterialArray and GetSigningProfileSigningMaterialArrayOutput values.
+// You can construct a concrete instance of `GetSigningProfileSigningMaterialArrayInput` via:
+//
+//	GetSigningProfileSigningMaterialArray{ GetSigningProfileSigningMaterialArgs{...} }
+type GetSigningProfileSigningMaterialArrayInput interface {
+	pulumi.Input
+
+	ToGetSigningProfileSigningMaterialArrayOutput() GetSigningProfileSigningMaterialArrayOutput
+	ToGetSigningProfileSigningMaterialArrayOutputWithContext(context.Context) GetSigningProfileSigningMaterialArrayOutput
+}
+
+type GetSigningProfileSigningMaterialArray []GetSigningProfileSigningMaterialInput
+
+func (GetSigningProfileSigningMaterialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSigningProfileSigningMaterial)(nil)).Elem()
+}
+
+func (i GetSigningProfileSigningMaterialArray) ToGetSigningProfileSigningMaterialArrayOutput() GetSigningProfileSigningMaterialArrayOutput {
+	return i.ToGetSigningProfileSigningMaterialArrayOutputWithContext(context.Background())
+}
+
+func (i GetSigningProfileSigningMaterialArray) ToGetSigningProfileSigningMaterialArrayOutputWithContext(ctx context.Context) GetSigningProfileSigningMaterialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSigningProfileSigningMaterialArrayOutput)
+}
+
+type GetSigningProfileSigningMaterialOutput struct{ *pulumi.OutputState }
+
+func (GetSigningProfileSigningMaterialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSigningProfileSigningMaterial)(nil)).Elem()
+}
+
+func (o GetSigningProfileSigningMaterialOutput) ToGetSigningProfileSigningMaterialOutput() GetSigningProfileSigningMaterialOutput {
+	return o
+}
+
+func (o GetSigningProfileSigningMaterialOutput) ToGetSigningProfileSigningMaterialOutputWithContext(ctx context.Context) GetSigningProfileSigningMaterialOutput {
+	return o
+}
+
+// ARN of the certificate used for signing.
+func (o GetSigningProfileSigningMaterialOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSigningProfileSigningMaterial) string { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+type GetSigningProfileSigningMaterialArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSigningProfileSigningMaterialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSigningProfileSigningMaterial)(nil)).Elem()
+}
+
+func (o GetSigningProfileSigningMaterialArrayOutput) ToGetSigningProfileSigningMaterialArrayOutput() GetSigningProfileSigningMaterialArrayOutput {
+	return o
+}
+
+func (o GetSigningProfileSigningMaterialArrayOutput) ToGetSigningProfileSigningMaterialArrayOutputWithContext(ctx context.Context) GetSigningProfileSigningMaterialArrayOutput {
+	return o
+}
+
+func (o GetSigningProfileSigningMaterialArrayOutput) Index(i pulumi.IntInput) GetSigningProfileSigningMaterialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSigningProfileSigningMaterial {
+		return vs[0].([]GetSigningProfileSigningMaterial)[vs[1].(int)]
+	}).(GetSigningProfileSigningMaterialOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SigningJobDestinationInput)(nil)).Elem(), SigningJobDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SigningJobDestinationPtrInput)(nil)).Elem(), SigningJobDestinationArgs{})
@@ -2062,6 +2159,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSigningProfileRevocationRecordArrayInput)(nil)).Elem(), GetSigningProfileRevocationRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSigningProfileSignatureValidityPeriodInput)(nil)).Elem(), GetSigningProfileSignatureValidityPeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSigningProfileSignatureValidityPeriodArrayInput)(nil)).Elem(), GetSigningProfileSignatureValidityPeriodArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSigningProfileSigningMaterialInput)(nil)).Elem(), GetSigningProfileSigningMaterialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSigningProfileSigningMaterialArrayInput)(nil)).Elem(), GetSigningProfileSigningMaterialArray{})
 	pulumi.RegisterOutputType(SigningJobDestinationOutput{})
 	pulumi.RegisterOutputType(SigningJobDestinationPtrOutput{})
 	pulumi.RegisterOutputType(SigningJobDestinationS3Output{})
@@ -2096,4 +2195,6 @@ func init() {
 	pulumi.RegisterOutputType(GetSigningProfileRevocationRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetSigningProfileSignatureValidityPeriodOutput{})
 	pulumi.RegisterOutputType(GetSigningProfileSignatureValidityPeriodArrayOutput{})
+	pulumi.RegisterOutputType(GetSigningProfileSigningMaterialOutput{})
+	pulumi.RegisterOutputType(GetSigningProfileSigningMaterialArrayOutput{})
 }

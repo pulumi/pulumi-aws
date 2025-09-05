@@ -82,11 +82,11 @@ export class RolePolicyAttachmentsExclusive extends pulumi.CustomResource {
     /**
      * A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
      */
-    public readonly policyArns!: pulumi.Output<string[]>;
+    declare public readonly policyArns: pulumi.Output<string[]>;
     /**
      * IAM role name.
      */
-    public readonly roleName!: pulumi.Output<string>;
+    declare public readonly roleName: pulumi.Output<string>;
 
     /**
      * Create a RolePolicyAttachmentsExclusive resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class RolePolicyAttachmentsExclusive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RolePolicyAttachmentsExclusiveState | undefined;
-            resourceInputs["policyArns"] = state ? state.policyArns : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
+            resourceInputs["policyArns"] = state?.policyArns;
+            resourceInputs["roleName"] = state?.roleName;
         } else {
             const args = argsOrState as RolePolicyAttachmentsExclusiveArgs | undefined;
-            if ((!args || args.policyArns === undefined) && !opts.urn) {
+            if (args?.policyArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyArns'");
             }
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            resourceInputs["policyArns"] = args ? args.policyArns : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["policyArns"] = args?.policyArns;
+            resourceInputs["roleName"] = args?.roleName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RolePolicyAttachmentsExclusive.__pulumiType, name, resourceInputs, opts);

@@ -58,36 +58,36 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * ARN of the access point.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ARN of the file system.
      */
-    public /*out*/ readonly fileSystemArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fileSystemArn: pulumi.Output<string>;
     /**
      * ID of the file system for which the access point is intended.
      */
-    public readonly fileSystemId!: pulumi.Output<string>;
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public readonly fileSystemId: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      */
-    public readonly posixUser!: pulumi.Output<outputs.efs.AccessPointPosixUser | undefined>;
+    declare public readonly posixUser: pulumi.Output<outputs.efs.AccessPointPosixUser | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */
-    public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory>;
+    declare public readonly rootDirectory: pulumi.Output<outputs.efs.AccessPointRootDirectory>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -102,25 +102,25 @@ export class AccessPoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPointState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
-            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["posixUser"] = state ? state.posixUser : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["rootDirectory"] = state ? state.rootDirectory : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["fileSystemArn"] = state?.fileSystemArn;
+            resourceInputs["fileSystemId"] = state?.fileSystemId;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["posixUser"] = state?.posixUser;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["rootDirectory"] = state?.rootDirectory;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
-            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
+            if (args?.fileSystemId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            resourceInputs["posixUser"] = args ? args.posixUser : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["rootDirectory"] = args ? args.rootDirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fileSystemId"] = args?.fileSystemId;
+            resourceInputs["posixUser"] = args?.posixUser;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["rootDirectory"] = args?.rootDirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileSystemArn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;

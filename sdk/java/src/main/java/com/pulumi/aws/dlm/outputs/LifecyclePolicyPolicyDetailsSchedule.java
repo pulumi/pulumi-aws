@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dlm.outputs;
 
+import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsScheduleArchiveRule;
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsScheduleCreateRule;
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule;
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRule;
@@ -21,6 +22,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsSchedule {
+    /**
+     * @return Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+     * 
+     */
+    private @Nullable LifecyclePolicyPolicyDetailsScheduleArchiveRule archiveRule;
     private @Nullable Boolean copyTags;
     /**
      * @return See the `create_rule` block. Max of 1 per schedule.
@@ -57,6 +63,13 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
     private @Nullable Map<String,String> variableTags;
 
     private LifecyclePolicyPolicyDetailsSchedule() {}
+    /**
+     * @return Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+     * 
+     */
+    public Optional<LifecyclePolicyPolicyDetailsScheduleArchiveRule> archiveRule() {
+        return Optional.ofNullable(this.archiveRule);
+    }
     public Optional<Boolean> copyTags() {
         return Optional.ofNullable(this.copyTags);
     }
@@ -121,6 +134,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable LifecyclePolicyPolicyDetailsScheduleArchiveRule archiveRule;
         private @Nullable Boolean copyTags;
         private LifecyclePolicyPolicyDetailsScheduleCreateRule createRule;
         private @Nullable List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules;
@@ -134,6 +148,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsSchedule defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.archiveRule = defaults.archiveRule;
     	      this.copyTags = defaults.copyTags;
     	      this.createRule = defaults.createRule;
     	      this.crossRegionCopyRules = defaults.crossRegionCopyRules;
@@ -146,6 +161,12 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
     	      this.variableTags = defaults.variableTags;
         }
 
+        @CustomType.Setter
+        public Builder archiveRule(@Nullable LifecyclePolicyPolicyDetailsScheduleArchiveRule archiveRule) {
+
+            this.archiveRule = archiveRule;
+            return this;
+        }
         @CustomType.Setter
         public Builder copyTags(@Nullable Boolean copyTags) {
 
@@ -217,6 +238,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         }
         public LifecyclePolicyPolicyDetailsSchedule build() {
             final var _resultValue = new LifecyclePolicyPolicyDetailsSchedule();
+            _resultValue.archiveRule = archiveRule;
             _resultValue.copyTags = copyTags;
             _resultValue.createRule = createRule;
             _resultValue.crossRegionCopyRules = crossRegionCopyRules;

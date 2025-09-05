@@ -68,19 +68,19 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The definition of the schema.
      */
-    public readonly definition!: pulumi.Output<outputs.verifiedpermissions.SchemaDefinition | undefined>;
+    declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.SchemaDefinition | undefined>;
     /**
      * (Optional) Identifies the namespaces of the entities referenced by this schema.
      */
-    public /*out*/ readonly namespaces!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly namespaces: pulumi.Output<string[]>;
     /**
      * The ID of the Policy Store.
      */
-    public readonly policyStoreId!: pulumi.Output<string>;
+    declare public readonly policyStoreId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -95,18 +95,18 @@ export class Schema extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaState | undefined;
-            resourceInputs["definition"] = state ? state.definition : undefined;
-            resourceInputs["namespaces"] = state ? state.namespaces : undefined;
-            resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["definition"] = state?.definition;
+            resourceInputs["namespaces"] = state?.namespaces;
+            resourceInputs["policyStoreId"] = state?.policyStoreId;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
-            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+            if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["policyStoreId"] = args?.policyStoreId;
+            resourceInputs["region"] = args?.region;
             resourceInputs["namespaces"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -62,6 +62,13 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
+//			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
+//				Name:             pulumi.String("my_domain_execution_role"),
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			tmpJSON1, err := json.Marshal(map[string]interface{}{
 //				"Version": "2012-10-17",
 //				"Statement": []map[string]interface{}{
@@ -81,15 +88,9 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
-//				Name:             pulumi.String("my_domain_execution_role"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//				InlinePolicies: iam.RoleInlinePolicyArray{
-//					&iam.RoleInlinePolicyArgs{
-//						Name:   pulumi.String("domain_execution_policy"),
-//						Policy: pulumi.String(json1),
-//					},
-//				},
+//			_, err = iam.NewRolePolicy(ctx, "domain_execution_role", &iam.RolePolicyArgs{
+//				Role:   domainExecutionRole.Name,
+//				Policy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err
@@ -105,6 +106,150 @@ import (
 //		})
 //	}
 //
+// ```
+//
+// ### V2 Domain
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// // IAM role for Domain Execution
+// assumeRoleDomainExecution, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "sts:AssumeRole",
+// "sts:TagSession",
+// "sts:SetContext",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "datazone.amazonaws.com",
+// },
+// },
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Values: interface{}{
+// current.AccountId,
+// },
+// Variable: "aws:SourceAccount",
+// },
+// {
+// Test: "ForAllValues:StringLike",
+// Values: []string{
+// "datazone*",
+// },
+// Variable: "aws:TagKeys",
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// domainExecution, err := iam.NewRole(ctx, "domain_execution", &iam.RoleArgs{
+// AssumeRolePolicy: pulumi.String(assumeRoleDomainExecution.Json),
+// Name: pulumi.String("example-domain-execution-role"),
+// })
+// if err != nil {
+// return err
+// }
+// domainExecutionRole, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
+// Name: pulumi.StringRef("SageMakerStudioDomainExecutionRolePolicy"),
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicyAttachment(ctx, "domain_execution", &iam.RolePolicyAttachmentArgs{
+// PolicyArn: pulumi.String(domainExecutionRole.Arn),
+// Role: domainExecution.Name,
+// })
+// if err != nil {
+// return err
+// }
+// // IAM role for Domain Service
+// assumeRoleDomainService, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "datazone.amazonaws.com",
+// },
+// },
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Values: interface{}{
+// current.AccountId,
+// },
+// Variable: "aws:SourceAccount",
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// domainService, err := iam.NewRole(ctx, "domain_service", &iam.RoleArgs{
+// AssumeRolePolicy: pulumi.String(assumeRoleDomainService.Json),
+// Name: pulumi.String("example-domain-service-role"),
+// })
+// if err != nil {
+// return err
+// }
+// domainServiceRole, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
+// Name: pulumi.StringRef("SageMakerStudioDomainServiceRolePolicy"),
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicyAttachment(ctx, "domain_service", &iam.RolePolicyAttachmentArgs{
+// PolicyArn: pulumi.String(domainServiceRole.Arn),
+// Role: domainService.Name,
+// })
+// if err != nil {
+// return err
+// }
+// // DataZone Domain V2
+// _, err = datazone.NewDomain(ctx, "example", &datazone.DomainArgs{
+// Name: pulumi.String("example-domain"),
+// DomainExecutionRole: domainExecution.Arn,
+// DomainVersion: pulumi.String("V2"),
+// ServiceRole: domainService.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -125,6 +270,8 @@ type Domain struct {
 	//
 	// The following arguments are optional:
 	DomainExecutionRole pulumi.StringOutput `pulumi:"domainExecutionRole"`
+	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+	DomainVersion pulumi.StringOutput `pulumi:"domainVersion"`
 	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// Name of the Domain.
@@ -133,6 +280,8 @@ type Domain struct {
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
+	ServiceRole pulumi.StringPtrOutput `pulumi:"serviceRole"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrOutput `pulumi:"singleSignOn"`
 	// Whether to skip the deletion check for the Domain.
@@ -184,6 +333,8 @@ type domainState struct {
 	//
 	// The following arguments are optional:
 	DomainExecutionRole *string `pulumi:"domainExecutionRole"`
+	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+	DomainVersion *string `pulumi:"domainVersion"`
 	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Name of the Domain.
@@ -192,6 +343,8 @@ type domainState struct {
 	PortalUrl *string `pulumi:"portalUrl"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
+	ServiceRole *string `pulumi:"serviceRole"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
 	// Whether to skip the deletion check for the Domain.
@@ -211,6 +364,8 @@ type DomainState struct {
 	//
 	// The following arguments are optional:
 	DomainExecutionRole pulumi.StringPtrInput
+	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+	DomainVersion pulumi.StringPtrInput
 	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Name of the Domain.
@@ -219,6 +374,8 @@ type DomainState struct {
 	PortalUrl pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
+	ServiceRole pulumi.StringPtrInput
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrInput
 	// Whether to skip the deletion check for the Domain.
@@ -240,12 +397,16 @@ type domainArgs struct {
 	//
 	// The following arguments are optional:
 	DomainExecutionRole string `pulumi:"domainExecutionRole"`
+	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+	DomainVersion *string `pulumi:"domainVersion"`
 	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Name of the Domain.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
+	ServiceRole *string `pulumi:"serviceRole"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
 	// Whether to skip the deletion check for the Domain.
@@ -262,12 +423,16 @@ type DomainArgs struct {
 	//
 	// The following arguments are optional:
 	DomainExecutionRole pulumi.StringInput
+	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+	DomainVersion pulumi.StringPtrInput
 	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Name of the Domain.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
+	ServiceRole pulumi.StringPtrInput
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrInput
 	// Whether to skip the deletion check for the Domain.
@@ -380,6 +545,11 @@ func (o DomainOutput) DomainExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainExecutionRole }).(pulumi.StringOutput)
 }
 
+// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+func (o DomainOutput) DomainVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainVersion }).(pulumi.StringOutput)
+}
+
 // ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
 func (o DomainOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
@@ -398,6 +568,11 @@ func (o DomainOutput) PortalUrl() pulumi.StringOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
+func (o DomainOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.ServiceRole }).(pulumi.StringPtrOutput)
 }
 
 // Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.

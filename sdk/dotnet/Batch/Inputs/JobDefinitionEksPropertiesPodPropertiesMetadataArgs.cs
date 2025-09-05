@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// Key-value pairs used to identify, sort, and organize cube resources.
+        /// Key-value pairs used to identify, sort, and organize kubernetes resources.
         /// </summary>
         public InputMap<string> Labels
         {

@@ -46,7 +46,8 @@ class EnvironmentArgs:
                  startup_script_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[_builtins.str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
@@ -75,6 +76,7 @@ class EnvironmentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
+        :param pulumi.Input[_builtins.str] worker_replacement_strategy: Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
         """
         pulumi.set(__self__, "dag_s3_path", dag_s3_path)
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -124,6 +126,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "webserver_access_mode", webserver_access_mode)
         if weekly_maintenance_window_start is not None:
             pulumi.set(__self__, "weekly_maintenance_window_start", weekly_maintenance_window_start)
+        if worker_replacement_strategy is not None:
+            pulumi.set(__self__, "worker_replacement_strategy", worker_replacement_strategy)
 
     @_builtins.property
     @pulumi.getter(name="dagS3Path")
@@ -437,6 +441,18 @@ class EnvironmentArgs:
     def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
+    @_builtins.property
+    @pulumi.getter(name="workerReplacementStrategy")
+    def worker_replacement_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+        """
+        return pulumi.get(self, "worker_replacement_strategy")
+
+    @worker_replacement_strategy.setter
+    def worker_replacement_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "worker_replacement_strategy", value)
+
 
 @pulumi.input_type
 class _EnvironmentState:
@@ -475,7 +491,8 @@ class _EnvironmentState:
                  webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  webserver_url: Optional[pulumi.Input[_builtins.str]] = None,
                  webserver_vpc_endpoint_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] airflow_configuration_options: The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
@@ -513,6 +530,7 @@ class _EnvironmentState:
         :param pulumi.Input[_builtins.str] webserver_url: The webserver URL of the MWAA Environment
         :param pulumi.Input[_builtins.str] webserver_vpc_endpoint_service: The VPC endpoint for the environment's web server
         :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
+        :param pulumi.Input[_builtins.str] worker_replacement_strategy: Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
         """
         if airflow_configuration_options is not None:
             pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
@@ -584,6 +602,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "webserver_vpc_endpoint_service", webserver_vpc_endpoint_service)
         if weekly_maintenance_window_start is not None:
             pulumi.set(__self__, "weekly_maintenance_window_start", weekly_maintenance_window_start)
+        if worker_replacement_strategy is not None:
+            pulumi.set(__self__, "worker_replacement_strategy", worker_replacement_strategy)
 
     @_builtins.property
     @pulumi.getter(name="airflowConfigurationOptions")
@@ -1003,6 +1023,18 @@ class _EnvironmentState:
     def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
+    @_builtins.property
+    @pulumi.getter(name="workerReplacementStrategy")
+    def worker_replacement_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+        """
+        return pulumi.get(self, "worker_replacement_strategy")
+
+    @worker_replacement_strategy.setter
+    def worker_replacement_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "worker_replacement_strategy", value)
+
 
 @pulumi.type_token("aws:mwaa/environment:Environment")
 class Environment(pulumi.CustomResource):
@@ -1036,6 +1068,7 @@ class Environment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a MWAA Environment resource.
@@ -1180,6 +1213,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
+        :param pulumi.Input[_builtins.str] worker_replacement_strategy: Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
         """
         ...
     @overload
@@ -1343,6 +1377,7 @@ class Environment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1386,6 +1421,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["webserver_access_mode"] = webserver_access_mode
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
+            __props__.__dict__["worker_replacement_strategy"] = worker_replacement_strategy
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["database_vpc_endpoint_service"] = None
@@ -1441,7 +1477,8 @@ class Environment(pulumi.CustomResource):
             webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
             webserver_url: Optional[pulumi.Input[_builtins.str]] = None,
             webserver_vpc_endpoint_service: Optional[pulumi.Input[_builtins.str]] = None,
-            weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None) -> 'Environment':
+            weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+            worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1484,6 +1521,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] webserver_url: The webserver URL of the MWAA Environment
         :param pulumi.Input[_builtins.str] webserver_vpc_endpoint_service: The VPC endpoint for the environment's web server
         :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
+        :param pulumi.Input[_builtins.str] worker_replacement_strategy: Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1524,6 +1562,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["webserver_url"] = webserver_url
         __props__.__dict__["webserver_vpc_endpoint_service"] = webserver_vpc_endpoint_service
         __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
+        __props__.__dict__["worker_replacement_strategy"] = worker_replacement_strategy
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -1803,4 +1842,12 @@ class Environment(pulumi.CustomResource):
         Specifies the start date for the weekly maintenance window.
         """
         return pulumi.get(self, "weekly_maintenance_window_start")
+
+    @_builtins.property
+    @pulumi.getter(name="workerReplacementStrategy")
+    def worker_replacement_strategy(self) -> pulumi.Output[_builtins.str]:
+        """
+        Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+        """
+        return pulumi.get(self, "worker_replacement_strategy")
 

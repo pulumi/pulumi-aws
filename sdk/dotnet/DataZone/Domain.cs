@@ -61,38 +61,181 @@ namespace Pulumi.Aws.DataZone
     ///                 },
     ///             },
     ///         }),
-    ///         InlinePolicies = new[]
+    ///     });
+    /// 
+    ///     var domainExecutionRoleRolePolicy = new Aws.Iam.RolePolicy("domain_execution_role", new()
+    ///     {
+    ///         Role = domainExecutionRole.Name,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 Name = "domain_execution_policy",
-    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "datazone:*",
-    ///                                 "ram:*",
-    ///                                 "sso:*",
-    ///                                 "kms:*",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = "*",
-    ///                         },
+    ///                         "datazone:*",
+    ///                         "ram:*",
+    ///                         "sso:*",
+    ///                         "kms:*",
     ///                     },
-    ///                 }),
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
+    ///                 },
     ///             },
-    ///         },
+    ///         }),
     ///     });
     /// 
     ///     var example = new Aws.DataZone.Domain("example", new()
     ///     {
     ///         Name = "example",
     ///         DomainExecutionRole = domainExecutionRole.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### V2 Domain
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     // IAM role for Domain Execution
+    ///     var assumeRoleDomainExecution = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                     "sts:TagSession",
+    ///                     "sts:SetContext",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "datazone.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         Variable = "aws:SourceAccount",
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ForAllValues:StringLike",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "datazone*",
+    ///                         },
+    ///                         Variable = "aws:TagKeys",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var domainExecution = new Aws.Iam.Role("domain_execution", new()
+    ///     {
+    ///         AssumeRolePolicy = assumeRoleDomainExecution.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example-domain-execution-role",
+    ///     });
+    /// 
+    ///     var domainExecutionRole = Aws.Iam.GetPolicy.Invoke(new()
+    ///     {
+    ///         Name = "SageMakerStudioDomainExecutionRolePolicy",
+    ///     });
+    /// 
+    ///     var domainExecutionRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("domain_execution", new()
+    ///     {
+    ///         PolicyArn = domainExecutionRole.Apply(getPolicyResult =&gt; getPolicyResult.Arn),
+    ///         Role = domainExecution.Name,
+    ///     });
+    /// 
+    ///     // IAM role for Domain Service
+    ///     var assumeRoleDomainService = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "datazone.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         Variable = "aws:SourceAccount",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var domainService = new Aws.Iam.Role("domain_service", new()
+    ///     {
+    ///         AssumeRolePolicy = assumeRoleDomainService.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example-domain-service-role",
+    ///     });
+    /// 
+    ///     var domainServiceRole = Aws.Iam.GetPolicy.Invoke(new()
+    ///     {
+    ///         Name = "SageMakerStudioDomainServiceRolePolicy",
+    ///     });
+    /// 
+    ///     var domainServiceRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("domain_service", new()
+    ///     {
+    ///         PolicyArn = domainServiceRole.Apply(getPolicyResult =&gt; getPolicyResult.Arn),
+    ///         Role = domainService.Name,
+    ///     });
+    /// 
+    ///     // DataZone Domain V2
+    ///     var example = new Aws.DataZone.Domain("example", new()
+    ///     {
+    ///         Name = "example-domain",
+    ///         DomainExecutionRole = domainExecution.Arn,
+    ///         DomainVersion = "V2",
+    ///         ServiceRole = domainService.Arn,
     ///     });
     /// 
     /// });
@@ -130,6 +273,12 @@ namespace Pulumi.Aws.DataZone
         public Output<string> DomainExecutionRole { get; private set; } = null!;
 
         /// <summary>
+        /// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+        /// </summary>
+        [Output("domainVersion")]
+        public Output<string> DomainVersion { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         /// </summary>
         [Output("kmsKeyIdentifier")]
@@ -152,6 +301,12 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+        /// </summary>
+        [Output("serviceRole")]
+        public Output<string?> ServiceRole { get; private set; } = null!;
 
         /// <summary>
         /// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
@@ -238,6 +393,12 @@ namespace Pulumi.Aws.DataZone
         public Input<string> DomainExecutionRole { get; set; } = null!;
 
         /// <summary>
+        /// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+        /// </summary>
+        [Input("domainVersion")]
+        public Input<string>? DomainVersion { get; set; }
+
+        /// <summary>
         /// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         /// </summary>
         [Input("kmsKeyIdentifier")]
@@ -254,6 +415,12 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+        /// </summary>
+        [Input("serviceRole")]
+        public Input<string>? ServiceRole { get; set; }
 
         /// <summary>
         /// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
@@ -307,6 +474,12 @@ namespace Pulumi.Aws.DataZone
         public Input<string>? DomainExecutionRole { get; set; }
 
         /// <summary>
+        /// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+        /// </summary>
+        [Input("domainVersion")]
+        public Input<string>? DomainVersion { get; set; }
+
+        /// <summary>
         /// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         /// </summary>
         [Input("kmsKeyIdentifier")]
@@ -329,6 +502,12 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+        /// </summary>
+        [Input("serviceRole")]
+        public Input<string>? ServiceRole { get; set; }
 
         /// <summary>
         /// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.

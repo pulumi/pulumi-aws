@@ -63,17 +63,17 @@ export class DelegationSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Delegation Set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      */
-    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly nameServers: pulumi.Output<string[]>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    public readonly referenceName!: pulumi.Output<string | undefined>;
+    declare public readonly referenceName: pulumi.Output<string | undefined>;
 
     /**
      * Create a DelegationSet resource with the given unique name, arguments, and options.
@@ -88,12 +88,12 @@ export class DelegationSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DelegationSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
-            resourceInputs["referenceName"] = state ? state.referenceName : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["nameServers"] = state?.nameServers;
+            resourceInputs["referenceName"] = state?.referenceName;
         } else {
             const args = argsOrState as DelegationSetArgs | undefined;
-            resourceInputs["referenceName"] = args ? args.referenceName : undefined;
+            resourceInputs["referenceName"] = args?.referenceName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["nameServers"] = undefined /*out*/;
         }

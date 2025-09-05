@@ -90,30 +90,30 @@ export class RestApiPut extends pulumi.CustomResource {
     /**
      * PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
      */
-    public readonly body!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string>;
     /**
      * Whether to rollback the API update when a warning is encountered. The default value is `false`.
      */
-    public readonly failOnWarnings!: pulumi.Output<boolean>;
+    declare public readonly failOnWarnings: pulumi.Output<boolean>;
     /**
      * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Identifier of the associated REST API.
      *
      * The following arguments are optional:
      */
-    public readonly restApiId!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.apigateway.RestApiPutTimeouts | undefined>;
+    declare public readonly restApiId: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.apigateway.RestApiPutTimeouts | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
      */
-    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly triggers: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RestApiPut resource with the given unique name, arguments, and options.
@@ -128,28 +128,28 @@ export class RestApiPut extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestApiPutState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["failOnWarnings"] = state ? state.failOnWarnings : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["restApiId"] = state ? state.restApiId : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["failOnWarnings"] = state?.failOnWarnings;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["restApiId"] = state?.restApiId;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["triggers"] = state?.triggers;
         } else {
             const args = argsOrState as RestApiPutArgs | undefined;
-            if ((!args || args.body === undefined) && !opts.urn) {
+            if (args?.body === undefined && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["failOnWarnings"] = args?.failOnWarnings;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["triggers"] = args?.triggers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RestApiPut.__pulumiType, name, resourceInputs, opts);

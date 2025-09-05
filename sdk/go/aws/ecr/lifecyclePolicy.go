@@ -126,11 +126,23 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `repository` - (String) Name of the ECR repository.
+//
+// #### Optional
+//
+// - `account_id` (String) AWS Account where this resource is managed.
+//
+// - `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
 //
-// ```sh
-// $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
-// ```
+// console
+//
+// % pulumi import aws_ecr_lifecycle_policy.example tf-example
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 

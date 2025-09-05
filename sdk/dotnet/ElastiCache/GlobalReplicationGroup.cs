@@ -59,8 +59,7 @@ namespace Pulumi.Aws.ElastiCache
     /// However, once it is part of a Global Replication Group,
     /// the Global Replication Group manages the version of all member replication groups.
     /// 
-    /// The member replication groups must have `lifecycle.ignore_changes[engine_version]` set,
-    /// or the provider will always return a diff.
+    /// The provider is configured to ignore changes to `engine`, `engine_version` and `parameter_group_name` inside `aws.elasticache.ReplicationGroup` resources if they belong to a global replication group.
     /// 
     /// In this example,
     /// the primary replication group will be created with Redis 6.0,
@@ -156,12 +155,16 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the cache engine to be used for the clusters in this global replication group.
+        /// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+        /// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+        /// Valid values are `redis` or `valkey`.
+        /// Default is `redis` if `engine_version` is specified.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Redis version to use for the Global Replication Group.
+        /// Engine version to use for the Global Replication Group.
         /// When creating, by default the Global Replication Group inherits the version of the primary replication group.
         /// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
         /// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -212,7 +215,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
-        /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+        /// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
         /// Specifying without a major version upgrade will fail.
         /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
         /// </summary>
@@ -300,7 +303,17 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? CacheNodeType { get; set; }
 
         /// <summary>
-        /// Redis version to use for the Global Replication Group.
+        /// The name of the cache engine to be used for the clusters in this global replication group.
+        /// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+        /// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+        /// Valid values are `redis` or `valkey`.
+        /// Default is `redis` if `engine_version` is specified.
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
+
+        /// <summary>
+        /// Engine version to use for the Global Replication Group.
         /// When creating, by default the Global Replication Group inherits the version of the primary replication group.
         /// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
         /// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -332,7 +345,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
-        /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+        /// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
         /// Specifying without a major version upgrade will fail.
         /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
         /// </summary>
@@ -401,12 +414,16 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the cache engine to be used for the clusters in this global replication group.
+        /// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
+        /// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
+        /// Valid values are `redis` or `valkey`.
+        /// Default is `redis` if `engine_version` is specified.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// Redis version to use for the Global Replication Group.
+        /// Engine version to use for the Global Replication Group.
         /// When creating, by default the Global Replication Group inherits the version of the primary replication group.
         /// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
         /// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
@@ -463,7 +480,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
-        /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+        /// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
         /// Specifying without a major version upgrade will fail.
         /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
         /// </summary>

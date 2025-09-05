@@ -45,26 +45,105 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }),
- *     inlinePolicies: [{
- *         name: "domain_execution_policy",
- *         policy: JSON.stringify({
- *             Version: "2012-10-17",
- *             Statement: [{
- *                 Action: [
- *                     "datazone:*",
- *                     "ram:*",
- *                     "sso:*",
- *                     "kms:*",
- *                 ],
- *                 Effect: "Allow",
- *                 Resource: "*",
- *             }],
- *         }),
- *     }],
+ * });
+ * const domainExecutionRoleRolePolicy = new aws.iam.RolePolicy("domain_execution_role", {
+ *     role: domainExecutionRole.name,
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: [
+ *                 "datazone:*",
+ *                 "ram:*",
+ *                 "sso:*",
+ *                 "kms:*",
+ *             ],
+ *             Effect: "Allow",
+ *             Resource: "*",
+ *         }],
+ *     }),
  * });
  * const example = new aws.datazone.Domain("example", {
  *     name: "example",
  *     domainExecutionRole: domainExecutionRole.arn,
+ * });
+ * ```
+ *
+ * ### V2 Domain
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * // IAM role for Domain Execution
+ * const assumeRoleDomainExecution = current.then(current => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: [
+ *             "sts:AssumeRole",
+ *             "sts:TagSession",
+ *             "sts:SetContext",
+ *         ],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["datazone.amazonaws.com"],
+ *         }],
+ *         conditions: [
+ *             {
+ *                 test: "StringEquals",
+ *                 values: [current.accountId],
+ *                 variable: "aws:SourceAccount",
+ *             },
+ *             {
+ *                 test: "ForAllValues:StringLike",
+ *                 values: ["datazone*"],
+ *                 variable: "aws:TagKeys",
+ *             },
+ *         ],
+ *     }],
+ * }));
+ * const domainExecution = new aws.iam.Role("domain_execution", {
+ *     assumeRolePolicy: assumeRoleDomainExecution.then(assumeRoleDomainExecution => assumeRoleDomainExecution.json),
+ *     name: "example-domain-execution-role",
+ * });
+ * const domainExecutionRole = aws.iam.getPolicy({
+ *     name: "SageMakerStudioDomainExecutionRolePolicy",
+ * });
+ * const domainExecutionRolePolicyAttachment = new aws.iam.RolePolicyAttachment("domain_execution", {
+ *     policyArn: domainExecutionRole.then(domainExecutionRole => domainExecutionRole.arn),
+ *     role: domainExecution.name,
+ * });
+ * // IAM role for Domain Service
+ * const assumeRoleDomainService = current.then(current => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["datazone.amazonaws.com"],
+ *         }],
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             values: [current.accountId],
+ *             variable: "aws:SourceAccount",
+ *         }],
+ *     }],
+ * }));
+ * const domainService = new aws.iam.Role("domain_service", {
+ *     assumeRolePolicy: assumeRoleDomainService.then(assumeRoleDomainService => assumeRoleDomainService.json),
+ *     name: "example-domain-service-role",
+ * });
+ * const domainServiceRole = aws.iam.getPolicy({
+ *     name: "SageMakerStudioDomainServiceRolePolicy",
+ * });
+ * const domainServiceRolePolicyAttachment = new aws.iam.RolePolicyAttachment("domain_service", {
+ *     policyArn: domainServiceRole.then(domainServiceRole => domainServiceRole.arn),
+ *     role: domainService.name,
+ * });
+ * // DataZone Domain V2
+ * const example = new aws.datazone.Domain("example", {
+ *     name: "example-domain",
+ *     domainExecutionRole: domainExecution.arn,
+ *     domainVersion: "V2",
+ *     serviceRole: domainService.arn,
  * });
  * ```
  *
@@ -107,47 +186,55 @@ export class Domain extends pulumi.CustomResource {
     /**
      * ARN of the Domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description of the Domain.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * ARN of the role used by DataZone to configure the Domain.
      *
      * The following arguments are optional:
      */
-    public readonly domainExecutionRole!: pulumi.Output<string>;
+    declare public readonly domainExecutionRole: pulumi.Output<string>;
+    /**
+     * Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+     */
+    declare public readonly domainVersion: pulumi.Output<string>;
     /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * Name of the Domain.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * URL of the data portal for the Domain.
      */
-    public /*out*/ readonly portalUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalUrl: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
+    /**
+     * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
+     */
+    declare public readonly serviceRole: pulumi.Output<string | undefined>;
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
-    public readonly singleSignOn!: pulumi.Output<outputs.datazone.DomainSingleSignOn | undefined>;
+    declare public readonly singleSignOn: pulumi.Output<outputs.datazone.DomainSingleSignOn | undefined>;
     /**
      * Whether to skip the deletion check for the Domain.
      */
-    public readonly skipDeletionCheck!: pulumi.Output<boolean | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly skipDeletionCheck: pulumi.Output<boolean | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.datazone.DomainTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.datazone.DomainTimeouts | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -162,32 +249,36 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["domainExecutionRole"] = state ? state.domainExecutionRole : undefined;
-            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["singleSignOn"] = state ? state.singleSignOn : undefined;
-            resourceInputs["skipDeletionCheck"] = state ? state.skipDeletionCheck : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["domainExecutionRole"] = state?.domainExecutionRole;
+            resourceInputs["domainVersion"] = state?.domainVersion;
+            resourceInputs["kmsKeyIdentifier"] = state?.kmsKeyIdentifier;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["portalUrl"] = state?.portalUrl;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serviceRole"] = state?.serviceRole;
+            resourceInputs["singleSignOn"] = state?.singleSignOn;
+            resourceInputs["skipDeletionCheck"] = state?.skipDeletionCheck;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if ((!args || args.domainExecutionRole === undefined) && !opts.urn) {
+            if (args?.domainExecutionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainExecutionRole'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainExecutionRole"] = args ? args.domainExecutionRole : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
-            resourceInputs["skipDeletionCheck"] = args ? args.skipDeletionCheck : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainExecutionRole"] = args?.domainExecutionRole;
+            resourceInputs["domainVersion"] = args?.domainVersion;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serviceRole"] = args?.serviceRole;
+            resourceInputs["singleSignOn"] = args?.singleSignOn;
+            resourceInputs["skipDeletionCheck"] = args?.skipDeletionCheck;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["portalUrl"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -216,6 +307,10 @@ export interface DomainState {
      */
     domainExecutionRole?: pulumi.Input<string>;
     /**
+     * Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+     */
+    domainVersion?: pulumi.Input<string>;
+    /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
@@ -231,6 +326,10 @@ export interface DomainState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
+     */
+    serviceRole?: pulumi.Input<string>;
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
@@ -262,6 +361,10 @@ export interface DomainArgs {
      */
     domainExecutionRole: pulumi.Input<string>;
     /**
+     * Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
+     */
+    domainVersion?: pulumi.Input<string>;
+    /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
@@ -273,6 +376,10 @@ export interface DomainArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
+     */
+    serviceRole?: pulumi.Input<string>;
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */

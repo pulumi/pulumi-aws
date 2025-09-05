@@ -21,16 +21,20 @@ class ContributorInsightsArgs:
     def __init__(__self__, *,
                  table_name: pulumi.Input[_builtins.str],
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContributorInsights resource.
         :param pulumi.Input[_builtins.str] table_name: The name of the table to enable contributor insights
         :param pulumi.Input[_builtins.str] index_name: The global secondary index name
+        :param pulumi.Input[_builtins.str] mode: argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "table_name", table_name)
         if index_name is not None:
             pulumi.set(__self__, "index_name", index_name)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
         if region is not None:
             pulumi.set(__self__, "region", region)
 
@@ -60,6 +64,18 @@ class ContributorInsightsArgs:
 
     @_builtins.property
     @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -75,16 +91,20 @@ class ContributorInsightsArgs:
 class _ContributorInsightsState:
     def __init__(__self__, *,
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContributorInsights resources.
         :param pulumi.Input[_builtins.str] index_name: The global secondary index name
+        :param pulumi.Input[_builtins.str] mode: argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: The name of the table to enable contributor insights
         """
         if index_name is not None:
             pulumi.set(__self__, "index_name", index_name)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if table_name is not None:
@@ -101,6 +121,18 @@ class _ContributorInsightsState:
     @index_name.setter
     def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "index_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
@@ -134,6 +166,7 @@ class ContributorInsights(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -160,6 +193,7 @@ class ContributorInsights(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] index_name: The global secondary index name
+        :param pulumi.Input[_builtins.str] mode: argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: The name of the table to enable contributor insights
         """
@@ -205,6 +239,7 @@ class ContributorInsights(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -217,6 +252,7 @@ class ContributorInsights(pulumi.CustomResource):
             __props__ = ContributorInsightsArgs.__new__(ContributorInsightsArgs)
 
             __props__.__dict__["index_name"] = index_name
+            __props__.__dict__["mode"] = mode
             __props__.__dict__["region"] = region
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
@@ -232,6 +268,7 @@ class ContributorInsights(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             index_name: Optional[pulumi.Input[_builtins.str]] = None,
+            mode: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             table_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ContributorInsights':
         """
@@ -242,6 +279,7 @@ class ContributorInsights(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] index_name: The global secondary index name
+        :param pulumi.Input[_builtins.str] mode: argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: The name of the table to enable contributor insights
         """
@@ -250,6 +288,7 @@ class ContributorInsights(pulumi.CustomResource):
         __props__ = _ContributorInsightsState.__new__(_ContributorInsightsState)
 
         __props__.__dict__["index_name"] = index_name
+        __props__.__dict__["mode"] = mode
         __props__.__dict__["region"] = region
         __props__.__dict__["table_name"] = table_name
         return ContributorInsights(resource_name, opts=opts, __props__=__props__)
@@ -261,6 +300,14 @@ class ContributorInsights(pulumi.CustomResource):
         The global secondary index name
         """
         return pulumi.get(self, "index_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Output[_builtins.str]:
+        """
+        argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+        """
+        return pulumi.get(self, "mode")
 
     @_builtins.property
     @pulumi.getter

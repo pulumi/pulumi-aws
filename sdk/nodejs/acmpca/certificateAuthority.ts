@@ -143,71 +143,71 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * ARN of the certificate authority.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly certificate!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificate: pulumi.Output<string>;
     /**
      * Nested argument containing algorithms and certificate subject information. Defined below.
      */
-    public readonly certificateAuthorityConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
+    declare public readonly certificateAuthorityConfiguration: pulumi.Output<outputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
     /**
      * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly certificateChain!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateChain: pulumi.Output<string>;
     /**
      * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      */
-    public /*out*/ readonly certificateSigningRequest!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateSigningRequest: pulumi.Output<string>;
     /**
      * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
      */
-    public readonly keyStorageSecurityStandard!: pulumi.Output<string>;
+    declare public readonly keyStorageSecurityStandard: pulumi.Output<string>;
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly notAfter!: pulumi.Output<string>;
+    declare public /*out*/ readonly notAfter: pulumi.Output<string>;
     /**
      * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly notBefore!: pulumi.Output<string>;
+    declare public /*out*/ readonly notBefore: pulumi.Output<string>;
     /**
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      */
-    public readonly permanentDeletionTimeInDays!: pulumi.Output<number | undefined>;
+    declare public readonly permanentDeletionTimeInDays: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Nested argument containing revocation configuration. Defined below.
      */
-    public readonly revocationConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
+    declare public readonly revocationConfiguration: pulumi.Output<outputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
     /**
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly serial!: pulumi.Output<string>;
+    declare public /*out*/ readonly serial: pulumi.Output<string>;
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
      */
-    public readonly usageMode!: pulumi.Output<string>;
+    declare public readonly usageMode: pulumi.Output<string>;
 
     /**
      * Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -222,37 +222,37 @@ export class CertificateAuthority extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateAuthorityState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["certificateAuthorityConfiguration"] = state ? state.certificateAuthorityConfiguration : undefined;
-            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
-            resourceInputs["certificateSigningRequest"] = state ? state.certificateSigningRequest : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["keyStorageSecurityStandard"] = state ? state.keyStorageSecurityStandard : undefined;
-            resourceInputs["notAfter"] = state ? state.notAfter : undefined;
-            resourceInputs["notBefore"] = state ? state.notBefore : undefined;
-            resourceInputs["permanentDeletionTimeInDays"] = state ? state.permanentDeletionTimeInDays : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["revocationConfiguration"] = state ? state.revocationConfiguration : undefined;
-            resourceInputs["serial"] = state ? state.serial : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["usageMode"] = state ? state.usageMode : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["certificateAuthorityConfiguration"] = state?.certificateAuthorityConfiguration;
+            resourceInputs["certificateChain"] = state?.certificateChain;
+            resourceInputs["certificateSigningRequest"] = state?.certificateSigningRequest;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["keyStorageSecurityStandard"] = state?.keyStorageSecurityStandard;
+            resourceInputs["notAfter"] = state?.notAfter;
+            resourceInputs["notBefore"] = state?.notBefore;
+            resourceInputs["permanentDeletionTimeInDays"] = state?.permanentDeletionTimeInDays;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["revocationConfiguration"] = state?.revocationConfiguration;
+            resourceInputs["serial"] = state?.serial;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["usageMode"] = state?.usageMode;
         } else {
             const args = argsOrState as CertificateAuthorityArgs | undefined;
-            if ((!args || args.certificateAuthorityConfiguration === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityConfiguration'");
             }
-            resourceInputs["certificateAuthorityConfiguration"] = args ? args.certificateAuthorityConfiguration : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["keyStorageSecurityStandard"] = args ? args.keyStorageSecurityStandard : undefined;
-            resourceInputs["permanentDeletionTimeInDays"] = args ? args.permanentDeletionTimeInDays : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["usageMode"] = args ? args.usageMode : undefined;
+            resourceInputs["certificateAuthorityConfiguration"] = args?.certificateAuthorityConfiguration;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["keyStorageSecurityStandard"] = args?.keyStorageSecurityStandard;
+            resourceInputs["permanentDeletionTimeInDays"] = args?.permanentDeletionTimeInDays;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["revocationConfiguration"] = args?.revocationConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["usageMode"] = args?.usageMode;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["certificateChain"] = undefined /*out*/;

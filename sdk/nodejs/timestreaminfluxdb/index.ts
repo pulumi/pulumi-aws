@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DbClusterArgs, DbClusterState } from "./dbCluster";
+export type DbCluster = import("./dbCluster").DbCluster;
+export const DbCluster: typeof import("./dbCluster").DbCluster = null as any;
+utilities.lazyLoad(exports, ["DbCluster"], () => require("./dbCluster"));
+
 export { DbInstanceArgs, DbInstanceState } from "./dbInstance";
 export type DbInstance = import("./dbInstance").DbInstance;
 export const DbInstance: typeof import("./dbInstance").DbInstance = null as any;
@@ -15,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:timestreaminfluxdb/dbCluster:DbCluster":
+                return new DbCluster(name, <any>undefined, { urn })
             case "aws:timestreaminfluxdb/dbInstance:DbInstance":
                 return new DbInstance(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "timestreaminfluxdb/dbCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "timestreaminfluxdb/dbInstance", _module)

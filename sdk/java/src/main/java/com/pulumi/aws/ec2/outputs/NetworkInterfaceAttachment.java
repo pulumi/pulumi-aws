@@ -24,6 +24,11 @@ public final class NetworkInterfaceAttachment {
      * 
      */
     private String instance;
+    /**
+     * @return Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+     * 
+     */
+    private @Nullable Integer networkCardIndex;
 
     private NetworkInterfaceAttachment() {}
     public Optional<String> attachmentId() {
@@ -43,6 +48,13 @@ public final class NetworkInterfaceAttachment {
     public String instance() {
         return this.instance;
     }
+    /**
+     * @return Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+     * 
+     */
+    public Optional<Integer> networkCardIndex() {
+        return Optional.ofNullable(this.networkCardIndex);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -56,12 +68,14 @@ public final class NetworkInterfaceAttachment {
         private @Nullable String attachmentId;
         private Integer deviceIndex;
         private String instance;
+        private @Nullable Integer networkCardIndex;
         public Builder() {}
         public Builder(NetworkInterfaceAttachment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attachmentId = defaults.attachmentId;
     	      this.deviceIndex = defaults.deviceIndex;
     	      this.instance = defaults.instance;
+    	      this.networkCardIndex = defaults.networkCardIndex;
         }
 
         @CustomType.Setter
@@ -86,11 +100,18 @@ public final class NetworkInterfaceAttachment {
             this.instance = instance;
             return this;
         }
+        @CustomType.Setter
+        public Builder networkCardIndex(@Nullable Integer networkCardIndex) {
+
+            this.networkCardIndex = networkCardIndex;
+            return this;
+        }
         public NetworkInterfaceAttachment build() {
             final var _resultValue = new NetworkInterfaceAttachment();
             _resultValue.attachmentId = attachmentId;
             _resultValue.deviceIndex = deviceIndex;
             _resultValue.instance = instance;
+            _resultValue.networkCardIndex = networkCardIndex;
             return _resultValue;
         }
     }

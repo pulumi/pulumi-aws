@@ -128,23 +128,23 @@ export class Recorder extends pulumi.CustomResource {
     /**
      * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Recording group - see below.
      */
-    public readonly recordingGroup!: pulumi.Output<outputs.cfg.RecorderRecordingGroup>;
+    declare public readonly recordingGroup: pulumi.Output<outputs.cfg.RecorderRecordingGroup>;
     /**
      * Recording mode - see below.
      */
-    public readonly recordingMode!: pulumi.Output<outputs.cfg.RecorderRecordingMode>;
+    declare public readonly recordingMode: pulumi.Output<outputs.cfg.RecorderRecordingMode>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
 
     /**
      * Create a Recorder resource with the given unique name, arguments, and options.
@@ -159,21 +159,21 @@ export class Recorder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecorderState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recordingGroup"] = state ? state.recordingGroup : undefined;
-            resourceInputs["recordingMode"] = state ? state.recordingMode : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recordingGroup"] = state?.recordingGroup;
+            resourceInputs["recordingMode"] = state?.recordingMode;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
         } else {
             const args = argsOrState as RecorderArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recordingGroup"] = args ? args.recordingGroup : undefined;
-            resourceInputs["recordingMode"] = args ? args.recordingMode : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recordingGroup"] = args?.recordingGroup;
+            resourceInputs["recordingMode"] = args?.recordingMode;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Recorder.__pulumiType, name, resourceInputs, opts);

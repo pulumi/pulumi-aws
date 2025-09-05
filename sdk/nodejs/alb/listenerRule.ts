@@ -207,35 +207,35 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * An Action block. Action blocks are documented below.
      */
-    public readonly actions!: pulumi.Output<outputs.alb.ListenerRuleAction[]>;
+    declare public readonly actions: pulumi.Output<outputs.alb.ListenerRuleAction[]>;
     /**
      * The ARN of the rule (matches `id`)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
-    public readonly conditions!: pulumi.Output<outputs.alb.ListenerRuleCondition[]>;
+    declare public readonly conditions: pulumi.Output<outputs.alb.ListenerRuleCondition[]>;
     /**
      * The ARN of the listener to which to attach the rule.
      */
-    public readonly listenerArn!: pulumi.Output<string>;
+    declare public readonly listenerArn: pulumi.Output<string>;
     /**
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ListenerRule resource with the given unique name, arguments, and options.
@@ -250,31 +250,31 @@ export class ListenerRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerRuleState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
-            resourceInputs["listenerArn"] = state ? state.listenerArn : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["conditions"] = state?.conditions;
+            resourceInputs["listenerArn"] = state?.listenerArn;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ListenerRuleArgs | undefined;
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.conditions === undefined) && !opts.urn) {
+            if (args?.conditions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'conditions'");
             }
-            if ((!args || args.listenerArn === undefined) && !opts.urn) {
+            if (args?.listenerArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["listenerArn"] = args?.listenerArn;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

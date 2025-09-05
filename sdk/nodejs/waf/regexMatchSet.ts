@@ -75,15 +75,15 @@ export class RegexMatchSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name or description of the Regex Match Set.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    public readonly regexMatchTuples!: pulumi.Output<outputs.waf.RegexMatchSetRegexMatchTuple[] | undefined>;
+    declare public readonly regexMatchTuples: pulumi.Output<outputs.waf.RegexMatchSetRegexMatchTuple[] | undefined>;
 
     /**
      * Create a RegexMatchSet resource with the given unique name, arguments, and options.
@@ -98,13 +98,13 @@ export class RegexMatchSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegexMatchSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["regexMatchTuples"] = state ? state.regexMatchTuples : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["regexMatchTuples"] = state?.regexMatchTuples;
         } else {
             const args = argsOrState as RegexMatchSetArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["regexMatchTuples"] = args ? args.regexMatchTuples : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["regexMatchTuples"] = args?.regexMatchTuples;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

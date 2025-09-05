@@ -64,31 +64,31 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
     /**
      * The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
      */
-    public readonly destinationArn!: pulumi.Output<string>;
+    declare public readonly destinationArn: pulumi.Output<string>;
     /**
      * The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
      */
-    public readonly distribution!: pulumi.Output<string | undefined>;
+    declare public readonly distribution: pulumi.Output<string | undefined>;
     /**
      * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
-    public readonly filterPattern!: pulumi.Output<string>;
+    declare public readonly filterPattern: pulumi.Output<string>;
     /**
      * The name of the log group to associate the subscription filter with
      */
-    public readonly logGroup!: pulumi.Output<string>;
+    declare public readonly logGroup: pulumi.Output<string>;
     /**
      * A name for the subscription filter
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
 
     /**
      * Create a LogSubscriptionFilter resource with the given unique name, arguments, and options.
@@ -103,31 +103,31 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogSubscriptionFilterState | undefined;
-            resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
-            resourceInputs["distribution"] = state ? state.distribution : undefined;
-            resourceInputs["filterPattern"] = state ? state.filterPattern : undefined;
-            resourceInputs["logGroup"] = state ? state.logGroup : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["destinationArn"] = state?.destinationArn;
+            resourceInputs["distribution"] = state?.distribution;
+            resourceInputs["filterPattern"] = state?.filterPattern;
+            resourceInputs["logGroup"] = state?.logGroup;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
         } else {
             const args = argsOrState as LogSubscriptionFilterArgs | undefined;
-            if ((!args || args.destinationArn === undefined) && !opts.urn) {
+            if (args?.destinationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            if ((!args || args.filterPattern === undefined) && !opts.urn) {
+            if (args?.filterPattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterPattern'");
             }
-            if ((!args || args.logGroup === undefined) && !opts.urn) {
+            if (args?.logGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logGroup'");
             }
-            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
-            resourceInputs["distribution"] = args ? args.distribution : undefined;
-            resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
-            resourceInputs["logGroup"] = args ? args.logGroup : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["destinationArn"] = args?.destinationArn;
+            resourceInputs["distribution"] = args?.distribution;
+            resourceInputs["filterPattern"] = args?.filterPattern;
+            resourceInputs["logGroup"] = args?.logGroup;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogSubscriptionFilter.__pulumiType, name, resourceInputs, opts);

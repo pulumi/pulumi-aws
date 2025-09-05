@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Sqs
         public Output<string?> KmsMasterKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+        /// Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 1048576 bytes (1024 KiB). The default for this attribute is 262144 (256 KiB).
         /// </summary>
         [Output("maxMessageSize")]
         public Output<int?> MaxMessageSize { get; private set; } = null!;
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.Sqs
         public Input<string>? KmsMasterKeyId { get; set; }
 
         /// <summary>
-        /// Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+        /// Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 1048576 bytes (1024 KiB). The default for this attribute is 262144 (256 KiB).
         /// </summary>
         [Input("maxMessageSize")]
         public Input<int>? MaxMessageSize { get; set; }
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.Sqs
         public Input<string>? KmsMasterKeyId { get; set; }
 
         /// <summary>
-        /// Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+        /// Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 1048576 bytes (1024 KiB). The default for this attribute is 262144 (256 KiB).
         /// </summary>
         [Input("maxMessageSize")]
         public Input<int>? MaxMessageSize { get; set; }

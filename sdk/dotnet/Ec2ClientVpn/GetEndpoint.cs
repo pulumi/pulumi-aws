@@ -308,6 +308,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// Information about the DNS servers to be used for DNS resolution.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
+        /// <summary>
+        /// IP address type for the Client VPN endpoint.
+        /// </summary>
+        public readonly string EndpointIpAddressType;
         public readonly ImmutableArray<Outputs.GetEndpointFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -339,6 +343,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         public readonly bool SplitTunnel;
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// IP address type for traffic within the Client VPN tunnel.
+        /// </summary>
+        public readonly string TrafficIpAddressType;
         /// <summary>
         /// Transport protocol used by the Client VPN endpoint.
         /// </summary>
@@ -376,6 +384,8 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
             ImmutableArray<string> dnsServers,
 
+            string endpointIpAddressType,
+
             ImmutableArray<Outputs.GetEndpointFilterResult> filters,
 
             string id,
@@ -396,6 +406,8 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
             ImmutableDictionary<string, string> tags,
 
+            string trafficIpAddressType,
+
             string transportProtocol,
 
             string vpcId,
@@ -413,6 +425,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
             Description = description;
             DnsName = dnsName;
             DnsServers = dnsServers;
+            EndpointIpAddressType = endpointIpAddressType;
             Filters = filters;
             Id = id;
             Region = region;
@@ -423,6 +436,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
             SessionTimeoutHours = sessionTimeoutHours;
             SplitTunnel = splitTunnel;
             Tags = tags;
+            TrafficIpAddressType = trafficIpAddressType;
             TransportProtocol = transportProtocol;
             VpcId = vpcId;
             VpnPort = vpnPort;

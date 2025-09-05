@@ -130,6 +130,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String arcregionswitch;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String athena;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1673,6 +1678,13 @@ public final class Endpoints {
      */
     public Optional<String> appsync() {
         return Optional.ofNullable(this.appsync);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> arcregionswitch() {
+        return Optional.ofNullable(this.arcregionswitch);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3646,6 +3658,7 @@ public final class Endpoints {
         private @Nullable String apprunner;
         private @Nullable String appstream;
         private @Nullable String appsync;
+        private @Nullable String arcregionswitch;
         private @Nullable String athena;
         private @Nullable String auditmanager;
         private @Nullable String autoscaling;
@@ -3949,6 +3962,7 @@ public final class Endpoints {
     	      this.apprunner = defaults.apprunner;
     	      this.appstream = defaults.appstream;
     	      this.appsync = defaults.appsync;
+    	      this.arcregionswitch = defaults.arcregionswitch;
     	      this.athena = defaults.athena;
     	      this.auditmanager = defaults.auditmanager;
     	      this.autoscaling = defaults.autoscaling;
@@ -4364,6 +4378,12 @@ public final class Endpoints {
         public Builder appsync(@Nullable String appsync) {
 
             this.appsync = appsync;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder arcregionswitch(@Nullable String arcregionswitch) {
+
+            this.arcregionswitch = arcregionswitch;
             return this;
         }
         @CustomType.Setter
@@ -6053,6 +6073,7 @@ public final class Endpoints {
             _resultValue.apprunner = apprunner;
             _resultValue.appstream = appstream;
             _resultValue.appsync = appsync;
+            _resultValue.arcregionswitch = arcregionswitch;
             _resultValue.athena = athena;
             _resultValue.auditmanager = auditmanager;
             _resultValue.autoscaling = autoscaling;

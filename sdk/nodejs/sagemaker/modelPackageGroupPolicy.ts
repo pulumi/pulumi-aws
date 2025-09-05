@@ -48,12 +48,12 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
     /**
      * The name of the model package group.
      */
-    public readonly modelPackageGroupName!: pulumi.Output<string>;
+    declare public readonly modelPackageGroupName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
-    public readonly resourcePolicy!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public readonly resourcePolicy: pulumi.Output<string>;
 
     /**
      * Create a ModelPackageGroupPolicy resource with the given unique name, arguments, and options.
@@ -68,20 +68,20 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModelPackageGroupPolicyState | undefined;
-            resourceInputs["modelPackageGroupName"] = state ? state.modelPackageGroupName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourcePolicy"] = state ? state.resourcePolicy : undefined;
+            resourceInputs["modelPackageGroupName"] = state?.modelPackageGroupName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourcePolicy"] = state?.resourcePolicy;
         } else {
             const args = argsOrState as ModelPackageGroupPolicyArgs | undefined;
-            if ((!args || args.modelPackageGroupName === undefined) && !opts.urn) {
+            if (args?.modelPackageGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelPackageGroupName'");
             }
-            if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
+            if (args?.resourcePolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
-            resourceInputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
+            resourceInputs["modelPackageGroupName"] = args?.modelPackageGroupName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ModelPackageGroupPolicy.__pulumiType, name, resourceInputs, opts);

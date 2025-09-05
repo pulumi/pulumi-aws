@@ -68,36 +68,36 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
     /**
      * ARN of the Restore Testing Plan.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      */
-    public readonly recoveryPointSelection!: pulumi.Output<outputs.backup.RestoreTestingPlanRecoveryPointSelection | undefined>;
+    declare public readonly recoveryPointSelection: pulumi.Output<outputs.backup.RestoreTestingPlanRecoveryPointSelection | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The schedule expression for the restore testing plan.
      */
-    public readonly scheduleExpression!: pulumi.Output<string>;
+    declare public readonly scheduleExpression: pulumi.Output<string>;
     /**
      * The timezone for the schedule expression. If not provided, the state value will be used.
      */
-    public readonly scheduleExpressionTimezone!: pulumi.Output<string>;
+    declare public readonly scheduleExpressionTimezone: pulumi.Output<string>;
     /**
      * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      */
-    public readonly startWindowHours!: pulumi.Output<number>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly startWindowHours: pulumi.Output<number>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RestoreTestingPlan resource with the given unique name, arguments, and options.
@@ -112,27 +112,27 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestoreTestingPlanState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryPointSelection"] = state ? state.recoveryPointSelection : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
-            resourceInputs["scheduleExpressionTimezone"] = state ? state.scheduleExpressionTimezone : undefined;
-            resourceInputs["startWindowHours"] = state ? state.startWindowHours : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recoveryPointSelection"] = state?.recoveryPointSelection;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["scheduleExpression"] = state?.scheduleExpression;
+            resourceInputs["scheduleExpressionTimezone"] = state?.scheduleExpressionTimezone;
+            resourceInputs["startWindowHours"] = state?.startWindowHours;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as RestoreTestingPlanArgs | undefined;
-            if ((!args || args.scheduleExpression === undefined) && !opts.urn) {
+            if (args?.scheduleExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleExpression'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryPointSelection"] = args ? args.recoveryPointSelection : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            resourceInputs["scheduleExpressionTimezone"] = args ? args.scheduleExpressionTimezone : undefined;
-            resourceInputs["startWindowHours"] = args ? args.startWindowHours : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recoveryPointSelection"] = args?.recoveryPointSelection;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["scheduleExpression"] = args?.scheduleExpression;
+            resourceInputs["scheduleExpressionTimezone"] = args?.scheduleExpressionTimezone;
+            resourceInputs["startWindowHours"] = args?.startWindowHours;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

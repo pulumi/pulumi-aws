@@ -19,6 +19,10 @@ __all__ = [
     'FilterFilterCriteriaArgsDict',
     'FilterFilterCriteriaAwsAccountIdArgs',
     'FilterFilterCriteriaAwsAccountIdArgsDict',
+    'FilterFilterCriteriaCodeRepositoryProjectNameArgs',
+    'FilterFilterCriteriaCodeRepositoryProjectNameArgsDict',
+    'FilterFilterCriteriaCodeRepositoryProviderTypeArgs',
+    'FilterFilterCriteriaCodeRepositoryProviderTypeArgsDict',
     'FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs',
     'FilterFilterCriteriaCodeVulnerabilityDetectorNameArgsDict',
     'FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs',
@@ -39,6 +43,10 @@ __all__ = [
     'FilterFilterCriteriaEcrImageArchitectureArgsDict',
     'FilterFilterCriteriaEcrImageHashArgs',
     'FilterFilterCriteriaEcrImageHashArgsDict',
+    'FilterFilterCriteriaEcrImageInUseCountArgs',
+    'FilterFilterCriteriaEcrImageInUseCountArgsDict',
+    'FilterFilterCriteriaEcrImageLastInUseAtArgs',
+    'FilterFilterCriteriaEcrImageLastInUseAtArgsDict',
     'FilterFilterCriteriaEcrImagePushedAtArgs',
     'FilterFilterCriteriaEcrImagePushedAtArgsDict',
     'FilterFilterCriteriaEcrImageRegistryArgs',
@@ -129,6 +137,14 @@ if not MYPY:
         """
         (Optional) The AWS account ID in which the finding was generated. Documented below.
         """
+        code_repository_project_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgsDict']]]]
+        """
+        (Optional) The project name in a code repository. Documented below.
+        """
+        code_repository_provider_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgsDict']]]]
+        """
+        (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+        """
         code_vulnerability_detector_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorNameArgsDict']]]]
         """
         (Optional) The ID of the component. Documented below.
@@ -168,6 +184,14 @@ if not MYPY:
         ecr_image_hashes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageHashArgsDict']]]]
         """
         (Optional) The SHA256 hash of the ECR image. Documented below.
+        """
+        ecr_image_in_use_counts: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgsDict']]]]
+        """
+        (Optional)  The number of the ECR images in use. Documented below.
+        """
+        ecr_image_last_in_use_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgsDict']]]]
+        """
+        (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
         """
         ecr_image_pushed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImagePushedAtArgsDict']]]]
         """
@@ -300,6 +324,8 @@ elif False:
 class FilterFilterCriteriaArgs:
     def __init__(__self__, *,
                  aws_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaAwsAccountIdArgs']]]] = None,
+                 code_repository_project_names: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgs']]]] = None,
+                 code_repository_provider_types: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgs']]]] = None,
                  code_vulnerability_detector_names: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs']]]] = None,
                  code_vulnerability_detector_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs']]]] = None,
                  code_vulnerability_file_paths: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityFilePathArgs']]]] = None,
@@ -310,6 +336,8 @@ class FilterFilterCriteriaArgs:
                  ec2_instance_vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceVpcIdArgs']]]] = None,
                  ecr_image_architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageArchitectureArgs']]]] = None,
                  ecr_image_hashes: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageHashArgs']]]] = None,
+                 ecr_image_in_use_counts: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgs']]]] = None,
+                 ecr_image_last_in_use_ats: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgs']]]] = None,
                  ecr_image_pushed_ats: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImagePushedAtArgs']]]] = None,
                  ecr_image_registries: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRegistryArgs']]]] = None,
                  ecr_image_repository_names: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRepositoryNameArgs']]]] = None,
@@ -343,6 +371,8 @@ class FilterFilterCriteriaArgs:
                  vulnerable_packages: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaAwsAccountIdArgs']]] aws_account_ids: (Optional) The AWS account ID in which the finding was generated. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgs']]] code_repository_project_names: (Optional) The project name in a code repository. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgs']]] code_repository_provider_types: (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs']]] code_vulnerability_detector_names: (Optional) The ID of the component. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs']]] code_vulnerability_detector_tags: (Optional) The ID of the component. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityFilePathArgs']]] code_vulnerability_file_paths: (Optional) The ID of the component. Documented below.
@@ -353,6 +383,8 @@ class FilterFilterCriteriaArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceVpcIdArgs']]] ec2_instance_vpc_ids: (Optional) The ID of the VPC. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageArchitectureArgs']]] ecr_image_architectures: (Optional) The architecture of the ECR image. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageHashArgs']]] ecr_image_hashes: (Optional) The SHA256 hash of the ECR image. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgs']]] ecr_image_in_use_counts: (Optional)  The number of the ECR images in use. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgs']]] ecr_image_last_in_use_ats: (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImagePushedAtArgs']]] ecr_image_pushed_ats: (Optional) The date range when the image was pushed. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRegistryArgs']]] ecr_image_registries: (Optional) The registry of the ECR image. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRepositoryNameArgs']]] ecr_image_repository_names: (Optional) The name of the ECR repository. Documented below.
@@ -387,6 +419,10 @@ class FilterFilterCriteriaArgs:
         """
         if aws_account_ids is not None:
             pulumi.set(__self__, "aws_account_ids", aws_account_ids)
+        if code_repository_project_names is not None:
+            pulumi.set(__self__, "code_repository_project_names", code_repository_project_names)
+        if code_repository_provider_types is not None:
+            pulumi.set(__self__, "code_repository_provider_types", code_repository_provider_types)
         if code_vulnerability_detector_names is not None:
             pulumi.set(__self__, "code_vulnerability_detector_names", code_vulnerability_detector_names)
         if code_vulnerability_detector_tags is not None:
@@ -407,6 +443,10 @@ class FilterFilterCriteriaArgs:
             pulumi.set(__self__, "ecr_image_architectures", ecr_image_architectures)
         if ecr_image_hashes is not None:
             pulumi.set(__self__, "ecr_image_hashes", ecr_image_hashes)
+        if ecr_image_in_use_counts is not None:
+            pulumi.set(__self__, "ecr_image_in_use_counts", ecr_image_in_use_counts)
+        if ecr_image_last_in_use_ats is not None:
+            pulumi.set(__self__, "ecr_image_last_in_use_ats", ecr_image_last_in_use_ats)
         if ecr_image_pushed_ats is not None:
             pulumi.set(__self__, "ecr_image_pushed_ats", ecr_image_pushed_ats)
         if ecr_image_registries is not None:
@@ -481,6 +521,30 @@ class FilterFilterCriteriaArgs:
     @aws_account_ids.setter
     def aws_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaAwsAccountIdArgs']]]]):
         pulumi.set(self, "aws_account_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="codeRepositoryProjectNames")
+    def code_repository_project_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgs']]]]:
+        """
+        (Optional) The project name in a code repository. Documented below.
+        """
+        return pulumi.get(self, "code_repository_project_names")
+
+    @code_repository_project_names.setter
+    def code_repository_project_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgs']]]]):
+        pulumi.set(self, "code_repository_project_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="codeRepositoryProviderTypes")
+    def code_repository_provider_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgs']]]]:
+        """
+        (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+        """
+        return pulumi.get(self, "code_repository_provider_types")
+
+    @code_repository_provider_types.setter
+    def code_repository_provider_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgs']]]]):
+        pulumi.set(self, "code_repository_provider_types", value)
 
     @_builtins.property
     @pulumi.getter(name="codeVulnerabilityDetectorNames")
@@ -601,6 +665,30 @@ class FilterFilterCriteriaArgs:
     @ecr_image_hashes.setter
     def ecr_image_hashes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageHashArgs']]]]):
         pulumi.set(self, "ecr_image_hashes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ecrImageInUseCounts")
+    def ecr_image_in_use_counts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgs']]]]:
+        """
+        (Optional)  The number of the ECR images in use. Documented below.
+        """
+        return pulumi.get(self, "ecr_image_in_use_counts")
+
+    @ecr_image_in_use_counts.setter
+    def ecr_image_in_use_counts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgs']]]]):
+        pulumi.set(self, "ecr_image_in_use_counts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ecrImageLastInUseAts")
+    def ecr_image_last_in_use_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgs']]]]:
+        """
+        (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+        """
+        return pulumi.get(self, "ecr_image_last_in_use_ats")
+
+    @ecr_image_last_in_use_ats.setter
+    def ecr_image_last_in_use_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgs']]]]):
+        pulumi.set(self, "ecr_image_last_in_use_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrImagePushedAts")
@@ -990,6 +1078,106 @@ elif False:
 
 @pulumi.input_type
 class FilterFilterCriteriaAwsAccountIdArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
+        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input[_builtins.str]:
+        """
+        (Required) The comparison operator. Valid values: `EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "comparison", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        (Required) The value to filter on.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class FilterFilterCriteriaCodeRepositoryProjectNameArgsDict(TypedDict):
+        comparison: pulumi.Input[_builtins.str]
+        """
+        (Required) The comparison operator. Valid values: `EQUALS`.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        (Required) The value to filter on.
+        """
+elif False:
+    FilterFilterCriteriaCodeRepositoryProjectNameArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FilterFilterCriteriaCodeRepositoryProjectNameArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
+        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input[_builtins.str]:
+        """
+        (Required) The comparison operator. Valid values: `EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "comparison", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        (Required) The value to filter on.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class FilterFilterCriteriaCodeRepositoryProviderTypeArgsDict(TypedDict):
+        comparison: pulumi.Input[_builtins.str]
+        """
+        (Required) The comparison operator. Valid values: `EQUALS`.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        (Required) The value to filter on.
+        """
+elif False:
+    FilterFilterCriteriaCodeRepositoryProviderTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FilterFilterCriteriaCodeRepositoryProviderTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
@@ -1523,6 +1711,108 @@ class FilterFilterCriteriaEcrImageHashArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class FilterFilterCriteriaEcrImageInUseCountArgsDict(TypedDict):
+        lower_inclusive: pulumi.Input[_builtins.float]
+        """
+        (Optional) Lower bound of the range, inclusive.
+        """
+        upper_inclusive: pulumi.Input[_builtins.float]
+        """
+        (Optional) Upper bound of the range, inclusive.
+        """
+elif False:
+    FilterFilterCriteriaEcrImageInUseCountArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FilterFilterCriteriaEcrImageInUseCountArgs:
+    def __init__(__self__, *,
+                 lower_inclusive: pulumi.Input[_builtins.float],
+                 upper_inclusive: pulumi.Input[_builtins.float]):
+        """
+        :param pulumi.Input[_builtins.float] lower_inclusive: (Optional) Lower bound of the range, inclusive.
+        :param pulumi.Input[_builtins.float] upper_inclusive: (Optional) Upper bound of the range, inclusive.
+        """
+        pulumi.set(__self__, "lower_inclusive", lower_inclusive)
+        pulumi.set(__self__, "upper_inclusive", upper_inclusive)
+
+    @_builtins.property
+    @pulumi.getter(name="lowerInclusive")
+    def lower_inclusive(self) -> pulumi.Input[_builtins.float]:
+        """
+        (Optional) Lower bound of the range, inclusive.
+        """
+        return pulumi.get(self, "lower_inclusive")
+
+    @lower_inclusive.setter
+    def lower_inclusive(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "lower_inclusive", value)
+
+    @_builtins.property
+    @pulumi.getter(name="upperInclusive")
+    def upper_inclusive(self) -> pulumi.Input[_builtins.float]:
+        """
+        (Optional) Upper bound of the range, inclusive.
+        """
+        return pulumi.get(self, "upper_inclusive")
+
+    @upper_inclusive.setter
+    def upper_inclusive(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "upper_inclusive", value)
+
+
+if not MYPY:
+    class FilterFilterCriteriaEcrImageLastInUseAtArgsDict(TypedDict):
+        end_inclusive: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        (Required) The end of the port range, inclusive.
+        """
+        start_inclusive: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+        """
+elif False:
+    FilterFilterCriteriaEcrImageLastInUseAtArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FilterFilterCriteriaEcrImageLastInUseAtArgs:
+    def __init__(__self__, *,
+                 end_inclusive: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_inclusive: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] end_inclusive: (Required) The end of the port range, inclusive.
+        :param pulumi.Input[_builtins.str] start_inclusive: (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+        """
+        if end_inclusive is not None:
+            pulumi.set(__self__, "end_inclusive", end_inclusive)
+        if start_inclusive is not None:
+            pulumi.set(__self__, "start_inclusive", start_inclusive)
+
+    @_builtins.property
+    @pulumi.getter(name="endInclusive")
+    def end_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Required) The end of the port range, inclusive.
+        """
+        return pulumi.get(self, "end_inclusive")
+
+    @end_inclusive.setter
+    def end_inclusive(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_inclusive", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startInclusive")
+    def start_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+        """
+        return pulumi.get(self, "start_inclusive")
+
+    @start_inclusive.setter
+    def start_inclusive(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "start_inclusive", value)
 
 
 if not MYPY:

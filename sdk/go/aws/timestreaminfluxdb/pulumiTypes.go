@@ -13,6 +13,484 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DbClusterLogDeliveryConfiguration struct {
+	// Configuration for S3 bucket log delivery.
+	S3Configuration *DbClusterLogDeliveryConfigurationS3Configuration `pulumi:"s3Configuration"`
+}
+
+// DbClusterLogDeliveryConfigurationInput is an input type that accepts DbClusterLogDeliveryConfigurationArgs and DbClusterLogDeliveryConfigurationOutput values.
+// You can construct a concrete instance of `DbClusterLogDeliveryConfigurationInput` via:
+//
+//	DbClusterLogDeliveryConfigurationArgs{...}
+type DbClusterLogDeliveryConfigurationInput interface {
+	pulumi.Input
+
+	ToDbClusterLogDeliveryConfigurationOutput() DbClusterLogDeliveryConfigurationOutput
+	ToDbClusterLogDeliveryConfigurationOutputWithContext(context.Context) DbClusterLogDeliveryConfigurationOutput
+}
+
+type DbClusterLogDeliveryConfigurationArgs struct {
+	// Configuration for S3 bucket log delivery.
+	S3Configuration DbClusterLogDeliveryConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
+}
+
+func (DbClusterLogDeliveryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i DbClusterLogDeliveryConfigurationArgs) ToDbClusterLogDeliveryConfigurationOutput() DbClusterLogDeliveryConfigurationOutput {
+	return i.ToDbClusterLogDeliveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i DbClusterLogDeliveryConfigurationArgs) ToDbClusterLogDeliveryConfigurationOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterLogDeliveryConfigurationOutput)
+}
+
+func (i DbClusterLogDeliveryConfigurationArgs) ToDbClusterLogDeliveryConfigurationPtrOutput() DbClusterLogDeliveryConfigurationPtrOutput {
+	return i.ToDbClusterLogDeliveryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DbClusterLogDeliveryConfigurationArgs) ToDbClusterLogDeliveryConfigurationPtrOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterLogDeliveryConfigurationOutput).ToDbClusterLogDeliveryConfigurationPtrOutputWithContext(ctx)
+}
+
+// DbClusterLogDeliveryConfigurationPtrInput is an input type that accepts DbClusterLogDeliveryConfigurationArgs, DbClusterLogDeliveryConfigurationPtr and DbClusterLogDeliveryConfigurationPtrOutput values.
+// You can construct a concrete instance of `DbClusterLogDeliveryConfigurationPtrInput` via:
+//
+//	        DbClusterLogDeliveryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DbClusterLogDeliveryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDbClusterLogDeliveryConfigurationPtrOutput() DbClusterLogDeliveryConfigurationPtrOutput
+	ToDbClusterLogDeliveryConfigurationPtrOutputWithContext(context.Context) DbClusterLogDeliveryConfigurationPtrOutput
+}
+
+type dbClusterLogDeliveryConfigurationPtrType DbClusterLogDeliveryConfigurationArgs
+
+func DbClusterLogDeliveryConfigurationPtr(v *DbClusterLogDeliveryConfigurationArgs) DbClusterLogDeliveryConfigurationPtrInput {
+	return (*dbClusterLogDeliveryConfigurationPtrType)(v)
+}
+
+func (*dbClusterLogDeliveryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i *dbClusterLogDeliveryConfigurationPtrType) ToDbClusterLogDeliveryConfigurationPtrOutput() DbClusterLogDeliveryConfigurationPtrOutput {
+	return i.ToDbClusterLogDeliveryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dbClusterLogDeliveryConfigurationPtrType) ToDbClusterLogDeliveryConfigurationPtrOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterLogDeliveryConfigurationPtrOutput)
+}
+
+type DbClusterLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DbClusterLogDeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o DbClusterLogDeliveryConfigurationOutput) ToDbClusterLogDeliveryConfigurationOutput() DbClusterLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o DbClusterLogDeliveryConfigurationOutput) ToDbClusterLogDeliveryConfigurationOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o DbClusterLogDeliveryConfigurationOutput) ToDbClusterLogDeliveryConfigurationPtrOutput() DbClusterLogDeliveryConfigurationPtrOutput {
+	return o.ToDbClusterLogDeliveryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DbClusterLogDeliveryConfigurationOutput) ToDbClusterLogDeliveryConfigurationPtrOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterLogDeliveryConfiguration) *DbClusterLogDeliveryConfiguration {
+		return &v
+	}).(DbClusterLogDeliveryConfigurationPtrOutput)
+}
+
+// Configuration for S3 bucket log delivery.
+func (o DbClusterLogDeliveryConfigurationOutput) S3Configuration() DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v DbClusterLogDeliveryConfiguration) *DbClusterLogDeliveryConfigurationS3Configuration {
+		return v.S3Configuration
+	}).(DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput)
+}
+
+type DbClusterLogDeliveryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DbClusterLogDeliveryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o DbClusterLogDeliveryConfigurationPtrOutput) ToDbClusterLogDeliveryConfigurationPtrOutput() DbClusterLogDeliveryConfigurationPtrOutput {
+	return o
+}
+
+func (o DbClusterLogDeliveryConfigurationPtrOutput) ToDbClusterLogDeliveryConfigurationPtrOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationPtrOutput {
+	return o
+}
+
+func (o DbClusterLogDeliveryConfigurationPtrOutput) Elem() DbClusterLogDeliveryConfigurationOutput {
+	return o.ApplyT(func(v *DbClusterLogDeliveryConfiguration) DbClusterLogDeliveryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DbClusterLogDeliveryConfiguration
+		return ret
+	}).(DbClusterLogDeliveryConfigurationOutput)
+}
+
+// Configuration for S3 bucket log delivery.
+func (o DbClusterLogDeliveryConfigurationPtrOutput) S3Configuration() DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *DbClusterLogDeliveryConfiguration) *DbClusterLogDeliveryConfigurationS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.S3Configuration
+	}).(DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput)
+}
+
+type DbClusterLogDeliveryConfigurationS3Configuration struct {
+	// Name of the S3 bucket to deliver logs to.
+	BucketName string `pulumi:"bucketName"`
+	// Indicates whether log delivery to the S3 bucket is enabled.
+	//
+	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// DbClusterLogDeliveryConfigurationS3ConfigurationInput is an input type that accepts DbClusterLogDeliveryConfigurationS3ConfigurationArgs and DbClusterLogDeliveryConfigurationS3ConfigurationOutput values.
+// You can construct a concrete instance of `DbClusterLogDeliveryConfigurationS3ConfigurationInput` via:
+//
+//	DbClusterLogDeliveryConfigurationS3ConfigurationArgs{...}
+type DbClusterLogDeliveryConfigurationS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToDbClusterLogDeliveryConfigurationS3ConfigurationOutput() DbClusterLogDeliveryConfigurationS3ConfigurationOutput
+	ToDbClusterLogDeliveryConfigurationS3ConfigurationOutputWithContext(context.Context) DbClusterLogDeliveryConfigurationS3ConfigurationOutput
+}
+
+type DbClusterLogDeliveryConfigurationS3ConfigurationArgs struct {
+	// Name of the S3 bucket to deliver logs to.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Indicates whether log delivery to the S3 bucket is enabled.
+	//
+	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (DbClusterLogDeliveryConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterLogDeliveryConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i DbClusterLogDeliveryConfigurationS3ConfigurationArgs) ToDbClusterLogDeliveryConfigurationS3ConfigurationOutput() DbClusterLogDeliveryConfigurationS3ConfigurationOutput {
+	return i.ToDbClusterLogDeliveryConfigurationS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i DbClusterLogDeliveryConfigurationS3ConfigurationArgs) ToDbClusterLogDeliveryConfigurationS3ConfigurationOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterLogDeliveryConfigurationS3ConfigurationOutput)
+}
+
+func (i DbClusterLogDeliveryConfigurationS3ConfigurationArgs) ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput() DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return i.ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DbClusterLogDeliveryConfigurationS3ConfigurationArgs) ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterLogDeliveryConfigurationS3ConfigurationOutput).ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// DbClusterLogDeliveryConfigurationS3ConfigurationPtrInput is an input type that accepts DbClusterLogDeliveryConfigurationS3ConfigurationArgs, DbClusterLogDeliveryConfigurationS3ConfigurationPtr and DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `DbClusterLogDeliveryConfigurationS3ConfigurationPtrInput` via:
+//
+//	        DbClusterLogDeliveryConfigurationS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DbClusterLogDeliveryConfigurationS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput() DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput
+	ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(context.Context) DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput
+}
+
+type dbClusterLogDeliveryConfigurationS3ConfigurationPtrType DbClusterLogDeliveryConfigurationS3ConfigurationArgs
+
+func DbClusterLogDeliveryConfigurationS3ConfigurationPtr(v *DbClusterLogDeliveryConfigurationS3ConfigurationArgs) DbClusterLogDeliveryConfigurationS3ConfigurationPtrInput {
+	return (*dbClusterLogDeliveryConfigurationS3ConfigurationPtrType)(v)
+}
+
+func (*dbClusterLogDeliveryConfigurationS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterLogDeliveryConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i *dbClusterLogDeliveryConfigurationS3ConfigurationPtrType) ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput() DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return i.ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dbClusterLogDeliveryConfigurationS3ConfigurationPtrType) ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput)
+}
+
+type DbClusterLogDeliveryConfigurationS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DbClusterLogDeliveryConfigurationS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterLogDeliveryConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) ToDbClusterLogDeliveryConfigurationS3ConfigurationOutput() DbClusterLogDeliveryConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) ToDbClusterLogDeliveryConfigurationS3ConfigurationOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput() DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o.ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterLogDeliveryConfigurationS3Configuration) *DbClusterLogDeliveryConfigurationS3Configuration {
+		return &v
+	}).(DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput)
+}
+
+// Name of the S3 bucket to deliver logs to.
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v DbClusterLogDeliveryConfigurationS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// Indicates whether log delivery to the S3 bucket is enabled.
+//
+// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DbClusterLogDeliveryConfigurationS3Configuration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterLogDeliveryConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput() DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) ToDbClusterLogDeliveryConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) Elem() DbClusterLogDeliveryConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v *DbClusterLogDeliveryConfigurationS3Configuration) DbClusterLogDeliveryConfigurationS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret DbClusterLogDeliveryConfigurationS3Configuration
+		return ret
+	}).(DbClusterLogDeliveryConfigurationS3ConfigurationOutput)
+}
+
+// Name of the S3 bucket to deliver logs to.
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterLogDeliveryConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether log delivery to the S3 bucket is enabled.
+//
+// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
+func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DbClusterLogDeliveryConfigurationS3Configuration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DbClusterTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// DbClusterTimeoutsInput is an input type that accepts DbClusterTimeoutsArgs and DbClusterTimeoutsOutput values.
+// You can construct a concrete instance of `DbClusterTimeoutsInput` via:
+//
+//	DbClusterTimeoutsArgs{...}
+type DbClusterTimeoutsInput interface {
+	pulumi.Input
+
+	ToDbClusterTimeoutsOutput() DbClusterTimeoutsOutput
+	ToDbClusterTimeoutsOutputWithContext(context.Context) DbClusterTimeoutsOutput
+}
+
+type DbClusterTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (DbClusterTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterTimeouts)(nil)).Elem()
+}
+
+func (i DbClusterTimeoutsArgs) ToDbClusterTimeoutsOutput() DbClusterTimeoutsOutput {
+	return i.ToDbClusterTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DbClusterTimeoutsArgs) ToDbClusterTimeoutsOutputWithContext(ctx context.Context) DbClusterTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterTimeoutsOutput)
+}
+
+func (i DbClusterTimeoutsArgs) ToDbClusterTimeoutsPtrOutput() DbClusterTimeoutsPtrOutput {
+	return i.ToDbClusterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DbClusterTimeoutsArgs) ToDbClusterTimeoutsPtrOutputWithContext(ctx context.Context) DbClusterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterTimeoutsOutput).ToDbClusterTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DbClusterTimeoutsPtrInput is an input type that accepts DbClusterTimeoutsArgs, DbClusterTimeoutsPtr and DbClusterTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DbClusterTimeoutsPtrInput` via:
+//
+//	        DbClusterTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DbClusterTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDbClusterTimeoutsPtrOutput() DbClusterTimeoutsPtrOutput
+	ToDbClusterTimeoutsPtrOutputWithContext(context.Context) DbClusterTimeoutsPtrOutput
+}
+
+type dbClusterTimeoutsPtrType DbClusterTimeoutsArgs
+
+func DbClusterTimeoutsPtr(v *DbClusterTimeoutsArgs) DbClusterTimeoutsPtrInput {
+	return (*dbClusterTimeoutsPtrType)(v)
+}
+
+func (*dbClusterTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterTimeouts)(nil)).Elem()
+}
+
+func (i *dbClusterTimeoutsPtrType) ToDbClusterTimeoutsPtrOutput() DbClusterTimeoutsPtrOutput {
+	return i.ToDbClusterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *dbClusterTimeoutsPtrType) ToDbClusterTimeoutsPtrOutputWithContext(ctx context.Context) DbClusterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterTimeoutsPtrOutput)
+}
+
+type DbClusterTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DbClusterTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterTimeouts)(nil)).Elem()
+}
+
+func (o DbClusterTimeoutsOutput) ToDbClusterTimeoutsOutput() DbClusterTimeoutsOutput {
+	return o
+}
+
+func (o DbClusterTimeoutsOutput) ToDbClusterTimeoutsOutputWithContext(ctx context.Context) DbClusterTimeoutsOutput {
+	return o
+}
+
+func (o DbClusterTimeoutsOutput) ToDbClusterTimeoutsPtrOutput() DbClusterTimeoutsPtrOutput {
+	return o.ToDbClusterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DbClusterTimeoutsOutput) ToDbClusterTimeoutsPtrOutputWithContext(ctx context.Context) DbClusterTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterTimeouts) *DbClusterTimeouts {
+		return &v
+	}).(DbClusterTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DbClusterTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DbClusterTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DbClusterTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type DbClusterTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DbClusterTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterTimeouts)(nil)).Elem()
+}
+
+func (o DbClusterTimeoutsPtrOutput) ToDbClusterTimeoutsPtrOutput() DbClusterTimeoutsPtrOutput {
+	return o
+}
+
+func (o DbClusterTimeoutsPtrOutput) ToDbClusterTimeoutsPtrOutputWithContext(ctx context.Context) DbClusterTimeoutsPtrOutput {
+	return o
+}
+
+func (o DbClusterTimeoutsPtrOutput) Elem() DbClusterTimeoutsOutput {
+	return o.ApplyT(func(v *DbClusterTimeouts) DbClusterTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DbClusterTimeouts
+		return ret
+	}).(DbClusterTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DbClusterTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DbClusterTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DbClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type DbInstanceLogDeliveryConfiguration struct {
 	// Configuration for S3 bucket log delivery.
 	S3Configuration *DbInstanceLogDeliveryConfigurationS3Configuration `pulumi:"s3Configuration"`
@@ -492,12 +970,24 @@ func (o DbInstanceTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterLogDeliveryConfigurationInput)(nil)).Elem(), DbClusterLogDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterLogDeliveryConfigurationPtrInput)(nil)).Elem(), DbClusterLogDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterLogDeliveryConfigurationS3ConfigurationInput)(nil)).Elem(), DbClusterLogDeliveryConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterLogDeliveryConfigurationS3ConfigurationPtrInput)(nil)).Elem(), DbClusterLogDeliveryConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterTimeoutsInput)(nil)).Elem(), DbClusterTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterTimeoutsPtrInput)(nil)).Elem(), DbClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceLogDeliveryConfigurationInput)(nil)).Elem(), DbInstanceLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceLogDeliveryConfigurationPtrInput)(nil)).Elem(), DbInstanceLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceLogDeliveryConfigurationS3ConfigurationInput)(nil)).Elem(), DbInstanceLogDeliveryConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceLogDeliveryConfigurationS3ConfigurationPtrInput)(nil)).Elem(), DbInstanceLogDeliveryConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceTimeoutsInput)(nil)).Elem(), DbInstanceTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceTimeoutsPtrInput)(nil)).Elem(), DbInstanceTimeoutsArgs{})
+	pulumi.RegisterOutputType(DbClusterLogDeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(DbClusterLogDeliveryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterLogDeliveryConfigurationS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterTimeoutsOutput{})
+	pulumi.RegisterOutputType(DbClusterTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DbInstanceLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(DbInstanceLogDeliveryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DbInstanceLogDeliveryConfigurationS3ConfigurationOutput{})

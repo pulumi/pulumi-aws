@@ -3602,7 +3602,7 @@ func (o ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayOutpu
 }
 
 type ServiceServiceConnectConfigurationService struct {
-	// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+	// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `clientAlias` with one `port` should be specified. See below.
 	ClientAlias []ServiceServiceConnectConfigurationServiceClientAlias `pulumi:"clientAlias"`
 	// Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName *string `pulumi:"discoveryName"`
@@ -3628,7 +3628,7 @@ type ServiceServiceConnectConfigurationServiceInput interface {
 }
 
 type ServiceServiceConnectConfigurationServiceArgs struct {
-	// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+	// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `clientAlias` with one `port` should be specified. See below.
 	ClientAlias ServiceServiceConnectConfigurationServiceClientAliasArrayInput `pulumi:"clientAlias"`
 	// Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName pulumi.StringPtrInput `pulumi:"discoveryName"`
@@ -3693,7 +3693,7 @@ func (o ServiceServiceConnectConfigurationServiceOutput) ToServiceServiceConnect
 	return o
 }
 
-// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `clientAlias` with one `port` should be specified. See below.
 func (o ServiceServiceConnectConfigurationServiceOutput) ClientAlias() ServiceServiceConnectConfigurationServiceClientAliasArrayOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) []ServiceServiceConnectConfigurationServiceClientAlias {
 		return v.ClientAlias

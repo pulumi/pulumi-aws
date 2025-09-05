@@ -108,6 +108,20 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
         return this.instanceId;
     }
     /**
+     * Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+     * 
+     */
+    @Export(name="networkCardIndex", refs={Integer.class}, tree="[0]")
+    private Output<Integer> networkCardIndex;
+
+    /**
+     * @return Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+     * 
+     */
+    public Output<Integer> networkCardIndex() {
+        return this.networkCardIndex;
+    }
+    /**
      * ENI ID to attach.
      * 
      */

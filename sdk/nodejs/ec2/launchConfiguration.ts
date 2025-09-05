@@ -82,85 +82,85 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the launch configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Associate a public ip address with an instance in a VPC.
      */
-    public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
+    declare public readonly associatePublicIpAddress: pulumi.Output<boolean | undefined>;
     /**
      * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.LaunchConfigurationEbsBlockDevice[]>;
+    declare public readonly ebsBlockDevices: pulumi.Output<outputs.ec2.LaunchConfigurationEbsBlockDevice[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    public readonly ebsOptimized!: pulumi.Output<boolean>;
+    declare public readonly ebsOptimized: pulumi.Output<boolean>;
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      */
-    public readonly enableMonitoring!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableMonitoring: pulumi.Output<boolean | undefined>;
     /**
      * Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.LaunchConfigurationEphemeralBlockDevice[] | undefined>;
+    declare public readonly ephemeralBlockDevices: pulumi.Output<outputs.ec2.LaunchConfigurationEphemeralBlockDevice[] | undefined>;
     /**
      * The name attribute of the IAM instance profile to associate with launched instances.
      */
-    public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
+    declare public readonly iamInstanceProfile: pulumi.Output<string | undefined>;
     /**
      * The EC2 image ID to launch.
      */
-    public readonly imageId!: pulumi.Output<string>;
+    declare public readonly imageId: pulumi.Output<string>;
     /**
      * The size of instance to launch.
      *
      * The following arguments are optional:
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * The key name that should be used for the instance.
      */
-    public readonly keyName!: pulumi.Output<string>;
+    declare public readonly keyName: pulumi.Output<string>;
     /**
      * The metadata options for the instance.
      */
-    public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchConfigurationMetadataOptions>;
+    declare public readonly metadataOptions: pulumi.Output<outputs.ec2.LaunchConfigurationMetadataOptions>;
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      */
-    public readonly placementTenancy!: pulumi.Output<string | undefined>;
+    declare public readonly placementTenancy: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.LaunchConfigurationRootBlockDevice>;
+    declare public readonly rootBlockDevice: pulumi.Output<outputs.ec2.LaunchConfigurationRootBlockDevice>;
     /**
      * A list of associated security group IDS.
      */
-    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
      * The maximum price to use for reserving spot instances.
      */
-    public readonly spotPrice!: pulumi.Output<string | undefined>;
+    declare public readonly spotPrice: pulumi.Output<string | undefined>;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
     /**
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    public readonly userDataBase64!: pulumi.Output<string | undefined>;
+    declare public readonly userDataBase64: pulumi.Output<string | undefined>;
 
     /**
      * Create a LaunchConfiguration resource with the given unique name, arguments, and options.
@@ -175,53 +175,53 @@ export class LaunchConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LaunchConfigurationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
-            resourceInputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
-            resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            resourceInputs["enableMonitoring"] = state ? state.enableMonitoring : undefined;
-            resourceInputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
-            resourceInputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
-            resourceInputs["imageId"] = state ? state.imageId : undefined;
-            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
-            resourceInputs["keyName"] = state ? state.keyName : undefined;
-            resourceInputs["metadataOptions"] = state ? state.metadataOptions : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["placementTenancy"] = state ? state.placementTenancy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
-            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
-            resourceInputs["spotPrice"] = state ? state.spotPrice : undefined;
-            resourceInputs["userData"] = state ? state.userData : undefined;
-            resourceInputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["associatePublicIpAddress"] = state?.associatePublicIpAddress;
+            resourceInputs["ebsBlockDevices"] = state?.ebsBlockDevices;
+            resourceInputs["ebsOptimized"] = state?.ebsOptimized;
+            resourceInputs["enableMonitoring"] = state?.enableMonitoring;
+            resourceInputs["ephemeralBlockDevices"] = state?.ephemeralBlockDevices;
+            resourceInputs["iamInstanceProfile"] = state?.iamInstanceProfile;
+            resourceInputs["imageId"] = state?.imageId;
+            resourceInputs["instanceType"] = state?.instanceType;
+            resourceInputs["keyName"] = state?.keyName;
+            resourceInputs["metadataOptions"] = state?.metadataOptions;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["placementTenancy"] = state?.placementTenancy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["rootBlockDevice"] = state?.rootBlockDevice;
+            resourceInputs["securityGroups"] = state?.securityGroups;
+            resourceInputs["spotPrice"] = state?.spotPrice;
+            resourceInputs["userData"] = state?.userData;
+            resourceInputs["userDataBase64"] = state?.userDataBase64;
         } else {
             const args = argsOrState as LaunchConfigurationArgs | undefined;
-            if ((!args || args.imageId === undefined) && !opts.urn) {
+            if (args?.imageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageId'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
-            resourceInputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            resourceInputs["enableMonitoring"] = args ? args.enableMonitoring : undefined;
-            resourceInputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
-            resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["placementTenancy"] = args ? args.placementTenancy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
+            resourceInputs["associatePublicIpAddress"] = args?.associatePublicIpAddress;
+            resourceInputs["ebsBlockDevices"] = args?.ebsBlockDevices;
+            resourceInputs["ebsOptimized"] = args?.ebsOptimized;
+            resourceInputs["enableMonitoring"] = args?.enableMonitoring;
+            resourceInputs["ephemeralBlockDevices"] = args?.ephemeralBlockDevices;
+            resourceInputs["iamInstanceProfile"] = args?.iamInstanceProfile;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["metadataOptions"] = args?.metadataOptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["placementTenancy"] = args?.placementTenancy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["rootBlockDevice"] = args?.rootBlockDevice;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["spotPrice"] = args?.spotPrice;
+            resourceInputs["userData"] = args?.userData;
+            resourceInputs["userDataBase64"] = args?.userDataBase64;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

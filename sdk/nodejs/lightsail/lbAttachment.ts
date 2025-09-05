@@ -79,17 +79,17 @@ export class LbAttachment extends pulumi.CustomResource {
     /**
      * Name of the instance to attach to the load balancer.
      */
-    public readonly instanceName!: pulumi.Output<string>;
+    declare public readonly instanceName: pulumi.Output<string>;
     /**
      * Name of the Lightsail load balancer.
      *
      * The following arguments are optional:
      */
-    public readonly lbName!: pulumi.Output<string>;
+    declare public readonly lbName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a LbAttachment resource with the given unique name, arguments, and options.
@@ -104,20 +104,20 @@ export class LbAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LbAttachmentState | undefined;
-            resourceInputs["instanceName"] = state ? state.instanceName : undefined;
-            resourceInputs["lbName"] = state ? state.lbName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["instanceName"] = state?.instanceName;
+            resourceInputs["lbName"] = state?.lbName;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as LbAttachmentArgs | undefined;
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
+            if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if ((!args || args.lbName === undefined) && !opts.urn) {
+            if (args?.lbName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lbName'");
             }
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["lbName"] = args ? args.lbName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["lbName"] = args?.lbName;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbAttachment.__pulumiType, name, resourceInputs, opts);

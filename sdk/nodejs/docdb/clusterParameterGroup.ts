@@ -66,39 +66,39 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * The ARN of the DocumentDB cluster parameter group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The family of the DocumentDB cluster parameter group.
      */
-    public readonly family!: pulumi.Output<string>;
+    declare public readonly family: pulumi.Output<string>;
     /**
      * The name of the DocumentDB parameter.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      */
-    public readonly parameters!: pulumi.Output<outputs.docdb.ClusterParameterGroupParameter[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.docdb.ClusterParameterGroupParameter[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ClusterParameterGroup resource with the given unique name, arguments, and options.
@@ -113,27 +113,27 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterParameterGroupState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["family"] = state ? state.family : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["family"] = state?.family;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ClusterParameterGroupArgs | undefined;
-            if ((!args || args.family === undefined) && !opts.urn) {
+            if (args?.family === undefined && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["family"] = args?.family;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

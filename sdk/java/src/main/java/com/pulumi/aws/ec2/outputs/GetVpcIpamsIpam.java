@@ -49,6 +49,7 @@ public final class GetVpcIpamsIpam {
      * 
      */
     private String ipamRegion;
+    private String meteredAccount;
     /**
      * @return Regions that the IPAM is configured to operate in.
      * 
@@ -145,6 +146,9 @@ public final class GetVpcIpamsIpam {
     public String ipamRegion() {
         return this.ipamRegion;
     }
+    public String meteredAccount() {
+        return this.meteredAccount;
+    }
     /**
      * @return Regions that the IPAM is configured to operate in.
      * 
@@ -225,6 +229,7 @@ public final class GetVpcIpamsIpam {
         private Boolean enablePrivateGua;
         private String id;
         private String ipamRegion;
+        private String meteredAccount;
         private List<GetVpcIpamsIpamOperatingRegion> operatingRegions;
         private String ownerId;
         private String privateDefaultScopeId;
@@ -244,6 +249,7 @@ public final class GetVpcIpamsIpam {
     	      this.enablePrivateGua = defaults.enablePrivateGua;
     	      this.id = defaults.id;
     	      this.ipamRegion = defaults.ipamRegion;
+    	      this.meteredAccount = defaults.meteredAccount;
     	      this.operatingRegions = defaults.operatingRegions;
     	      this.ownerId = defaults.ownerId;
     	      this.privateDefaultScopeId = defaults.privateDefaultScopeId;
@@ -309,6 +315,14 @@ public final class GetVpcIpamsIpam {
               throw new MissingRequiredPropertyException("GetVpcIpamsIpam", "ipamRegion");
             }
             this.ipamRegion = ipamRegion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder meteredAccount(String meteredAccount) {
+            if (meteredAccount == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamsIpam", "meteredAccount");
+            }
+            this.meteredAccount = meteredAccount;
             return this;
         }
         @CustomType.Setter
@@ -395,6 +409,7 @@ public final class GetVpcIpamsIpam {
             _resultValue.enablePrivateGua = enablePrivateGua;
             _resultValue.id = id;
             _resultValue.ipamRegion = ipamRegion;
+            _resultValue.meteredAccount = meteredAccount;
             _resultValue.operatingRegions = operatingRegions;
             _resultValue.ownerId = ownerId;
             _resultValue.privateDefaultScopeId = privateDefaultScopeId;

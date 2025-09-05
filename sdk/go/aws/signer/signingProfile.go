@@ -81,6 +81,8 @@ type SigningProfile struct {
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodOutput `pulumi:"signatureValidityPeriod"`
 	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
 	SigningMaterial SigningProfileSigningMaterialOutput `pulumi:"signingMaterial"`
+	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
+	SigningParameters pulumi.StringMapOutput `pulumi:"signingParameters"`
 	// The status of the target signing profile.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -142,6 +144,8 @@ type signingProfileState struct {
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
 	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
 	SigningMaterial *SigningProfileSigningMaterial `pulumi:"signingMaterial"`
+	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
+	SigningParameters map[string]string `pulumi:"signingParameters"`
 	// The status of the target signing profile.
 	Status *string `pulumi:"status"`
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -171,6 +175,8 @@ type SigningProfileState struct {
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
 	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
 	SigningMaterial SigningProfileSigningMaterialPtrInput
+	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
+	SigningParameters pulumi.StringMapInput
 	// The status of the target signing profile.
 	Status pulumi.StringPtrInput
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -198,6 +204,8 @@ type signingProfileArgs struct {
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
 	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
 	SigningMaterial *SigningProfileSigningMaterial `pulumi:"signingMaterial"`
+	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
+	SigningParameters map[string]string `pulumi:"signingParameters"`
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -214,6 +222,8 @@ type SigningProfileArgs struct {
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
 	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
 	SigningMaterial SigningProfileSigningMaterialPtrInput
+	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
+	SigningParameters pulumi.StringMapInput
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -346,6 +356,11 @@ func (o SigningProfileOutput) SignatureValidityPeriod() SigningProfileSignatureV
 // The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
 func (o SigningProfileOutput) SigningMaterial() SigningProfileSigningMaterialOutput {
 	return o.ApplyT(func(v *SigningProfile) SigningProfileSigningMaterialOutput { return v.SigningMaterial }).(SigningProfileSigningMaterialOutput)
+}
+
+// Map of key-value pairs for signing. These can include any information that you want to use during signing.
+func (o SigningProfileOutput) SigningParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SigningProfile) pulumi.StringMapOutput { return v.SigningParameters }).(pulumi.StringMapOutput)
 }
 
 // The status of the target signing profile.

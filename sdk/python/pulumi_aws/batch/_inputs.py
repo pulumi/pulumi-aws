@@ -632,7 +632,7 @@ if not MYPY:
         """
         terminate_jobs_on_update: NotRequired[pulumi.Input[_builtins.bool]]
         """
-        Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+        Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
         """
 elif False:
     ComputeEnvironmentUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -644,7 +644,7 @@ class ComputeEnvironmentUpdatePolicyArgs:
                  terminate_jobs_on_update: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] job_execution_timeout_minutes: Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-        :param pulumi.Input[_builtins.bool] terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+        :param pulumi.Input[_builtins.bool] terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
         """
         if job_execution_timeout_minutes is not None:
             pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
@@ -667,7 +667,7 @@ class ComputeEnvironmentUpdatePolicyArgs:
     @pulumi.getter(name="terminateJobsOnUpdate")
     def terminate_jobs_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+        Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
         """
         return pulumi.get(self, "terminate_jobs_on_update")
 
@@ -1749,7 +1749,7 @@ if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict(TypedDict):
         labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
         """
-        Key-value pairs used to identify, sort, and organize cube resources.
+        Key-value pairs used to identify, sort, and organize kubernetes resources.
         """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict: TypeAlias = Mapping[str, Any]
@@ -1759,7 +1759,7 @@ class JobDefinitionEksPropertiesPodPropertiesMetadataArgs:
     def __init__(__self__, *,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: Key-value pairs used to identify, sort, and organize cube resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: Key-value pairs used to identify, sort, and organize kubernetes resources.
         """
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
@@ -1768,7 +1768,7 @@ class JobDefinitionEksPropertiesPodPropertiesMetadataArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Key-value pairs used to identify, sort, and organize cube resources.
+        Key-value pairs used to identify, sort, and organize kubernetes resources.
         """
         return pulumi.get(self, "labels")
 

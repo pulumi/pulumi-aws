@@ -48,6 +48,21 @@ public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.R
     }
 
     /**
+     * Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+     * 
+     */
+    @Import(name="networkCardIndex")
+    private @Nullable Output<Integer> networkCardIndex;
+
+    /**
+     * @return Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+     * 
+     */
+    public Optional<Output<Integer>> networkCardIndex() {
+        return Optional.ofNullable(this.networkCardIndex);
+    }
+
+    /**
      * ENI ID to attach.
      * 
      */
@@ -82,6 +97,7 @@ public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.R
     private NetworkInterfaceAttachmentArgs(NetworkInterfaceAttachmentArgs $) {
         this.deviceIndex = $.deviceIndex;
         this.instanceId = $.instanceId;
+        this.networkCardIndex = $.networkCardIndex;
         this.networkInterfaceId = $.networkInterfaceId;
         this.region = $.region;
     }
@@ -144,6 +160,27 @@ public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.R
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
+        }
+
+        /**
+         * @param networkCardIndex Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkCardIndex(@Nullable Output<Integer> networkCardIndex) {
+            $.networkCardIndex = networkCardIndex;
+            return this;
+        }
+
+        /**
+         * @param networkCardIndex Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkCardIndex(Integer networkCardIndex) {
+            return networkCardIndex(Output.of(networkCardIndex));
         }
 
         /**

@@ -60,29 +60,29 @@ export class PolicyTemplate extends pulumi.CustomResource {
     /**
      * The date the Policy Store was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * Provides a description for the policy template.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the Policy Store.
      */
-    public readonly policyStoreId!: pulumi.Output<string>;
+    declare public readonly policyStoreId: pulumi.Output<string>;
     /**
      * The ID of the Policy Store.
      */
-    public /*out*/ readonly policyTemplateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyTemplateId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Defines the content of the statement, written in Cedar policy language.
      *
      * The following arguments are optional:
      */
-    public readonly statement!: pulumi.Output<string>;
+    declare public readonly statement: pulumi.Output<string>;
 
     /**
      * Create a PolicyTemplate resource with the given unique name, arguments, and options.
@@ -97,24 +97,24 @@ export class PolicyTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyTemplateState | undefined;
-            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
-            resourceInputs["policyTemplateId"] = state ? state.policyTemplateId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["statement"] = state ? state.statement : undefined;
+            resourceInputs["createdDate"] = state?.createdDate;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["policyStoreId"] = state?.policyStoreId;
+            resourceInputs["policyTemplateId"] = state?.policyTemplateId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["statement"] = state?.statement;
         } else {
             const args = argsOrState as PolicyTemplateArgs | undefined;
-            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+            if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
-            if ((!args || args.statement === undefined) && !opts.urn) {
+            if (args?.statement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statement'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["statement"] = args ? args.statement : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["policyStoreId"] = args?.policyStoreId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["statement"] = args?.statement;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["policyTemplateId"] = undefined /*out*/;
         }

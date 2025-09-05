@@ -71,10 +71,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<ImmutableArray<Outputs.EndpointAuthenticationOption>> AuthenticationOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
         /// </summary>
         [Output("clientCidrBlock")]
-        public Output<string> ClientCidrBlock { get; private set; } = null!;
+        public Output<string?> ClientCidrBlock { get; private set; } = null!;
 
         /// <summary>
         /// The options for managing connection authorization for new client connections.
@@ -123,6 +123,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Output("dnsServers")]
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
+
+        /// <summary>
+        /// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+        /// </summary>
+        [Output("endpointIpAddressType")]
+        public Output<string> EndpointIpAddressType { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -177,6 +183,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        /// </summary>
+        [Output("trafficIpAddressType")]
+        public Output<string> TrafficIpAddressType { get; private set; } = null!;
 
         /// <summary>
         /// The transport protocol to be used by the VPN session. Default value is `udp`.
@@ -255,10 +267,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
         /// </summary>
-        [Input("clientCidrBlock", required: true)]
-        public Input<string> ClientCidrBlock { get; set; } = null!;
+        [Input("clientCidrBlock")]
+        public Input<string>? ClientCidrBlock { get; set; }
 
         /// <summary>
         /// The options for managing connection authorization for new client connections.
@@ -307,6 +319,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
+
+        /// <summary>
+        /// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+        /// </summary>
+        [Input("endpointIpAddressType")]
+        public Input<string>? EndpointIpAddressType { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -363,6 +381,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
+        /// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        /// </summary>
+        [Input("trafficIpAddressType")]
+        public Input<string>? TrafficIpAddressType { get; set; }
+
+        /// <summary>
         /// The transport protocol to be used by the VPN session. Default value is `udp`.
         /// </summary>
         [Input("transportProtocol")]
@@ -407,7 +431,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
         /// </summary>
         [Input("clientCidrBlock")]
         public Input<string>? ClientCidrBlock { get; set; }
@@ -465,6 +489,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
+
+        /// <summary>
+        /// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+        /// </summary>
+        [Input("endpointIpAddressType")]
+        public Input<string>? EndpointIpAddressType { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -537,6 +567,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        /// </summary>
+        [Input("trafficIpAddressType")]
+        public Input<string>? TrafficIpAddressType { get; set; }
 
         /// <summary>
         /// The transport protocol to be used by the VPN session. Default value is `udp`.

@@ -69,19 +69,19 @@ export class ClusterCapacityProviders extends pulumi.CustomResource {
     /**
      * Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      */
-    public readonly capacityProviders!: pulumi.Output<string[] | undefined>;
+    declare public readonly capacityProviders: pulumi.Output<string[] | undefined>;
     /**
      * Name of the ECS cluster to manage capacity providers for.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * Set of capacity provider strategies to use by default for the cluster. Detailed below.
      */
-    public readonly defaultCapacityProviderStrategies!: pulumi.Output<outputs.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy[] | undefined>;
+    declare public readonly defaultCapacityProviderStrategies: pulumi.Output<outputs.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ClusterCapacityProviders resource with the given unique name, arguments, and options.
@@ -96,19 +96,19 @@ export class ClusterCapacityProviders extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterCapacityProvidersState | undefined;
-            resourceInputs["capacityProviders"] = state ? state.capacityProviders : undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["defaultCapacityProviderStrategies"] = state ? state.defaultCapacityProviderStrategies : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["capacityProviders"] = state?.capacityProviders;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["defaultCapacityProviderStrategies"] = state?.defaultCapacityProviderStrategies;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ClusterCapacityProvidersArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            resourceInputs["capacityProviders"] = args ? args.capacityProviders : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["defaultCapacityProviderStrategies"] = args ? args.defaultCapacityProviderStrategies : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["capacityProviders"] = args?.capacityProviders;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["defaultCapacityProviderStrategies"] = args?.defaultCapacityProviderStrategies;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterCapacityProviders.__pulumiType, name, resourceInputs, opts);

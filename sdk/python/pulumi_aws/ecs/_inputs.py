@@ -1768,7 +1768,7 @@ if not MYPY:
         """
         client_alias: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgsDict']]]]
         """
-        List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
         """
         discovery_name: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1800,7 +1800,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
                  tls: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] port_name: Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]] client_alias: List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]] client_alias: List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
         :param pulumi.Input[_builtins.str] discovery_name: Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         :param pulumi.Input[_builtins.int] ingress_port_override: Port number for the Service Connect proxy to listen on.
         :param pulumi.Input['ServiceServiceConnectConfigurationServiceTimeoutArgs'] timeout: Configuration timeouts for Service Connect
@@ -1834,7 +1834,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
     @pulumi.getter(name="clientAlias")
     def client_alias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]]]:
         """
-        List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
         """
         return pulumi.get(self, "client_alias")
 

@@ -90,11 +90,23 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `repository` - (String) Name of the ECR repository.
+ * 
+ * #### Optional
+ * 
+ * - `account_id` (String) AWS Account where this resource is managed.
+ * 
+ * - `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
  * 
- * ```sh
- * $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
- * ```
+ * console
+ * 
+ * % pulumi import aws_ecr_repository_policy.example example
  * 
  */
 @ResourceType(type="aws:ecr/repositoryPolicy:RepositoryPolicy")

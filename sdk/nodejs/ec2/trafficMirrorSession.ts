@@ -69,51 +69,51 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     /**
      * The ARN of the traffic mirror session.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the traffic mirror session.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string>;
+    declare public readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * The AWS account ID of the session owner.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
-    public readonly packetLength!: pulumi.Output<number>;
+    declare public readonly packetLength: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
-    public readonly sessionNumber!: pulumi.Output<number>;
+    declare public readonly sessionNumber: pulumi.Output<number>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * ID of the traffic mirror filter to be used
      */
-    public readonly trafficMirrorFilterId!: pulumi.Output<string>;
+    declare public readonly trafficMirrorFilterId: pulumi.Output<string>;
     /**
      * ID of the traffic mirror target to be used
      */
-    public readonly trafficMirrorTargetId!: pulumi.Output<string>;
+    declare public readonly trafficMirrorTargetId: pulumi.Output<string>;
     /**
      * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      */
-    public readonly virtualNetworkId!: pulumi.Output<number>;
+    declare public readonly virtualNetworkId: pulumi.Output<number>;
 
     /**
      * Create a TrafficMirrorSession resource with the given unique name, arguments, and options.
@@ -128,41 +128,41 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficMirrorSessionState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["packetLength"] = state ? state.packetLength : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sessionNumber"] = state ? state.sessionNumber : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["trafficMirrorFilterId"] = state ? state.trafficMirrorFilterId : undefined;
-            resourceInputs["trafficMirrorTargetId"] = state ? state.trafficMirrorTargetId : undefined;
-            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["packetLength"] = state?.packetLength;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sessionNumber"] = state?.sessionNumber;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["trafficMirrorFilterId"] = state?.trafficMirrorFilterId;
+            resourceInputs["trafficMirrorTargetId"] = state?.trafficMirrorTargetId;
+            resourceInputs["virtualNetworkId"] = state?.virtualNetworkId;
         } else {
             const args = argsOrState as TrafficMirrorSessionArgs | undefined;
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if ((!args || args.sessionNumber === undefined) && !opts.urn) {
+            if (args?.sessionNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sessionNumber'");
             }
-            if ((!args || args.trafficMirrorFilterId === undefined) && !opts.urn) {
+            if (args?.trafficMirrorFilterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorFilterId'");
             }
-            if ((!args || args.trafficMirrorTargetId === undefined) && !opts.urn) {
+            if (args?.trafficMirrorTargetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorTargetId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["packetLength"] = args ? args.packetLength : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sessionNumber"] = args ? args.sessionNumber : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
-            resourceInputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["packetLength"] = args?.packetLength;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sessionNumber"] = args?.sessionNumber;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficMirrorFilterId"] = args?.trafficMirrorFilterId;
+            resourceInputs["trafficMirrorTargetId"] = args?.trafficMirrorTargetId;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

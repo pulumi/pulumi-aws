@@ -46,27 +46,69 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `route_table_id` - (String) ID of the route table.
+ *
+ * #### Optional
+ *
+ * ~> Exactly one of of `destination_cidr_block`, `destination_ipv6_cidr_block`, or `destination_prefix_list_id` is required.
+ *
+ * - `account_id` (String) AWS Account where this resource is managed.
+ *
+ * - `destination_cidr_block` - (String) Destination IPv4 CIDR block.
+ *
+ * - `destination_ipv6_cidr_block` - (String) Destination IPv6 CIDR block.
+ *
+ * - `destination_prefix_list_id` - (String) Destination IPv6 CIDR block.
+ *
+ * - `region` (String) Region where this resource is managed.
+ *
  * Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
+ *
+ * terraform
+ *
+ * import {
+ *
+ *   to = aws_route.my_route
+ *
+ *   id = "rtb-656C65616E6F72_2620:0:2d0:200::8/125"
+ *
+ * }
  *
  * Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
  *
- * __Using `pulumi import` to import__ individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:
+ * terraform
+ *
+ * import {
+ *
+ *   to = aws_route.my_route
+ *
+ *   id = "rtb-656C65616E6F72_pl-0570a1d2d725c16be"
+ *
+ * }
+ *
+ * **Using `pulumi import` to import** individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:
  *
  * Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
  *
- * ```sh
- * $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
- * ```
+ * console
+ *
+ * % pulumi import aws_route.my_route rtb-656C65616E6F72_10.42.0.0/16
+ *
  * Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
  *
- * ```sh
- * $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
- * ```
+ * console
+ *
+ * % pulumi import aws_route.my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+ *
  * Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
  *
- * ```sh
- * $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
- * ```
+ * console
+ *
+ * % pulumi import aws_route.my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -99,85 +141,85 @@ export class Route extends pulumi.CustomResource {
     /**
      * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
      */
-    public readonly carrierGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly carrierGatewayId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of a core network.
      */
-    public readonly coreNetworkArn!: pulumi.Output<string | undefined>;
+    declare public readonly coreNetworkArn: pulumi.Output<string | undefined>;
     /**
      * The destination CIDR block.
      */
-    public readonly destinationCidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly destinationCidrBlock: pulumi.Output<string | undefined>;
     /**
      * The destination IPv6 CIDR block.
      */
-    public readonly destinationIpv6CidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly destinationIpv6CidrBlock: pulumi.Output<string | undefined>;
     /**
      * The ID of a managed prefix list destination.
      *
      * One of the following target arguments must be supplied:
      */
-    public readonly destinationPrefixListId!: pulumi.Output<string | undefined>;
+    declare public readonly destinationPrefixListId: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
      */
-    public readonly egressOnlyGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly egressOnlyGatewayId: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
      */
-    public readonly gatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayId: pulumi.Output<string | undefined>;
     /**
      * Identifier of an EC2 instance.
      */
-    public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceId: pulumi.Output<string>;
     /**
      * The AWS account ID of the owner of the EC2 instance.
      */
-    public /*out*/ readonly instanceOwnerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceOwnerId: pulumi.Output<string>;
     /**
      * Identifier of a Outpost local gateway.
      */
-    public readonly localGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly localGatewayId: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC NAT gateway.
      */
-    public readonly natGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly natGatewayId: pulumi.Output<string | undefined>;
     /**
      * Identifier of an EC2 network interface.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string>;
+    declare public readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      */
-    public /*out*/ readonly origin!: pulumi.Output<string>;
+    declare public /*out*/ readonly origin: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the routing table.
      *
      * One of the following destination arguments must be supplied:
      */
-    public readonly routeTableId!: pulumi.Output<string>;
+    declare public readonly routeTableId: pulumi.Output<string>;
     /**
      * The state of the route - `active` or `blackhole`.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Identifier of an EC2 Transit Gateway.
      */
-    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC Endpoint.
      */
-    public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcEndpointId: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC peering connection.
      *
      * Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
      */
-    public readonly vpcPeeringConnectionId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcPeeringConnectionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -192,45 +234,45 @@ export class Route extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            resourceInputs["carrierGatewayId"] = state ? state.carrierGatewayId : undefined;
-            resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
-            resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
-            resourceInputs["destinationIpv6CidrBlock"] = state ? state.destinationIpv6CidrBlock : undefined;
-            resourceInputs["destinationPrefixListId"] = state ? state.destinationPrefixListId : undefined;
-            resourceInputs["egressOnlyGatewayId"] = state ? state.egressOnlyGatewayId : undefined;
-            resourceInputs["gatewayId"] = state ? state.gatewayId : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["instanceOwnerId"] = state ? state.instanceOwnerId : undefined;
-            resourceInputs["localGatewayId"] = state ? state.localGatewayId : undefined;
-            resourceInputs["natGatewayId"] = state ? state.natGatewayId : undefined;
-            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            resourceInputs["origin"] = state ? state.origin : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
-            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
-            resourceInputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
+            resourceInputs["carrierGatewayId"] = state?.carrierGatewayId;
+            resourceInputs["coreNetworkArn"] = state?.coreNetworkArn;
+            resourceInputs["destinationCidrBlock"] = state?.destinationCidrBlock;
+            resourceInputs["destinationIpv6CidrBlock"] = state?.destinationIpv6CidrBlock;
+            resourceInputs["destinationPrefixListId"] = state?.destinationPrefixListId;
+            resourceInputs["egressOnlyGatewayId"] = state?.egressOnlyGatewayId;
+            resourceInputs["gatewayId"] = state?.gatewayId;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["instanceOwnerId"] = state?.instanceOwnerId;
+            resourceInputs["localGatewayId"] = state?.localGatewayId;
+            resourceInputs["natGatewayId"] = state?.natGatewayId;
+            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
+            resourceInputs["origin"] = state?.origin;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routeTableId"] = state?.routeTableId;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
+            resourceInputs["vpcEndpointId"] = state?.vpcEndpointId;
+            resourceInputs["vpcPeeringConnectionId"] = state?.vpcPeeringConnectionId;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            resourceInputs["carrierGatewayId"] = args ? args.carrierGatewayId : undefined;
-            resourceInputs["coreNetworkArn"] = args ? args.coreNetworkArn : undefined;
-            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            resourceInputs["destinationIpv6CidrBlock"] = args ? args.destinationIpv6CidrBlock : undefined;
-            resourceInputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
-            resourceInputs["egressOnlyGatewayId"] = args ? args.egressOnlyGatewayId : undefined;
-            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
-            resourceInputs["localGatewayId"] = args ? args.localGatewayId : undefined;
-            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
+            resourceInputs["carrierGatewayId"] = args?.carrierGatewayId;
+            resourceInputs["coreNetworkArn"] = args?.coreNetworkArn;
+            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
+            resourceInputs["destinationIpv6CidrBlock"] = args?.destinationIpv6CidrBlock;
+            resourceInputs["destinationPrefixListId"] = args?.destinationPrefixListId;
+            resourceInputs["egressOnlyGatewayId"] = args?.egressOnlyGatewayId;
+            resourceInputs["gatewayId"] = args?.gatewayId;
+            resourceInputs["localGatewayId"] = args?.localGatewayId;
+            resourceInputs["natGatewayId"] = args?.natGatewayId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routeTableId"] = args?.routeTableId;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
+            resourceInputs["vpcPeeringConnectionId"] = args?.vpcPeeringConnectionId;
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["instanceOwnerId"] = undefined /*out*/;
             resourceInputs["origin"] = undefined /*out*/;

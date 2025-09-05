@@ -59,29 +59,29 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
         return obj['__pulumiType'] === LocalGatewayRouteTableVpcAssociation.__pulumiType;
     }
 
-    public /*out*/ readonly localGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayId: pulumi.Output<string>;
     /**
      * Identifier of EC2 Local Gateway Route Table.
      */
-    public readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    declare public readonly localGatewayRouteTableId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 VPC.
      *
      * The following arguments are optional:
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a LocalGatewayRouteTableVpcAssociation resource with the given unique name, arguments, and options.
@@ -96,24 +96,24 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalGatewayRouteTableVpcAssociationState | undefined;
-            resourceInputs["localGatewayId"] = state ? state.localGatewayId : undefined;
-            resourceInputs["localGatewayRouteTableId"] = state ? state.localGatewayRouteTableId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["localGatewayId"] = state?.localGatewayId;
+            resourceInputs["localGatewayRouteTableId"] = state?.localGatewayRouteTableId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as LocalGatewayRouteTableVpcAssociationArgs | undefined;
-            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
+            if (args?.localGatewayRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["localGatewayRouteTableId"] = args?.localGatewayRouteTableId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["localGatewayId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

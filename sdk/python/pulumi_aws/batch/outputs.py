@@ -547,7 +547,7 @@ class ComputeEnvironmentUpdatePolicy(dict):
                  terminate_jobs_on_update: Optional[_builtins.bool] = None):
         """
         :param _builtins.int job_execution_timeout_minutes: Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-        :param _builtins.bool terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+        :param _builtins.bool terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
         """
         if job_execution_timeout_minutes is not None:
             pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
@@ -566,7 +566,7 @@ class ComputeEnvironmentUpdatePolicy(dict):
     @pulumi.getter(name="terminateJobsOnUpdate")
     def terminate_jobs_on_update(self) -> Optional[_builtins.bool]:
         """
-        Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+        Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
         """
         return pulumi.get(self, "terminate_jobs_on_update")
 
@@ -1380,7 +1380,7 @@ class JobDefinitionEksPropertiesPodPropertiesMetadata(dict):
     def __init__(__self__, *,
                  labels: Optional[Mapping[str, _builtins.str]] = None):
         """
-        :param Mapping[str, _builtins.str] labels: Key-value pairs used to identify, sort, and organize cube resources.
+        :param Mapping[str, _builtins.str] labels: Key-value pairs used to identify, sort, and organize kubernetes resources.
         """
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
@@ -1389,7 +1389,7 @@ class JobDefinitionEksPropertiesPodPropertiesMetadata(dict):
     @pulumi.getter
     def labels(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Key-value pairs used to identify, sort, and organize cube resources.
+        Key-value pairs used to identify, sort, and organize kubernetes resources.
         """
         return pulumi.get(self, "labels")
 

@@ -291,7 +291,7 @@ type DbInstance struct {
 	DeploymentType pulumi.StringOutput `pulumi:"deploymentType"`
 	// Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+	// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
 	InfluxAuthParametersSecretArn pulumi.StringOutput `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration DbInstanceLogDeliveryConfigurationPtrOutput `pulumi:"logDeliveryConfiguration"`
@@ -405,7 +405,7 @@ type dbInstanceState struct {
 	DeploymentType *string `pulumi:"deploymentType"`
 	// Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
 	Endpoint *string `pulumi:"endpoint"`
-	// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+	// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
 	InfluxAuthParametersSecretArn *string `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration *DbInstanceLogDeliveryConfiguration `pulumi:"logDeliveryConfiguration"`
@@ -459,7 +459,7 @@ type DbInstanceState struct {
 	DeploymentType pulumi.StringPtrInput
 	// Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
 	Endpoint pulumi.StringPtrInput
-	// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+	// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
 	InfluxAuthParametersSecretArn pulumi.StringPtrInput
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration DbInstanceLogDeliveryConfigurationPtrInput
@@ -715,7 +715,7 @@ func (o DbInstanceOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
+// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
 func (o DbInstanceOutput) InfluxAuthParametersSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.InfluxAuthParametersSecretArn }).(pulumi.StringOutput)
 }

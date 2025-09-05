@@ -72,43 +72,43 @@ export class TrustStore extends pulumi.CustomResource {
     /**
      * ARN of the Trust Store (matches `id`).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ARN suffix for use with CloudWatch Metrics.
      */
-    public /*out*/ readonly arnSuffix!: pulumi.Output<string>;
+    declare public /*out*/ readonly arnSuffix: pulumi.Output<string>;
     /**
      * S3 Bucket name holding the client certificate CA bundle.
      */
-    public readonly caCertificatesBundleS3Bucket!: pulumi.Output<string>;
+    declare public readonly caCertificatesBundleS3Bucket: pulumi.Output<string>;
     /**
      * S3 object key holding the client certificate CA bundle.
      */
-    public readonly caCertificatesBundleS3Key!: pulumi.Output<string>;
+    declare public readonly caCertificatesBundleS3Key: pulumi.Output<string>;
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
-    public readonly caCertificatesBundleS3ObjectVersion!: pulumi.Output<string | undefined>;
+    declare public readonly caCertificatesBundleS3ObjectVersion: pulumi.Output<string | undefined>;
     /**
      * Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a TrustStore resource with the given unique name, arguments, and options.
@@ -123,31 +123,31 @@ export class TrustStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrustStoreState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["arnSuffix"] = state ? state.arnSuffix : undefined;
-            resourceInputs["caCertificatesBundleS3Bucket"] = state ? state.caCertificatesBundleS3Bucket : undefined;
-            resourceInputs["caCertificatesBundleS3Key"] = state ? state.caCertificatesBundleS3Key : undefined;
-            resourceInputs["caCertificatesBundleS3ObjectVersion"] = state ? state.caCertificatesBundleS3ObjectVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["arnSuffix"] = state?.arnSuffix;
+            resourceInputs["caCertificatesBundleS3Bucket"] = state?.caCertificatesBundleS3Bucket;
+            resourceInputs["caCertificatesBundleS3Key"] = state?.caCertificatesBundleS3Key;
+            resourceInputs["caCertificatesBundleS3ObjectVersion"] = state?.caCertificatesBundleS3ObjectVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as TrustStoreArgs | undefined;
-            if ((!args || args.caCertificatesBundleS3Bucket === undefined) && !opts.urn) {
+            if (args?.caCertificatesBundleS3Bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'caCertificatesBundleS3Bucket'");
             }
-            if ((!args || args.caCertificatesBundleS3Key === undefined) && !opts.urn) {
+            if (args?.caCertificatesBundleS3Key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'caCertificatesBundleS3Key'");
             }
-            resourceInputs["caCertificatesBundleS3Bucket"] = args ? args.caCertificatesBundleS3Bucket : undefined;
-            resourceInputs["caCertificatesBundleS3Key"] = args ? args.caCertificatesBundleS3Key : undefined;
-            resourceInputs["caCertificatesBundleS3ObjectVersion"] = args ? args.caCertificatesBundleS3ObjectVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["caCertificatesBundleS3Bucket"] = args?.caCertificatesBundleS3Bucket;
+            resourceInputs["caCertificatesBundleS3Key"] = args?.caCertificatesBundleS3Key;
+            resourceInputs["caCertificatesBundleS3ObjectVersion"] = args?.caCertificatesBundleS3ObjectVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnSuffix"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

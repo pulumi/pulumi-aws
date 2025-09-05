@@ -194,121 +194,121 @@ export class Database extends pulumi.CustomResource {
     /**
      * Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
      */
-    public readonly applyImmediately!: pulumi.Output<boolean>;
+    declare public readonly applyImmediately: pulumi.Output<boolean>;
     /**
      * ARN of the database (matches `id`).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    declare public readonly availabilityZone: pulumi.Output<string>;
     /**
      * Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
      */
-    public readonly backupRetentionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly backupRetentionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
      */
-    public readonly blueprintId!: pulumi.Output<string>;
+    declare public readonly blueprintId: pulumi.Output<string>;
     /**
      * Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
      */
-    public readonly bundleId!: pulumi.Output<string>;
+    declare public readonly bundleId: pulumi.Output<string>;
     /**
      * Certificate associated with the database.
      */
-    public /*out*/ readonly caCertificateIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly caCertificateIdentifier: pulumi.Output<string>;
     /**
      * Number of vCPUs for the database.
      */
-    public /*out*/ readonly cpuCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly cpuCount: pulumi.Output<number>;
     /**
      * Date and time when the database was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Size of the disk for the database.
      */
-    public /*out*/ readonly diskSize!: pulumi.Output<number>;
+    declare public /*out*/ readonly diskSize: pulumi.Output<number>;
     /**
      * Database software (for example, MySQL).
      */
-    public /*out*/ readonly engine!: pulumi.Output<string>;
+    declare public /*out*/ readonly engine: pulumi.Output<string>;
     /**
      * Database engine version (for example, 5.7.23).
      */
-    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly engineVersion: pulumi.Output<string>;
     /**
      * Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
      */
-    public readonly finalSnapshotName!: pulumi.Output<string | undefined>;
+    declare public readonly finalSnapshotName: pulumi.Output<string | undefined>;
     /**
      * Name of the master database created when the Lightsail database resource is created.
      */
-    public readonly masterDatabaseName!: pulumi.Output<string>;
+    declare public readonly masterDatabaseName: pulumi.Output<string>;
     /**
      * Master endpoint FQDN for the database.
      */
-    public /*out*/ readonly masterEndpointAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly masterEndpointAddress: pulumi.Output<string>;
     /**
      * Master endpoint network port for the database.
      */
-    public /*out*/ readonly masterEndpointPort!: pulumi.Output<number>;
+    declare public /*out*/ readonly masterEndpointPort: pulumi.Output<number>;
     /**
      * Password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
      */
-    public readonly masterPassword!: pulumi.Output<string>;
+    declare public readonly masterPassword: pulumi.Output<string>;
     /**
      * Master user name for your database.
      */
-    public readonly masterUsername!: pulumi.Output<string>;
+    declare public readonly masterUsername: pulumi.Output<string>;
     /**
      * Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
      */
-    public readonly preferredBackupWindow!: pulumi.Output<string>;
+    declare public readonly preferredBackupWindow: pulumi.Output<string>;
     /**
      * Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
     /**
      * Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
     /**
      * Amount of RAM in GB for the database.
      */
-    public /*out*/ readonly ramSize!: pulumi.Output<number>;
+    declare public /*out*/ readonly ramSize: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
      *
      * The following arguments are optional:
      */
-    public readonly relationalDatabaseName!: pulumi.Output<string>;
+    declare public readonly relationalDatabaseName: pulumi.Output<string>;
     /**
      * Secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
      */
-    public /*out*/ readonly secondaryAvailabilityZone!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAvailabilityZone: pulumi.Output<string>;
     /**
      * Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
      */
-    public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipFinalSnapshot: pulumi.Output<boolean | undefined>;
     /**
      * Support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    declare public /*out*/ readonly supportCode: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -323,71 +323,71 @@ export class Database extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
-            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            resourceInputs["backupRetentionEnabled"] = state ? state.backupRetentionEnabled : undefined;
-            resourceInputs["blueprintId"] = state ? state.blueprintId : undefined;
-            resourceInputs["bundleId"] = state ? state.bundleId : undefined;
-            resourceInputs["caCertificateIdentifier"] = state ? state.caCertificateIdentifier : undefined;
-            resourceInputs["cpuCount"] = state ? state.cpuCount : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["diskSize"] = state ? state.diskSize : undefined;
-            resourceInputs["engine"] = state ? state.engine : undefined;
-            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
-            resourceInputs["finalSnapshotName"] = state ? state.finalSnapshotName : undefined;
-            resourceInputs["masterDatabaseName"] = state ? state.masterDatabaseName : undefined;
-            resourceInputs["masterEndpointAddress"] = state ? state.masterEndpointAddress : undefined;
-            resourceInputs["masterEndpointPort"] = state ? state.masterEndpointPort : undefined;
-            resourceInputs["masterPassword"] = state ? state.masterPassword : undefined;
-            resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
-            resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            resourceInputs["ramSize"] = state ? state.ramSize : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["relationalDatabaseName"] = state ? state.relationalDatabaseName : undefined;
-            resourceInputs["secondaryAvailabilityZone"] = state ? state.secondaryAvailabilityZone : undefined;
-            resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
-            resourceInputs["supportCode"] = state ? state.supportCode : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["applyImmediately"] = state?.applyImmediately;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["availabilityZone"] = state?.availabilityZone;
+            resourceInputs["backupRetentionEnabled"] = state?.backupRetentionEnabled;
+            resourceInputs["blueprintId"] = state?.blueprintId;
+            resourceInputs["bundleId"] = state?.bundleId;
+            resourceInputs["caCertificateIdentifier"] = state?.caCertificateIdentifier;
+            resourceInputs["cpuCount"] = state?.cpuCount;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["diskSize"] = state?.diskSize;
+            resourceInputs["engine"] = state?.engine;
+            resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["finalSnapshotName"] = state?.finalSnapshotName;
+            resourceInputs["masterDatabaseName"] = state?.masterDatabaseName;
+            resourceInputs["masterEndpointAddress"] = state?.masterEndpointAddress;
+            resourceInputs["masterEndpointPort"] = state?.masterEndpointPort;
+            resourceInputs["masterPassword"] = state?.masterPassword;
+            resourceInputs["masterUsername"] = state?.masterUsername;
+            resourceInputs["preferredBackupWindow"] = state?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
+            resourceInputs["ramSize"] = state?.ramSize;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["relationalDatabaseName"] = state?.relationalDatabaseName;
+            resourceInputs["secondaryAvailabilityZone"] = state?.secondaryAvailabilityZone;
+            resourceInputs["skipFinalSnapshot"] = state?.skipFinalSnapshot;
+            resourceInputs["supportCode"] = state?.supportCode;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            if ((!args || args.blueprintId === undefined) && !opts.urn) {
+            if (args?.blueprintId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blueprintId'");
             }
-            if ((!args || args.bundleId === undefined) && !opts.urn) {
+            if (args?.bundleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            if ((!args || args.masterDatabaseName === undefined) && !opts.urn) {
+            if (args?.masterDatabaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterDatabaseName'");
             }
-            if ((!args || args.masterPassword === undefined) && !opts.urn) {
+            if (args?.masterPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterPassword'");
             }
-            if ((!args || args.masterUsername === undefined) && !opts.urn) {
+            if (args?.masterUsername === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterUsername'");
             }
-            if ((!args || args.relationalDatabaseName === undefined) && !opts.urn) {
+            if (args?.relationalDatabaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relationalDatabaseName'");
             }
-            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["backupRetentionEnabled"] = args ? args.backupRetentionEnabled : undefined;
-            resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
-            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
-            resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
-            resourceInputs["masterDatabaseName"] = args ? args.masterDatabaseName : undefined;
+            resourceInputs["applyImmediately"] = args?.applyImmediately;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["backupRetentionEnabled"] = args?.backupRetentionEnabled;
+            resourceInputs["blueprintId"] = args?.blueprintId;
+            resourceInputs["bundleId"] = args?.bundleId;
+            resourceInputs["finalSnapshotName"] = args?.finalSnapshotName;
+            resourceInputs["masterDatabaseName"] = args?.masterDatabaseName;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
-            resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
-            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["relationalDatabaseName"] = args ? args.relationalDatabaseName : undefined;
-            resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["masterUsername"] = args?.masterUsername;
+            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["relationalDatabaseName"] = args?.relationalDatabaseName;
+            resourceInputs["skipFinalSnapshot"] = args?.skipFinalSnapshot;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["caCertificateIdentifier"] = undefined /*out*/;
             resourceInputs["cpuCount"] = undefined /*out*/;

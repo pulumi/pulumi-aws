@@ -124,39 +124,39 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the organization conformance pack.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
      */
-    public readonly deliveryS3Bucket!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryS3Bucket: pulumi.Output<string | undefined>;
     /**
      * The prefix for the Amazon S3 bucket. Maximum length of 1024.
      */
-    public readonly deliveryS3KeyPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryS3KeyPrefix: pulumi.Output<string | undefined>;
     /**
      * Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
      */
-    public readonly excludedAccounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedAccounts: pulumi.Output<string[] | undefined>;
     /**
      * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
      */
-    public readonly inputParameters!: pulumi.Output<outputs.cfg.OrganizationConformancePackInputParameter[] | undefined>;
+    declare public readonly inputParameters: pulumi.Output<outputs.cfg.OrganizationConformancePackInputParameter[] | undefined>;
     /**
      * The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      */
-    public readonly templateBody!: pulumi.Output<string | undefined>;
+    declare public readonly templateBody: pulumi.Output<string | undefined>;
     /**
      * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      */
-    public readonly templateS3Uri!: pulumi.Output<string | undefined>;
+    declare public readonly templateS3Uri: pulumi.Output<string | undefined>;
 
     /**
      * Create a OrganizationConformancePack resource with the given unique name, arguments, and options.
@@ -171,25 +171,25 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationConformancePackState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["deliveryS3Bucket"] = state ? state.deliveryS3Bucket : undefined;
-            resourceInputs["deliveryS3KeyPrefix"] = state ? state.deliveryS3KeyPrefix : undefined;
-            resourceInputs["excludedAccounts"] = state ? state.excludedAccounts : undefined;
-            resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["templateBody"] = state ? state.templateBody : undefined;
-            resourceInputs["templateS3Uri"] = state ? state.templateS3Uri : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["deliveryS3Bucket"] = state?.deliveryS3Bucket;
+            resourceInputs["deliveryS3KeyPrefix"] = state?.deliveryS3KeyPrefix;
+            resourceInputs["excludedAccounts"] = state?.excludedAccounts;
+            resourceInputs["inputParameters"] = state?.inputParameters;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["templateBody"] = state?.templateBody;
+            resourceInputs["templateS3Uri"] = state?.templateS3Uri;
         } else {
             const args = argsOrState as OrganizationConformancePackArgs | undefined;
-            resourceInputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
-            resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
-            resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
-            resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
+            resourceInputs["deliveryS3Bucket"] = args?.deliveryS3Bucket;
+            resourceInputs["deliveryS3KeyPrefix"] = args?.deliveryS3KeyPrefix;
+            resourceInputs["excludedAccounts"] = args?.excludedAccounts;
+            resourceInputs["inputParameters"] = args?.inputParameters;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["templateBody"] = args?.templateBody;
+            resourceInputs["templateS3Uri"] = args?.templateS3Uri;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

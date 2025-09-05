@@ -23,16 +23,40 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:workspacesweb/browserSettings:BrowserSettings":
 		r = &BrowserSettings{}
+	case "aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation":
+		r = &BrowserSettingsAssociation{}
 	case "aws:workspacesweb/dataProtectionSettings:DataProtectionSettings":
 		r = &DataProtectionSettings{}
+	case "aws:workspacesweb/dataProtectionSettingsAssociation:DataProtectionSettingsAssociation":
+		r = &DataProtectionSettingsAssociation{}
+	case "aws:workspacesweb/identityProvider:IdentityProvider":
+		r = &IdentityProvider{}
 	case "aws:workspacesweb/ipAccessSettings:IpAccessSettings":
 		r = &IpAccessSettings{}
+	case "aws:workspacesweb/ipAccessSettingsAssociation:IpAccessSettingsAssociation":
+		r = &IpAccessSettingsAssociation{}
 	case "aws:workspacesweb/networkSettings:NetworkSettings":
 		r = &NetworkSettings{}
+	case "aws:workspacesweb/networkSettingsAssociation:NetworkSettingsAssociation":
+		r = &NetworkSettingsAssociation{}
+	case "aws:workspacesweb/portal:Portal":
+		r = &Portal{}
+	case "aws:workspacesweb/sessionLogger:SessionLogger":
+		r = &SessionLogger{}
+	case "aws:workspacesweb/sessionLoggerAssociation:SessionLoggerAssociation":
+		r = &SessionLoggerAssociation{}
+	case "aws:workspacesweb/trustStore:TrustStore":
+		r = &TrustStore{}
+	case "aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation":
+		r = &TrustStoreAssociation{}
 	case "aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings":
 		r = &UserAccessLoggingSettings{}
+	case "aws:workspacesweb/userAccessLoggingSettingsAssociation:UserAccessLoggingSettingsAssociation":
+		r = &UserAccessLoggingSettingsAssociation{}
 	case "aws:workspacesweb/userSettings:UserSettings":
 		r = &UserSettings{}
+	case "aws:workspacesweb/userSettingsAssociation:UserSettingsAssociation":
+		r = &UserSettingsAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,7 +77,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"workspacesweb/browserSettingsAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"workspacesweb/dataProtectionSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspacesweb/dataProtectionSettingsAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspacesweb/identityProvider",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -63,7 +102,42 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"workspacesweb/ipAccessSettingsAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"workspacesweb/networkSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspacesweb/networkSettingsAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspacesweb/portal",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspacesweb/sessionLogger",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspacesweb/sessionLoggerAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspacesweb/trustStore",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspacesweb/trustStoreAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -73,7 +147,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"workspacesweb/userAccessLoggingSettingsAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"workspacesweb/userSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspacesweb/userSettingsAssociation",
 		&module{version},
 	)
 }

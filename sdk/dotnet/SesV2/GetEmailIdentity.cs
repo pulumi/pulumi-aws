@@ -183,6 +183,10 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        /// </summary>
+        public readonly string VerificationStatus;
+        /// <summary>
         /// Specifies whether or not the identity is verified.
         /// </summary>
         public readonly bool VerifiedForSendingStatus;
@@ -205,6 +209,8 @@ namespace Pulumi.Aws.SesV2
 
             ImmutableDictionary<string, string> tags,
 
+            string verificationStatus,
+
             bool verifiedForSendingStatus)
         {
             Arn = arn;
@@ -215,6 +221,7 @@ namespace Pulumi.Aws.SesV2
             IdentityType = identityType;
             Region = region;
             Tags = tags;
+            VerificationStatus = verificationStatus;
             VerifiedForSendingStatus = verifiedForSendingStatus;
         }
     }

@@ -61,30 +61,30 @@ export class Ingestion extends pulumi.CustomResource {
     /**
      * ARN of the Ingestion.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * ID of the dataset used in the ingestion.
      */
-    public readonly dataSetId!: pulumi.Output<string>;
+    declare public readonly dataSetId: pulumi.Output<string>;
     /**
      * ID for the ingestion.
      */
-    public readonly ingestionId!: pulumi.Output<string>;
+    declare public readonly ingestionId: pulumi.Output<string>;
     /**
      * Ingestion status.
      */
-    public /*out*/ readonly ingestionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly ingestionStatus: pulumi.Output<string>;
     /**
      * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
      *
      * The following arguments are optional:
      */
-    public readonly ingestionType!: pulumi.Output<string>;
+    declare public readonly ingestionType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a Ingestion resource with the given unique name, arguments, and options.
@@ -99,29 +99,29 @@ export class Ingestion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IngestionState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["dataSetId"] = state ? state.dataSetId : undefined;
-            resourceInputs["ingestionId"] = state ? state.ingestionId : undefined;
-            resourceInputs["ingestionStatus"] = state ? state.ingestionStatus : undefined;
-            resourceInputs["ingestionType"] = state ? state.ingestionType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["dataSetId"] = state?.dataSetId;
+            resourceInputs["ingestionId"] = state?.ingestionId;
+            resourceInputs["ingestionStatus"] = state?.ingestionStatus;
+            resourceInputs["ingestionType"] = state?.ingestionType;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as IngestionArgs | undefined;
-            if ((!args || args.dataSetId === undefined) && !opts.urn) {
+            if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            if ((!args || args.ingestionId === undefined) && !opts.urn) {
+            if (args?.ingestionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ingestionId'");
             }
-            if ((!args || args.ingestionType === undefined) && !opts.urn) {
+            if (args?.ingestionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ingestionType'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
-            resourceInputs["ingestionId"] = args ? args.ingestionId : undefined;
-            resourceInputs["ingestionType"] = args ? args.ingestionType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["dataSetId"] = args?.dataSetId;
+            resourceInputs["ingestionId"] = args?.ingestionId;
+            resourceInputs["ingestionType"] = args?.ingestionType;
+            resourceInputs["region"] = args?.region;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ingestionStatus"] = undefined /*out*/;
         }

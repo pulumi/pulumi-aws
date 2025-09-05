@@ -52,6 +52,8 @@ type ContributorInsights struct {
 
 	// The global secondary index name
 	IndexName pulumi.StringPtrOutput `pulumi:"indexName"`
+	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+	Mode pulumi.StringOutput `pulumi:"mode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the table to enable contributor insights
@@ -93,6 +95,8 @@ func GetContributorInsights(ctx *pulumi.Context,
 type contributorInsightsState struct {
 	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
+	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+	Mode *string `pulumi:"mode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the table to enable contributor insights
@@ -102,6 +106,8 @@ type contributorInsightsState struct {
 type ContributorInsightsState struct {
 	// The global secondary index name
 	IndexName pulumi.StringPtrInput
+	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+	Mode pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the table to enable contributor insights
@@ -115,6 +121,8 @@ func (ContributorInsightsState) ElementType() reflect.Type {
 type contributorInsightsArgs struct {
 	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
+	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+	Mode *string `pulumi:"mode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the table to enable contributor insights
@@ -125,6 +133,8 @@ type contributorInsightsArgs struct {
 type ContributorInsightsArgs struct {
 	// The global secondary index name
 	IndexName pulumi.StringPtrInput
+	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+	Mode pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the table to enable contributor insights
@@ -221,6 +231,11 @@ func (o ContributorInsightsOutput) ToContributorInsightsOutputWithContext(ctx co
 // The global secondary index name
 func (o ContributorInsightsOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringPtrOutput { return v.IndexName }).(pulumi.StringPtrOutput)
+}
+
+// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
+func (o ContributorInsightsOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContributorInsights) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

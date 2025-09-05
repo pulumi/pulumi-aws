@@ -26782,6 +26782,8 @@ type NetworkInterfaceAttachmentType struct {
 	DeviceIndex int `pulumi:"deviceIndex"`
 	// ID of the instance to attach to.
 	Instance string `pulumi:"instance"`
+	// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+	NetworkCardIndex *int `pulumi:"networkCardIndex"`
 }
 
 // NetworkInterfaceAttachmentTypeInput is an input type that accepts NetworkInterfaceAttachmentTypeArgs and NetworkInterfaceAttachmentTypeOutput values.
@@ -26801,6 +26803,8 @@ type NetworkInterfaceAttachmentTypeArgs struct {
 	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
 	// ID of the instance to attach to.
 	Instance pulumi.StringInput `pulumi:"instance"`
+	// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
 }
 
 func (NetworkInterfaceAttachmentTypeArgs) ElementType() reflect.Type {
@@ -26866,6 +26870,11 @@ func (o NetworkInterfaceAttachmentTypeOutput) DeviceIndex() pulumi.IntOutput {
 // ID of the instance to attach to.
 func (o NetworkInterfaceAttachmentTypeOutput) Instance() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceAttachmentType) string { return v.Instance }).(pulumi.StringOutput)
+}
+
+// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
+func (o NetworkInterfaceAttachmentTypeOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceAttachmentType) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
 }
 
 type NetworkInterfaceAttachmentTypeArrayOutput struct{ *pulumi.OutputState }
@@ -56338,10 +56347,16 @@ func (o GetNetworkInterfaceAssociationArrayOutput) Index(i pulumi.IntInput) GetN
 }
 
 type GetNetworkInterfaceAttachmentType struct {
-	AttachmentId    string `pulumi:"attachmentId"`
-	DeviceIndex     int    `pulumi:"deviceIndex"`
-	InstanceId      string `pulumi:"instanceId"`
+	// ID of the network interface attachment.
+	AttachmentId string `pulumi:"attachmentId"`
+	// Device index of the network interface attachment on the instance.
+	DeviceIndex int `pulumi:"deviceIndex"`
+	// ID of the instance.
+	InstanceId string `pulumi:"instanceId"`
+	// AWS account ID of the owner of the instance.
 	InstanceOwnerId string `pulumi:"instanceOwnerId"`
+	// Index of the network card.
+	NetworkCardIndex int `pulumi:"networkCardIndex"`
 }
 
 // GetNetworkInterfaceAttachmentTypeInput is an input type that accepts GetNetworkInterfaceAttachmentTypeArgs and GetNetworkInterfaceAttachmentTypeOutput values.
@@ -56356,10 +56371,16 @@ type GetNetworkInterfaceAttachmentTypeInput interface {
 }
 
 type GetNetworkInterfaceAttachmentTypeArgs struct {
-	AttachmentId    pulumi.StringInput `pulumi:"attachmentId"`
-	DeviceIndex     pulumi.IntInput    `pulumi:"deviceIndex"`
-	InstanceId      pulumi.StringInput `pulumi:"instanceId"`
+	// ID of the network interface attachment.
+	AttachmentId pulumi.StringInput `pulumi:"attachmentId"`
+	// Device index of the network interface attachment on the instance.
+	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
+	// ID of the instance.
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// AWS account ID of the owner of the instance.
 	InstanceOwnerId pulumi.StringInput `pulumi:"instanceOwnerId"`
+	// Index of the network card.
+	NetworkCardIndex pulumi.IntInput `pulumi:"networkCardIndex"`
 }
 
 func (GetNetworkInterfaceAttachmentTypeArgs) ElementType() reflect.Type {
@@ -56413,20 +56434,29 @@ func (o GetNetworkInterfaceAttachmentTypeOutput) ToGetNetworkInterfaceAttachment
 	return o
 }
 
+// ID of the network interface attachment.
 func (o GetNetworkInterfaceAttachmentTypeOutput) AttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAttachmentType) string { return v.AttachmentId }).(pulumi.StringOutput)
 }
 
+// Device index of the network interface attachment on the instance.
 func (o GetNetworkInterfaceAttachmentTypeOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAttachmentType) int { return v.DeviceIndex }).(pulumi.IntOutput)
 }
 
+// ID of the instance.
 func (o GetNetworkInterfaceAttachmentTypeOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAttachmentType) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
+// AWS account ID of the owner of the instance.
 func (o GetNetworkInterfaceAttachmentTypeOutput) InstanceOwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAttachmentType) string { return v.InstanceOwnerId }).(pulumi.StringOutput)
+}
+
+// Index of the network card.
+func (o GetNetworkInterfaceAttachmentTypeOutput) NetworkCardIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkInterfaceAttachmentType) int { return v.NetworkCardIndex }).(pulumi.IntOutput)
 }
 
 type GetNetworkInterfaceAttachmentTypeArrayOutput struct{ *pulumi.OutputState }
@@ -59870,7 +59900,8 @@ type GetVpcIpamsIpam struct {
 	// ID of the IPAM resource.
 	Id string `pulumi:"id"`
 	// Region that the IPAM exists in.
-	IpamRegion string `pulumi:"ipamRegion"`
+	IpamRegion     string `pulumi:"ipamRegion"`
+	MeteredAccount string `pulumi:"meteredAccount"`
 	// Regions that the IPAM is configured to operate in.
 	OperatingRegions []GetVpcIpamsIpamOperatingRegion `pulumi:"operatingRegions"`
 	// ID of the account that owns this IPAM.
@@ -59916,7 +59947,8 @@ type GetVpcIpamsIpamArgs struct {
 	// ID of the IPAM resource.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Region that the IPAM exists in.
-	IpamRegion pulumi.StringInput `pulumi:"ipamRegion"`
+	IpamRegion     pulumi.StringInput `pulumi:"ipamRegion"`
+	MeteredAccount pulumi.StringInput `pulumi:"meteredAccount"`
 	// Regions that the IPAM is configured to operate in.
 	OperatingRegions GetVpcIpamsIpamOperatingRegionArrayInput `pulumi:"operatingRegions"`
 	// ID of the account that owns this IPAM.
@@ -60021,6 +60053,10 @@ func (o GetVpcIpamsIpamOutput) Id() pulumi.StringOutput {
 // Region that the IPAM exists in.
 func (o GetVpcIpamsIpamOutput) IpamRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.IpamRegion }).(pulumi.StringOutput)
+}
+
+func (o GetVpcIpamsIpamOutput) MeteredAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.MeteredAccount }).(pulumi.StringOutput)
 }
 
 // Regions that the IPAM is configured to operate in.

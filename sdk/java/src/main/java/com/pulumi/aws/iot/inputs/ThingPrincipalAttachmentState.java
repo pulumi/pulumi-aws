@@ -60,12 +60,28 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.thing);
     }
 
+    /**
+     * The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+     * 
+     */
+    @Import(name="thingPrincipalType")
+    private @Nullable Output<String> thingPrincipalType;
+
+    /**
+     * @return The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+     * 
+     */
+    public Optional<Output<String>> thingPrincipalType() {
+        return Optional.ofNullable(this.thingPrincipalType);
+    }
+
     private ThingPrincipalAttachmentState() {}
 
     private ThingPrincipalAttachmentState(ThingPrincipalAttachmentState $) {
         this.principal = $.principal;
         this.region = $.region;
         this.thing = $.thing;
+        this.thingPrincipalType = $.thingPrincipalType;
     }
 
     public static Builder builder() {
@@ -147,6 +163,27 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
          */
         public Builder thing(String thing) {
             return thing(Output.of(thing));
+        }
+
+        /**
+         * @param thingPrincipalType The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thingPrincipalType(@Nullable Output<String> thingPrincipalType) {
+            $.thingPrincipalType = thingPrincipalType;
+            return this;
+        }
+
+        /**
+         * @param thingPrincipalType The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thingPrincipalType(String thingPrincipalType) {
+            return thingPrincipalType(Output.of(thingPrincipalType));
         }
 
         public ThingPrincipalAttachmentState build() {

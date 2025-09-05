@@ -157,141 +157,145 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      */
-    public readonly airflowConfigurationOptions!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly airflowConfigurationOptions: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Airflow version of your environment, will be set by default to the latest version that MWAA supports.
      */
-    public readonly airflowVersion!: pulumi.Output<string>;
+    declare public readonly airflowVersion: pulumi.Output<string>;
     /**
      * The ARN of the MWAA Environment
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Created At date of the MWAA Environment
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
-    public readonly dagS3Path!: pulumi.Output<string>;
+    declare public readonly dagS3Path: pulumi.Output<string>;
     /**
      * The VPC endpoint for the environment's Amazon RDS database
      * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      */
-    public /*out*/ readonly databaseVpcEndpointService!: pulumi.Output<string>;
+    declare public /*out*/ readonly databaseVpcEndpointService: pulumi.Output<string>;
     /**
      * Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
      */
-    public readonly endpointManagement!: pulumi.Output<string>;
+    declare public readonly endpointManagement: pulumi.Output<string>;
     /**
      * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
-    public readonly environmentClass!: pulumi.Output<string>;
+    declare public readonly environmentClass: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
      */
-    public readonly executionRoleArn!: pulumi.Output<string>;
+    declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      */
-    public readonly kmsKey!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lastUpdateds!: pulumi.Output<outputs.mwaa.EnvironmentLastUpdated[]>;
+    declare public readonly kmsKey: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastUpdateds: pulumi.Output<outputs.mwaa.EnvironmentLastUpdated[]>;
     /**
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration>;
+    declare public readonly loggingConfiguration: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration>;
     /**
      * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
-    public readonly maxWebservers!: pulumi.Output<number>;
+    declare public readonly maxWebservers: pulumi.Output<number>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
-    public readonly maxWorkers!: pulumi.Output<number>;
+    declare public readonly maxWorkers: pulumi.Output<number>;
     /**
      * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
-    public readonly minWebservers!: pulumi.Output<number>;
+    declare public readonly minWebservers: pulumi.Output<number>;
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      */
-    public readonly minWorkers!: pulumi.Output<number>;
+    declare public readonly minWorkers: pulumi.Output<number>;
     /**
      * The name of the Apache Airflow Environment
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentNetworkConfiguration>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.mwaa.EnvironmentNetworkConfiguration>;
     /**
      * The plugins.zip file version you want to use.
      */
-    public readonly pluginsS3ObjectVersion!: pulumi.Output<string>;
+    declare public readonly pluginsS3ObjectVersion: pulumi.Output<string>;
     /**
      * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
-    public readonly pluginsS3Path!: pulumi.Output<string | undefined>;
+    declare public readonly pluginsS3Path: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The requirements.txt file version you want to use.
      */
-    public readonly requirementsS3ObjectVersion!: pulumi.Output<string>;
+    declare public readonly requirementsS3ObjectVersion: pulumi.Output<string>;
     /**
      * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
-    public readonly requirementsS3Path!: pulumi.Output<string | undefined>;
+    declare public readonly requirementsS3Path: pulumi.Output<string | undefined>;
     /**
      * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
      */
-    public readonly schedulers!: pulumi.Output<number>;
+    declare public readonly schedulers: pulumi.Output<number>;
     /**
      * The Service Role ARN of the Amazon MWAA Environment
      */
-    public /*out*/ readonly serviceRoleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceRoleArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      */
-    public readonly sourceBucketArn!: pulumi.Output<string>;
+    declare public readonly sourceBucketArn: pulumi.Output<string>;
     /**
      * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
      */
-    public readonly startupScriptS3ObjectVersion!: pulumi.Output<string>;
+    declare public readonly startupScriptS3ObjectVersion: pulumi.Output<string>;
     /**
      * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
      */
-    public readonly startupScriptS3Path!: pulumi.Output<string | undefined>;
+    declare public readonly startupScriptS3Path: pulumi.Output<string | undefined>;
     /**
      * The status of the Amazon MWAA Environment
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */
-    public readonly webserverAccessMode!: pulumi.Output<string>;
+    declare public readonly webserverAccessMode: pulumi.Output<string>;
     /**
      * The webserver URL of the MWAA Environment
      */
-    public /*out*/ readonly webserverUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly webserverUrl: pulumi.Output<string>;
     /**
      * The VPC endpoint for the environment's web server
      */
-    public /*out*/ readonly webserverVpcEndpointService!: pulumi.Output<string>;
+    declare public /*out*/ readonly webserverVpcEndpointService: pulumi.Output<string>;
     /**
      * Specifies the start date for the weekly maintenance window.
      */
-    public readonly weeklyMaintenanceWindowStart!: pulumi.Output<string>;
+    declare public readonly weeklyMaintenanceWindowStart: pulumi.Output<string>;
+    /**
+     * Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+     */
+    declare public readonly workerReplacementStrategy: pulumi.Output<string>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -306,81 +310,83 @@ export class Environment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
-            resourceInputs["airflowConfigurationOptions"] = state ? state.airflowConfigurationOptions : undefined;
-            resourceInputs["airflowVersion"] = state ? state.airflowVersion : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["dagS3Path"] = state ? state.dagS3Path : undefined;
-            resourceInputs["databaseVpcEndpointService"] = state ? state.databaseVpcEndpointService : undefined;
-            resourceInputs["endpointManagement"] = state ? state.endpointManagement : undefined;
-            resourceInputs["environmentClass"] = state ? state.environmentClass : undefined;
-            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
-            resourceInputs["lastUpdateds"] = state ? state.lastUpdateds : undefined;
-            resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
-            resourceInputs["maxWebservers"] = state ? state.maxWebservers : undefined;
-            resourceInputs["maxWorkers"] = state ? state.maxWorkers : undefined;
-            resourceInputs["minWebservers"] = state ? state.minWebservers : undefined;
-            resourceInputs["minWorkers"] = state ? state.minWorkers : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
-            resourceInputs["pluginsS3ObjectVersion"] = state ? state.pluginsS3ObjectVersion : undefined;
-            resourceInputs["pluginsS3Path"] = state ? state.pluginsS3Path : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["requirementsS3ObjectVersion"] = state ? state.requirementsS3ObjectVersion : undefined;
-            resourceInputs["requirementsS3Path"] = state ? state.requirementsS3Path : undefined;
-            resourceInputs["schedulers"] = state ? state.schedulers : undefined;
-            resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
-            resourceInputs["sourceBucketArn"] = state ? state.sourceBucketArn : undefined;
-            resourceInputs["startupScriptS3ObjectVersion"] = state ? state.startupScriptS3ObjectVersion : undefined;
-            resourceInputs["startupScriptS3Path"] = state ? state.startupScriptS3Path : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["webserverAccessMode"] = state ? state.webserverAccessMode : undefined;
-            resourceInputs["webserverUrl"] = state ? state.webserverUrl : undefined;
-            resourceInputs["webserverVpcEndpointService"] = state ? state.webserverVpcEndpointService : undefined;
-            resourceInputs["weeklyMaintenanceWindowStart"] = state ? state.weeklyMaintenanceWindowStart : undefined;
+            resourceInputs["airflowConfigurationOptions"] = state?.airflowConfigurationOptions;
+            resourceInputs["airflowVersion"] = state?.airflowVersion;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["dagS3Path"] = state?.dagS3Path;
+            resourceInputs["databaseVpcEndpointService"] = state?.databaseVpcEndpointService;
+            resourceInputs["endpointManagement"] = state?.endpointManagement;
+            resourceInputs["environmentClass"] = state?.environmentClass;
+            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
+            resourceInputs["kmsKey"] = state?.kmsKey;
+            resourceInputs["lastUpdateds"] = state?.lastUpdateds;
+            resourceInputs["loggingConfiguration"] = state?.loggingConfiguration;
+            resourceInputs["maxWebservers"] = state?.maxWebservers;
+            resourceInputs["maxWorkers"] = state?.maxWorkers;
+            resourceInputs["minWebservers"] = state?.minWebservers;
+            resourceInputs["minWorkers"] = state?.minWorkers;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConfiguration"] = state?.networkConfiguration;
+            resourceInputs["pluginsS3ObjectVersion"] = state?.pluginsS3ObjectVersion;
+            resourceInputs["pluginsS3Path"] = state?.pluginsS3Path;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["requirementsS3ObjectVersion"] = state?.requirementsS3ObjectVersion;
+            resourceInputs["requirementsS3Path"] = state?.requirementsS3Path;
+            resourceInputs["schedulers"] = state?.schedulers;
+            resourceInputs["serviceRoleArn"] = state?.serviceRoleArn;
+            resourceInputs["sourceBucketArn"] = state?.sourceBucketArn;
+            resourceInputs["startupScriptS3ObjectVersion"] = state?.startupScriptS3ObjectVersion;
+            resourceInputs["startupScriptS3Path"] = state?.startupScriptS3Path;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["webserverAccessMode"] = state?.webserverAccessMode;
+            resourceInputs["webserverUrl"] = state?.webserverUrl;
+            resourceInputs["webserverVpcEndpointService"] = state?.webserverVpcEndpointService;
+            resourceInputs["weeklyMaintenanceWindowStart"] = state?.weeklyMaintenanceWindowStart;
+            resourceInputs["workerReplacementStrategy"] = state?.workerReplacementStrategy;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            if ((!args || args.dagS3Path === undefined) && !opts.urn) {
+            if (args?.dagS3Path === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dagS3Path'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+            if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
-            if ((!args || args.sourceBucketArn === undefined) && !opts.urn) {
+            if (args?.sourceBucketArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceBucketArn'");
             }
             resourceInputs["airflowConfigurationOptions"] = args?.airflowConfigurationOptions ? pulumi.secret(args.airflowConfigurationOptions) : undefined;
-            resourceInputs["airflowVersion"] = args ? args.airflowVersion : undefined;
-            resourceInputs["dagS3Path"] = args ? args.dagS3Path : undefined;
-            resourceInputs["endpointManagement"] = args ? args.endpointManagement : undefined;
-            resourceInputs["environmentClass"] = args ? args.environmentClass : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
-            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            resourceInputs["maxWebservers"] = args ? args.maxWebservers : undefined;
-            resourceInputs["maxWorkers"] = args ? args.maxWorkers : undefined;
-            resourceInputs["minWebservers"] = args ? args.minWebservers : undefined;
-            resourceInputs["minWorkers"] = args ? args.minWorkers : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["pluginsS3ObjectVersion"] = args ? args.pluginsS3ObjectVersion : undefined;
-            resourceInputs["pluginsS3Path"] = args ? args.pluginsS3Path : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["requirementsS3ObjectVersion"] = args ? args.requirementsS3ObjectVersion : undefined;
-            resourceInputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
-            resourceInputs["schedulers"] = args ? args.schedulers : undefined;
-            resourceInputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
-            resourceInputs["startupScriptS3ObjectVersion"] = args ? args.startupScriptS3ObjectVersion : undefined;
-            resourceInputs["startupScriptS3Path"] = args ? args.startupScriptS3Path : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
-            resourceInputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
+            resourceInputs["airflowVersion"] = args?.airflowVersion;
+            resourceInputs["dagS3Path"] = args?.dagS3Path;
+            resourceInputs["endpointManagement"] = args?.endpointManagement;
+            resourceInputs["environmentClass"] = args?.environmentClass;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["kmsKey"] = args?.kmsKey;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
+            resourceInputs["maxWebservers"] = args?.maxWebservers;
+            resourceInputs["maxWorkers"] = args?.maxWorkers;
+            resourceInputs["minWebservers"] = args?.minWebservers;
+            resourceInputs["minWorkers"] = args?.minWorkers;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["pluginsS3ObjectVersion"] = args?.pluginsS3ObjectVersion;
+            resourceInputs["pluginsS3Path"] = args?.pluginsS3Path;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["requirementsS3ObjectVersion"] = args?.requirementsS3ObjectVersion;
+            resourceInputs["requirementsS3Path"] = args?.requirementsS3Path;
+            resourceInputs["schedulers"] = args?.schedulers;
+            resourceInputs["sourceBucketArn"] = args?.sourceBucketArn;
+            resourceInputs["startupScriptS3ObjectVersion"] = args?.startupScriptS3ObjectVersion;
+            resourceInputs["startupScriptS3Path"] = args?.startupScriptS3Path;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["webserverAccessMode"] = args?.webserverAccessMode;
+            resourceInputs["weeklyMaintenanceWindowStart"] = args?.weeklyMaintenanceWindowStart;
+            resourceInputs["workerReplacementStrategy"] = args?.workerReplacementStrategy;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["databaseVpcEndpointService"] = undefined /*out*/;
@@ -540,6 +546,10 @@ export interface EnvironmentState {
      * Specifies the start date for the weekly maintenance window.
      */
     weeklyMaintenanceWindowStart?: pulumi.Input<string>;
+    /**
+     * Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+     */
+    workerReplacementStrategy?: pulumi.Input<string>;
 }
 
 /**
@@ -650,4 +660,8 @@ export interface EnvironmentArgs {
      * Specifies the start date for the weekly maintenance window.
      */
     weeklyMaintenanceWindowStart?: pulumi.Input<string>;
+    /**
+     * Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+     */
+    workerReplacementStrategy?: pulumi.Input<string>;
 }

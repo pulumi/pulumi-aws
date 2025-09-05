@@ -74,6 +74,8 @@ type LookupVpcIpamResult struct {
 	Id string `pulumi:"id"`
 	// Region that the IPAM exists in.
 	IpamRegion string `pulumi:"ipamRegion"`
+	// AWS account that is charged for active IP addresses managed in IPAM.
+	MeteredAccount string `pulumi:"meteredAccount"`
 	// Regions that the IPAM is configured to operate in.
 	OperatingRegions []GetVpcIpamOperatingRegion `pulumi:"operatingRegions"`
 	// ID of the account that owns this IPAM.
@@ -166,6 +168,11 @@ func (o LookupVpcIpamResultOutput) Id() pulumi.StringOutput {
 // Region that the IPAM exists in.
 func (o LookupVpcIpamResultOutput) IpamRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.IpamRegion }).(pulumi.StringOutput)
+}
+
+// AWS account that is charged for active IP addresses managed in IPAM.
+func (o LookupVpcIpamResultOutput) MeteredAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.MeteredAccount }).(pulumi.StringOutput)
 }
 
 // Regions that the IPAM is configured to operate in.

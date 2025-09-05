@@ -796,6 +796,10 @@ if not MYPY:
         """
         Free-form text comment.
         """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        Map of key-value pairs.
+        """
         type: NotRequired[pulumi.Input[_builtins.str]]
         """
         Datatype of data in the Partition Key.
@@ -808,15 +812,19 @@ class CatalogTablePartitionKeyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the Partition Key.
         :param pulumi.Input[_builtins.str] comment: Free-form text comment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of key-value pairs.
         :param pulumi.Input[_builtins.str] type: Datatype of data in the Partition Key.
         """
         pulumi.set(__self__, "name", name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -843,6 +851,18 @@ class CatalogTablePartitionKeyArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of key-value pairs.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter

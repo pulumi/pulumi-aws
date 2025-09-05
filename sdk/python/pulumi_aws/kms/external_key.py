@@ -24,6 +24,8 @@ class ExternalKeyArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_spec: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
                  policy: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -36,6 +38,8 @@ class ExternalKeyArgs:
         :param pulumi.Input[_builtins.str] description: Description of the key.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         :param pulumi.Input[_builtins.str] key_material_base64: Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
+        :param pulumi.Input[_builtins.str] key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        :param pulumi.Input[_builtins.str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[_builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         :param pulumi.Input[_builtins.str] policy: A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -52,6 +56,10 @@ class ExternalKeyArgs:
             pulumi.set(__self__, "enabled", enabled)
         if key_material_base64 is not None:
             pulumi.set(__self__, "key_material_base64", key_material_base64)
+        if key_spec is not None:
+            pulumi.set(__self__, "key_spec", key_spec)
+        if key_usage is not None:
+            pulumi.set(__self__, "key_usage", key_usage)
         if multi_region is not None:
             pulumi.set(__self__, "multi_region", multi_region)
         if policy is not None:
@@ -124,6 +132,30 @@ class ExternalKeyArgs:
         pulumi.set(self, "key_material_base64", value)
 
     @_builtins.property
+    @pulumi.getter(name="keySpec")
+    def key_spec(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        """
+        return pulumi.get(self, "key_spec")
+
+    @key_spec.setter
+    def key_spec(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_spec", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyUsage")
+    def key_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        """
+        return pulumi.get(self, "key_usage")
+
+    @key_usage.setter
+    def key_usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_usage", value)
+
+    @_builtins.property
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -194,6 +226,7 @@ class _ExternalKeyState:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  expiration_model: Optional[pulumi.Input[_builtins.str]] = None,
                  key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_spec: Optional[pulumi.Input[_builtins.str]] = None,
                  key_state: Optional[pulumi.Input[_builtins.str]] = None,
                  key_usage: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -211,8 +244,9 @@ class _ExternalKeyState:
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         :param pulumi.Input[_builtins.str] expiration_model: Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
         :param pulumi.Input[_builtins.str] key_material_base64: Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
+        :param pulumi.Input[_builtins.str] key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[_builtins.str] key_state: The state of the CMK.
-        :param pulumi.Input[_builtins.str] key_usage: The cryptographic operations for which you can use the CMK.
+        :param pulumi.Input[_builtins.str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[_builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         :param pulumi.Input[_builtins.str] policy: A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -234,6 +268,8 @@ class _ExternalKeyState:
             pulumi.set(__self__, "expiration_model", expiration_model)
         if key_material_base64 is not None:
             pulumi.set(__self__, "key_material_base64", key_material_base64)
+        if key_spec is not None:
+            pulumi.set(__self__, "key_spec", key_spec)
         if key_state is not None:
             pulumi.set(__self__, "key_state", key_state)
         if key_usage is not None:
@@ -336,6 +372,18 @@ class _ExternalKeyState:
         pulumi.set(self, "key_material_base64", value)
 
     @_builtins.property
+    @pulumi.getter(name="keySpec")
+    def key_spec(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        """
+        return pulumi.get(self, "key_spec")
+
+    @key_spec.setter
+    def key_spec(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_spec", value)
+
+    @_builtins.property
     @pulumi.getter(name="keyState")
     def key_state(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -351,7 +399,7 @@ class _ExternalKeyState:
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The cryptographic operations for which you can use the CMK.
+        Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         """
         return pulumi.get(self, "key_usage")
 
@@ -443,6 +491,8 @@ class ExternalKey(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_spec: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
                  policy: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -477,6 +527,8 @@ class ExternalKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the key.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         :param pulumi.Input[_builtins.str] key_material_base64: Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
+        :param pulumi.Input[_builtins.str] key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        :param pulumi.Input[_builtins.str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[_builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         :param pulumi.Input[_builtins.str] policy: A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -530,6 +582,8 @@ class ExternalKey(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_spec: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
                  policy: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -549,6 +603,8 @@ class ExternalKey(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["key_material_base64"] = None if key_material_base64 is None else pulumi.Output.secret(key_material_base64)
+            __props__.__dict__["key_spec"] = key_spec
+            __props__.__dict__["key_usage"] = key_usage
             __props__.__dict__["multi_region"] = multi_region
             __props__.__dict__["policy"] = policy
             __props__.__dict__["region"] = region
@@ -557,7 +613,6 @@ class ExternalKey(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["expiration_model"] = None
             __props__.__dict__["key_state"] = None
-            __props__.__dict__["key_usage"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyMaterialBase64"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -578,6 +633,7 @@ class ExternalKey(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             expiration_model: Optional[pulumi.Input[_builtins.str]] = None,
             key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
+            key_spec: Optional[pulumi.Input[_builtins.str]] = None,
             key_state: Optional[pulumi.Input[_builtins.str]] = None,
             key_usage: Optional[pulumi.Input[_builtins.str]] = None,
             multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -600,8 +656,9 @@ class ExternalKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         :param pulumi.Input[_builtins.str] expiration_model: Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
         :param pulumi.Input[_builtins.str] key_material_base64: Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
+        :param pulumi.Input[_builtins.str] key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[_builtins.str] key_state: The state of the CMK.
-        :param pulumi.Input[_builtins.str] key_usage: The cryptographic operations for which you can use the CMK.
+        :param pulumi.Input[_builtins.str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[_builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         :param pulumi.Input[_builtins.str] policy: A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -620,6 +677,7 @@ class ExternalKey(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["expiration_model"] = expiration_model
         __props__.__dict__["key_material_base64"] = key_material_base64
+        __props__.__dict__["key_spec"] = key_spec
         __props__.__dict__["key_state"] = key_state
         __props__.__dict__["key_usage"] = key_usage
         __props__.__dict__["multi_region"] = multi_region
@@ -687,6 +745,14 @@ class ExternalKey(pulumi.CustomResource):
         return pulumi.get(self, "key_material_base64")
 
     @_builtins.property
+    @pulumi.getter(name="keySpec")
+    def key_spec(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        """
+        return pulumi.get(self, "key_spec")
+
+    @_builtins.property
     @pulumi.getter(name="keyState")
     def key_state(self) -> pulumi.Output[_builtins.str]:
         """
@@ -698,7 +764,7 @@ class ExternalKey(pulumi.CustomResource):
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> pulumi.Output[_builtins.str]:
         """
-        The cryptographic operations for which you can use the CMK.
+        Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         """
         return pulumi.get(self, "key_usage")
 

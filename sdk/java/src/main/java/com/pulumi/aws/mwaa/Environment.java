@@ -732,6 +732,20 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<String> weeklyMaintenanceWindowStart() {
         return this.weeklyMaintenanceWindowStart;
     }
+    /**
+     * Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+     * 
+     */
+    @Export(name="workerReplacementStrategy", refs={String.class}, tree="[0]")
+    private Output<String> workerReplacementStrategy;
+
+    /**
+     * @return Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
+     * 
+     */
+    public Output<String> workerReplacementStrategy() {
+        return this.workerReplacementStrategy;
+    }
 
     /**
      *

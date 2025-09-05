@@ -346,7 +346,7 @@ type ReplicationGroup struct {
 	// Name of the cache engine to be used for the clusters in this replication group.
 	// Valid values are `redis` or `valkey`.
 	// Default is `redis`.
-	Engine pulumi.StringPtrOutput `pulumi:"engine"`
+	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
 	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -1140,8 +1140,8 @@ func (o ReplicationGroupOutput) Description() pulumi.StringOutput {
 // Name of the cache engine to be used for the clusters in this replication group.
 // Valid values are `redis` or `valkey`.
 // Default is `redis`.
-func (o ReplicationGroupOutput) Engine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
+func (o ReplicationGroupOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
 // Version number of the cache engine to be used for the cache clusters in this replication group.

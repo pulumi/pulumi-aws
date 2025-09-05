@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -20,6 +21,11 @@ public final class GetCatalogTablePartitionKey {
      * 
      */
     private String name;
+    /**
+     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * 
+     */
+    private Map<String,String> parameters;
     /**
      * @return Datatype of data in the Column.
      * 
@@ -42,6 +48,13 @@ public final class GetCatalogTablePartitionKey {
         return this.name;
     }
     /**
+     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * 
+     */
+    public Map<String,String> parameters() {
+        return this.parameters;
+    }
+    /**
      * @return Datatype of data in the Column.
      * 
      */
@@ -60,12 +73,14 @@ public final class GetCatalogTablePartitionKey {
     public static final class Builder {
         private String comment;
         private String name;
+        private Map<String,String> parameters;
         private String type;
         public Builder() {}
         public Builder(GetCatalogTablePartitionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
     	      this.name = defaults.name;
+    	      this.parameters = defaults.parameters;
     	      this.type = defaults.type;
         }
 
@@ -86,6 +101,14 @@ public final class GetCatalogTablePartitionKey {
             return this;
         }
         @CustomType.Setter
+        public Builder parameters(Map<String,String> parameters) {
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTablePartitionKey", "parameters");
+            }
+            this.parameters = parameters;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetCatalogTablePartitionKey", "type");
@@ -97,6 +120,7 @@ public final class GetCatalogTablePartitionKey {
             final var _resultValue = new GetCatalogTablePartitionKey();
             _resultValue.comment = comment;
             _resultValue.name = name;
+            _resultValue.parameters = parameters;
             _resultValue.type = type;
             return _resultValue;
         }

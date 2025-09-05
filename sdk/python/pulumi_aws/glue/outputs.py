@@ -677,15 +677,19 @@ class CatalogTablePartitionKey(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  comment: Optional[_builtins.str] = None,
+                 parameters: Optional[Mapping[str, _builtins.str]] = None,
                  type: Optional[_builtins.str] = None):
         """
         :param _builtins.str name: Name of the Partition Key.
         :param _builtins.str comment: Free-form text comment.
+        :param Mapping[str, _builtins.str] parameters: Map of key-value pairs.
         :param _builtins.str type: Datatype of data in the Partition Key.
         """
         pulumi.set(__self__, "name", name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -704,6 +708,14 @@ class CatalogTablePartitionKey(dict):
         Free-form text comment.
         """
         return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of key-value pairs.
+        """
+        return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
@@ -4275,14 +4287,17 @@ class GetCatalogTablePartitionKeyResult(dict):
     def __init__(__self__, *,
                  comment: _builtins.str,
                  name: _builtins.str,
+                 parameters: Mapping[str, _builtins.str],
                  type: _builtins.str):
         """
         :param _builtins.str comment: Free-form text comment.
         :param _builtins.str name: Name of the table.
+        :param Mapping[str, _builtins.str] parameters: Map of initialization parameters for the SerDe, in key-value form.
         :param _builtins.str type: Datatype of data in the Column.
         """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
@@ -4300,6 +4315,14 @@ class GetCatalogTablePartitionKeyResult(dict):
         Name of the table.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of initialization parameters for the SerDe, in key-value form.
+        """
+        return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter

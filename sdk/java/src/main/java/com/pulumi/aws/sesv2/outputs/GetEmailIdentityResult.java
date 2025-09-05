@@ -43,6 +43,11 @@ public final class GetEmailIdentityResult {
      */
     private Map<String,String> tags;
     /**
+     * @return The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * 
+     */
+    private String verificationStatus;
+    /**
      * @return Specifies whether or not the identity is verified.
      * 
      */
@@ -94,6 +99,13 @@ public final class GetEmailIdentityResult {
         return this.tags;
     }
     /**
+     * @return The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * 
+     */
+    public String verificationStatus() {
+        return this.verificationStatus;
+    }
+    /**
      * @return Specifies whether or not the identity is verified.
      * 
      */
@@ -118,6 +130,7 @@ public final class GetEmailIdentityResult {
         private String identityType;
         private String region;
         private Map<String,String> tags;
+        private String verificationStatus;
         private Boolean verifiedForSendingStatus;
         public Builder() {}
         public Builder(GetEmailIdentityResult defaults) {
@@ -130,6 +143,7 @@ public final class GetEmailIdentityResult {
     	      this.identityType = defaults.identityType;
     	      this.region = defaults.region;
     	      this.tags = defaults.tags;
+    	      this.verificationStatus = defaults.verificationStatus;
     	      this.verifiedForSendingStatus = defaults.verifiedForSendingStatus;
         }
 
@@ -201,6 +215,14 @@ public final class GetEmailIdentityResult {
             return this;
         }
         @CustomType.Setter
+        public Builder verificationStatus(String verificationStatus) {
+            if (verificationStatus == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "verificationStatus");
+            }
+            this.verificationStatus = verificationStatus;
+            return this;
+        }
+        @CustomType.Setter
         public Builder verifiedForSendingStatus(Boolean verifiedForSendingStatus) {
             if (verifiedForSendingStatus == null) {
               throw new MissingRequiredPropertyException("GetEmailIdentityResult", "verifiedForSendingStatus");
@@ -218,6 +240,7 @@ public final class GetEmailIdentityResult {
             _resultValue.identityType = identityType;
             _resultValue.region = region;
             _resultValue.tags = tags;
+            _resultValue.verificationStatus = verificationStatus;
             _resultValue.verifiedForSendingStatus = verifiedForSendingStatus;
             return _resultValue;
         }

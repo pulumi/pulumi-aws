@@ -474,6 +474,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+     * 
+     */
+    @Import(name="sigintRollback")
+    private @Nullable Output<Boolean> sigintRollback;
+
+    /**
+     * @return Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+     * 
+     */
+    public Optional<Output<Boolean>> sigintRollback() {
+        return Optional.ofNullable(this.sigintRollback);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -610,6 +625,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         this.schedulingStrategy = $.schedulingStrategy;
         this.serviceConnectConfiguration = $.serviceConnectConfiguration;
         this.serviceRegistries = $.serviceRegistries;
+        this.sigintRollback = $.sigintRollback;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.taskDefinition = $.taskDefinition;
@@ -1290,6 +1306,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serviceRegistries(ServiceServiceRegistriesArgs serviceRegistries) {
             return serviceRegistries(Output.of(serviceRegistries));
+        }
+
+        /**
+         * @param sigintRollback Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sigintRollback(@Nullable Output<Boolean> sigintRollback) {
+            $.sigintRollback = sigintRollback;
+            return this;
+        }
+
+        /**
+         * @param sigintRollback Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sigintRollback(Boolean sigintRollback) {
+            return sigintRollback(Output.of(sigintRollback));
         }
 
         /**

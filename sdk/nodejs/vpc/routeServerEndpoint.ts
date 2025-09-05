@@ -66,46 +66,46 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
     /**
      * The ARN of the route server endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The IP address of the Elastic network interface for the endpoint.
      */
-    public /*out*/ readonly eniAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly eniAddress: pulumi.Output<string>;
     /**
      * The ID of the Elastic network interface for the endpoint.
      */
-    public /*out*/ readonly eniId!: pulumi.Output<string>;
+    declare public /*out*/ readonly eniId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The unique identifier of the route server endpoint.
      */
-    public /*out*/ readonly routeServerEndpointId!: pulumi.Output<string>;
+    declare public /*out*/ readonly routeServerEndpointId: pulumi.Output<string>;
     /**
      * The ID of the route server for which to create an endpoint.
      */
-    public readonly routeServerId!: pulumi.Output<string>;
+    declare public readonly routeServerId: pulumi.Output<string>;
     /**
      * The ID of the subnet in which to create the route server endpoint.
      *
      * The following arguments are optional:
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.vpc.RouteServerEndpointTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerEndpointTimeouts | undefined>;
     /**
      * The ID of the VPC containing the endpoint.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a RouteServerEndpoint resource with the given unique name, arguments, and options.
@@ -120,30 +120,30 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteServerEndpointState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["eniAddress"] = state ? state.eniAddress : undefined;
-            resourceInputs["eniId"] = state ? state.eniId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routeServerEndpointId"] = state ? state.routeServerEndpointId : undefined;
-            resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["eniAddress"] = state?.eniAddress;
+            resourceInputs["eniId"] = state?.eniId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routeServerEndpointId"] = state?.routeServerEndpointId;
+            resourceInputs["routeServerId"] = state?.routeServerId;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as RouteServerEndpointArgs | undefined;
-            if ((!args || args.routeServerId === undefined) && !opts.urn) {
+            if (args?.routeServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeServerId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routeServerId"] = args ? args.routeServerId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routeServerId"] = args?.routeServerId;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["eniAddress"] = undefined /*out*/;
             resourceInputs["eniId"] = undefined /*out*/;

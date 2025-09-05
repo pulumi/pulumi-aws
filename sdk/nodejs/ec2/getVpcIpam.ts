@@ -78,6 +78,10 @@ export interface GetVpcIpamResult {
      */
     readonly ipamRegion: string;
     /**
+     * AWS account that is charged for active IP addresses managed in IPAM.
+     */
+    readonly meteredAccount: string;
+    /**
      * Regions that the IPAM is configured to operate in.
      */
     readonly operatingRegions: outputs.ec2.GetVpcIpamOperatingRegion[];

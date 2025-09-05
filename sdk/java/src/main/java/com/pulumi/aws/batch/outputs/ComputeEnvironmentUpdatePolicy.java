@@ -18,7 +18,7 @@ public final class ComputeEnvironmentUpdatePolicy {
      */
     private @Nullable Integer jobExecutionTimeoutMinutes;
     /**
-     * @return Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+     * @return Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
      * 
      */
     private @Nullable Boolean terminateJobsOnUpdate;
@@ -32,7 +32,7 @@ public final class ComputeEnvironmentUpdatePolicy {
         return Optional.ofNullable(this.jobExecutionTimeoutMinutes);
     }
     /**
-     * @return Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+     * @return Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
      * 
      */
     public Optional<Boolean> terminateJobsOnUpdate() {

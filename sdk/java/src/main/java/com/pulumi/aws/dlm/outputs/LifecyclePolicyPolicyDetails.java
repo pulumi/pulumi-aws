@@ -5,9 +5,12 @@ package com.pulumi.aws.dlm.outputs;
 
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsAction;
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsEventSource;
+import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsExclusions;
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsParameters;
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsSchedule;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -22,12 +25,33 @@ public final class LifecyclePolicyPolicyDetails {
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsAction action;
+    private @Nullable Boolean copyTags;
+    /**
+     * @return How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
+     * 
+     */
+    private @Nullable Integer createInterval;
     /**
      * @return The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsEventSource eventSource;
+    /**
+     * @return Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+     * 
+     */
+    private @Nullable LifecyclePolicyPolicyDetailsExclusions exclusions;
+    /**
+     * @return snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+     * 
+     */
+    private @Nullable Boolean extendDeletion;
     private @Nullable LifecyclePolicyPolicyDetailsParameters parameters;
+    /**
+     * @return Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
+     * 
+     */
+    private @Nullable String policyLanguage;
     /**
      * @return The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
      * 
@@ -39,10 +63,20 @@ public final class LifecyclePolicyPolicyDetails {
      */
     private @Nullable String resourceLocations;
     /**
+     * @return Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
+     * 
+     */
+    private @Nullable String resourceType;
+    /**
      * @return A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
      * 
      */
     private @Nullable List<String> resourceTypes;
+    /**
+     * @return Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
+     * 
+     */
+    private @Nullable Integer retainInterval;
     /**
      * @return See the `schedule` configuration block.
      * 
@@ -64,6 +98,16 @@ public final class LifecyclePolicyPolicyDetails {
     public Optional<LifecyclePolicyPolicyDetailsAction> action() {
         return Optional.ofNullable(this.action);
     }
+    public Optional<Boolean> copyTags() {
+        return Optional.ofNullable(this.copyTags);
+    }
+    /**
+     * @return How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
+     * 
+     */
+    public Optional<Integer> createInterval() {
+        return Optional.ofNullable(this.createInterval);
+    }
     /**
      * @return The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
      * 
@@ -71,8 +115,29 @@ public final class LifecyclePolicyPolicyDetails {
     public Optional<LifecyclePolicyPolicyDetailsEventSource> eventSource() {
         return Optional.ofNullable(this.eventSource);
     }
+    /**
+     * @return Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+     * 
+     */
+    public Optional<LifecyclePolicyPolicyDetailsExclusions> exclusions() {
+        return Optional.ofNullable(this.exclusions);
+    }
+    /**
+     * @return snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+     * 
+     */
+    public Optional<Boolean> extendDeletion() {
+        return Optional.ofNullable(this.extendDeletion);
+    }
     public Optional<LifecyclePolicyPolicyDetailsParameters> parameters() {
         return Optional.ofNullable(this.parameters);
+    }
+    /**
+     * @return Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
+     * 
+     */
+    public Optional<String> policyLanguage() {
+        return Optional.ofNullable(this.policyLanguage);
     }
     /**
      * @return The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
@@ -89,11 +154,25 @@ public final class LifecyclePolicyPolicyDetails {
         return Optional.ofNullable(this.resourceLocations);
     }
     /**
+     * @return Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
+     * 
+     */
+    public Optional<String> resourceType() {
+        return Optional.ofNullable(this.resourceType);
+    }
+    /**
      * @return A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
      * 
      */
     public List<String> resourceTypes() {
         return this.resourceTypes == null ? List.of() : this.resourceTypes;
+    }
+    /**
+     * @return Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
+     * 
+     */
+    public Optional<Integer> retainInterval() {
+        return Optional.ofNullable(this.retainInterval);
     }
     /**
      * @return See the `schedule` configuration block.
@@ -122,22 +201,36 @@ public final class LifecyclePolicyPolicyDetails {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable LifecyclePolicyPolicyDetailsAction action;
+        private @Nullable Boolean copyTags;
+        private @Nullable Integer createInterval;
         private @Nullable LifecyclePolicyPolicyDetailsEventSource eventSource;
+        private @Nullable LifecyclePolicyPolicyDetailsExclusions exclusions;
+        private @Nullable Boolean extendDeletion;
         private @Nullable LifecyclePolicyPolicyDetailsParameters parameters;
+        private @Nullable String policyLanguage;
         private @Nullable String policyType;
         private @Nullable String resourceLocations;
+        private @Nullable String resourceType;
         private @Nullable List<String> resourceTypes;
+        private @Nullable Integer retainInterval;
         private @Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules;
         private @Nullable Map<String,String> targetTags;
         public Builder() {}
         public Builder(LifecyclePolicyPolicyDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.copyTags = defaults.copyTags;
+    	      this.createInterval = defaults.createInterval;
     	      this.eventSource = defaults.eventSource;
+    	      this.exclusions = defaults.exclusions;
+    	      this.extendDeletion = defaults.extendDeletion;
     	      this.parameters = defaults.parameters;
+    	      this.policyLanguage = defaults.policyLanguage;
     	      this.policyType = defaults.policyType;
     	      this.resourceLocations = defaults.resourceLocations;
+    	      this.resourceType = defaults.resourceType;
     	      this.resourceTypes = defaults.resourceTypes;
+    	      this.retainInterval = defaults.retainInterval;
     	      this.schedules = defaults.schedules;
     	      this.targetTags = defaults.targetTags;
         }
@@ -149,15 +242,45 @@ public final class LifecyclePolicyPolicyDetails {
             return this;
         }
         @CustomType.Setter
+        public Builder copyTags(@Nullable Boolean copyTags) {
+
+            this.copyTags = copyTags;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder createInterval(@Nullable Integer createInterval) {
+
+            this.createInterval = createInterval;
+            return this;
+        }
+        @CustomType.Setter
         public Builder eventSource(@Nullable LifecyclePolicyPolicyDetailsEventSource eventSource) {
 
             this.eventSource = eventSource;
             return this;
         }
         @CustomType.Setter
+        public Builder exclusions(@Nullable LifecyclePolicyPolicyDetailsExclusions exclusions) {
+
+            this.exclusions = exclusions;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder extendDeletion(@Nullable Boolean extendDeletion) {
+
+            this.extendDeletion = extendDeletion;
+            return this;
+        }
+        @CustomType.Setter
         public Builder parameters(@Nullable LifecyclePolicyPolicyDetailsParameters parameters) {
 
             this.parameters = parameters;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder policyLanguage(@Nullable String policyLanguage) {
+
+            this.policyLanguage = policyLanguage;
             return this;
         }
         @CustomType.Setter
@@ -173,6 +296,12 @@ public final class LifecyclePolicyPolicyDetails {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceType(@Nullable String resourceType) {
+
+            this.resourceType = resourceType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceTypes(@Nullable List<String> resourceTypes) {
 
             this.resourceTypes = resourceTypes;
@@ -180,6 +309,12 @@ public final class LifecyclePolicyPolicyDetails {
         }
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
+        }
+        @CustomType.Setter
+        public Builder retainInterval(@Nullable Integer retainInterval) {
+
+            this.retainInterval = retainInterval;
+            return this;
         }
         @CustomType.Setter
         public Builder schedules(@Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules) {
@@ -199,11 +334,18 @@ public final class LifecyclePolicyPolicyDetails {
         public LifecyclePolicyPolicyDetails build() {
             final var _resultValue = new LifecyclePolicyPolicyDetails();
             _resultValue.action = action;
+            _resultValue.copyTags = copyTags;
+            _resultValue.createInterval = createInterval;
             _resultValue.eventSource = eventSource;
+            _resultValue.exclusions = exclusions;
+            _resultValue.extendDeletion = extendDeletion;
             _resultValue.parameters = parameters;
+            _resultValue.policyLanguage = policyLanguage;
             _resultValue.policyType = policyType;
             _resultValue.resourceLocations = resourceLocations;
+            _resultValue.resourceType = resourceType;
             _resultValue.resourceTypes = resourceTypes;
+            _resultValue.retainInterval = retainInterval;
             _resultValue.schedules = schedules;
             _resultValue.targetTags = targetTags;
             return _resultValue;

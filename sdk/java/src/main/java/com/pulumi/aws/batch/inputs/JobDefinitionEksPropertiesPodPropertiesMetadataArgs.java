@@ -17,14 +17,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesMetadataArgs extends c
     public static final JobDefinitionEksPropertiesPodPropertiesMetadataArgs Empty = new JobDefinitionEksPropertiesPodPropertiesMetadataArgs();
 
     /**
-     * Key-value pairs used to identify, sort, and organize cube resources.
+     * Key-value pairs used to identify, sort, and organize kubernetes resources.
      * 
      */
     @Import(name="labels")
     private @Nullable Output<Map<String,String>> labels;
 
     /**
-     * @return Key-value pairs used to identify, sort, and organize cube resources.
+     * @return Key-value pairs used to identify, sort, and organize kubernetes resources.
      * 
      */
     public Optional<Output<Map<String,String>>> labels() {
@@ -56,7 +56,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesMetadataArgs extends c
         }
 
         /**
-         * @param labels Key-value pairs used to identify, sort, and organize cube resources.
+         * @param labels Key-value pairs used to identify, sort, and organize kubernetes resources.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesMetadataArgs extends c
         }
 
         /**
-         * @param labels Key-value pairs used to identify, sort, and organize cube resources.
+         * @param labels Key-value pairs used to identify, sort, and organize kubernetes resources.
          * 
          * @return builder
          * 

@@ -12167,6 +12167,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "timestreaminfluxdb/dbCluster",
+  "fqn": "pulumi_aws.timestreaminfluxdb",
+  "classes": {
+   "aws:timestreaminfluxdb/dbCluster:DbCluster": "DbCluster"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "timestreaminfluxdb/dbInstance",
   "fqn": "pulumi_aws.timestreaminfluxdb",
   "classes": {
@@ -12895,10 +12903,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "workspacesweb/browserSettingsAssociation",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation": "BrowserSettingsAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "workspacesweb/dataProtectionSettings",
   "fqn": "pulumi_aws.workspacesweb",
   "classes": {
    "aws:workspacesweb/dataProtectionSettings:DataProtectionSettings": "DataProtectionSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/dataProtectionSettingsAssociation",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/dataProtectionSettingsAssociation:DataProtectionSettingsAssociation": "DataProtectionSettingsAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/identityProvider",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/identityProvider:IdentityProvider": "IdentityProvider"
   }
  },
  {
@@ -12911,10 +12943,66 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "workspacesweb/ipAccessSettingsAssociation",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/ipAccessSettingsAssociation:IpAccessSettingsAssociation": "IpAccessSettingsAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "workspacesweb/networkSettings",
   "fqn": "pulumi_aws.workspacesweb",
   "classes": {
    "aws:workspacesweb/networkSettings:NetworkSettings": "NetworkSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/networkSettingsAssociation",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/networkSettingsAssociation:NetworkSettingsAssociation": "NetworkSettingsAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/portal",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/portal:Portal": "Portal"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/sessionLogger",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/sessionLogger:SessionLogger": "SessionLogger"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/sessionLoggerAssociation",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/sessionLoggerAssociation:SessionLoggerAssociation": "SessionLoggerAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/trustStore",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/trustStore:TrustStore": "TrustStore"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/trustStoreAssociation",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation": "TrustStoreAssociation"
   }
  },
  {
@@ -12927,10 +13015,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "workspacesweb/userAccessLoggingSettingsAssociation",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/userAccessLoggingSettingsAssociation:UserAccessLoggingSettingsAssociation": "UserAccessLoggingSettingsAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "workspacesweb/userSettings",
   "fqn": "pulumi_aws.workspacesweb",
   "classes": {
    "aws:workspacesweb/userSettings:UserSettings": "UserSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/userSettingsAssociation",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/userSettingsAssociation:UserSettingsAssociation": "UserSettingsAssociation"
   }
  },
  {

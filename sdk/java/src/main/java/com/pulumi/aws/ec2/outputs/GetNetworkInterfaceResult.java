@@ -22,10 +22,14 @@ public final class GetNetworkInterfaceResult {
      */
     private String arn;
     /**
-     * @return Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+     * @return Association information for an Elastic IP address (IPv4) associated with the network interface. See association below.
      * 
      */
     private List<GetNetworkInterfaceAssociation> associations;
+    /**
+     * @return Attachment of the ENI. See attachment below.
+     * 
+     */
     private List<GetNetworkInterfaceAttachment> attachments;
     /**
      * @return Availability Zone.
@@ -115,12 +119,16 @@ public final class GetNetworkInterfaceResult {
         return this.arn;
     }
     /**
-     * @return Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+     * @return Association information for an Elastic IP address (IPv4) associated with the network interface. See association below.
      * 
      */
     public List<GetNetworkInterfaceAssociation> associations() {
         return this.associations;
     }
+    /**
+     * @return Attachment of the ENI. See attachment below.
+     * 
+     */
     public List<GetNetworkInterfaceAttachment> attachments() {
         return this.attachments;
     }

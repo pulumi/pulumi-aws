@@ -59,20 +59,20 @@ class UserPoolArgs:
         :param pulumi.Input[_builtins.str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
         :param pulumi.Input['UserPoolDeviceConfigurationArgs'] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
         :param pulumi.Input['UserPoolEmailConfigurationArgs'] email_configuration: Configuration block for configuring email. Detailed below.
-        :param pulumi.Input['UserPoolEmailMfaConfigurationArgs'] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        :param pulumi.Input['UserPoolEmailMfaConfigurationArgs'] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         :param pulumi.Input[_builtins.str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         :param pulumi.Input[_builtins.str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         :param pulumi.Input[_builtins.str] name: Name of the user pool.
         :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration block for information about the user pool password policy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input['UserPoolSignInPolicyArgs'] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
         :param pulumi.Input[_builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         :param pulumi.Input[_builtins.str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        :param pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs'] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        :param pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs'] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs'] user_attribute_update_settings: Configuration block for user attribute update settings. Detailed below.
         :param pulumi.Input['UserPoolUserPoolAddOnsArgs'] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
@@ -229,7 +229,7 @@ class UserPoolArgs:
     @pulumi.getter(name="emailMfaConfiguration")
     def email_mfa_configuration(self) -> Optional[pulumi.Input['UserPoolEmailMfaConfigurationArgs']]:
         """
-        Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         """
         return pulumi.get(self, "email_mfa_configuration")
 
@@ -277,7 +277,7 @@ class UserPoolArgs:
     @pulumi.getter(name="mfaConfiguration")
     def mfa_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         """
         return pulumi.get(self, "mfa_configuration")
 
@@ -361,7 +361,7 @@ class UserPoolArgs:
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> Optional[pulumi.Input['UserPoolSmsConfigurationArgs']]:
         """
-        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         """
         return pulumi.get(self, "sms_configuration")
 
@@ -385,7 +385,7 @@ class UserPoolArgs:
     @pulumi.getter(name="softwareTokenMfaConfiguration")
     def software_token_mfa_configuration(self) -> Optional[pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs']]:
         """
-        Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         """
         return pulumi.get(self, "software_token_mfa_configuration")
 
@@ -543,23 +543,23 @@ class _UserPoolState:
         :param pulumi.Input['UserPoolDeviceConfigurationArgs'] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
         :param pulumi.Input[_builtins.str] domain: Holds the domain prefix if the user pool has a domain associated with it.
         :param pulumi.Input['UserPoolEmailConfigurationArgs'] email_configuration: Configuration block for configuring email. Detailed below.
-        :param pulumi.Input['UserPoolEmailMfaConfigurationArgs'] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        :param pulumi.Input['UserPoolEmailMfaConfigurationArgs'] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         :param pulumi.Input[_builtins.str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         :param pulumi.Input[_builtins.str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         :param pulumi.Input[_builtins.str] endpoint: Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
         :param pulumi.Input[_builtins.int] estimated_number_of_users: A number estimating the size of the user pool.
         :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         :param pulumi.Input[_builtins.str] last_modified_date: Date the user pool was last modified.
-        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         :param pulumi.Input[_builtins.str] name: Name of the user pool.
         :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration block for information about the user pool password policy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input['UserPoolSignInPolicyArgs'] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
         :param pulumi.Input[_builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         :param pulumi.Input[_builtins.str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        :param pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs'] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        :param pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs'] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs'] user_attribute_update_settings: Configuration block for user attribute update settings. Detailed below.
@@ -781,7 +781,7 @@ class _UserPoolState:
     @pulumi.getter(name="emailMfaConfiguration")
     def email_mfa_configuration(self) -> Optional[pulumi.Input['UserPoolEmailMfaConfigurationArgs']]:
         """
-        Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         """
         return pulumi.get(self, "email_mfa_configuration")
 
@@ -865,7 +865,7 @@ class _UserPoolState:
     @pulumi.getter(name="mfaConfiguration")
     def mfa_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         """
         return pulumi.get(self, "mfa_configuration")
 
@@ -949,7 +949,7 @@ class _UserPoolState:
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> Optional[pulumi.Input['UserPoolSmsConfigurationArgs']]:
         """
-        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         """
         return pulumi.get(self, "sms_configuration")
 
@@ -973,7 +973,7 @@ class _UserPoolState:
     @pulumi.getter(name="softwareTokenMfaConfiguration")
     def software_token_mfa_configuration(self) -> Optional[pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs']]:
         """
-        Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         """
         return pulumi.get(self, "software_token_mfa_configuration")
 
@@ -1198,20 +1198,20 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
         :param pulumi.Input[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
         :param pulumi.Input[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']] email_configuration: Configuration block for configuring email. Detailed below.
-        :param pulumi.Input[Union['UserPoolEmailMfaConfigurationArgs', 'UserPoolEmailMfaConfigurationArgsDict']] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        :param pulumi.Input[Union['UserPoolEmailMfaConfigurationArgs', 'UserPoolEmailMfaConfigurationArgsDict']] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         :param pulumi.Input[_builtins.str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         :param pulumi.Input[_builtins.str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         :param pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         :param pulumi.Input[_builtins.str] name: Name of the user pool.
         :param pulumi.Input[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict']] password_policy: Configuration block for information about the user pool password policy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict']] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
         :param pulumi.Input[_builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         :param pulumi.Input[_builtins.str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        :param pulumi.Input[Union['UserPoolSoftwareTokenMfaConfigurationArgs', 'UserPoolSoftwareTokenMfaConfigurationArgsDict']] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        :param pulumi.Input[Union['UserPoolSoftwareTokenMfaConfigurationArgs', 'UserPoolSoftwareTokenMfaConfigurationArgsDict']] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']] user_attribute_update_settings: Configuration block for user attribute update settings. Detailed below.
         :param pulumi.Input[Union['UserPoolUserPoolAddOnsArgs', 'UserPoolUserPoolAddOnsArgsDict']] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
@@ -1445,23 +1445,23 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
         :param pulumi.Input[_builtins.str] domain: Holds the domain prefix if the user pool has a domain associated with it.
         :param pulumi.Input[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']] email_configuration: Configuration block for configuring email. Detailed below.
-        :param pulumi.Input[Union['UserPoolEmailMfaConfigurationArgs', 'UserPoolEmailMfaConfigurationArgsDict']] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        :param pulumi.Input[Union['UserPoolEmailMfaConfigurationArgs', 'UserPoolEmailMfaConfigurationArgsDict']] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         :param pulumi.Input[_builtins.str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         :param pulumi.Input[_builtins.str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         :param pulumi.Input[_builtins.str] endpoint: Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
         :param pulumi.Input[_builtins.int] estimated_number_of_users: A number estimating the size of the user pool.
         :param pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         :param pulumi.Input[_builtins.str] last_modified_date: Date the user pool was last modified.
-        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         :param pulumi.Input[_builtins.str] name: Name of the user pool.
         :param pulumi.Input[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict']] password_policy: Configuration block for information about the user pool password policy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict']] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
         :param pulumi.Input[_builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         :param pulumi.Input[_builtins.str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        :param pulumi.Input[Union['UserPoolSoftwareTokenMfaConfigurationArgs', 'UserPoolSoftwareTokenMfaConfigurationArgsDict']] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        :param pulumi.Input[Union['UserPoolSoftwareTokenMfaConfigurationArgs', 'UserPoolSoftwareTokenMfaConfigurationArgsDict']] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']] user_attribute_update_settings: Configuration block for user attribute update settings. Detailed below.
@@ -1607,7 +1607,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="emailMfaConfiguration")
     def email_mfa_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolEmailMfaConfiguration']]:
         """
-        Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         """
         return pulumi.get(self, "email_mfa_configuration")
 
@@ -1663,7 +1663,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="mfaConfiguration")
     def mfa_configuration(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
         """
         return pulumi.get(self, "mfa_configuration")
 
@@ -1719,7 +1719,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> pulumi.Output['outputs.UserPoolSmsConfiguration']:
         """
-        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         """
         return pulumi.get(self, "sms_configuration")
 
@@ -1735,7 +1735,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="softwareTokenMfaConfiguration")
     def software_token_mfa_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolSoftwareTokenMfaConfiguration']]:
         """
-        Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
         """
         return pulumi.get(self, "software_token_mfa_configuration")
 

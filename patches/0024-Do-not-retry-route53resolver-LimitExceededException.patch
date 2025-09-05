@@ -6,7 +6,7 @@ Subject: [PATCH] Do not retry route53resolver LimitExceededException
 
 diff --git a/internal/service/route53resolver/service_package_extra_options.go b/internal/service/route53resolver/service_package_extra_options.go
 new file mode 100644
-index 0000000000..e35a2237a4
+index 00000000000..e35a2237a43
 --- /dev/null
 +++ b/internal/service/route53resolver/service_package_extra_options.go
 @@ -0,0 +1,49 @@

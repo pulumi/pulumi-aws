@@ -49,6 +49,7 @@ class ServiceArgs:
                  scheduling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']] = None,
                  service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
+                 sigint_rollback: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_definition: Optional[pulumi.Input[_builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -88,6 +89,7 @@ class ServiceArgs:
         :param pulumi.Input[_builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input['ServiceServiceConnectConfigurationArgs'] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        :param pulumi.Input[_builtins.bool] sigint_rollback: Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
@@ -151,6 +153,8 @@ class ServiceArgs:
             pulumi.set(__self__, "service_connect_configuration", service_connect_configuration)
         if service_registries is not None:
             pulumi.set(__self__, "service_registries", service_registries)
+        if sigint_rollback is not None:
+            pulumi.set(__self__, "sigint_rollback", sigint_rollback)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if task_definition is not None:
@@ -504,6 +508,18 @@ class ServiceArgs:
         pulumi.set(self, "service_registries", value)
 
     @_builtins.property
+    @pulumi.getter(name="sigintRollback")
+    def sigint_rollback(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+        """
+        return pulumi.get(self, "sigint_rollback")
+
+    @sigint_rollback.setter
+    def sigint_rollback(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "sigint_rollback", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -608,6 +624,7 @@ class _ServiceState:
                  scheduling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']] = None,
                  service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
+                 sigint_rollback: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_definition: Optional[pulumi.Input[_builtins.str]] = None,
@@ -649,6 +666,7 @@ class _ServiceState:
         :param pulumi.Input[_builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input['ServiceServiceConnectConfigurationArgs'] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        :param pulumi.Input[_builtins.bool] sigint_rollback: Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
@@ -715,6 +733,8 @@ class _ServiceState:
             pulumi.set(__self__, "service_connect_configuration", service_connect_configuration)
         if service_registries is not None:
             pulumi.set(__self__, "service_registries", service_registries)
+        if sigint_rollback is not None:
+            pulumi.set(__self__, "sigint_rollback", sigint_rollback)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -1082,6 +1102,18 @@ class _ServiceState:
         pulumi.set(self, "service_registries", value)
 
     @_builtins.property
+    @pulumi.getter(name="sigintRollback")
+    def sigint_rollback(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+        """
+        return pulumi.get(self, "sigint_rollback")
+
+    @sigint_rollback.setter
+    def sigint_rollback(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "sigint_rollback", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -1200,6 +1232,7 @@ class Service(pulumi.CustomResource):
                  scheduling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  service_connect_configuration: Optional[pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']]] = None,
                  service_registries: Optional[pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']]] = None,
+                 sigint_rollback: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_definition: Optional[pulumi.Input[_builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1296,6 +1329,22 @@ class Service(pulumi.CustomResource):
             })
         ```
 
+        ### Blue/Green Deployment with SIGINT Rollback
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            deployment_configuration={
+                "strategy": "BLUE_GREEN",
+            },
+            sigint_rollback=True,
+            wait_for_steady_state=True)
+        ```
+
         ### Redeploy Service On Every Apply
 
         The key used with `triggers` is arbitrary.
@@ -1352,6 +1401,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        :param pulumi.Input[_builtins.bool] sigint_rollback: Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
@@ -1454,6 +1504,22 @@ class Service(pulumi.CustomResource):
             })
         ```
 
+        ### Blue/Green Deployment with SIGINT Rollback
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            deployment_configuration={
+                "strategy": "BLUE_GREEN",
+            },
+            sigint_rollback=True,
+            wait_for_steady_state=True)
+        ```
+
         ### Redeploy Service On Every Apply
 
         The key used with `triggers` is arbitrary.
@@ -1520,6 +1586,7 @@ class Service(pulumi.CustomResource):
                  scheduling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  service_connect_configuration: Optional[pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']]] = None,
                  service_registries: Optional[pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']]] = None,
+                 sigint_rollback: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_definition: Optional[pulumi.Input[_builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1563,6 +1630,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["scheduling_strategy"] = scheduling_strategy
             __props__.__dict__["service_connect_configuration"] = service_connect_configuration
             __props__.__dict__["service_registries"] = service_registries
+            __props__.__dict__["sigint_rollback"] = sigint_rollback
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_definition"] = task_definition
             __props__.__dict__["triggers"] = triggers
@@ -1610,6 +1678,7 @@ class Service(pulumi.CustomResource):
             scheduling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
             service_connect_configuration: Optional[pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']]] = None,
             service_registries: Optional[pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']]] = None,
+            sigint_rollback: Optional[pulumi.Input[_builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             task_definition: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1656,6 +1725,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        :param pulumi.Input[_builtins.bool] sigint_rollback: Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
@@ -1697,6 +1767,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["scheduling_strategy"] = scheduling_strategy
         __props__.__dict__["service_connect_configuration"] = service_connect_configuration
         __props__.__dict__["service_registries"] = service_registries
+        __props__.__dict__["sigint_rollback"] = sigint_rollback
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["task_definition"] = task_definition
@@ -1756,7 +1827,7 @@ class Service(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
-    def deployment_configuration(self) -> pulumi.Output[Optional['outputs.ServiceDeploymentConfiguration']]:
+    def deployment_configuration(self) -> pulumi.Output['outputs.ServiceDeploymentConfiguration']:
         """
         Configuration block for deployment settings. See below.
         """
@@ -1940,6 +2011,14 @@ class Service(pulumi.CustomResource):
         Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         """
         return pulumi.get(self, "service_registries")
+
+    @_builtins.property
+    @pulumi.getter(name="sigintRollback")
+    def sigint_rollback(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+        """
+        return pulumi.get(self, "sigint_rollback")
 
     @_builtins.property
     @pulumi.getter

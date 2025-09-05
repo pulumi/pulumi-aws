@@ -22,6 +22,7 @@ __all__ = ['TableBucketArgs', 'TableBucket']
 class TableBucketArgs:
     def __init__(__self__, *,
                  encryption_configuration: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  maintenance_configuration: Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
@@ -29,6 +30,7 @@ class TableBucketArgs:
         The set of arguments for constructing a TableBucket resource.
         :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
                See `encryption_configuration` below.
+        :param pulumi.Input[_builtins.bool] force_destroy: Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the table bucket.
@@ -41,6 +43,8 @@ class TableBucketArgs:
         """
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if maintenance_configuration is not None:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
         if name is not None:
@@ -60,6 +64,18 @@ class TableBucketArgs:
     @encryption_configuration.setter
     def encryption_configuration(self, value: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
@@ -110,6 +126,7 @@ class _TableBucketState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_configuration: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  maintenance_configuration: Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -120,6 +137,7 @@ class _TableBucketState:
         :param pulumi.Input[_builtins.str] created_at: Date and time when the bucket was created.
         :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
                See `encryption_configuration` below.
+        :param pulumi.Input[_builtins.bool] force_destroy: Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the table bucket.
@@ -137,6 +155,8 @@ class _TableBucketState:
             pulumi.set(__self__, "created_at", created_at)
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if maintenance_configuration is not None:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
         if name is not None:
@@ -182,6 +202,18 @@ class _TableBucketState:
     @encryption_configuration.setter
     def encryption_configuration(self, value: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
@@ -245,6 +277,7 @@ class TableBucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -275,6 +308,7 @@ class TableBucket(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
                See `encryption_configuration` below.
+        :param pulumi.Input[_builtins.bool] force_destroy: Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the table bucket.
@@ -329,6 +363,7 @@ class TableBucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -342,6 +377,7 @@ class TableBucket(pulumi.CustomResource):
             __props__ = TableBucketArgs.__new__(TableBucketArgs)
 
             __props__.__dict__["encryption_configuration"] = encryption_configuration
+            __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["maintenance_configuration"] = maintenance_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
@@ -361,6 +397,7 @@ class TableBucket(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
             encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
+            force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
             maintenance_configuration: Optional[pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -376,6 +413,7 @@ class TableBucket(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_at: Date and time when the bucket was created.
         :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
                See `encryption_configuration` below.
+        :param pulumi.Input[_builtins.bool] force_destroy: Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the table bucket.
@@ -394,6 +432,7 @@ class TableBucket(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["encryption_configuration"] = encryption_configuration
+        __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["maintenance_configuration"] = maintenance_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
@@ -424,6 +463,14 @@ class TableBucket(pulumi.CustomResource):
         See `encryption_configuration` below.
         """
         return pulumi.get(self, "encryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        """
+        return pulumi.get(self, "force_destroy")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")

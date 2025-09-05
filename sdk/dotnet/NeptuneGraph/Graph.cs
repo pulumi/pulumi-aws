@@ -79,10 +79,11 @@ namespace Pulumi.Aws.NeptuneGraph
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-        /// character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don't specify a graph
-        /// name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-        /// UUID.
+        /// The graph name. For example: my-graph-1.
+        /// 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
+        /// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+        /// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
+        /// 								followed by a combination of Stack Name and a UUID.
         /// </summary>
         [Output("graphName")]
         public Output<string> GraphName { get; private set; } = null!;
@@ -199,10 +200,11 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-        /// character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don't specify a graph
-        /// name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-        /// UUID.
+        /// The graph name. For example: my-graph-1.
+        /// 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
+        /// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+        /// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
+        /// 								followed by a combination of Stack Name and a UUID.
         /// </summary>
         [Input("graphName")]
         public Input<string>? GraphName { get; set; }
@@ -293,10 +295,11 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-        /// character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don't specify a graph
-        /// name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-        /// UUID.
+        /// The graph name. For example: my-graph-1.
+        /// 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
+        /// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+        /// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
+        /// 								followed by a combination of Stack Name and a UUID.
         /// </summary>
         [Input("graphName")]
         public Input<string>? GraphName { get; set; }

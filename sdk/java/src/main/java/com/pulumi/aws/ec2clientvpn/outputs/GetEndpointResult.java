@@ -72,6 +72,11 @@ public final class GetEndpointResult {
      * 
      */
     private List<String> dnsServers;
+    /**
+     * @return IP address type for the Client VPN endpoint.
+     * 
+     */
+    private String endpointIpAddressType;
     private @Nullable List<GetEndpointFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -110,6 +115,11 @@ public final class GetEndpointResult {
      */
     private Boolean splitTunnel;
     private Map<String,String> tags;
+    /**
+     * @return IP address type for traffic within the Client VPN tunnel.
+     * 
+     */
+    private String trafficIpAddressType;
     /**
      * @return Transport protocol used by the Client VPN endpoint.
      * 
@@ -200,6 +210,13 @@ public final class GetEndpointResult {
     public List<String> dnsServers() {
         return this.dnsServers;
     }
+    /**
+     * @return IP address type for the Client VPN endpoint.
+     * 
+     */
+    public String endpointIpAddressType() {
+        return this.endpointIpAddressType;
+    }
     public List<GetEndpointFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -259,6 +276,13 @@ public final class GetEndpointResult {
         return this.tags;
     }
     /**
+     * @return IP address type for traffic within the Client VPN tunnel.
+     * 
+     */
+    public String trafficIpAddressType() {
+        return this.trafficIpAddressType;
+    }
+    /**
      * @return Transport protocol used by the Client VPN endpoint.
      * 
      */
@@ -300,6 +324,7 @@ public final class GetEndpointResult {
         private String description;
         private String dnsName;
         private List<String> dnsServers;
+        private String endpointIpAddressType;
         private @Nullable List<GetEndpointFilter> filters;
         private String id;
         private String region;
@@ -310,6 +335,7 @@ public final class GetEndpointResult {
         private Integer sessionTimeoutHours;
         private Boolean splitTunnel;
         private Map<String,String> tags;
+        private String trafficIpAddressType;
         private String transportProtocol;
         private String vpcId;
         private Integer vpnPort;
@@ -327,6 +353,7 @@ public final class GetEndpointResult {
     	      this.description = defaults.description;
     	      this.dnsName = defaults.dnsName;
     	      this.dnsServers = defaults.dnsServers;
+    	      this.endpointIpAddressType = defaults.endpointIpAddressType;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.region = defaults.region;
@@ -337,6 +364,7 @@ public final class GetEndpointResult {
     	      this.sessionTimeoutHours = defaults.sessionTimeoutHours;
     	      this.splitTunnel = defaults.splitTunnel;
     	      this.tags = defaults.tags;
+    	      this.trafficIpAddressType = defaults.trafficIpAddressType;
     	      this.transportProtocol = defaults.transportProtocol;
     	      this.vpcId = defaults.vpcId;
     	      this.vpnPort = defaults.vpnPort;
@@ -449,6 +477,14 @@ public final class GetEndpointResult {
             return dnsServers(List.of(dnsServers));
         }
         @CustomType.Setter
+        public Builder endpointIpAddressType(String endpointIpAddressType) {
+            if (endpointIpAddressType == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "endpointIpAddressType");
+            }
+            this.endpointIpAddressType = endpointIpAddressType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetEndpointFilter> filters) {
 
             this.filters = filters;
@@ -533,6 +569,14 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder trafficIpAddressType(String trafficIpAddressType) {
+            if (trafficIpAddressType == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "trafficIpAddressType");
+            }
+            this.trafficIpAddressType = trafficIpAddressType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder transportProtocol(String transportProtocol) {
             if (transportProtocol == null) {
               throw new MissingRequiredPropertyException("GetEndpointResult", "transportProtocol");
@@ -569,6 +613,7 @@ public final class GetEndpointResult {
             _resultValue.description = description;
             _resultValue.dnsName = dnsName;
             _resultValue.dnsServers = dnsServers;
+            _resultValue.endpointIpAddressType = endpointIpAddressType;
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.region = region;
@@ -579,6 +624,7 @@ public final class GetEndpointResult {
             _resultValue.sessionTimeoutHours = sessionTimeoutHours;
             _resultValue.splitTunnel = splitTunnel;
             _resultValue.tags = tags;
+            _resultValue.trafficIpAddressType = trafficIpAddressType;
             _resultValue.transportProtocol = transportProtocol;
             _resultValue.vpcId = vpcId;
             _resultValue.vpnPort = vpnPort;

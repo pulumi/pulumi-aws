@@ -73,51 +73,51 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * ARN assigned by AWS to the autoscaling schedule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the Auto Scaling group.
      */
-    public readonly autoscalingGroupName!: pulumi.Output<string>;
+    declare public readonly autoscalingGroupName: pulumi.Output<string>;
     /**
      * The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
      */
-    public readonly desiredCapacity!: pulumi.Output<number>;
+    declare public readonly desiredCapacity: pulumi.Output<number>;
     /**
      * The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
      */
-    public readonly endTime!: pulumi.Output<string>;
+    declare public readonly endTime: pulumi.Output<string>;
     /**
      * The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
      */
-    public readonly maxSize!: pulumi.Output<number>;
+    declare public readonly maxSize: pulumi.Output<number>;
     /**
      * The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
      */
-    public readonly minSize!: pulumi.Output<number>;
+    declare public readonly minSize: pulumi.Output<number>;
     /**
      * The recurring schedule for this action specified using the Unix cron syntax format.
      */
-    public readonly recurrence!: pulumi.Output<string>;
+    declare public readonly recurrence: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name of this scaling action.
      *
      * The following arguments are optional:
      */
-    public readonly scheduledActionName!: pulumi.Output<string>;
+    declare public readonly scheduledActionName: pulumi.Output<string>;
     /**
      * The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
     /**
      * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
      *
      * > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    declare public readonly timeZone: pulumi.Output<string>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -132,35 +132,35 @@ export class Schedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            resourceInputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
-            resourceInputs["minSize"] = state ? state.minSize : undefined;
-            resourceInputs["recurrence"] = state ? state.recurrence : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["scheduledActionName"] = state ? state.scheduledActionName : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoscalingGroupName"] = state?.autoscalingGroupName;
+            resourceInputs["desiredCapacity"] = state?.desiredCapacity;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["maxSize"] = state?.maxSize;
+            resourceInputs["minSize"] = state?.minSize;
+            resourceInputs["recurrence"] = state?.recurrence;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["scheduledActionName"] = state?.scheduledActionName;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["timeZone"] = state?.timeZone;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoscalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            if ((!args || args.scheduledActionName === undefined) && !opts.urn) {
+            if (args?.scheduledActionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduledActionName'");
             }
-            resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["recurrence"] = args ? args.recurrence : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["autoscalingGroupName"] = args?.autoscalingGroupName;
+            resourceInputs["desiredCapacity"] = args?.desiredCapacity;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["recurrence"] = args?.recurrence;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["scheduledActionName"] = args?.scheduledActionName;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

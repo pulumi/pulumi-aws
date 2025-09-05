@@ -33,6 +33,7 @@ __all__ = [
     'GetSigningJobSourceS3Result',
     'GetSigningProfileRevocationRecordResult',
     'GetSigningProfileSignatureValidityPeriodResult',
+    'GetSigningProfileSigningMaterialResult',
 ]
 
 @pulumi.output_type
@@ -487,5 +488,23 @@ class GetSigningProfileSignatureValidityPeriodResult(dict):
     @pulumi.getter
     def value(self) -> _builtins.int:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSigningProfileSigningMaterialResult(dict):
+    def __init__(__self__, *,
+                 certificate_arn: _builtins.str):
+        """
+        :param _builtins.str certificate_arn: ARN of the certificate used for signing.
+        """
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> _builtins.str:
+        """
+        ARN of the certificate used for signing.
+        """
+        return pulumi.get(self, "certificate_arn")
 
 

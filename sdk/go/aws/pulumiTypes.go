@@ -610,6 +610,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Appsync *string `pulumi:"appsync"`
 	// Use this to override the default service endpoint URL
+	Arcregionswitch *string `pulumi:"arcregionswitch"`
+	// Use this to override the default service endpoint URL
 	Athena *string `pulumi:"athena"`
 	// Use this to override the default service endpoint URL
 	Auditmanager *string `pulumi:"auditmanager"`
@@ -1223,6 +1225,8 @@ type ProviderEndpointArgs struct {
 	Appstream pulumi.StringPtrInput `pulumi:"appstream"`
 	// Use this to override the default service endpoint URL
 	Appsync pulumi.StringPtrInput `pulumi:"appsync"`
+	// Use this to override the default service endpoint URL
+	Arcregionswitch pulumi.StringPtrInput `pulumi:"arcregionswitch"`
 	// Use this to override the default service endpoint URL
 	Athena pulumi.StringPtrInput `pulumi:"athena"`
 	// Use this to override the default service endpoint URL
@@ -1943,6 +1947,11 @@ func (o ProviderEndpointOutput) Appstream() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Appsync() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Appsync }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Arcregionswitch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Arcregionswitch }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

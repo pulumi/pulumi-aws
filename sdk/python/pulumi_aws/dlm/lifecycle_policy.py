@@ -24,6 +24,7 @@ class LifecyclePolicyArgs:
                  description: pulumi.Input[_builtins.str],
                  execution_role_arn: pulumi.Input[_builtins.str],
                  policy_details: pulumi.Input['LifecyclePolicyPolicyDetailsArgs'],
+                 default_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -32,6 +33,7 @@ class LifecyclePolicyArgs:
         :param pulumi.Input[_builtins.str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input['LifecyclePolicyPolicyDetailsArgs'] policy_details: See the `policy_details` configuration block. Max of 1.
+        :param pulumi.Input[_builtins.str] default_policy: Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -39,6 +41,8 @@ class LifecyclePolicyArgs:
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "policy_details", policy_details)
+        if default_policy is not None:
+            pulumi.set(__self__, "default_policy", default_policy)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if state is not None:
@@ -83,6 +87,18 @@ class LifecyclePolicyArgs:
         pulumi.set(self, "policy_details", value)
 
     @_builtins.property
+    @pulumi.getter(name="defaultPolicy")
+    def default_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+        """
+        return pulumi.get(self, "default_policy")
+
+    @default_policy.setter
+    def default_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_policy", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -123,6 +139,7 @@ class LifecyclePolicyArgs:
 class _LifecyclePolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_details: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArgs']] = None,
@@ -133,6 +150,7 @@ class _LifecyclePolicyState:
         """
         Input properties used for looking up and filtering LifecyclePolicy resources.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+        :param pulumi.Input[_builtins.str] default_policy: Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
         :param pulumi.Input[_builtins.str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input['LifecyclePolicyPolicyDetailsArgs'] policy_details: See the `policy_details` configuration block. Max of 1.
@@ -143,6 +161,8 @@ class _LifecyclePolicyState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if default_policy is not None:
+            pulumi.set(__self__, "default_policy", default_policy)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if execution_role_arn is not None:
@@ -169,6 +189,18 @@ class _LifecyclePolicyState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPolicy")
+    def default_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+        """
+        return pulumi.get(self, "default_policy")
+
+    @default_policy.setter
+    def default_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_policy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -261,6 +293,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_details: Optional[pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']]] = None,
@@ -318,7 +351,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             execution_role_arn=dlm_lifecycle_role.arn,
             state="ENABLED",
             policy_details={
-                "resource_types": "VOLUME",
+                "resource_types": ["VOLUME"],
                 "schedules": [{
                     "name": "2 weeks of daily snapshots",
                     "create_rule": {
@@ -336,6 +369,30 @@ class LifecyclePolicy(pulumi.CustomResource):
                 }],
                 "target_tags": {
                     "Snapshot": "true",
+                },
+            })
+        ```
+
+        ### Example Default Policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dlm.LifecyclePolicy("example",
+            description="tf-acc-basic",
+            execution_role_arn=example_aws_iam_role["arn"],
+            default_policy="VOLUME",
+            policy_details={
+                "create_interval": 5,
+                "resource_type": "VOLUME",
+                "policy_language": "SIMPLIFIED",
+                "exclusions": {
+                    "exclude_boot_volumes": False,
+                    "exclude_tags": {
+                        "test": "exclude",
+                    },
+                    "exclude_volume_types": ["gp2"],
                 },
             })
         ```
@@ -366,7 +423,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             execution_role_arn=dlm_lifecycle_role["arn"],
             state="ENABLED",
             policy_details={
-                "resource_types": "VOLUME",
+                "resource_types": ["VOLUME"],
                 "schedules": [{
                     "name": "2 weeks of daily snapshots",
                     "create_rule": {
@@ -436,6 +493,41 @@ class LifecyclePolicy(pulumi.CustomResource):
             policy_arn=example.arn)
         ```
 
+        ### Example Post/Pre Scripts
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.iam.get_policy(name="AWSDataLifecycleManagerSSMFullAccess")
+        example = aws.iam.RolePolicyAttachment("example",
+            role=test_aws_iam_role["id"],
+            policy_arn=example_aws_iam_policy["arn"])
+        example_lifecycle_policy = aws.dlm.LifecyclePolicy("example",
+            description="tf-acc-basic",
+            execution_role_arn=example_aws_iam_role["arn"],
+            policy_details={
+                "resource_types": ["INSTANCE"],
+                "schedules": [{
+                    "name": "Windows VSS",
+                    "create_rule": {
+                        "interval": 12,
+                        "scripts": {
+                            "execute_operation_on_script_failure": False,
+                            "execution_handler": "AWS_VSS_BACKUP",
+                            "maximum_retry_count": 2,
+                        },
+                    },
+                    "retain_rule": {
+                        "count": 10,
+                    },
+                }],
+                "target_tags": {
+                    "tag1": "Windows",
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
@@ -446,6 +538,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] default_policy: Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
         :param pulumi.Input[_builtins.str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']] policy_details: See the `policy_details` configuration block. Max of 1.
@@ -509,7 +602,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             execution_role_arn=dlm_lifecycle_role.arn,
             state="ENABLED",
             policy_details={
-                "resource_types": "VOLUME",
+                "resource_types": ["VOLUME"],
                 "schedules": [{
                     "name": "2 weeks of daily snapshots",
                     "create_rule": {
@@ -527,6 +620,30 @@ class LifecyclePolicy(pulumi.CustomResource):
                 }],
                 "target_tags": {
                     "Snapshot": "true",
+                },
+            })
+        ```
+
+        ### Example Default Policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dlm.LifecyclePolicy("example",
+            description="tf-acc-basic",
+            execution_role_arn=example_aws_iam_role["arn"],
+            default_policy="VOLUME",
+            policy_details={
+                "create_interval": 5,
+                "resource_type": "VOLUME",
+                "policy_language": "SIMPLIFIED",
+                "exclusions": {
+                    "exclude_boot_volumes": False,
+                    "exclude_tags": {
+                        "test": "exclude",
+                    },
+                    "exclude_volume_types": ["gp2"],
                 },
             })
         ```
@@ -557,7 +674,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             execution_role_arn=dlm_lifecycle_role["arn"],
             state="ENABLED",
             policy_details={
-                "resource_types": "VOLUME",
+                "resource_types": ["VOLUME"],
                 "schedules": [{
                     "name": "2 weeks of daily snapshots",
                     "create_rule": {
@@ -627,6 +744,41 @@ class LifecyclePolicy(pulumi.CustomResource):
             policy_arn=example.arn)
         ```
 
+        ### Example Post/Pre Scripts
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.iam.get_policy(name="AWSDataLifecycleManagerSSMFullAccess")
+        example = aws.iam.RolePolicyAttachment("example",
+            role=test_aws_iam_role["id"],
+            policy_arn=example_aws_iam_policy["arn"])
+        example_lifecycle_policy = aws.dlm.LifecyclePolicy("example",
+            description="tf-acc-basic",
+            execution_role_arn=example_aws_iam_role["arn"],
+            policy_details={
+                "resource_types": ["INSTANCE"],
+                "schedules": [{
+                    "name": "Windows VSS",
+                    "create_rule": {
+                        "interval": 12,
+                        "scripts": {
+                            "execute_operation_on_script_failure": False,
+                            "execution_handler": "AWS_VSS_BACKUP",
+                            "maximum_retry_count": 2,
+                        },
+                    },
+                    "retain_rule": {
+                        "count": 10,
+                    },
+                }],
+                "target_tags": {
+                    "tag1": "Windows",
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
@@ -650,6 +802,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_details: Optional[pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']]] = None,
@@ -665,6 +818,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LifecyclePolicyArgs.__new__(LifecyclePolicyArgs)
 
+            __props__.__dict__["default_policy"] = default_policy
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
@@ -690,6 +844,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
+            default_policy: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
             policy_details: Optional[pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']]] = None,
@@ -705,6 +860,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+        :param pulumi.Input[_builtins.str] default_policy: Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
         :param pulumi.Input[_builtins.str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']] policy_details: See the `policy_details` configuration block. Max of 1.
@@ -718,6 +874,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         __props__ = _LifecyclePolicyState.__new__(_LifecyclePolicyState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["default_policy"] = default_policy
         __props__.__dict__["description"] = description
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["policy_details"] = policy_details
@@ -734,6 +891,14 @@ class LifecyclePolicy(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPolicy")
+    def default_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
+        """
+        return pulumi.get(self, "default_policy")
 
     @_builtins.property
     @pulumi.getter

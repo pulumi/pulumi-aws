@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -47,6 +48,21 @@ public final class CatalogTablePartitionKeyArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Map of key-value pairs.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<Map<String,String>> parameters;
+
+    /**
+     * @return Map of key-value pairs.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
      * Datatype of data in the Partition Key.
      * 
      */
@@ -66,6 +82,7 @@ public final class CatalogTablePartitionKeyArgs extends com.pulumi.resources.Res
     private CatalogTablePartitionKeyArgs(CatalogTablePartitionKeyArgs $) {
         this.comment = $.comment;
         this.name = $.name;
+        this.parameters = $.parameters;
         this.type = $.type;
     }
 
@@ -127,6 +144,27 @@ public final class CatalogTablePartitionKeyArgs extends com.pulumi.resources.Res
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param parameters Map of key-value pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters Map of key-value pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(Map<String,String> parameters) {
+            return parameters(Output.of(parameters));
         }
 
         /**

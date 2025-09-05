@@ -332,14 +332,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.emailConfiguration);
     }
     /**
-     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     @Export(name="emailMfaConfiguration", refs={UserPoolEmailMfaConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ UserPoolEmailMfaConfiguration> emailMfaConfiguration;
 
     /**
-     * @return Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+     * @return Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     public Output<Optional<UserPoolEmailMfaConfiguration>> emailMfaConfiguration() {
@@ -430,14 +430,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return this.lastModifiedDate;
     }
     /**
-     * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+     * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
      * 
      */
     @Export(name="mfaConfiguration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfaConfiguration;
 
     /**
-     * @return Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+     * @return Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
      * 
      */
     public Output<Optional<String>> mfaConfiguration() {
@@ -528,14 +528,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.smsAuthenticationMessage);
     }
     /**
-     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     @Export(name="smsConfiguration", refs={UserPoolSmsConfiguration.class}, tree="[0]")
     private Output<UserPoolSmsConfiguration> smsConfiguration;
 
     /**
-     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     public Output<UserPoolSmsConfiguration> smsConfiguration() {
@@ -556,14 +556,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return this.smsVerificationMessage;
     }
     /**
-     * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+     * Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     @Export(name="softwareTokenMfaConfiguration", refs={UserPoolSoftwareTokenMfaConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ UserPoolSoftwareTokenMfaConfiguration> softwareTokenMfaConfiguration;
 
     /**
-     * @return Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+     * @return Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     public Output<Optional<UserPoolSoftwareTokenMfaConfiguration>> softwareTokenMfaConfiguration() {

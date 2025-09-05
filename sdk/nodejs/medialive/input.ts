@@ -75,70 +75,70 @@ export class Input extends pulumi.CustomResource {
     /**
      * ARN of the Input.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Channels attached to Input.
      */
-    public /*out*/ readonly attachedChannels!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly attachedChannels: pulumi.Output<string[]>;
     /**
      * Destination settings for PUSH type inputs. See Destinations for more details.
      */
-    public readonly destinations!: pulumi.Output<outputs.medialive.InputDestination[] | undefined>;
+    declare public readonly destinations: pulumi.Output<outputs.medialive.InputDestination[] | undefined>;
     /**
      * The input class.
      */
-    public /*out*/ readonly inputClass!: pulumi.Output<string>;
+    declare public /*out*/ readonly inputClass: pulumi.Output<string>;
     /**
      * Settings for the devices. See Input Devices for more details.
      */
-    public readonly inputDevices!: pulumi.Output<outputs.medialive.InputInputDevice[]>;
+    declare public readonly inputDevices: pulumi.Output<outputs.medialive.InputInputDevice[]>;
     /**
      * A list of IDs for all Inputs which are partners of this one.
      */
-    public /*out*/ readonly inputPartnerIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly inputPartnerIds: pulumi.Output<string[]>;
     /**
      * List of input security groups.
      */
-    public readonly inputSecurityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly inputSecurityGroups: pulumi.Output<string[] | undefined>;
     /**
      * Source type of the input.
      */
-    public /*out*/ readonly inputSourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly inputSourceType: pulumi.Output<string>;
     /**
      * A list of the MediaConnect Flows. See Media Connect Flows for more details.
      */
-    public readonly mediaConnectFlows!: pulumi.Output<outputs.medialive.InputMediaConnectFlow[]>;
+    declare public readonly mediaConnectFlows: pulumi.Output<outputs.medialive.InputMediaConnectFlow[]>;
     /**
      * Name of the input.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARN of the role this input assumes during and after creation.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The source URLs for a PULL-type input. See Sources for more details.
      */
-    public readonly sources!: pulumi.Output<outputs.medialive.InputSource[]>;
+    declare public readonly sources: pulumi.Output<outputs.medialive.InputSource[]>;
     /**
      * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
      *
      * The following arguments are optional:
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Settings for a private VPC Input. See VPC for more details.
      */
-    public readonly vpc!: pulumi.Output<outputs.medialive.InputVpc | undefined>;
+    declare public readonly vpc: pulumi.Output<outputs.medialive.InputVpc | undefined>;
 
     /**
      * Create a Input resource with the given unique name, arguments, and options.
@@ -153,39 +153,39 @@ export class Input extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InputState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["attachedChannels"] = state ? state.attachedChannels : undefined;
-            resourceInputs["destinations"] = state ? state.destinations : undefined;
-            resourceInputs["inputClass"] = state ? state.inputClass : undefined;
-            resourceInputs["inputDevices"] = state ? state.inputDevices : undefined;
-            resourceInputs["inputPartnerIds"] = state ? state.inputPartnerIds : undefined;
-            resourceInputs["inputSecurityGroups"] = state ? state.inputSecurityGroups : undefined;
-            resourceInputs["inputSourceType"] = state ? state.inputSourceType : undefined;
-            resourceInputs["mediaConnectFlows"] = state ? state.mediaConnectFlows : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["sources"] = state ? state.sources : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["vpc"] = state ? state.vpc : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["attachedChannels"] = state?.attachedChannels;
+            resourceInputs["destinations"] = state?.destinations;
+            resourceInputs["inputClass"] = state?.inputClass;
+            resourceInputs["inputDevices"] = state?.inputDevices;
+            resourceInputs["inputPartnerIds"] = state?.inputPartnerIds;
+            resourceInputs["inputSecurityGroups"] = state?.inputSecurityGroups;
+            resourceInputs["inputSourceType"] = state?.inputSourceType;
+            resourceInputs["mediaConnectFlows"] = state?.mediaConnectFlows;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["sources"] = state?.sources;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["vpc"] = state?.vpc;
         } else {
             const args = argsOrState as InputArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["inputDevices"] = args ? args.inputDevices : undefined;
-            resourceInputs["inputSecurityGroups"] = args ? args.inputSecurityGroups : undefined;
-            resourceInputs["mediaConnectFlows"] = args ? args.mediaConnectFlows : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vpc"] = args ? args.vpc : undefined;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["inputDevices"] = args?.inputDevices;
+            resourceInputs["inputSecurityGroups"] = args?.inputSecurityGroups;
+            resourceInputs["mediaConnectFlows"] = args?.mediaConnectFlows;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vpc"] = args?.vpc;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachedChannels"] = undefined /*out*/;
             resourceInputs["inputClass"] = undefined /*out*/;

@@ -73,19 +73,19 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
     /**
      * CIDR block of this entry.
      */
-    public readonly cidr!: pulumi.Output<string>;
+    declare public readonly cidr: pulumi.Output<string>;
     /**
      * Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the prefix list.
      */
-    public readonly prefixListId!: pulumi.Output<string>;
+    declare public readonly prefixListId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ManagedPrefixListEntry resource with the given unique name, arguments, and options.
@@ -100,22 +100,22 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrefixListEntryState | undefined;
-            resourceInputs["cidr"] = state ? state.cidr : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["cidr"] = state?.cidr;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["prefixListId"] = state?.prefixListId;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ManagedPrefixListEntryArgs | undefined;
-            if ((!args || args.cidr === undefined) && !opts.urn) {
+            if (args?.cidr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cidr'");
             }
-            if ((!args || args.prefixListId === undefined) && !opts.urn) {
+            if (args?.prefixListId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'prefixListId'");
             }
-            resourceInputs["cidr"] = args ? args.cidr : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["cidr"] = args?.cidr;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["prefixListId"] = args?.prefixListId;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedPrefixListEntry.__pulumiType, name, resourceInputs, opts);

@@ -51,6 +51,11 @@ public final class GetVpcIpamResult {
      */
     private String ipamRegion;
     /**
+     * @return AWS account that is charged for active IP addresses managed in IPAM.
+     * 
+     */
+    private String meteredAccount;
+    /**
      * @return Regions that the IPAM is configured to operate in.
      * 
      */
@@ -153,6 +158,13 @@ public final class GetVpcIpamResult {
         return this.ipamRegion;
     }
     /**
+     * @return AWS account that is charged for active IP addresses managed in IPAM.
+     * 
+     */
+    public String meteredAccount() {
+        return this.meteredAccount;
+    }
+    /**
      * @return Regions that the IPAM is configured to operate in.
      * 
      */
@@ -242,6 +254,7 @@ public final class GetVpcIpamResult {
         private Boolean enablePrivateGua;
         private String id;
         private String ipamRegion;
+        private String meteredAccount;
         private List<GetVpcIpamOperatingRegion> operatingRegions;
         private String ownerId;
         private String privateDefaultScopeId;
@@ -263,6 +276,7 @@ public final class GetVpcIpamResult {
     	      this.enablePrivateGua = defaults.enablePrivateGua;
     	      this.id = defaults.id;
     	      this.ipamRegion = defaults.ipamRegion;
+    	      this.meteredAccount = defaults.meteredAccount;
     	      this.operatingRegions = defaults.operatingRegions;
     	      this.ownerId = defaults.ownerId;
     	      this.privateDefaultScopeId = defaults.privateDefaultScopeId;
@@ -330,6 +344,14 @@ public final class GetVpcIpamResult {
               throw new MissingRequiredPropertyException("GetVpcIpamResult", "ipamRegion");
             }
             this.ipamRegion = ipamRegion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder meteredAccount(String meteredAccount) {
+            if (meteredAccount == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamResult", "meteredAccount");
+            }
+            this.meteredAccount = meteredAccount;
             return this;
         }
         @CustomType.Setter
@@ -432,6 +454,7 @@ public final class GetVpcIpamResult {
             _resultValue.enablePrivateGua = enablePrivateGua;
             _resultValue.id = id;
             _resultValue.ipamRegion = ipamRegion;
+            _resultValue.meteredAccount = meteredAccount;
             _resultValue.operatingRegions = operatingRegions;
             _resultValue.ownerId = ownerId;
             _resultValue.privateDefaultScopeId = privateDefaultScopeId;

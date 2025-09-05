@@ -76,49 +76,49 @@ export class ApplicationVersion extends pulumi.CustomResource {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    public readonly application!: pulumi.Output<string>;
+    declare public readonly application: pulumi.Output<string>;
     /**
      * ARN assigned by AWS for this Elastic Beanstalk Application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Short description of the Application Version.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
      */
-    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
     /**
      * S3 object that is the Application Version source bundle.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * Unique name for the this Application Version.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
      */
-    public readonly process!: pulumi.Output<boolean | undefined>;
+    declare public readonly process: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ApplicationVersion resource with the given unique name, arguments, and options.
@@ -133,37 +133,37 @@ export class ApplicationVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationVersionState | undefined;
-            resourceInputs["application"] = state ? state.application : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["process"] = state ? state.process : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["application"] = state?.application;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["forceDelete"] = state?.forceDelete;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["process"] = state?.process;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ApplicationVersionArgs | undefined;
-            if ((!args || args.application === undefined) && !opts.urn) {
+            if (args?.application === undefined && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["process"] = args ? args.process : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["application"] = args?.application;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["forceDelete"] = args?.forceDelete;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["process"] = args?.process;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

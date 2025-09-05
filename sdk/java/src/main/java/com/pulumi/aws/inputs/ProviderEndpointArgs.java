@@ -364,6 +364,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="arcregionswitch")
+    private @Nullable Output<String> arcregionswitch;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> arcregionswitch() {
+        return Optional.ofNullable(this.arcregionswitch);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="athena")
     private @Nullable Output<String> athena;
 
@@ -4541,6 +4556,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.apprunner = $.apprunner;
         this.appstream = $.appstream;
         this.appsync = $.appsync;
+        this.arcregionswitch = $.arcregionswitch;
         this.athena = $.athena;
         this.auditmanager = $.auditmanager;
         this.autoscaling = $.autoscaling;
@@ -5319,6 +5335,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder appsync(String appsync) {
             return appsync(Output.of(appsync));
+        }
+
+        /**
+         * @param arcregionswitch Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arcregionswitch(@Nullable Output<String> arcregionswitch) {
+            $.arcregionswitch = arcregionswitch;
+            return this;
+        }
+
+        /**
+         * @param arcregionswitch Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arcregionswitch(String arcregionswitch) {
+            return arcregionswitch(Output.of(arcregionswitch));
         }
 
         /**

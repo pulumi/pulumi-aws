@@ -2493,7 +2493,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def engine(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the cache engine to be used for the clusters in this replication group.
         Valid values are `redis` or `valkey`.

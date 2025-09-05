@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int? JobExecutionTimeoutMinutes;
         /// <summary>
-        /// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+        /// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
         /// </summary>
         public readonly bool? TerminateJobsOnUpdate;
 

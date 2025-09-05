@@ -61,31 +61,31 @@ export class ResourceShare extends pulumi.CustomResource {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    public readonly allowExternalPrincipals!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowExternalPrincipals: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the resource share.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
-    public readonly permissionArns!: pulumi.Output<string[]>;
+    declare public readonly permissionArns: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ResourceShare resource with the given unique name, arguments, and options.
@@ -100,20 +100,20 @@ export class ResourceShare extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceShareState | undefined;
-            resourceInputs["allowExternalPrincipals"] = state ? state.allowExternalPrincipals : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permissionArns"] = state ? state.permissionArns : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["allowExternalPrincipals"] = state?.allowExternalPrincipals;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permissionArns"] = state?.permissionArns;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ResourceShareArgs | undefined;
-            resourceInputs["allowExternalPrincipals"] = args ? args.allowExternalPrincipals : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissionArns"] = args ? args.permissionArns : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowExternalPrincipals"] = args?.allowExternalPrincipals;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissionArns"] = args?.permissionArns;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

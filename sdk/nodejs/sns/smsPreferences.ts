@@ -51,31 +51,31 @@ export class SmsPreferences extends pulumi.CustomResource {
     /**
      * A string, such as your business brand, that is displayed as the sender on the receiving device.
      */
-    public readonly defaultSenderId!: pulumi.Output<string | undefined>;
+    declare public readonly defaultSenderId: pulumi.Output<string | undefined>;
     /**
      * The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
      */
-    public readonly defaultSmsType!: pulumi.Output<string | undefined>;
+    declare public readonly defaultSmsType: pulumi.Output<string | undefined>;
     /**
      * The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
      */
-    public readonly deliveryStatusIamRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryStatusIamRoleArn: pulumi.Output<string | undefined>;
     /**
      * The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
      */
-    public readonly deliveryStatusSuccessSamplingRate!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryStatusSuccessSamplingRate: pulumi.Output<string | undefined>;
     /**
      * The maximum amount in USD that you are willing to spend each month to send SMS messages.
      */
-    public readonly monthlySpendLimit!: pulumi.Output<number>;
+    declare public readonly monthlySpendLimit: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      */
-    public readonly usageReportS3Bucket!: pulumi.Output<string | undefined>;
+    declare public readonly usageReportS3Bucket: pulumi.Output<string | undefined>;
 
     /**
      * Create a SmsPreferences resource with the given unique name, arguments, and options.
@@ -90,22 +90,22 @@ export class SmsPreferences extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SmsPreferencesState | undefined;
-            resourceInputs["defaultSenderId"] = state ? state.defaultSenderId : undefined;
-            resourceInputs["defaultSmsType"] = state ? state.defaultSmsType : undefined;
-            resourceInputs["deliveryStatusIamRoleArn"] = state ? state.deliveryStatusIamRoleArn : undefined;
-            resourceInputs["deliveryStatusSuccessSamplingRate"] = state ? state.deliveryStatusSuccessSamplingRate : undefined;
-            resourceInputs["monthlySpendLimit"] = state ? state.monthlySpendLimit : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["usageReportS3Bucket"] = state ? state.usageReportS3Bucket : undefined;
+            resourceInputs["defaultSenderId"] = state?.defaultSenderId;
+            resourceInputs["defaultSmsType"] = state?.defaultSmsType;
+            resourceInputs["deliveryStatusIamRoleArn"] = state?.deliveryStatusIamRoleArn;
+            resourceInputs["deliveryStatusSuccessSamplingRate"] = state?.deliveryStatusSuccessSamplingRate;
+            resourceInputs["monthlySpendLimit"] = state?.monthlySpendLimit;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["usageReportS3Bucket"] = state?.usageReportS3Bucket;
         } else {
             const args = argsOrState as SmsPreferencesArgs | undefined;
-            resourceInputs["defaultSenderId"] = args ? args.defaultSenderId : undefined;
-            resourceInputs["defaultSmsType"] = args ? args.defaultSmsType : undefined;
-            resourceInputs["deliveryStatusIamRoleArn"] = args ? args.deliveryStatusIamRoleArn : undefined;
-            resourceInputs["deliveryStatusSuccessSamplingRate"] = args ? args.deliveryStatusSuccessSamplingRate : undefined;
-            resourceInputs["monthlySpendLimit"] = args ? args.monthlySpendLimit : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["usageReportS3Bucket"] = args ? args.usageReportS3Bucket : undefined;
+            resourceInputs["defaultSenderId"] = args?.defaultSenderId;
+            resourceInputs["defaultSmsType"] = args?.defaultSmsType;
+            resourceInputs["deliveryStatusIamRoleArn"] = args?.deliveryStatusIamRoleArn;
+            resourceInputs["deliveryStatusSuccessSamplingRate"] = args?.deliveryStatusSuccessSamplingRate;
+            resourceInputs["monthlySpendLimit"] = args?.monthlySpendLimit;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["usageReportS3Bucket"] = args?.usageReportS3Bucket;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SmsPreferences.__pulumiType, name, resourceInputs, opts);

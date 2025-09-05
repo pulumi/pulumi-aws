@@ -4,6 +4,8 @@
 package com.pulumi.aws.inspector2.inputs;
 
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaAwsAccountIdArgs;
+import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaCodeRepositoryProjectNameArgs;
+import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaCodeRepositoryProviderTypeArgs;
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs;
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs;
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaCodeVulnerabilityFilePathArgs;
@@ -14,6 +16,8 @@ import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaEc2InstanceSubnetIdA
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaEc2InstanceVpcIdArgs;
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaEcrImageArchitectureArgs;
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaEcrImageHashArgs;
+import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaEcrImageInUseCountArgs;
+import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaEcrImageLastInUseAtArgs;
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaEcrImagePushedAtArgs;
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaEcrImageRegistryArgs;
 import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaEcrImageRepositoryNameArgs;
@@ -70,6 +74,36 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
      */
     public Optional<Output<List<FilterFilterCriteriaAwsAccountIdArgs>>> awsAccountIds() {
         return Optional.ofNullable(this.awsAccountIds);
+    }
+
+    /**
+     * (Optional) The project name in a code repository. Documented below.
+     * 
+     */
+    @Import(name="codeRepositoryProjectNames")
+    private @Nullable Output<List<FilterFilterCriteriaCodeRepositoryProjectNameArgs>> codeRepositoryProjectNames;
+
+    /**
+     * @return (Optional) The project name in a code repository. Documented below.
+     * 
+     */
+    public Optional<Output<List<FilterFilterCriteriaCodeRepositoryProjectNameArgs>>> codeRepositoryProjectNames() {
+        return Optional.ofNullable(this.codeRepositoryProjectNames);
+    }
+
+    /**
+     * (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+     * 
+     */
+    @Import(name="codeRepositoryProviderTypes")
+    private @Nullable Output<List<FilterFilterCriteriaCodeRepositoryProviderTypeArgs>> codeRepositoryProviderTypes;
+
+    /**
+     * @return (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+     * 
+     */
+    public Optional<Output<List<FilterFilterCriteriaCodeRepositoryProviderTypeArgs>>> codeRepositoryProviderTypes() {
+        return Optional.ofNullable(this.codeRepositoryProviderTypes);
     }
 
     /**
@@ -220,6 +254,36 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
      */
     public Optional<Output<List<FilterFilterCriteriaEcrImageHashArgs>>> ecrImageHashes() {
         return Optional.ofNullable(this.ecrImageHashes);
+    }
+
+    /**
+     * (Optional)  The number of the ECR images in use. Documented below.
+     * 
+     */
+    @Import(name="ecrImageInUseCounts")
+    private @Nullable Output<List<FilterFilterCriteriaEcrImageInUseCountArgs>> ecrImageInUseCounts;
+
+    /**
+     * @return (Optional)  The number of the ECR images in use. Documented below.
+     * 
+     */
+    public Optional<Output<List<FilterFilterCriteriaEcrImageInUseCountArgs>>> ecrImageInUseCounts() {
+        return Optional.ofNullable(this.ecrImageInUseCounts);
+    }
+
+    /**
+     * (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+     * 
+     */
+    @Import(name="ecrImageLastInUseAts")
+    private @Nullable Output<List<FilterFilterCriteriaEcrImageLastInUseAtArgs>> ecrImageLastInUseAts;
+
+    /**
+     * @return (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+     * 
+     */
+    public Optional<Output<List<FilterFilterCriteriaEcrImageLastInUseAtArgs>>> ecrImageLastInUseAts() {
+        return Optional.ofNullable(this.ecrImageLastInUseAts);
     }
 
     /**
@@ -691,6 +755,8 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
 
     private FilterFilterCriteriaArgs(FilterFilterCriteriaArgs $) {
         this.awsAccountIds = $.awsAccountIds;
+        this.codeRepositoryProjectNames = $.codeRepositoryProjectNames;
+        this.codeRepositoryProviderTypes = $.codeRepositoryProviderTypes;
         this.codeVulnerabilityDetectorNames = $.codeVulnerabilityDetectorNames;
         this.codeVulnerabilityDetectorTags = $.codeVulnerabilityDetectorTags;
         this.codeVulnerabilityFilePaths = $.codeVulnerabilityFilePaths;
@@ -701,6 +767,8 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
         this.ec2InstanceVpcIds = $.ec2InstanceVpcIds;
         this.ecrImageArchitectures = $.ecrImageArchitectures;
         this.ecrImageHashes = $.ecrImageHashes;
+        this.ecrImageInUseCounts = $.ecrImageInUseCounts;
+        this.ecrImageLastInUseAts = $.ecrImageLastInUseAts;
         this.ecrImagePushedAts = $.ecrImagePushedAts;
         this.ecrImageRegistries = $.ecrImageRegistries;
         this.ecrImageRepositoryNames = $.ecrImageRepositoryNames;
@@ -781,6 +849,68 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
          */
         public Builder awsAccountIds(FilterFilterCriteriaAwsAccountIdArgs... awsAccountIds) {
             return awsAccountIds(List.of(awsAccountIds));
+        }
+
+        /**
+         * @param codeRepositoryProjectNames (Optional) The project name in a code repository. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepositoryProjectNames(@Nullable Output<List<FilterFilterCriteriaCodeRepositoryProjectNameArgs>> codeRepositoryProjectNames) {
+            $.codeRepositoryProjectNames = codeRepositoryProjectNames;
+            return this;
+        }
+
+        /**
+         * @param codeRepositoryProjectNames (Optional) The project name in a code repository. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepositoryProjectNames(List<FilterFilterCriteriaCodeRepositoryProjectNameArgs> codeRepositoryProjectNames) {
+            return codeRepositoryProjectNames(Output.of(codeRepositoryProjectNames));
+        }
+
+        /**
+         * @param codeRepositoryProjectNames (Optional) The project name in a code repository. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepositoryProjectNames(FilterFilterCriteriaCodeRepositoryProjectNameArgs... codeRepositoryProjectNames) {
+            return codeRepositoryProjectNames(List.of(codeRepositoryProjectNames));
+        }
+
+        /**
+         * @param codeRepositoryProviderTypes (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepositoryProviderTypes(@Nullable Output<List<FilterFilterCriteriaCodeRepositoryProviderTypeArgs>> codeRepositoryProviderTypes) {
+            $.codeRepositoryProviderTypes = codeRepositoryProviderTypes;
+            return this;
+        }
+
+        /**
+         * @param codeRepositoryProviderTypes (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepositoryProviderTypes(List<FilterFilterCriteriaCodeRepositoryProviderTypeArgs> codeRepositoryProviderTypes) {
+            return codeRepositoryProviderTypes(Output.of(codeRepositoryProviderTypes));
+        }
+
+        /**
+         * @param codeRepositoryProviderTypes (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepositoryProviderTypes(FilterFilterCriteriaCodeRepositoryProviderTypeArgs... codeRepositoryProviderTypes) {
+            return codeRepositoryProviderTypes(List.of(codeRepositoryProviderTypes));
         }
 
         /**
@@ -1091,6 +1221,68 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
          */
         public Builder ecrImageHashes(FilterFilterCriteriaEcrImageHashArgs... ecrImageHashes) {
             return ecrImageHashes(List.of(ecrImageHashes));
+        }
+
+        /**
+         * @param ecrImageInUseCounts (Optional)  The number of the ECR images in use. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecrImageInUseCounts(@Nullable Output<List<FilterFilterCriteriaEcrImageInUseCountArgs>> ecrImageInUseCounts) {
+            $.ecrImageInUseCounts = ecrImageInUseCounts;
+            return this;
+        }
+
+        /**
+         * @param ecrImageInUseCounts (Optional)  The number of the ECR images in use. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecrImageInUseCounts(List<FilterFilterCriteriaEcrImageInUseCountArgs> ecrImageInUseCounts) {
+            return ecrImageInUseCounts(Output.of(ecrImageInUseCounts));
+        }
+
+        /**
+         * @param ecrImageInUseCounts (Optional)  The number of the ECR images in use. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecrImageInUseCounts(FilterFilterCriteriaEcrImageInUseCountArgs... ecrImageInUseCounts) {
+            return ecrImageInUseCounts(List.of(ecrImageInUseCounts));
+        }
+
+        /**
+         * @param ecrImageLastInUseAts (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecrImageLastInUseAts(@Nullable Output<List<FilterFilterCriteriaEcrImageLastInUseAtArgs>> ecrImageLastInUseAts) {
+            $.ecrImageLastInUseAts = ecrImageLastInUseAts;
+            return this;
+        }
+
+        /**
+         * @param ecrImageLastInUseAts (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecrImageLastInUseAts(List<FilterFilterCriteriaEcrImageLastInUseAtArgs> ecrImageLastInUseAts) {
+            return ecrImageLastInUseAts(Output.of(ecrImageLastInUseAts));
+        }
+
+        /**
+         * @param ecrImageLastInUseAts (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecrImageLastInUseAts(FilterFilterCriteriaEcrImageLastInUseAtArgs... ecrImageLastInUseAts) {
+            return ecrImageLastInUseAts(List.of(ecrImageLastInUseAts));
         }
 
         /**

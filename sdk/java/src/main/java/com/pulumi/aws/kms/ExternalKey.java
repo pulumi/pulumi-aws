@@ -167,6 +167,20 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyMaterialBase64);
     }
     /**
+     * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+     * 
+     */
+    @Export(name="keySpec", refs={String.class}, tree="[0]")
+    private Output<String> keySpec;
+
+    /**
+     * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+     * 
+     */
+    public Output<String> keySpec() {
+        return this.keySpec;
+    }
+    /**
      * The state of the CMK.
      * 
      */
@@ -181,14 +195,14 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
         return this.keyState;
     }
     /**
-     * The cryptographic operations for which you can use the CMK.
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
     @Export(name="keyUsage", refs={String.class}, tree="[0]")
     private Output<String> keyUsage;
 
     /**
-     * @return The cryptographic operations for which you can use the CMK.
+     * @return Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
     public Output<String> keyUsage() {

@@ -161,6 +161,8 @@ type EmailIdentity struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+	VerificationStatus pulumi.StringOutput `pulumi:"verificationStatus"`
 	// Specifies whether or not the identity is verified.
 	VerifiedForSendingStatus pulumi.BoolOutput `pulumi:"verifiedForSendingStatus"`
 }
@@ -216,6 +218,8 @@ type emailIdentityState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+	VerificationStatus *string `pulumi:"verificationStatus"`
 	// Specifies whether or not the identity is verified.
 	VerifiedForSendingStatus *bool `pulumi:"verifiedForSendingStatus"`
 }
@@ -239,6 +243,8 @@ type EmailIdentityState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+	VerificationStatus pulumi.StringPtrInput
 	// Specifies whether or not the identity is verified.
 	VerifiedForSendingStatus pulumi.BoolPtrInput
 }
@@ -405,6 +411,11 @@ func (o EmailIdentityOutput) Tags() pulumi.StringMapOutput {
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EmailIdentityOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+func (o EmailIdentityOutput) VerificationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.VerificationStatus }).(pulumi.StringOutput)
 }
 
 // Specifies whether or not the identity is verified.

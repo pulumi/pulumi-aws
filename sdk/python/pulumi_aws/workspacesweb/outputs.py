@@ -21,6 +21,12 @@ __all__ = [
     'DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern',
     'DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder',
     'IpAccessSettingsIpRule',
+    'PortalTimeouts',
+    'SessionLoggerEventFilter',
+    'SessionLoggerEventFilterAll',
+    'SessionLoggerLogConfiguration',
+    'SessionLoggerLogConfigurationS3',
+    'TrustStoreCertificate',
     'UserSettingsCookieSynchronizationConfiguration',
     'UserSettingsCookieSynchronizationConfigurationAllowlist',
     'UserSettingsCookieSynchronizationConfigurationBlocklist',
@@ -381,6 +387,289 @@ class IpAccessSettingsIpRule(dict):
         The description of the IP access settings.
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class PortalTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class SessionLoggerEventFilter(dict):
+    def __init__(__self__, *,
+                 all: Optional['outputs.SessionLoggerEventFilterAll'] = None,
+                 includes: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param 'SessionLoggerEventFilterAllArgs' all: Block that specifies to monitor all events. Set to `{}` to monitor all events.
+        :param Sequence[_builtins.str] includes: List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def all(self) -> Optional['outputs.SessionLoggerEventFilterAll']:
+        """
+        Block that specifies to monitor all events. Set to `{}` to monitor all events.
+        """
+        return pulumi.get(self, "all")
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class SessionLoggerEventFilterAll(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class SessionLoggerLogConfiguration(dict):
+    def __init__(__self__, *,
+                 s3: Optional['outputs.SessionLoggerLogConfigurationS3'] = None):
+        """
+        :param 'SessionLoggerLogConfigurationS3Args' s3: Configuration block for S3 log delivery. See S3 Configuration below.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.SessionLoggerLogConfigurationS3']:
+        """
+        Configuration block for S3 log delivery. See S3 Configuration below.
+        """
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class SessionLoggerLogConfigurationS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "folderStructure":
+            suggest = "folder_structure"
+        elif key == "logFileFormat":
+            suggest = "log_file_format"
+        elif key == "bucketOwner":
+            suggest = "bucket_owner"
+        elif key == "keyPrefix":
+            suggest = "key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SessionLoggerLogConfigurationS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SessionLoggerLogConfigurationS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SessionLoggerLogConfigurationS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 folder_structure: _builtins.str,
+                 log_file_format: _builtins.str,
+                 bucket_owner: Optional[_builtins.str] = None,
+                 key_prefix: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket: S3 bucket name where logs are delivered.
+        :param _builtins.str folder_structure: Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
+        :param _builtins.str log_file_format: Format of the log file written to S3. Valid values: `Json`, `Parquet`.
+        :param _builtins.str bucket_owner: Expected bucket owner of the target S3 bucket.
+        :param _builtins.str key_prefix: S3 path prefix that determines where log files are stored.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "folder_structure", folder_structure)
+        pulumi.set(__self__, "log_file_format", log_file_format)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        S3 bucket name where logs are delivered.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="folderStructure")
+    def folder_structure(self) -> _builtins.str:
+        """
+        Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
+        """
+        return pulumi.get(self, "folder_structure")
+
+    @_builtins.property
+    @pulumi.getter(name="logFileFormat")
+    def log_file_format(self) -> _builtins.str:
+        """
+        Format of the log file written to S3. Valid values: `Json`, `Parquet`.
+        """
+        return pulumi.get(self, "log_file_format")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[_builtins.str]:
+        """
+        Expected bucket owner of the target S3 bucket.
+        """
+        return pulumi.get(self, "bucket_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[_builtins.str]:
+        """
+        S3 path prefix that determines where log files are stored.
+        """
+        return pulumi.get(self, "key_prefix")
+
+
+@pulumi.output_type
+class TrustStoreCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notValidAfter":
+            suggest = "not_valid_after"
+        elif key == "notValidBefore":
+            suggest = "not_valid_before"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustStoreCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustStoreCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustStoreCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body: _builtins.str,
+                 issuer: Optional[_builtins.str] = None,
+                 not_valid_after: Optional[_builtins.str] = None,
+                 not_valid_before: Optional[_builtins.str] = None,
+                 subject: Optional[_builtins.str] = None,
+                 thumbprint: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str body: Certificate body in PEM format.
+        :param _builtins.str issuer: Certificate issuer.
+        :param _builtins.str not_valid_after: Date and time when the certificate expires in RFC3339 format.
+        :param _builtins.str not_valid_before: Date and time when the certificate becomes valid in RFC3339 format.
+        :param _builtins.str subject: Certificate subject.
+        :param _builtins.str thumbprint: Certificate thumbprint.
+        """
+        pulumi.set(__self__, "body", body)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if not_valid_after is not None:
+            pulumi.set(__self__, "not_valid_after", not_valid_after)
+        if not_valid_before is not None:
+            pulumi.set(__self__, "not_valid_before", not_valid_before)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> _builtins.str:
+        """
+        Certificate body in PEM format.
+        """
+        return pulumi.get(self, "body")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> Optional[_builtins.str]:
+        """
+        Certificate issuer.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="notValidAfter")
+    def not_valid_after(self) -> Optional[_builtins.str]:
+        """
+        Date and time when the certificate expires in RFC3339 format.
+        """
+        return pulumi.get(self, "not_valid_after")
+
+    @_builtins.property
+    @pulumi.getter(name="notValidBefore")
+    def not_valid_before(self) -> Optional[_builtins.str]:
+        """
+        Date and time when the certificate becomes valid in RFC3339 format.
+        """
+        return pulumi.get(self, "not_valid_before")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> Optional[_builtins.str]:
+        """
+        Certificate subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @_builtins.property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[_builtins.str]:
+        """
+        Certificate thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type

@@ -114,107 +114,107 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      */
-    public readonly automaticBackupRetentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly automaticBackupRetentionDays: pulumi.Output<number | undefined>;
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      */
-    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
+    declare public readonly dailyAutomaticBackupStartTime: pulumi.Output<string>;
     /**
      * The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      */
-    public readonly deploymentType!: pulumi.Output<string>;
+    declare public readonly deploymentType: pulumi.Output<string>;
     /**
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      */
-    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OntapFileSystemDiskIopsConfiguration>;
+    declare public readonly diskIopsConfiguration: pulumi.Output<outputs.fsx.OntapFileSystemDiskIopsConfiguration>;
     /**
      * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
      */
-    public readonly endpointIpAddressRange!: pulumi.Output<string>;
+    declare public readonly endpointIpAddressRange: pulumi.Output<string>;
     /**
      * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.fsx.OntapFileSystemEndpoint[]>;
+    declare public /*out*/ readonly endpoints: pulumi.Output<outputs.fsx.OntapFileSystemEndpoint[]>;
     /**
      * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
      */
-    public readonly fsxAdminPassword!: pulumi.Output<string | undefined>;
+    declare public readonly fsxAdminPassword: pulumi.Output<string | undefined>;
     /**
      * The number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      */
-    public readonly haPairs!: pulumi.Output<number>;
+    declare public readonly haPairs: pulumi.Output<number>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
      * AWS account identifier that created the file system.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      */
-    public readonly preferredSubnetId!: pulumi.Output<string>;
+    declare public readonly preferredSubnetId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */
-    public readonly routeTableIds!: pulumi.Output<string[]>;
+    declare public readonly routeTableIds: pulumi.Output<string[]>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      */
-    public readonly storageCapacity!: pulumi.Output<number>;
+    declare public readonly storageCapacity: pulumi.Output<number>;
     /**
      * The filesystem storage type. defaults to `SSD`.
      */
-    public readonly storageType!: pulumi.Output<string | undefined>;
+    declare public readonly storageType: pulumi.Output<string | undefined>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */
-    public readonly throughputCapacity!: pulumi.Output<number>;
+    declare public readonly throughputCapacity: pulumi.Output<number>;
     /**
      * Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughputCapacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `haPairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `haPairs` is greater than 1. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */
-    public readonly throughputCapacityPerHaPair!: pulumi.Output<number>;
+    declare public readonly throughputCapacityPerHaPair: pulumi.Output<number>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string>;
+    declare public readonly weeklyMaintenanceStartTime: pulumi.Output<string>;
 
     /**
      * Create a OntapFileSystem resource with the given unique name, arguments, and options.
@@ -229,65 +229,65 @@ export class OntapFileSystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OntapFileSystemState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
-            resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
-            resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
-            resourceInputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
-            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
-            resourceInputs["endpointIpAddressRange"] = state ? state.endpointIpAddressRange : undefined;
-            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
-            resourceInputs["fsxAdminPassword"] = state ? state.fsxAdminPassword : undefined;
-            resourceInputs["haPairs"] = state ? state.haPairs : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
-            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
-            resourceInputs["storageType"] = state ? state.storageType : undefined;
-            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
-            resourceInputs["throughputCapacityPerHaPair"] = state ? state.throughputCapacityPerHaPair : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
-            resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["automaticBackupRetentionDays"] = state?.automaticBackupRetentionDays;
+            resourceInputs["dailyAutomaticBackupStartTime"] = state?.dailyAutomaticBackupStartTime;
+            resourceInputs["deploymentType"] = state?.deploymentType;
+            resourceInputs["diskIopsConfiguration"] = state?.diskIopsConfiguration;
+            resourceInputs["dnsName"] = state?.dnsName;
+            resourceInputs["endpointIpAddressRange"] = state?.endpointIpAddressRange;
+            resourceInputs["endpoints"] = state?.endpoints;
+            resourceInputs["fsxAdminPassword"] = state?.fsxAdminPassword;
+            resourceInputs["haPairs"] = state?.haPairs;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["preferredSubnetId"] = state?.preferredSubnetId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routeTableIds"] = state?.routeTableIds;
+            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
+            resourceInputs["storageCapacity"] = state?.storageCapacity;
+            resourceInputs["storageType"] = state?.storageType;
+            resourceInputs["subnetIds"] = state?.subnetIds;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["throughputCapacity"] = state?.throughputCapacity;
+            resourceInputs["throughputCapacityPerHaPair"] = state?.throughputCapacityPerHaPair;
+            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["weeklyMaintenanceStartTime"] = state?.weeklyMaintenanceStartTime;
         } else {
             const args = argsOrState as OntapFileSystemArgs | undefined;
-            if ((!args || args.deploymentType === undefined) && !opts.urn) {
+            if (args?.deploymentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentType'");
             }
-            if ((!args || args.preferredSubnetId === undefined) && !opts.urn) {
+            if (args?.preferredSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'preferredSubnetId'");
             }
-            if ((!args || args.storageCapacity === undefined) && !opts.urn) {
+            if (args?.storageCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageCapacity'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
-            resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
-            resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
-            resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
-            resourceInputs["endpointIpAddressRange"] = args ? args.endpointIpAddressRange : undefined;
+            resourceInputs["automaticBackupRetentionDays"] = args?.automaticBackupRetentionDays;
+            resourceInputs["dailyAutomaticBackupStartTime"] = args?.dailyAutomaticBackupStartTime;
+            resourceInputs["deploymentType"] = args?.deploymentType;
+            resourceInputs["diskIopsConfiguration"] = args?.diskIopsConfiguration;
+            resourceInputs["endpointIpAddressRange"] = args?.endpointIpAddressRange;
             resourceInputs["fsxAdminPassword"] = args?.fsxAdminPassword ? pulumi.secret(args.fsxAdminPassword) : undefined;
-            resourceInputs["haPairs"] = args ? args.haPairs : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
-            resourceInputs["throughputCapacityPerHaPair"] = args ? args.throughputCapacityPerHaPair : undefined;
-            resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["haPairs"] = args?.haPairs;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["preferredSubnetId"] = args?.preferredSubnetId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routeTableIds"] = args?.routeTableIds;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["storageCapacity"] = args?.storageCapacity;
+            resourceInputs["storageType"] = args?.storageType;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throughputCapacity"] = args?.throughputCapacity;
+            resourceInputs["throughputCapacityPerHaPair"] = args?.throughputCapacityPerHaPair;
+            resourceInputs["weeklyMaintenanceStartTime"] = args?.weeklyMaintenanceStartTime;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;

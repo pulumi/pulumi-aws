@@ -106,6 +106,12 @@ namespace Pulumi.Aws.Signer
         public Output<Outputs.SigningProfileSigningMaterial> SigningMaterial { get; private set; } = null!;
 
         /// <summary>
+        /// Map of key-value pairs for signing. These can include any information that you want to use during signing.
+        /// </summary>
+        [Output("signingParameters")]
+        public Output<ImmutableDictionary<string, string>?> SigningParameters { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the target signing profile.
         /// </summary>
         [Output("status")]
@@ -211,6 +217,18 @@ namespace Pulumi.Aws.Signer
         [Input("signingMaterial")]
         public Input<Inputs.SigningProfileSigningMaterialArgs>? SigningMaterial { get; set; }
 
+        [Input("signingParameters")]
+        private InputMap<string>? _signingParameters;
+
+        /// <summary>
+        /// Map of key-value pairs for signing. These can include any information that you want to use during signing.
+        /// </summary>
+        public InputMap<string> SigningParameters
+        {
+            get => _signingParameters ?? (_signingParameters = new InputMap<string>());
+            set => _signingParameters = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -284,6 +302,18 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         [Input("signingMaterial")]
         public Input<Inputs.SigningProfileSigningMaterialGetArgs>? SigningMaterial { get; set; }
+
+        [Input("signingParameters")]
+        private InputMap<string>? _signingParameters;
+
+        /// <summary>
+        /// Map of key-value pairs for signing. These can include any information that you want to use during signing.
+        /// </summary>
+        public InputMap<string> SigningParameters
+        {
+            get => _signingParameters ?? (_signingParameters = new InputMap<string>());
+            set => _signingParameters = value;
+        }
 
         /// <summary>
         /// The status of the target signing profile.

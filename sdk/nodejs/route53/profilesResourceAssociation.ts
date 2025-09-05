@@ -51,37 +51,37 @@ export class ProfilesResourceAssociation extends pulumi.CustomResource {
     /**
      * Name of the Profile Resource Association.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * ID of the profile associated with the VPC.
      */
-    public readonly profileId!: pulumi.Output<string>;
+    declare public readonly profileId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Resource ID of the resource to be associated with the profile.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
     /**
      * Resource properties for the resource to be associated with the profile.
      */
-    public readonly resourceProperties!: pulumi.Output<string>;
+    declare public readonly resourceProperties: pulumi.Output<string>;
     /**
      * Type of resource associated with the profile.
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
     /**
      * Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Status message of the Profile Resource Association.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.route53.ProfilesResourceAssociationTimeouts | undefined>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.route53.ProfilesResourceAssociationTimeouts | undefined>;
 
     /**
      * Create a ProfilesResourceAssociation resource with the given unique name, arguments, and options.
@@ -96,30 +96,30 @@ export class ProfilesResourceAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfilesResourceAssociationState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["profileId"] = state ? state.profileId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
-            resourceInputs["resourceProperties"] = state ? state.resourceProperties : undefined;
-            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["statusMessage"] = state ? state.statusMessage : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["profileId"] = state?.profileId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["resourceProperties"] = state?.resourceProperties;
+            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["statusMessage"] = state?.statusMessage;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ProfilesResourceAssociationArgs | undefined;
-            if ((!args || args.profileId === undefined) && !opts.urn) {
+            if (args?.profileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileId'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["profileId"] = args ? args.profileId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["resourceProperties"] = args ? args.resourceProperties : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["profileId"] = args?.profileId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["resourceProperties"] = args?.resourceProperties;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -122,61 +122,61 @@ export class Task extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Task.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    public readonly cloudwatchLogGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly cloudwatchLogGroupArn: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    public readonly destinationLocationArn!: pulumi.Output<string>;
+    declare public readonly destinationLocationArn: pulumi.Output<string>;
     /**
      * Filter rules that determines which files to exclude from a task.
      */
-    public readonly excludes!: pulumi.Output<outputs.datasync.TaskExcludes | undefined>;
+    declare public readonly excludes: pulumi.Output<outputs.datasync.TaskExcludes | undefined>;
     /**
      * Filter rules that determines which files to include in a task.
      */
-    public readonly includes!: pulumi.Output<outputs.datasync.TaskIncludes | undefined>;
+    declare public readonly includes: pulumi.Output<outputs.datasync.TaskIncludes | undefined>;
     /**
      * Name of the DataSync Task.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    public readonly options!: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
+    declare public readonly options: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
-    public readonly schedule!: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    public readonly sourceLocationArn!: pulumi.Output<string>;
+    declare public readonly sourceLocationArn: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * One of the following task modes for your data transfer:
      * * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
      * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
      */
-    public readonly taskMode!: pulumi.Output<string>;
+    declare public readonly taskMode: pulumi.Output<string>;
     /**
      * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
      */
-    public readonly taskReportConfig!: pulumi.Output<outputs.datasync.TaskTaskReportConfig | undefined>;
+    declare public readonly taskReportConfig: pulumi.Output<outputs.datasync.TaskTaskReportConfig | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -191,40 +191,40 @@ export class Task extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TaskState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
-            resourceInputs["destinationLocationArn"] = state ? state.destinationLocationArn : undefined;
-            resourceInputs["excludes"] = state ? state.excludes : undefined;
-            resourceInputs["includes"] = state ? state.includes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["options"] = state ? state.options : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["sourceLocationArn"] = state ? state.sourceLocationArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["taskMode"] = state ? state.taskMode : undefined;
-            resourceInputs["taskReportConfig"] = state ? state.taskReportConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cloudwatchLogGroupArn"] = state?.cloudwatchLogGroupArn;
+            resourceInputs["destinationLocationArn"] = state?.destinationLocationArn;
+            resourceInputs["excludes"] = state?.excludes;
+            resourceInputs["includes"] = state?.includes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["options"] = state?.options;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["sourceLocationArn"] = state?.sourceLocationArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["taskMode"] = state?.taskMode;
+            resourceInputs["taskReportConfig"] = state?.taskReportConfig;
         } else {
             const args = argsOrState as TaskArgs | undefined;
-            if ((!args || args.destinationLocationArn === undefined) && !opts.urn) {
+            if (args?.destinationLocationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationLocationArn'");
             }
-            if ((!args || args.sourceLocationArn === undefined) && !opts.urn) {
+            if (args?.sourceLocationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceLocationArn'");
             }
-            resourceInputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
-            resourceInputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
-            resourceInputs["excludes"] = args ? args.excludes : undefined;
-            resourceInputs["includes"] = args ? args.includes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskMode"] = args ? args.taskMode : undefined;
-            resourceInputs["taskReportConfig"] = args ? args.taskReportConfig : undefined;
+            resourceInputs["cloudwatchLogGroupArn"] = args?.cloudwatchLogGroupArn;
+            resourceInputs["destinationLocationArn"] = args?.destinationLocationArn;
+            resourceInputs["excludes"] = args?.excludes;
+            resourceInputs["includes"] = args?.includes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["sourceLocationArn"] = args?.sourceLocationArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskMode"] = args?.taskMode;
+            resourceInputs["taskReportConfig"] = args?.taskReportConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

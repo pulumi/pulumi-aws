@@ -85,92 +85,92 @@ export class Bot extends pulumi.CustomResource {
     /**
      * The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
      */
-    public readonly abortStatement!: pulumi.Output<outputs.lex.BotAbortStatement>;
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public readonly abortStatement: pulumi.Output<outputs.lex.BotAbortStatement>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Checksum identifying the version of the bot that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the bot.
      */
-    public /*out*/ readonly checksum!: pulumi.Output<string>;
+    declare public /*out*/ readonly checksum: pulumi.Output<string>;
     /**
      * By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
      */
-    public readonly childDirected!: pulumi.Output<boolean>;
+    declare public readonly childDirected: pulumi.Output<boolean>;
     /**
      * The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
      */
-    public readonly clarificationPrompt!: pulumi.Output<outputs.lex.BotClarificationPrompt | undefined>;
+    declare public readonly clarificationPrompt: pulumi.Output<outputs.lex.BotClarificationPrompt | undefined>;
     /**
      * Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
      */
-    public readonly createVersion!: pulumi.Output<boolean | undefined>;
+    declare public readonly createVersion: pulumi.Output<boolean | undefined>;
     /**
      * The date when the bot version was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * A description of the bot. Must be less than or equal to 200 characters in length.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
      */
-    public readonly detectSentiment!: pulumi.Output<boolean | undefined>;
+    declare public readonly detectSentiment: pulumi.Output<boolean | undefined>;
     /**
      * Set to `true` to enable access to natural language understanding improvements. When you set the `enableModelImprovements` parameter to true you can use the `nluIntentConfidenceThreshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enableModelImprovements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
      */
-    public readonly enableModelImprovements!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableModelImprovements: pulumi.Output<boolean | undefined>;
     /**
      * If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
      */
-    public /*out*/ readonly failureReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly failureReason: pulumi.Output<string>;
     /**
      * The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
      */
-    public readonly idleSessionTtlInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly idleSessionTtlInSeconds: pulumi.Output<number | undefined>;
     /**
      * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      */
-    public readonly intents!: pulumi.Output<outputs.lex.BotIntent[]>;
+    declare public readonly intents: pulumi.Output<outputs.lex.BotIntent[]>;
     /**
      * The date when the $LATEST version of this bot was updated.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
     /**
      * Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
      */
-    public readonly locale!: pulumi.Output<string | undefined>;
+    declare public readonly locale: pulumi.Output<string | undefined>;
     /**
      * The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
      */
-    public readonly nluIntentConfidenceThreshold!: pulumi.Output<number | undefined>;
+    declare public readonly nluIntentConfidenceThreshold: pulumi.Output<number | undefined>;
     /**
      * If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
      */
-    public readonly processBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly processBehavior: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * When you send a request to create or update a bot, Amazon Lex sets the status response
      * element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
      * build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
      * failureReason response element.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The version of the bot.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
     /**
      * The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
      */
-    public readonly voiceId!: pulumi.Output<string>;
+    declare public readonly voiceId: pulumi.Output<string>;
 
     /**
      * Create a Bot resource with the given unique name, arguments, and options.
@@ -185,54 +185,54 @@ export class Bot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BotState | undefined;
-            resourceInputs["abortStatement"] = state ? state.abortStatement : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["checksum"] = state ? state.checksum : undefined;
-            resourceInputs["childDirected"] = state ? state.childDirected : undefined;
-            resourceInputs["clarificationPrompt"] = state ? state.clarificationPrompt : undefined;
-            resourceInputs["createVersion"] = state ? state.createVersion : undefined;
-            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["detectSentiment"] = state ? state.detectSentiment : undefined;
-            resourceInputs["enableModelImprovements"] = state ? state.enableModelImprovements : undefined;
-            resourceInputs["failureReason"] = state ? state.failureReason : undefined;
-            resourceInputs["idleSessionTtlInSeconds"] = state ? state.idleSessionTtlInSeconds : undefined;
-            resourceInputs["intents"] = state ? state.intents : undefined;
-            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            resourceInputs["locale"] = state ? state.locale : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nluIntentConfidenceThreshold"] = state ? state.nluIntentConfidenceThreshold : undefined;
-            resourceInputs["processBehavior"] = state ? state.processBehavior : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["voiceId"] = state ? state.voiceId : undefined;
+            resourceInputs["abortStatement"] = state?.abortStatement;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["checksum"] = state?.checksum;
+            resourceInputs["childDirected"] = state?.childDirected;
+            resourceInputs["clarificationPrompt"] = state?.clarificationPrompt;
+            resourceInputs["createVersion"] = state?.createVersion;
+            resourceInputs["createdDate"] = state?.createdDate;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["detectSentiment"] = state?.detectSentiment;
+            resourceInputs["enableModelImprovements"] = state?.enableModelImprovements;
+            resourceInputs["failureReason"] = state?.failureReason;
+            resourceInputs["idleSessionTtlInSeconds"] = state?.idleSessionTtlInSeconds;
+            resourceInputs["intents"] = state?.intents;
+            resourceInputs["lastUpdatedDate"] = state?.lastUpdatedDate;
+            resourceInputs["locale"] = state?.locale;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nluIntentConfidenceThreshold"] = state?.nluIntentConfidenceThreshold;
+            resourceInputs["processBehavior"] = state?.processBehavior;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["voiceId"] = state?.voiceId;
         } else {
             const args = argsOrState as BotArgs | undefined;
-            if ((!args || args.abortStatement === undefined) && !opts.urn) {
+            if (args?.abortStatement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'abortStatement'");
             }
-            if ((!args || args.childDirected === undefined) && !opts.urn) {
+            if (args?.childDirected === undefined && !opts.urn) {
                 throw new Error("Missing required property 'childDirected'");
             }
-            if ((!args || args.intents === undefined) && !opts.urn) {
+            if (args?.intents === undefined && !opts.urn) {
                 throw new Error("Missing required property 'intents'");
             }
-            resourceInputs["abortStatement"] = args ? args.abortStatement : undefined;
-            resourceInputs["childDirected"] = args ? args.childDirected : undefined;
-            resourceInputs["clarificationPrompt"] = args ? args.clarificationPrompt : undefined;
-            resourceInputs["createVersion"] = args ? args.createVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["detectSentiment"] = args ? args.detectSentiment : undefined;
-            resourceInputs["enableModelImprovements"] = args ? args.enableModelImprovements : undefined;
-            resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
-            resourceInputs["intents"] = args ? args.intents : undefined;
-            resourceInputs["locale"] = args ? args.locale : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nluIntentConfidenceThreshold"] = args ? args.nluIntentConfidenceThreshold : undefined;
-            resourceInputs["processBehavior"] = args ? args.processBehavior : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["voiceId"] = args ? args.voiceId : undefined;
+            resourceInputs["abortStatement"] = args?.abortStatement;
+            resourceInputs["childDirected"] = args?.childDirected;
+            resourceInputs["clarificationPrompt"] = args?.clarificationPrompt;
+            resourceInputs["createVersion"] = args?.createVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["detectSentiment"] = args?.detectSentiment;
+            resourceInputs["enableModelImprovements"] = args?.enableModelImprovements;
+            resourceInputs["idleSessionTtlInSeconds"] = args?.idleSessionTtlInSeconds;
+            resourceInputs["intents"] = args?.intents;
+            resourceInputs["locale"] = args?.locale;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nluIntentConfidenceThreshold"] = args?.nluIntentConfidenceThreshold;
+            resourceInputs["processBehavior"] = args?.processBehavior;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["voiceId"] = args?.voiceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["checksum"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
