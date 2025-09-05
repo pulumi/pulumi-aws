@@ -8,6 +8,13 @@ generate-nightly-test-workflow: true
 providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVersion
 
 buildProviderPre: "VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh"
+testProviderCmd: |
+  VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh && \
+  cd provider && go test -v -short \
+    -coverprofile="coverage.txt" \
+    -coverpkg="./...,github.com/hashicorp/terraform-provider-..." \
+    -parallel $(TESTPARALLELISM) \
+    ./...
 
 toolVersions:
   go: "1.23.x"
