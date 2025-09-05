@@ -68,11 +68,11 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
     /**
      * The group the policy should be applied to
      */
-    public readonly group!: pulumi.Output<string>;
+    declare public readonly group: pulumi.Output<string>;
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn!: pulumi.Output<string>;
+    declare public readonly policyArn: pulumi.Output<string>;
 
     /**
      * Create a GroupPolicyAttachment resource with the given unique name, arguments, and options.
@@ -87,18 +87,18 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupPolicyAttachmentState | undefined;
-            resourceInputs["group"] = state ? state.group : undefined;
-            resourceInputs["policyArn"] = state ? state.policyArn : undefined;
+            resourceInputs["group"] = state?.group;
+            resourceInputs["policyArn"] = state?.policyArn;
         } else {
             const args = argsOrState as GroupPolicyAttachmentArgs | undefined;
-            if ((!args || args.group === undefined) && !opts.urn) {
+            if (args?.group === undefined && !opts.urn) {
                 throw new Error("Missing required property 'group'");
             }
-            if ((!args || args.policyArn === undefined) && !opts.urn) {
+            if (args?.policyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            resourceInputs["group"] = args ? args.group : undefined;
-            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
+            resourceInputs["group"] = args?.group;
+            resourceInputs["policyArn"] = args?.policyArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupPolicyAttachment.__pulumiType, name, resourceInputs, opts);

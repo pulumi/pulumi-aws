@@ -68,8 +68,8 @@ export class EnrollmentStatus extends pulumi.CustomResource {
     /**
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      */
-    public readonly includeMemberAccounts!: pulumi.Output<boolean>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public readonly includeMemberAccounts: pulumi.Output<boolean>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a EnrollmentStatus resource with the given unique name, arguments, and options.
@@ -84,11 +84,11 @@ export class EnrollmentStatus extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnrollmentStatusState | undefined;
-            resourceInputs["includeMemberAccounts"] = state ? state.includeMemberAccounts : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["includeMemberAccounts"] = state?.includeMemberAccounts;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as EnrollmentStatusArgs | undefined;
-            resourceInputs["includeMemberAccounts"] = args ? args.includeMemberAccounts : undefined;
+            resourceInputs["includeMemberAccounts"] = args?.includeMemberAccounts;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

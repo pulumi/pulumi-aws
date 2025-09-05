@@ -73,79 +73,79 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
-    public /*out*/ readonly allocatedStorage!: pulumi.Output<number>;
+    declare public /*out*/ readonly allocatedStorage: pulumi.Output<number>;
     /**
      * Whether to copy existing tags. Defaults to `false`.
      */
-    public readonly copyTags!: pulumi.Output<boolean | undefined>;
+    declare public readonly copyTags: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the DB cluster snapshot.
      */
-    public /*out*/ readonly dbClusterSnapshotArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dbClusterSnapshotArn: pulumi.Output<string>;
     /**
      * The Destination region to place snapshot copy.
      */
-    public readonly destinationRegion!: pulumi.Output<string | undefined>;
+    declare public readonly destinationRegion: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the database engine.
      */
-    public /*out*/ readonly engine!: pulumi.Output<string>;
+    declare public /*out*/ readonly engine: pulumi.Output<string>;
     /**
      * Specifies the version of the database engine.
      */
-    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly engineVersion: pulumi.Output<string>;
     /**
      * KMS key ID.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * License model information for the restored DB instance.
      */
-    public /*out*/ readonly licenseModel!: pulumi.Output<string>;
+    declare public /*out*/ readonly licenseModel: pulumi.Output<string>;
     /**
      * URL that contains a Signature Version 4 signed request.
      */
-    public readonly presignedUrl!: pulumi.Output<string | undefined>;
+    declare public readonly presignedUrl: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
-    public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly snapshotType!: pulumi.Output<string>;
+    declare public readonly sharedAccounts: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly snapshotType: pulumi.Output<string>;
     /**
      * Identifier of the source snapshot.
      */
-    public readonly sourceDbClusterSnapshotIdentifier!: pulumi.Output<string>;
+    declare public readonly sourceDbClusterSnapshotIdentifier: pulumi.Output<string>;
     /**
      * Specifies whether the DB cluster snapshot is encrypted.
      */
-    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
     /**
      * Specifies the storage type associated with DB cluster snapshot.
      */
-    public /*out*/ readonly storageType!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageType: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier for the snapshot.
      *
      * The following arguments are optional:
      */
-    public readonly targetDbClusterSnapshotIdentifier!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.rds.ClusterSnapshotCopyTimeouts | undefined>;
+    declare public readonly targetDbClusterSnapshotIdentifier: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.rds.ClusterSnapshotCopyTimeouts | undefined>;
     /**
      * Provides the VPC ID associated with the DB cluster snapshot.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a ClusterSnapshotCopy resource with the given unique name, arguments, and options.
@@ -160,44 +160,44 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterSnapshotCopyState | undefined;
-            resourceInputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
-            resourceInputs["copyTags"] = state ? state.copyTags : undefined;
-            resourceInputs["dbClusterSnapshotArn"] = state ? state.dbClusterSnapshotArn : undefined;
-            resourceInputs["destinationRegion"] = state ? state.destinationRegion : undefined;
-            resourceInputs["engine"] = state ? state.engine : undefined;
-            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
-            resourceInputs["presignedUrl"] = state ? state.presignedUrl : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
-            resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
-            resourceInputs["sourceDbClusterSnapshotIdentifier"] = state ? state.sourceDbClusterSnapshotIdentifier : undefined;
-            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
-            resourceInputs["storageType"] = state ? state.storageType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["targetDbClusterSnapshotIdentifier"] = state ? state.targetDbClusterSnapshotIdentifier : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["allocatedStorage"] = state?.allocatedStorage;
+            resourceInputs["copyTags"] = state?.copyTags;
+            resourceInputs["dbClusterSnapshotArn"] = state?.dbClusterSnapshotArn;
+            resourceInputs["destinationRegion"] = state?.destinationRegion;
+            resourceInputs["engine"] = state?.engine;
+            resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["licenseModel"] = state?.licenseModel;
+            resourceInputs["presignedUrl"] = state?.presignedUrl;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sharedAccounts"] = state?.sharedAccounts;
+            resourceInputs["snapshotType"] = state?.snapshotType;
+            resourceInputs["sourceDbClusterSnapshotIdentifier"] = state?.sourceDbClusterSnapshotIdentifier;
+            resourceInputs["storageEncrypted"] = state?.storageEncrypted;
+            resourceInputs["storageType"] = state?.storageType;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetDbClusterSnapshotIdentifier"] = state?.targetDbClusterSnapshotIdentifier;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vpcId"] = state?.vpcId;
         } else {
             const args = argsOrState as ClusterSnapshotCopyArgs | undefined;
-            if ((!args || args.sourceDbClusterSnapshotIdentifier === undefined) && !opts.urn) {
+            if (args?.sourceDbClusterSnapshotIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceDbClusterSnapshotIdentifier'");
             }
-            if ((!args || args.targetDbClusterSnapshotIdentifier === undefined) && !opts.urn) {
+            if (args?.targetDbClusterSnapshotIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetDbClusterSnapshotIdentifier'");
             }
-            resourceInputs["copyTags"] = args ? args.copyTags : undefined;
-            resourceInputs["destinationRegion"] = args ? args.destinationRegion : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["presignedUrl"] = args ? args.presignedUrl : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
-            resourceInputs["sourceDbClusterSnapshotIdentifier"] = args ? args.sourceDbClusterSnapshotIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDbClusterSnapshotIdentifier"] = args ? args.targetDbClusterSnapshotIdentifier : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["copyTags"] = args?.copyTags;
+            resourceInputs["destinationRegion"] = args?.destinationRegion;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["presignedUrl"] = args?.presignedUrl;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sharedAccounts"] = args?.sharedAccounts;
+            resourceInputs["sourceDbClusterSnapshotIdentifier"] = args?.sourceDbClusterSnapshotIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDbClusterSnapshotIdentifier"] = args?.targetDbClusterSnapshotIdentifier;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["dbClusterSnapshotArn"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;

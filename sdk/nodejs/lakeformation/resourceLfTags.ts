@@ -121,31 +121,31 @@ export class ResourceLfTags extends pulumi.CustomResource {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    declare public readonly catalogId: pulumi.Output<string>;
     /**
      * Configuration block for a database resource. See below.
      */
-    public readonly database!: pulumi.Output<outputs.lakeformation.ResourceLfTagsDatabase>;
+    declare public readonly database: pulumi.Output<outputs.lakeformation.ResourceLfTagsDatabase>;
     /**
      * Set of LF-tags to attach to the resource. See below.
      *
      * Exactly one of the following is required:
      */
-    public readonly lfTags!: pulumi.Output<outputs.lakeformation.ResourceLfTagsLfTag[]>;
+    declare public readonly lfTags: pulumi.Output<outputs.lakeformation.ResourceLfTagsLfTag[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration block for a table resource. See below.
      */
-    public readonly table!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTable>;
+    declare public readonly table: pulumi.Output<outputs.lakeformation.ResourceLfTagsTable>;
     /**
      * Configuration block for a table with columns resource. See below.
      *
      * The following arguments are optional:
      */
-    public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTableWithColumns>;
+    declare public readonly tableWithColumns: pulumi.Output<outputs.lakeformation.ResourceLfTagsTableWithColumns>;
 
     /**
      * Create a ResourceLfTags resource with the given unique name, arguments, and options.
@@ -160,23 +160,23 @@ export class ResourceLfTags extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceLfTagsState | undefined;
-            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["lfTags"] = state ? state.lfTags : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
-            resourceInputs["tableWithColumns"] = state ? state.tableWithColumns : undefined;
+            resourceInputs["catalogId"] = state?.catalogId;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["lfTags"] = state?.lfTags;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["table"] = state?.table;
+            resourceInputs["tableWithColumns"] = state?.tableWithColumns;
         } else {
             const args = argsOrState as ResourceLfTagsArgs | undefined;
-            if ((!args || args.lfTags === undefined) && !opts.urn) {
+            if (args?.lfTags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lfTags'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["lfTags"] = args ? args.lfTags : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
-            resourceInputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["lfTags"] = args?.lfTags;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["table"] = args?.table;
+            resourceInputs["tableWithColumns"] = args?.tableWithColumns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceLfTags.__pulumiType, name, resourceInputs, opts);

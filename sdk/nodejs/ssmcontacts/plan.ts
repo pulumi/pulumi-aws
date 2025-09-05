@@ -129,15 +129,15 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      */
-    public readonly contactId!: pulumi.Output<string>;
+    declare public readonly contactId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      */
-    public readonly stages!: pulumi.Output<outputs.ssmcontacts.PlanStage[]>;
+    declare public readonly stages: pulumi.Output<outputs.ssmcontacts.PlanStage[]>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -152,20 +152,20 @@ export class Plan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlanState | undefined;
-            resourceInputs["contactId"] = state ? state.contactId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["stages"] = state ? state.stages : undefined;
+            resourceInputs["contactId"] = state?.contactId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["stages"] = state?.stages;
         } else {
             const args = argsOrState as PlanArgs | undefined;
-            if ((!args || args.contactId === undefined) && !opts.urn) {
+            if (args?.contactId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactId'");
             }
-            if ((!args || args.stages === undefined) && !opts.urn) {
+            if (args?.stages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            resourceInputs["contactId"] = args ? args.contactId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
+            resourceInputs["contactId"] = args?.contactId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["stages"] = args?.stages;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Plan.__pulumiType, name, resourceInputs, opts);

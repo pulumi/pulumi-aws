@@ -115,15 +115,15 @@ export class BotAssociation extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
-    public readonly lexBot!: pulumi.Output<outputs.connect.BotAssociationLexBot>;
+    declare public readonly lexBot: pulumi.Output<outputs.connect.BotAssociationLexBot>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a BotAssociation resource with the given unique name, arguments, and options.
@@ -138,20 +138,20 @@ export class BotAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BotAssociationState | undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["lexBot"] = state ? state.lexBot : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["lexBot"] = state?.lexBot;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as BotAssociationArgs | undefined;
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.lexBot === undefined) && !opts.urn) {
+            if (args?.lexBot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lexBot'");
             }
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["lexBot"] = args ? args.lexBot : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["lexBot"] = args?.lexBot;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BotAssociation.__pulumiType, name, resourceInputs, opts);

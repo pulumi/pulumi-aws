@@ -63,19 +63,19 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
     /**
      * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
      */
-    public readonly enableMediaMetricLogs!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableMediaMetricLogs: pulumi.Output<boolean | undefined>;
     /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      */
-    public readonly enableSipLogs!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableSipLogs: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
-    public readonly voiceConnectorId!: pulumi.Output<string>;
+    declare public readonly voiceConnectorId: pulumi.Output<string>;
 
     /**
      * Create a VoiceConnectorLogging resource with the given unique name, arguments, and options.
@@ -90,19 +90,19 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorLoggingState | undefined;
-            resourceInputs["enableMediaMetricLogs"] = state ? state.enableMediaMetricLogs : undefined;
-            resourceInputs["enableSipLogs"] = state ? state.enableSipLogs : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
+            resourceInputs["enableMediaMetricLogs"] = state?.enableMediaMetricLogs;
+            resourceInputs["enableSipLogs"] = state?.enableSipLogs;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["voiceConnectorId"] = state?.voiceConnectorId;
         } else {
             const args = argsOrState as VoiceConnectorLoggingArgs | undefined;
-            if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
+            if (args?.voiceConnectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
-            resourceInputs["enableMediaMetricLogs"] = args ? args.enableMediaMetricLogs : undefined;
-            resourceInputs["enableSipLogs"] = args ? args.enableSipLogs : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
+            resourceInputs["enableMediaMetricLogs"] = args?.enableMediaMetricLogs;
+            resourceInputs["enableSipLogs"] = args?.enableSipLogs;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["voiceConnectorId"] = args?.voiceConnectorId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VoiceConnectorLogging.__pulumiType, name, resourceInputs, opts);

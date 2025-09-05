@@ -82,15 +82,15 @@ export class NetworkAclRule extends pulumi.CustomResource {
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
-    public readonly cidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly cidrBlock: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      */
-    public readonly egress!: pulumi.Output<boolean | undefined>;
+    declare public readonly egress: pulumi.Output<boolean | undefined>;
     /**
      * The from port to match.
      */
-    public readonly fromPort!: pulumi.Output<number | undefined>;
+    declare public readonly fromPort: pulumi.Output<number | undefined>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      *
@@ -100,39 +100,39 @@ export class NetworkAclRule extends pulumi.CustomResource {
      *
      * > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      */
-    public readonly icmpCode!: pulumi.Output<number | undefined>;
+    declare public readonly icmpCode: pulumi.Output<number | undefined>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      */
-    public readonly icmpType!: pulumi.Output<number | undefined>;
+    declare public readonly icmpType: pulumi.Output<number | undefined>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
-    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6CidrBlock: pulumi.Output<string | undefined>;
     /**
      * The ID of the network ACL.
      */
-    public readonly networkAclId!: pulumi.Output<string>;
+    declare public readonly networkAclId: pulumi.Output<string>;
     /**
      * The protocol. A value of -1 means all protocols.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
-    public readonly ruleAction!: pulumi.Output<string>;
+    declare public readonly ruleAction: pulumi.Output<string>;
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      */
-    public readonly ruleNumber!: pulumi.Output<number>;
+    declare public readonly ruleNumber: pulumi.Output<number>;
     /**
      * The to port to match.
      */
-    public readonly toPort!: pulumi.Output<number | undefined>;
+    declare public readonly toPort: pulumi.Output<number | undefined>;
 
     /**
      * Create a NetworkAclRule resource with the given unique name, arguments, and options.
@@ -147,44 +147,44 @@ export class NetworkAclRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkAclRuleState | undefined;
-            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            resourceInputs["egress"] = state ? state.egress : undefined;
-            resourceInputs["fromPort"] = state ? state.fromPort : undefined;
-            resourceInputs["icmpCode"] = state ? state.icmpCode : undefined;
-            resourceInputs["icmpType"] = state ? state.icmpType : undefined;
-            resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
-            resourceInputs["networkAclId"] = state ? state.networkAclId : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["ruleAction"] = state ? state.ruleAction : undefined;
-            resourceInputs["ruleNumber"] = state ? state.ruleNumber : undefined;
-            resourceInputs["toPort"] = state ? state.toPort : undefined;
+            resourceInputs["cidrBlock"] = state?.cidrBlock;
+            resourceInputs["egress"] = state?.egress;
+            resourceInputs["fromPort"] = state?.fromPort;
+            resourceInputs["icmpCode"] = state?.icmpCode;
+            resourceInputs["icmpType"] = state?.icmpType;
+            resourceInputs["ipv6CidrBlock"] = state?.ipv6CidrBlock;
+            resourceInputs["networkAclId"] = state?.networkAclId;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["ruleAction"] = state?.ruleAction;
+            resourceInputs["ruleNumber"] = state?.ruleNumber;
+            resourceInputs["toPort"] = state?.toPort;
         } else {
             const args = argsOrState as NetworkAclRuleArgs | undefined;
-            if ((!args || args.networkAclId === undefined) && !opts.urn) {
+            if (args?.networkAclId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkAclId'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.ruleAction === undefined) && !opts.urn) {
+            if (args?.ruleAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleAction'");
             }
-            if ((!args || args.ruleNumber === undefined) && !opts.urn) {
+            if (args?.ruleNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleNumber'");
             }
-            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            resourceInputs["egress"] = args ? args.egress : undefined;
-            resourceInputs["fromPort"] = args ? args.fromPort : undefined;
-            resourceInputs["icmpCode"] = args ? args.icmpCode : undefined;
-            resourceInputs["icmpType"] = args ? args.icmpType : undefined;
-            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            resourceInputs["networkAclId"] = args ? args.networkAclId : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["ruleAction"] = args ? args.ruleAction : undefined;
-            resourceInputs["ruleNumber"] = args ? args.ruleNumber : undefined;
-            resourceInputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["cidrBlock"] = args?.cidrBlock;
+            resourceInputs["egress"] = args?.egress;
+            resourceInputs["fromPort"] = args?.fromPort;
+            resourceInputs["icmpCode"] = args?.icmpCode;
+            resourceInputs["icmpType"] = args?.icmpType;
+            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
+            resourceInputs["networkAclId"] = args?.networkAclId;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["ruleAction"] = args?.ruleAction;
+            resourceInputs["ruleNumber"] = args?.ruleNumber;
+            resourceInputs["toPort"] = args?.toPort;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkAclRule.__pulumiType, name, resourceInputs, opts);

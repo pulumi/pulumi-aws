@@ -69,15 +69,15 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * The content of the resource policy being updated.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -92,20 +92,20 @@ export class ResourcePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourcePolicyState | undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceArn"] = state?.resourceArn;
         } else {
             const args = argsOrState as ResourcePolicyArgs | undefined;
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceArn"] = args?.resourceArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourcePolicy.__pulumiType, name, resourceInputs, opts);

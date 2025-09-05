@@ -537,90 +537,90 @@ export class EventTarget extends pulumi.CustomResource {
     /**
      * Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
      */
-    public readonly appsyncTarget!: pulumi.Output<outputs.cloudwatch.EventTargetAppsyncTarget | undefined>;
+    declare public readonly appsyncTarget: pulumi.Output<outputs.cloudwatch.EventTargetAppsyncTarget | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target.
      */
-    public readonly arn!: pulumi.Output<string>;
+    declare public readonly arn: pulumi.Output<string>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      */
-    public readonly batchTarget!: pulumi.Output<outputs.cloudwatch.EventTargetBatchTarget | undefined>;
+    declare public readonly batchTarget: pulumi.Output<outputs.cloudwatch.EventTargetBatchTarget | undefined>;
     /**
      * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      */
-    public readonly deadLetterConfig!: pulumi.Output<outputs.cloudwatch.EventTargetDeadLetterConfig | undefined>;
+    declare public readonly deadLetterConfig: pulumi.Output<outputs.cloudwatch.EventTargetDeadLetterConfig | undefined>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    public readonly ecsTarget!: pulumi.Output<outputs.cloudwatch.EventTargetEcsTarget | undefined>;
+    declare public readonly ecsTarget: pulumi.Output<outputs.cloudwatch.EventTargetEcsTarget | undefined>;
     /**
      * The name or ARN of the event bus to associate with the rule.
      * If you omit this, the `default` event bus is used.
      */
-    public readonly eventBusName!: pulumi.Output<string | undefined>;
+    declare public readonly eventBusName: pulumi.Output<string | undefined>;
     /**
      * Used to delete managed rules created by AWS. Defaults to `false`.
      */
-    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      */
-    public readonly httpTarget!: pulumi.Output<outputs.cloudwatch.EventTargetHttpTarget | undefined>;
+    declare public readonly httpTarget: pulumi.Output<outputs.cloudwatch.EventTargetHttpTarget | undefined>;
     /**
      * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
-    public readonly input!: pulumi.Output<string | undefined>;
+    declare public readonly input: pulumi.Output<string | undefined>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      */
-    public readonly inputPath!: pulumi.Output<string | undefined>;
+    declare public readonly inputPath: pulumi.Output<string | undefined>;
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      */
-    public readonly inputTransformer!: pulumi.Output<outputs.cloudwatch.EventTargetInputTransformer | undefined>;
+    declare public readonly inputTransformer: pulumi.Output<outputs.cloudwatch.EventTargetInputTransformer | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
-    public readonly kinesisTarget!: pulumi.Output<outputs.cloudwatch.EventTargetKinesisTarget | undefined>;
+    declare public readonly kinesisTarget: pulumi.Output<outputs.cloudwatch.EventTargetKinesisTarget | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
      */
-    public readonly redshiftTarget!: pulumi.Output<outputs.cloudwatch.EventTargetRedshiftTarget | undefined>;
+    declare public readonly redshiftTarget: pulumi.Output<outputs.cloudwatch.EventTargetRedshiftTarget | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
-    public readonly retryPolicy!: pulumi.Output<outputs.cloudwatch.EventTargetRetryPolicy | undefined>;
+    declare public readonly retryPolicy: pulumi.Output<outputs.cloudwatch.EventTargetRetryPolicy | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The name of the rule you want to add targets to.
      *
      * The following arguments are optional:
      */
-    public readonly rule!: pulumi.Output<string>;
+    declare public readonly rule: pulumi.Output<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    public readonly runCommandTargets!: pulumi.Output<outputs.cloudwatch.EventTargetRunCommandTarget[] | undefined>;
+    declare public readonly runCommandTargets: pulumi.Output<outputs.cloudwatch.EventTargetRunCommandTarget[] | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      */
-    public readonly sagemakerPipelineTarget!: pulumi.Output<outputs.cloudwatch.EventTargetSagemakerPipelineTarget | undefined>;
+    declare public readonly sagemakerPipelineTarget: pulumi.Output<outputs.cloudwatch.EventTargetSagemakerPipelineTarget | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
-    public readonly sqsTarget!: pulumi.Output<outputs.cloudwatch.EventTargetSqsTarget | undefined>;
+    declare public readonly sqsTarget: pulumi.Output<outputs.cloudwatch.EventTargetSqsTarget | undefined>;
     /**
      * The unique target assignment ID. If missing, will generate a random, unique id.
      */
-    public readonly targetId!: pulumi.Output<string>;
+    declare public readonly targetId: pulumi.Output<string>;
 
     /**
      * Create a EventTarget resource with the given unique name, arguments, and options.
@@ -635,56 +635,56 @@ export class EventTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventTargetState | undefined;
-            resourceInputs["appsyncTarget"] = state ? state.appsyncTarget : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["batchTarget"] = state ? state.batchTarget : undefined;
-            resourceInputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
-            resourceInputs["ecsTarget"] = state ? state.ecsTarget : undefined;
-            resourceInputs["eventBusName"] = state ? state.eventBusName : undefined;
-            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            resourceInputs["httpTarget"] = state ? state.httpTarget : undefined;
-            resourceInputs["input"] = state ? state.input : undefined;
-            resourceInputs["inputPath"] = state ? state.inputPath : undefined;
-            resourceInputs["inputTransformer"] = state ? state.inputTransformer : undefined;
-            resourceInputs["kinesisTarget"] = state ? state.kinesisTarget : undefined;
-            resourceInputs["redshiftTarget"] = state ? state.redshiftTarget : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["retryPolicy"] = state ? state.retryPolicy : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["rule"] = state ? state.rule : undefined;
-            resourceInputs["runCommandTargets"] = state ? state.runCommandTargets : undefined;
-            resourceInputs["sagemakerPipelineTarget"] = state ? state.sagemakerPipelineTarget : undefined;
-            resourceInputs["sqsTarget"] = state ? state.sqsTarget : undefined;
-            resourceInputs["targetId"] = state ? state.targetId : undefined;
+            resourceInputs["appsyncTarget"] = state?.appsyncTarget;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["batchTarget"] = state?.batchTarget;
+            resourceInputs["deadLetterConfig"] = state?.deadLetterConfig;
+            resourceInputs["ecsTarget"] = state?.ecsTarget;
+            resourceInputs["eventBusName"] = state?.eventBusName;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
+            resourceInputs["httpTarget"] = state?.httpTarget;
+            resourceInputs["input"] = state?.input;
+            resourceInputs["inputPath"] = state?.inputPath;
+            resourceInputs["inputTransformer"] = state?.inputTransformer;
+            resourceInputs["kinesisTarget"] = state?.kinesisTarget;
+            resourceInputs["redshiftTarget"] = state?.redshiftTarget;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["retryPolicy"] = state?.retryPolicy;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["rule"] = state?.rule;
+            resourceInputs["runCommandTargets"] = state?.runCommandTargets;
+            resourceInputs["sagemakerPipelineTarget"] = state?.sagemakerPipelineTarget;
+            resourceInputs["sqsTarget"] = state?.sqsTarget;
+            resourceInputs["targetId"] = state?.targetId;
         } else {
             const args = argsOrState as EventTargetArgs | undefined;
-            if ((!args || args.arn === undefined) && !opts.urn) {
+            if (args?.arn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            if ((!args || args.rule === undefined) && !opts.urn) {
+            if (args?.rule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
-            resourceInputs["appsyncTarget"] = args ? args.appsyncTarget : undefined;
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["batchTarget"] = args ? args.batchTarget : undefined;
-            resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
-            resourceInputs["ecsTarget"] = args ? args.ecsTarget : undefined;
-            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
-            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            resourceInputs["httpTarget"] = args ? args.httpTarget : undefined;
-            resourceInputs["input"] = args ? args.input : undefined;
-            resourceInputs["inputPath"] = args ? args.inputPath : undefined;
-            resourceInputs["inputTransformer"] = args ? args.inputTransformer : undefined;
-            resourceInputs["kinesisTarget"] = args ? args.kinesisTarget : undefined;
-            resourceInputs["redshiftTarget"] = args ? args.redshiftTarget : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["retryPolicy"] = args ? args.retryPolicy : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["rule"] = args ? args.rule : undefined;
-            resourceInputs["runCommandTargets"] = args ? args.runCommandTargets : undefined;
-            resourceInputs["sagemakerPipelineTarget"] = args ? args.sagemakerPipelineTarget : undefined;
-            resourceInputs["sqsTarget"] = args ? args.sqsTarget : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["appsyncTarget"] = args?.appsyncTarget;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["batchTarget"] = args?.batchTarget;
+            resourceInputs["deadLetterConfig"] = args?.deadLetterConfig;
+            resourceInputs["ecsTarget"] = args?.ecsTarget;
+            resourceInputs["eventBusName"] = args?.eventBusName;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
+            resourceInputs["httpTarget"] = args?.httpTarget;
+            resourceInputs["input"] = args?.input;
+            resourceInputs["inputPath"] = args?.inputPath;
+            resourceInputs["inputTransformer"] = args?.inputTransformer;
+            resourceInputs["kinesisTarget"] = args?.kinesisTarget;
+            resourceInputs["redshiftTarget"] = args?.redshiftTarget;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["retryPolicy"] = args?.retryPolicy;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["rule"] = args?.rule;
+            resourceInputs["runCommandTargets"] = args?.runCommandTargets;
+            resourceInputs["sagemakerPipelineTarget"] = args?.sagemakerPipelineTarget;
+            resourceInputs["sqsTarget"] = args?.sqsTarget;
+            resourceInputs["targetId"] = args?.targetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventTarget.__pulumiType, name, resourceInputs, opts);

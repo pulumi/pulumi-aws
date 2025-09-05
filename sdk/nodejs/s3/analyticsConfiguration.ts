@@ -96,23 +96,23 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
     /**
      * Name of the bucket this analytics configuration is associated with.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    public readonly filter!: pulumi.Output<outputs.s3.AnalyticsConfigurationFilter | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.s3.AnalyticsConfigurationFilter | undefined>;
     /**
      * Unique identifier of the analytics configuration for the bucket.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration for the analytics data export (documented below).
      */
-    public readonly storageClassAnalysis!: pulumi.Output<outputs.s3.AnalyticsConfigurationStorageClassAnalysis | undefined>;
+    declare public readonly storageClassAnalysis: pulumi.Output<outputs.s3.AnalyticsConfigurationStorageClassAnalysis | undefined>;
 
     /**
      * Create a AnalyticsConfiguration resource with the given unique name, arguments, and options.
@@ -127,21 +127,21 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsConfigurationState | undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["storageClassAnalysis"] = state ? state.storageClassAnalysis : undefined;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["storageClassAnalysis"] = state?.storageClassAnalysis;
         } else {
             const args = argsOrState as AnalyticsConfigurationArgs | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["storageClassAnalysis"] = args ? args.storageClassAnalysis : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["storageClassAnalysis"] = args?.storageClassAnalysis;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AnalyticsConfiguration.__pulumiType, name, resourceInputs, opts);

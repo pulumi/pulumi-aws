@@ -60,29 +60,29 @@ export class DataShareAuthorization extends pulumi.CustomResource {
     /**
      * Whether to allow write operations for a datashare.
      */
-    public readonly allowWrites!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowWrites: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
      */
-    public readonly consumerIdentifier!: pulumi.Output<string>;
+    declare public readonly consumerIdentifier: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
      *
      * The following arguments are optional:
      */
-    public readonly dataShareArn!: pulumi.Output<string>;
+    declare public readonly dataShareArn: pulumi.Output<string>;
     /**
      * Identifier of a datashare to show its managing entity.
      */
-    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedBy: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the producer.
      */
-    public /*out*/ readonly producerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly producerArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a DataShareAuthorization resource with the given unique name, arguments, and options.
@@ -97,24 +97,24 @@ export class DataShareAuthorization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataShareAuthorizationState | undefined;
-            resourceInputs["allowWrites"] = state ? state.allowWrites : undefined;
-            resourceInputs["consumerIdentifier"] = state ? state.consumerIdentifier : undefined;
-            resourceInputs["dataShareArn"] = state ? state.dataShareArn : undefined;
-            resourceInputs["managedBy"] = state ? state.managedBy : undefined;
-            resourceInputs["producerArn"] = state ? state.producerArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["allowWrites"] = state?.allowWrites;
+            resourceInputs["consumerIdentifier"] = state?.consumerIdentifier;
+            resourceInputs["dataShareArn"] = state?.dataShareArn;
+            resourceInputs["managedBy"] = state?.managedBy;
+            resourceInputs["producerArn"] = state?.producerArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as DataShareAuthorizationArgs | undefined;
-            if ((!args || args.consumerIdentifier === undefined) && !opts.urn) {
+            if (args?.consumerIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerIdentifier'");
             }
-            if ((!args || args.dataShareArn === undefined) && !opts.urn) {
+            if (args?.dataShareArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataShareArn'");
             }
-            resourceInputs["allowWrites"] = args ? args.allowWrites : undefined;
-            resourceInputs["consumerIdentifier"] = args ? args.consumerIdentifier : undefined;
-            resourceInputs["dataShareArn"] = args ? args.dataShareArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["allowWrites"] = args?.allowWrites;
+            resourceInputs["consumerIdentifier"] = args?.consumerIdentifier;
+            resourceInputs["dataShareArn"] = args?.dataShareArn;
+            resourceInputs["region"] = args?.region;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["producerArn"] = undefined /*out*/;
         }

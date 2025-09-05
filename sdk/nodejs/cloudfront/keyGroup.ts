@@ -67,19 +67,19 @@ export class KeyGroup extends pulumi.CustomResource {
     /**
      * A comment to describe the key group..
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The identifier for this version of the key group.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A list of the identifiers of the public keys in the key group.
      */
-    public readonly items!: pulumi.Output<string[]>;
+    declare public readonly items: pulumi.Output<string[]>;
     /**
      * A name to identify the key group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a KeyGroup resource with the given unique name, arguments, and options.
@@ -94,18 +94,18 @@ export class KeyGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyGroupState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["items"] = state ? state.items : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["items"] = state?.items;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as KeyGroupArgs | undefined;
-            if ((!args || args.items === undefined) && !opts.urn) {
+            if (args?.items === undefined && !opts.urn) {
                 throw new Error("Missing required property 'items'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["items"] = args ? args.items : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["items"] = args?.items;
+            resourceInputs["name"] = args?.name;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

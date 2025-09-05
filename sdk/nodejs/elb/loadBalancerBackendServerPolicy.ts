@@ -86,19 +86,19 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
     /**
      * The instance port to apply the policy to.
      */
-    public readonly instancePort!: pulumi.Output<number>;
+    declare public readonly instancePort: pulumi.Output<number>;
     /**
      * The load balancer to attach the policy to.
      */
-    public readonly loadBalancerName!: pulumi.Output<string>;
+    declare public readonly loadBalancerName: pulumi.Output<string>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    public readonly policyNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly policyNames: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancerBackendServerPolicy resource with the given unique name, arguments, and options.
@@ -113,22 +113,22 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerBackendServerPolicyState | undefined;
-            resourceInputs["instancePort"] = state ? state.instancePort : undefined;
-            resourceInputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
-            resourceInputs["policyNames"] = state ? state.policyNames : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["instancePort"] = state?.instancePort;
+            resourceInputs["loadBalancerName"] = state?.loadBalancerName;
+            resourceInputs["policyNames"] = state?.policyNames;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as LoadBalancerBackendServerPolicyArgs | undefined;
-            if ((!args || args.instancePort === undefined) && !opts.urn) {
+            if (args?.instancePort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instancePort'");
             }
-            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
+            if (args?.loadBalancerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            resourceInputs["instancePort"] = args ? args.instancePort : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["policyNames"] = args ? args.policyNames : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["instancePort"] = args?.instancePort;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["policyNames"] = args?.policyNames;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy" }] };

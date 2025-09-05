@@ -59,15 +59,15 @@ export class LinkAssociation extends pulumi.CustomResource {
     /**
      * ID of the device.
      */
-    public readonly deviceId!: pulumi.Output<string>;
+    declare public readonly deviceId: pulumi.Output<string>;
     /**
      * ID of the global network.
      */
-    public readonly globalNetworkId!: pulumi.Output<string>;
+    declare public readonly globalNetworkId: pulumi.Output<string>;
     /**
      * ID of the link.
      */
-    public readonly linkId!: pulumi.Output<string>;
+    declare public readonly linkId: pulumi.Output<string>;
 
     /**
      * Create a LinkAssociation resource with the given unique name, arguments, and options.
@@ -82,23 +82,23 @@ export class LinkAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkAssociationState | undefined;
-            resourceInputs["deviceId"] = state ? state.deviceId : undefined;
-            resourceInputs["globalNetworkId"] = state ? state.globalNetworkId : undefined;
-            resourceInputs["linkId"] = state ? state.linkId : undefined;
+            resourceInputs["deviceId"] = state?.deviceId;
+            resourceInputs["globalNetworkId"] = state?.globalNetworkId;
+            resourceInputs["linkId"] = state?.linkId;
         } else {
             const args = argsOrState as LinkAssociationArgs | undefined;
-            if ((!args || args.deviceId === undefined) && !opts.urn) {
+            if (args?.deviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceId'");
             }
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            if ((!args || args.linkId === undefined) && !opts.urn) {
+            if (args?.linkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkId'");
             }
-            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["linkId"] = args ? args.linkId : undefined;
+            resourceInputs["deviceId"] = args?.deviceId;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["linkId"] = args?.linkId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkAssociation.__pulumiType, name, resourceInputs, opts);

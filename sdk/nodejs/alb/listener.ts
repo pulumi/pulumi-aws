@@ -288,135 +288,135 @@ export class Listener extends pulumi.CustomResource {
     /**
      * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
      */
-    public readonly alpnPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly alpnPolicy: pulumi.Output<string | undefined>;
     /**
      * ARN of the listener.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
      */
-    public readonly certificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly certificateArn: pulumi.Output<string | undefined>;
     /**
      * Configuration block for default actions. See below.
      */
-    public readonly defaultActions!: pulumi.Output<outputs.alb.ListenerDefaultAction[]>;
+    declare public readonly defaultActions: pulumi.Output<outputs.alb.ListenerDefaultAction[]>;
     /**
      * ARN of the load balancer.
      *
      * The following arguments are optional:
      */
-    public readonly loadBalancerArn!: pulumi.Output<string>;
+    declare public readonly loadBalancerArn: pulumi.Output<string>;
     /**
      * The mutual authentication configuration information. See below.
      */
-    public readonly mutualAuthentication!: pulumi.Output<outputs.alb.ListenerMutualAuthentication>;
+    declare public readonly mutualAuthentication: pulumi.Output<outputs.alb.ListenerMutualAuthentication>;
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
-    public readonly routingHttpRequestXAmznMtlsClientcertHeaderName!: pulumi.Output<string>;
+    declare public readonly routingHttpRequestXAmznMtlsClientcertHeaderName: pulumi.Output<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
-    public readonly routingHttpRequestXAmznMtlsClientcertIssuerHeaderName!: pulumi.Output<string>;
+    declare public readonly routingHttpRequestXAmznMtlsClientcertIssuerHeaderName: pulumi.Output<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
-    public readonly routingHttpRequestXAmznMtlsClientcertLeafHeaderName!: pulumi.Output<string>;
+    declare public readonly routingHttpRequestXAmznMtlsClientcertLeafHeaderName: pulumi.Output<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
-    public readonly routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName!: pulumi.Output<string>;
+    declare public readonly routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName: pulumi.Output<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
-    public readonly routingHttpRequestXAmznMtlsClientcertSubjectHeaderName!: pulumi.Output<string>;
+    declare public readonly routingHttpRequestXAmznMtlsClientcertSubjectHeaderName: pulumi.Output<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
-    public readonly routingHttpRequestXAmznMtlsClientcertValidityHeaderName!: pulumi.Output<string>;
+    declare public readonly routingHttpRequestXAmznMtlsClientcertValidityHeaderName: pulumi.Output<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
-    public readonly routingHttpRequestXAmznTlsCipherSuiteHeaderName!: pulumi.Output<string>;
+    declare public readonly routingHttpRequestXAmznTlsCipherSuiteHeaderName: pulumi.Output<string>;
     /**
      * Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      */
-    public readonly routingHttpRequestXAmznTlsVersionHeaderName!: pulumi.Output<string>;
+    declare public readonly routingHttpRequestXAmznTlsVersionHeaderName: pulumi.Output<string>;
     /**
      * Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
      */
-    public readonly routingHttpResponseAccessControlAllowCredentialsHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseAccessControlAllowCredentialsHeaderValue: pulumi.Output<string>;
     /**
      * Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
      */
-    public readonly routingHttpResponseAccessControlAllowHeadersHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseAccessControlAllowHeadersHeaderValue: pulumi.Output<string>;
     /**
      * Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
      */
-    public readonly routingHttpResponseAccessControlAllowMethodsHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseAccessControlAllowMethodsHeaderValue: pulumi.Output<string>;
     /**
      * Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
      */
-    public readonly routingHttpResponseAccessControlAllowOriginHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseAccessControlAllowOriginHeaderValue: pulumi.Output<string>;
     /**
      * Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
      */
-    public readonly routingHttpResponseAccessControlExposeHeadersHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseAccessControlExposeHeadersHeaderValue: pulumi.Output<string>;
     /**
      * Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
      */
-    public readonly routingHttpResponseAccessControlMaxAgeHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseAccessControlMaxAgeHeaderValue: pulumi.Output<string>;
     /**
      * Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
      */
-    public readonly routingHttpResponseContentSecurityPolicyHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseContentSecurityPolicyHeaderValue: pulumi.Output<string>;
     /**
      * Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
      */
-    public readonly routingHttpResponseServerEnabled!: pulumi.Output<boolean>;
+    declare public readonly routingHttpResponseServerEnabled: pulumi.Output<boolean>;
     /**
      * Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
      */
-    public readonly routingHttpResponseStrictTransportSecurityHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseStrictTransportSecurityHeaderValue: pulumi.Output<string>;
     /**
      * Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
      */
-    public readonly routingHttpResponseXContentTypeOptionsHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseXContentTypeOptionsHeaderValue: pulumi.Output<string>;
     /**
      * Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
      */
-    public readonly routingHttpResponseXFrameOptionsHeaderValue!: pulumi.Output<string>;
+    declare public readonly routingHttpResponseXFrameOptionsHeaderValue: pulumi.Output<string>;
     /**
      * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      */
-    public readonly sslPolicy!: pulumi.Output<string>;
+    declare public readonly sslPolicy: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
      */
-    public readonly tcpIdleTimeoutSeconds!: pulumi.Output<number>;
+    declare public readonly tcpIdleTimeoutSeconds: pulumi.Output<number>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -431,76 +431,76 @@ export class Listener extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerState | undefined;
-            resourceInputs["alpnPolicy"] = state ? state.alpnPolicy : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
-            resourceInputs["defaultActions"] = state ? state.defaultActions : undefined;
-            resourceInputs["loadBalancerArn"] = state ? state.loadBalancerArn : undefined;
-            resourceInputs["mutualAuthentication"] = state ? state.mutualAuthentication : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertHeaderName"] = state ? state.routingHttpRequestXAmznMtlsClientcertHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertIssuerHeaderName"] = state ? state.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertLeafHeaderName"] = state ? state.routingHttpRequestXAmznMtlsClientcertLeafHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName"] = state ? state.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertSubjectHeaderName"] = state ? state.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertValidityHeaderName"] = state ? state.routingHttpRequestXAmznMtlsClientcertValidityHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznTlsCipherSuiteHeaderName"] = state ? state.routingHttpRequestXAmznTlsCipherSuiteHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznTlsVersionHeaderName"] = state ? state.routingHttpRequestXAmznTlsVersionHeaderName : undefined;
-            resourceInputs["routingHttpResponseAccessControlAllowCredentialsHeaderValue"] = state ? state.routingHttpResponseAccessControlAllowCredentialsHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlAllowHeadersHeaderValue"] = state ? state.routingHttpResponseAccessControlAllowHeadersHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlAllowMethodsHeaderValue"] = state ? state.routingHttpResponseAccessControlAllowMethodsHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlAllowOriginHeaderValue"] = state ? state.routingHttpResponseAccessControlAllowOriginHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlExposeHeadersHeaderValue"] = state ? state.routingHttpResponseAccessControlExposeHeadersHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlMaxAgeHeaderValue"] = state ? state.routingHttpResponseAccessControlMaxAgeHeaderValue : undefined;
-            resourceInputs["routingHttpResponseContentSecurityPolicyHeaderValue"] = state ? state.routingHttpResponseContentSecurityPolicyHeaderValue : undefined;
-            resourceInputs["routingHttpResponseServerEnabled"] = state ? state.routingHttpResponseServerEnabled : undefined;
-            resourceInputs["routingHttpResponseStrictTransportSecurityHeaderValue"] = state ? state.routingHttpResponseStrictTransportSecurityHeaderValue : undefined;
-            resourceInputs["routingHttpResponseXContentTypeOptionsHeaderValue"] = state ? state.routingHttpResponseXContentTypeOptionsHeaderValue : undefined;
-            resourceInputs["routingHttpResponseXFrameOptionsHeaderValue"] = state ? state.routingHttpResponseXFrameOptionsHeaderValue : undefined;
-            resourceInputs["sslPolicy"] = state ? state.sslPolicy : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["tcpIdleTimeoutSeconds"] = state ? state.tcpIdleTimeoutSeconds : undefined;
+            resourceInputs["alpnPolicy"] = state?.alpnPolicy;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["certificateArn"] = state?.certificateArn;
+            resourceInputs["defaultActions"] = state?.defaultActions;
+            resourceInputs["loadBalancerArn"] = state?.loadBalancerArn;
+            resourceInputs["mutualAuthentication"] = state?.mutualAuthentication;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertHeaderName"] = state?.routingHttpRequestXAmznMtlsClientcertHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertIssuerHeaderName"] = state?.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertLeafHeaderName"] = state?.routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName"] = state?.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertSubjectHeaderName"] = state?.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertValidityHeaderName"] = state?.routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+            resourceInputs["routingHttpRequestXAmznTlsCipherSuiteHeaderName"] = state?.routingHttpRequestXAmznTlsCipherSuiteHeaderName;
+            resourceInputs["routingHttpRequestXAmznTlsVersionHeaderName"] = state?.routingHttpRequestXAmznTlsVersionHeaderName;
+            resourceInputs["routingHttpResponseAccessControlAllowCredentialsHeaderValue"] = state?.routingHttpResponseAccessControlAllowCredentialsHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlAllowHeadersHeaderValue"] = state?.routingHttpResponseAccessControlAllowHeadersHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlAllowMethodsHeaderValue"] = state?.routingHttpResponseAccessControlAllowMethodsHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlAllowOriginHeaderValue"] = state?.routingHttpResponseAccessControlAllowOriginHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlExposeHeadersHeaderValue"] = state?.routingHttpResponseAccessControlExposeHeadersHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlMaxAgeHeaderValue"] = state?.routingHttpResponseAccessControlMaxAgeHeaderValue;
+            resourceInputs["routingHttpResponseContentSecurityPolicyHeaderValue"] = state?.routingHttpResponseContentSecurityPolicyHeaderValue;
+            resourceInputs["routingHttpResponseServerEnabled"] = state?.routingHttpResponseServerEnabled;
+            resourceInputs["routingHttpResponseStrictTransportSecurityHeaderValue"] = state?.routingHttpResponseStrictTransportSecurityHeaderValue;
+            resourceInputs["routingHttpResponseXContentTypeOptionsHeaderValue"] = state?.routingHttpResponseXContentTypeOptionsHeaderValue;
+            resourceInputs["routingHttpResponseXFrameOptionsHeaderValue"] = state?.routingHttpResponseXFrameOptionsHeaderValue;
+            resourceInputs["sslPolicy"] = state?.sslPolicy;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tcpIdleTimeoutSeconds"] = state?.tcpIdleTimeoutSeconds;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
-            if ((!args || args.defaultActions === undefined) && !opts.urn) {
+            if (args?.defaultActions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultActions'");
             }
-            if ((!args || args.loadBalancerArn === undefined) && !opts.urn) {
+            if (args?.loadBalancerArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerArn'");
             }
-            resourceInputs["alpnPolicy"] = args ? args.alpnPolicy : undefined;
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["defaultActions"] = args ? args.defaultActions : undefined;
-            resourceInputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
-            resourceInputs["mutualAuthentication"] = args ? args.mutualAuthentication : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertHeaderName"] = args ? args.routingHttpRequestXAmznMtlsClientcertHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertIssuerHeaderName"] = args ? args.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertLeafHeaderName"] = args ? args.routingHttpRequestXAmznMtlsClientcertLeafHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName"] = args ? args.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertSubjectHeaderName"] = args ? args.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznMtlsClientcertValidityHeaderName"] = args ? args.routingHttpRequestXAmznMtlsClientcertValidityHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznTlsCipherSuiteHeaderName"] = args ? args.routingHttpRequestXAmznTlsCipherSuiteHeaderName : undefined;
-            resourceInputs["routingHttpRequestXAmznTlsVersionHeaderName"] = args ? args.routingHttpRequestXAmznTlsVersionHeaderName : undefined;
-            resourceInputs["routingHttpResponseAccessControlAllowCredentialsHeaderValue"] = args ? args.routingHttpResponseAccessControlAllowCredentialsHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlAllowHeadersHeaderValue"] = args ? args.routingHttpResponseAccessControlAllowHeadersHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlAllowMethodsHeaderValue"] = args ? args.routingHttpResponseAccessControlAllowMethodsHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlAllowOriginHeaderValue"] = args ? args.routingHttpResponseAccessControlAllowOriginHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlExposeHeadersHeaderValue"] = args ? args.routingHttpResponseAccessControlExposeHeadersHeaderValue : undefined;
-            resourceInputs["routingHttpResponseAccessControlMaxAgeHeaderValue"] = args ? args.routingHttpResponseAccessControlMaxAgeHeaderValue : undefined;
-            resourceInputs["routingHttpResponseContentSecurityPolicyHeaderValue"] = args ? args.routingHttpResponseContentSecurityPolicyHeaderValue : undefined;
-            resourceInputs["routingHttpResponseServerEnabled"] = args ? args.routingHttpResponseServerEnabled : undefined;
-            resourceInputs["routingHttpResponseStrictTransportSecurityHeaderValue"] = args ? args.routingHttpResponseStrictTransportSecurityHeaderValue : undefined;
-            resourceInputs["routingHttpResponseXContentTypeOptionsHeaderValue"] = args ? args.routingHttpResponseXContentTypeOptionsHeaderValue : undefined;
-            resourceInputs["routingHttpResponseXFrameOptionsHeaderValue"] = args ? args.routingHttpResponseXFrameOptionsHeaderValue : undefined;
-            resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tcpIdleTimeoutSeconds"] = args ? args.tcpIdleTimeoutSeconds : undefined;
+            resourceInputs["alpnPolicy"] = args?.alpnPolicy;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["defaultActions"] = args?.defaultActions;
+            resourceInputs["loadBalancerArn"] = args?.loadBalancerArn;
+            resourceInputs["mutualAuthentication"] = args?.mutualAuthentication;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertHeaderName"] = args?.routingHttpRequestXAmznMtlsClientcertHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertIssuerHeaderName"] = args?.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertLeafHeaderName"] = args?.routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName"] = args?.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertSubjectHeaderName"] = args?.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+            resourceInputs["routingHttpRequestXAmznMtlsClientcertValidityHeaderName"] = args?.routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+            resourceInputs["routingHttpRequestXAmznTlsCipherSuiteHeaderName"] = args?.routingHttpRequestXAmznTlsCipherSuiteHeaderName;
+            resourceInputs["routingHttpRequestXAmznTlsVersionHeaderName"] = args?.routingHttpRequestXAmznTlsVersionHeaderName;
+            resourceInputs["routingHttpResponseAccessControlAllowCredentialsHeaderValue"] = args?.routingHttpResponseAccessControlAllowCredentialsHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlAllowHeadersHeaderValue"] = args?.routingHttpResponseAccessControlAllowHeadersHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlAllowMethodsHeaderValue"] = args?.routingHttpResponseAccessControlAllowMethodsHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlAllowOriginHeaderValue"] = args?.routingHttpResponseAccessControlAllowOriginHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlExposeHeadersHeaderValue"] = args?.routingHttpResponseAccessControlExposeHeadersHeaderValue;
+            resourceInputs["routingHttpResponseAccessControlMaxAgeHeaderValue"] = args?.routingHttpResponseAccessControlMaxAgeHeaderValue;
+            resourceInputs["routingHttpResponseContentSecurityPolicyHeaderValue"] = args?.routingHttpResponseContentSecurityPolicyHeaderValue;
+            resourceInputs["routingHttpResponseServerEnabled"] = args?.routingHttpResponseServerEnabled;
+            resourceInputs["routingHttpResponseStrictTransportSecurityHeaderValue"] = args?.routingHttpResponseStrictTransportSecurityHeaderValue;
+            resourceInputs["routingHttpResponseXContentTypeOptionsHeaderValue"] = args?.routingHttpResponseXContentTypeOptionsHeaderValue;
+            resourceInputs["routingHttpResponseXFrameOptionsHeaderValue"] = args?.routingHttpResponseXFrameOptionsHeaderValue;
+            resourceInputs["sslPolicy"] = args?.sslPolicy;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tcpIdleTimeoutSeconds"] = args?.tcpIdleTimeoutSeconds;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

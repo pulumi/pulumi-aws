@@ -64,31 +64,31 @@ export class Host extends pulumi.CustomResource {
     /**
      * The CodeStar Host ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the host to be created. The name must be unique in the calling AWS account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The endpoint of the infrastructure to be represented by the host after it is created.
      */
-    public readonly providerEndpoint!: pulumi.Output<string>;
+    declare public readonly providerEndpoint: pulumi.Output<string>;
     /**
      * The name of the external provider where your third-party code repository is configured.
      */
-    public readonly providerType!: pulumi.Output<string>;
+    declare public readonly providerType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.codestarconnections.HostVpcConfiguration | undefined>;
+    declare public readonly vpcConfiguration: pulumi.Output<outputs.codestarconnections.HostVpcConfiguration | undefined>;
 
     /**
      * Create a Host resource with the given unique name, arguments, and options.
@@ -103,26 +103,26 @@ export class Host extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["providerEndpoint"] = state ? state.providerEndpoint : undefined;
-            resourceInputs["providerType"] = state ? state.providerType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["providerEndpoint"] = state?.providerEndpoint;
+            resourceInputs["providerType"] = state?.providerType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["vpcConfiguration"] = state?.vpcConfiguration;
         } else {
             const args = argsOrState as HostArgs | undefined;
-            if ((!args || args.providerEndpoint === undefined) && !opts.urn) {
+            if (args?.providerEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerEndpoint'");
             }
-            if ((!args || args.providerType === undefined) && !opts.urn) {
+            if (args?.providerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerType'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["providerEndpoint"] = args ? args.providerEndpoint : undefined;
-            resourceInputs["providerType"] = args ? args.providerType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["providerEndpoint"] = args?.providerEndpoint;
+            resourceInputs["providerType"] = args?.providerType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

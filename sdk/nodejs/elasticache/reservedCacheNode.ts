@@ -53,68 +53,68 @@ export class ReservedCacheNode extends pulumi.CustomResource {
     /**
      * ARN for the reserved cache node.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Number of cache node instances to reserve.
      * Default value is `1`.
      */
-    public readonly cacheNodeCount!: pulumi.Output<number>;
+    declare public readonly cacheNodeCount: pulumi.Output<number>;
     /**
      * Node type for the reserved cache nodes.
      */
-    public /*out*/ readonly cacheNodeType!: pulumi.Output<string>;
+    declare public /*out*/ readonly cacheNodeType: pulumi.Output<string>;
     /**
      * Duration of the reservation as an RFC3339 duration.
      */
-    public /*out*/ readonly duration!: pulumi.Output<string>;
+    declare public /*out*/ readonly duration: pulumi.Output<string>;
     /**
      * Fixed price charged for this reserved cache node.
      */
-    public /*out*/ readonly fixedPrice!: pulumi.Output<number>;
+    declare public /*out*/ readonly fixedPrice: pulumi.Output<number>;
     /**
      * Offering type of this reserved cache node.
      */
-    public /*out*/ readonly offeringType!: pulumi.Output<string>;
+    declare public /*out*/ readonly offeringType: pulumi.Output<string>;
     /**
      * Engine type for the reserved cache node.
      */
-    public /*out*/ readonly productDescription!: pulumi.Output<string>;
+    declare public /*out*/ readonly productDescription: pulumi.Output<string>;
     /**
      * Recurring price charged to run this reserved cache node.
      */
-    public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.elasticache.ReservedCacheNodeRecurringCharge[]>;
+    declare public /*out*/ readonly recurringCharges: pulumi.Output<outputs.elasticache.ReservedCacheNodeRecurringCharge[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
      *
      * The following arguments are optional:
      */
-    public readonly reservedCacheNodesOfferingId!: pulumi.Output<string>;
+    declare public readonly reservedCacheNodesOfferingId: pulumi.Output<string>;
     /**
      * Time the reservation started.
      */
-    public /*out*/ readonly startTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly startTime: pulumi.Output<string>;
     /**
      * State of the reserved cache node.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.elasticache.ReservedCacheNodeTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.elasticache.ReservedCacheNodeTimeouts | undefined>;
     /**
      * Hourly price charged for this reserved cache node.
      */
-    public /*out*/ readonly usagePrice!: pulumi.Output<number>;
+    declare public /*out*/ readonly usagePrice: pulumi.Output<number>;
 
     /**
      * Create a ReservedCacheNode resource with the given unique name, arguments, and options.
@@ -129,32 +129,32 @@ export class ReservedCacheNode extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReservedCacheNodeState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cacheNodeCount"] = state ? state.cacheNodeCount : undefined;
-            resourceInputs["cacheNodeType"] = state ? state.cacheNodeType : undefined;
-            resourceInputs["duration"] = state ? state.duration : undefined;
-            resourceInputs["fixedPrice"] = state ? state.fixedPrice : undefined;
-            resourceInputs["offeringType"] = state ? state.offeringType : undefined;
-            resourceInputs["productDescription"] = state ? state.productDescription : undefined;
-            resourceInputs["recurringCharges"] = state ? state.recurringCharges : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["reservedCacheNodesOfferingId"] = state ? state.reservedCacheNodesOfferingId : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["usagePrice"] = state ? state.usagePrice : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cacheNodeCount"] = state?.cacheNodeCount;
+            resourceInputs["cacheNodeType"] = state?.cacheNodeType;
+            resourceInputs["duration"] = state?.duration;
+            resourceInputs["fixedPrice"] = state?.fixedPrice;
+            resourceInputs["offeringType"] = state?.offeringType;
+            resourceInputs["productDescription"] = state?.productDescription;
+            resourceInputs["recurringCharges"] = state?.recurringCharges;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["reservedCacheNodesOfferingId"] = state?.reservedCacheNodesOfferingId;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["usagePrice"] = state?.usagePrice;
         } else {
             const args = argsOrState as ReservedCacheNodeArgs | undefined;
-            if ((!args || args.reservedCacheNodesOfferingId === undefined) && !opts.urn) {
+            if (args?.reservedCacheNodesOfferingId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reservedCacheNodesOfferingId'");
             }
-            resourceInputs["cacheNodeCount"] = args ? args.cacheNodeCount : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["reservedCacheNodesOfferingId"] = args ? args.reservedCacheNodesOfferingId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["cacheNodeCount"] = args?.cacheNodeCount;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["reservedCacheNodesOfferingId"] = args?.reservedCacheNodesOfferingId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cacheNodeType"] = undefined /*out*/;
             resourceInputs["duration"] = undefined /*out*/;

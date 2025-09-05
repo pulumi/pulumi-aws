@@ -86,15 +86,15 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * The unique identifier (ID) of the policy that you want to attach to the target.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
      */
-    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */
-    public readonly targetId!: pulumi.Output<string>;
+    declare public readonly targetId: pulumi.Output<string>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -109,20 +109,20 @@ export class PolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyAttachmentState | undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
-            resourceInputs["targetId"] = state ? state.targetId : undefined;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["skipDestroy"] = state?.skipDestroy;
+            resourceInputs["targetId"] = state?.targetId;
         } else {
             const args = argsOrState as PolicyAttachmentArgs | undefined;
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.targetId === undefined) && !opts.urn) {
+            if (args?.targetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["skipDestroy"] = args?.skipDestroy;
+            resourceInputs["targetId"] = args?.targetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PolicyAttachment.__pulumiType, name, resourceInputs, opts);

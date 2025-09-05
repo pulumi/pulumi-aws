@@ -71,19 +71,19 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * AWS VPC Endpoint ID.
      */
-    public readonly vpcEndpointId!: pulumi.Output<string>;
+    declare public readonly vpcEndpointId: pulumi.Output<string>;
     /**
      * AWS VPC Endpoint Service ID.
      */
-    public readonly vpcEndpointServiceId!: pulumi.Output<string>;
+    declare public readonly vpcEndpointServiceId: pulumi.Output<string>;
     /**
      * State of the VPC Endpoint.
      */
-    public /*out*/ readonly vpcEndpointState!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcEndpointState: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointConnectionAccepter resource with the given unique name, arguments, and options.
@@ -98,21 +98,21 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointConnectionAccepterState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
-            resourceInputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
-            resourceInputs["vpcEndpointState"] = state ? state.vpcEndpointState : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["vpcEndpointId"] = state?.vpcEndpointId;
+            resourceInputs["vpcEndpointServiceId"] = state?.vpcEndpointServiceId;
+            resourceInputs["vpcEndpointState"] = state?.vpcEndpointState;
         } else {
             const args = argsOrState as VpcEndpointConnectionAccepterArgs | undefined;
-            if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
+            if (args?.vpcEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
-            if ((!args || args.vpcEndpointServiceId === undefined) && !opts.urn) {
+            if (args?.vpcEndpointServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointServiceId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
+            resourceInputs["vpcEndpointServiceId"] = args?.vpcEndpointServiceId;
             resourceInputs["vpcEndpointState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

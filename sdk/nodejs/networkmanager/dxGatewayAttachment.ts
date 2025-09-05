@@ -66,54 +66,54 @@ export class DxGatewayAttachment extends pulumi.CustomResource {
     /**
      * ARN of the attachment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
     /**
      * Type of attachment.
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
      * ARN of the core network for the attachment.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
      */
-    public readonly coreNetworkId!: pulumi.Output<string>;
+    declare public readonly coreNetworkId: pulumi.Output<string>;
     /**
      * ARN of the Direct Connect gateway attachment.
      */
-    public readonly directConnectGatewayArn!: pulumi.Output<string>;
+    declare public readonly directConnectGatewayArn: pulumi.Output<string>;
     /**
      * One or more core network edge locations to associate with the Direct Connect gateway attachment.
      *
      * The following arguments are optional:
      */
-    public readonly edgeLocations!: pulumi.Output<string[]>;
+    declare public readonly edgeLocations: pulumi.Output<string[]>;
     /**
      * ID of the attachment account owner.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * Name of the segment attachment.
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    declare public /*out*/ readonly segmentName: pulumi.Output<string>;
     /**
      * State of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.networkmanager.DxGatewayAttachmentTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.networkmanager.DxGatewayAttachmentTimeouts | undefined>;
 
     /**
      * Create a DxGatewayAttachment resource with the given unique name, arguments, and options.
@@ -128,35 +128,35 @@ export class DxGatewayAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DxGatewayAttachmentState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["attachmentPolicyRuleNumber"] = state ? state.attachmentPolicyRuleNumber : undefined;
-            resourceInputs["attachmentType"] = state ? state.attachmentType : undefined;
-            resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
-            resourceInputs["coreNetworkId"] = state ? state.coreNetworkId : undefined;
-            resourceInputs["directConnectGatewayArn"] = state ? state.directConnectGatewayArn : undefined;
-            resourceInputs["edgeLocations"] = state ? state.edgeLocations : undefined;
-            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            resourceInputs["segmentName"] = state ? state.segmentName : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["attachmentPolicyRuleNumber"] = state?.attachmentPolicyRuleNumber;
+            resourceInputs["attachmentType"] = state?.attachmentType;
+            resourceInputs["coreNetworkArn"] = state?.coreNetworkArn;
+            resourceInputs["coreNetworkId"] = state?.coreNetworkId;
+            resourceInputs["directConnectGatewayArn"] = state?.directConnectGatewayArn;
+            resourceInputs["edgeLocations"] = state?.edgeLocations;
+            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
+            resourceInputs["segmentName"] = state?.segmentName;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as DxGatewayAttachmentArgs | undefined;
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.directConnectGatewayArn === undefined) && !opts.urn) {
+            if (args?.directConnectGatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directConnectGatewayArn'");
             }
-            if ((!args || args.edgeLocations === undefined) && !opts.urn) {
+            if (args?.edgeLocations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeLocations'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["directConnectGatewayArn"] = args ? args.directConnectGatewayArn : undefined;
-            resourceInputs["edgeLocations"] = args ? args.edgeLocations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["directConnectGatewayArn"] = args?.directConnectGatewayArn;
+            resourceInputs["edgeLocations"] = args?.edgeLocations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

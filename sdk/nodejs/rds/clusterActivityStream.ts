@@ -92,27 +92,27 @@ export class ClusterActivityStream extends pulumi.CustomResource {
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      */
-    public readonly engineNativeAuditFieldsIncluded!: pulumi.Output<boolean | undefined>;
+    declare public readonly engineNativeAuditFieldsIncluded: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Amazon Kinesis data stream to be used for the database activity stream.
      */
-    public /*out*/ readonly kinesisStreamName!: pulumi.Output<string>;
+    declare public /*out*/ readonly kinesisStreamName: pulumi.Output<string>;
     /**
      * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
 
     /**
      * Create a ClusterActivityStream resource with the given unique name, arguments, and options.
@@ -127,28 +127,28 @@ export class ClusterActivityStream extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterActivityStreamState | undefined;
-            resourceInputs["engineNativeAuditFieldsIncluded"] = state ? state.engineNativeAuditFieldsIncluded : undefined;
-            resourceInputs["kinesisStreamName"] = state ? state.kinesisStreamName : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["engineNativeAuditFieldsIncluded"] = state?.engineNativeAuditFieldsIncluded;
+            resourceInputs["kinesisStreamName"] = state?.kinesisStreamName;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceArn"] = state?.resourceArn;
         } else {
             const args = argsOrState as ClusterActivityStreamArgs | undefined;
-            if ((!args || args.kmsKeyId === undefined) && !opts.urn) {
+            if (args?.kmsKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kmsKeyId'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["engineNativeAuditFieldsIncluded"] = args ? args.engineNativeAuditFieldsIncluded : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["engineNativeAuditFieldsIncluded"] = args?.engineNativeAuditFieldsIncluded;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceArn"] = args?.resourceArn;
             resourceInputs["kinesisStreamName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

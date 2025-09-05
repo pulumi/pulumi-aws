@@ -70,47 +70,47 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * The ARN of the authorizer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ARN of the authorizer's Lambda function.
      */
-    public readonly authorizerFunctionArn!: pulumi.Output<string>;
+    declare public readonly authorizerFunctionArn: pulumi.Output<string>;
     /**
      * Specifies whether the HTTP caching is enabled or not. Default: `false`.
      */
-    public readonly enableCachingForHttp!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableCachingForHttp: pulumi.Output<boolean | undefined>;
     /**
      * The name of the authorizer.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
      */
-    public readonly signingDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly signingDisabled: pulumi.Output<boolean | undefined>;
     /**
      * The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      */
-    public readonly tokenKeyName!: pulumi.Output<string | undefined>;
+    declare public readonly tokenKeyName: pulumi.Output<string | undefined>;
     /**
      * The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
      */
-    public readonly tokenSigningPublicKeys!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tokenSigningPublicKeys: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -125,30 +125,30 @@ export class Authorizer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizerState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["authorizerFunctionArn"] = state ? state.authorizerFunctionArn : undefined;
-            resourceInputs["enableCachingForHttp"] = state ? state.enableCachingForHttp : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["signingDisabled"] = state ? state.signingDisabled : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["tokenKeyName"] = state ? state.tokenKeyName : undefined;
-            resourceInputs["tokenSigningPublicKeys"] = state ? state.tokenSigningPublicKeys : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["authorizerFunctionArn"] = state?.authorizerFunctionArn;
+            resourceInputs["enableCachingForHttp"] = state?.enableCachingForHttp;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["signingDisabled"] = state?.signingDisabled;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["tokenKeyName"] = state?.tokenKeyName;
+            resourceInputs["tokenSigningPublicKeys"] = state?.tokenSigningPublicKeys;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
-            if ((!args || args.authorizerFunctionArn === undefined) && !opts.urn) {
+            if (args?.authorizerFunctionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizerFunctionArn'");
             }
-            resourceInputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
-            resourceInputs["enableCachingForHttp"] = args ? args.enableCachingForHttp : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["signingDisabled"] = args ? args.signingDisabled : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tokenKeyName"] = args ? args.tokenKeyName : undefined;
+            resourceInputs["authorizerFunctionArn"] = args?.authorizerFunctionArn;
+            resourceInputs["enableCachingForHttp"] = args?.enableCachingForHttp;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["signingDisabled"] = args?.signingDisabled;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tokenKeyName"] = args?.tokenKeyName;
             resourceInputs["tokenSigningPublicKeys"] = args?.tokenSigningPublicKeys ? pulumi.secret(args.tokenSigningPublicKeys) : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

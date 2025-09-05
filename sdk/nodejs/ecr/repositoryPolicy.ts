@@ -90,19 +90,19 @@ export class RepositoryPolicy extends pulumi.CustomResource {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly registryId: pulumi.Output<string>;
     /**
      * Name of the repository to apply the policy.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
 
     /**
      * Create a RepositoryPolicy resource with the given unique name, arguments, and options.
@@ -117,21 +117,21 @@ export class RepositoryPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyState | undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["registryId"] = state ? state.registryId : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["registryId"] = state?.registryId;
+            resourceInputs["repository"] = state?.repository;
         } else {
             const args = argsOrState as RepositoryPolicyArgs | undefined;
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["repository"] = args?.repository;
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

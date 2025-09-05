@@ -62,43 +62,43 @@ export class Stream extends pulumi.CustomResource {
     /**
      * The ARN of the QLDB Stream.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
      */
-    public readonly exclusiveEndTime!: pulumi.Output<string | undefined>;
+    declare public readonly exclusiveEndTime: pulumi.Output<string | undefined>;
     /**
      * The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
      */
-    public readonly inclusiveStartTime!: pulumi.Output<string>;
+    declare public readonly inclusiveStartTime: pulumi.Output<string>;
     /**
      * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      */
-    public readonly kinesisConfiguration!: pulumi.Output<outputs.qldb.StreamKinesisConfiguration>;
+    declare public readonly kinesisConfiguration: pulumi.Output<outputs.qldb.StreamKinesisConfiguration>;
     /**
      * The name of the QLDB ledger.
      */
-    public readonly ledgerName!: pulumi.Output<string>;
+    declare public readonly ledgerName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      */
-    public readonly streamName!: pulumi.Output<string>;
+    declare public readonly streamName: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -113,41 +113,41 @@ export class Stream extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["exclusiveEndTime"] = state ? state.exclusiveEndTime : undefined;
-            resourceInputs["inclusiveStartTime"] = state ? state.inclusiveStartTime : undefined;
-            resourceInputs["kinesisConfiguration"] = state ? state.kinesisConfiguration : undefined;
-            resourceInputs["ledgerName"] = state ? state.ledgerName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["streamName"] = state ? state.streamName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["exclusiveEndTime"] = state?.exclusiveEndTime;
+            resourceInputs["inclusiveStartTime"] = state?.inclusiveStartTime;
+            resourceInputs["kinesisConfiguration"] = state?.kinesisConfiguration;
+            resourceInputs["ledgerName"] = state?.ledgerName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["streamName"] = state?.streamName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as StreamArgs | undefined;
-            if ((!args || args.inclusiveStartTime === undefined) && !opts.urn) {
+            if (args?.inclusiveStartTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inclusiveStartTime'");
             }
-            if ((!args || args.kinesisConfiguration === undefined) && !opts.urn) {
+            if (args?.kinesisConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kinesisConfiguration'");
             }
-            if ((!args || args.ledgerName === undefined) && !opts.urn) {
+            if (args?.ledgerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ledgerName'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.streamName === undefined) && !opts.urn) {
+            if (args?.streamName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamName'");
             }
-            resourceInputs["exclusiveEndTime"] = args ? args.exclusiveEndTime : undefined;
-            resourceInputs["inclusiveStartTime"] = args ? args.inclusiveStartTime : undefined;
-            resourceInputs["kinesisConfiguration"] = args ? args.kinesisConfiguration : undefined;
-            resourceInputs["ledgerName"] = args ? args.ledgerName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["streamName"] = args ? args.streamName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["exclusiveEndTime"] = args?.exclusiveEndTime;
+            resourceInputs["inclusiveStartTime"] = args?.inclusiveStartTime;
+            resourceInputs["kinesisConfiguration"] = args?.kinesisConfiguration;
+            resourceInputs["ledgerName"] = args?.ledgerName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["streamName"] = args?.streamName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

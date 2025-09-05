@@ -77,47 +77,47 @@ export class ServerlessCollection extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the collection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      */
-    public /*out*/ readonly collectionEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly collectionEndpoint: pulumi.Output<string>;
     /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      */
-    public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly dashboardEndpoint: pulumi.Output<string>;
     /**
      * Description of the collection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      */
-    public /*out*/ readonly kmsKeyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
     /**
      * Name of the collection.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
-    public readonly standbyReplicas!: pulumi.Output<string>;
+    declare public readonly standbyReplicas: pulumi.Output<string>;
     /**
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.opensearch.ServerlessCollectionTimeouts | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.opensearch.ServerlessCollectionTimeouts | undefined>;
     /**
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerlessCollection resource with the given unique name, arguments, and options.
@@ -132,27 +132,27 @@ export class ServerlessCollection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerlessCollectionState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["collectionEndpoint"] = state ? state.collectionEndpoint : undefined;
-            resourceInputs["dashboardEndpoint"] = state ? state.dashboardEndpoint : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["standbyReplicas"] = state ? state.standbyReplicas : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["collectionEndpoint"] = state?.collectionEndpoint;
+            resourceInputs["dashboardEndpoint"] = state?.dashboardEndpoint;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["standbyReplicas"] = state?.standbyReplicas;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ServerlessCollectionArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["standbyReplicas"] = args ? args.standbyReplicas : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["standbyReplicas"] = args?.standbyReplicas;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;

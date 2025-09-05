@@ -58,25 +58,25 @@ export class ReadinessCheck extends pulumi.CustomResource {
     /**
      * ARN of the readiness_check
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Unique name describing the readiness check.
      */
-    public readonly readinessCheckName!: pulumi.Output<string>;
+    declare public readonly readinessCheckName: pulumi.Output<string>;
     /**
      * Name describing the resource set that will be monitored for readiness.
      *
      * The following arguments are optional:
      */
-    public readonly resourceSetName!: pulumi.Output<string>;
+    declare public readonly resourceSetName: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ReadinessCheck resource with the given unique name, arguments, and options.
@@ -91,22 +91,22 @@ export class ReadinessCheck extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReadinessCheckState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["readinessCheckName"] = state ? state.readinessCheckName : undefined;
-            resourceInputs["resourceSetName"] = state ? state.resourceSetName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["readinessCheckName"] = state?.readinessCheckName;
+            resourceInputs["resourceSetName"] = state?.resourceSetName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ReadinessCheckArgs | undefined;
-            if ((!args || args.readinessCheckName === undefined) && !opts.urn) {
+            if (args?.readinessCheckName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'readinessCheckName'");
             }
-            if ((!args || args.resourceSetName === undefined) && !opts.urn) {
+            if (args?.resourceSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceSetName'");
             }
-            resourceInputs["readinessCheckName"] = args ? args.readinessCheckName : undefined;
-            resourceInputs["resourceSetName"] = args ? args.resourceSetName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["readinessCheckName"] = args?.readinessCheckName;
+            resourceInputs["resourceSetName"] = args?.resourceSetName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

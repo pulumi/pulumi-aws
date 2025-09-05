@@ -63,35 +63,35 @@ export class Connect extends pulumi.CustomResource {
     /**
      * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    public readonly transitGatewayDefaultRouteTableAssociation!: pulumi.Output<boolean | undefined>;
+    declare public readonly transitGatewayDefaultRouteTableAssociation: pulumi.Output<boolean | undefined>;
     /**
      * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    public readonly transitGatewayDefaultRouteTablePropagation!: pulumi.Output<boolean | undefined>;
+    declare public readonly transitGatewayDefaultRouteTablePropagation: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    public readonly transitGatewayId!: pulumi.Output<string>;
+    declare public readonly transitGatewayId: pulumi.Output<string>;
     /**
      * The underlaying VPC attachment
      */
-    public readonly transportAttachmentId!: pulumi.Output<string>;
+    declare public readonly transportAttachmentId: pulumi.Output<string>;
 
     /**
      * Create a Connect resource with the given unique name, arguments, and options.
@@ -106,29 +106,29 @@ export class Connect extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectState | undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = state ? state.transitGatewayDefaultRouteTableAssociation : undefined;
-            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = state ? state.transitGatewayDefaultRouteTablePropagation : undefined;
-            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
-            resourceInputs["transportAttachmentId"] = state ? state.transportAttachmentId : undefined;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = state?.transitGatewayDefaultRouteTableAssociation;
+            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = state?.transitGatewayDefaultRouteTablePropagation;
+            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
+            resourceInputs["transportAttachmentId"] = state?.transportAttachmentId;
         } else {
             const args = argsOrState as ConnectArgs | undefined;
-            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+            if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            if ((!args || args.transportAttachmentId === undefined) && !opts.urn) {
+            if (args?.transportAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transportAttachmentId'");
             }
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
-            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            resourceInputs["transportAttachmentId"] = args ? args.transportAttachmentId : undefined;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = args?.transitGatewayDefaultRouteTableAssociation;
+            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = args?.transitGatewayDefaultRouteTablePropagation;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["transportAttachmentId"] = args?.transportAttachmentId;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

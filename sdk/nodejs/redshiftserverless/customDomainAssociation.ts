@@ -65,23 +65,23 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
     /**
      * ARN of the certificate for the custom domain association.
      */
-    public readonly customDomainCertificateArn!: pulumi.Output<string>;
+    declare public readonly customDomainCertificateArn: pulumi.Output<string>;
     /**
      * Expiration time for the certificate.
      */
-    public /*out*/ readonly customDomainCertificateExpiryTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly customDomainCertificateExpiryTime: pulumi.Output<string>;
     /**
      * Custom domain to associate with the workgroup.
      */
-    public readonly customDomainName!: pulumi.Output<string>;
+    declare public readonly customDomainName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Name of the workgroup.
      */
-    public readonly workgroupName!: pulumi.Output<string>;
+    declare public readonly workgroupName: pulumi.Output<string>;
 
     /**
      * Create a CustomDomainAssociation resource with the given unique name, arguments, and options.
@@ -96,26 +96,26 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomDomainAssociationState | undefined;
-            resourceInputs["customDomainCertificateArn"] = state ? state.customDomainCertificateArn : undefined;
-            resourceInputs["customDomainCertificateExpiryTime"] = state ? state.customDomainCertificateExpiryTime : undefined;
-            resourceInputs["customDomainName"] = state ? state.customDomainName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["workgroupName"] = state ? state.workgroupName : undefined;
+            resourceInputs["customDomainCertificateArn"] = state?.customDomainCertificateArn;
+            resourceInputs["customDomainCertificateExpiryTime"] = state?.customDomainCertificateExpiryTime;
+            resourceInputs["customDomainName"] = state?.customDomainName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["workgroupName"] = state?.workgroupName;
         } else {
             const args = argsOrState as CustomDomainAssociationArgs | undefined;
-            if ((!args || args.customDomainCertificateArn === undefined) && !opts.urn) {
+            if (args?.customDomainCertificateArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customDomainCertificateArn'");
             }
-            if ((!args || args.customDomainName === undefined) && !opts.urn) {
+            if (args?.customDomainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customDomainName'");
             }
-            if ((!args || args.workgroupName === undefined) && !opts.urn) {
+            if (args?.workgroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workgroupName'");
             }
-            resourceInputs["customDomainCertificateArn"] = args ? args.customDomainCertificateArn : undefined;
-            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
+            resourceInputs["customDomainCertificateArn"] = args?.customDomainCertificateArn;
+            resourceInputs["customDomainName"] = args?.customDomainName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["workgroupName"] = args?.workgroupName;
             resourceInputs["customDomainCertificateExpiryTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

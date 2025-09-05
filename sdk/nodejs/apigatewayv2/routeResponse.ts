@@ -68,27 +68,27 @@ export class RouteResponse extends pulumi.CustomResource {
     /**
      * API identifier.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
-    public readonly modelSelectionExpression!: pulumi.Output<string | undefined>;
+    declare public readonly modelSelectionExpression: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Response models for the route response.
      */
-    public readonly responseModels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly responseModels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Identifier of the `aws.apigatewayv2.Route`.
      */
-    public readonly routeId!: pulumi.Output<string>;
+    declare public readonly routeId: pulumi.Output<string>;
     /**
      * Route response key.
      */
-    public readonly routeResponseKey!: pulumi.Output<string>;
+    declare public readonly routeResponseKey: pulumi.Output<string>;
 
     /**
      * Create a RouteResponse resource with the given unique name, arguments, and options.
@@ -103,29 +103,29 @@ export class RouteResponse extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteResponseState | undefined;
-            resourceInputs["apiId"] = state ? state.apiId : undefined;
-            resourceInputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["responseModels"] = state ? state.responseModels : undefined;
-            resourceInputs["routeId"] = state ? state.routeId : undefined;
-            resourceInputs["routeResponseKey"] = state ? state.routeResponseKey : undefined;
+            resourceInputs["apiId"] = state?.apiId;
+            resourceInputs["modelSelectionExpression"] = state?.modelSelectionExpression;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["responseModels"] = state?.responseModels;
+            resourceInputs["routeId"] = state?.routeId;
+            resourceInputs["routeResponseKey"] = state?.routeResponseKey;
         } else {
             const args = argsOrState as RouteResponseArgs | undefined;
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.routeId === undefined) && !opts.urn) {
+            if (args?.routeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeId'");
             }
-            if ((!args || args.routeResponseKey === undefined) && !opts.urn) {
+            if (args?.routeResponseKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeResponseKey'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["responseModels"] = args ? args.responseModels : undefined;
-            resourceInputs["routeId"] = args ? args.routeId : undefined;
-            resourceInputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["modelSelectionExpression"] = args?.modelSelectionExpression;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["responseModels"] = args?.responseModels;
+            resourceInputs["routeId"] = args?.routeId;
+            resourceInputs["routeResponseKey"] = args?.routeResponseKey;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RouteResponse.__pulumiType, name, resourceInputs, opts);

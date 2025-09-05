@@ -114,50 +114,50 @@ export class Preset extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Audio parameters object (documented below).
      */
-    public readonly audio!: pulumi.Output<outputs.elastictranscoder.PresetAudio | undefined>;
+    declare public readonly audio: pulumi.Output<outputs.elastictranscoder.PresetAudio | undefined>;
     /**
      * Codec options for the audio parameters (documented below)
      */
-    public readonly audioCodecOptions!: pulumi.Output<outputs.elastictranscoder.PresetAudioCodecOptions>;
+    declare public readonly audioCodecOptions: pulumi.Output<outputs.elastictranscoder.PresetAudioCodecOptions>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
-    public readonly container!: pulumi.Output<string>;
+    declare public readonly container: pulumi.Output<string>;
     /**
      * A description of the preset (maximum 255 characters)
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the preset. (maximum 40 characters)
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Thumbnail parameters object (documented below)
      */
-    public readonly thumbnails!: pulumi.Output<outputs.elastictranscoder.PresetThumbnails | undefined>;
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly thumbnails: pulumi.Output<outputs.elastictranscoder.PresetThumbnails | undefined>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Video parameters object (documented below)
      */
-    public readonly video!: pulumi.Output<outputs.elastictranscoder.PresetVideo | undefined>;
+    declare public readonly video: pulumi.Output<outputs.elastictranscoder.PresetVideo | undefined>;
     /**
      * Codec options for the video parameters
      *
      * See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      */
-    public readonly videoCodecOptions!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly videoCodecOptions: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Watermark parameters for the video parameters (documented below)
      */
-    public readonly videoWatermarks!: pulumi.Output<outputs.elastictranscoder.PresetVideoWatermark[] | undefined>;
+    declare public readonly videoWatermarks: pulumi.Output<outputs.elastictranscoder.PresetVideoWatermark[] | undefined>;
 
     /**
      * Create a Preset resource with the given unique name, arguments, and options.
@@ -172,34 +172,34 @@ export class Preset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PresetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["audio"] = state ? state.audio : undefined;
-            resourceInputs["audioCodecOptions"] = state ? state.audioCodecOptions : undefined;
-            resourceInputs["container"] = state ? state.container : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["thumbnails"] = state ? state.thumbnails : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["video"] = state ? state.video : undefined;
-            resourceInputs["videoCodecOptions"] = state ? state.videoCodecOptions : undefined;
-            resourceInputs["videoWatermarks"] = state ? state.videoWatermarks : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["audio"] = state?.audio;
+            resourceInputs["audioCodecOptions"] = state?.audioCodecOptions;
+            resourceInputs["container"] = state?.container;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["thumbnails"] = state?.thumbnails;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["video"] = state?.video;
+            resourceInputs["videoCodecOptions"] = state?.videoCodecOptions;
+            resourceInputs["videoWatermarks"] = state?.videoWatermarks;
         } else {
             const args = argsOrState as PresetArgs | undefined;
-            if ((!args || args.container === undefined) && !opts.urn) {
+            if (args?.container === undefined && !opts.urn) {
                 throw new Error("Missing required property 'container'");
             }
-            resourceInputs["audio"] = args ? args.audio : undefined;
-            resourceInputs["audioCodecOptions"] = args ? args.audioCodecOptions : undefined;
-            resourceInputs["container"] = args ? args.container : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["thumbnails"] = args ? args.thumbnails : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["video"] = args ? args.video : undefined;
-            resourceInputs["videoCodecOptions"] = args ? args.videoCodecOptions : undefined;
-            resourceInputs["videoWatermarks"] = args ? args.videoWatermarks : undefined;
+            resourceInputs["audio"] = args?.audio;
+            resourceInputs["audioCodecOptions"] = args?.audioCodecOptions;
+            resourceInputs["container"] = args?.container;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["thumbnails"] = args?.thumbnails;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["video"] = args?.video;
+            resourceInputs["videoCodecOptions"] = args?.videoCodecOptions;
+            resourceInputs["videoWatermarks"] = args?.videoWatermarks;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

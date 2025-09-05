@@ -63,19 +63,19 @@ export class ResolverFirewallConfig extends pulumi.CustomResource {
     /**
      * Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
      */
-    public readonly firewallFailOpen!: pulumi.Output<string>;
+    declare public readonly firewallFailOpen: pulumi.Output<string>;
     /**
      * The AWS account ID of the owner of the VPC that this firewall configuration applies to.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the VPC that the configuration is for.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
 
     /**
      * Create a ResolverFirewallConfig resource with the given unique name, arguments, and options.
@@ -90,18 +90,18 @@ export class ResolverFirewallConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverFirewallConfigState | undefined;
-            resourceInputs["firewallFailOpen"] = state ? state.firewallFailOpen : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["firewallFailOpen"] = state?.firewallFailOpen;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceId"] = state?.resourceId;
         } else {
             const args = argsOrState as ResolverFirewallConfigArgs | undefined;
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["firewallFailOpen"] = args ? args.firewallFailOpen : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["firewallFailOpen"] = args?.firewallFailOpen;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["ownerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

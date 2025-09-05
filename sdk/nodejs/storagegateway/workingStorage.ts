@@ -60,15 +60,15 @@ export class WorkingStorage extends pulumi.CustomResource {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    public readonly diskId!: pulumi.Output<string>;
+    declare public readonly diskId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    public readonly gatewayArn!: pulumi.Output<string>;
+    declare public readonly gatewayArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a WorkingStorage resource with the given unique name, arguments, and options.
@@ -83,20 +83,20 @@ export class WorkingStorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkingStorageState | undefined;
-            resourceInputs["diskId"] = state ? state.diskId : undefined;
-            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["diskId"] = state?.diskId;
+            resourceInputs["gatewayArn"] = state?.gatewayArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as WorkingStorageArgs | undefined;
-            if ((!args || args.diskId === undefined) && !opts.urn) {
+            if (args?.diskId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'diskId'");
             }
-            if ((!args || args.gatewayArn === undefined) && !opts.urn) {
+            if (args?.gatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            resourceInputs["diskId"] = args ? args.diskId : undefined;
-            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["diskId"] = args?.diskId;
+            resourceInputs["gatewayArn"] = args?.gatewayArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkingStorage.__pulumiType, name, resourceInputs, opts);

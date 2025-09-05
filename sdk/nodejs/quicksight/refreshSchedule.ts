@@ -115,26 +115,26 @@ export class RefreshSchedule extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the refresh schedule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The ID of the dataset.
      */
-    public readonly dataSetId!: pulumi.Output<string>;
+    declare public readonly dataSetId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
      *
      * The following arguments are optional:
      */
-    public readonly schedule!: pulumi.Output<outputs.quicksight.RefreshScheduleSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.quicksight.RefreshScheduleSchedule | undefined>;
     /**
      * The ID of the refresh schedule.
      */
-    public readonly scheduleId!: pulumi.Output<string>;
+    declare public readonly scheduleId: pulumi.Output<string>;
 
     /**
      * Create a RefreshSchedule resource with the given unique name, arguments, and options.
@@ -149,25 +149,25 @@ export class RefreshSchedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RefreshScheduleState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["dataSetId"] = state ? state.dataSetId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["scheduleId"] = state ? state.scheduleId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["dataSetId"] = state?.dataSetId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["scheduleId"] = state?.scheduleId;
         } else {
             const args = argsOrState as RefreshScheduleArgs | undefined;
-            if ((!args || args.dataSetId === undefined) && !opts.urn) {
+            if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            if ((!args || args.scheduleId === undefined) && !opts.urn) {
+            if (args?.scheduleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleId'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scheduleId"] = args ? args.scheduleId : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["dataSetId"] = args?.dataSetId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scheduleId"] = args?.scheduleId;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

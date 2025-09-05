@@ -29,70 +29,67 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
-     * The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+     * The access key for API operations. You can retrieve this
+     * from the 'Security & Credentials' section of the AWS console.
      */
-    public readonly accessKey!: pulumi.Output<string | undefined>;
+    declare public readonly accessKey: pulumi.Output<string | undefined>;
     /**
-     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-     * variable. (Setting `caBundle` in the shared config file is not supported.)
+     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `caBundle` in the shared config file is not supported.)
      */
-    public readonly customCaBundle!: pulumi.Output<string | undefined>;
+    declare public readonly customCaBundle: pulumi.Output<string | undefined>;
     /**
-     * Address of the EC2 metadata service endpoint to use. Can also be configured using the
-     * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+     * Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
      */
-    public readonly ec2MetadataServiceEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly ec2MetadataServiceEndpoint: pulumi.Output<string | undefined>;
     /**
-     * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-     * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+     * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
      */
-    public readonly ec2MetadataServiceEndpointMode!: pulumi.Output<string | undefined>;
+    declare public readonly ec2MetadataServiceEndpointMode: pulumi.Output<string | undefined>;
     /**
-     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-     * `httpProxy` environment variables.
+     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `httpProxy` environment variables.
      */
-    public readonly httpProxy!: pulumi.Output<string | undefined>;
+    declare public readonly httpProxy: pulumi.Output<string | undefined>;
     /**
-     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-     * `httpsProxy` environment variables.
+     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `httpsProxy` environment variables.
      */
-    public readonly httpsProxy!: pulumi.Output<string | undefined>;
+    declare public readonly httpsProxy: pulumi.Output<string | undefined>;
     /**
-     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-     * `noProxy` environment variables.
+     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `noProxy` environment variables.
      */
-    public readonly noProxy!: pulumi.Output<string | undefined>;
+    declare public readonly noProxy: pulumi.Output<string | undefined>;
     /**
-     * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+     * The profile for API operations. If not set, the default profile
+     * created with `aws configure` will be used.
      */
-    public readonly profile!: pulumi.Output<string | undefined>;
+    declare public readonly profile: pulumi.Output<string | undefined>;
     /**
-     * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+     * The region where AWS operations will take place. Examples
+     * are us-east-1, us-west-2, etc.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
     /**
-     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-     * `AWS_RETRY_MODE` environment variable.
+     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
      */
-    public readonly retryMode!: pulumi.Output<string | undefined>;
+    declare public readonly retryMode: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-     * variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
+     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
      */
-    public readonly s3UsEast1RegionalEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly s3UsEast1RegionalEndpoint: pulumi.Output<string | undefined>;
     /**
-     * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+     * The secret key for API operations. You can retrieve this
+     * from the 'Security & Credentials' section of the AWS console.
      */
-    public readonly secretKey!: pulumi.Output<string | undefined>;
+    declare public readonly secretKey: pulumi.Output<string | undefined>;
     /**
-     * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+     * The region where AWS STS operations will take place. Examples
+     * are us-east-1 and us-west-2.
      */
-    public readonly stsRegion!: pulumi.Output<string | undefined>;
+    declare public readonly stsRegion: pulumi.Output<string | undefined>;
     /**
-     * session token. A session token is only required if you are using temporary security credentials.
+     * session token. A session token is only required if you are
+     * using temporary security credentials.
      */
-    public readonly token!: pulumi.Output<string | undefined>;
+    declare public readonly token: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -106,38 +103,38 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["accessKey"] = args?.accessKey ? pulumi.secret(args.accessKey) : undefined;
-            resourceInputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
-            resourceInputs["assumeRoleWithWebIdentity"] = pulumi.output(args ? args.assumeRoleWithWebIdentity : undefined).apply(JSON.stringify);
-            resourceInputs["assumeRoles"] = pulumi.output(args ? args.assumeRoles : undefined).apply(JSON.stringify);
-            resourceInputs["customCaBundle"] = args ? args.customCaBundle : undefined;
-            resourceInputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
-            resourceInputs["ec2MetadataServiceEndpoint"] = args ? args.ec2MetadataServiceEndpoint : undefined;
-            resourceInputs["ec2MetadataServiceEndpointMode"] = args ? args.ec2MetadataServiceEndpointMode : undefined;
-            resourceInputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
-            resourceInputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
-            resourceInputs["httpProxy"] = args ? args.httpProxy : undefined;
-            resourceInputs["httpsProxy"] = args ? args.httpsProxy : undefined;
-            resourceInputs["ignoreTags"] = pulumi.output(args ? args.ignoreTags : undefined).apply(JSON.stringify);
-            resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
-            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
-            resourceInputs["noProxy"] = args ? args.noProxy : undefined;
-            resourceInputs["profile"] = args ? args.profile : undefined;
-            resourceInputs["region"] = (args ? args.region : undefined) ?? utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
-            resourceInputs["retryMode"] = args ? args.retryMode : undefined;
-            resourceInputs["s3UsEast1RegionalEndpoint"] = args ? args.s3UsEast1RegionalEndpoint : undefined;
-            resourceInputs["s3UsePathStyle"] = pulumi.output(args ? args.s3UsePathStyle : undefined).apply(JSON.stringify);
+            resourceInputs["allowedAccountIds"] = pulumi.output(args?.allowedAccountIds).apply(JSON.stringify);
+            resourceInputs["assumeRoleWithWebIdentity"] = pulumi.output(args?.assumeRoleWithWebIdentity).apply(JSON.stringify);
+            resourceInputs["assumeRoles"] = pulumi.output(args?.assumeRoles).apply(JSON.stringify);
+            resourceInputs["customCaBundle"] = args?.customCaBundle;
+            resourceInputs["defaultTags"] = pulumi.output(args?.defaultTags).apply(JSON.stringify);
+            resourceInputs["ec2MetadataServiceEndpoint"] = args?.ec2MetadataServiceEndpoint;
+            resourceInputs["ec2MetadataServiceEndpointMode"] = args?.ec2MetadataServiceEndpointMode;
+            resourceInputs["endpoints"] = pulumi.output(args?.endpoints).apply(JSON.stringify);
+            resourceInputs["forbiddenAccountIds"] = pulumi.output(args?.forbiddenAccountIds).apply(JSON.stringify);
+            resourceInputs["httpProxy"] = args?.httpProxy;
+            resourceInputs["httpsProxy"] = args?.httpsProxy;
+            resourceInputs["ignoreTags"] = pulumi.output(args?.ignoreTags).apply(JSON.stringify);
+            resourceInputs["insecure"] = pulumi.output(args?.insecure).apply(JSON.stringify);
+            resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
+            resourceInputs["noProxy"] = args?.noProxy;
+            resourceInputs["profile"] = args?.profile;
+            resourceInputs["region"] = (args?.region) ?? utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            resourceInputs["retryMode"] = args?.retryMode;
+            resourceInputs["s3UsEast1RegionalEndpoint"] = args?.s3UsEast1RegionalEndpoint;
+            resourceInputs["s3UsePathStyle"] = pulumi.output(args?.s3UsePathStyle).apply(JSON.stringify);
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
-            resourceInputs["sharedConfigFiles"] = pulumi.output(args ? args.sharedConfigFiles : undefined).apply(JSON.stringify);
-            resourceInputs["sharedCredentialsFiles"] = pulumi.output(args ? args.sharedCredentialsFiles : undefined).apply(JSON.stringify);
-            resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
-            resourceInputs["skipMetadataApiCheck"] = pulumi.output(args ? args.skipMetadataApiCheck : undefined).apply(JSON.stringify);
-            resourceInputs["skipRegionValidation"] = pulumi.output((args ? args.skipRegionValidation : undefined) ?? true).apply(JSON.stringify);
-            resourceInputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
-            resourceInputs["stsRegion"] = args ? args.stsRegion : undefined;
+            resourceInputs["sharedConfigFiles"] = pulumi.output(args?.sharedConfigFiles).apply(JSON.stringify);
+            resourceInputs["sharedCredentialsFiles"] = pulumi.output(args?.sharedCredentialsFiles).apply(JSON.stringify);
+            resourceInputs["skipCredentialsValidation"] = pulumi.output((args?.skipCredentialsValidation) ?? false).apply(JSON.stringify);
+            resourceInputs["skipMetadataApiCheck"] = pulumi.output(args?.skipMetadataApiCheck).apply(JSON.stringify);
+            resourceInputs["skipRegionValidation"] = pulumi.output((args?.skipRegionValidation) ?? true).apply(JSON.stringify);
+            resourceInputs["skipRequestingAccountId"] = pulumi.output(args?.skipRequestingAccountId).apply(JSON.stringify);
+            resourceInputs["stsRegion"] = args?.stsRegion;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
-            resourceInputs["tokenBucketRateLimiterCapacity"] = pulumi.output(args ? args.tokenBucketRateLimiterCapacity : undefined).apply(JSON.stringify);
-            resourceInputs["useDualstackEndpoint"] = pulumi.output(args ? args.useDualstackEndpoint : undefined).apply(JSON.stringify);
-            resourceInputs["useFipsEndpoint"] = pulumi.output(args ? args.useFipsEndpoint : undefined).apply(JSON.stringify);
+            resourceInputs["tokenBucketRateLimiterCapacity"] = pulumi.output(args?.tokenBucketRateLimiterCapacity).apply(JSON.stringify);
+            resourceInputs["useDualstackEndpoint"] = pulumi.output(args?.useDualstackEndpoint).apply(JSON.stringify);
+            resourceInputs["useFipsEndpoint"] = pulumi.output(args?.useFipsEndpoint).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accessKey", "secretKey", "token"] };
@@ -160,15 +157,15 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+     * The access key for API operations. You can retrieve this
+     * from the 'Security & Credentials' section of the AWS console.
      */
     accessKey?: pulumi.Input<string>;
     allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     assumeRoleWithWebIdentity?: pulumi.Input<inputs.ProviderAssumeRoleWithWebIdentity>;
     assumeRoles?: pulumi.Input<pulumi.Input<inputs.ProviderAssumeRole>[]>;
     /**
-     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-     * variable. (Setting `caBundle` in the shared config file is not supported.)
+     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `caBundle` in the shared config file is not supported.)
      */
     customCaBundle?: pulumi.Input<string>;
     /**
@@ -176,25 +173,21 @@ export interface ProviderArgs {
      */
     defaultTags?: pulumi.Input<inputs.ProviderDefaultTags>;
     /**
-     * Address of the EC2 metadata service endpoint to use. Can also be configured using the
-     * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+     * Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
      */
     ec2MetadataServiceEndpoint?: pulumi.Input<string>;
     /**
-     * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
-     * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+     * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
      */
     ec2MetadataServiceEndpointMode?: pulumi.Input<string>;
     endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpoint>[]>;
     forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-     * `httpProxy` environment variables.
+     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `httpProxy` environment variables.
      */
     httpProxy?: pulumi.Input<string>;
     /**
-     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-     * `httpsProxy` environment variables.
+     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `httpsProxy` environment variables.
      */
     httpsProxy?: pulumi.Input<string>;
     /**
@@ -206,41 +199,43 @@ export interface ProviderArgs {
      */
     insecure?: pulumi.Input<boolean>;
     /**
-     * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+     * The maximum number of times an AWS API request is
+     * being executed. If the API request still fails, an error is
+     * thrown.
      */
     maxRetries?: pulumi.Input<number>;
     /**
-     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-     * `noProxy` environment variables.
+     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `noProxy` environment variables.
      */
     noProxy?: pulumi.Input<string>;
     /**
-     * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+     * The profile for API operations. If not set, the default profile
+     * created with `aws configure` will be used.
      */
     profile?: pulumi.Input<string>;
     /**
-     * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+     * The region where AWS operations will take place. Examples
+     * are us-east-1, us-west-2, etc.
      */
     region?: pulumi.Input<string>;
     /**
-     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
-     * `AWS_RETRY_MODE` environment variable.
+     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
      */
     retryMode?: pulumi.Input<string>;
     /**
-     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
-     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-     * variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
+     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
      */
     s3UsEast1RegionalEndpoint?: pulumi.Input<string>;
     /**
-     * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-     * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-     * Specific to the Amazon S3 service.
+     * Set this to true to enable the request to use path-style addressing,
+     * i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+     * use virtual hosted bucket addressing when possible
+     * (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
      */
     s3UsePathStyle?: pulumi.Input<boolean>;
     /**
-     * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+     * The secret key for API operations. You can retrieve this
+     * from the 'Security & Credentials' section of the AWS console.
      */
     secretKey?: pulumi.Input<string>;
     /**
@@ -252,8 +247,7 @@ export interface ProviderArgs {
      */
     sharedCredentialsFiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
-     * available/implemented.
+     * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
      */
     skipCredentialsValidation?: pulumi.Input<boolean>;
     /**
@@ -261,8 +255,7 @@ export interface ProviderArgs {
      */
     skipMetadataApiCheck?: pulumi.Input<boolean>;
     /**
-     * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
-     * not public (yet).
+     * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
      */
     skipRegionValidation?: pulumi.Input<boolean>;
     /**
@@ -270,11 +263,13 @@ export interface ProviderArgs {
      */
     skipRequestingAccountId?: pulumi.Input<boolean>;
     /**
-     * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+     * The region where AWS STS operations will take place. Examples
+     * are us-east-1 and us-west-2.
      */
     stsRegion?: pulumi.Input<string>;
     /**
-     * session token. A session token is only required if you are using temporary security credentials.
+     * session token. A session token is only required if you are
+     * using temporary security credentials.
      */
     token?: pulumi.Input<string>;
     /**

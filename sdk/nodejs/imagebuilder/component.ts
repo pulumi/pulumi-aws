@@ -63,79 +63,79 @@ export class Component extends pulumi.CustomResource {
     /**
      * (Required) Amazon Resource Name (ARN) of the component.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Change description of the component.
      */
-    public readonly changeDescription!: pulumi.Output<string | undefined>;
+    declare public readonly changeDescription: pulumi.Output<string | undefined>;
     /**
      * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      */
-    public readonly data!: pulumi.Output<string>;
+    declare public readonly data: pulumi.Output<string>;
     /**
      * Date the component was created.
      */
-    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly dateCreated: pulumi.Output<string>;
     /**
      * Description of the component.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Encryption status of the component.
      */
-    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly encrypted: pulumi.Output<boolean>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Name of the component.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Owner of the component.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * Platform of the component.
      */
-    public readonly platform!: pulumi.Output<string>;
+    declare public readonly platform: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
      */
-    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Set of Operating Systems (OS) supported by the component.
      */
-    public readonly supportedOsVersions!: pulumi.Output<string[] | undefined>;
+    declare public readonly supportedOsVersions: pulumi.Output<string[] | undefined>;
     /**
      * Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of the component.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      *
      * > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
      */
-    public readonly uri!: pulumi.Output<string | undefined>;
+    declare public readonly uri: pulumi.Output<string | undefined>;
     /**
      * Version of the component.
      *
      * The following arguments are optional:
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a Component resource with the given unique name, arguments, and options.
@@ -150,44 +150,44 @@ export class Component extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComponentState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["changeDescription"] = state ? state.changeDescription : undefined;
-            resourceInputs["data"] = state ? state.data : undefined;
-            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["platform"] = state ? state.platform : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
-            resourceInputs["supportedOsVersions"] = state ? state.supportedOsVersions : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["changeDescription"] = state?.changeDescription;
+            resourceInputs["data"] = state?.data;
+            resourceInputs["dateCreated"] = state?.dateCreated;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["encrypted"] = state?.encrypted;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["platform"] = state?.platform;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["skipDestroy"] = state?.skipDestroy;
+            resourceInputs["supportedOsVersions"] = state?.supportedOsVersions;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["uri"] = state?.uri;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ComponentArgs | undefined;
-            if ((!args || args.platform === undefined) && !opts.urn) {
+            if (args?.platform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["changeDescription"] = args ? args.changeDescription : undefined;
-            resourceInputs["data"] = args ? args.data : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
-            resourceInputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["changeDescription"] = args?.changeDescription;
+            resourceInputs["data"] = args?.data;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["skipDestroy"] = args?.skipDestroy;
+            resourceInputs["supportedOsVersions"] = args?.supportedOsVersions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uri"] = args?.uri;
+            resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dateCreated"] = undefined /*out*/;
             resourceInputs["encrypted"] = undefined /*out*/;

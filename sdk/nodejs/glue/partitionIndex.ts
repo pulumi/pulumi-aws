@@ -133,23 +133,23 @@ export class PartitionIndex extends pulumi.CustomResource {
     /**
      * The catalog ID where the table resides.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    declare public readonly catalogId: pulumi.Output<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * Configuration block for a partition index. See `partitionIndex` below.
      */
-    public readonly partitionIndex!: pulumi.Output<outputs.glue.PartitionIndexPartitionIndex>;
+    declare public readonly partitionIndex: pulumi.Output<outputs.glue.PartitionIndexPartitionIndex>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
 
     /**
      * Create a PartitionIndex resource with the given unique name, arguments, and options.
@@ -164,27 +164,27 @@ export class PartitionIndex extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PartitionIndexState | undefined;
-            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["partitionIndex"] = state ? state.partitionIndex : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["catalogId"] = state?.catalogId;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["partitionIndex"] = state?.partitionIndex;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as PartitionIndexArgs | undefined;
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.partitionIndex === undefined) && !opts.urn) {
+            if (args?.partitionIndex === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionIndex'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["partitionIndex"] = args ? args.partitionIndex : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["partitionIndex"] = args?.partitionIndex;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tableName"] = args?.tableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PartitionIndex.__pulumiType, name, resourceInputs, opts);

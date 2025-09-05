@@ -105,54 +105,54 @@ export class Folder extends pulumi.CustomResource {
     /**
      * ARN of the folder.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The time that the folder was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Identifier for the folder.
      */
-    public readonly folderId!: pulumi.Output<string>;
+    declare public readonly folderId: pulumi.Output<string>;
     /**
      * An array of ancestor ARN strings for the folder. Empty for root-level folders.
      */
-    public /*out*/ readonly folderPaths!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly folderPaths: pulumi.Output<string[]>;
     /**
      * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      */
-    public readonly folderType!: pulumi.Output<string | undefined>;
+    declare public readonly folderType: pulumi.Output<string | undefined>;
     /**
      * The time that the folder was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * Display name for the folder.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
      */
-    public readonly parentFolderArn!: pulumi.Output<string | undefined>;
+    declare public readonly parentFolderArn: pulumi.Output<string | undefined>;
     /**
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.FolderPermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.FolderPermission[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Folder resource with the given unique name, arguments, and options.
@@ -167,32 +167,32 @@ export class Folder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FolderState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
-            resourceInputs["folderId"] = state ? state.folderId : undefined;
-            resourceInputs["folderPaths"] = state ? state.folderPaths : undefined;
-            resourceInputs["folderType"] = state ? state.folderType : undefined;
-            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentFolderArn"] = state ? state.parentFolderArn : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["createdTime"] = state?.createdTime;
+            resourceInputs["folderId"] = state?.folderId;
+            resourceInputs["folderPaths"] = state?.folderPaths;
+            resourceInputs["folderType"] = state?.folderType;
+            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentFolderArn"] = state?.parentFolderArn;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as FolderArgs | undefined;
-            if ((!args || args.folderId === undefined) && !opts.urn) {
+            if (args?.folderId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'folderId'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["folderId"] = args ? args.folderId : undefined;
-            resourceInputs["folderType"] = args ? args.folderType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentFolderArn"] = args ? args.parentFolderArn : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["folderId"] = args?.folderId;
+            resourceInputs["folderType"] = args?.folderType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentFolderArn"] = args?.parentFolderArn;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["folderPaths"] = undefined /*out*/;

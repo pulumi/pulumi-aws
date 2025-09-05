@@ -62,19 +62,19 @@ export class AssessmentTarget extends pulumi.CustomResource {
     /**
      * The target assessment ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the assessment target.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
-    public readonly resourceGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly resourceGroupArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a AssessmentTarget resource with the given unique name, arguments, and options.
@@ -89,15 +89,15 @@ export class AssessmentTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentTargetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceGroupArn"] = state ? state.resourceGroupArn : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceGroupArn"] = state?.resourceGroupArn;
         } else {
             const args = argsOrState as AssessmentTargetArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceGroupArn"] = args?.resourceGroupArn;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

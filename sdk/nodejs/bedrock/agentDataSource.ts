@@ -69,42 +69,42 @@ export class AgentDataSource extends pulumi.CustomResource {
     /**
      * Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
      */
-    public readonly dataDeletionPolicy!: pulumi.Output<string>;
+    declare public readonly dataDeletionPolicy: pulumi.Output<string>;
     /**
      * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.bedrock.AgentDataSourceDataSourceConfiguration | undefined>;
+    declare public readonly dataSourceConfiguration: pulumi.Output<outputs.bedrock.AgentDataSourceDataSourceConfiguration | undefined>;
     /**
      * Unique identifier of the data source.
      */
-    public /*out*/ readonly dataSourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataSourceId: pulumi.Output<string>;
     /**
      * Description of the data source.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Unique identifier of the knowledge base to which the data source belongs.
      */
-    public readonly knowledgeBaseId!: pulumi.Output<string>;
+    declare public readonly knowledgeBaseId: pulumi.Output<string>;
     /**
      * Name of the data source.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentDataSourceTimeouts | undefined>;
+    declare public readonly serverSideEncryptionConfiguration: pulumi.Output<outputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration | undefined>;
+    declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentDataSourceTimeouts | undefined>;
     /**
      * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
      */
-    public readonly vectorIngestionConfiguration!: pulumi.Output<outputs.bedrock.AgentDataSourceVectorIngestionConfiguration | undefined>;
+    declare public readonly vectorIngestionConfiguration: pulumi.Output<outputs.bedrock.AgentDataSourceVectorIngestionConfiguration | undefined>;
 
     /**
      * Create a AgentDataSource resource with the given unique name, arguments, and options.
@@ -119,30 +119,30 @@ export class AgentDataSource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentDataSourceState | undefined;
-            resourceInputs["dataDeletionPolicy"] = state ? state.dataDeletionPolicy : undefined;
-            resourceInputs["dataSourceConfiguration"] = state ? state.dataSourceConfiguration : undefined;
-            resourceInputs["dataSourceId"] = state ? state.dataSourceId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["knowledgeBaseId"] = state ? state.knowledgeBaseId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["vectorIngestionConfiguration"] = state ? state.vectorIngestionConfiguration : undefined;
+            resourceInputs["dataDeletionPolicy"] = state?.dataDeletionPolicy;
+            resourceInputs["dataSourceConfiguration"] = state?.dataSourceConfiguration;
+            resourceInputs["dataSourceId"] = state?.dataSourceId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["knowledgeBaseId"] = state?.knowledgeBaseId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serverSideEncryptionConfiguration"] = state?.serverSideEncryptionConfiguration;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["vectorIngestionConfiguration"] = state?.vectorIngestionConfiguration;
         } else {
             const args = argsOrState as AgentDataSourceArgs | undefined;
-            if ((!args || args.knowledgeBaseId === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseId'");
             }
-            resourceInputs["dataDeletionPolicy"] = args ? args.dataDeletionPolicy : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["knowledgeBaseId"] = args ? args.knowledgeBaseId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["vectorIngestionConfiguration"] = args ? args.vectorIngestionConfiguration : undefined;
+            resourceInputs["dataDeletionPolicy"] = args?.dataDeletionPolicy;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["knowledgeBaseId"] = args?.knowledgeBaseId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["vectorIngestionConfiguration"] = args?.vectorIngestionConfiguration;
             resourceInputs["dataSourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

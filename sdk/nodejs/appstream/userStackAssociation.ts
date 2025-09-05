@@ -64,25 +64,25 @@ export class UserStackAssociation extends pulumi.CustomResource {
     /**
      * Authentication type for the user.
      */
-    public readonly authenticationType!: pulumi.Output<string>;
+    declare public readonly authenticationType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      */
-    public readonly sendEmailNotification!: pulumi.Output<boolean | undefined>;
+    declare public readonly sendEmailNotification: pulumi.Output<boolean | undefined>;
     /**
      * Name of the stack that is associated with the user.
      */
-    public readonly stackName!: pulumi.Output<string>;
+    declare public readonly stackName: pulumi.Output<string>;
     /**
      * Email address of the user who is associated with the stack.
      *
      * The following arguments are optional:
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a UserStackAssociation resource with the given unique name, arguments, and options.
@@ -97,27 +97,27 @@ export class UserStackAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserStackAssociationState | undefined;
-            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sendEmailNotification"] = state ? state.sendEmailNotification : undefined;
-            resourceInputs["stackName"] = state ? state.stackName : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["authenticationType"] = state?.authenticationType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sendEmailNotification"] = state?.sendEmailNotification;
+            resourceInputs["stackName"] = state?.stackName;
+            resourceInputs["userName"] = state?.userName;
         } else {
             const args = argsOrState as UserStackAssociationArgs | undefined;
-            if ((!args || args.authenticationType === undefined) && !opts.urn) {
+            if (args?.authenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if ((!args || args.stackName === undefined) && !opts.urn) {
+            if (args?.stackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackName'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
-            resourceInputs["stackName"] = args ? args.stackName : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sendEmailNotification"] = args?.sendEmailNotification;
+            resourceInputs["stackName"] = args?.stackName;
+            resourceInputs["userName"] = args?.userName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserStackAssociation.__pulumiType, name, resourceInputs, opts);

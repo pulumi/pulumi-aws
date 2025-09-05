@@ -56,25 +56,25 @@ export class StandardsControlAssociation extends pulumi.CustomResource {
     /**
      * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
      */
-    public readonly associationStatus!: pulumi.Output<string>;
+    declare public readonly associationStatus: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The unique identifier for the security control whose enablement status you want to update.
      */
-    public readonly securityControlId!: pulumi.Output<string>;
+    declare public readonly securityControlId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
      *
      * The following arguments are optional:
      */
-    public readonly standardsArn!: pulumi.Output<string>;
+    declare public readonly standardsArn: pulumi.Output<string>;
     /**
      * The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
      */
-    public readonly updatedReason!: pulumi.Output<string | undefined>;
+    declare public readonly updatedReason: pulumi.Output<string | undefined>;
 
     /**
      * Create a StandardsControlAssociation resource with the given unique name, arguments, and options.
@@ -89,27 +89,27 @@ export class StandardsControlAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandardsControlAssociationState | undefined;
-            resourceInputs["associationStatus"] = state ? state.associationStatus : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["securityControlId"] = state ? state.securityControlId : undefined;
-            resourceInputs["standardsArn"] = state ? state.standardsArn : undefined;
-            resourceInputs["updatedReason"] = state ? state.updatedReason : undefined;
+            resourceInputs["associationStatus"] = state?.associationStatus;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["securityControlId"] = state?.securityControlId;
+            resourceInputs["standardsArn"] = state?.standardsArn;
+            resourceInputs["updatedReason"] = state?.updatedReason;
         } else {
             const args = argsOrState as StandardsControlAssociationArgs | undefined;
-            if ((!args || args.associationStatus === undefined) && !opts.urn) {
+            if (args?.associationStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'associationStatus'");
             }
-            if ((!args || args.securityControlId === undefined) && !opts.urn) {
+            if (args?.securityControlId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityControlId'");
             }
-            if ((!args || args.standardsArn === undefined) && !opts.urn) {
+            if (args?.standardsArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'standardsArn'");
             }
-            resourceInputs["associationStatus"] = args ? args.associationStatus : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["securityControlId"] = args ? args.securityControlId : undefined;
-            resourceInputs["standardsArn"] = args ? args.standardsArn : undefined;
-            resourceInputs["updatedReason"] = args ? args.updatedReason : undefined;
+            resourceInputs["associationStatus"] = args?.associationStatus;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["securityControlId"] = args?.securityControlId;
+            resourceInputs["standardsArn"] = args?.standardsArn;
+            resourceInputs["updatedReason"] = args?.updatedReason;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StandardsControlAssociation.__pulumiType, name, resourceInputs, opts);

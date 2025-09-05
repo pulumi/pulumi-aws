@@ -60,23 +60,23 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
     /**
      * The ARN for a configuration for DNSSEC validation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
      */
-    public /*out*/ readonly validationStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly validationStatus: pulumi.Output<string>;
 
     /**
      * Create a ResolverDnsSecConfig resource with the given unique name, arguments, and options.
@@ -91,18 +91,18 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverDnsSecConfigState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["validationStatus"] = state ? state.validationStatus : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["validationStatus"] = state?.validationStatus;
         } else {
             const args = argsOrState as ResolverDnsSecConfigArgs | undefined;
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["validationStatus"] = undefined /*out*/;

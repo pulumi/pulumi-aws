@@ -65,16 +65,16 @@ export class InstanceDesiredState extends pulumi.CustomResource {
     /**
      * DB Instance Identifier
      */
-    public readonly identifier!: pulumi.Output<string>;
+    declare public readonly identifier: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configured state of the DB Instance. Valid values are `available` and `stopped`.
      */
-    public readonly state!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.rds.InstanceDesiredStateTimeouts | undefined>;
+    declare public readonly state: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.rds.InstanceDesiredStateTimeouts | undefined>;
 
     /**
      * Create a InstanceDesiredState resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class InstanceDesiredState extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceDesiredStateState | undefined;
-            resourceInputs["identifier"] = state ? state.identifier : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["identifier"] = state?.identifier;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as InstanceDesiredStateArgs | undefined;
-            if ((!args || args.identifier === undefined) && !opts.urn) {
+            if (args?.identifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["timeouts"] = args?.timeouts;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InstanceDesiredState.__pulumiType, name, resourceInputs, opts);

@@ -50,19 +50,19 @@ export class LoggingOptions extends pulumi.CustomResource {
     /**
      * The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
      */
-    public readonly defaultLogLevel!: pulumi.Output<string>;
+    declare public readonly defaultLogLevel: pulumi.Output<string>;
     /**
      * If `true` all logs are disabled. The default is `false`.
      */
-    public readonly disableAllLogs!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableAllLogs: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
 
     /**
      * Create a LoggingOptions resource with the given unique name, arguments, and options.
@@ -77,22 +77,22 @@ export class LoggingOptions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoggingOptionsState | undefined;
-            resourceInputs["defaultLogLevel"] = state ? state.defaultLogLevel : undefined;
-            resourceInputs["disableAllLogs"] = state ? state.disableAllLogs : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["defaultLogLevel"] = state?.defaultLogLevel;
+            resourceInputs["disableAllLogs"] = state?.disableAllLogs;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
         } else {
             const args = argsOrState as LoggingOptionsArgs | undefined;
-            if ((!args || args.defaultLogLevel === undefined) && !opts.urn) {
+            if (args?.defaultLogLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultLogLevel'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["defaultLogLevel"] = args ? args.defaultLogLevel : undefined;
-            resourceInputs["disableAllLogs"] = args ? args.disableAllLogs : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["defaultLogLevel"] = args?.defaultLogLevel;
+            resourceInputs["disableAllLogs"] = args?.disableAllLogs;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LoggingOptions.__pulumiType, name, resourceInputs, opts);

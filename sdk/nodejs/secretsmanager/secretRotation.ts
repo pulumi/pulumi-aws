@@ -74,27 +74,27 @@ export class SecretRotation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
      */
-    public readonly rotateImmediately!: pulumi.Output<boolean | undefined>;
+    declare public readonly rotateImmediately: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether automatic rotation is enabled for this secret.
      */
-    public /*out*/ readonly rotationEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly rotationEnabled: pulumi.Output<boolean>;
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      */
-    public readonly rotationLambdaArn!: pulumi.Output<string | undefined>;
+    declare public readonly rotationLambdaArn: pulumi.Output<string | undefined>;
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
-    public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.SecretRotationRotationRules>;
+    declare public readonly rotationRules: pulumi.Output<outputs.secretsmanager.SecretRotationRotationRules>;
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
-    public readonly secretId!: pulumi.Output<string>;
+    declare public readonly secretId: pulumi.Output<string>;
 
     /**
      * Create a SecretRotation resource with the given unique name, arguments, and options.
@@ -109,25 +109,25 @@ export class SecretRotation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretRotationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["rotateImmediately"] = state ? state.rotateImmediately : undefined;
-            resourceInputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
-            resourceInputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
-            resourceInputs["rotationRules"] = state ? state.rotationRules : undefined;
-            resourceInputs["secretId"] = state ? state.secretId : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["rotateImmediately"] = state?.rotateImmediately;
+            resourceInputs["rotationEnabled"] = state?.rotationEnabled;
+            resourceInputs["rotationLambdaArn"] = state?.rotationLambdaArn;
+            resourceInputs["rotationRules"] = state?.rotationRules;
+            resourceInputs["secretId"] = state?.secretId;
         } else {
             const args = argsOrState as SecretRotationArgs | undefined;
-            if ((!args || args.rotationRules === undefined) && !opts.urn) {
+            if (args?.rotationRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rotationRules'");
             }
-            if ((!args || args.secretId === undefined) && !opts.urn) {
+            if (args?.secretId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["rotateImmediately"] = args ? args.rotateImmediately : undefined;
-            resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
-            resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
-            resourceInputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["rotateImmediately"] = args?.rotateImmediately;
+            resourceInputs["rotationLambdaArn"] = args?.rotationLambdaArn;
+            resourceInputs["rotationRules"] = args?.rotationRules;
+            resourceInputs["secretId"] = args?.secretId;
             resourceInputs["rotationEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -85,27 +85,27 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
     /**
      * AWS account ID for the launch permission.
      */
-    public readonly accountId!: pulumi.Output<string | undefined>;
+    declare public readonly accountId: pulumi.Output<string | undefined>;
     /**
      * Name of the group for the launch permission. Valid values: `"all"`.
      */
-    public readonly group!: pulumi.Output<string | undefined>;
+    declare public readonly group: pulumi.Output<string | undefined>;
     /**
      * ID of the AMI.
      */
-    public readonly imageId!: pulumi.Output<string>;
+    declare public readonly imageId: pulumi.Output<string>;
     /**
      * ARN of an organization for the launch permission.
      */
-    public readonly organizationArn!: pulumi.Output<string | undefined>;
+    declare public readonly organizationArn: pulumi.Output<string | undefined>;
     /**
      * ARN of an organizational unit for the launch permission.
      */
-    public readonly organizationalUnitArn!: pulumi.Output<string | undefined>;
+    declare public readonly organizationalUnitArn: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a AmiLaunchPermission resource with the given unique name, arguments, and options.
@@ -120,23 +120,23 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AmiLaunchPermissionState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["group"] = state ? state.group : undefined;
-            resourceInputs["imageId"] = state ? state.imageId : undefined;
-            resourceInputs["organizationArn"] = state ? state.organizationArn : undefined;
-            resourceInputs["organizationalUnitArn"] = state ? state.organizationalUnitArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["group"] = state?.group;
+            resourceInputs["imageId"] = state?.imageId;
+            resourceInputs["organizationArn"] = state?.organizationArn;
+            resourceInputs["organizationalUnitArn"] = state?.organizationalUnitArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as AmiLaunchPermissionArgs | undefined;
-            if ((!args || args.imageId === undefined) && !opts.urn) {
+            if (args?.imageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["group"] = args ? args.group : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["organizationArn"] = args ? args.organizationArn : undefined;
-            resourceInputs["organizationalUnitArn"] = args ? args.organizationalUnitArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["group"] = args?.group;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["organizationArn"] = args?.organizationArn;
+            resourceInputs["organizationalUnitArn"] = args?.organizationalUnitArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AmiLaunchPermission.__pulumiType, name, resourceInputs, opts);

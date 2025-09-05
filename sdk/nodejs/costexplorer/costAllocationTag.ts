@@ -58,15 +58,15 @@ export class CostAllocationTag extends pulumi.CustomResource {
     /**
      * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * The key for the cost allocation tag.
      */
-    public readonly tagKey!: pulumi.Output<string>;
+    declare public readonly tagKey: pulumi.Output<string>;
     /**
      * The type of cost allocation tag.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CostAllocationTag resource with the given unique name, arguments, and options.
@@ -81,19 +81,19 @@ export class CostAllocationTag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CostAllocationTagState | undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tagKey"] = state ? state.tagKey : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tagKey"] = state?.tagKey;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as CostAllocationTagArgs | undefined;
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.tagKey === undefined) && !opts.urn) {
+            if (args?.tagKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagKey'");
             }
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tagKey"] = args ? args.tagKey : undefined;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tagKey"] = args?.tagKey;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

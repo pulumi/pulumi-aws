@@ -98,19 +98,19 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Whether to automatically enable Security Hub for new accounts in the organization.
      */
-    public readonly autoEnable!: pulumi.Output<boolean>;
+    declare public readonly autoEnable: pulumi.Output<boolean>;
     /**
      * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
      */
-    public readonly autoEnableStandards!: pulumi.Output<string>;
+    declare public readonly autoEnableStandards: pulumi.Output<string>;
     /**
      * Provides information about the way an organization is configured in Security Hub.
      */
-    public readonly organizationConfiguration!: pulumi.Output<outputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
+    declare public readonly organizationConfiguration: pulumi.Output<outputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -125,19 +125,19 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationConfigurationState | undefined;
-            resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
-            resourceInputs["autoEnableStandards"] = state ? state.autoEnableStandards : undefined;
-            resourceInputs["organizationConfiguration"] = state ? state.organizationConfiguration : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["autoEnable"] = state?.autoEnable;
+            resourceInputs["autoEnableStandards"] = state?.autoEnableStandards;
+            resourceInputs["organizationConfiguration"] = state?.organizationConfiguration;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
-            if ((!args || args.autoEnable === undefined) && !opts.urn) {
+            if (args?.autoEnable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoEnable'");
             }
-            resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
-            resourceInputs["autoEnableStandards"] = args ? args.autoEnableStandards : undefined;
-            resourceInputs["organizationConfiguration"] = args ? args.organizationConfiguration : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["autoEnable"] = args?.autoEnable;
+            resourceInputs["autoEnableStandards"] = args?.autoEnableStandards;
+            resourceInputs["organizationConfiguration"] = args?.organizationConfiguration;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);

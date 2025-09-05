@@ -108,19 +108,19 @@ export class IdentitySource extends pulumi.CustomResource {
     /**
      * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      */
-    public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration | undefined>;
     /**
      * Specifies the ID of the policy store in which you want to store this identity source.
      */
-    public readonly policyStoreId!: pulumi.Output<string>;
+    declare public readonly policyStoreId: pulumi.Output<string>;
     /**
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
-    public readonly principalEntityType!: pulumi.Output<string>;
+    declare public readonly principalEntityType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a IdentitySource resource with the given unique name, arguments, and options.
@@ -135,19 +135,19 @@ export class IdentitySource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentitySourceState | undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
-            resourceInputs["principalEntityType"] = state ? state.principalEntityType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["policyStoreId"] = state?.policyStoreId;
+            resourceInputs["principalEntityType"] = state?.principalEntityType;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as IdentitySourceArgs | undefined;
-            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+            if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
-            resourceInputs["principalEntityType"] = args ? args.principalEntityType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["policyStoreId"] = args?.policyStoreId;
+            resourceInputs["principalEntityType"] = args?.principalEntityType;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentitySource.__pulumiType, name, resourceInputs, opts);
