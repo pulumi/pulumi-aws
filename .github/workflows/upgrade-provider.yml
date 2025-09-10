@@ -44,7 +44,10 @@ jobs:
         with:
           submodules: true
           # Persist credentials so upgrade-provider can push a new branch.
-          persist-credentials: true
+          persist-credentials: true      
+      - id: esc-secrets
+        name: Map environment to ESC outputs
+        uses: ./.github/actions/esc-action
       - name: Setup tools
         uses: ./.github/actions/setup-tools
         with:
@@ -64,7 +67,7 @@ jobs:
         run: upgrade-provider "$REPO" --kind=check-upstream-version
         env:
           REPO: ${{ github.repository }}
-          GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_TOKEN || steps.esc-secrets.outputs.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
         shell: bash
       - name: Calculate target version
         id: target_version
@@ -85,7 +88,7 @@ jobs:
           target-version: ${{ steps.target_version.outputs.version }}
           allow-missing-docs: false
         env:
-          GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_TOKEN || steps.esc-secrets.outputs.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
       - name: Comment on upgrade issue if automated PR failed
         if: steps.upgrade_provider.outcome == 'failure'
         shell: bash
@@ -93,5 +96,5 @@ jobs:
           issue_number=$(gh issue list --search "pulumiupgradeproviderissue" --repo "${{ github.repository }}" --json=number --jq=".[0].number")
           gh issue comment "${issue_number}" --repo "${{ github.repository }}" --body "Failed to create automatic PR: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/"
         env:
-          GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_TOKEN || steps.esc-secrets.outputs.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
 
