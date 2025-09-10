@@ -32,7 +32,10 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # Persist credentials so upgrade-provider can push a new branch.
-          persist-credentials: true
+          persist-credentials: true      
+      - id: esc-secrets
+        name: Map environment to ESC outputs
+        uses: ./.github/actions/esc-action
 
       - name: Setup tools
         uses: ./.github/actions/setup-tools
@@ -57,6 +60,6 @@ jobs:
           REPO: ${{github.repository}}
           # upgrade-provider calls into gh CLI tool to open PRs that uses GH_TOKEN env var, which is not obivous.
           # setting this correctly makes sure the PR has the correct owner and permissions work as expected.
-          GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_TOKEN || steps.esc-secrets.outputs.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           upgrade-provider "$REPO" --kind=java --java-version="$V"
