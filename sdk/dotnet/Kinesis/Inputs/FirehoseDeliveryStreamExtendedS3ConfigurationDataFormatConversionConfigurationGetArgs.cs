@@ -19,19 +19,19 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `input_format_configuration` block below for details.
+        /// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
         /// </summary>
         [Input("inputFormatConfiguration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationGetArgs> InputFormatConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `output_format_configuration` block below for details.
+        /// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
         /// </summary>
         [Input("outputFormatConfiguration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationGetArgs> OutputFormatConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the AWS Glue Data Catalog table that contains the column information. See `schema_configuration` block below for details.
+        /// Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
         /// </summary>
         [Input("schemaConfiguration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationGetArgs> SchemaConfiguration { get; set; } = null!;

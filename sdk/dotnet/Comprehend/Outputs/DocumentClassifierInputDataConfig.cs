@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Comprehend.Outputs
     {
         /// <summary>
         /// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-        /// Used if `data_format` is `AUGMENTED_MANIFEST`.
-        /// See the `augmented_manifests` Configuration Block section below.
+        /// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
+        /// See the `augmentedManifests` Configuration Block section below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DocumentClassifierInputDataConfigAugmentedManifest> AugmentedManifests;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Comprehend.Outputs
         public readonly string? LabelDelimiter;
         /// <summary>
         /// Location of training documents.
-        /// Used if `data_format` is `COMPREHEND_CSV`.
+        /// Used if `dataFormat` is `COMPREHEND_CSV`.
         /// </summary>
         public readonly string? S3Uri;
         public readonly string? TestS3Uri;

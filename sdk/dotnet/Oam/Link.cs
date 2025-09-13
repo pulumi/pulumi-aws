@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Oam
     /// <summary>
     /// Resource for managing an AWS CloudWatch Observability Access Manager Link.
     /// 
-    /// &gt; **NOTE:** Creating an `aws.oam.Link` may sometimes fail if the `aws.oam.SinkPolicy` for the attached `aws.oam.Sink` is not created before the `aws.oam.Link`. To prevent this, declare an explicit dependency using a `depends_on` meta-argument.
+    /// &gt; **NOTE:** Creating an `aws.oam.Link` may sometimes fail if the `aws.oam.SinkPolicy` for the attached `aws.oam.Sink` is not created before the `aws.oam.Link`. To prevent this, declare an explicit dependency using a `dependsOn` meta-argument.
     /// 
     /// ## Example Usage
     /// 
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Oam
         public Output<string> LabelTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
         /// </summary>
         [Output("linkConfiguration")]
         public Output<Outputs.LinkLinkConfiguration?> LinkConfiguration { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Oam
         public Output<string> SinkIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Oam
         public Input<string> LabelTemplate { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
         /// </summary>
         [Input("linkConfiguration")]
         public Input<Inputs.LinkLinkConfigurationArgs>? LinkConfiguration { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Oam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.Oam
         public Input<string>? LabelTemplate { get; set; }
 
         /// <summary>
-        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
         /// </summary>
         [Input("linkConfiguration")]
         public Input<Inputs.LinkLinkConfigurationGetArgs>? LinkConfiguration { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Oam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

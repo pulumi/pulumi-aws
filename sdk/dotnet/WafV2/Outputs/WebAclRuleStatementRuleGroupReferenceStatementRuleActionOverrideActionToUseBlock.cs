@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock
     {
         /// <summary>
-        /// Defines a custom response for the web request. See `custom_response` below for details.
+        /// Defines a custom response for the web request. See `customResponse` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse? CustomResponse;
 

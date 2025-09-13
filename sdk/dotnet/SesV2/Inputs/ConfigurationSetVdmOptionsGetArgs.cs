@@ -13,13 +13,13 @@ namespace Pulumi.Aws.SesV2.Inputs
     public sealed class ConfigurationSetVdmOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
+        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
         /// </summary>
         [Input("dashboardOptions")]
         public Input<Inputs.ConfigurationSetVdmOptionsDashboardOptionsGetArgs>? DashboardOptions { get; set; }
 
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
+        /// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
         /// </summary>
         [Input("guardianOptions")]
         public Input<Inputs.ConfigurationSetVdmOptionsGuardianOptionsGetArgs>? GuardianOptions { get; set; }

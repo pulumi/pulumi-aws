@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to create a VPC NAT Gateway.
     /// 
-    /// !&gt; **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
+    /// !&gt; **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `secondaryAllocationIds` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
     /// 
     /// ## Example Usage
     /// 
@@ -123,13 +123,13 @@ namespace Pulumi.Aws.Ec2
     public partial class NatGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
         /// </summary>
         [Output("allocationId")]
         public Output<string?> AllocationId { get; private set; } = null!;
 
         /// <summary>
-        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
         /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
@@ -189,13 +189,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class NatGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -327,13 +327,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class NatGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
         /// <summary>
-        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
         /// </summary>
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }
@@ -408,7 +408,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

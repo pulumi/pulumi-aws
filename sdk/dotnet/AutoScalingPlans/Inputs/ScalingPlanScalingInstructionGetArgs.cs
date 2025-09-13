@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
     public sealed class ScalingPlanScalingInstructionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+        /// Customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
         /// </summary>
         [Input("customizedLoadMetricSpecification")]
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public Input<bool>? DisableDynamicScaling { get; set; }
 
         /// <summary>
-        /// Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+        /// Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
         /// </summary>
         [Input("maxCapacity", required: true)]
         public Input<int> MaxCapacity { get; set; } = null!;
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public Input<int> MinCapacity { get; set; } = null!;
 
         /// <summary>
-        /// Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+        /// Predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
         /// </summary>
         [Input("predefinedLoadMetricSpecification")]

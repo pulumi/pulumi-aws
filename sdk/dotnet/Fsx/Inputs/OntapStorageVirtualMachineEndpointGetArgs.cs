@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.OntapStorageVirtualMachineEndpointSmbGetArgs>? _smbs;
 
         /// <summary>
-        /// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        /// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
         /// </summary>
         public InputList<Inputs.OntapStorageVirtualMachineEndpointSmbGetArgs> Smbs
         {

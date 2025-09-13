@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Connect
     public partial class UserHierarchyStructure : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        /// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
         /// </summary>
         [Output("hierarchyStructure")]
         public Output<Outputs.UserHierarchyStructureHierarchyStructure> HierarchyStructure { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Connect
     public sealed class UserHierarchyStructureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        /// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
         /// </summary>
         [Input("hierarchyStructure", required: true)]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureArgs> HierarchyStructure { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Connect
     public sealed class UserHierarchyStructureState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        /// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
         /// </summary>
         [Input("hierarchyStructure")]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureGetArgs>? HierarchyStructure { get; set; }

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
+        /// Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `keyPrefixEquals` set to `docs/` and in the `redirect` set `replaceKeyPrefixWith` to `/documents`.
         /// </summary>
         [Input("replaceKeyPrefixWith")]
         public Input<string>? ReplaceKeyPrefixWith { get; set; }

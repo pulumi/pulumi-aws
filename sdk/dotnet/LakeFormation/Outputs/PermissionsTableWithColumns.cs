@@ -26,7 +26,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        /// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedColumnNames;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        /// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
         /// 
         /// The following arguments are optional:
         /// </summary>

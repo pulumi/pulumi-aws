@@ -88,19 +88,19 @@ namespace Pulumi.Aws.Signer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Revocation information for a signing profile. See `revocation_record` Block below for details.
+        /// Revocation information for a signing profile. See `revocationRecord` Block below for details.
         /// </summary>
         [Output("revocationRecords")]
         public Output<ImmutableArray<Outputs.SigningProfileRevocationRecord>> RevocationRecords { get; private set; } = null!;
 
         /// <summary>
-        /// The validity period for a signing job. See `signature_validity_period` Block below for details.
+        /// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
         /// </summary>
         [Output("signatureValidityPeriod")]
         public Output<Outputs.SigningProfileSignatureValidityPeriod> SignatureValidityPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+        /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
         /// </summary>
         [Output("signingMaterial")]
         public Output<Outputs.SigningProfileSigningMaterial> SigningMaterial { get; private set; } = null!;
@@ -112,13 +112,13 @@ namespace Pulumi.Aws.Signer
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -200,13 +200,13 @@ namespace Pulumi.Aws.Signer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The validity period for a signing job. See `signature_validity_period` Block below for details.
+        /// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
         /// </summary>
         [Input("signatureValidityPeriod")]
         public Input<Inputs.SigningProfileSignatureValidityPeriodArgs>? SignatureValidityPeriod { get; set; }
 
         /// <summary>
-        /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+        /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
         /// </summary>
         [Input("signingMaterial")]
         public Input<Inputs.SigningProfileSigningMaterialArgs>? SigningMaterial { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Signer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Signer
         private InputList<Inputs.SigningProfileRevocationRecordGetArgs>? _revocationRecords;
 
         /// <summary>
-        /// Revocation information for a signing profile. See `revocation_record` Block below for details.
+        /// Revocation information for a signing profile. See `revocationRecord` Block below for details.
         /// </summary>
         public InputList<Inputs.SigningProfileRevocationRecordGetArgs> RevocationRecords
         {
@@ -274,13 +274,13 @@ namespace Pulumi.Aws.Signer
         }
 
         /// <summary>
-        /// The validity period for a signing job. See `signature_validity_period` Block below for details.
+        /// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
         /// </summary>
         [Input("signatureValidityPeriod")]
         public Input<Inputs.SigningProfileSignatureValidityPeriodGetArgs>? SignatureValidityPeriod { get; set; }
 
         /// <summary>
-        /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+        /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
         /// </summary>
         [Input("signingMaterial")]
         public Input<Inputs.SigningProfileSigningMaterialGetArgs>? SigningMaterial { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Signer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Signer
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

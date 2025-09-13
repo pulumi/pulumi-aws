@@ -14,7 +14,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     public sealed class DomainVpcOptions
     {
         /// <summary>
-        /// If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+        /// If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>

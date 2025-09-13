@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         private List<string>? _columnNames;
 
         /// <summary>
-        /// Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
+        /// Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
         /// </summary>
         public List<string> ColumnNames
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         private List<string>? _excludedColumnNames;
 
         /// <summary>
-        /// Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+        /// Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
         /// </summary>
         public List<string> ExcludedColumnNames
         {

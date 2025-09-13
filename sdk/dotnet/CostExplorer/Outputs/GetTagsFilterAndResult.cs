@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     public sealed class GetTagsFilterAndResult
     {
         /// <summary>
-        /// Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
+        /// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
         /// </summary>
         public readonly Outputs.GetTagsFilterAndCostCategoryResult? CostCategory;
         /// <summary>

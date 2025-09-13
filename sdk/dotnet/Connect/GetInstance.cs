@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By instance_alias
+        /// By instanceAlias
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By instance_id
+        /// By instanceId
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By instance_alias
+        /// By instanceAlias
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By instance_id
+        /// By instanceId
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By instance_alias
+        /// By instanceAlias
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By instance_id
+        /// By instanceId
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific connect instance by alias
         /// 
-        /// &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+        /// &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
         /// </summary>
         [Input("instanceAlias")]
         public string? InstanceAlias { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific connect instance by alias
         /// 
-        /// &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+        /// &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
         /// </summary>
         [Input("instanceAlias")]
         public Input<string>? InstanceAlias { get; set; }

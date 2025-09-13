@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Glue
         public Output<int> LabelCount { get; private set; } = null!;
 
         /// <summary>
-        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
         /// </summary>
         [Output("maxCapacity")]
         public Output<double> MaxCapacity { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+        /// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
         /// </summary>
         [Output("numberOfWorkers")]
         public Output<int?> NumberOfWorkers { get; private set; } = null!;
@@ -242,13 +242,13 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<Outputs.MLTransformSchema>> Schemas { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Glue
         public Output<int?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
         /// </summary>
         [Output("workerType")]
         public Output<string?> WorkerType { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+        /// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
         /// </summary>
         [Input("numberOfWorkers")]
         public Input<int>? NumberOfWorkers { get; set; }
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
         /// </summary>
         [Input("workerType")]
         public Input<string>? WorkerType { get; set; }
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? LabelCount { get; set; }
 
         /// <summary>
-        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -464,7 +464,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+        /// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
         /// </summary>
         [Input("numberOfWorkers")]
         public Input<int>? NumberOfWorkers { get; set; }
@@ -503,7 +503,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -530,7 +530,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
         /// </summary>
         [Input("workerType")]
         public Input<string>? WorkerType { get; set; }

@@ -76,7 +76,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> StandardsArn { get; private set; } = null!;
 
         /// <summary>
-        /// The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
+        /// The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
         /// </summary>
         [Output("updatedReason")]
         public Output<string?> UpdatedReason { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string> StandardsArn { get; set; } = null!;
 
         /// <summary>
-        /// The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
+        /// The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
         /// </summary>
         [Input("updatedReason")]
         public Input<string>? UpdatedReason { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? StandardsArn { get; set; }
 
         /// <summary>
-        /// The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
+        /// The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
         /// </summary>
         [Input("updatedReason")]
         public Input<string>? UpdatedReason { get; set; }

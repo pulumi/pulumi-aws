@@ -14,7 +14,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     {
         /// <summary>
         /// Describes the rule action that returns a custom HTTP response.
-        /// See `fixed_response` Block for details.
+        /// See `fixedResponse` Block for details.
         /// </summary>
         [Input("fixedResponse")]
         public Input<Inputs.ListenerRuleActionFixedResponseGetArgs>? FixedResponse { get; set; }

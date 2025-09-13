@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
+        /// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
+        /// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

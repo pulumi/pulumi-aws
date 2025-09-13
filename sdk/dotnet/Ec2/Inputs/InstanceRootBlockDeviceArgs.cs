@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
+        /// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
+        /// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// <summary>
         /// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
         /// 
-        /// Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
+        /// Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

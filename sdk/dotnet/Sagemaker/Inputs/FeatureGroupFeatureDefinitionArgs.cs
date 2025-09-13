@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? CollectionType { get; set; }
 
         /// <summary>
-        /// The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
+        /// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
         /// </summary>
         [Input("featureName")]
         public Input<string>? FeatureName { get; set; }

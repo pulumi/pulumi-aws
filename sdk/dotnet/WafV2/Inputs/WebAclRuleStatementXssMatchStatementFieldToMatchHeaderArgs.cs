@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        /// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
         /// </summary>
         [Input("matchPattern", required: true)]
         public Input<Inputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs> MatchPattern { get; set; } = null!;

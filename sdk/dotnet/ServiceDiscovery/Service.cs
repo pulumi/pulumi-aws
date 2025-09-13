@@ -125,7 +125,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+        /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
         /// </summary>
         [Output("dnsConfig")]
         public Output<Outputs.ServiceDnsConfig?> DnsConfig { get; private set; } = null!;
@@ -137,13 +137,13 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+        /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
         /// </summary>
         [Output("healthCheckConfig")]
         public Output<Outputs.ServiceHealthCheckConfig?> HealthCheckConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        /// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
         /// </summary>
         [Output("healthCheckCustomConfig")]
         public Output<Outputs.ServiceHealthCheckCustomConfig?> HealthCheckCustomConfig { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+        /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.ServiceDnsConfigArgs>? DnsConfig { get; set; }
@@ -246,13 +246,13 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+        /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
         /// </summary>
         [Input("healthCheckConfig")]
         public Input<Inputs.ServiceHealthCheckConfigArgs>? HealthCheckConfig { get; set; }
 
         /// <summary>
-        /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        /// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
         /// </summary>
         [Input("healthCheckCustomConfig")]
         public Input<Inputs.ServiceHealthCheckCustomConfigArgs>? HealthCheckCustomConfig { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+        /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.ServiceDnsConfigGetArgs>? DnsConfig { get; set; }
@@ -326,13 +326,13 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+        /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
         /// </summary>
         [Input("healthCheckConfig")]
         public Input<Inputs.ServiceHealthCheckConfigGetArgs>? HealthCheckConfig { get; set; }
 
         /// <summary>
-        /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        /// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
         /// </summary>
         [Input("healthCheckCustomConfig")]
         public Input<Inputs.ServiceHealthCheckCustomConfigGetArgs>? HealthCheckCustomConfig { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

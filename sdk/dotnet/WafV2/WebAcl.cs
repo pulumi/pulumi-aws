@@ -12,9 +12,9 @@ namespace Pulumi.Aws.WafV2
     /// <summary>
     /// Creates a WAFv2 Web ACL resource.
     /// 
-    /// &gt; **Note** In `field_to_match` blocks, _e.g._, in `byte_match_statement`, the `body` block includes an optional argument `oversize_handling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversize_handling` argument as **required** as soon as possible.
+    /// &gt; **Note** In `fieldToMatch` blocks, _e.g._, in `byteMatchStatement`, the `body` block includes an optional argument `oversizeHandling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversizeHandling` argument as **required** as soon as possible.
     /// 
-    /// !&gt; **Warning:** If you use the `aws.wafv2.WebAclRuleGroupAssociation` resource to associate rule groups with this Web ACL, you must add `lifecycle { ignore_changes = [rule] }` to this resource to prevent configuration drift. The association resource modifies the Web ACL's rules outside of this resource's direct management.
+    /// !&gt; **Warning:** If you use the `aws.wafv2.WebAclRuleGroupAssociation` resource to associate rule groups with this Web ACL, you must add `lifecycle { ignoreChanges = [rule] }` to this resource to prevent configuration drift. The association resource modifies the Web ACL's rules outside of this resource's direct management.
     /// 
     /// ## Example Usage
     /// 
@@ -626,7 +626,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
         /// </summary>
         [Output("associationConfig")]
         public Output<Outputs.WebAclAssociationConfig?> AssociationConfig { get; private set; } = null!;
@@ -638,31 +638,31 @@ namespace Pulumi.Aws.WafV2
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
         /// </summary>
         [Output("captchaConfig")]
         public Output<Outputs.WebAclCaptchaConfig?> CaptchaConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
         /// </summary>
         [Output("challengeConfig")]
         public Output<Outputs.WebAclChallengeConfig?> ChallengeConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        /// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
         /// </summary>
         [Output("customResponseBodies")]
         public Output<ImmutableArray<Outputs.WebAclCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
         /// </summary>
         [Output("dataProtectionConfig")]
         public Output<Outputs.WebAclDataProtectionConfig?> DataProtectionConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
         /// </summary>
         [Output("defaultAction")]
         public Output<Outputs.WebAclDefaultAction> DefaultAction { get; private set; } = null!;
@@ -677,7 +677,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> LockToken { get; private set; } = null!;
 
         /// <summary>
-        /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -695,7 +695,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         /// </summary>
         [Output("ruleJson")]
         public Output<string?> RuleJson { get; private set; } = null!;
@@ -713,13 +713,13 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -731,7 +731,7 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableArray<string>> TokenDomains { get; private set; } = null!;
 
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
         /// </summary>
         [Output("visibilityConfig")]
         public Output<Outputs.WebAclVisibilityConfig> VisibilityConfig { get; private set; } = null!;
@@ -783,19 +783,19 @@ namespace Pulumi.Aws.WafV2
     public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
         /// </summary>
         [Input("associationConfig")]
         public Input<Inputs.WebAclAssociationConfigArgs>? AssociationConfig { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclCaptchaConfigArgs>? CaptchaConfig { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
         /// </summary>
         [Input("challengeConfig")]
         public Input<Inputs.WebAclChallengeConfigArgs>? ChallengeConfig { get; set; }
@@ -804,7 +804,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclCustomResponseBodyArgs>? _customResponseBodies;
 
         /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        /// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
         /// </summary>
         public InputList<Inputs.WebAclCustomResponseBodyArgs> CustomResponseBodies
         {
@@ -813,13 +813,13 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
         /// </summary>
         [Input("dataProtectionConfig")]
         public Input<Inputs.WebAclDataProtectionConfigArgs>? DataProtectionConfig { get; set; }
 
         /// <summary>
-        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<Inputs.WebAclDefaultActionArgs> DefaultAction { get; set; } = null!;
@@ -831,7 +831,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -849,7 +849,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         /// </summary>
         [Input("ruleJson")]
         public Input<string>? RuleJson { get; set; }
@@ -876,7 +876,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -897,7 +897,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
         /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.WebAclVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
@@ -923,7 +923,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
         /// </summary>
         [Input("associationConfig")]
         public Input<Inputs.WebAclAssociationConfigGetArgs>? AssociationConfig { get; set; }
@@ -935,13 +935,13 @@ namespace Pulumi.Aws.WafV2
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclCaptchaConfigGetArgs>? CaptchaConfig { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
         /// </summary>
         [Input("challengeConfig")]
         public Input<Inputs.WebAclChallengeConfigGetArgs>? ChallengeConfig { get; set; }
@@ -950,7 +950,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclCustomResponseBodyGetArgs>? _customResponseBodies;
 
         /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        /// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
         /// </summary>
         public InputList<Inputs.WebAclCustomResponseBodyGetArgs> CustomResponseBodies
         {
@@ -959,13 +959,13 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
         /// </summary>
         [Input("dataProtectionConfig")]
         public Input<Inputs.WebAclDataProtectionConfigGetArgs>? DataProtectionConfig { get; set; }
 
         /// <summary>
-        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
         /// </summary>
         [Input("defaultAction")]
         public Input<Inputs.WebAclDefaultActionGetArgs>? DefaultAction { get; set; }
@@ -980,7 +980,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? LockToken { get; set; }
 
         /// <summary>
-        /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -998,7 +998,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         /// </summary>
         [Input("ruleJson")]
         public Input<string>? RuleJson { get; set; }
@@ -1025,7 +1025,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1037,7 +1037,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1058,7 +1058,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
         /// </summary>
         [Input("visibilityConfig")]
         public Input<Inputs.WebAclVisibilityConfigGetArgs>? VisibilityConfig { get; set; }

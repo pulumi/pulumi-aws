@@ -126,13 +126,13 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchTemplateInstanceMarketOptions?> InstanceMarketOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
         /// </summary>
         [Output("instanceRequirements")]
         public Output<Outputs.LaunchTemplateInstanceRequirements?> InstanceRequirements { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the instance. If present then `instance_requirements` cannot be present.
+        /// The type of the instance. If present then `instanceRequirements` cannot be present.
         /// </summary>
         [Output("instanceType")]
         public Output<string?> InstanceType { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
-        /// `vpc_security_group_ids` instead.
+        /// `vpcSecurityGroupIds` instead.
         /// </summary>
         [Output("securityGroupNames")]
         public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
@@ -236,19 +236,19 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.LaunchTemplateTagSpecification>> TagSpecifications { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// Whether to update Default Version each update. Conflicts with `defaultVersion`.
         /// </summary>
         [Output("updateDefaultVersion")]
         public Output<bool?> UpdateDefaultVersion { get; private set; } = null!;
@@ -414,13 +414,13 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateInstanceMarketOptionsArgs>? InstanceMarketOptions { get; set; }
 
         /// <summary>
-        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
         /// </summary>
         [Input("instanceRequirements")]
         public Input<Inputs.LaunchTemplateInstanceRequirementsArgs>? InstanceRequirements { get; set; }
 
         /// <summary>
-        /// The type of the instance. If present then `instance_requirements` cannot be present.
+        /// The type of the instance. If present then `instanceRequirements` cannot be present.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
-        /// `vpc_security_group_ids` instead.
+        /// `vpcSecurityGroupIds` instead.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -545,7 +545,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// Whether to update Default Version each update. Conflicts with `defaultVersion`.
         /// </summary>
         [Input("updateDefaultVersion")]
         public Input<bool>? UpdateDefaultVersion { get; set; }
@@ -694,13 +694,13 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateInstanceMarketOptionsGetArgs>? InstanceMarketOptions { get; set; }
 
         /// <summary>
-        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
         /// </summary>
         [Input("instanceRequirements")]
         public Input<Inputs.LaunchTemplateInstanceRequirementsGetArgs>? InstanceRequirements { get; set; }
 
         /// <summary>
-        /// The type of the instance. If present then `instance_requirements` cannot be present.
+        /// The type of the instance. If present then `instanceRequirements` cannot be present.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -807,7 +807,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
-        /// `vpc_security_group_ids` instead.
+        /// `vpcSecurityGroupIds` instead.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -831,7 +831,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -843,7 +843,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -852,7 +852,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// Whether to update Default Version each update. Conflicts with `defaultVersion`.
         /// </summary>
         [Input("updateDefaultVersion")]
         public Input<bool>? UpdateDefaultVersion { get; set; }

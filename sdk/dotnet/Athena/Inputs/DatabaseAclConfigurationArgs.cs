@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Athena.Inputs
         /// <summary>
         /// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
         /// 
-        /// &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `force_destroy` on the bucket too in order to avoid any problems when destroying the bucket.
+        /// &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
         /// </summary>
         [Input("s3AclOption", required: true)]
         public Input<string> S3AclOption { get; set; } = null!;

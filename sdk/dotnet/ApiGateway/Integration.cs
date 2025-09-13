@@ -287,7 +287,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> CacheNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        /// ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
         /// </summary>
         [Output("connectionId")]
         public Output<string?> ConnectionId { get; private set; } = null!;
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> IntegrationHttpMethod { get; private set; } = null!;
 
         /// <summary>
-        /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
         /// </summary>
         [Output("passthroughBehavior")]
         public Output<string> PassthroughBehavior { get; private set; } = null!;
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Map of request query string parameters and headers that should be passed to the backend responder.
-        /// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        /// For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         /// </summary>
         [Output("requestParameters")]
         public Output<ImmutableDictionary<string, string>?> RequestParameters { get; private set; } = null!;
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<Outputs.IntegrationTlsConfig?> TlsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -455,7 +455,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CacheNamespace { get; set; }
 
         /// <summary>
-        /// ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        /// ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
         /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
@@ -496,7 +496,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? IntegrationHttpMethod { get; set; }
 
         /// <summary>
-        /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
         /// </summary>
         [Input("passthroughBehavior")]
         public Input<string>? PassthroughBehavior { get; set; }
@@ -512,7 +512,7 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Map of request query string parameters and headers that should be passed to the backend responder.
-        /// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        /// For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         /// </summary>
         public InputMap<string> RequestParameters
         {
@@ -557,7 +557,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<Inputs.IntegrationTlsConfigArgs>? TlsConfig { get; set; }
 
         /// <summary>
-        /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -597,7 +597,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CacheNamespace { get; set; }
 
         /// <summary>
-        /// ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        /// ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
         /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
@@ -638,7 +638,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? IntegrationHttpMethod { get; set; }
 
         /// <summary>
-        /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
         /// </summary>
         [Input("passthroughBehavior")]
         public Input<string>? PassthroughBehavior { get; set; }
@@ -654,7 +654,7 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Map of request query string parameters and headers that should be passed to the backend responder.
-        /// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        /// For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         /// </summary>
         public InputMap<string> RequestParameters
         {
@@ -699,7 +699,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<Inputs.IntegrationTlsConfigGetArgs>? TlsConfig { get; set; }
 
         /// <summary>
-        /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -69,6 +69,8 @@ import * as utilities from "../utilities";
  * }});
  * ```
  *
+ * ### Basic Usage - Logging to S3
+ *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:

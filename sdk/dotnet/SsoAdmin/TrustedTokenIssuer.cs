@@ -88,19 +88,19 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
         /// </summary>
         [Output("trustedTokenIssuerConfiguration")]
         public Output<Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration?> TrustedTokenIssuerConfiguration { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.SsoAdmin
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.SsoAdmin
         }
 
         /// <summary>
-        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
         /// </summary>
         [Input("trustedTokenIssuerConfiguration")]
         public Input<Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs>? TrustedTokenIssuerConfiguration { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.SsoAdmin
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.SsoAdmin
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.SsoAdmin
         }
 
         /// <summary>
-        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
         /// </summary>
         [Input("trustedTokenIssuerConfiguration")]
         public Input<Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationGetArgs>? TrustedTokenIssuerConfiguration { get; set; }

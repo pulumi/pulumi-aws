@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie? Cookie;
         /// <summary>
-        /// (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        /// (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp? ForwardedIp;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader? Header;
         /// <summary>
-        /// (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        /// (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod? HttpMethod;
         /// <summary>
@@ -43,19 +43,19 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint? Ja4Fingerprint;
         /// <summary>
-        /// (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        /// (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace? LabelNamespace;
         /// <summary>
-        /// (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        /// (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument? QueryArgument;
         /// <summary>
-        /// (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        /// (Optional) Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString? QueryString;
         /// <summary>
-        /// (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
+        /// (Optional) Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath? UriPath;
 

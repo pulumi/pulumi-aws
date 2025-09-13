@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? InitQuery { get; set; }
 
         /// <summary>
-        /// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+        /// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
         /// </summary>
         [Input("maxConnectionsPercent")]
         public Input<int>? MaxConnectionsPercent { get; set; }
 
         /// <summary>
-        /// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+        /// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
         /// </summary>
         [Input("maxIdleConnectionsPercent")]
         public Input<int>? MaxIdleConnectionsPercent { get; set; }

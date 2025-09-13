@@ -54,7 +54,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public partial class EventSourcesConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
         /// </summary>
         [Output("eventSources")]
         public Output<ImmutableArray<Outputs.EventSourcesConfigEventSource>> EventSources { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.DevOpsGuru
         private InputList<Inputs.EventSourcesConfigEventSourceArgs>? _eventSources;
 
         /// <summary>
-        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
         /// </summary>
         public InputList<Inputs.EventSourcesConfigEventSourceArgs> EventSources
         {
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.DevOpsGuru
         private InputList<Inputs.EventSourcesConfigEventSourceGetArgs>? _eventSources;
 
         /// <summary>
-        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
         /// </summary>
         public InputList<Inputs.EventSourcesConfigEventSourceGetArgs> EventSources
         {

@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<bool>? IncludeTableAlterOperations { get; set; }
 
         /// <summary>
-        /// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
+        /// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
         /// </summary>
         [Input("includeTransactionDetails")]
         public Input<bool>? IncludeTransactionDetails { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<int>? MessageMaxBytes { get; set; }
 
         /// <summary>
-        /// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+        /// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
         /// </summary>
         [Input("noHexPrefix")]
         public Input<bool>? NoHexPrefix { get; set; }
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? SaslUsername { get; set; }
 
         /// <summary>
-        /// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+        /// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
         /// </summary>
         [Input("securityProtocol")]
         public Input<string>? SecurityProtocol { get; set; }

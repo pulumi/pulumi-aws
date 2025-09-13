@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
     /// 
-    /// &gt; **NOTE:** We recommend using this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stage_name` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
+    /// &gt; **NOTE:** We recommend using this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stageName` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
     /// 
     /// ## Example Usage
     /// 

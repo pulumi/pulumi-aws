@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Neptune
     public sealed class GetEngineVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+        /// Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `defaultOnly` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
         /// </summary>
         [Input("defaultOnly")]
         public bool? DefaultOnly { get; set; }
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Neptune
         public bool? HasMinorTarget { get; set; }
 
         /// <summary>
-        /// Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+        /// Whether to return only the latest engine version that matches all other criteria. This differs from `defaultOnly`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `defaultOnly` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
         /// </summary>
         [Input("latest")]
         public bool? Latest { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Neptune
         private List<string>? _preferredVersions;
 
         /// <summary>
-        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         public List<string> PreferredVersions
         {
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Neptune
         public string? Region { get; set; }
 
         /// <summary>
-        /// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Neptune
     public sealed class GetEngineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+        /// Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `defaultOnly` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
         /// </summary>
         [Input("defaultOnly")]
         public Input<bool>? DefaultOnly { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? HasMinorTarget { get; set; }
 
         /// <summary>
-        /// Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+        /// Whether to return only the latest engine version that matches all other criteria. This differs from `defaultOnly`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `defaultOnly` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
         /// </summary>
         [Input("latest")]
         public Input<bool>? Latest { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _preferredVersions;
 
         /// <summary>
-        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         public InputList<string> PreferredVersions
         {
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         public readonly bool SupportsGlobalDatabases;
         /// <summary>
-        /// Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+        /// Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
         /// </summary>
         public readonly bool SupportsLogExportsToCloudwatch;
         /// <summary>

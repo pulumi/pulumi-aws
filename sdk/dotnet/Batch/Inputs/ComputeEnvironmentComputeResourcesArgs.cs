@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string>? Ec2KeyPair { get; set; }
 
         /// <summary>
-        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
+        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }

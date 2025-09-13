@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly string? InvocationLabel;
         /// <summary>
-        /// Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+        /// Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification PostCodeHookSpecification;
 

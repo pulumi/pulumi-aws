@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> EmbeddingModelArn { get; set; } = null!;
 
         /// <summary>
-        /// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
+        /// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
         /// </summary>
         [Input("embeddingModelConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs>? EmbeddingModelConfiguration { get; set; }
 
         /// <summary>
-        /// supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
+        /// supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
         /// </summary>
         [Input("supplementalDataStorageConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs>? SupplementalDataStorageConfiguration { get; set; }

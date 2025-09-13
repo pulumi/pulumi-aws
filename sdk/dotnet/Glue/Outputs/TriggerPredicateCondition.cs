@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class TriggerPredicateCondition
     {
         /// <summary>
-        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
+        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
         /// </summary>
         public readonly string? CrawlState;
         /// <summary>
-        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        /// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
         /// </summary>
         public readonly string? CrawlerName;
         /// <summary>
-        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
         /// </summary>
         public readonly string? JobName;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? LogicalOperator;
         /// <summary>
-        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
         /// </summary>
         public readonly string? State;
 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly string? AllowedIpRange;
         /// <summary>
-        /// The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
+        /// The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
         /// </summary>
         public readonly string? SecretToken;
 

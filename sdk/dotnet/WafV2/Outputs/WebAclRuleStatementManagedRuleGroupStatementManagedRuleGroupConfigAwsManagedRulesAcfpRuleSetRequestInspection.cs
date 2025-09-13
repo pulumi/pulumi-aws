@@ -14,15 +14,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection
     {
         /// <summary>
-        /// The names of the fields in the request payload that contain your customer's primary physical address. See `address_fields` for more details.
+        /// The names of the fields in the request payload that contain your customer's primary physical address. See `addressFields` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields? AddressFields;
         /// <summary>
-        /// The name of the field in the request payload that contains your customer's email. See `email_field` for more details.
+        /// The name of the field in the request payload that contains your customer's email. See `emailField` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField? EmailField;
         /// <summary>
-        /// Details about your login page password field. See `password_field` for more details.
+        /// Details about your login page password field. See `passwordField` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField? PasswordField;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string PayloadType;
         /// <summary>
-        /// The names of the fields in the request payload that contain your customer's primary phone number. See `phone_number_fields` for more details.
+        /// The names of the fields in the request payload that contain your customer's primary phone number. See `phoneNumberFields` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields? PhoneNumberFields;
         /// <summary>
-        /// Details about your login page username field. See `username_field` for more details.
+        /// Details about your login page username field. See `usernameField` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField? UsernameField;
 

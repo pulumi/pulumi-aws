@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecification
     {
         /// <summary>
-        /// Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+        /// Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification? CustomizedCapacityMetricSpecification;
         /// <summary>

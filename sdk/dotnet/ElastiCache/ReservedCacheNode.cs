@@ -12,9 +12,11 @@ namespace Pulumi.Aws.ElastiCache
     /// <summary>
     /// Manages an ElastiCache Reserved Cache Node.
     /// 
-    /// &gt; **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [ElastiCache Reserved Nodes Documentation](https://aws.amazon.com/elasticache/reserved-cache-nodes/) and [PurchaseReservedCacheNodesOffering](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html).
+    /// &gt; **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offeringId` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [ElastiCache Reserved Nodes Documentation](https://aws.amazon.com/elasticache/reserved-cache-nodes/) and [PurchaseReservedCacheNodesOffering](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html).
     /// 
     /// &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
+    /// 
+    /// ## Example Usage
     /// 
     /// ## Import
     /// 
@@ -84,7 +86,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// ID of the reserved cache node offering to purchase.
-        /// To determine an `reserved_cache_nodes_offering_id`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
+        /// To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -104,13 +106,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -185,7 +187,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// ID of the reserved cache node offering to purchase.
-        /// To determine an `reserved_cache_nodes_offering_id`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
+        /// To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -196,7 +198,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -278,7 +280,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// ID of the reserved cache node offering to purchase.
-        /// To determine an `reserved_cache_nodes_offering_id`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
+        /// To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -301,7 +303,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -313,7 +315,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

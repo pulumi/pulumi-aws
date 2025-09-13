@@ -13,7 +13,7 @@ namespace Pulumi.Aws.OpenSearchIngest.Inputs
     public sealed class PipelineLogPublishingOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
+        /// The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
         /// </summary>
         [Input("cloudwatchLogDestination")]
         public Input<Inputs.PipelineLogPublishingOptionsCloudwatchLogDestinationArgs>? CloudwatchLogDestination { get; set; }

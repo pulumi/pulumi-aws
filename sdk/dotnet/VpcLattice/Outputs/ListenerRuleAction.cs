@@ -15,7 +15,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     {
         /// <summary>
         /// Describes the rule action that returns a custom HTTP response.
-        /// See `fixed_response` Block for details.
+        /// See `fixedResponse` Block for details.
         /// </summary>
         public readonly Outputs.ListenerRuleActionFixedResponse? FixedResponse;
         /// <summary>

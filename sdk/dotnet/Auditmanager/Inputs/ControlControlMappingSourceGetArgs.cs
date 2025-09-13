@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         public Input<string>? SourceId { get; set; }
 
         /// <summary>
-        /// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+        /// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
         /// </summary>
         [Input("sourceKeyword")]
         public Input<Inputs.ControlControlMappingSourceSourceKeywordGetArgs>? SourceKeyword { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         public Input<string> SourceSetUpOption { get; set; } = null!;
 
         /// <summary>
-        /// Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
+        /// Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
         /// 
         /// The following arguments are optional:
         /// </summary>

@@ -269,6 +269,8 @@ class ClusterSnapshot(pulumi.CustomResource):
         """
         Creates a Redshift cluster snapshot
 
+        ## Example Usage
+
         ## Import
 
         Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
@@ -293,6 +295,8 @@ class ClusterSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a Redshift cluster snapshot
+
+        ## Example Usage
 
         ## Import
 

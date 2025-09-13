@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationGetArgs>? _levelConfigurations;
 
         /// <summary>
-        /// Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+        /// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
         /// </summary>
         public InputList<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationGetArgs> LevelConfigurations
         {

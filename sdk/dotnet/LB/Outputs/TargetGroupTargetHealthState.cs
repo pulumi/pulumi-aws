@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly bool EnableUnhealthyConnectionTermination;
         /// <summary>
-        /// Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+        /// Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
         /// </summary>
         public readonly int? UnhealthyDrainingInterval;
 

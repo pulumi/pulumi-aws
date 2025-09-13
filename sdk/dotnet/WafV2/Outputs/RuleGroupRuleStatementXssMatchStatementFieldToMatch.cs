@@ -34,11 +34,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader> Headers;
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        /// Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint;
         /// <summary>
-        /// Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
+        /// Inspect the JA4 fingerprint. See `ja4Fingerprint` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint;
         /// <summary>

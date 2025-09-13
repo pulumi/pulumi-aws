@@ -103,7 +103,7 @@ namespace Pulumi.Aws.MediaConvert
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.MediaConvert
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.MediaConvert
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

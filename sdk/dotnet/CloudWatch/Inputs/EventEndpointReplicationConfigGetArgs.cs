@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class EventEndpointReplicationConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
+        /// The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don't have a `roleArn` or you don't want event replication enabled, set `state` to `DISABLED`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

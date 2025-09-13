@@ -16,18 +16,18 @@ namespace Pulumi.Aws.ElastiCache
     /// [single-node Redis instance (Cluster Mode Disabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html),
     /// see the `aws.elasticache.Cluster` resource.
     /// 
-    /// &gt; **Note:** When you change an attribute, such as `engine_version`, by
+    /// &gt; **Note:** When you change an attribute, such as `engineVersion`, by
     /// default the ElastiCache API applies it in the next maintenance window. Because
     /// of this, this provider may report a difference in its planning phase because the
     /// actual modification has not yet taken place. You can use the
-    /// `apply_immediately` flag to instruct the service to apply the change
-    /// immediately. Using `apply_immediately` can result in a brief downtime as
+    /// `applyImmediately` flag to instruct the service to apply the change
+    /// immediately. Using `applyImmediately` can result in a brief downtime as
     /// servers reboots.
     /// See the AWS Documentation on
     /// [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
     /// for more information.
     /// 
-    /// &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
+    /// &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
     /// 
     /// &gt; **Note:** Be aware of the terminology collision around "cluster" for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
     /// 
@@ -66,8 +66,8 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// You have two options for adjusting the number of replicas:
     /// 
-    /// * Adjusting `num_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
-    /// * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
+    /// * Adjusting `numCacheClusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
+    /// * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replicationGroupId` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `numberCacheCluster` attribute.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// 
-    /// &gt; **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
+    /// &gt; **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
     /// 
     /// &gt; **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
     /// and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// 
-    /// &gt; When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
+    /// &gt; When adding a new `authToken` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
     /// 
     /// ## Import
     /// 
@@ -286,13 +286,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> AtRestEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        /// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
         /// </summary>
         [Output("authToken")]
         public Output<string?> AuthToken { get; private set; } = null!;
 
         /// <summary>
-        /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
+        /// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
         /// </summary>
         [Output("authTokenUpdateStrategy")]
         public Output<string?> AuthTokenUpdateStrategy { get; private set; } = null!;
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> AutoMinorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         /// </summary>
         [Output("automaticFailoverEnabled")]
         public Output<bool?> AutomaticFailoverEnabled { get; private set; } = null!;
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.ElastiCache
         /// If the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
         /// </summary>
         [Output("globalReplicationGroupId")]
         public Output<string> GlobalReplicationGroupId { get; private set; } = null!;
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> IpDiscovery { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+        /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
@@ -410,14 +410,14 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Specifies whether to enable Multi-AZ Support for the replication group.
-        /// If `true`, `automatic_failover_enabled` must also be enabled.
+        /// If `true`, `automaticFailoverEnabled` must also be enabled.
         /// Defaults to `false`.
         /// </summary>
         [Output("multiAzEnabled")]
         public Output<bool?> MultiAzEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        /// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
         /// </summary>
         [Output("networkType")]
         public Output<string> NetworkType { get; private set; } = null!;
@@ -425,8 +425,8 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Instance class to be used.
         /// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-        /// Required unless `global_replication_group_id` is set.
-        /// Cannot be set if `global_replication_group_id` is set.
+        /// Required unless `globalReplicationGroupId` is set.
+        /// Cannot be set if `globalReplicationGroupId` is set.
         /// </summary>
         [Output("nodeType")]
         public Output<string> NodeType { get; private set; } = null!;
@@ -439,9 +439,9 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Number of cache clusters (primary and replicas) this replication group will have.
-        /// If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+        /// If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
         /// Updates will occur before other modifications.
-        /// Conflicts with `num_node_groups` and `replicas_per_node_group`.
+        /// Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
         /// Defaults to `1`.
         /// </summary>
         [Output("numCacheClusters")]
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Number of node groups (shards) for this Redis replication group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
-        /// Conflicts with `num_cache_clusters`.
+        /// Conflicts with `numCacheClusters`.
         /// </summary>
         [Output("numNodeGroups")]
         public Output<int> NumNodeGroups { get; private set; } = null!;
@@ -495,8 +495,8 @@ namespace Pulumi.Aws.ElastiCache
         /// Number of replica nodes in each node group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Valid values are 0 to 5.
-        /// Conflicts with `num_cache_clusters`.
-        /// Can only be set if `num_node_groups` is set.
+        /// Conflicts with `numCacheClusters`.
+        /// Can only be set if `numNodeGroups` is set.
         /// </summary>
         [Output("replicasPerNodeGroup")]
         public Output<int> ReplicasPerNodeGroup { get; private set; } = null!;
@@ -528,13 +528,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<string>> SnapshotArns { get; private set; } = null!;
 
         /// <summary>
-        /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+        /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
         /// </summary>
         [Output("snapshotName")]
         public Output<string?> SnapshotName { get; private set; } = null!;
 
         /// <summary>
-        /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
         /// </summary>
         [Output("snapshotRetentionLimit")]
         public Output<int?> SnapshotRetentionLimit { get; private set; } = null!;
@@ -552,20 +552,20 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> SubnetGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// Whether to enable encryption in transit.
-        /// Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+        /// Changing this argument with an `engineVersion` &lt; `7.0.5` will force a replacement.
         /// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         /// </summary>
         [Output("transitEncryptionEnabled")]
@@ -654,7 +654,7 @@ namespace Pulumi.Aws.ElastiCache
         private Input<string>? _authToken;
 
         /// <summary>
-        /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        /// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
         /// </summary>
         public Input<string>? AuthToken
         {
@@ -667,7 +667,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
+        /// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }
@@ -681,7 +681,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         /// </summary>
         [Input("automaticFailoverEnabled")]
         public Input<bool>? AutomaticFailoverEnabled { get; set; }
@@ -718,7 +718,7 @@ namespace Pulumi.Aws.ElastiCache
         /// If the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -730,7 +730,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
         /// </summary>
         [Input("globalReplicationGroupId")]
         public Input<string>? GlobalReplicationGroupId { get; set; }
@@ -742,7 +742,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? IpDiscovery { get; set; }
 
         /// <summary>
-        /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+        /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -767,14 +767,14 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Specifies whether to enable Multi-AZ Support for the replication group.
-        /// If `true`, `automatic_failover_enabled` must also be enabled.
+        /// If `true`, `automaticFailoverEnabled` must also be enabled.
         /// Defaults to `false`.
         /// </summary>
         [Input("multiAzEnabled")]
         public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
-        /// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        /// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
         /// </summary>
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
@@ -782,8 +782,8 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Instance class to be used.
         /// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-        /// Required unless `global_replication_group_id` is set.
-        /// Cannot be set if `global_replication_group_id` is set.
+        /// Required unless `globalReplicationGroupId` is set.
+        /// Cannot be set if `globalReplicationGroupId` is set.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
@@ -796,9 +796,9 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Number of cache clusters (primary and replicas) this replication group will have.
-        /// If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+        /// If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
         /// Updates will occur before other modifications.
-        /// Conflicts with `num_node_groups` and `replicas_per_node_group`.
+        /// Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
         /// Defaults to `1`.
         /// </summary>
         [Input("numCacheClusters")]
@@ -807,7 +807,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Number of node groups (shards) for this Redis replication group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
-        /// Conflicts with `num_cache_clusters`.
+        /// Conflicts with `numCacheClusters`.
         /// </summary>
         [Input("numNodeGroups")]
         public Input<int>? NumNodeGroups { get; set; }
@@ -846,8 +846,8 @@ namespace Pulumi.Aws.ElastiCache
         /// Number of replica nodes in each node group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Valid values are 0 to 5.
-        /// Conflicts with `num_cache_clusters`.
-        /// Can only be set if `num_node_groups` is set.
+        /// Conflicts with `numCacheClusters`.
+        /// Can only be set if `numNodeGroups` is set.
         /// </summary>
         [Input("replicasPerNodeGroup")]
         public Input<int>? ReplicasPerNodeGroup { get; set; }
@@ -897,13 +897,13 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+        /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
-        /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }
@@ -924,7 +924,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -934,7 +934,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption in transit.
-        /// Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+        /// Changing this argument with an `engineVersion` &lt; `7.0.5` will force a replacement.
         /// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         /// </summary>
         [Input("transitEncryptionEnabled")]
@@ -993,7 +993,7 @@ namespace Pulumi.Aws.ElastiCache
         private Input<string>? _authToken;
 
         /// <summary>
-        /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        /// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
         /// </summary>
         public Input<string>? AuthToken
         {
@@ -1006,7 +1006,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
+        /// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }
@@ -1020,7 +1020,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         /// </summary>
         [Input("automaticFailoverEnabled")]
         public Input<bool>? AutomaticFailoverEnabled { get; set; }
@@ -1069,7 +1069,7 @@ namespace Pulumi.Aws.ElastiCache
         /// If the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -1087,7 +1087,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
         /// </summary>
         [Input("globalReplicationGroupId")]
         public Input<string>? GlobalReplicationGroupId { get; set; }
@@ -1099,7 +1099,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? IpDiscovery { get; set; }
 
         /// <summary>
-        /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+        /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -1136,14 +1136,14 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Specifies whether to enable Multi-AZ Support for the replication group.
-        /// If `true`, `automatic_failover_enabled` must also be enabled.
+        /// If `true`, `automaticFailoverEnabled` must also be enabled.
         /// Defaults to `false`.
         /// </summary>
         [Input("multiAzEnabled")]
         public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
-        /// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        /// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
         /// </summary>
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
@@ -1151,8 +1151,8 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Instance class to be used.
         /// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-        /// Required unless `global_replication_group_id` is set.
-        /// Cannot be set if `global_replication_group_id` is set.
+        /// Required unless `globalReplicationGroupId` is set.
+        /// Cannot be set if `globalReplicationGroupId` is set.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
@@ -1165,9 +1165,9 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Number of cache clusters (primary and replicas) this replication group will have.
-        /// If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+        /// If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
         /// Updates will occur before other modifications.
-        /// Conflicts with `num_node_groups` and `replicas_per_node_group`.
+        /// Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
         /// Defaults to `1`.
         /// </summary>
         [Input("numCacheClusters")]
@@ -1176,7 +1176,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Number of node groups (shards) for this Redis replication group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
-        /// Conflicts with `num_cache_clusters`.
+        /// Conflicts with `numCacheClusters`.
         /// </summary>
         [Input("numNodeGroups")]
         public Input<int>? NumNodeGroups { get; set; }
@@ -1227,8 +1227,8 @@ namespace Pulumi.Aws.ElastiCache
         /// Number of replica nodes in each node group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Valid values are 0 to 5.
-        /// Conflicts with `num_cache_clusters`.
-        /// Can only be set if `num_node_groups` is set.
+        /// Conflicts with `numCacheClusters`.
+        /// Can only be set if `numNodeGroups` is set.
         /// </summary>
         [Input("replicasPerNodeGroup")]
         public Input<int>? ReplicasPerNodeGroup { get; set; }
@@ -1278,13 +1278,13 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+        /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
-        /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }
@@ -1305,7 +1305,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1317,7 +1317,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1327,7 +1327,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption in transit.
-        /// Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+        /// Changing this argument with an `engineVersion` &lt; `7.0.5` will force a replacement.
         /// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         /// </summary>
         [Input("transitEncryptionEnabled")]

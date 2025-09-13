@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> HomeEfsFileSystemUid { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
+        /// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
         /// </summary>
         [Output("ownershipSettings")]
         public Output<Outputs.SpaceOwnershipSettings?> OwnershipSettings { get; private set; } = null!;
@@ -87,25 +87,25 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> SpaceName { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of space settings. See `space_settings` Block below.
+        /// A collection of space settings. See `spaceSettings` Block below.
         /// </summary>
         [Output("spaceSettings")]
         public Output<Outputs.SpaceSpaceSettings?> SpaceSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
+        /// A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
         /// </summary>
         [Output("spaceSharingSettings")]
         public Output<Outputs.SpaceSpaceSharingSettings?> SpaceSharingSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
-        /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
+        /// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
         /// </summary>
         [Input("ownershipSettings")]
         public Input<Inputs.SpaceOwnershipSettingsArgs>? OwnershipSettings { get; set; }
@@ -193,13 +193,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> SpaceName { get; set; } = null!;
 
         /// <summary>
-        /// A collection of space settings. See `space_settings` Block below.
+        /// A collection of space settings. See `spaceSettings` Block below.
         /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsArgs>? SpaceSettings { get; set; }
 
         /// <summary>
-        /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
+        /// A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
         /// </summary>
         [Input("spaceSharingSettings")]
         public Input<Inputs.SpaceSpaceSharingSettingsArgs>? SpaceSharingSettings { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? HomeEfsFileSystemUid { get; set; }
 
         /// <summary>
-        /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
+        /// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
         /// </summary>
         [Input("ownershipSettings")]
         public Input<Inputs.SpaceOwnershipSettingsGetArgs>? OwnershipSettings { get; set; }
@@ -267,13 +267,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? SpaceName { get; set; }
 
         /// <summary>
-        /// A collection of space settings. See `space_settings` Block below.
+        /// A collection of space settings. See `spaceSettings` Block below.
         /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsGetArgs>? SpaceSettings { get; set; }
 
         /// <summary>
-        /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
+        /// A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
         /// </summary>
         [Input("spaceSharingSettings")]
         public Input<Inputs.SpaceSpaceSharingSettingsGetArgs>? SpaceSharingSettings { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

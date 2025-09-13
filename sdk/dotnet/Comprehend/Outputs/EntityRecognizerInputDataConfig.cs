@@ -16,13 +16,13 @@ namespace Pulumi.Aws.Comprehend.Outputs
         /// <summary>
         /// Specifies location of the document annotation data.
         /// See the `annotations` Configuration Block section below.
-        /// One of `annotations` or `entity_list` is required.
+        /// One of `annotations` or `entityList` is required.
         /// </summary>
         public readonly Outputs.EntityRecognizerInputDataConfigAnnotations? Annotations;
         /// <summary>
         /// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-        /// Used if `data_format` is `AUGMENTED_MANIFEST`.
-        /// See the `augmented_manifests` Configuration Block section below.
+        /// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
+        /// See the `augmentedManifests` Configuration Block section below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EntityRecognizerInputDataConfigAugmentedManifest> AugmentedManifests;
         /// <summary>
@@ -32,20 +32,20 @@ namespace Pulumi.Aws.Comprehend.Outputs
         public readonly string? DataFormat;
         /// <summary>
         /// Specifies a collection of training documents.
-        /// Used if `data_format` is `COMPREHEND_CSV`.
+        /// Used if `dataFormat` is `COMPREHEND_CSV`.
         /// See the `documents` Configuration Block section below.
         /// </summary>
         public readonly Outputs.EntityRecognizerInputDataConfigDocuments? Documents;
         /// <summary>
         /// Specifies location of the entity list data.
-        /// See the `entity_list` Configuration Block section below.
-        /// One of `entity_list` or `annotations` is required.
+        /// See the `entityList` Configuration Block section below.
+        /// One of `entityList` or `annotations` is required.
         /// </summary>
         public readonly Outputs.EntityRecognizerInputDataConfigEntityList? EntityList;
         /// <summary>
         /// Set of entity types to be recognized.
         /// Has a maximum of 25 items.
-        /// See the `entity_types` Configuration Block section below.
+        /// See the `entityTypes` Configuration Block section below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EntityRecognizerInputDataConfigEntityType> EntityTypes;
 

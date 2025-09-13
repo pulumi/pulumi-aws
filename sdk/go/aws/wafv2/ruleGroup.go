@@ -71,6 +71,10 @@ import (
 //
 // ```
 //
+// ### Complex
+//
+// ### Using ruleJson
+//
 // ## Import
 //
 // Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:

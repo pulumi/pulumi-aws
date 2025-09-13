@@ -116,13 +116,13 @@ namespace Pulumi.Aws.OpenSearchIngest
     public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+        /// Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
         /// </summary>
         [Output("bufferOptions")]
         public Output<Outputs.PipelineBufferOptions?> BufferOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
         /// </summary>
         [Output("encryptionAtRestOptions")]
         public Output<Outputs.PipelineEncryptionAtRestOptions?> EncryptionAtRestOptions { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Output<ImmutableArray<string>> IngestEndpointUrls { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs to configure log publishing. See `log_publishing_options` below.
+        /// Key-value pairs to configure log publishing. See `logPublishingOptions` below.
         /// </summary>
         [Output("logPublishingOptions")]
         public Output<Outputs.PipelineLogPublishingOptions?> LogPublishingOptions { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Output<Outputs.PipelineTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
         /// </summary>
         [Output("vpcOptions")]
         public Output<Outputs.PipelineVpcOptions?> VpcOptions { get; private set; } = null!;
@@ -242,19 +242,19 @@ namespace Pulumi.Aws.OpenSearchIngest
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+        /// Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
         /// </summary>
         [Input("bufferOptions")]
         public Input<Inputs.PipelineBufferOptionsArgs>? BufferOptions { get; set; }
 
         /// <summary>
-        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
         /// </summary>
         [Input("encryptionAtRestOptions")]
         public Input<Inputs.PipelineEncryptionAtRestOptionsArgs>? EncryptionAtRestOptions { get; set; }
 
         /// <summary>
-        /// Key-value pairs to configure log publishing. See `log_publishing_options` below.
+        /// Key-value pairs to configure log publishing. See `logPublishingOptions` below.
         /// </summary>
         [Input("logPublishingOptions")]
         public Input<Inputs.PipelineLogPublishingOptionsArgs>? LogPublishingOptions { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Input<Inputs.PipelineTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
         /// </summary>
         [Input("vpcOptions")]
         public Input<Inputs.PipelineVpcOptionsArgs>? VpcOptions { get; set; }
@@ -321,13 +321,13 @@ namespace Pulumi.Aws.OpenSearchIngest
     public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+        /// Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
         /// </summary>
         [Input("bufferOptions")]
         public Input<Inputs.PipelineBufferOptionsGetArgs>? BufferOptions { get; set; }
 
         /// <summary>
-        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
         /// </summary>
         [Input("encryptionAtRestOptions")]
         public Input<Inputs.PipelineEncryptionAtRestOptionsGetArgs>? EncryptionAtRestOptions { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         }
 
         /// <summary>
-        /// Key-value pairs to configure log publishing. See `log_publishing_options` below.
+        /// Key-value pairs to configure log publishing. See `logPublishingOptions` below.
         /// </summary>
         [Input("logPublishingOptions")]
         public Input<Inputs.PipelineLogPublishingOptionsGetArgs>? LogPublishingOptions { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Input<Inputs.PipelineTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
         /// </summary>
         [Input("vpcOptions")]
         public Input<Inputs.PipelineVpcOptionsGetArgs>? VpcOptions { get; set; }

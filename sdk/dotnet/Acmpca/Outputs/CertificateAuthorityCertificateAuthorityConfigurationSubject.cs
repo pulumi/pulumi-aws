@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly string? GivenName;
         /// <summary>
-        /// Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
+        /// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
         /// </summary>
         public readonly string? Initials;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly string? OrganizationalUnit;
         /// <summary>
-        /// Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
+        /// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
         /// </summary>
         public readonly string? Pseudonym;
         /// <summary>

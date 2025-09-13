@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     public sealed class DomainRuleBasedMatchingMatchingRule
     {
         /// <summary>
-        /// A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
+        /// A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
         /// </summary>
         public readonly ImmutableArray<string> Rules;
 

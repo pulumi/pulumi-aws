@@ -21,7 +21,7 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
         /// <summary>
         /// Configures the S3 destination of the exported revision.
-        /// Described in `revision_destination` Configuration Block below.
+        /// Described in `revisionDestination` Configuration Block below.
         /// </summary>
         [Input("revisionDestination")]
         public Input<Inputs.EventActionActionExportRevisionToS3RevisionDestinationGetArgs>? RevisionDestination { get; set; }

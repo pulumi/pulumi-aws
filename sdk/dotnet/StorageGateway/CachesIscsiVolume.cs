@@ -18,7 +18,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Example Usage
     /// 
-    /// &gt; **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = [aws_storagegateway_cache.example]`) to ensure proper ordering.
+    /// &gt; **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `gatewayArn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `dependsOn = [aws_storagegateway_cache.example]`) to ensure proper ordering.
     /// 
     /// ### Create Empty Cached iSCSI Volume
     /// 
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<bool?> KmsEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
         /// </summary>
         [Output("kmsKey")]
         public Output<string?> KmsKey { get; private set; } = null!;
@@ -157,19 +157,19 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> SnapshotId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+        /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         /// </summary>
         [Output("sourceVolumeArn")]
         public Output<string?> SourceVolumeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
-        /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+        /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         /// </summary>
         [Input("sourceVolumeArn")]
         public Input<string>? SourceVolumeArn { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
-        /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+        /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         /// </summary>
         [Input("sourceVolumeArn")]
         public Input<string>? SourceVolumeArn { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

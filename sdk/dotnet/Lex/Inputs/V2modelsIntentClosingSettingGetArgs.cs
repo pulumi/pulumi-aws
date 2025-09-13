@@ -19,19 +19,19 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closing_response`.
+        /// Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closingResponse`.
         /// </summary>
         [Input("closingResponse")]
         public Input<Inputs.V2modelsIntentClosingSettingClosingResponseGetArgs>? ClosingResponse { get; set; }
 
         /// <summary>
-        /// Configuration block for list of conditional branches associated with the intent's closing response. These branches are executed when the `next_step` attribute is set to `EvalutateConditional`. See `conditional`.
+        /// Configuration block for list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional`. See `conditional`.
         /// </summary>
         [Input("conditional")]
         public Input<Inputs.V2modelsIntentClosingSettingConditionalGetArgs>? Conditional { get; set; }
 
         /// <summary>
-        /// Next step that the bot executes after playing the intent's closing response. See `next_step`.
+        /// Next step that the bot executes after playing the intent's closing response. See `nextStep`.
         /// </summary>
         [Input("nextStep")]
         public Input<Inputs.V2modelsIntentClosingSettingNextStepGetArgs>? NextStep { get; set; }

@@ -31,13 +31,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> RegistrationPagePath { get; set; } = null!;
 
         /// <summary>
-        /// The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
+        /// The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
         /// </summary>
         [Input("requestInspection", required: true)]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionGetArgs> RequestInspection { get; set; } = null!;
 
         /// <summary>
-        /// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
+        /// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
         /// </summary>
         [Input("responseInspection")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionGetArgs>? ResponseInspection { get; set; }

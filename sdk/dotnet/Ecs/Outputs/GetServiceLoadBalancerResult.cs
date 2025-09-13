@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class GetServiceLoadBalancerResult
     {
         /// <summary>
-        /// Settings for Blue/Green deployment. See `advanced_configuration` Block for details.
+        /// Settings for Blue/Green deployment. See `advancedConfiguration` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceLoadBalancerAdvancedConfigurationResult> AdvancedConfigurations;
         /// <summary>

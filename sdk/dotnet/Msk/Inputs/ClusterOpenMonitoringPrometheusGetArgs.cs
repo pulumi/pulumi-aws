@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ClusterOpenMonitoringPrometheusGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
+        /// Configuration block for JMX Exporter. See openMonitoring prometheus jmxExporter Argument Reference below.
         /// </summary>
         [Input("jmxExporter")]
         public Input<Inputs.ClusterOpenMonitoringPrometheusJmxExporterGetArgs>? JmxExporter { get; set; }
 
         /// <summary>
-        /// Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
+        /// Configuration block for Node Exporter. See openMonitoring prometheus nodeExporter Argument Reference below.
         /// </summary>
         [Input("nodeExporter")]
         public Input<Inputs.ClusterOpenMonitoringPrometheusNodeExporterGetArgs>? NodeExporter { get; set; }

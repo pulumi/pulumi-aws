@@ -94,7 +94,7 @@ namespace Pulumi.Aws.AppStream
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Arn of the image being searched for. Cannot be used with name_regex or name.
+        /// Arn of the image being searched for. Cannot be used with nameRegex or name.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.AppStream
         public bool? MostRecent { get; set; }
 
         /// <summary>
-        /// Name of the image being searched for. Cannot be used with name_regex or arn.
+        /// Name of the image being searched for. Cannot be used with nameRegex or arn.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.AppStream
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Arn of the image being searched for. Cannot be used with name_regex or name.
+        /// Arn of the image being searched for. Cannot be used with nameRegex or name.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.AppStream
         public Input<bool>? MostRecent { get; set; }
 
         /// <summary>
-        /// Name of the image being searched for. Cannot be used with name_regex or arn.
+        /// Name of the image being searched for. Cannot be used with nameRegex or arn.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
     public sealed class ResourceSetResourceDnsTargetResourceTargetResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
+        /// NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
         /// </summary>
         [Input("nlbResource")]
         public Input<Inputs.ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs>? NlbResource { get; set; }

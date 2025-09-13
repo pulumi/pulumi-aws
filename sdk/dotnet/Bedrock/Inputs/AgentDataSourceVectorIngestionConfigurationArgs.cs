@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+        /// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
         /// </summary>
         [Input("chunkingConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs>? ChunkingConfiguration { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs>? CustomTransformationConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
+        /// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
         /// </summary>
         [Input("parsingConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs>? ParsingConfiguration { get; set; }

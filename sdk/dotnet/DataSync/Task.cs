@@ -190,13 +190,13 @@ namespace Pulumi.Aws.DataSync
         public Output<string> SourceLocationArn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string> TaskMode { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        /// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
         /// </summary>
         [Output("taskReportConfig")]
         public Output<Outputs.TaskTaskReportConfig?> TaskReportConfig { get; private set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? TaskMode { get; set; }
 
         /// <summary>
-        /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        /// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
         /// </summary>
         [Input("taskReportConfig")]
         public Input<Inputs.TaskTaskReportConfigArgs>? TaskReportConfig { get; set; }
@@ -413,7 +413,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -425,7 +425,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -442,7 +442,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? TaskMode { get; set; }
 
         /// <summary>
-        /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        /// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
         /// </summary>
         [Input("taskReportConfig")]
         public Input<Inputs.TaskTaskReportConfigGetArgs>? TaskReportConfig { get; set; }

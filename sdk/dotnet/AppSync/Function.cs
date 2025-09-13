@@ -202,7 +202,7 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.FunctionRuntime?> Runtime { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+        /// Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
         /// </summary>
         [Output("syncConfig")]
         public Output<Outputs.FunctionSyncConfig?> SyncConfig { get; private set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.FunctionRuntimeArgs>? Runtime { get; set; }
 
         /// <summary>
-        /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+        /// Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
         /// </summary>
         [Input("syncConfig")]
         public Input<Inputs.FunctionSyncConfigArgs>? SyncConfig { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.FunctionRuntimeGetArgs>? Runtime { get; set; }
 
         /// <summary>
-        /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+        /// Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
         /// </summary>
         [Input("syncConfig")]
         public Input<Inputs.FunctionSyncConfigGetArgs>? SyncConfig { get; set; }

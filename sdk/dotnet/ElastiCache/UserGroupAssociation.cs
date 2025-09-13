@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ElastiCache
     /// <summary>
     /// Associate an existing ElastiCache user and an existing user group.
     /// 
-    /// &gt; Pulumi will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignore_changes` meta argument as shown in the example.
+    /// &gt; Pulumi will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignoreChanges` meta argument as shown in the example.
     /// 
     /// ## Example Usage
     /// 

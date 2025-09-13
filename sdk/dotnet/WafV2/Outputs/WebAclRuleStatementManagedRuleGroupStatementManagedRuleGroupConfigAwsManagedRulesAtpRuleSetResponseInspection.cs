@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection
     {
         /// <summary>
-        /// Configures inspection of the response body. See `body_contains` for more details.
+        /// Configures inspection of the response body. See `bodyContains` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains? BodyContains;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson? Json;
         /// <summary>
-        /// Configures inspection of the response status code.See `status_code` for more details.
+        /// Configures inspection of the response status code.See `statusCode` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode? StatusCode;
 

@@ -12,9 +12,9 @@ namespace Pulumi.Aws.DynamoDB
     /// <summary>
     /// Provides a DynamoDB table resource.
     /// 
-    /// &gt; **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's `autoscaling policy` attached to the table.
+    /// &gt; **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `readCapacity` and/or `writeCapacity` if there's `autoscaling policy` attached to the table.
     /// 
-    /// &gt; **Note:** When using aws.dynamodb.TableReplica with this resource, use `lifecycle` `ignore_changes` for `replica`, _e.g._, `lifecycle { ignore_changes = [replica] }`.
+    /// &gt; **Note:** When using aws.dynamodb.TableReplica with this resource, use `lifecycle` `ignoreChanges` for `replica`, _e.g._, `lifecycle { ignoreChanges = [replica] }`.
     /// 
     /// ## DynamoDB Table attributes
     /// 
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
     /// 
-    /// Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+    /// Consistency Mode (`consistencyMode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+        /// Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
         /// </summary>
         [Output("attributes")]
         public Output<ImmutableArray<Outputs.TableAttribute>> Attributes { get; private set; } = null!;
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string?> RangeKey { get; private set; } = null!;
 
         /// <summary>
-        /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        /// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Output("readCapacity")]
         public Output<int> ReadCapacity { get; private set; } = null!;
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<Outputs.TableServerSideEncryption> ServerSideEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Table Stream. Only available when `stream_enabled = true`
+        /// ARN of the Table Stream. Only available when `streamEnabled = true`
         /// </summary>
         [Output("streamArn")]
         public Output<string> StreamArn { get; private set; } = null!;
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<bool?> StreamEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
         /// </summary>
         [Output("streamLabel")]
         public Output<string> StreamLabel { get; private set; } = null!;
@@ -430,13 +430,13 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string?> TableClass { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -448,7 +448,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<Outputs.TableTtl> Ttl { get; private set; } = null!;
 
         /// <summary>
-        /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        /// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Output("writeCapacity")]
         public Output<int> WriteCapacity { get; private set; } = null!;
@@ -503,7 +503,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputList<Inputs.TableAttributeArgs>? _attributes;
 
         /// <summary>
-        /// Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+        /// Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
         /// </summary>
         public InputList<Inputs.TableAttributeArgs> Attributes
         {
@@ -586,7 +586,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? RangeKey { get; set; }
 
         /// <summary>
-        /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        /// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
@@ -663,7 +663,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -678,7 +678,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<Inputs.TableTtlArgs>? Ttl { get; set; }
 
         /// <summary>
-        /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        /// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("writeCapacity")]
         public Input<int>? WriteCapacity { get; set; }
@@ -701,7 +701,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputList<Inputs.TableAttributeGetArgs>? _attributes;
 
         /// <summary>
-        /// Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+        /// Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
         /// </summary>
         public InputList<Inputs.TableAttributeGetArgs> Attributes
         {
@@ -784,7 +784,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? RangeKey { get; set; }
 
         /// <summary>
-        /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        /// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
@@ -838,7 +838,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<Inputs.TableServerSideEncryptionGetArgs>? ServerSideEncryption { get; set; }
 
         /// <summary>
-        /// ARN of the Table Stream. Only available when `stream_enabled = true`
+        /// ARN of the Table Stream. Only available when `streamEnabled = true`
         /// </summary>
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
@@ -850,7 +850,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<bool>? StreamEnabled { get; set; }
 
         /// <summary>
-        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
         /// </summary>
         [Input("streamLabel")]
         public Input<string>? StreamLabel { get; set; }
@@ -873,7 +873,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -885,7 +885,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -900,7 +900,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<Inputs.TableTtlGetArgs>? Ttl { get; set; }
 
         /// <summary>
-        /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        /// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("writeCapacity")]
         public Input<int>? WriteCapacity { get; set; }

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The lower limit of the port range. This must be less than or equal to the `to_port`.
+        /// The lower limit of the port range. This must be less than or equal to the `toPort`.
         /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
 
         /// <summary>
-        /// The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        /// The upper limit of the port range. This must be greater than or equal to the `fromPort`.
         /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }

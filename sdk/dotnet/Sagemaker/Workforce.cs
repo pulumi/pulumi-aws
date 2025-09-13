@@ -102,13 +102,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
+        /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
         /// </summary>
         [Output("cognitoConfig")]
         public Output<Outputs.WorkforceCognitoConfig?> CognitoConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+        /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
         /// </summary>
         [Output("oidcConfig")]
         public Output<Outputs.WorkforceOidcConfig?> OidcConfig { get; private set; } = null!;
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class WorkforceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
+        /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
         /// </summary>
         [Input("cognitoConfig")]
         public Input<Inputs.WorkforceCognitoConfigArgs>? CognitoConfig { get; set; }
 
         /// <summary>
-        /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+        /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
         /// </summary>
         [Input("oidcConfig")]
         public Input<Inputs.WorkforceOidcConfigArgs>? OidcConfig { get; set; }
@@ -240,13 +240,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
+        /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
         /// </summary>
         [Input("cognitoConfig")]
         public Input<Inputs.WorkforceCognitoConfigGetArgs>? CognitoConfig { get; set; }
 
         /// <summary>
-        /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+        /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
         /// </summary>
         [Input("oidcConfig")]
         public Input<Inputs.WorkforceOidcConfigGetArgs>? OidcConfig { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// For information about CloudFront distributions, see the [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon CloudFront API Reference.
     /// 
-    /// &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
+    /// &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
     /// 
     /// ## Example Usage
     /// 
@@ -504,7 +504,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<ImmutableArray<Outputs.DistributionCustomErrorResponse>> CustomErrorResponses { get; private set; } = null!;
 
         /// <summary>
-        /// Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        /// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
         /// </summary>
         [Output("defaultCacheBehavior")]
         public Output<Outputs.DistributionDefaultCacheBehavior> DefaultCacheBehavior { get; private set; } = null!;
@@ -576,7 +576,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<ImmutableArray<Outputs.DistributionOrderedCacheBehavior>> OrderedCacheBehaviors { get; private set; } = null!;
 
         /// <summary>
-        /// One or more origin_group for this distribution (multiples allowed).
+        /// One or more originGroup for this distribution (multiples allowed).
         /// </summary>
         [Output("originGroups")]
         public Output<ImmutableArray<Outputs.DistributionOriginGroup>> OriginGroups { get; private set; } = null!;
@@ -618,13 +618,13 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -748,7 +748,7 @@ namespace Pulumi.Aws.CloudFront
         }
 
         /// <summary>
-        /// Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        /// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
         /// </summary>
         [Input("defaultCacheBehavior", required: true)]
         public Input<Inputs.DistributionDefaultCacheBehaviorArgs> DefaultCacheBehavior { get; set; } = null!;
@@ -799,7 +799,7 @@ namespace Pulumi.Aws.CloudFront
         private InputList<Inputs.DistributionOriginGroupArgs>? _originGroups;
 
         /// <summary>
-        /// One or more origin_group for this distribution (multiples allowed).
+        /// One or more originGroup for this distribution (multiples allowed).
         /// </summary>
         public InputList<Inputs.DistributionOriginGroupArgs> OriginGroups
         {
@@ -847,7 +847,7 @@ namespace Pulumi.Aws.CloudFront
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -936,7 +936,7 @@ namespace Pulumi.Aws.CloudFront
         }
 
         /// <summary>
-        /// Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        /// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
         /// </summary>
         [Input("defaultCacheBehavior")]
         public Input<Inputs.DistributionDefaultCacheBehaviorGetArgs>? DefaultCacheBehavior { get; set; }
@@ -1017,7 +1017,7 @@ namespace Pulumi.Aws.CloudFront
         private InputList<Inputs.DistributionOriginGroupGetArgs>? _originGroups;
 
         /// <summary>
-        /// One or more origin_group for this distribution (multiples allowed).
+        /// One or more originGroup for this distribution (multiples allowed).
         /// </summary>
         public InputList<Inputs.DistributionOriginGroupGetArgs> OriginGroups
         {
@@ -1071,7 +1071,7 @@ namespace Pulumi.Aws.CloudFront
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1083,7 +1083,7 @@ namespace Pulumi.Aws.CloudFront
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

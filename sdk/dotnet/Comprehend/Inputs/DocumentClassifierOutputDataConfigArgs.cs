@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Comprehend.Inputs
 
         /// <summary>
         /// Destination path for the output documents.
-        /// The full path to the output file will be returned in `output_s3_uri`.
+        /// The full path to the output file will be returned in `outputS3Uri`.
         /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;

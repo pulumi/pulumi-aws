@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM user.
     /// 
-    /// &gt; *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
+    /// &gt; *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `forceDestroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
     /// 
     /// ## Example Usage
     /// 
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// When destroying this user, destroy even if it
-        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
         /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
         /// </summary>
         [Output("forceDestroy")]
@@ -112,13 +112,13 @@ namespace Pulumi.Aws.Iam
         public Output<string?> PermissionsBoundary { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// When destroying this user, destroy even if it
-        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
         /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
         /// </summary>
         [Input("forceDestroy")]
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// When destroying this user, destroy even if it
-        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
         /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
         /// </summary>
         [Input("forceDestroy")]
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

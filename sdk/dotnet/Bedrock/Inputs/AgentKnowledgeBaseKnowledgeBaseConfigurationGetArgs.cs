@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Details about the embeddings model that'sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+        /// Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
         /// </summary>
         [Input("vectorKnowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationGetArgs>? VectorKnowledgeBaseConfiguration { get; set; }

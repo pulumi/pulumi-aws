@@ -14,15 +14,15 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     public sealed class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping
     {
         /// <summary>
-        /// Refers to the value of measure_name in a result row. This field is required if `measure_name_column` is provided.
+        /// Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
         /// </summary>
         public readonly string? MeasureName;
         /// <summary>
-        /// Type of the value that is to be read from `source_column`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
+        /// Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
         /// </summary>
         public readonly string MeasureValueType;
         /// <summary>
-        /// Configuration block for attribute mappings for `MULTI` value measures. Required when `measure_value_type` is `MULTI`. See below.
+        /// Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping> MultiMeasureAttributeMappings;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
         /// </summary>
         public readonly string? SourceColumn;
         /// <summary>
-        /// Target measure name to be used. If not provided, the target measure name by default is `measure_name`, if provided, or `source_column` otherwise.
+        /// Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
         /// </summary>
         public readonly string? TargetMeasureName;
 

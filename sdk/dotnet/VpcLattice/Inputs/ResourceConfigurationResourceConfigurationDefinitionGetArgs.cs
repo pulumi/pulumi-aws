@@ -13,19 +13,19 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class ResourceConfigurationResourceConfigurationDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource DNS Configuration. See `arn_resource` Block for details.
+        /// Resource DNS Configuration. See `arnResource` Block for details.
         /// </summary>
         [Input("arnResource")]
         public Input<Inputs.ResourceConfigurationResourceConfigurationDefinitionArnResourceGetArgs>? ArnResource { get; set; }
 
         /// <summary>
-        /// Resource DNS Configuration. See `dns_resource` Block for details.
+        /// Resource DNS Configuration. See `dnsResource` Block for details.
         /// </summary>
         [Input("dnsResource")]
         public Input<Inputs.ResourceConfigurationResourceConfigurationDefinitionDnsResourceGetArgs>? DnsResource { get; set; }
 
         /// <summary>
-        /// Resource DNS Configuration. See `ip_resource` Block for details.
+        /// Resource DNS Configuration. See `ipResource` Block for details.
         /// </summary>
         [Input("ipResource")]
         public Input<Inputs.ResourceConfigurationResourceConfigurationDefinitionIpResourceGetArgs>? IpResource { get; set; }

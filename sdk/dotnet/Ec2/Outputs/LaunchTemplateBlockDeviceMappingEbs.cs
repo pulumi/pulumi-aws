@@ -20,12 +20,12 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string? DeleteOnTermination;
         /// <summary>
         /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
-        /// Cannot be used with `snapshot_id`.
+        /// Cannot be used with `snapshotId`.
         /// </summary>
         public readonly string? Encrypted;
         /// <summary>
         /// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1/io2/gp3"`.
+        /// This must be set with a `volumeType` of `"io1/io2/gp3"`.
         /// </summary>
         public readonly int? Iops;
         /// <summary>

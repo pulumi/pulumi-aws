@@ -112,7 +112,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -177,15 +177,15 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+        /// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDnsConfigResult> DnsConfigs;
         /// <summary>
-        /// Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+        /// Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceHealthCheckConfigResult> HealthCheckConfigs;
         /// <summary>
-        /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        /// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceHealthCheckCustomConfigResult> HealthCheckCustomConfigs;
         /// <summary>
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public readonly string NamespaceId;
         public readonly string Region;
         /// <summary>
-        /// Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 

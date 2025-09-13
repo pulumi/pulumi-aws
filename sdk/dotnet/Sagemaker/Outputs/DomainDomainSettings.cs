@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDomainSettings
     {
         /// <summary>
-        /// A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+        /// A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
         /// </summary>
         public readonly Outputs.DomainDomainSettingsDockerSettings? DockerSettings;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? ExecutionRoleIdentityConfig;
         /// <summary>
-        /// A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
+        /// A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
         /// </summary>
         public readonly Outputs.DomainDomainSettingsRStudioServerProDomainSettings? RStudioServerProDomainSettings;
         /// <summary>

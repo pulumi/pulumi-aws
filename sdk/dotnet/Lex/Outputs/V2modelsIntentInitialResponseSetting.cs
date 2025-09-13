@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentInitialResponseSetting
     {
         /// <summary>
-        /// Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `code_hook`.
+        /// Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `codeHook`.
         /// </summary>
         public readonly Outputs.V2modelsIntentInitialResponseSettingCodeHook? CodeHook;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly Outputs.V2modelsIntentInitialResponseSettingConditional? Conditional;
         /// <summary>
-        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `initial_response`.
+        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `initialResponse`.
         /// </summary>
         public readonly Outputs.V2modelsIntentInitialResponseSettingInitialResponse? InitialResponse;
         /// <summary>
-        /// Configuration block for the next step in the conversation. See `next_step`.
+        /// Configuration block for the next step in the conversation. See `nextStep`.
         /// </summary>
         public readonly Outputs.V2modelsIntentInitialResponseSettingNextStep? NextStep;
 

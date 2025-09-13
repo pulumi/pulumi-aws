@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? DeviceName;
         /// <summary>
-        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
@@ -34,22 +34,22 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// ARN of the Outpost on which the snapshot is stored.
         /// 
-        /// &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
+        /// &gt; **Note:** You can specify `encrypted` or `snapshotId` but not both.
         /// </summary>
         public readonly string? OutpostArn;
         /// <summary>
         /// ID of an EBS snapshot that will be used to initialize the created
-        /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        /// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
         /// snapshot.
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
-        /// Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        /// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
         /// </summary>
         public readonly int? Throughput;
         /// <summary>
         /// Size of created volumes in GiB.
-        /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        /// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
         /// as the selected snapshot.
         /// </summary>
         public readonly int? VolumeSize;

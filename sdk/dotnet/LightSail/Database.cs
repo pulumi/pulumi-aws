@@ -94,7 +94,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ### Final Snapshots
     /// 
-    /// To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
+    /// To enable creating a final snapshot of your database on deletion, use the `finalSnapshotName` argument to provide a name to be used for the snapshot.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ### Apply Immediately
     /// 
-    /// To enable applying changes immediately instead of waiting for a maintenance window, use the `apply_immediately` argument.
+    /// To enable applying changes immediately instead of waiting for a maintenance window, use the `applyImmediately` argument.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -154,8 +154,8 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ### Examples
     /// 
-    /// - `mysql_8_0`
-    /// - `postgres_12`
+    /// - `mysql80`
+    /// - `postgres12`
     /// 
     /// ### Prefix
     /// 
@@ -171,10 +171,10 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ### Examples
     /// 
-    /// - `small_1_0`
-    /// - `small_ha_1_0`
-    /// - `large_1_0`
-    /// - `large_ha_1_0`
+    /// - `small10`
+    /// - `smallHa10`
+    /// - `large10`
+    /// - `largeHa10`
     /// 
     /// ### Prefix
     /// 
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ### Suffix
     /// 
-    /// A Bundle ID ends with one of the following suffix: `1_0`
+    /// A Bundle ID ends with one of the following suffix: `10`
     /// 
     /// ## Import
     /// 
@@ -371,13 +371,13 @@ namespace Pulumi.Aws.LightSail
         public Output<string> SupportCode { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -538,7 +538,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -732,7 +732,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -744,7 +744,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

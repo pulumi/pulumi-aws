@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        /// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
         /// </summary>
         [Output("targetControls")]
         public Output<ImmutableArray<string>> TargetControls { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         private InputList<string>? _targetControls;
 
         /// <summary>
-        /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        /// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
         /// </summary>
         public InputList<string> TargetControls
         {
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         private InputList<string>? _targetControls;
 
         /// <summary>
-        /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        /// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
         /// </summary>
         public InputList<string> TargetControls
         {

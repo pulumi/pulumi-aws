@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     public sealed class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
     {
         /// <summary>
-        /// The built-in pattern from the list of preconfigured patterns. Either a `custom_pattern` or `built_in_pattern_id` is required.
+        /// The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
         /// </summary>
         public readonly string? BuiltInPatternId;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
         /// </summary>
         public readonly int? ConfidenceLevel;
         /// <summary>
-        /// The configuration for a custom pattern. Either a `custom_pattern` or `built_in_pattern_id` is required. Detailed below.
+        /// The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
         /// </summary>
         public readonly Outputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern? CustomPattern;
         /// <summary>

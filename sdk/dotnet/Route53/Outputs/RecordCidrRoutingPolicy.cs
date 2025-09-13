@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string CollectionId;
         /// <summary>
-        /// The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        /// The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
         /// </summary>
         public readonly string LocationName;
 

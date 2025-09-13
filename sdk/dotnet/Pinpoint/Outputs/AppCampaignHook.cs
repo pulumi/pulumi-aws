@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pinpoint.Outputs
     public sealed class AppCampaignHook
     {
         /// <summary>
-        /// Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+        /// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
         /// </summary>
         public readonly string? LambdaFunctionName;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Pinpoint.Outputs
         /// </summary>
         public readonly string? Mode;
         /// <summary>
-        /// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+        /// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
         /// </summary>
         public readonly string? WebUrl;
 

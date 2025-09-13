@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ApiGateway
     public static class GetRestApi
     {
         /// <summary>
-        /// Use this data source to get the id and root_resource_id of a REST API in
+        /// Use this data source to get the id and rootResourceId of a REST API in
         /// API Gateway. To fetch the REST API you must provide a name to match against.
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.ApiGateway
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the id and root_resource_id of a REST API in
+        /// Use this data source to get the id and rootResourceId of a REST API in
         /// API Gateway. To fetch the REST API you must provide a name to match against.
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.ApiGateway
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the id and root_resource_id of a REST API in
+        /// Use this data source to get the id and rootResourceId of a REST API in
         /// API Gateway. To fetch the REST API you must provide a name to match against.
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRestApiEndpointConfigurationResult> EndpointConfigurations;
         /// <summary>
-        /// Execution ARN part to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+        /// Execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         /// </summary>
         public readonly string ExecutionArn;
         /// <summary>

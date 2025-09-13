@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for the next step in the conversation. See `next_step`.
+        /// Configuration block for the next step in the conversation. See `nextStep`.
         /// </summary>
         [Input("nextStep", required: true)]
         public Input<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepGetArgs> NextStep { get; set; } = null!;

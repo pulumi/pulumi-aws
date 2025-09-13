@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? ConfigurationSet { get; set; }
 
         /// <summary>
-        /// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
+        /// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `fromEmailAddress` is set.
         /// </summary>
         [Input("emailSendingAccount")]
         public Input<string>? EmailSendingAccount { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? ReplyToEmailAddress { get; set; }
 
         /// <summary>
-        /// ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        /// ARN of the SES verified email identity to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
         /// </summary>
         [Input("sourceArn")]
         public Input<string>? SourceArn { get; set; }

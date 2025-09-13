@@ -21,7 +21,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// <summary>
         /// Configuration block that contains information that defines how the build project
         /// reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-        /// Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+        /// Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `buildStatusConfig` blocks are documented below.
         /// </summary>
         public readonly Outputs.ProjectSourceBuildStatusConfig? BuildStatusConfig;
         /// <summary>

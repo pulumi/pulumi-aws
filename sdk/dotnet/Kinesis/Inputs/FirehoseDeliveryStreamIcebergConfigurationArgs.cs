@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> CatalogArn { get; set; } = null!;
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private InputList<Inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs>? _destinationTableConfigurations;
 
         /// <summary>
-        /// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destination_table_configuration` block below for details.
+        /// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
         /// </summary>
         public InputList<Inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs> DestinationTableConfigurations
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         }
 
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `processingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See `s3_configuration` block below for details.
+        /// The S3 Configuration. See `s3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs> S3Configuration { get; set; } = null!;

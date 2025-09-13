@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cfg.Inputs
     public sealed class RecorderRecordingGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
+        /// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
         /// </summary>
         [Input("allSupported")]
         public Input<bool>? AllSupported { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         private InputList<Inputs.RecorderRecordingGroupExclusionByResourceTypeGetArgs>? _exclusionByResourceTypes;
 
         /// <summary>
-        /// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+        /// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `allSupported = false`. Conflicts with `resourceTypes`.
         /// </summary>
         public InputList<Inputs.RecorderRecordingGroupExclusionByResourceTypeGetArgs> ExclusionByResourceTypes
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         }
 
         /// <summary>
-        /// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+        /// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
         /// </summary>
         [Input("includeGlobalResourceTypes")]
         public Input<bool>? IncludeGlobalResourceTypes { get; set; }
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         private InputList<string>? _resourceTypes;
 
         /// <summary>
-        /// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
+        /// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
         /// </summary>
         public InputList<string> ResourceTypes
         {

@@ -112,13 +112,13 @@ namespace Pulumi.Aws.Iam
         public Output<string> CreateDate { get; private set; } = null!;
 
         /// <summary>
-        /// Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+        /// Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
         /// </summary>
         [Output("encryptedSecret")]
         public Output<string> EncryptedSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+        /// Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
         /// </summary>
         [Output("encryptedSesSmtpPasswordV4")]
         public Output<string> EncryptedSesSmtpPasswordV4 { get; private set; } = null!;
@@ -130,13 +130,13 @@ namespace Pulumi.Aws.Iam
         public Output<string> KeyFingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         /// </summary>
         [Output("pgpKey")]
         public Output<string?> PgpKey { get; private set; } = null!;
 
         /// <summary>
-        /// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
+        /// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
         /// </summary>
         [Output("secret")]
         public Output<string> Secret { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Iam
     public sealed class AccessKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
@@ -243,13 +243,13 @@ namespace Pulumi.Aws.Iam
         public Input<string>? CreateDate { get; set; }
 
         /// <summary>
-        /// Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+        /// Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
         /// </summary>
         [Input("encryptedSecret")]
         public Input<string>? EncryptedSecret { get; set; }
 
         /// <summary>
-        /// Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+        /// Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
         /// </summary>
         [Input("encryptedSesSmtpPasswordV4")]
         public Input<string>? EncryptedSesSmtpPasswordV4 { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? KeyFingerprint { get; set; }
 
         /// <summary>
-        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Iam
         private Input<string>? _secret;
 
         /// <summary>
-        /// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
+        /// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
         /// </summary>
         public Input<string>? Secret
         {

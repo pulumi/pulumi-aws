@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         /// <summary>
         /// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
         /// 
-        /// Either `regions` or `all_regions` (as true) must be specified.
+        /// Either `regions` or `allRegions` (as true) must be specified.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Elb.Inputs
 
         /// <summary>
         /// The ARN of an SSL certificate you have
-        /// uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
+        /// uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
         /// </summary>
         [Input("sslCertificateId")]
         public Input<string>? SslCertificateId { get; set; }

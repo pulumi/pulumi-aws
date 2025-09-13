@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// 
-    /// ### With hierarchy_group_id
+    /// ### With hierarchyGroupId
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// 
-    /// ### With identity_info filled
+    /// ### With identityInfo filled
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// 
-    /// ### With phone_config phone type as desk phone
+    /// ### With phoneConfig phone type as desk phone
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// 
-    /// ### With multiple Security profile ids specified in security_profile_ids
+    /// ### With multiple Security profile ids specified in securityProfileIds
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -265,13 +265,13 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Tags to apply to the user. If configured with a provider
-        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -413,7 +413,7 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Tags to apply to the user. If configured with a provider
-        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -516,7 +516,7 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Tags to apply to the user. If configured with a provider
-        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -528,7 +528,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

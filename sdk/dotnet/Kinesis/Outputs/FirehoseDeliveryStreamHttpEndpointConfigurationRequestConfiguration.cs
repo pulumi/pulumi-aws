@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration
     {
         /// <summary>
-        /// Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
+        /// Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute> CommonAttributes;
         /// <summary>

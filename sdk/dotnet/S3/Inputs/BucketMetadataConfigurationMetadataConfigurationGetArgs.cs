@@ -25,13 +25,13 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// Inventory table configuration. See `inventory_table_configuration` Block for details.
+        /// Inventory table configuration. See `inventoryTableConfiguration` Block for details.
         /// </summary>
         [Input("inventoryTableConfiguration")]
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationGetArgs>? InventoryTableConfiguration { get; set; }
 
         /// <summary>
-        /// Journal table configuration. See `journal_table_configuration` Block for details.
+        /// Journal table configuration. See `journalTableConfiguration` Block for details.
         /// </summary>
         [Input("journalTableConfiguration")]
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationGetArgs>? JournalTableConfiguration { get; set; }

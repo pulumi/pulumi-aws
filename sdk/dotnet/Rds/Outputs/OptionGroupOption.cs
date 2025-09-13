@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string OptionName;
         /// <summary>
-        /// The option settings to apply. See `option_settings` Block below for more details.
+        /// The option settings to apply. See `optionSettings` Block below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupOptionOptionSetting> OptionSettings;
         /// <summary>

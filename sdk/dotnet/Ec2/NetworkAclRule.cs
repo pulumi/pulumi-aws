@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
+    /// &gt; **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
     /// 
     /// ## Import
     /// 
@@ -91,9 +91,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// 
-        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
         /// 
-        /// &gt; **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+        /// &gt; **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
         /// 
         /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
@@ -215,9 +215,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// 
-        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
         /// 
-        /// &gt; **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+        /// &gt; **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
         /// 
         /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
@@ -301,9 +301,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// 
-        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
         /// 
-        /// &gt; **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+        /// &gt; **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
         /// 
         /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>

@@ -49,7 +49,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         }
 
         /// <summary>
-        /// Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
+        /// Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
         /// </summary>
         [Input("multiMeasureMappings")]
         public Input<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsGetArgs>? MultiMeasureMappings { get; set; }

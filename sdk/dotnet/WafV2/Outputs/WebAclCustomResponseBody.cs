@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string ContentType;
         /// <summary>
-        /// Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
+        /// Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the `customResponse` block.
         /// </summary>
         public readonly string Key;
 

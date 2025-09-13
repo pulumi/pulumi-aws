@@ -13,19 +13,19 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The names of the fields in the request payload that contain your customer's primary physical address. See `address_fields` for more details.
+        /// The names of the fields in the request payload that contain your customer's primary physical address. See `addressFields` for more details.
         /// </summary>
         [Input("addressFields")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs>? AddressFields { get; set; }
 
         /// <summary>
-        /// The name of the field in the request payload that contains your customer's email. See `email_field` for more details.
+        /// The name of the field in the request payload that contains your customer's email. See `emailField` for more details.
         /// </summary>
         [Input("emailField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs>? EmailField { get; set; }
 
         /// <summary>
-        /// Details about your login page password field. See `password_field` for more details.
+        /// Details about your login page password field. See `passwordField` for more details.
         /// </summary>
         [Input("passwordField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs>? PasswordField { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> PayloadType { get; set; } = null!;
 
         /// <summary>
-        /// The names of the fields in the request payload that contain your customer's primary phone number. See `phone_number_fields` for more details.
+        /// The names of the fields in the request payload that contain your customer's primary phone number. See `phoneNumberFields` for more details.
         /// </summary>
         [Input("phoneNumberFields")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs>? PhoneNumberFields { get; set; }
 
         /// <summary>
-        /// Details about your login page username field. See `username_field` for more details.
+        /// Details about your login page username field. See `usernameField` for more details.
         /// </summary>
         [Input("usernameField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs>? UsernameField { get; set; }

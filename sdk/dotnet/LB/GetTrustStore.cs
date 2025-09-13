@@ -12,7 +12,7 @@ namespace Pulumi.Aws.LB
     public static class GetTrustStore
     {
         /// <summary>
-        /// &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+        /// &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
         /// 
         /// Provides information about a Load Balancer Trust Store.
         /// 
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.LB
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+        /// &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
         /// 
         /// Provides information about a Load Balancer Trust Store.
         /// 
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.LB
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+        /// &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
         /// 
         /// Provides information about a Load Balancer Trust Store.
         /// 

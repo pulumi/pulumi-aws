@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string> ConfigurationState { get; set; } = null!;
 
         /// <summary>
-        /// Encryption configuration for the inventory table. See `encryption_configuration` Block for details.
+        /// Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }

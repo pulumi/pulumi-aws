@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolClientResult
     {
         /// <summary>
-        /// (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
         /// </summary>
         public readonly int AccessTokenValidity;
         /// <summary>
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
         /// </summary>
         public readonly int IdTokenValidity;
         /// <summary>
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Cognito
         public readonly int RefreshTokenValidity;
         public readonly string Region;
         /// <summary>
-        /// (Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        /// (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
         public readonly ImmutableArray<string> SupportedIdentityProviders;
         /// <summary>

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeGetArgs>? _icmpTypeCodes;
 
         /// <summary>
-        /// A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+        /// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeGetArgs> IcmpTypeCodes
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeGetArgs>? _portRanges;
 
         /// <summary>
-        /// A configuration block for PortRange. See the `port_range` block.
+        /// A configuration block for PortRange. See the `portRange` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeGetArgs> PortRanges
         {

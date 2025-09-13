@@ -236,11 +236,11 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string CustomKeyStoreId;
         /// <summary>
-        /// See `key_spec`.
+        /// See `keySpec`.
         /// </summary>
         public readonly string CustomerMasterKeySpec;
         /// <summary>
-        /// The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
+        /// The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
         /// </summary>
         public readonly string DeletionDate;
         /// <summary>
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
+        /// Specifies whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly bool MultiRegion;
         /// <summary>
-        /// Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
+        /// Lists the primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKeyMultiRegionConfigurationResult> MultiRegionConfigurations;
         /// <summary>
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
+        /// The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
         /// </summary>
         public readonly string ValidTo;
         /// <summary>

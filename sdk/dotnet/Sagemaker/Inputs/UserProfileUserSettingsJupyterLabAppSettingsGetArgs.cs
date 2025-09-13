@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class UserProfileUserSettingsJupyterLabAppSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
         /// </summary>
         [Input("appLifecycleManagement")]
         public Input<Inputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementGetArgs>? AppLifecycleManagement { get; set; }
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecGetArgs>? DefaultResourceSpec { get; set; }
 
         /// <summary>
-        /// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        /// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
         /// </summary>
         [Input("emrSettings")]
         public Input<Inputs.UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsGetArgs>? EmrSettings { get; set; }

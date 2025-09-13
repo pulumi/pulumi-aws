@@ -40,7 +40,7 @@ namespace Pulumi.Aws.CustomerProfiles.Inputs
         private InputList<Inputs.DomainRuleBasedMatchingMatchingRuleGetArgs>? _matchingRules;
 
         /// <summary>
-        /// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
+        /// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
         /// </summary>
         public InputList<Inputs.DomainRuleBasedMatchingMatchingRuleGetArgs> MatchingRules
         {

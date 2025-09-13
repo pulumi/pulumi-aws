@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         }
 
         /// <summary>
-        /// Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
+        /// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
         /// </summary>
         [Input("costCategory")]
         public Input<Inputs.GetTagsFilterCostCategoryInputArgs>? CostCategory { get; set; }

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Acmpca
     /// Certificates created using `aws.acmpca.Certificate` are not eligible for automatic renewal,
     /// and must be replaced instead.
     /// To issue a renewable certificate using an ACM PCA, create a `aws.acm.Certificate`
-    /// with the parameter `certificate_authority_arn`.
+    /// with the parameter `certificateAuthorityArn`.
     /// 
     /// ## Example Usage
     /// 

@@ -19,13 +19,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleActionGetArgs>? Action { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclRuleCaptchaConfigGetArgs>? CaptchaConfig { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+        /// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
         /// </summary>
         [Input("challengeConfig")]
         public Input<Inputs.WebAclRuleChallengeConfigGetArgs>? ChallengeConfig { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
+        /// Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `ruleGroupReferenceStatement` and `managedRuleGroupStatement`. See `overrideAction` below for details.
         /// </summary>
         [Input("overrideAction")]
         public Input<Inputs.WebAclRuleOverrideActionGetArgs>? OverrideAction { get; set; }
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleRuleLabelGetArgs>? _ruleLabels;
 
         /// <summary>
-        /// Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
+        /// Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleRuleLabelGetArgs> RuleLabels
         {
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+        /// The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
         /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.WebAclRuleStatementGetArgs> Statement { get; set; } = null!;
 
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
         /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.WebAclRuleVisibilityConfigGetArgs> VisibilityConfig { get; set; } = null!;

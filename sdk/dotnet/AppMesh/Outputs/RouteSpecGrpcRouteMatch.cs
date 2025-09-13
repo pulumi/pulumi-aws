@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RouteSpecGrpcRouteMatchMetadata> Metadatas;
         /// <summary>
-        /// Method name to match from the request. If you specify a name, you must also specify a `service_name`.
+        /// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
         /// </summary>
         public readonly string? MethodName;
         /// <summary>

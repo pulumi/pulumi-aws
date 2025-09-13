@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Chime
         public Output<bool?> Disabled { get; private set; } = null!;
 
         /// <summary>
-        /// The media insights configuration. See `media_insights_configuration`.
+        /// The media insights configuration. See `mediaInsightsConfiguration`.
         /// </summary>
         [Output("mediaInsightsConfiguration")]
         public Output<Outputs.VoiceConnectorStreamingMediaInsightsConfiguration?> MediaInsightsConfiguration { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Chime
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// The media insights configuration. See `media_insights_configuration`.
+        /// The media insights configuration. See `mediaInsightsConfiguration`.
         /// </summary>
         [Input("mediaInsightsConfiguration")]
         public Input<Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs>? MediaInsightsConfiguration { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Chime
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// The media insights configuration. See `media_insights_configuration`.
+        /// The media insights configuration. See `mediaInsightsConfiguration`.
         /// </summary>
         [Input("mediaInsightsConfiguration")]
         public Input<Inputs.VoiceConnectorStreamingMediaInsightsConfigurationGetArgs>? MediaInsightsConfiguration { get; set; }

@@ -327,7 +327,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// See `data_sharing_preference`.
+        /// See `dataSharingPreference`.
         /// </summary>
         [Output("dataSharingPreference")]
         public Output<Outputs.StreamProcessorDataSharingPreference?> DataSharingPreference { get; private set; } = null!;
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
         /// </summary>
         [Output("notificationChannel")]
         public Output<Outputs.StreamProcessorNotificationChannel?> NotificationChannel { get; private set; } = null!;
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
         /// </summary>
         [Output("regionsOfInterests")]
         public Output<ImmutableArray<Outputs.StreamProcessorRegionsOfInterest>> RegionsOfInterests { get; private set; } = null!;
@@ -396,13 +396,13 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> StreamProcessorArn { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -457,7 +457,7 @@ namespace Pulumi.Aws.Rekognition
     public sealed class StreamProcessorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// See `data_sharing_preference`.
+        /// See `dataSharingPreference`.
         /// </summary>
         [Input("dataSharingPreference")]
         public Input<Inputs.StreamProcessorDataSharingPreferenceArgs>? DataSharingPreference { get; set; }
@@ -481,7 +481,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
         /// </summary>
         [Input("notificationChannel")]
         public Input<Inputs.StreamProcessorNotificationChannelArgs>? NotificationChannel { get; set; }
@@ -502,7 +502,7 @@ namespace Pulumi.Aws.Rekognition
         private InputList<Inputs.StreamProcessorRegionsOfInterestArgs>? _regionsOfInterests;
 
         /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
         /// </summary>
         public InputList<Inputs.StreamProcessorRegionsOfInterestArgs> RegionsOfInterests
         {
@@ -528,7 +528,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// See `data_sharing_preference`.
+        /// See `dataSharingPreference`.
         /// </summary>
         [Input("dataSharingPreference")]
         public Input<Inputs.StreamProcessorDataSharingPreferenceGetArgs>? DataSharingPreference { get; set; }
@@ -578,7 +578,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
         /// </summary>
         [Input("notificationChannel")]
         public Input<Inputs.StreamProcessorNotificationChannelGetArgs>? NotificationChannel { get; set; }
@@ -599,7 +599,7 @@ namespace Pulumi.Aws.Rekognition
         private InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs>? _regionsOfInterests;
 
         /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
         /// </summary>
         public InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs> RegionsOfInterests
         {
@@ -632,7 +632,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -644,7 +644,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

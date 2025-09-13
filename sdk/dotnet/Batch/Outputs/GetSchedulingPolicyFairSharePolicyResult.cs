@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Batch.Outputs
         public readonly int ComputeReservation;
         public readonly int ShareDecaySeconds;
         /// <summary>
-        /// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+        /// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSchedulingPolicyFairSharePolicyShareDistributionResult> ShareDistributions;
 

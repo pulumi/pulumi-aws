@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+        /// Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
         /// </summary>
         [Input("crawlerLimits")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsGetArgs>? CrawlerLimits { get; set; }

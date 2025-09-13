@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Budgets
     public sealed class GetBudgetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// The ID of the target account for budget. Will use current user's accountId by default if omitted.
         /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Budgets
     public sealed class GetBudgetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// The ID of the target account for budget. Will use current user's accountId by default if omitted.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

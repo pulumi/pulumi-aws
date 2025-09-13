@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class RuleGroupRuleGroupRuleVariablesPortSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An unique alphanumeric string to identify the `port_set`.
+        /// An unique alphanumeric string to identify the `portSet`.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

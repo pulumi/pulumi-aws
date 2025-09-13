@@ -833,6 +833,8 @@ class GraphQLApi(pulumi.CustomResource):
         })
         ```
 
+        ### Associate Web ACL (v2)
+
         ### GraphQL run complexity, query depth, and introspection
 
         ```python
@@ -1020,6 +1022,8 @@ class GraphQLApi(pulumi.CustomResource):
             "field_log_level": "ERROR",
         })
         ```
+
+        ### Associate Web ACL (v2)
 
         ### GraphQL run complexity, query depth, and introspection
 

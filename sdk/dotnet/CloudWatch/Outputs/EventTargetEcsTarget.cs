@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class EventTargetEcsTarget
     {
         /// <summary>
-        /// The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+        /// The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventTargetEcsTargetCapacityProviderStrategy> CapacityProviderStrategies;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly string? LaunchType;
         /// <summary>
-        /// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+        /// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
         /// </summary>
         public readonly Outputs.EventTargetEcsTargetNetworkConfiguration? NetworkConfiguration;
         /// <summary>

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ### Active Directory Authentication
     /// 
-    /// &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
+    /// &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smbActiveDirectorySettings` in the `aws.storagegateway.Gateway` resource.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ### Guest Authentication
     /// 
-    /// &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
+    /// &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smbGuestPassword` in the `aws.storagegateway.Gateway` resource.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -102,13 +102,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> Authentication { get; private set; } = null!;
 
         /// <summary>
-        /// The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
+        /// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
         /// </summary>
         [Output("bucketRegion")]
         public Output<string?> BucketRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Refresh cache information. see `cache_attributes` Block for more details.
+        /// Refresh cache information. see `cacheAttributes` Block for more details.
         /// </summary>
         [Output("cacheAttributes")]
         public Output<Outputs.SmbFileShareCacheAttributes?> CacheAttributes { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> DefaultStorageClass { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
         /// </summary>
         [Output("fileShareName")]
         public Output<string> FileShareName { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<bool?> KmsEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
@@ -228,15 +228,15 @@ namespace Pulumi.Aws.StorageGateway
         public Output<bool?> SmbAclEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
+        /// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -330,13 +330,13 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? Authentication { get; set; }
 
         /// <summary>
-        /// The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
+        /// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
         /// </summary>
         [Input("bucketRegion")]
         public Input<string>? BucketRegion { get; set; }
 
         /// <summary>
-        /// Refresh cache information. see `cache_attributes` Block for more details.
+        /// Refresh cache information. see `cacheAttributes` Block for more details.
         /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.SmbFileShareCacheAttributesArgs>? CacheAttributes { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? DefaultStorageClass { get; set; }
 
         /// <summary>
-        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
         /// </summary>
         [Input("fileShareName")]
         public Input<string>? FileShareName { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -453,9 +453,9 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
+        /// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -526,13 +526,13 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? Authentication { get; set; }
 
         /// <summary>
-        /// The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
+        /// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
         /// </summary>
         [Input("bucketRegion")]
         public Input<string>? BucketRegion { get; set; }
 
         /// <summary>
-        /// Refresh cache information. see `cache_attributes` Block for more details.
+        /// Refresh cache information. see `cacheAttributes` Block for more details.
         /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.SmbFileShareCacheAttributesGetArgs>? CacheAttributes { get; set; }
@@ -550,7 +550,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? DefaultStorageClass { get; set; }
 
         /// <summary>
-        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
         /// </summary>
         [Input("fileShareName")]
         public Input<string>? FileShareName { get; set; }
@@ -592,7 +592,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -661,9 +661,9 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
+        /// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -675,7 +675,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

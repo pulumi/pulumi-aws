@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet? AwsManagedRulesAcfpRuleSet;
         /// <summary>
-        /// Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+        /// Configuration for using the anti-DDoS managed rule group. See `awsManagedRulesAntiDdosRuleSet` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet? AwsManagedRulesAntiDdosRuleSet;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet? AwsManagedRulesAtpRuleSet;
         /// <summary>
-        /// Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
+        /// Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `awsManagedRulesBotControlRuleSet` for more details
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet? AwsManagedRulesBotControlRuleSet;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string? LoginPath;
         /// <summary>
-        /// Details about your login page password field. See `password_field` for more details.
+        /// Details about your login page password field. See `passwordField` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField? PasswordField;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string? PayloadType;
         /// <summary>
-        /// Details about your login page username field. See `username_field` for more details.
+        /// Details about your login page username field. See `usernameField` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField? UsernameField;
 

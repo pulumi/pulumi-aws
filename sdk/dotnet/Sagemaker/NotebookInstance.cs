@@ -103,13 +103,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> DefaultCodeRepository { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
+        /// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
         [Output("directInternetAccess")]
         public Output<string?> DirectInternetAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        /// Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
         /// </summary>
         [Output("instanceMetadataServiceConfiguration")]
         public Output<Outputs.NotebookInstanceInstanceMetadataServiceConfiguration?> InstanceMetadataServiceConfiguration { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnet_id`.
+        /// The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnetId`.
         /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
@@ -181,13 +181,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -270,13 +270,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DefaultCodeRepository { get; set; }
 
         /// <summary>
-        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
+        /// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
         [Input("directInternetAccess")]
         public Input<string>? DirectInternetAccess { get; set; }
 
         /// <summary>
-        /// Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        /// Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
         /// </summary>
         [Input("instanceMetadataServiceConfiguration")]
         public Input<Inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs>? InstanceMetadataServiceConfiguration { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -399,13 +399,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DefaultCodeRepository { get; set; }
 
         /// <summary>
-        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
+        /// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
         [Input("directInternetAccess")]
         public Input<string>? DirectInternetAccess { get; set; }
 
         /// <summary>
-        /// Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        /// Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
         /// </summary>
         [Input("instanceMetadataServiceConfiguration")]
         public Input<Inputs.NotebookInstanceInstanceMetadataServiceConfigurationGetArgs>? InstanceMetadataServiceConfiguration { get; set; }
@@ -435,7 +435,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnet_id`.
+        /// The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnetId`.
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

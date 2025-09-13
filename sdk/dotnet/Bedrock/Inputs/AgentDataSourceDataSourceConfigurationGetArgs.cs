@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceDataSourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+        /// Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
         /// </summary>
         [Input("confluenceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationGetArgs>? ConfluenceConfiguration { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
+        /// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
         /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationGetArgs>? S3Configuration { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+        /// Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
         /// </summary>
         [Input("salesforceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationGetArgs>? SalesforceConfiguration { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+        /// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
         /// </summary>
         [Input("sharePointConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationGetArgs>? SharePointConfiguration { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+        /// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
         /// </summary>
         [Input("webConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationGetArgs>? WebConfiguration { get; set; }

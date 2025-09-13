@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Eks.Outputs
         public readonly string ControlPlaneInstanceType;
         /// <summary>
         /// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-        /// The `control_plane_placement` configuration block supports the following arguments:
+        /// The `controlPlanePlacement` configuration block supports the following arguments:
         /// </summary>
         public readonly Outputs.ClusterOutpostConfigControlPlanePlacement? ControlPlanePlacement;
         /// <summary>

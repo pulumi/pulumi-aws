@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigGetArgs>? _managedRuleGroupConfigs;
 
         /// <summary>
-        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigGetArgs> ManagedRuleGroupConfigs
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideGetArgs>? _ruleActionOverrides;
 
         /// <summary>
-        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideGetArgs> RuleActionOverrides
         {

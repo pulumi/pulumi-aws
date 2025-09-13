@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+        /// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Dimensions;
         /// <summary>

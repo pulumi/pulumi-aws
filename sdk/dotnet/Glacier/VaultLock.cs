@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Glacier
         public Output<bool> CompleteLock { get; private set; } = null!;
 
         /// <summary>
-        /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
+        /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
         /// </summary>
         [Output("ignoreDeletionError")]
         public Output<bool?> IgnoreDeletionError { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Glacier
         public Input<bool> CompleteLock { get; set; } = null!;
 
         /// <summary>
-        /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
+        /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
         /// </summary>
         [Input("ignoreDeletionError")]
         public Input<bool>? IgnoreDeletionError { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Glacier
         public Input<bool>? CompleteLock { get; set; }
 
         /// <summary>
-        /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
+        /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
         /// </summary>
         [Input("ignoreDeletionError")]
         public Input<bool>? IgnoreDeletionError { get; set; }

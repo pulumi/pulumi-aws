@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Scheduler
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Scheduler
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Scheduler
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

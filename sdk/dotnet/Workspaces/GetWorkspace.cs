@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+        /// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
         /// </summary>
         [Input("directoryId")]
         public string? DirectoryId { get; set; }
@@ -175,13 +175,13 @@ namespace Pulumi.Aws.Workspaces
         }
 
         /// <summary>
-        /// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+        /// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
         /// </summary>
         [Input("userName")]
         public string? UserName { get; set; }
 
         /// <summary>
-        /// ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+        /// ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
         /// </summary>
         [Input("workspaceId")]
         public string? WorkspaceId { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+        /// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
@@ -219,13 +219,13 @@ namespace Pulumi.Aws.Workspaces
         }
 
         /// <summary>
-        /// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+        /// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
         /// <summary>
-        /// ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+        /// ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

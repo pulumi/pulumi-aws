@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         }
 
         /// <summary>
-        /// Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
+        /// Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
         /// </summary>
         [Input("cachePolicyId")]
         public Input<string>? CachePolicyId { get; set; }

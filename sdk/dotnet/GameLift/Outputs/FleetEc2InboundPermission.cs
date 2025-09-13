@@ -26,7 +26,7 @@ namespace Pulumi.Aws.GameLift.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+        /// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
         /// </summary>
         public readonly int ToPort;
 

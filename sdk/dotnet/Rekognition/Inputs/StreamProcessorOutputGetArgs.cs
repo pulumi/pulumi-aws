@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Rekognition.Inputs
     public sealed class StreamProcessorOutputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
+        /// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
         /// </summary>
         [Input("kinesisDataStream")]
         public Input<Inputs.StreamProcessorOutputKinesisDataStreamGetArgs>? KinesisDataStream { get; set; }
 
         /// <summary>
-        /// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
+        /// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
         /// </summary>
         [Input("s3Destination")]
         public Input<Inputs.StreamProcessorOutputS3DestinationGetArgs>? S3Destination { get; set; }

@@ -12,9 +12,9 @@ namespace Pulumi.Aws.Dms
     /// <summary>
     /// Provides a DMS (Data Migration Service) S3 endpoint resource. DMS S3 endpoints can be created, updated, deleted, and imported.
     /// 
-    /// &gt; **Note:** AWS is deprecating `extra_connection_attributes`, such as used with `aws.dms.Endpoint`. This resource is an alternative to `aws.dms.Endpoint` and does not use `extra_connection_attributes`. (AWS currently includes `extra_connection_attributes` in the raw responses to the AWS Provider requests and so they may be visible in the logs.)
+    /// &gt; **Note:** AWS is deprecating `extraConnectionAttributes`, such as used with `aws.dms.Endpoint`. This resource is an alternative to `aws.dms.Endpoint` and does not use `extraConnectionAttributes`. (AWS currently includes `extraConnectionAttributes` in the raw responses to the AWS Provider requests and so they may be visible in the logs.)
     /// 
-    /// &gt; **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdc_max_batch_interval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
+    /// &gt; **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdcMaxBatchInterval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
     /// 
     /// ## Example Usage
     /// 
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Dms
         public Output<int?> CdcMinFileSize { get; private set; } = null!;
 
         /// <summary>
-        /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
+        /// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         /// </summary>
         [Output("cdcPath")]
         public Output<string?> CdcPath { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> CsvDelimiter { get; private set; } = null!;
 
         /// <summary>
-        /// Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        /// Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
         /// </summary>
         [Output("csvNoSupValue")]
         public Output<string?> CsvNoSupValue { get; private set; } = null!;
@@ -252,13 +252,13 @@ namespace Pulumi.Aws.Dms
         public Output<bool?> DatePartitionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
+        /// Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         /// </summary>
         [Output("datePartitionSequence")]
         public Output<string?> DatePartitionSequence { get; private set; } = null!;
 
         /// <summary>
-        /// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
+        /// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
         /// </summary>
         [Output("datePartitionTimezone")]
         public Output<string?> DatePartitionTimezone { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Dms
         public Output<bool?> EnableStatistics { get; private set; } = null!;
 
         /// <summary>
-        /// Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        /// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
         /// </summary>
         [Output("encodingType")]
         public Output<string?> EncodingType { get; private set; } = null!;
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.Dms
         public Output<bool?> IncludeOpForFullLoad { get; private set; } = null!;
 
         /// <summary>
-        /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> ParquetVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
+        /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
         [Output("preserveTransactions")]
         public Output<bool?> PreserveTransactions { get; private set; } = null!;
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.Dms
         public Output<int?> RowGroupLength { get; private set; } = null!;
 
         /// <summary>
-        /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
+        /// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
         /// </summary>
         [Output("serverSideEncryptionKmsKeyId")]
         public Output<string?> ServerSideEncryptionKmsKeyId { get; private set; } = null!;
@@ -428,13 +428,13 @@ namespace Pulumi.Aws.Dms
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> TimestampColumnName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
+        /// Whether to use `csvNoSupValue` for columns not included in the supplemental log. (Ignored for source endpoints.)
         /// </summary>
         [Output("useCsvNoSupValue")]
         public Output<bool?> UseCsvNoSupValue { get; private set; } = null!;
@@ -558,7 +558,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? CdcMinFileSize { get; set; }
 
         /// <summary>
-        /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
+        /// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         /// </summary>
         [Input("cdcPath")]
         public Input<string>? CdcPath { get; set; }
@@ -582,7 +582,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CsvDelimiter { get; set; }
 
         /// <summary>
-        /// Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        /// Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
         /// </summary>
         [Input("csvNoSupValue")]
         public Input<string>? CsvNoSupValue { get; set; }
@@ -624,13 +624,13 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? DatePartitionEnabled { get; set; }
 
         /// <summary>
-        /// Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
+        /// Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         /// </summary>
         [Input("datePartitionSequence")]
         public Input<string>? DatePartitionSequence { get; set; }
 
         /// <summary>
-        /// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
+        /// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
         /// </summary>
         [Input("datePartitionTimezone")]
         public Input<string>? DatePartitionTimezone { get; set; }
@@ -654,7 +654,7 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? EnableStatistics { get; set; }
 
         /// <summary>
-        /// Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        /// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
         /// </summary>
         [Input("encodingType")]
         public Input<string>? EncodingType { get; set; }
@@ -708,7 +708,7 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? IncludeOpForFullLoad { get; set; }
 
         /// <summary>
-        /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -732,7 +732,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ParquetVersion { get; set; }
 
         /// <summary>
-        /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
+        /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
         [Input("preserveTransactions")]
         public Input<bool>? PreserveTransactions { get; set; }
@@ -756,7 +756,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? RowGroupLength { get; set; }
 
         /// <summary>
-        /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
+        /// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
         /// </summary>
         [Input("serverSideEncryptionKmsKeyId")]
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
@@ -779,7 +779,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -794,7 +794,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? TimestampColumnName { get; set; }
 
         /// <summary>
-        /// Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
+        /// Whether to use `csvNoSupValue` for columns not included in the supplemental log. (Ignored for source endpoints.)
         /// </summary>
         [Input("useCsvNoSupValue")]
         public Input<bool>? UseCsvNoSupValue { get; set; }
@@ -868,7 +868,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? CdcMinFileSize { get; set; }
 
         /// <summary>
-        /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
+        /// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         /// </summary>
         [Input("cdcPath")]
         public Input<string>? CdcPath { get; set; }
@@ -892,7 +892,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CsvDelimiter { get; set; }
 
         /// <summary>
-        /// Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        /// Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
         /// </summary>
         [Input("csvNoSupValue")]
         public Input<string>? CsvNoSupValue { get; set; }
@@ -934,13 +934,13 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? DatePartitionEnabled { get; set; }
 
         /// <summary>
-        /// Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
+        /// Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         /// </summary>
         [Input("datePartitionSequence")]
         public Input<string>? DatePartitionSequence { get; set; }
 
         /// <summary>
-        /// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
+        /// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
         /// </summary>
         [Input("datePartitionTimezone")]
         public Input<string>? DatePartitionTimezone { get; set; }
@@ -964,7 +964,7 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? EnableStatistics { get; set; }
 
         /// <summary>
-        /// Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        /// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
         /// </summary>
         [Input("encodingType")]
         public Input<string>? EncodingType { get; set; }
@@ -1036,7 +1036,7 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? IncludeOpForFullLoad { get; set; }
 
         /// <summary>
-        /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -1060,7 +1060,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ParquetVersion { get; set; }
 
         /// <summary>
-        /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
+        /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
         [Input("preserveTransactions")]
         public Input<bool>? PreserveTransactions { get; set; }
@@ -1084,7 +1084,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? RowGroupLength { get; set; }
 
         /// <summary>
-        /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
+        /// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
         /// </summary>
         [Input("serverSideEncryptionKmsKeyId")]
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
@@ -1113,7 +1113,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1125,7 +1125,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1140,7 +1140,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? TimestampColumnName { get; set; }
 
         /// <summary>
-        /// Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
+        /// Whether to use `csvNoSupValue` for columns not included in the supplemental log. (Ignored for source endpoints.)
         /// </summary>
         [Input("useCsvNoSupValue")]
         public Input<bool>? UseCsvNoSupValue { get; set; }

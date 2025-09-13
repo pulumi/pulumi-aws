@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of inference profile summary objects. See `inference_profile_summaries`.
+        /// List of inference profile summary objects. See `inferenceProfileSummaries`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryResult> InferenceProfileSummaries;
         public readonly string Region;

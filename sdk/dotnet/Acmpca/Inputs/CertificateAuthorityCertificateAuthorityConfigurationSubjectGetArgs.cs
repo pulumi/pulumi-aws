@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public Input<string>? GivenName { get; set; }
 
         /// <summary>
-        /// Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
+        /// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
         /// </summary>
         [Input("initials")]
         public Input<string>? Initials { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public Input<string>? OrganizationalUnit { get; set; }
 
         /// <summary>
-        /// Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
+        /// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Input("pseudonym")]
         public Input<string>? Pseudonym { get; set; }

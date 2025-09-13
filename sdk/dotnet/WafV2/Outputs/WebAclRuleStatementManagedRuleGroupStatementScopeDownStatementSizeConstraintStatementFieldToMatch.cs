@@ -26,7 +26,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies? Cookies;
         /// <summary>
-        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> HeaderOrders;
         /// <summary>
@@ -34,15 +34,15 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> Headers;
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        /// Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint;
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        /// Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint;
         /// <summary>
-        /// Inspect the request body as JSON. See `json_body` for details.
+        /// Inspect the request body as JSON. See `jsonBody` for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody? JsonBody;
         /// <summary>
@@ -54,15 +54,15 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString? QueryString;
         /// <summary>
-        /// Inspect a single header. See `single_header` below for details.
+        /// Inspect a single header. See `singleHeader` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader? SingleHeader;
         /// <summary>
-        /// Inspect a single query argument. See `single_query_argument` below for details.
+        /// Inspect a single query argument. See `singleQueryArgument` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument? SingleQueryArgument;
         /// <summary>
-        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uriFragment` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment? UriFragment;
         /// <summary>

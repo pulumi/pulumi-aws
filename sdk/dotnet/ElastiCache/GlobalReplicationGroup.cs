@@ -59,7 +59,7 @@ namespace Pulumi.Aws.ElastiCache
     /// However, once it is part of a Global Replication Group,
     /// the Global Replication Group manages the version of all member replication groups.
     /// 
-    /// The member replication groups must have `lifecycle.ignore_changes[engine_version]` set,
+    /// The member replication groups must have `lifecycle.ignore_changes[engineVersion]` set,
     /// or the provider will always return a diff.
     /// 
     /// In this example,
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> GlobalReplicationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        /// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
         /// </summary>
         [Output("globalReplicationGroupIdSuffix")]
         public Output<string> GlobalReplicationGroupIdSuffix { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
         /// </summary>
         [Output("primaryReplicationGroupId")]
         public Output<string> PrimaryReplicationGroupId { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? GlobalReplicationGroupDescription { get; set; }
 
         /// <summary>
-        /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        /// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
         /// </summary>
         [Input("globalReplicationGroupIdSuffix", required: true)]
         public Input<string> GlobalReplicationGroupIdSuffix { get; set; } = null!;
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
         /// </summary>
         [Input("primaryReplicationGroupId", required: true)]
         public Input<string> PrimaryReplicationGroupId { get; set; } = null!;
@@ -413,7 +413,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? GlobalReplicationGroupId { get; set; }
 
         /// <summary>
-        /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        /// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
         /// </summary>
         [Input("globalReplicationGroupIdSuffix")]
         public Input<string>? GlobalReplicationGroupIdSuffix { get; set; }
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
         /// </summary>
         [Input("primaryReplicationGroupId")]
         public Input<string>? PrimaryReplicationGroupId { get; set; }

@@ -352,6 +352,8 @@ class Webhook(pulumi.CustomResource):
         """
         Provides a CodePipeline Webhook.
 
+        ## Example Usage
+
         ## Import
 
         Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
@@ -379,6 +381,8 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodePipeline Webhook.
+
+        ## Example Usage
 
         ## Import
 

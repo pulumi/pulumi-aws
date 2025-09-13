@@ -80,7 +80,7 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// The name for the public key. Conflicts with `name`.
         /// 
-        /// **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+        /// **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// The name for the public key. Conflicts with `name`.
         /// 
-        /// **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+        /// **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// The name for the public key. Conflicts with `name`.
         /// 
-        /// **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+        /// **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }

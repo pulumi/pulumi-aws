@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Cfg
     /// <summary>
     /// Provides an AWS Config Delivery Channel.
     /// 
-    /// &gt; **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+    /// &gt; **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
     /// 
     /// ## Example Usage
     /// 

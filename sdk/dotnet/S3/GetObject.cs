@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3
         /// ## Example Usage
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
-        /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+        /// value starting with `text/`) and uses it as the `userData` for an EC2 instance:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.S3
         /// ```
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
-        /// file stored in S3, which is then used to pass the most recent `version_id`
+        /// file stored in S3, which is then used to pass the most recent `versionId`
         /// to AWS Lambda for use as a function implementation. More information about
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.S3
         /// ## Example Usage
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
-        /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+        /// value starting with `text/`) and uses it as the `userData` for an EC2 instance:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.S3
         /// ```
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
-        /// file stored in S3, which is then used to pass the most recent `version_id`
+        /// file stored in S3, which is then used to pass the most recent `versionId`
         /// to AWS Lambda for use as a function implementation. More information about
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.S3
         /// ## Example Usage
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
-        /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+        /// value starting with `text/`) and uses it as the `userData` for an EC2 instance:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.S3
         /// ```
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
-        /// file stored in S3, which is then used to pass the most recent `version_id`
+        /// file stored in S3, which is then used to pass the most recent `versionId`
         /// to AWS Lambda for use as a function implementation. More information about
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.S3
         public string Bucket { get; set; } = null!;
 
         /// <summary>
-        /// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+        /// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
         /// </summary>
         [Input("checksumMode")]
         public string? ChecksumMode { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+        /// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
         /// </summary>
         [Input("checksumMode")]
         public Input<string>? ChecksumMode { get; set; }

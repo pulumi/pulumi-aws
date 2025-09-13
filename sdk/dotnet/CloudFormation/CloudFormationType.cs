@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CloudFormation
     public partial class CloudFormationType : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+        /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class CloudFormationTypeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+        /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

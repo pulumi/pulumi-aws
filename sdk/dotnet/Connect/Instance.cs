@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Connect
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        /// The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
         /// </summary>
         [Output("directoryId")]
         public Output<string?> DirectoryId { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Connect
         public Output<bool> InboundCallsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the instance. Required if `directory_id` not specified.
+        /// Specifies the name of the instance. Required if `directoryId` not specified.
         /// </summary>
         [Output("instanceAlias")]
         public Output<string?> InstanceAlias { get; private set; } = null!;
@@ -185,14 +185,14 @@ namespace Pulumi.Aws.Connect
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Connect
         public Input<bool>? ContactLensEnabled { get; set; }
 
         /// <summary>
-        /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        /// The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Connect
         public Input<bool> InboundCallsEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the instance. Required if `directory_id` not specified.
+        /// Specifies the name of the instance. Required if `directoryId` not specified.
         /// </summary>
         [Input("instanceAlias")]
         public Input<string>? InstanceAlias { get; set; }
@@ -313,8 +313,8 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         public InputMap<string> Tags
         {
@@ -361,7 +361,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        /// The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.Connect
         public Input<bool>? InboundCallsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the instance. Required if `directory_id` not specified.
+        /// Specifies the name of the instance. Required if `directoryId` not specified.
         /// </summary>
         [Input("instanceAlias")]
         public Input<string>? InstanceAlias { get; set; }
@@ -424,8 +424,8 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         public InputMap<string> Tags
         {
@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

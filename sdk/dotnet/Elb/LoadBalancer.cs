@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Note on ECDSA Key Algorithm
     /// 
-    /// If the ARN of the `ssl_certificate_id` that is pointed to references a
+    /// If the ARN of the `sslCertificateId` that is pointed to references a
     /// certificate that was signed by an ECDSA key, note that ELB only supports the
     /// P256 and P384 curves.  Using a certificate signed by a key using a different
     /// curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Elb
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// A health_check block. Health Check documented below.
+        /// A healthCheck block. Health Check documented below.
         /// </summary>
         [Output("healthCheck")]
         public Output<Outputs.LoadBalancerHealthCheck> HealthCheck { get; private set; } = null!;
@@ -236,16 +236,16 @@ namespace Pulumi.Aws.Elb
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// Exactly one of `availabilityZones` or `subnets` must be specified: this
         /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Elb
         public Input<string>? DesyncMitigationMode { get; set; }
 
         /// <summary>
-        /// A health_check block. Health Check documented below.
+        /// A healthCheck block. Health Check documented below.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.LoadBalancerHealthCheckArgs>? HealthCheck { get; set; }
@@ -446,9 +446,9 @@ namespace Pulumi.Aws.Elb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// Exactly one of `availabilityZones` or `subnets` must be specified: this
         /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         public InputMap<string> Tags
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.Elb
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// A health_check block. Health Check documented below.
+        /// A healthCheck block. Health Check documented below.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.LoadBalancerHealthCheckGetArgs>? HealthCheck { get; set; }
@@ -625,9 +625,9 @@ namespace Pulumi.Aws.Elb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// Exactly one of `availabilityZones` or `subnets` must be specified: this
         /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         public InputMap<string> Tags
@@ -640,7 +640,7 @@ namespace Pulumi.Aws.Elb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

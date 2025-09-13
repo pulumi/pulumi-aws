@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Batch
     /// });
     /// ```
     /// 
-    /// ### Job definition of type container using `ecs_properties`
+    /// ### Job definition of type container using `ecsProperties`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.Batch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
         /// </summary>
         [Output("retryStrategy")]
         public Output<Outputs.JobDefinitionRetryStrategy?> RetryStrategy { get; private set; } = null!;
@@ -516,13 +516,13 @@ namespace Pulumi.Aws.Batch
         public Output<int?> SchedulingPriority { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -660,7 +660,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyArgs>? RetryStrategy { get; set; }
@@ -675,7 +675,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -790,7 +790,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyGetArgs>? RetryStrategy { get; set; }
@@ -811,7 +811,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -823,7 +823,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieGetArgs>? Cookie { get; set; }
 
         /// <summary>
-        /// Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        /// Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
         /// </summary>
         [Input("forwardedIp")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpGetArgs>? ForwardedIp { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderGetArgs>? Header { get; set; }
 
         /// <summary>
-        /// Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        /// Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
         /// </summary>
         [Input("httpMethod")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodGetArgs>? HttpMethod { get; set; }
@@ -61,25 +61,25 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintGetArgs>? Ja4Fingerprint { get; set; }
 
         /// <summary>
-        /// Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        /// Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
         /// </summary>
         [Input("labelNamespace")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceGetArgs>? LabelNamespace { get; set; }
 
         /// <summary>
-        /// Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        /// Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
         /// </summary>
         [Input("queryArgument")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentGetArgs>? QueryArgument { get; set; }
 
         /// <summary>
-        /// Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        /// Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
         /// </summary>
         [Input("queryString")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringGetArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
+        /// Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
         /// </summary>
         [Input("uriPath")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathGetArgs>? UriPath { get; set; }

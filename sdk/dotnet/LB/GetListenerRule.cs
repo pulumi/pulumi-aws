@@ -180,7 +180,7 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// ARN of the Listener Rule.
-        /// Either `arn` or `listener_arn` must be set.
+        /// Either `arn` or `listenerArn` must be set.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -200,14 +200,14 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// ARN of the associated Listener.
-        /// Either `arn` or `listener_arn` must be set.
+        /// Either `arn` or `listenerArn` must be set.
         /// </summary>
         [Input("listenerArn")]
         public string? ListenerArn { get; set; }
 
         /// <summary>
         /// Priority of the Listener Rule within the Listener.
-        /// Must be set if `listener_arn` is set, otherwise must not be set.
+        /// Must be set if `listenerArn` is set, otherwise must not be set.
         /// </summary>
         [Input("priority")]
         public int? Priority { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// ARN of the Listener Rule.
-        /// Either `arn` or `listener_arn` must be set.
+        /// Either `arn` or `listenerArn` must be set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -261,14 +261,14 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// ARN of the associated Listener.
-        /// Either `arn` or `listener_arn` must be set.
+        /// Either `arn` or `listenerArn` must be set.
         /// </summary>
         [Input("listenerArn")]
         public Input<string>? ListenerArn { get; set; }
 
         /// <summary>
         /// Priority of the Listener Rule within the Listener.
-        /// Must be set if `listener_arn` is set, otherwise must not be set.
+        /// Must be set if `listenerArn` is set, otherwise must not be set.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

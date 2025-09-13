@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class MetricStreamStatisticsConfiguration
     {
         /// <summary>
-        /// The additional statistics to stream for the metrics listed in `include_metrics`.
+        /// The additional statistics to stream for the metrics listed in `includeMetrics`.
         /// </summary>
         public readonly ImmutableArray<string> AdditionalStatistics;
         /// <summary>

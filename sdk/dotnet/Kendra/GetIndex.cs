@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexServerSideEncryptionConfigurationResult> ServerSideEncryptionConfigurations;
         /// <summary>
-        /// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
+        /// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
         /// </summary>
         public readonly string Status;
         /// <summary>

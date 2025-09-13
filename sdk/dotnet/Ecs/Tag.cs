@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.ecs.Cluster` and `aws.ecs.Tag` to manage tags of the same ECS Cluster will cause a perpetual difference where the `aws.ecs.Cluster` resource will try to remove the tag being added by the `aws.ecs.Tag` resource.
     /// 
-    /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+    /// &gt; **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
     /// 
     /// ## Example Usage
     /// 

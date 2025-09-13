@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Pinpoint.Inputs
     public sealed class AppCampaignHookGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+        /// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
         /// </summary>
         [Input("lambdaFunctionName")]
         public Input<string>? LambdaFunctionName { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Pinpoint.Inputs
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+        /// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
         /// </summary>
         [Input("webUrl")]
         public Input<string>? WebUrl { get; set; }

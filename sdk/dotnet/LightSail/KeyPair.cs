@@ -96,7 +96,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> EncryptedFingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// Private key material, base 64 encoded and encrypted with the given `pgp_key`. This is only populated when creating a new key and `pgp_key` is supplied.
+        /// Private key material, base 64 encoded and encrypted with the given `pgpKey`. This is only populated when creating a new key and `pgpKey` is supplied.
         /// </summary>
         [Output("encryptedPrivateKey")]
         public Output<string> EncryptedPrivateKey { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> Fingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string?> PgpKey { get; private set; } = null!;
 
         /// <summary>
-        /// Private key, base64 encoded. This is only populated when creating a new key, and when no `pgp_key` is provided.
+        /// Private key, base64 encoded. This is only populated when creating a new key, and when no `pgpKey` is provided.
         /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
@@ -144,15 +144,15 @@ namespace Pulumi.Aws.LightSail
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
+        /// &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class KeyPairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -237,9 +237,9 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
+        /// &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? EncryptedFingerprint { get; set; }
 
         /// <summary>
-        /// Private key material, base 64 encoded and encrypted with the given `pgp_key`. This is only populated when creating a new key and `pgp_key` is supplied.
+        /// Private key material, base 64 encoded and encrypted with the given `pgpKey`. This is only populated when creating a new key and `pgpKey` is supplied.
         /// </summary>
         [Input("encryptedPrivateKey")]
         public Input<string>? EncryptedPrivateKey { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? Fingerprint { get; set; }
 
         /// <summary>
-        /// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? PgpKey { get; set; }
 
         /// <summary>
-        /// Private key, base64 encoded. This is only populated when creating a new key, and when no `pgp_key` is provided.
+        /// Private key, base64 encoded. This is only populated when creating a new key, and when no `pgpKey` is provided.
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
@@ -319,9 +319,9 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
+        /// &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

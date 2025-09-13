@@ -16,7 +16,7 @@ namespace Pulumi.Aws.BcmData.Inputs
         private InputList<Inputs.ExportExportDataQueryArgs>? _dataQueries;
 
         /// <summary>
-        /// Data query for this specific data export. See the `data_query` argument reference below.
+        /// Data query for this specific data export. See the `dataQuery` argument reference below.
         /// </summary>
         public InputList<Inputs.ExportExportDataQueryArgs> DataQueries
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.BcmData.Inputs
         private InputList<Inputs.ExportExportDestinationConfigurationArgs>? _destinationConfigurations;
 
         /// <summary>
-        /// Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
+        /// Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
         /// </summary>
         public InputList<Inputs.ExportExportDestinationConfigurationArgs> DestinationConfigurations
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.BcmData.Inputs
         private InputList<Inputs.ExportExportRefreshCadenceArgs>? _refreshCadences;
 
         /// <summary>
-        /// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
+        /// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
         /// </summary>
         public InputList<Inputs.ExportExportRefreshCadenceArgs> RefreshCadences
         {

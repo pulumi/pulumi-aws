@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<int>? ConstituentsPerAggregate { get; set; }
 
         /// <summary>
-        /// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+        /// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
         /// </summary>
         [Input("totalConstituents")]
         public Input<int>? TotalConstituents { get; set; }

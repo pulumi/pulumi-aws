@@ -216,9 +216,9 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// 
-    /// Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
+    /// Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameterValue`.
     /// 
-    /// The following example adds the Dynamic Partitioning Keys: `store_id` and `customer_id` to the S3 prefix.
+    /// The following example adds the Dynamic Partitioning Keys: `storeId` and `customerId` to the S3 prefix.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -1009,7 +1009,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
@@ -1018,37 +1018,37 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> DestinationId { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
+        /// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
         /// </summary>
         [Output("elasticsearchConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamElasticsearchConfiguration?> ElasticsearchConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
+        /// Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
         /// </summary>
         [Output("extendedS3Configuration")]
         public Output<Outputs.FirehoseDeliveryStreamExtendedS3Configuration?> ExtendedS3Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
+        /// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
         /// </summary>
         [Output("httpEndpointConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration?> HttpEndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        /// Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
         /// </summary>
         [Output("icebergConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamIcebergConfiguration?> IcebergConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
         /// </summary>
         [Output("kinesisSourceConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamKinesisSourceConfiguration?> KinesisSourceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
         /// </summary>
         [Output("mskSourceConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamMskSourceConfiguration?> MskSourceConfiguration { get; private set; } = null!;
@@ -1060,19 +1060,19 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
+        /// Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
         /// </summary>
         [Output("opensearchConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamOpensearchConfiguration?> OpensearchConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
+        /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
         /// </summary>
         [Output("opensearchserverlessConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration?> OpensearchserverlessConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
+        /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
         /// </summary>
         [Output("redshiftConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamRedshiftConfiguration?> RedshiftConfiguration { get; private set; } = null!;
@@ -1084,19 +1084,19 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Encrypt at rest options. See `server_side_encryption` block below for details.
+        /// Encrypt at rest options. See `serverSideEncryption` block below for details.
         /// </summary>
         [Output("serverSideEncryption")]
         public Output<Outputs.FirehoseDeliveryStreamServerSideEncryption?> ServerSideEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+        /// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
         /// </summary>
         [Output("snowflakeConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamSnowflakeConfiguration?> SnowflakeConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        /// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
         /// 
         /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
@@ -1104,13 +1104,13 @@ namespace Pulumi.Aws.Kinesis
         public Output<Outputs.FirehoseDeliveryStreamSplunkConfiguration?> SplunkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -1171,7 +1171,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
@@ -1180,37 +1180,37 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? DestinationId { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
+        /// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
         /// </summary>
         [Input("elasticsearchConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs>? ElasticsearchConfiguration { get; set; }
 
         /// <summary>
-        /// Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
+        /// Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
         /// </summary>
         [Input("extendedS3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs>? ExtendedS3Configuration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
+        /// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
         /// </summary>
         [Input("httpEndpointConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs>? HttpEndpointConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        /// Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
         /// </summary>
         [Input("icebergConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs>? IcebergConfiguration { get; set; }
 
         /// <summary>
-        /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
         /// </summary>
         [Input("kinesisSourceConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs>? KinesisSourceConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
         /// </summary>
         [Input("mskSourceConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamMskSourceConfigurationArgs>? MskSourceConfiguration { get; set; }
@@ -1222,19 +1222,19 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
+        /// Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
         /// </summary>
         [Input("opensearchConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs>? OpensearchConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
+        /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
         /// </summary>
         [Input("opensearchserverlessConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs>? OpensearchserverlessConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
+        /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
         /// </summary>
         [Input("redshiftConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs>? RedshiftConfiguration { get; set; }
@@ -1246,19 +1246,19 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Encrypt at rest options. See `server_side_encryption` block below for details.
+        /// Encrypt at rest options. See `serverSideEncryption` block below for details.
         /// </summary>
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs>? ServerSideEncryption { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+        /// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
         /// </summary>
         [Input("snowflakeConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs>? SnowflakeConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        /// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
         /// 
         /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
@@ -1269,7 +1269,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1295,7 +1295,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -1304,37 +1304,37 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? DestinationId { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
+        /// Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
         /// </summary>
         [Input("elasticsearchConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationGetArgs>? ElasticsearchConfiguration { get; set; }
 
         /// <summary>
-        /// Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
+        /// Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
         /// </summary>
         [Input("extendedS3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationGetArgs>? ExtendedS3Configuration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
+        /// Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
         /// </summary>
         [Input("httpEndpointConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationGetArgs>? HttpEndpointConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        /// Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
         /// </summary>
         [Input("icebergConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationGetArgs>? IcebergConfiguration { get; set; }
 
         /// <summary>
-        /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
         /// </summary>
         [Input("kinesisSourceConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs>? KinesisSourceConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
         /// </summary>
         [Input("mskSourceConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamMskSourceConfigurationGetArgs>? MskSourceConfiguration { get; set; }
@@ -1346,19 +1346,19 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
+        /// Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
         /// </summary>
         [Input("opensearchConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationGetArgs>? OpensearchConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
+        /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
         /// </summary>
         [Input("opensearchserverlessConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationGetArgs>? OpensearchserverlessConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
+        /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
         /// </summary>
         [Input("redshiftConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationGetArgs>? RedshiftConfiguration { get; set; }
@@ -1370,19 +1370,19 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Encrypt at rest options. See `server_side_encryption` block below for details.
+        /// Encrypt at rest options. See `serverSideEncryption` block below for details.
         /// </summary>
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionGetArgs>? ServerSideEncryption { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+        /// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
         /// </summary>
         [Input("snowflakeConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationGetArgs>? SnowflakeConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        /// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
         /// 
         /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
@@ -1393,7 +1393,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1405,7 +1405,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         }
 
         /// <summary>
-        /// The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+        /// The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
         /// </summary>
         [Input("customOriginConfig")]
         public Input<Inputs.DistributionOriginCustomOriginConfigGetArgs>? CustomOriginConfig { get; set; }
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<Inputs.DistributionOriginOriginShieldGetArgs>? OriginShield { get; set; }
 
         /// <summary>
-        /// CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+        /// CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
         /// </summary>
         [Input("s3OriginConfig")]
         public Input<Inputs.DistributionOriginS3OriginConfigGetArgs>? S3OriginConfig { get; set; }

@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Ecr.Inputs
     public sealed class GetLifecyclePolicyDocumentRuleSelectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specify a count number. If the `count_type` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+        /// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
         /// </summary>
         [Input("countNumber", required: true)]
         public int CountNumber { get; set; }
 
         /// <summary>
-        /// Specify a count type to apply to the images. If `count_type` is set to "imageCountMoreThan", you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to "sinceImagePushed", you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
+        /// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
         /// </summary>
         [Input("countType", required: true)]
         public string CountType { get; set; } = null!;
 
         /// <summary>
-        /// Specify a count unit of days to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
+        /// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
         /// </summary>
         [Input("countUnit")]
         public string? CountUnit { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Ecr.Inputs
         }
 
         /// <summary>
-        /// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tag_prefix_list` value. If you specify "untagged", then you must omit `tag_prefix_list`.
+        /// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
         /// </summary>
         [Input("tagStatus", required: true)]
         public string TagStatus { get; set; } = null!;

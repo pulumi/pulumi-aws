@@ -15,15 +15,15 @@ namespace Pulumi.Aws.Rds
     /// databases.
     /// 
     /// Changes to a DB instance can occur when you manually change a parameter, such as
-    /// `allocated_storage`, and are reflected in the next maintenance window. Because
+    /// `allocatedStorage`, and are reflected in the next maintenance window. Because
     /// of this, this provider may report a difference in its planning phase because a
-    /// modification has not yet taken place. You can use the `apply_immediately` flag
+    /// modification has not yet taken place. You can use the `applyImmediately` flag
     /// to instruct the service to apply the change immediately (see documentation
     /// below).
     /// 
-    /// When upgrading the major version of an engine, `allow_major_version_upgrade` must be set to `true`.
+    /// When upgrading the major version of an engine, `allowMajorVersionUpgrade` must be set to `true`.
     /// 
-    /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
+    /// &gt; **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
     /// See the AWS Docs on [RDS Instance Maintenance][instance-maintenance] for more information.
     /// 
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ### Storage Autoscaling
     /// 
-    /// To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
+    /// To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
     /// 
-    /// You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
+    /// You can specify the `manageMasterUserPassword` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manageMasterUserPassword` attribute and removing the `password` attribute (removal is required).
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
     /// 
-    /// You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+    /// You can specify the `masterUserSecretKmsKeyId` attribute to specify a specific KMS Key.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Address { get; private set; } = null!;
 
         /// <summary>
-        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+        /// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
@@ -429,14 +429,14 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
-        /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
+        /// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
         /// </summary>
         [Output("backupWindow")]
         public Output<string> BackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-        /// See `blue_green_update` below.
+        /// See `blueGreenUpdate` below.
         /// </summary>
         [Output("blueGreenUpdate")]
         public Output<Outputs.InstanceBlueGreenUpdate?> BlueGreenUpdate { get; private set; } = null!;
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.Rds
         /// This can't be changed.
         /// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
         /// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-        /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        /// Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
         /// </summary>
         [Output("characterSetName")]
         public Output<string> CharacterSetName { get; private set; } = null!;
@@ -475,7 +475,7 @@ namespace Pulumi.Aws.Rds
         /// For more detailed documentation about each argument, refer to the [AWS official
         /// documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// 
-        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// &gt; **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
         /// Replicate database managed by the provider will promote the database to a fully
         /// standalone database.
         /// </summary>
@@ -524,37 +524,37 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
         /// </summary>
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Output("domainAuthSecretArn")]
         public Output<string?> DomainAuthSecretArn { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Output("domainDnsIps")]
         public Output<ImmutableArray<string>> DomainDnsIps { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Output("domainFqdn")]
         public Output<string> DomainFqdn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
         /// </summary>
         [Output("domainIamRoleName")]
         public Output<string?> DomainIamRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Output("domainOu")]
         public Output<string?> DomainOu { get; private set; } = null!;
@@ -584,7 +584,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> EngineLifecycleSupport { get; private set; } = null!;
 
         /// <summary>
-        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -597,7 +597,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The name of your final DB snapshot
-        /// when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+        /// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
         /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         /// </summary>
         [Output("finalSnapshotIdentifier")]
@@ -617,7 +617,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> IamDatabaseAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
@@ -636,8 +636,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
-        /// storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
-        /// Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        /// storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
+        /// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
         /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Output("iops")]
@@ -684,7 +684,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
         /// </summary>
         [Output("manageMasterUserPassword")]
         public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
@@ -696,13 +696,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> MasterUserSecretKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        /// A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
         /// </summary>
         [Output("masterUserSecrets")]
         public Output<ImmutableArray<Outputs.InstanceMasterUserSecret>> MasterUserSecrets { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+        /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
         /// </summary>
         [Output("maxAllocatedStorage")]
         public Output<int?> MaxAllocatedStorage { get; private set; } = null!;
@@ -758,7 +758,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -770,13 +770,13 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> PerformanceInsightsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
         /// </summary>
         [Output("performanceInsightsKmsKeyId")]
         public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Output("performanceInsightsRetentionPeriod")]
         public Output<int> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
@@ -812,10 +812,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Specifies that this resource is a Replica database, and to use this value as the source database.
-        /// If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
-        /// If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+        /// If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+        /// If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
         /// If replicating an Instance in a different region, use the `arn` of the source DB.
-        /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+        /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
         /// See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         /// </summary>
         [Output("replicateSourceDb")]
@@ -845,7 +845,7 @@ namespace Pulumi.Aws.Rds
         /// Determines whether a final DB snapshot is
         /// created before the DB instance is deleted. If true is specified, no DBSnapshot
         /// is created. If false is specified, a DB snapshot is created before the DB
-        /// instance is deleted, using the value from `final_snapshot_identifier`. Default
+        /// instance is deleted, using the value from `finalSnapshotIdentifier`. Default
         /// is `false`.
         /// </summary>
         [Output("skipFinalSnapshot")]
@@ -867,14 +867,14 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Specifies whether the DB instance is
         /// encrypted. Note that if you are creating a cross-region read replica this field
-        /// is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+        /// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
         /// default is `false` if not specified.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+        /// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Output("storageThroughput")]
         public Output<int> StorageThroughput { get; private set; } = null!;
@@ -889,13 +889,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -912,13 +912,13 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Whether to upgrade the storage file system configuration on the read replica.
-        /// Can only be set with `replicate_source_db`.
+        /// Can only be set with `replicateSourceDb`.
         /// </summary>
         [Output("upgradeStorageConfig")]
         public Output<bool?> UpgradeStorageConfig { get; private set; } = null!;
 
         /// <summary>
-        /// (Required unless a `snapshot_identifier` or `replicate_source_db`
+        /// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
         /// is provided) Username for the master DB user. Cannot be specified for a replica.
         /// </summary>
         [Output("username")]
@@ -982,7 +982,7 @@ namespace Pulumi.Aws.Rds
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+        /// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -1037,14 +1037,14 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
-        /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
+        /// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
         /// </summary>
         [Input("backupWindow")]
         public Input<string>? BackupWindow { get; set; }
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-        /// See `blue_green_update` below.
+        /// See `blueGreenUpdate` below.
         /// </summary>
         [Input("blueGreenUpdate")]
         public Input<Inputs.InstanceBlueGreenUpdateArgs>? BlueGreenUpdate { get; set; }
@@ -1060,7 +1060,7 @@ namespace Pulumi.Aws.Rds
         /// This can't be changed.
         /// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
         /// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-        /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        /// Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
         /// </summary>
         [Input("characterSetName")]
         public Input<string>? CharacterSetName { get; set; }
@@ -1083,7 +1083,7 @@ namespace Pulumi.Aws.Rds
         /// For more detailed documentation about each argument, refer to the [AWS official
         /// documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// 
-        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// &gt; **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
         /// Replicate database managed by the provider will promote the database to a fully
         /// standalone database.
         /// </summary>
@@ -1132,13 +1132,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Input("domainAuthSecretArn")]
         public Input<string>? DomainAuthSecretArn { get; set; }
@@ -1147,7 +1147,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _domainDnsIps;
 
         /// <summary>
-        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         public InputList<string> DomainDnsIps
         {
@@ -1156,19 +1156,19 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Input("domainFqdn")]
         public Input<string>? DomainFqdn { get; set; }
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
         /// </summary>
         [Input("domainIamRoleName")]
         public Input<string>? DomainIamRoleName { get; set; }
 
         /// <summary>
-        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Input("domainOu")]
         public Input<string>? DomainOu { get; set; }
@@ -1198,14 +1198,14 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineLifecycleSupport { get; set; }
 
         /// <summary>
-        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
         /// The name of your final DB snapshot
-        /// when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+        /// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
         /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
@@ -1219,7 +1219,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -1238,8 +1238,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
-        /// storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
-        /// Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        /// storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
+        /// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
         /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("iops")]
@@ -1274,7 +1274,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
         public Input<bool>? ManageMasterUserPassword { get; set; }
@@ -1286,7 +1286,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MasterUserSecretKmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+        /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
         /// </summary>
         [Input("maxAllocatedStorage")]
         public Input<int>? MaxAllocatedStorage { get; set; }
@@ -1345,7 +1345,7 @@ namespace Pulumi.Aws.Rds
         private Input<string>? _password;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
         /// </summary>
         public Input<string>? Password
         {
@@ -1364,13 +1364,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
         public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
@@ -1403,10 +1403,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Specifies that this resource is a Replica database, and to use this value as the source database.
-        /// If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
-        /// If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+        /// If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+        /// If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
         /// If replicating an Instance in a different region, use the `arn` of the source DB.
-        /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+        /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
         /// See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         /// </summary>
         [Input("replicateSourceDb")]
@@ -1430,7 +1430,7 @@ namespace Pulumi.Aws.Rds
         /// Determines whether a final DB snapshot is
         /// created before the DB instance is deleted. If true is specified, no DBSnapshot
         /// is created. If false is specified, a DB snapshot is created before the DB
-        /// instance is deleted, using the value from `final_snapshot_identifier`. Default
+        /// instance is deleted, using the value from `finalSnapshotIdentifier`. Default
         /// is `false`.
         /// </summary>
         [Input("skipFinalSnapshot")]
@@ -1446,14 +1446,14 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Specifies whether the DB instance is
         /// encrypted. Note that if you are creating a cross-region read replica this field
-        /// is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+        /// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
         /// default is `false` if not specified.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+        /// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("storageThroughput")]
         public Input<int>? StorageThroughput { get; set; }
@@ -1471,7 +1471,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1491,13 +1491,13 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Whether to upgrade the storage file system configuration on the read replica.
-        /// Can only be set with `replicate_source_db`.
+        /// Can only be set with `replicateSourceDb`.
         /// </summary>
         [Input("upgradeStorageConfig")]
         public Input<bool>? UpgradeStorageConfig { get; set; }
 
         /// <summary>
-        /// (Required unless a `snapshot_identifier` or `replicate_source_db`
+        /// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
         /// is provided) Username for the master DB user. Cannot be specified for a replica.
         /// </summary>
         [Input("username")]
@@ -1531,7 +1531,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+        /// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -1592,14 +1592,14 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
-        /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
+        /// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
         /// </summary>
         [Input("backupWindow")]
         public Input<string>? BackupWindow { get; set; }
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-        /// See `blue_green_update` below.
+        /// See `blueGreenUpdate` below.
         /// </summary>
         [Input("blueGreenUpdate")]
         public Input<Inputs.InstanceBlueGreenUpdateGetArgs>? BlueGreenUpdate { get; set; }
@@ -1615,7 +1615,7 @@ namespace Pulumi.Aws.Rds
         /// This can't be changed.
         /// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
         /// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-        /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        /// Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
         /// </summary>
         [Input("characterSetName")]
         public Input<string>? CharacterSetName { get; set; }
@@ -1638,7 +1638,7 @@ namespace Pulumi.Aws.Rds
         /// For more detailed documentation about each argument, refer to the [AWS official
         /// documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// 
-        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// &gt; **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
         /// Replicate database managed by the provider will promote the database to a fully
         /// standalone database.
         /// </summary>
@@ -1687,13 +1687,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Input("domainAuthSecretArn")]
         public Input<string>? DomainAuthSecretArn { get; set; }
@@ -1702,7 +1702,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _domainDnsIps;
 
         /// <summary>
-        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         public InputList<string> DomainDnsIps
         {
@@ -1711,19 +1711,19 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Input("domainFqdn")]
         public Input<string>? DomainFqdn { get; set; }
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
         /// </summary>
         [Input("domainIamRoleName")]
         public Input<string>? DomainIamRoleName { get; set; }
 
         /// <summary>
-        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
         /// </summary>
         [Input("domainOu")]
         public Input<string>? DomainOu { get; set; }
@@ -1759,7 +1759,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineLifecycleSupport { get; set; }
 
         /// <summary>
-        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -1772,7 +1772,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The name of your final DB snapshot
-        /// when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+        /// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
         /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
@@ -1792,7 +1792,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -1811,8 +1811,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
-        /// storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
-        /// Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        /// storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
+        /// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
         /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("iops")]
@@ -1865,7 +1865,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
         public Input<bool>? ManageMasterUserPassword { get; set; }
@@ -1880,7 +1880,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.InstanceMasterUserSecretGetArgs>? _masterUserSecrets;
 
         /// <summary>
-        /// A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        /// A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
         /// </summary>
         public InputList<Inputs.InstanceMasterUserSecretGetArgs> MasterUserSecrets
         {
@@ -1889,7 +1889,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+        /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
         /// </summary>
         [Input("maxAllocatedStorage")]
         public Input<int>? MaxAllocatedStorage { get; set; }
@@ -1948,7 +1948,7 @@ namespace Pulumi.Aws.Rds
         private Input<string>? _password;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
         /// </summary>
         public Input<string>? Password
         {
@@ -1967,13 +1967,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
         public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
@@ -2014,10 +2014,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Specifies that this resource is a Replica database, and to use this value as the source database.
-        /// If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
-        /// If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+        /// If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+        /// If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
         /// If replicating an Instance in a different region, use the `arn` of the source DB.
-        /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+        /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
         /// See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         /// </summary>
         [Input("replicateSourceDb")]
@@ -2047,7 +2047,7 @@ namespace Pulumi.Aws.Rds
         /// Determines whether a final DB snapshot is
         /// created before the DB instance is deleted. If true is specified, no DBSnapshot
         /// is created. If false is specified, a DB snapshot is created before the DB
-        /// instance is deleted, using the value from `final_snapshot_identifier`. Default
+        /// instance is deleted, using the value from `finalSnapshotIdentifier`. Default
         /// is `false`.
         /// </summary>
         [Input("skipFinalSnapshot")]
@@ -2069,14 +2069,14 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Specifies whether the DB instance is
         /// encrypted. Note that if you are creating a cross-region read replica this field
-        /// is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+        /// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
         /// default is `false` if not specified.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+        /// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("storageThroughput")]
         public Input<int>? StorageThroughput { get; set; }
@@ -2094,7 +2094,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -2106,7 +2106,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -2126,13 +2126,13 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Whether to upgrade the storage file system configuration on the read replica.
-        /// Can only be set with `replicate_source_db`.
+        /// Can only be set with `replicateSourceDb`.
         /// </summary>
         [Input("upgradeStorageConfig")]
         public Input<bool>? UpgradeStorageConfig { get; set; }
 
         /// <summary>
-        /// (Required unless a `snapshot_identifier` or `replicate_source_db`
+        /// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
         /// is provided) Username for the master DB user. Cannot be specified for a replica.
         /// </summary>
         [Input("username")]

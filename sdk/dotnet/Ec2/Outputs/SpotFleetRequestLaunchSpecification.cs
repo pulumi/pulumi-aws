@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? UserData;

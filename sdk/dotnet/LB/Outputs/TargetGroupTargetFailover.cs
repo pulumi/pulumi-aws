@@ -14,11 +14,11 @@ namespace Pulumi.Aws.LB.Outputs
     public sealed class TargetGroupTargetFailover
     {
         /// <summary>
-        /// Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
+        /// Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onUnhealthy`. Default: `noRebalance`.
         /// </summary>
         public readonly string OnDeregistration;
         /// <summary>
-        /// Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
+        /// Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onDeregistration`. Default: `noRebalance`.
         /// </summary>
         public readonly string OnUnhealthy;
 

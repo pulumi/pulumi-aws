@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly string IdentityProviderType;
         /// <summary>
-        /// ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+        /// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
         /// </summary>
         public readonly string InvocationRole;
         /// <summary>
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        /// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
         /// </summary>
         public readonly string Url;
 

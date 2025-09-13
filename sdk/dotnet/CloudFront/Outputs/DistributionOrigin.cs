@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOriginCustomHeader> CustomHeaders;
         /// <summary>
-        /// The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+        /// The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
         /// </summary>
         public readonly Outputs.DistributionOriginCustomOriginConfig? CustomOriginConfig;
         /// <summary>
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionOriginOriginShield? OriginShield;
         /// <summary>
-        /// CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+        /// CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
         /// </summary>
         public readonly Outputs.DistributionOriginS3OriginConfig? S3OriginConfig;
         /// <summary>

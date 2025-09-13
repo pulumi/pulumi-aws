@@ -31,7 +31,7 @@ namespace Pulumi.Aws.GameLift.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+        /// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

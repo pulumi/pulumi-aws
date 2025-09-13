@@ -140,7 +140,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         public readonly string ApplicationArn;
         /// <summary>
-        /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
+        /// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationAssignmentsApplicationAssignmentResult> ApplicationAssignments;
         public readonly string Id;

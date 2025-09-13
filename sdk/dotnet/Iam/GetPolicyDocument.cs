@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example with Both Source and Override Documents
         /// 
-        /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+        /// You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -510,7 +510,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example of Merging Source Documents
         /// 
-        /// Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+        /// Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -1186,7 +1186,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example with Both Source and Override Documents
         /// 
-        /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+        /// You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -1267,7 +1267,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example of Merging Source Documents
         /// 
-        /// Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+        /// Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -1943,7 +1943,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example with Both Source and Override Documents
         /// 
-        /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+        /// You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -2024,7 +2024,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example of Merging Source Documents
         /// 
-        /// Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+        /// Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -2293,7 +2293,7 @@ namespace Pulumi.Aws.Iam
         private List<string>? _overridePolicyDocuments;
 
         /// <summary>
-        /// List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
+        /// List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
         /// </summary>
         public List<string> OverridePolicyDocuments
         {
@@ -2314,7 +2314,7 @@ namespace Pulumi.Aws.Iam
         private List<string>? _sourcePolicyDocuments;
 
         /// <summary>
-        /// List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
+        /// List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
         /// </summary>
         public List<string> SourcePolicyDocuments
         {
@@ -2355,7 +2355,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _overridePolicyDocuments;
 
         /// <summary>
-        /// List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
+        /// List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
         /// </summary>
         public InputList<string> OverridePolicyDocuments
         {
@@ -2376,7 +2376,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _sourcePolicyDocuments;
 
         /// <summary>
-        /// List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
+        /// List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
         /// </summary>
         public InputList<string> SourcePolicyDocuments
         {

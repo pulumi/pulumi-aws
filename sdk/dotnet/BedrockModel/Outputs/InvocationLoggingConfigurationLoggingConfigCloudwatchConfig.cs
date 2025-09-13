@@ -14,7 +14,7 @@ namespace Pulumi.Aws.BedrockModel.Outputs
     public sealed class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig
     {
         /// <summary>
-        /// S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
+        /// S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
         /// </summary>
         public readonly Outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config? LargeDataDeliveryS3Config;
         /// <summary>

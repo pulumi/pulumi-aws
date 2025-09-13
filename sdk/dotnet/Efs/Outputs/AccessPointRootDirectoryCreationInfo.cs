@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Efs.Outputs
     public sealed class AccessPointRootDirectoryCreationInfo
     {
         /// <summary>
-        /// POSIX group ID to apply to the `root_directory`.
+        /// POSIX group ID to apply to the `rootDirectory`.
         /// </summary>
         public readonly int OwnerGid;
         /// <summary>
-        /// POSIX user ID to apply to the `root_directory`.
+        /// POSIX user ID to apply to the `rootDirectory`.
         /// </summary>
         public readonly int OwnerUid;
         /// <summary>

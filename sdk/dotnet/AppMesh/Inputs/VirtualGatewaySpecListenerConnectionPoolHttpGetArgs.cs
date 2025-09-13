@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<int> MaxConnections { get; set; } = null!;
 
         /// <summary>
-        /// Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        /// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
         /// </summary>
         [Input("maxPendingRequests")]
         public Input<int>? MaxPendingRequests { get; set; }

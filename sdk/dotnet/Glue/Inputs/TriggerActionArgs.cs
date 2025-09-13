@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The name of the crawler to be executed. Conflicts with `job_name`.
+        /// The name of the crawler to be executed. Conflicts with `jobName`.
         /// </summary>
         [Input("crawlerName")]
         public Input<string>? CrawlerName { get; set; }
 
         /// <summary>
-        /// The name of a job to be executed. Conflicts with `crawler_name`.
+        /// The name of a job to be executed. Conflicts with `crawlerName`.
         /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }

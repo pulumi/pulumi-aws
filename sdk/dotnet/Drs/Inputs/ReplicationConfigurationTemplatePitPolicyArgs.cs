@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Drs.Inputs
         public Input<int>? RuleId { get; set; }
 
         /// <summary>
-        /// Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+        /// Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
         /// </summary>
         [Input("units", required: true)]
         public Input<string> Units { get; set; } = null!;

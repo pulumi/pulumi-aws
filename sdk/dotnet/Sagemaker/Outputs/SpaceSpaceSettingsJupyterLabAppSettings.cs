@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class SpaceSpaceSettingsJupyterLabAppSettings
     {
         /// <summary>
-        /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+        /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
-        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> CodeRepositories;
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec DefaultResourceSpec;
 

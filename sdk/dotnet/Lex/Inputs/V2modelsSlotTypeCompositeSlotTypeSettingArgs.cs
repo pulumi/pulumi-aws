@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// Sub slots in the composite slot.
-        /// See `sub_slots` argument reference below.
+        /// See `subSlots` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs> SubSlots
         {

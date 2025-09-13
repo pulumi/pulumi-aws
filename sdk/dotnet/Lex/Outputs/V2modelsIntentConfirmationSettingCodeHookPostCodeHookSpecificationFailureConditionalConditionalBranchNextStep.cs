@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep
     {
         /// <summary>
-        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction? DialogAction;
         /// <summary>

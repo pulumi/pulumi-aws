@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DomainDefaultUserSettingsCodeEditorAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
         /// </summary>
         [Input("appLifecycleManagement")]
         public Input<Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs>? _customImages;
 
         /// <summary>
-        /// A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+        /// A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `customImage` Block below.
         /// </summary>
         public InputList<Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs> CustomImages
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs>? DefaultResourceSpec { get; set; }

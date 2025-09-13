@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Rekognition.Inputs
     public sealed class StreamProcessorSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Label detection settings to use on a streaming video. See `connected_home`.
+        /// Label detection settings to use on a streaming video. See `connectedHome`.
         /// </summary>
         [Input("connectedHome")]
         public Input<Inputs.StreamProcessorSettingsConnectedHomeArgs>? ConnectedHome { get; set; }
 
         /// <summary>
-        /// Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
+        /// Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
         /// </summary>
         [Input("faceSearch")]
         public Input<Inputs.StreamProcessorSettingsFaceSearchArgs>? FaceSearch { get; set; }

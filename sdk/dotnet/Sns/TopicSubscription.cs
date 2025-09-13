@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ### Example with Delivery Policy
     /// 
-    /// This example demonstrates how to define a `delivery_policy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `delivery_policy` for `aws.sns.TopicSubscription` should not be wrapped in an `"http"` object.
+    /// This example demonstrates how to define a `deliveryPolicy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `deliveryPolicy` for `aws.sns.TopicSubscription` should not be wrapped in an `"http"` object.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.Sns
         public Output<string?> FilterPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        /// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
         /// </summary>
         [Output("filterPolicyScope")]
         public Output<string> FilterPolicyScope { get; private set; } = null!;
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? FilterPolicy { get; set; }
 
         /// <summary>
-        /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        /// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
         /// </summary>
         [Input("filterPolicyScope")]
         public Input<string>? FilterPolicyScope { get; set; }
@@ -615,7 +615,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? FilterPolicy { get; set; }
 
         /// <summary>
-        /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        /// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
         /// </summary>
         [Input("filterPolicyScope")]
         public Input<string>? FilterPolicyScope { get; set; }

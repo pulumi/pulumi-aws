@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the next step in the conversation. See `next_step`.
+        /// Configuration block for the next step in the conversation. See `nextStep`.
         /// </summary>
         [Input("nextStep")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepArgs>? NextStep { get; set; }

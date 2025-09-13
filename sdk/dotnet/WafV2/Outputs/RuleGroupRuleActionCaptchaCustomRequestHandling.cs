@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleActionCaptchaCustomRequestHandling
     {
         /// <summary>
-        /// The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        /// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader> InsertHeaders;
 

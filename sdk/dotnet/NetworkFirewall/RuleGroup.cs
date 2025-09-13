@@ -597,19 +597,19 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<Outputs.RuleGroupRuleGroup> RuleGroupConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
+        /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
         /// </summary>
         [Output("rules")]
         public Output<string?> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -709,7 +709,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<Inputs.RuleGroupRuleGroupArgs>? RuleGroupConfiguration { get; set; }
 
         /// <summary>
-        /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
+        /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
         /// </summary>
         [Input("rules")]
         public Input<string>? Rules { get; set; }
@@ -718,7 +718,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -783,7 +783,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<Inputs.RuleGroupRuleGroupGetArgs>? RuleGroupConfiguration { get; set; }
 
         /// <summary>
-        /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
+        /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
         /// </summary>
         [Input("rules")]
         public Input<string>? Rules { get; set; }
@@ -792,7 +792,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -804,7 +804,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

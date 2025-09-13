@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Fms.Outputs
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet
     {
         /// <summary>
-        /// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
+        /// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry> FirstEntries;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Fms.Outputs
         /// </summary>
         public readonly bool ForceRemediateForLastEntries;
         /// <summary>
-        /// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
+        /// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry> LastEntries;
 

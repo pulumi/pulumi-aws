@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Acm
     /// Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
     /// See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
     /// By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
-    /// To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
+    /// To renew the certificate earlier than 60 days before expiration, configure `earlyRenewalDuration`.
     /// 
     /// ## Example Usage
     /// 
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Acm
     /// });
     /// ```
     /// 
-    /// ### Referencing domain_validation_options With for_each Based Resources
+    /// ### Referencing domainValidationOptions With forEach Based Resources
     /// 
     /// See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
     /// 
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Acm
         public Output<Outputs.CertificateOptions> Options { get; private set; } = null!;
 
         /// <summary>
-        /// `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+        /// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
         /// </summary>
         [Output("pendingRenewal")]
         public Output<bool> PendingRenewal { get; private set; } = null!;
@@ -264,13 +264,13 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -482,7 +482,7 @@ namespace Pulumi.Aws.Acm
         public Input<Inputs.CertificateOptionsGetArgs>? Options { get; set; }
 
         /// <summary>
-        /// `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+        /// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
         /// </summary>
         [Input("pendingRenewal")]
         public Input<bool>? PendingRenewal { get; set; }
@@ -542,7 +542,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

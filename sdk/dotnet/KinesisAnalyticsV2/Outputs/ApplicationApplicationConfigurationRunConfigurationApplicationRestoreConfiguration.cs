@@ -18,7 +18,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         /// </summary>
         public readonly string? ApplicationRestoreType;
         /// <summary>
-        /// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
+        /// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
         /// </summary>
         public readonly string? SnapshotName;
 

@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Iam.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyDocumentStatementPrincipalResult> Principals;
         /// <summary>
-        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
         /// </summary>
         public readonly ImmutableArray<string> Resources;
         /// <summary>

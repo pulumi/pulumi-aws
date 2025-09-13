@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement
     {
         /// <summary>
-        /// Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
+        /// Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings? IdleSettings;
 

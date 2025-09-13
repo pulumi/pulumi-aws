@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public Input<Inputs.ConnectorCapacityAutoscalingGetArgs>? Autoscaling { get; set; }
 
         /// <summary>
-        /// Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
+        /// Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
         /// </summary>
         [Input("provisionedCapacity")]
         public Input<Inputs.ConnectorCapacityProvisionedCapacityGetArgs>? ProvisionedCapacity { get; set; }

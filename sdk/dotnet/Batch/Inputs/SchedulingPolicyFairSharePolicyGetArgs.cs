@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.SchedulingPolicyFairSharePolicyShareDistributionGetArgs>? _shareDistributions;
 
         /// <summary>
-        /// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+        /// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
         /// </summary>
         public InputList<Inputs.SchedulingPolicyFairSharePolicyShareDistributionGetArgs> ShareDistributions
         {

@@ -48,7 +48,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
     /// for supported options and examples.
     /// 
-    /// The `setting` and `all_settings` mappings support the following format:
+    /// The `setting` and `allSettings` mappings support the following format:
     /// 
     /// * `namespace` - unique namespace identifying the option's associated AWS resource
     /// * `name` - name of the configuration option
@@ -225,13 +225,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> SolutionStackName { get; private set; } = null!;
 
         /// <summary>
-        /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -601,7 +601,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -613,7 +613,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

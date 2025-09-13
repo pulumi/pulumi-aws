@@ -479,6 +479,10 @@ class RuleGroup(pulumi.CustomResource):
             })
         ```
 
+        ### Complex
+
+        ### Using rule_json
+
         ## Import
 
         Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
@@ -547,6 +551,10 @@ class RuleGroup(pulumi.CustomResource):
                 "sampled_requests_enabled": False,
             })
         ```
+
+        ### Complex
+
+        ### Using rule_json
 
         ## Import
 

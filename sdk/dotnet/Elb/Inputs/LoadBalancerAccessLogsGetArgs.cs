@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Elb.Inputs
         public Input<string>? BucketPrefix { get; set; }
 
         /// <summary>
-        /// Boolean to enable / disable `access_logs`. Default is `true`
+        /// Boolean to enable / disable `accessLogs`. Default is `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

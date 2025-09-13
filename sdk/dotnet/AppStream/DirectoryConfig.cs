@@ -75,7 +75,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
         /// </summary>
         [Output("serviceAccountCredentials")]
         public Output<Outputs.DirectoryConfigServiceAccountCredentials> ServiceAccountCredentials { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
         /// </summary>
         [Input("serviceAccountCredentials", required: true)]
         public Input<Inputs.DirectoryConfigServiceAccountCredentialsArgs> ServiceAccountCredentials { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
         /// </summary>
         [Input("serviceAccountCredentials")]
         public Input<Inputs.DirectoryConfigServiceAccountCredentialsGetArgs>? ServiceAccountCredentials { get; set; }

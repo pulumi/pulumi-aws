@@ -12,7 +12,7 @@ namespace Pulumi.Aws.AutoScaling
     /// <summary>
     /// Provides an AutoScaling Scaling Policy resource.
     /// 
-    /// &gt; **NOTE:** You may want to omit `desired_capacity` attribute from attached `aws.autoscaling.Group`
+    /// &gt; **NOTE:** You may want to omit `desiredCapacity` attribute from attached `aws.autoscaling.Group`
     /// when using autoscaling policies. It's good practice to pick either
     /// [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
     /// or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> MetricAggregationType { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
         /// 
         /// The following arguments are only available to "SimpleScaling" type policies:
         /// </summary>
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? MetricAggregationType { get; set; }
 
         /// <summary>
-        /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
         /// 
         /// The following arguments are only available to "SimpleScaling" type policies:
         /// </summary>
@@ -689,7 +689,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? MetricAggregationType { get; set; }
 
         /// <summary>
-        /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
         /// 
         /// The following arguments are only available to "SimpleScaling" type policies:
         /// </summary>

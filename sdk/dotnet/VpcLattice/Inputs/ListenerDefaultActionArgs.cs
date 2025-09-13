@@ -21,7 +21,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
         /// <summary>
         /// Route requests to one or more target groups. See Forward blocks below.
         /// 
-        /// &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
+        /// &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
         /// </summary>
         public InputList<Inputs.ListenerDefaultActionForwardArgs> Forwards
         {

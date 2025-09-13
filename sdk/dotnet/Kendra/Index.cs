@@ -822,20 +822,20 @@ namespace Pulumi.Aws.Kendra
         public Output<Outputs.IndexServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
+        /// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the Index. If configured with a provider
-        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -969,7 +969,7 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// Tags to apply to the Index. If configured with a provider
-        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1088,7 +1088,7 @@ namespace Pulumi.Aws.Kendra
         public Input<Inputs.IndexServerSideEncryptionConfigurationGetArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
+        /// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -1098,7 +1098,7 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// Tags to apply to the Index. If configured with a provider
-        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1110,7 +1110,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

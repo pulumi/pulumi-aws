@@ -97,13 +97,13 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+        /// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolverRuleId`.
         /// </summary>
         [Input("domainName")]
         public string? DomainName { get; set; }
 
         /// <summary>
-        /// Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -115,19 +115,19 @@ namespace Pulumi.Aws.Route53
         public string? Region { get; set; }
 
         /// <summary>
-        /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
         /// </summary>
         [Input("resolverEndpointId")]
         public string? ResolverEndpointId { get; set; }
 
         /// <summary>
-        /// ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+        /// ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
         /// </summary>
         [Input("resolverRuleId")]
         public string? ResolverRuleId { get; set; }
 
         /// <summary>
-        /// Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+        /// Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolverRuleId`.
         /// </summary>
         [Input("ruleType")]
         public string? RuleType { get; set; }
@@ -153,13 +153,13 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+        /// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolverRuleId`.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -171,19 +171,19 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
         /// </summary>
         [Input("resolverEndpointId")]
         public Input<string>? ResolverEndpointId { get; set; }
 
         /// <summary>
-        /// ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+        /// ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
         /// </summary>
         [Input("resolverRuleId")]
         public Input<string>? ResolverRuleId { get; set; }
 
         /// <summary>
-        /// Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+        /// Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolverRuleId`.
         /// </summary>
         [Input("ruleType")]
         public Input<string>? RuleType { get; set; }

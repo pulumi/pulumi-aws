@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string ContainerDefinitions;
         /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         public readonly string Cpu;
         /// <summary>
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string IpcMode;
         /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         public readonly string Memory;
         /// <summary>
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string PidMode;
         /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionPlacementConstraintResult> PlacementConstraints;
         /// <summary>
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly int Revision;
         /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
+        /// Configuration block for runtimePlatform that containers in your task may use.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionRuntimePlatformResult> RuntimePlatforms;
         /// <summary>

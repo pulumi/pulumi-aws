@@ -18,14 +18,14 @@ namespace Pulumi.Aws.Cfg.Outputs
         /// </summary>
         public readonly string? EventSource;
         /// <summary>
-        /// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        /// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
         /// </summary>
         public readonly string? MaximumExecutionFrequency;
         /// <summary>
         /// The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
         /// * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
         /// * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
-        /// * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximum_execution_frequency`.
+        /// * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximumExecutionFrequency`.
         /// * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
         /// </summary>
         public readonly string? MessageType;

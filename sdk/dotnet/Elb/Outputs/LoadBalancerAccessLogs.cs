@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Elb.Outputs
         /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>
-        /// Boolean to enable / disable `access_logs`. Default is `true`
+        /// Boolean to enable / disable `accessLogs`. Default is `true`
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

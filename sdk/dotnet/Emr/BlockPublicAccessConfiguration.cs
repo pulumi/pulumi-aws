@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ### Multiple Permitted Public Security Group Rule Ranges
     /// 
-    /// The resource permits specification of multiple `permitted_public_security_group_rule_range` blocks.
+    /// The resource permits specification of multiple `permittedPublicSecurityGroupRuleRange` blocks.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Emr
         public Output<bool> BlockPublicSecurityGroupRules { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
         /// </summary>
         [Output("permittedPublicSecurityGroupRuleRanges")]
         public Output<ImmutableArray<Outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>> PermittedPublicSecurityGroupRuleRanges { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Emr
         private InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>? _permittedPublicSecurityGroupRuleRanges;
 
         /// <summary>
-        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
         /// </summary>
         public InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs> PermittedPublicSecurityGroupRuleRanges
         {
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Emr
         private InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeGetArgs>? _permittedPublicSecurityGroupRuleRanges;
 
         /// <summary>
-        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
         /// </summary>
         public InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeGetArgs> PermittedPublicSecurityGroupRuleRanges
         {

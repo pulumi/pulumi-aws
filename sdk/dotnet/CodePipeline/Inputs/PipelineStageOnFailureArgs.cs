@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public Input<string>? Result { get; set; }
 
         /// <summary>
-        /// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+        /// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
         /// </summary>
         [Input("retryConfiguration")]
         public Input<Inputs.PipelineStageOnFailureRetryConfigurationArgs>? RetryConfiguration { get; set; }

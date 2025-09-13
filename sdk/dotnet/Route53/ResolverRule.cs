@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Route53
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+        /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Route53
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
         [Output("resolverEndpointId")]
@@ -159,13 +159,13 @@ namespace Pulumi.Aws.Route53
         public Output<string> ShareStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+        /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
         [Input("resolverEndpointId")]
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+        /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
         [Input("resolverEndpointId")]
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

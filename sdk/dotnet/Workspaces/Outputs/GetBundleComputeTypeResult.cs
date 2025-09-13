@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
     public sealed class GetBundleComputeTypeResult
     {
         /// <summary>
-        /// Name of the bundle. You cannot combine this parameter with `bundle_id`.
+        /// Name of the bundle. You cannot combine this parameter with `bundleId`.
         /// </summary>
         public readonly string Name;
 

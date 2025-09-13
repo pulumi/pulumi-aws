@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Alb.Inputs
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+        /// Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

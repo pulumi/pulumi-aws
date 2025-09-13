@@ -14,15 +14,15 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class ResourceConfigurationResourceConfigurationDefinition
     {
         /// <summary>
-        /// Resource DNS Configuration. See `arn_resource` Block for details.
+        /// Resource DNS Configuration. See `arnResource` Block for details.
         /// </summary>
         public readonly Outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource? ArnResource;
         /// <summary>
-        /// Resource DNS Configuration. See `dns_resource` Block for details.
+        /// Resource DNS Configuration. See `dnsResource` Block for details.
         /// </summary>
         public readonly Outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource? DnsResource;
         /// <summary>
-        /// Resource DNS Configuration. See `ip_resource` Block for details.
+        /// Resource DNS Configuration. See `ipResource` Block for details.
         /// </summary>
         public readonly Outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource? IpResource;
 

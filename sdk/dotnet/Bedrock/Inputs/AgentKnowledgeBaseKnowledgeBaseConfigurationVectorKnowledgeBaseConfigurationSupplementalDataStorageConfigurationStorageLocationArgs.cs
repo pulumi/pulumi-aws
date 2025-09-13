@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains information about the Amazon S3 location for the extracted images.  See `s3_location` block for details.
+        /// Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
         /// </summary>
         [Input("s3Location")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs>? S3Location { get; set; }

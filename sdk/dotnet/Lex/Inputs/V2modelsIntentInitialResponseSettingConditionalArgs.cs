@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Lex.Inputs
         private InputList<Inputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs>? _conditionalBranches;
 
         /// <summary>
-        /// Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        /// Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
         /// </summary>
         public InputList<Inputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs> ConditionalBranches
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Lex.Inputs
         }
 
         /// <summary>
-        /// Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        /// Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
         /// </summary>
         [Input("defaultBranch", required: true)]
         public Input<Inputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs> DefaultBranch { get; set; } = null!;

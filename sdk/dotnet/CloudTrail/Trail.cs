@@ -21,7 +21,7 @@ namespace Pulumi.Aws.CloudTrail
     /// ### Basic
     /// 
     /// Enable CloudTrail to capture all compatible management events in region.
-    /// For capturing events from services like IAM, `include_global_service_events` must be enabled.
+    /// For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -517,7 +517,7 @@ namespace Pulumi.Aws.CloudTrail
     public partial class Trail : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+        /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
         /// </summary>
         [Output("advancedEventSelectors")]
         public Output<ImmutableArray<Outputs.TrailAdvancedEventSelector>> AdvancedEventSelectors { get; private set; } = null!;
@@ -553,7 +553,7 @@ namespace Pulumi.Aws.CloudTrail
         public Output<bool?> EnableLogging { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
         /// </summary>
         [Output("eventSelectors")]
         public Output<ImmutableArray<Outputs.TrailEventSelector>> EventSelectors { get; private set; } = null!;
@@ -633,13 +633,13 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string?> SnsTopicName { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -694,7 +694,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputList<Inputs.TrailAdvancedEventSelectorArgs>? _advancedEventSelectors;
 
         /// <summary>
-        /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+        /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
         /// </summary>
         public InputList<Inputs.TrailAdvancedEventSelectorArgs> AdvancedEventSelectors
         {
@@ -730,7 +730,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputList<Inputs.TrailEventSelectorArgs>? _eventSelectors;
 
         /// <summary>
-        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
         /// </summary>
         public InputList<Inputs.TrailEventSelectorArgs> EventSelectors
         {
@@ -810,7 +810,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -830,7 +830,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputList<Inputs.TrailAdvancedEventSelectorGetArgs>? _advancedEventSelectors;
 
         /// <summary>
-        /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+        /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
         /// </summary>
         public InputList<Inputs.TrailAdvancedEventSelectorGetArgs> AdvancedEventSelectors
         {
@@ -872,7 +872,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputList<Inputs.TrailEventSelectorGetArgs>? _eventSelectors;
 
         /// <summary>
-        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
         /// </summary>
         public InputList<Inputs.TrailEventSelectorGetArgs> EventSelectors
         {
@@ -964,7 +964,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -976,7 +976,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

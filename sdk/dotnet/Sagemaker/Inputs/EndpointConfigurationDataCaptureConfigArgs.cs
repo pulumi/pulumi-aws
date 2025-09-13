@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         /// <summary>
         /// The content type headers to capture.
-        /// See `capture_content_type_header` below.
+        /// See `captureContentTypeHeader` below.
         /// </summary>
         [Input("captureContentTypeHeader")]
         public Input<Inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs>? CaptureContentTypeHeader { get; set; }

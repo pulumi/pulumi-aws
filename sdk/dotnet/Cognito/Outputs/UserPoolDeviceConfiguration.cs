@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly bool? ChallengeRequiredOnNewDevice;
         /// <summary>
-        /// Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
+        /// Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `deviceConfiguration` block is "No."
         /// </summary>
         public readonly bool? DeviceOnlyRememberedOnUserPrompt;
 

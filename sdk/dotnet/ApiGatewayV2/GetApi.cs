@@ -181,7 +181,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public readonly bool DisableExecuteApiEndpoint;
         /// <summary>
-        /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
         /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>

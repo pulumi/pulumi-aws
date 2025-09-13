@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class GetBrokerInstanceResult
     {
         /// <summary>
-        /// URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engine_type`.
+        /// URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engineType`.
         /// </summary>
         public readonly string ConsoleUrl;
         /// <summary>

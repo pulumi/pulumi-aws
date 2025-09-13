@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldQueryString? QueryString;
         /// <summary>
-        /// "single_header" refers to the redaction of a single header. For more information, please see the details below under Single Header.
+        /// "singleHeader" refers to the redaction of a single header. For more information, please see the details below under Single Header.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader? SingleHeader;
         /// <summary>

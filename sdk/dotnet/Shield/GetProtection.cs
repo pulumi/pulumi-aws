@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Shield
         /// <summary>
         /// ARN (Amazon Resource Name) of the resource being protected.
         /// 
-        /// &gt; Exactly one of `protection_id` or `resource_arn` is required.
+        /// &gt; Exactly one of `protectionId` or `resourceArn` is required.
         /// </summary>
         [Input("resourceArn")]
         public string? ResourceArn { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Shield
         /// <summary>
         /// ARN (Amazon Resource Name) of the resource being protected.
         /// 
-        /// &gt; Exactly one of `protection_id` or `resource_arn` is required.
+        /// &gt; Exactly one of `protectionId` or `resourceArn` is required.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

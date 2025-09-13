@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
+        /// The source of the model this inference profile will track metrics and cost for. See `modelSource`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
+        /// The source of the model this inference profile will track metrics and cost for. See `modelSource`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
+        /// The source of the model this inference profile will track metrics and cost for. See `modelSource`.
         /// 
         /// The following arguments are optional:
         /// </summary>

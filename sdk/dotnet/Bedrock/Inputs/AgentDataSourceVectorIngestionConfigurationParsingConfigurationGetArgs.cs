@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+        /// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
         /// </summary>
         [Input("bedrockFoundationModelConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationGetArgs>? BedrockFoundationModelConfiguration { get; set; }

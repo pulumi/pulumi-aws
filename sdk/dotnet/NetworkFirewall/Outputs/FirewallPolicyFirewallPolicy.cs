@@ -18,7 +18,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// </summary>
         public readonly Outputs.FirewallPolicyFirewallPolicyPolicyVariables? PolicyVariables;
         /// <summary>
-        /// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+        /// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
         /// </summary>
         public readonly ImmutableArray<string> StatefulDefaultActions;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference> StatefulRuleGroupReferences;
         /// <summary>
-        /// Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
+        /// Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `statelessDefaultActions`. See Stateless Custom Action below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatelessCustomAction> StatelessCustomActions;
         /// <summary>

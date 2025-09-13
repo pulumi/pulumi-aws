@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public Input<int>? ExpirationInDays { get; set; }
 
         /// <summary>
-        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
+        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
         /// </summary>
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }

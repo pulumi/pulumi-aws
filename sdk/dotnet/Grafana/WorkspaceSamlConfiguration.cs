@@ -113,13 +113,13 @@ namespace Pulumi.Aws.Grafana
         public Output<string?> GroupsAssertion { get; private set; } = null!;
 
         /// <summary>
-        /// The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+        /// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
         /// </summary>
         [Output("idpMetadataUrl")]
         public Output<string?> IdpMetadataUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+        /// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
         /// </summary>
         [Output("idpMetadataXml")]
         public Output<string?> IdpMetadataXml { get; private set; } = null!;
@@ -269,13 +269,13 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? GroupsAssertion { get; set; }
 
         /// <summary>
-        /// The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+        /// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
         /// </summary>
         [Input("idpMetadataUrl")]
         public Input<string>? IdpMetadataUrl { get; set; }
 
         /// <summary>
-        /// The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+        /// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
         /// </summary>
         [Input("idpMetadataXml")]
         public Input<string>? IdpMetadataXml { get; set; }
@@ -381,13 +381,13 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? GroupsAssertion { get; set; }
 
         /// <summary>
-        /// The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+        /// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
         /// </summary>
         [Input("idpMetadataUrl")]
         public Input<string>? IdpMetadataUrl { get; set; }
 
         /// <summary>
-        /// The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+        /// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
         /// </summary>
         [Input("idpMetadataXml")]
         public Input<string>? IdpMetadataXml { get; set; }

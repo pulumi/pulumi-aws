@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ssm
     /// Provides an SSM Document resource
     /// 
     /// &gt; **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
-    /// or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older schema version you must recreate the resource. Not all document types support a schema version of 2.0 or greater. Refer to [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) for information about which schema versions are supported for the respective `document_type`.
+    /// or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older schema version you must recreate the resource. Not all document types support a schema version of 2.0 or greater. Refer to [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) for information about which schema versions are supported for the respective `documentType`.
     /// 
     /// ## Example Usage
     /// 
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+        /// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
         /// </summary>
         [Output("attachmentsSources")]
         public Output<ImmutableArray<Outputs.DocumentAttachmentsSource>> AttachmentsSources { get; private set; } = null!;
@@ -217,13 +217,13 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.DocumentAttachmentsSourceArgs>? _attachmentsSources;
 
         /// <summary>
-        /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+        /// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
         /// </summary>
         public InputList<Inputs.DocumentAttachmentsSourceArgs> AttachmentsSources
         {
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.DocumentAttachmentsSourceGetArgs>? _attachmentsSources;
 
         /// <summary>
-        /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+        /// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
         /// </summary>
         public InputList<Inputs.DocumentAttachmentsSourceGetArgs> AttachmentsSources
         {
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -532,7 +532,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

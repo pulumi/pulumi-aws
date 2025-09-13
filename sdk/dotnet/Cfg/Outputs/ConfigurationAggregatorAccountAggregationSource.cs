@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Cfg.Outputs
         /// <summary>
         /// List of source regions being aggregated.
         /// 
-        /// Either `regions` or `all_regions` (as true) must be specified.
+        /// Either `regions` or `allRegions` (as true) must be specified.
         /// </summary>
         public readonly ImmutableArray<string> Regions;
 

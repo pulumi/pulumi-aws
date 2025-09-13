@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
+        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
         /// </summary>
         [Input("ipSetForwardedIpConfig")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs>? IpSetForwardedIpConfig { get; set; }

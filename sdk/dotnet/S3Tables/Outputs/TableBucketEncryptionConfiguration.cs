@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
     public sealed class TableBucketEncryptionConfiguration
     {
         /// <summary>
-        /// The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        /// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
         /// </summary>
         public readonly string KmsKeyArn;
         /// <summary>

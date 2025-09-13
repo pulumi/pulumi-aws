@@ -73,19 +73,19 @@ namespace Pulumi.Aws.Chime
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
+        /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
         /// </summary>
         [Output("targetApplications")]
         public Output<ImmutableArray<Outputs.SdkvoiceSipRuleTargetApplication>> TargetApplications { get; private set; } = null!;
 
         /// <summary>
-        /// The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
+        /// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         /// </summary>
         [Output("triggerType")]
         public Output<string> TriggerType { get; private set; } = null!;
 
         /// <summary>
-        /// If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
+        /// If `triggerType` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `triggerType` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Chime
         private InputList<Inputs.SdkvoiceSipRuleTargetApplicationArgs>? _targetApplications;
 
         /// <summary>
-        /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
+        /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
         /// </summary>
         public InputList<Inputs.SdkvoiceSipRuleTargetApplicationArgs> TargetApplications
         {
@@ -169,13 +169,13 @@ namespace Pulumi.Aws.Chime
         }
 
         /// <summary>
-        /// The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
+        /// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         /// </summary>
         [Input("triggerType", required: true)]
         public Input<string> TriggerType { get; set; } = null!;
 
         /// <summary>
-        /// If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
+        /// If `triggerType` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `triggerType` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Chime
         private InputList<Inputs.SdkvoiceSipRuleTargetApplicationGetArgs>? _targetApplications;
 
         /// <summary>
-        /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
+        /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
         /// </summary>
         public InputList<Inputs.SdkvoiceSipRuleTargetApplicationGetArgs> TargetApplications
         {
@@ -221,13 +221,13 @@ namespace Pulumi.Aws.Chime
         }
 
         /// <summary>
-        /// The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
+        /// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         /// </summary>
         [Input("triggerType")]
         public Input<string>? TriggerType { get; set; }
 
         /// <summary>
-        /// If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
+        /// If `triggerType` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `triggerType` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
         /// 
         /// The following arguments are optional:
         /// </summary>

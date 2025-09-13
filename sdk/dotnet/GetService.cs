@@ -211,7 +211,7 @@ namespace Pulumi.Aws
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
         /// </summary>
         [Input("dnsName")]
         public string? DnsName { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Aws
         public string? Region { get; set; }
 
         /// <summary>
-        /// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
         /// </summary>
         [Input("reverseDnsName")]
         public string? ReverseDnsName { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Aws
         public string? ReverseDnsPrefix { get; set; }
 
         /// <summary>
-        /// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
+        /// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
         /// </summary>
         [Input("serviceId")]
         public string? ServiceId { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Aws
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Aws
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
         /// </summary>
         [Input("reverseDnsName")]
         public Input<string>? ReverseDnsName { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Aws
         public Input<string>? ReverseDnsPrefix { get; set; }
 
         /// <summary>
-        /// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
+        /// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
         /// </summary>
         [Input("serviceId")]
         public Input<string>? ServiceId { get; set; }

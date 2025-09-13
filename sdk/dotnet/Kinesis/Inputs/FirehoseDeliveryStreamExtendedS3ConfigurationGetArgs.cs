@@ -40,13 +40,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? CustomTimeZone { get; set; }
 
         /// <summary>
-        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
+        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
         /// </summary>
         [Input("dataFormatConversionConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationGetArgs>? DataFormatConversionConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
+        /// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
         /// </summary>
         [Input("dynamicPartitioningConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs>? DynamicPartitioningConfiguration { get; set; }
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `processingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        /// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
         /// </summary>
         [Input("s3BackupConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationGetArgs>? S3BackupConfiguration { get; set; }

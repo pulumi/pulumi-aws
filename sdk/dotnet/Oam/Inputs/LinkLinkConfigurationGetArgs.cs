@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Oam.Inputs
     public sealed class LinkLinkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
+        /// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
         /// </summary>
         [Input("logGroupConfiguration")]
         public Input<Inputs.LinkLinkConfigurationLogGroupConfigurationGetArgs>? LogGroupConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
+        /// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
         /// </summary>
         [Input("metricConfiguration")]
         public Input<Inputs.LinkLinkConfigurationMetricConfigurationGetArgs>? MetricConfiguration { get; set; }

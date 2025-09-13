@@ -13,13 +13,13 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class ContinuousDeploymentPolicyTrafficConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
+        /// Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
         /// </summary>
         [Input("singleHeaderConfig")]
         public Input<Inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs>? SingleHeaderConfig { get; set; }
 
         /// <summary>
-        /// Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
+        /// Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
         /// </summary>
         [Input("singleWeightConfig")]
         public Input<Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs>? SingleWeightConfig { get; set; }

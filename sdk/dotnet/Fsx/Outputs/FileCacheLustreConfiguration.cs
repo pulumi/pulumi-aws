@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         public readonly string DeploymentType;
         public readonly ImmutableArray<Outputs.FileCacheLustreConfigurationLogConfiguration> LogConfigurations;
         /// <summary>
-        /// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        /// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
         /// </summary>
         public readonly ImmutableArray<Outputs.FileCacheLustreConfigurationMetadataConfiguration> MetadataConfigurations;
         public readonly string? MountName;

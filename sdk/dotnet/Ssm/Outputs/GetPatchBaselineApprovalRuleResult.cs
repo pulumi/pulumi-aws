@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// </summary>
         public readonly int ApproveAfterDays;
         /// <summary>
-        /// Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        /// Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
         /// </summary>
         public readonly string ApproveUntilDate;
         /// <summary>

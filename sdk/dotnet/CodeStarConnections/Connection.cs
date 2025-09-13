@@ -111,7 +111,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
         /// </summary>
         [Output("hostArn")]
         public Output<string?> HostArn { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
         /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
@@ -135,13 +135,13 @@ namespace Pulumi.Aws.CodeStarConnections
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.CodeStarConnections
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
         /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.CodeStarConnections
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Input<string>? ConnectionStatus { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
         /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.CodeStarConnections
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.CodeStarConnections
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

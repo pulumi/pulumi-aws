@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications? ReplicaModifications;
         /// <summary>
-        /// Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+        /// Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects? SseKmsEncryptedObjects;
 

@@ -169,7 +169,7 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> SelectiveAuth { get; private set; } = null!;
 
         /// <summary>
-        /// Date and time when the Trust state in `trust_state` was last updated.
+        /// Date and time when the Trust state in `trustState` was last updated.
         /// </summary>
         [Output("stateLastUpdatedDateTime")]
         public Output<string> StateLastUpdatedDateTime { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> Truststate { get; private set; } = null!;
 
         /// <summary>
-        /// Reason for the Trust state set in `trust_state`.
+        /// Reason for the Trust state set in `trustState`.
         /// </summary>
         [Output("trustStateReason")]
         public Output<string> TrustStateReason { get; private set; } = null!;
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.DirectoryService
         public Input<string>? SelectiveAuth { get; set; }
 
         /// <summary>
-        /// Date and time when the Trust state in `trust_state` was last updated.
+        /// Date and time when the Trust state in `trustState` was last updated.
         /// </summary>
         [Input("stateLastUpdatedDateTime")]
         public Input<string>? StateLastUpdatedDateTime { get; set; }
@@ -421,7 +421,7 @@ namespace Pulumi.Aws.DirectoryService
         public Input<string>? Truststate { get; set; }
 
         /// <summary>
-        /// Reason for the Trust state set in `trust_state`.
+        /// Reason for the Trust state set in `trustState`.
         /// </summary>
         [Input("trustStateReason")]
         public Input<string>? TrustStateReason { get; set; }

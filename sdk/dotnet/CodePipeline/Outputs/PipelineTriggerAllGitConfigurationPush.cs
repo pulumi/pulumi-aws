@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerAllGitConfigurationPushBranch> Branches;
         /// <summary>
-        /// The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+        /// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerAllGitConfigurationPushFilePath> FilePaths;
         /// <summary>

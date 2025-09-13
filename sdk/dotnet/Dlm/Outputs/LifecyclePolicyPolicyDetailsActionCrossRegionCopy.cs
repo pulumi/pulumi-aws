@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopy
     {
         /// <summary>
-        /// The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+        /// The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration EncryptionConfiguration;
         public readonly Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule? RetainRule;

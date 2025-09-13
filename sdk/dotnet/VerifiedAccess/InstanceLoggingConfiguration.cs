@@ -129,7 +129,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// });
     /// ```
     /// 
-    /// ### With `include_trust_context`
+    /// ### With `includeTrustContext`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// });
     /// ```
     /// 
-    /// ### With `log_version`
+    /// ### With `logVersion`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

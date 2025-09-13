@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string CatalogId;
         /// <summary>
-        /// Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
+        /// Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
         /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+        /// Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedColumnNames;
         /// <summary>

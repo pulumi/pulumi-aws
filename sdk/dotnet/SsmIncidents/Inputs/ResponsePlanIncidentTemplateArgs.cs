@@ -40,7 +40,7 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
         private InputList<Inputs.ResponsePlanIncidentTemplateNotificationTargetArgs>? _notificationTargets;
 
         /// <summary>
-        /// The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+        /// The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
         /// </summary>
         public InputList<Inputs.ResponsePlanIncidentTemplateNotificationTargetArgs> NotificationTargets
         {

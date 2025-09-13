@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3
     public static class GetObjects
     {
         /// <summary>
-        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+        /// &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
         /// 
         /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// </summary>
@@ -20,7 +20,7 @@ namespace Pulumi.Aws.S3
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectsResult>("aws:s3/getObjects:getObjects", args ?? new GetObjectsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+        /// &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
         /// 
         /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.S3
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectsResult>("aws:s3/getObjects:getObjects", args ?? new GetObjectsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+        /// &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
         /// 
         /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// </summary>
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.S3
         public readonly ImmutableArray<string> Keys;
         public readonly int? MaxKeys;
         /// <summary>
-        /// List of strings representing object owner IDs (see `fetch_owner` above)
+        /// List of strings representing object owner IDs (see `fetchOwner` above)
         /// </summary>
         public readonly ImmutableArray<string> Owners;
         public readonly string? Prefix;

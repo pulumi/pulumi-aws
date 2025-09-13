@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Msk.Inputs
         public Input<string>? EncryptionAtRestKmsKeyArn { get; set; }
 
         /// <summary>
-        /// Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
+        /// Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
         /// </summary>
         [Input("encryptionInTransit")]
         public Input<Inputs.ClusterEncryptionInfoEncryptionInTransitGetArgs>? EncryptionInTransit { get; set; }

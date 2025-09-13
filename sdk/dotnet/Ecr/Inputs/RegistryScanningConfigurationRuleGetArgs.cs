@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ecr.Inputs
         private InputList<Inputs.RegistryScanningConfigurationRuleRepositoryFilterGetArgs>? _repositoryFilters;
 
         /// <summary>
-        /// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+        /// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
         /// </summary>
         public InputList<Inputs.RegistryScanningConfigurationRuleRepositoryFilterGetArgs> RepositoryFilters
         {

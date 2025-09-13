@@ -22,7 +22,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// </summary>
         public readonly string IdentityStoreId;
         /// <summary>
-        /// An object containing the identifier of a group member. See `member_id` below.
+        /// An object containing the identifier of a group member. See `memberId` below.
         /// </summary>
         public readonly Outputs.GetGroupMembershipsGroupMembershipMemberIdResult MemberId;
         public readonly string MembershipId;

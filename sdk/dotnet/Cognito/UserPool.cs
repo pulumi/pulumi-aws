@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolAdminCreateUserConfig> AdminCreateUserConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+        /// Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
         /// </summary>
         [Output("aliasAttributes")]
         public Output<ImmutableArray<string>> AliasAttributes { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+        /// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
         /// </summary>
         [Output("autoVerifiedAttributes")]
         public Output<ImmutableArray<string>> AutoVerifiedAttributes { get; private set; } = null!;
@@ -173,19 +173,19 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolEmailConfiguration?> EmailConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
         /// </summary>
         [Output("emailMfaConfiguration")]
         public Output<Outputs.UserPoolEmailMfaConfiguration?> EmailMfaConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+        /// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
         /// </summary>
         [Output("emailVerificationMessage")]
         public Output<string> EmailVerificationMessage { get; private set; } = null!;
 
         /// <summary>
-        /// String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+        /// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
         /// </summary>
         [Output("emailVerificationSubject")]
         public Output<string> EmailVerificationSubject { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
-        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
         /// </summary>
         [Output("mfaConfiguration")]
         public Output<string?> MfaConfiguration { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolSmsConfiguration> SmsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+        /// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
         /// </summary>
         [Output("smsVerificationMessage")]
         public Output<string> SmsVerificationMessage { get; private set; } = null!;
@@ -275,13 +275,13 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolSoftwareTokenMfaConfiguration?> SoftwareTokenMfaConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> UserPoolTier { get; private set; } = null!;
 
         /// <summary>
-        /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+        /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
         /// </summary>
         [Output("usernameAttributes")]
         public Output<ImmutableArray<string>> UsernameAttributes { get; private set; } = null!;
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _aliasAttributes;
 
         /// <summary>
-        /// Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+        /// Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
         /// </summary>
         public InputList<string> AliasAttributes
         {
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _autoVerifiedAttributes;
 
         /// <summary>
-        /// Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+        /// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
         /// </summary>
         public InputList<string> AutoVerifiedAttributes
         {
@@ -429,19 +429,19 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolEmailConfigurationArgs>? EmailConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
         /// </summary>
         [Input("emailMfaConfiguration")]
         public Input<Inputs.UserPoolEmailMfaConfigurationArgs>? EmailMfaConfiguration { get; set; }
 
         /// <summary>
-        /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+        /// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
         /// </summary>
         [Input("emailVerificationMessage")]
         public Input<string>? EmailVerificationMessage { get; set; }
 
         /// <summary>
-        /// String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+        /// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
         /// </summary>
         [Input("emailVerificationSubject")]
         public Input<string>? EmailVerificationSubject { get; set; }
@@ -453,7 +453,7 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolLambdaConfigArgs>? LambdaConfig { get; set; }
 
         /// <summary>
-        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
         /// </summary>
         [Input("mfaConfiguration")]
         public Input<string>? MfaConfiguration { get; set; }
@@ -507,7 +507,7 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolSmsConfigurationArgs>? SmsConfiguration { get; set; }
 
         /// <summary>
-        /// String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+        /// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
         /// </summary>
         [Input("smsVerificationMessage")]
         public Input<string>? SmsVerificationMessage { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -552,7 +552,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _usernameAttributes;
 
         /// <summary>
-        /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+        /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
         /// </summary>
         public InputList<string> UsernameAttributes
         {
@@ -602,7 +602,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _aliasAttributes;
 
         /// <summary>
-        /// Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+        /// Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
         /// </summary>
         public InputList<string> AliasAttributes
         {
@@ -620,7 +620,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _autoVerifiedAttributes;
 
         /// <summary>
-        /// Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+        /// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
         /// </summary>
         public InputList<string> AutoVerifiedAttributes
         {
@@ -665,19 +665,19 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolEmailConfigurationGetArgs>? EmailConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
         /// </summary>
         [Input("emailMfaConfiguration")]
         public Input<Inputs.UserPoolEmailMfaConfigurationGetArgs>? EmailMfaConfiguration { get; set; }
 
         /// <summary>
-        /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+        /// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
         /// </summary>
         [Input("emailVerificationMessage")]
         public Input<string>? EmailVerificationMessage { get; set; }
 
         /// <summary>
-        /// String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+        /// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
         /// </summary>
         [Input("emailVerificationSubject")]
         public Input<string>? EmailVerificationSubject { get; set; }
@@ -707,7 +707,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? LastModifiedDate { get; set; }
 
         /// <summary>
-        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
         /// </summary>
         [Input("mfaConfiguration")]
         public Input<string>? MfaConfiguration { get; set; }
@@ -761,7 +761,7 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolSmsConfigurationGetArgs>? SmsConfiguration { get; set; }
 
         /// <summary>
-        /// String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+        /// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
         /// </summary>
         [Input("smsVerificationMessage")]
         public Input<string>? SmsVerificationMessage { get; set; }
@@ -776,7 +776,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -788,7 +788,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -818,7 +818,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _usernameAttributes;
 
         /// <summary>
-        /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+        /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
         /// </summary>
         public InputList<string> UsernameAttributes
         {

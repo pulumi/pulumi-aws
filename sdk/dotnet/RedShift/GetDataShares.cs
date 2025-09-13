@@ -115,7 +115,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetDataSharesResult
     {
         /// <summary>
-        /// An array of all data shares in the current region. See `data_shares` below.
+        /// An array of all data shares in the current region. See `dataShares` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataSharesDataShareResult> DataShares;
         /// <summary>

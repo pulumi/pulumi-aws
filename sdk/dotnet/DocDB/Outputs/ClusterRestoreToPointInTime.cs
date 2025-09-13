@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DocDB.Outputs
     public sealed class ClusterRestoreToPointInTime
     {
         /// <summary>
-        /// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        /// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
         /// </summary>
         public readonly string? RestoreToTime;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.DocDB.Outputs
         /// </summary>
         public readonly string SourceClusterIdentifier;
         /// <summary>
-        /// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+        /// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
         /// </summary>
         public readonly bool? UseLatestRestorableTime;
 

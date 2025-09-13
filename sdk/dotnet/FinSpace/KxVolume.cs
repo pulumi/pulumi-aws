@@ -113,7 +113,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
         /// </summary>
         [Output("nas1Configurations")]
         public Output<ImmutableArray<Outputs.KxVolumeNas1Configuration>> Nas1Configurations { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxVolumeNas1ConfigurationArgs>? _nas1Configurations;
 
         /// <summary>
-        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
         /// </summary>
         public InputList<Inputs.KxVolumeNas1ConfigurationArgs> Nas1Configurations
         {
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxVolumeNas1ConfigurationGetArgs>? _nas1Configurations;
 
         /// <summary>
-        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
         /// </summary>
         public InputList<Inputs.KxVolumeNas1ConfigurationGetArgs> Nas1Configurations
         {
@@ -414,7 +414,7 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

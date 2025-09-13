@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public Input<Inputs.PipelineTriggerGitConfigurationPushBranchesGetArgs>? Branches { get; set; }
 
         /// <summary>
-        /// The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+        /// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
         /// </summary>
         [Input("filePaths")]
         public Input<Inputs.PipelineTriggerGitConfigurationPushFilePathsGetArgs>? FilePaths { get; set; }

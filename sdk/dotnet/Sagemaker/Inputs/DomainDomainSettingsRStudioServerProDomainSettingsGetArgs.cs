@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DomainDomainSettingsRStudioServerProDomainSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecGetArgs>? DefaultResourceSpec { get; set; }

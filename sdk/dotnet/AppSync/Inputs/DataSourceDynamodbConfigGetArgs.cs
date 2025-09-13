@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppSync.Inputs
     public sealed class DataSourceDynamodbConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+        /// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
         /// </summary>
         [Input("deltaSyncConfig")]
         public Input<Inputs.DataSourceDynamodbConfigDeltaSyncConfigGetArgs>? DeltaSyncConfig { get; set; }

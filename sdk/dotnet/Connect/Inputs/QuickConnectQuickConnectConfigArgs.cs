@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Connect.Inputs
         private InputList<Inputs.QuickConnectQuickConnectConfigPhoneConfigArgs>? _phoneConfigs;
 
         /// <summary>
-        /// Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        /// Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
         /// </summary>
         public InputList<Inputs.QuickConnectQuickConnectConfigPhoneConfigArgs> PhoneConfigs
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Connect.Inputs
         private InputList<Inputs.QuickConnectQuickConnectConfigQueueConfigArgs>? _queueConfigs;
 
         /// <summary>
-        /// Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        /// Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
         /// </summary>
         public InputList<Inputs.QuickConnectQuickConnectConfigQueueConfigArgs> QueueConfigs
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Connect.Inputs
         private InputList<Inputs.QuickConnectQuickConnectConfigUserConfigArgs>? _userConfigs;
 
         /// <summary>
-        /// Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        /// Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
         /// </summary>
         public InputList<Inputs.QuickConnectQuickConnectConfigUserConfigArgs> UserConfigs
         {

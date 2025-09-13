@@ -13,18 +13,24 @@ namespace Pulumi.Aws.Iot
     {
         /// <summary>
         /// Returns a unique endpoint specific to the AWS account making the call.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a unique endpoint specific to the AWS account making the call.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a unique endpoint specific to the AWS account making the call.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
@@ -76,8 +82,8 @@ namespace Pulumi.Aws.Iot
     public sealed class GetEndpointResult
     {
         /// <summary>
-        /// Endpoint based on `endpoint_type`:
-        /// * No `endpoint_type`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
+        /// Endpoint based on `endpointType`:
+        /// * No `endpointType`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
         /// * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
         /// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
         /// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`

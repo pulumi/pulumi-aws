@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+        /// is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly bool? IncludeDeprecated;

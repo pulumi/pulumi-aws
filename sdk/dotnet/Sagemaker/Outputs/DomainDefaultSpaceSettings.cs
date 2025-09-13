@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultSpaceSettings
     {
         /// <summary>
-        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `customFileSystemConfig` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultSpaceSettingsCustomFileSystemConfig> CustomFileSystemConfigs;
         /// <summary>
-        /// Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+        /// Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsCustomPosixUserConfig? CustomPosixUserConfig;
         /// <summary>
@@ -26,15 +26,15 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string ExecutionRole;
         /// <summary>
-        /// The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        /// The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsJupyterLabAppSettings? JupyterLabAppSettings;
         /// <summary>
-        /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
+        /// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsJupyterServerAppSettings? JupyterServerAppSettings;
         /// <summary>
-        /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
+        /// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// The storage settings for a private space. See `space_storage_settings` Block below.
+        /// The storage settings for a private space. See `spaceStorageSettings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsSpaceStorageSettings? SpaceStorageSettings;
 

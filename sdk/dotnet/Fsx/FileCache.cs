@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> DataRepositoryAssociationIds { get; private set; } = null!;
 
         /// <summary>
-        /// See the `data_repository_association` configuration block. Max of 8.
+        /// See the `dataRepositoryAssociation` configuration block. Max of 8.
         /// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
         /// </summary>
         [Output("dataRepositoryAssociations")]
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+        /// See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
         /// </summary>
         [Output("lustreConfigurations")]
         public Output<ImmutableArray<Outputs.FileCacheLustreConfiguration>> LustreConfigurations { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.FileCacheDataRepositoryAssociationArgs>? _dataRepositoryAssociations;
 
         /// <summary>
-        /// See the `data_repository_association` configuration block. Max of 8.
+        /// See the `dataRepositoryAssociation` configuration block. Max of 8.
         /// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
         /// </summary>
         public InputList<Inputs.FileCacheDataRepositoryAssociationArgs> DataRepositoryAssociations
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.FileCacheLustreConfigurationArgs>? _lustreConfigurations;
 
         /// <summary>
-        /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+        /// See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
         /// </summary>
         public InputList<Inputs.FileCacheLustreConfigurationArgs> LustreConfigurations
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.FileCacheDataRepositoryAssociationGetArgs>? _dataRepositoryAssociations;
 
         /// <summary>
-        /// See the `data_repository_association` configuration block. Max of 8.
+        /// See the `dataRepositoryAssociation` configuration block. Max of 8.
         /// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
         /// </summary>
         public InputList<Inputs.FileCacheDataRepositoryAssociationGetArgs> DataRepositoryAssociations
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.FileCacheLustreConfigurationGetArgs>? _lustreConfigurations;
 
         /// <summary>
-        /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+        /// See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
         /// </summary>
         public InputList<Inputs.FileCacheLustreConfigurationGetArgs> LustreConfigurations
         {
@@ -489,7 +489,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

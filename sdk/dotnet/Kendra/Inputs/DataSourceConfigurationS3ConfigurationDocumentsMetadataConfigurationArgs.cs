@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
+        /// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
         /// </summary>
         [Input("s3Prefix")]
         public Input<string>? S3Prefix { get; set; }

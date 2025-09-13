@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// 
-    /// ### With `routing_rule` configured
+    /// ### With `routingRule` configured
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// 
-    /// ### With `routing_rules` configured
+    /// ### With `routingRules` configured
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.BucketWebsiteConfigurationIndexDocument?> IndexDocument { get; private set; } = null!;
 
         /// <summary>
-        /// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        /// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
         /// </summary>
         [Output("redirectAllRequestsTo")]
         public Output<Outputs.BucketWebsiteConfigurationRedirectAllRequestsTo?> RedirectAllRequestsTo { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketWebsiteConfigurationIndexDocumentArgs>? IndexDocument { get; set; }
 
         /// <summary>
-        /// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        /// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
         /// </summary>
         [Input("redirectAllRequestsTo")]
         public Input<Inputs.BucketWebsiteConfigurationRedirectAllRequestsToArgs>? RedirectAllRequestsTo { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketWebsiteConfigurationIndexDocumentGetArgs>? IndexDocument { get; set; }
 
         /// <summary>
-        /// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        /// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
         /// </summary>
         [Input("redirectAllRequestsTo")]
         public Input<Inputs.BucketWebsiteConfigurationRedirectAllRequestsToGetArgs>? RedirectAllRequestsTo { get; set; }

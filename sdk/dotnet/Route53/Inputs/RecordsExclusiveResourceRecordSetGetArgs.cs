@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Route53.Inputs
     {
         /// <summary>
         /// Alias target block.
-        /// See `alias_target` below.
+        /// See `aliasTarget` below.
         /// </summary>
         [Input("aliasTarget")]
         public Input<Inputs.RecordsExclusiveResourceRecordSetAliasTargetGetArgs>? AliasTarget { get; set; }
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Route53.Inputs
 
         /// <summary>
         /// Geoproximity location block.
-        /// See `geoproximity_location` below.
+        /// See `geoproximityLocation` below.
         /// </summary>
         [Input("geoproximityLocation")]
         public Input<Inputs.RecordsExclusiveResourceRecordSetGeoproximityLocationGetArgs>? GeoproximityLocation { get; set; }
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Route53.Inputs
 
         /// <summary>
         /// Information about the resource records to act upon.
-        /// See `resource_records` below.
+        /// See `resourceRecords` below.
         /// </summary>
         public InputList<Inputs.RecordsExclusiveResourceRecordSetResourceRecordGetArgs> ResourceRecords
         {
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Route53.Inputs
 
         /// <summary>
         /// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        /// Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+        /// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Route53.Inputs
         /// 
         /// The following arguments are optional:
         /// 
-        /// &gt; Exactly one of `resource_records` or `alias_target` must be specified.
+        /// &gt; Exactly one of `resourceRecords` or `aliasTarget` must be specified.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementSqliMatchStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        /// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
         /// </summary>
         [Input("fieldToMatch")]
         public Input<Inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchGetArgs>? FieldToMatch { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementSqliMatchStatementTextTransformationGetArgs>? _textTransformations;
 
         /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementSqliMatchStatementTextTransformationGetArgs> TextTransformations
         {

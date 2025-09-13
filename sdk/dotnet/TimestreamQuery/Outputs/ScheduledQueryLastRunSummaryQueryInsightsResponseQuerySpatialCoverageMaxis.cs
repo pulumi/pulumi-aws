@@ -14,7 +14,7 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     public sealed class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis
     {
         /// <summary>
-        /// Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
+        /// Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
         /// </summary>
         public readonly ImmutableArray<string> PartitionKeys;
         /// <summary>

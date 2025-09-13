@@ -159,7 +159,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
-        /// List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
+        /// List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
         /// Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterCacheNodeResult> CacheNodes;

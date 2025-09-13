@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<int?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
+        /// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Output("shardCount")]
@@ -121,13 +121,13 @@ namespace Pulumi.Aws.Kinesis
         public Output<Outputs.StreamStreamModeDetails> StreamModeDetails { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
+        /// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
+        /// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

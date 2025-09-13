@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CustomerProfiles.Inputs
         private InputList<string>? _rules;
 
         /// <summary>
-        /// A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
+        /// A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
         /// </summary>
         public InputList<string> Rules
         {

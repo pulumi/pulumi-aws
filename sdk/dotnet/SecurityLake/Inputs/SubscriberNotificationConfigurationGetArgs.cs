@@ -20,7 +20,7 @@ namespace Pulumi.Aws.SecurityLake.Inputs
 
         /// <summary>
         /// The configurations for SQS subscriber notification.
-        /// There are no parameters within `sqs_notification_configuration`.
+        /// There are no parameters within `sqsNotificationConfiguration`.
         /// </summary>
         [Input("sqsNotificationConfiguration")]
         public Input<Inputs.SubscriberNotificationConfigurationSqsNotificationConfigurationGetArgs>? SqsNotificationConfiguration { get; set; }

@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Grafana
     public partial class LicenseAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+        /// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
         /// </summary>
         [Output("freeTrialExpiration")]
         public Output<string> FreeTrialExpiration { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Grafana
         public Output<string?> GrafanaToken { get; private set; } = null!;
 
         /// <summary>
-        /// If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+        /// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         /// </summary>
         [Output("licenseExpiration")]
         public Output<string> LicenseExpiration { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Grafana
     public sealed class LicenseAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+        /// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
         /// </summary>
         [Input("freeTrialExpiration")]
         public Input<string>? FreeTrialExpiration { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? GrafanaToken { get; set; }
 
         /// <summary>
-        /// If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+        /// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         /// </summary>
         [Input("licenseExpiration")]
         public Input<string>? LicenseExpiration { get; set; }

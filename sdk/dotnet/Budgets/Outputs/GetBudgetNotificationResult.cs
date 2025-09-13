@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Budgets.Outputs
         /// </summary>
         public readonly string NotificationType;
         /// <summary>
-        /// (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
+        /// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
         /// </summary>
         public readonly ImmutableArray<string> SubscriberEmailAddresses;
         /// <summary>
-        /// (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
+        /// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
         /// </summary>
         public readonly ImmutableArray<string> SubscriberSnsTopicArns;
         /// <summary>

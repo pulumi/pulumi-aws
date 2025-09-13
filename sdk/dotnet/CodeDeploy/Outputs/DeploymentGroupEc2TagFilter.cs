@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
         /// <summary>
         /// The value of the tag filter.
         /// 
-        /// Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
+        /// Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
         /// </summary>
         public readonly string? Value;
 

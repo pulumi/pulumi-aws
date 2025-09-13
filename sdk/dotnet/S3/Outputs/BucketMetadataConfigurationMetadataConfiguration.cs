@@ -18,11 +18,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketMetadataConfigurationMetadataConfigurationDestination> Destinations;
         /// <summary>
-        /// Inventory table configuration. See `inventory_table_configuration` Block for details.
+        /// Inventory table configuration. See `inventoryTableConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration? InventoryTableConfiguration;
         /// <summary>
-        /// Journal table configuration. See `journal_table_configuration` Block for details.
+        /// Journal table configuration. See `journalTableConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration? JournalTableConfiguration;
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.BedrockModel.Inputs
     public sealed class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
+        /// S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
         /// </summary>
         [Input("largeDataDeliveryS3Config")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigGetArgs>? LargeDataDeliveryS3Config { get; set; }

@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// Configuration block for open table formats. See `openTableFormatInput` below.
         /// </summary>
         [Output("openTableFormatInput")]
         public Output<Outputs.CatalogTableOpenTableFormatInput?> OpenTableFormatInput { get; private set; } = null!;
@@ -166,13 +166,13 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        /// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
         /// </summary>
         [Output("partitionIndices")]
         public Output<ImmutableArray<Outputs.CatalogTablePartitionIndex>> PartitionIndices { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
         /// </summary>
         [Output("partitionKeys")]
         public Output<ImmutableArray<Outputs.CatalogTablePartitionKey>> PartitionKeys { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Glue
         public Output<int?> Retention { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
         /// </summary>
         [Output("storageDescriptor")]
         public Output<Outputs.CatalogTableStorageDescriptor?> StorageDescriptor { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> TableType { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block of a target table for resource linking. See `target_table` below.
+        /// Configuration block of a target table for resource linking. See `targetTable` below.
         /// </summary>
         [Output("targetTable")]
         public Output<Outputs.CatalogTableTargetTable?> TargetTable { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// Configuration block for open table formats. See `openTableFormatInput` below.
         /// </summary>
         [Input("openTableFormatInput")]
         public Input<Inputs.CatalogTableOpenTableFormatInputArgs>? OpenTableFormatInput { get; set; }
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionIndexArgs>? _partitionIndices;
 
         /// <summary>
-        /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        /// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionIndexArgs> PartitionIndices
         {
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionKeyArgs>? _partitionKeys;
 
         /// <summary>
-        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionKeyArgs> PartitionKeys
         {
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Retention { get; set; }
 
         /// <summary>
-        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
         /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.CatalogTableStorageDescriptorArgs>? StorageDescriptor { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? TableType { get; set; }
 
         /// <summary>
-        /// Configuration block of a target table for resource linking. See `target_table` below.
+        /// Configuration block of a target table for resource linking. See `targetTable` below.
         /// </summary>
         [Input("targetTable")]
         public Input<Inputs.CatalogTableTargetTableArgs>? TargetTable { get; set; }
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// Configuration block for open table formats. See `openTableFormatInput` below.
         /// </summary>
         [Input("openTableFormatInput")]
         public Input<Inputs.CatalogTableOpenTableFormatInputGetArgs>? OpenTableFormatInput { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionIndexGetArgs>? _partitionIndices;
 
         /// <summary>
-        /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        /// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionIndexGetArgs> PartitionIndices
         {
@@ -461,7 +461,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionKeyGetArgs>? _partitionKeys;
 
         /// <summary>
-        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionKeyGetArgs> PartitionKeys
         {
@@ -482,7 +482,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Retention { get; set; }
 
         /// <summary>
-        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
         /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.CatalogTableStorageDescriptorGetArgs>? StorageDescriptor { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? TableType { get; set; }
 
         /// <summary>
-        /// Configuration block of a target table for resource linking. See `target_table` below.
+        /// Configuration block of a target table for resource linking. See `targetTable` below.
         /// </summary>
         [Input("targetTable")]
         public Input<Inputs.CatalogTableTargetTableGetArgs>? TargetTable { get; set; }

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? AuthMechanism { get; set; }
 
         /// <summary>
-        /// Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
+        /// Authentication database name. Not used when `authType` is `no`. Default is `admin`.
         /// </summary>
         [Input("authSource")]
         public Input<string>? AuthSource { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? AuthType { get; set; }
 
         /// <summary>
-        /// Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
+        /// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
         /// </summary>
         [Input("docsToInvestigate")]
         public Input<string>? DocsToInvestigate { get; set; }
 
         /// <summary>
-        /// Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
+        /// Document ID. Use this setting when `nestingLevel` is set to `none`. Default is `false`.
         /// </summary>
         [Input("extractDocId")]
         public Input<string>? ExtractDocId { get; set; }

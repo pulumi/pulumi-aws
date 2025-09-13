@@ -26,7 +26,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
 
         /// <summary>
         /// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-        /// * `healthy_threshold_count ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+        /// * `healthyThresholdCount ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
         /// </summary>
         [Input("healthCheckTimeoutSeconds")]
         public Input<int>? HealthCheckTimeoutSeconds { get; set; }

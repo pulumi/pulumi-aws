@@ -501,6 +501,8 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             })
         ```
 
+        ### Outbound with encryption configuration
+
         ### Combined inbound and outbound
 
         ```python
@@ -697,6 +699,8 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                 },
             })
         ```
+
+        ### Outbound with encryption configuration
 
         ### Combined inbound and outbound
 

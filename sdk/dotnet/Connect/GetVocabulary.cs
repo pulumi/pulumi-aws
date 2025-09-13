@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `vocabulary_id`
+        /// By `vocabularyId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `vocabulary_id`
+        /// By `vocabularyId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `vocabulary_id`
+        /// By `vocabularyId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Vocabulary by Vocabulary id
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
+        /// &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
         /// </summary>
         [Input("vocabularyId")]
         public string? VocabularyId { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Vocabulary by Vocabulary id
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
+        /// &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
         /// </summary>
         [Input("vocabularyId")]
         public Input<string>? VocabularyId { get; set; }

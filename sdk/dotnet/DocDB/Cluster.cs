@@ -16,10 +16,10 @@ namespace Pulumi.Aws.DocDB
     /// parameter, such as `port`, and are reflected in the next maintenance
     /// window. Because of this, this provider may report a difference in its planning
     /// phase because a modification has not yet taken place. You can use the
-    /// `apply_immediately` flag to instruct the service to apply the change immediately
+    /// `applyImmediately` flag to instruct the service to apply the change immediately
     /// (see documentation below).
     /// 
-    /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
+    /// &gt; **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
     /// 
     /// ## Example Usage
     /// 
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
         /// </summary>
         [Output("clusterIdentifierPrefix")]
         public Output<string> ClusterIdentifierPrefix { get; private set; } = null!;
@@ -177,20 +177,20 @@ namespace Pulumi.Aws.DocDB
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
         /// </summary>
         [Output("manageMasterUserPassword")]
         public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.DocDB
         public Output<Outputs.ClusterServerlessV2ScalingConfiguration?> ServerlessV2ScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
         /// </summary>
         [Output("skipFinalSnapshot")]
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
@@ -272,13 +272,13 @@ namespace Pulumi.Aws.DocDB
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
         /// </summary>
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
@@ -458,13 +458,13 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
         public Input<bool>? ManageMasterUserPassword { get; set; }
@@ -474,7 +474,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -530,7 +530,7 @@ namespace Pulumi.Aws.DocDB
         public Input<Inputs.ClusterServerlessV2ScalingConfigurationArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
@@ -557,7 +557,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -635,7 +635,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
         /// </summary>
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
@@ -728,13 +728,13 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
         public Input<bool>? ManageMasterUserPassword { get; set; }
@@ -744,7 +744,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -814,7 +814,7 @@ namespace Pulumi.Aws.DocDB
         public Input<Inputs.ClusterServerlessV2ScalingConfigurationGetArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
@@ -841,7 +841,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -853,7 +853,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

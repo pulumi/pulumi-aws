@@ -21,17 +21,17 @@ namespace Pulumi.Aws.Lex.Outputs
         public readonly bool? Active;
         /// <summary>
         /// Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-        /// See the `continue_response` argument reference below.
+        /// See the `continueResponse` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse> ContinueResponses;
         /// <summary>
         /// Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-        /// See the `still_waiting_response` argument reference below.
+        /// See the `stillWaitingResponse` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse> StillWaitingResponses;
         /// <summary>
         /// Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-        /// See the `waiting_response` argument reference below.
+        /// See the `waitingResponse` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse> WaitingResponses;
 

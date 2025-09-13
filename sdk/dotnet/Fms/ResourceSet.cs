@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Fms
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        /// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
         /// </summary>
         [Output("resourceSets")]
         public Output<ImmutableArray<Outputs.ResourceSetResourceSet>> ResourceSets { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Fms
         private InputList<Inputs.ResourceSetResourceSetArgs>? _resourceSets;
 
         /// <summary>
-        /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        /// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
         /// </summary>
         public InputList<Inputs.ResourceSetResourceSetArgs> ResourceSets
         {
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Fms
         private InputList<Inputs.ResourceSetResourceSetGetArgs>? _resourceSets;
 
         /// <summary>
-        /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        /// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
         /// </summary>
         public InputList<Inputs.ResourceSetResourceSetGetArgs> ResourceSets
         {

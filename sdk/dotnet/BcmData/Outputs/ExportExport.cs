@@ -14,7 +14,7 @@ namespace Pulumi.Aws.BcmData.Outputs
     public sealed class ExportExport
     {
         /// <summary>
-        /// Data query for this specific data export. See the `data_query` argument reference below.
+        /// Data query for this specific data export. See the `dataQuery` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExportExportDataQuery> DataQueries;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.BcmData.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
+        /// Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExportExportDestinationConfiguration> DestinationConfigurations;
         public readonly string? ExportArn;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.BcmData.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
+        /// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExportExportRefreshCadence> RefreshCadences;
 

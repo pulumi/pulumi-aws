@@ -14,7 +14,7 @@ namespace Pulumi.Aws.M2.Outputs
     public sealed class ApplicationDefinition
     {
         /// <summary>
-        /// JSON application definition. Either this or `s3_location` must be specified.
+        /// JSON application definition. Either this or `s3Location` must be specified.
         /// </summary>
         public readonly string? Content;
         /// <summary>

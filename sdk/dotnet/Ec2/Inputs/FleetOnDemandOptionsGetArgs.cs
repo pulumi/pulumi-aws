@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-        /// If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
+        /// If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
         /// </summary>
         [Input("minTargetCapacity")]
         public Input<int>? MinTargetCapacity { get; set; }

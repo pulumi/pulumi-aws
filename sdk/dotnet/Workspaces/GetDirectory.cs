@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetDirectoryResult
     {
         /// <summary>
-        /// Configuration for Active Directory integration when `workspace_type` is set to `POOLS`.
+        /// Configuration for Active Directory integration when `workspaceType` is set to `POOLS`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDirectoryActiveDirectoryConfigResult> ActiveDirectoryConfigs;
         /// <summary>
@@ -222,11 +222,11 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDirectoryWorkspaceCreationPropertyResult> WorkspaceCreationProperties;
         /// <summary>
-        /// The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
         /// </summary>
         public readonly string WorkspaceDirectoryDescription;
         /// <summary>
-        /// The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
         /// </summary>
         public readonly string WorkspaceDirectoryName;
         /// <summary>

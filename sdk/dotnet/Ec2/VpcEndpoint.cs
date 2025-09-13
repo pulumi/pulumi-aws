@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Ec2
     /// Provides a VPC Endpoint resource.
     /// 
     /// &gt; **NOTE on VPC Endpoints and VPC Endpoint Associations:** The provider provides both standalone VPC Endpoint Associations for
-    /// Route Tables - (an association between a VPC endpoint and a single `route_table_id`),
-    /// Security Groups - (an association between a VPC endpoint and a single `security_group_id`),
-    /// and Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
-    /// a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
+    /// Route Tables - (an association between a VPC endpoint and a single `routeTableId`),
+    /// Security Groups - (an association between a VPC endpoint and a single `securityGroupId`),
+    /// and Subnets - (an association between a VPC endpoint and a single `subnetId`) and
+    /// a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
     /// Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
     /// Doing so will cause a conflict of associations and will overwrite the association.
     /// 
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.VpcEndpointDnsEntry>> DnsEntries { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS options for the endpoint. See dns_options below.
+        /// The DNS options for the endpoint. See dnsOptions below.
         /// </summary>
         [Output("dnsOptions")]
         public Output<Outputs.VpcEndpointDnsOptions> DnsOptions { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> RequesterManaged { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
         /// </summary>
         [Output("resourceConfigurationArn")]
         public Output<string?> ResourceConfigurationArn { get; private set; } = null!;
@@ -324,13 +324,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
         /// </summary>
         [Output("serviceName")]
         public Output<string?> ServiceName { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
         /// </summary>
         [Output("serviceNetworkArn")]
         public Output<string?> ServiceNetworkArn { get; private set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
         /// </summary>
         [Output("subnetConfigurations")]
         public Output<ImmutableArray<Outputs.VpcEndpointSubnetConfiguration>> SubnetConfigurations { get; private set; } = null!;
@@ -360,13 +360,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -436,7 +436,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoAccept { get; set; }
 
         /// <summary>
-        /// The DNS options for the endpoint. See dns_options below.
+        /// The DNS options for the endpoint. See dnsOptions below.
         /// </summary>
         [Input("dnsOptions")]
         public Input<Inputs.VpcEndpointDnsOptionsArgs>? DnsOptions { get; set; }
@@ -467,7 +467,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
         /// </summary>
         [Input("resourceConfigurationArn")]
         public Input<string>? ResourceConfigurationArn { get; set; }
@@ -498,13 +498,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
         /// </summary>
         [Input("serviceNetworkArn")]
         public Input<string>? ServiceNetworkArn { get; set; }
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.VpcEndpointSubnetConfigurationArgs>? _subnetConfigurations;
 
         /// <summary>
-        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
         /// </summary>
         public InputList<Inputs.VpcEndpointSubnetConfigurationArgs> SubnetConfigurations
         {
@@ -543,7 +543,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -608,7 +608,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The DNS options for the endpoint. See dns_options below.
+        /// The DNS options for the endpoint. See dnsOptions below.
         /// </summary>
         [Input("dnsOptions")]
         public Input<Inputs.VpcEndpointDnsOptionsGetArgs>? DnsOptions { get; set; }
@@ -669,7 +669,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? RequesterManaged { get; set; }
 
         /// <summary>
-        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
         /// </summary>
         [Input("resourceConfigurationArn")]
         public Input<string>? ResourceConfigurationArn { get; set; }
@@ -700,13 +700,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
         /// </summary>
         [Input("serviceNetworkArn")]
         public Input<string>? ServiceNetworkArn { get; set; }
@@ -727,7 +727,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.VpcEndpointSubnetConfigurationGetArgs>? _subnetConfigurations;
 
         /// <summary>
-        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
         /// </summary>
         public InputList<Inputs.VpcEndpointSubnetConfigurationGetArgs> SubnetConfigurations
         {
@@ -751,7 +751,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -763,7 +763,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

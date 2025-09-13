@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Encryption configuration for the journal table. See `encryption_configuration` Block for details.
+        /// Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// Journal table record expiration settings. See `record_expiration` Block for details.
+        /// Journal table record expiration settings. See `recordExpiration` Block for details.
         /// </summary>
         [Input("recordExpiration")]
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationGetArgs>? RecordExpiration { get; set; }

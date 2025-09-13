@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Lex.Outputs
         public readonly string Name;
         /// <summary>
         /// Unique identifier assigned to a slot type.
-        /// This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+        /// This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
         /// </summary>
         public readonly string SlotTypeId;
 

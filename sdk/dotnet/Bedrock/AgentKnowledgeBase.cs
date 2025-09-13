@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableArray<string>> FailureReasons { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        /// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
         /// </summary>
         [Output("knowledgeBaseConfiguration")]
         public Output<Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration?> KnowledgeBaseConfiguration { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+        /// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -185,13 +185,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentKnowledgeBaseStorageConfiguration?> StorageConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        /// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
         /// </summary>
         [Input("knowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs>? KnowledgeBaseConfiguration { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+        /// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        /// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
         /// </summary>
         [Input("knowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationGetArgs>? KnowledgeBaseConfiguration { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+        /// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
     public sealed class PresetVideoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+        /// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
         /// </summary>
         [Input("aspectRatio")]
         public Input<string>? AspectRatio { get; set; }
@@ -73,13 +73,13 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public Input<string>? MaxWidth { get; set; }
 
         /// <summary>
-        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
+        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
         /// </summary>
         [Input("paddingPolicy")]
         public Input<string>? PaddingPolicy { get; set; }
 
         /// <summary>
-        /// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
+        /// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
         /// </summary>
         [Input("resolution")]
         public Input<string>? Resolution { get; set; }

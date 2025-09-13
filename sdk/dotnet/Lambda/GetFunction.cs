@@ -607,7 +607,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string QualifiedArn;
         /// <summary>
-        /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
+        /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invokeArn`.
         /// </summary>
         public readonly string QualifiedInvokeArn;
         public readonly string? Qualifier;
@@ -633,7 +633,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
-        /// (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         public readonly string SourceCodeHash;
         /// <summary>

@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<int>? MaxFileSize { get; set; }
 
         /// <summary>
-        /// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        /// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
         /// </summary>
         [Input("pluginName")]
         public Input<string>? PluginName { get; set; }

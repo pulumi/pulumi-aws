@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement
     {
         /// <summary>
-        /// Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        /// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings? IdleSettings;
 

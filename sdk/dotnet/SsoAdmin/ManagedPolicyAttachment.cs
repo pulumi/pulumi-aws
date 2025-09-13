@@ -46,7 +46,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ### With Account Assignment
     /// 
-    /// &gt; Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `depends_on` meta argument is necessary to ensure proper deletion order when these resources are used together.
+    /// &gt; Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `dependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

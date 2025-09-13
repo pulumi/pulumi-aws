@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL configuration of your web data source. See `url_configuration` block for details.
+        /// The URL configuration of your web data source. See `urlConfiguration` block for details.
         /// </summary>
         [Input("urlConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationGetArgs>? UrlConfiguration { get; set; }

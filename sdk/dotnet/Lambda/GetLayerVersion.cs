@@ -486,7 +486,7 @@ namespace Pulumi.Aws.Lambda
         public string? Region { get; set; }
 
         /// <summary>
-        /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
+        /// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
         /// </summary>
         [Input("version")]
         public int? Version { get; set; }
@@ -526,7 +526,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
+        /// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
@@ -590,7 +590,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
-        /// (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         public readonly string SourceCodeHash;
         /// <summary>

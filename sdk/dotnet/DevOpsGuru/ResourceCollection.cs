@@ -94,7 +94,7 @@ namespace Pulumi.Aws.DevOpsGuru
     /// 
     /// ### Tags All Resources
     /// 
-    /// To analyze all resources with the `app_boundary_key` regardless of the corresponding tag value, set `tag_values` to `["*"]`.
+    /// To analyze all resources with the `appBoundaryKey` regardless of the corresponding tag value, set `tagValues` to `["*"]`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

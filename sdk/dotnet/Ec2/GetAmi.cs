@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// If true, allow unsafe filter values. With unsafe
-        /// filters and `most_recent` set to `true`, a third party may introduce a new image which
+        /// filters and `mostRecent` set to `true`, a third party may introduce a new image which
         /// will be returned by this data source. Consider filtering by owner or image ID rather
         /// than setting this argument.
         /// </summary>
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **NOTE:** If more or less than a single match is returned by the search,
         /// this call will fail. Ensure that your search is specific enough to return
-        /// a single AMI ID only, or use `most_recent` to choose the most recent one. If
+        /// a single AMI ID only, or use `mostRecent` to choose the most recent one. If
         /// you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
         /// </summary>
         [Input("nameRegex")]
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// If true, allow unsafe filter values. With unsafe
-        /// filters and `most_recent` set to `true`, a third party may introduce a new image which
+        /// filters and `mostRecent` set to `true`, a third party may introduce a new image which
         /// will be returned by this data source. Consider filtering by owner or image ID rather
         /// than setting this argument.
         /// </summary>
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **NOTE:** If more or less than a single match is returned by the search,
         /// this call will fail. Ensure that your search is specific enough to return
-        /// a single AMI ID only, or use `most_recent` to choose the most recent one. If
+        /// a single AMI ID only, or use `mostRecent` to choose the most recent one. If
         /// you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
         /// </summary>
         [Input("nameRegex")]
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Ec2
     {
         public readonly bool? AllowUnsafeFilter;
         /// <summary>
-        /// OS architecture of the AMI (ie: `i386` or `x86_64`).
+        /// OS architecture of the AMI (ie: `i386` or `x8664`).
         /// </summary>
         public readonly string Architecture;
         /// <summary>

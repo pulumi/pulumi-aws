@@ -22,11 +22,11 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// </summary>
         public readonly string? ReportLevel;
         /// <summary>
-        /// Configuration block containing the configuration of the reporting level for aspects of your task report. See `report_overrides` below.
+        /// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
         /// </summary>
         public readonly Outputs.TaskTaskReportConfigReportOverrides? ReportOverrides;
         /// <summary>
-        /// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3_destination` below.
+        /// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
         /// </summary>
         public readonly Outputs.TaskTaskReportConfigS3Destination S3Destination;
         /// <summary>

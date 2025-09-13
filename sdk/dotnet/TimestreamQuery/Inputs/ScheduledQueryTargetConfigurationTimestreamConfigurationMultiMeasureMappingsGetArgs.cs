@@ -25,7 +25,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         }
 
         /// <summary>
-        /// Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
+        /// Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
         /// </summary>
         [Input("targetMultiMeasureName")]
         public Input<string>? TargetMultiMeasureName { get; set; }

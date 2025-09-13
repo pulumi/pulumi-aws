@@ -209,7 +209,7 @@ namespace Pulumi.Aws.LB
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         /// </summary>
         [Output("dnsRecordClientRoutingPolicy")]
         public Output<string?> DnsRecordClientRoutingPolicy { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.LB
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
         /// </summary>
         [Output("ipamPools")]
         public Output<Outputs.LoadBalancerIpamPools?> IpamPools { get; private set; } = null!;
@@ -347,13 +347,13 @@ namespace Pulumi.Aws.LB
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -364,9 +364,9 @@ namespace Pulumi.Aws.LB
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         /// 
-        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
         /// 
-        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
         /// </summary>
         [Output("xffHeaderProcessingMode")]
         public Output<string?> XffHeaderProcessingMode { get; private set; } = null!;
@@ -458,7 +458,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? DesyncMitigationMode { get; set; }
 
         /// <summary>
-        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         /// </summary>
         [Input("dnsRecordClientRoutingPolicy")]
         public Input<string>? DnsRecordClientRoutingPolicy { get; set; }
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
         /// </summary>
         [Input("ipamPools")]
         public Input<Inputs.LoadBalancerIpamPoolsArgs>? IpamPools { get; set; }
@@ -617,7 +617,7 @@ namespace Pulumi.Aws.LB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -628,9 +628,9 @@ namespace Pulumi.Aws.LB
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         /// 
-        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
         /// 
-        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
         /// </summary>
         [Input("xffHeaderProcessingMode")]
         public Input<string>? XffHeaderProcessingMode { get; set; }
@@ -693,7 +693,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         /// </summary>
         [Input("dnsRecordClientRoutingPolicy")]
         public Input<string>? DnsRecordClientRoutingPolicy { get; set; }
@@ -771,7 +771,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
         /// </summary>
         [Input("ipamPools")]
         public Input<Inputs.LoadBalancerIpamPoolsGetArgs>? IpamPools { get; set; }
@@ -852,7 +852,7 @@ namespace Pulumi.Aws.LB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -864,7 +864,7 @@ namespace Pulumi.Aws.LB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -878,9 +878,9 @@ namespace Pulumi.Aws.LB
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         /// 
-        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
         /// 
-        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
         /// </summary>
         [Input("xffHeaderProcessingMode")]
         public Input<string>? XffHeaderProcessingMode { get; set; }

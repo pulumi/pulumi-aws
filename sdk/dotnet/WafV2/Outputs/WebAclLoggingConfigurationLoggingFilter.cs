@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclLoggingConfigurationLoggingFilter
     {
         /// <summary>
-        /// Default handling for logs that don't match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
+        /// Default handling for logs that don't match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
         /// </summary>
         public readonly string DefaultBehavior;
         /// <summary>

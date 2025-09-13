@@ -19,13 +19,13 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         public Input<bool>? FlowLogsEnabled { get; set; }
 
         /// <summary>
-        /// The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+        /// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
         /// </summary>
         [Input("flowLogsS3Bucket")]
         public Input<string>? FlowLogsS3Bucket { get; set; }
 
         /// <summary>
-        /// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+        /// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
         /// </summary>
         [Input("flowLogsS3Prefix")]
         public Input<string>? FlowLogsS3Prefix { get; set; }

@@ -27,11 +27,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly int? SpotTargetCapacity;
         /// <summary>
         /// The unit for the target capacity.
-        /// If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
+        /// If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
         /// </summary>
         public readonly string? TargetCapacityUnitType;
         /// <summary>
-        /// The number of units to request, filled using `default_target_capacity_type`.
+        /// The number of units to request, filled using `defaultTargetCapacityType`.
         /// </summary>
         public readonly int TotalTargetCapacity;
 

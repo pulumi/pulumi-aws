@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer).
     /// 
-    /// &gt; **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
+    /// &gt; **Note:** Setting `skipDestroy` to `true` means that the AWS Provider will not destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
     /// 
     /// ## Example Usage
     /// 
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> LayerName { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+        /// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
         /// </summary>
         [Output("organizationId")]
         public Output<string?> OrganizationId { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string> LayerName { get; set; } = null!;
 
         /// <summary>
-        /// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+        /// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? LayerName { get; set; }
 
         /// <summary>
-        /// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+        /// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }

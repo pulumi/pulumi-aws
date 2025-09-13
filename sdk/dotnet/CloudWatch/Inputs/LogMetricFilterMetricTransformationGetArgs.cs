@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         private InputMap<string>? _dimensions;
 
         /// <summary>
-        /// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+        /// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
         /// </summary>
         public InputMap<string> Dimensions
         {

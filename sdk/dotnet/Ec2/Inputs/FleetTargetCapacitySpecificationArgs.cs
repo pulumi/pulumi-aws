@@ -32,13 +32,13 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// The unit for the target capacity.
-        /// If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
+        /// If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
         /// </summary>
         [Input("targetCapacityUnitType")]
         public Input<string>? TargetCapacityUnitType { get; set; }
 
         /// <summary>
-        /// The number of units to request, filled using `default_target_capacity_type`.
+        /// The number of units to request, filled using `defaultTargetCapacityType`.
         /// </summary>
         [Input("totalTargetCapacity", required: true)]
         public Input<int> TotalTargetCapacity { get; set; } = null!;

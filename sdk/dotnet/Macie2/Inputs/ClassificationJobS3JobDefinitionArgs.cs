@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Macie2.Inputs
     public sealed class ClassificationJobS3JobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
+        /// The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucketDefinitions`. (documented below)
         /// </summary>
         [Input("bucketCriteria")]
         public Input<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaArgs>? BucketCriteria { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         private InputList<Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs>? _bucketDefinitions;
 
         /// <summary>
-        /// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
+        /// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucketCriteria`. (documented below)
         /// </summary>
         public InputList<Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs> BucketDefinitions
         {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification
     {
         /// <summary>
-        /// Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `start_response`, `update_response`, and `timeout_in_seconds` fields are required.
+        /// Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.
         /// </summary>
         public readonly bool Active;
         /// <summary>

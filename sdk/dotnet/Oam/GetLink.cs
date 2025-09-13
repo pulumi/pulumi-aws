@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Oam
         /// </summary>
         public readonly string LabelTemplate;
         /// <summary>
-        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinkLinkConfigurationResult> LinkConfigurations;
         /// <summary>

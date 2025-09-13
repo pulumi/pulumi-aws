@@ -24,13 +24,13 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// </summary>
         public readonly Outputs.SizeConstraintSetSizeConstraintFieldToMatch FieldToMatch;
         /// <summary>
-        /// The size in bytes that you want to compare against the size of the specified `field_to_match`.
+        /// The size in bytes that you want to compare against the size of the specified `fieldToMatch`.
         /// Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
         /// </summary>
         public readonly int Size;
         /// <summary>
         /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-        /// If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
+        /// If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
         /// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
         /// for all supported values.

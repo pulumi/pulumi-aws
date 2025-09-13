@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         }
 
         /// <summary>
-        /// Method name to match from the request. If you specify a name, you must also specify a `service_name`.
+        /// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
         /// </summary>
         [Input("methodName")]
         public Input<string>? MethodName { get; set; }

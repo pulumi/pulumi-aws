@@ -125,19 +125,19 @@ namespace Pulumi.Aws.Synthetics
         public Output<string> RuntimeVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
+        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
         /// </summary>
         [Output("s3Bucket")]
         public Output<string?> S3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// S3 key of your script. **Conflicts with `zip_file`.**
+        /// S3 key of your script. **Conflicts with `zipFile`.**
         /// </summary>
         [Output("s3Key")]
         public Output<string?> S3Key { get; private set; } = null!;
 
         /// <summary>
-        /// S3 version ID of your script. **Conflicts with `zip_file`.**
+        /// S3 version ID of your script. **Conflicts with `zipFile`.**
         /// </summary>
         [Output("s3Version")]
         public Output<string?> S3Version { get; private set; } = null!;
@@ -175,13 +175,13 @@ namespace Pulumi.Aws.Synthetics
         public Output<int?> SuccessRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Synthetics
         public Output<Outputs.CanaryVpcConfig?> VpcConfig { get; private set; } = null!;
 
         /// <summary>
-        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
         /// </summary>
         [Output("zipFile")]
         public Output<string?> ZipFile { get; private set; } = null!;
@@ -311,19 +311,19 @@ namespace Pulumi.Aws.Synthetics
         public Input<string> RuntimeVersion { get; set; } = null!;
 
         /// <summary>
-        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
+        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// S3 key of your script. **Conflicts with `zip_file`.**
+        /// S3 key of your script. **Conflicts with `zipFile`.**
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// S3 version ID of your script. **Conflicts with `zip_file`.**
+        /// S3 version ID of your script. **Conflicts with `zipFile`.**
         /// </summary>
         [Input("s3Version")]
         public Input<string>? S3Version { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.Synthetics
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Synthetics
         public Input<Inputs.CanaryVpcConfigArgs>? VpcConfig { get; set; }
 
         /// <summary>
-        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
         /// </summary>
         [Input("zipFile")]
         public Input<string>? ZipFile { get; set; }
@@ -453,19 +453,19 @@ namespace Pulumi.Aws.Synthetics
         public Input<string>? RuntimeVersion { get; set; }
 
         /// <summary>
-        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
+        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// S3 key of your script. **Conflicts with `zip_file`.**
+        /// S3 key of your script. **Conflicts with `zipFile`.**
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// S3 version ID of your script. **Conflicts with `zip_file`.**
+        /// S3 version ID of your script. **Conflicts with `zipFile`.**
         /// </summary>
         [Input("s3Version")]
         public Input<string>? S3Version { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.Synthetics
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -518,7 +518,7 @@ namespace Pulumi.Aws.Synthetics
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -545,7 +545,7 @@ namespace Pulumi.Aws.Synthetics
         public Input<Inputs.CanaryVpcConfigGetArgs>? VpcConfig { get; set; }
 
         /// <summary>
-        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
         /// </summary>
         [Input("zipFile")]
         public Input<string>? ZipFile { get; set; }

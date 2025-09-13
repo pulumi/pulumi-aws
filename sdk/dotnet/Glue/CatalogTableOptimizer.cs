@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> TableName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Glue
         public Input<string> TableName { get; set; } = null!;
 
         /// <summary>
-        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? TableName { get; set; }
 
         /// <summary>
-        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

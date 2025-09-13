@@ -28,7 +28,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// <summary>
         /// Configuration block for creating an action that distributes requests among one or more target groups.
         /// Specify only if `type` is `forward`.
-        /// Cannot be specified with `target_group_arn`.
+        /// Cannot be specified with `targetGroupArn`.
         /// </summary>
         public readonly Outputs.ListenerRuleActionForward? Forward;
         /// <summary>

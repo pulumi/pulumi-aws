@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<string>? DataCompressionType { get; set; }
 
         /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
+        /// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
         /// </summary>
         [Input("nfsExports")]
         public Input<Inputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsGetArgs>? NfsExports { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaGetArgs>? _userAndGroupQuotas;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
+        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
         /// </summary>
         public InputList<Inputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaGetArgs> UserAndGroupQuotas
         {

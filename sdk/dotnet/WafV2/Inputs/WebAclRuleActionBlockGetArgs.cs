@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleActionBlockGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines a custom response for the web request. See `custom_response` below for details.
+        /// Defines a custom response for the web request. See `customResponse` below for details.
         /// </summary>
         [Input("customResponse")]
         public Input<Inputs.WebAclRuleActionBlockCustomResponseGetArgs>? CustomResponse { get; set; }

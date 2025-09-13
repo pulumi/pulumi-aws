@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Amp
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
         /// </summary>
         [Output("roleConfiguration")]
         public Output<Outputs.ScraperRoleConfiguration?> RoleConfiguration { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
         /// </summary>
         [Input("roleConfiguration")]
         public Input<Inputs.ScraperRoleConfigurationArgs>? RoleConfiguration { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
         /// </summary>
         [Input("roleConfiguration")]
         public Input<Inputs.ScraperRoleConfigurationGetArgs>? RoleConfiguration { get; set; }

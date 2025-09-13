@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DataQualityJobDefinitionDataQualityJobInputEndpointInput
     {
         /// <summary>
-        /// An endpoint in customer's account which has `data_capture_config` enabled.
+        /// An endpoint in customer's account which has `dataCaptureConfig` enabled.
         /// </summary>
         public readonly string EndpointName;
         /// <summary>

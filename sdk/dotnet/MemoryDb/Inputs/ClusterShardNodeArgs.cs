@@ -33,7 +33,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         }
 
         /// <summary>
-        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

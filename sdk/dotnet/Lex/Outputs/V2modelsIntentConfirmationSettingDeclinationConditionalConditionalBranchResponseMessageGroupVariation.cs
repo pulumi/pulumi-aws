@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariation
     {
         /// <summary>
-        /// Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        /// Configuration block for a message in a custom format defined by the client application. See `customPayload`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayload? CustomPayload;
         /// <summary>
-        /// Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        /// Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard? ImageResponseCard;
         /// <summary>
-        /// Configuration block for a message in plain text format. See `plain_text_message`.
+        /// Configuration block for a message in plain text format. See `plainTextMessage`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage? PlainTextMessage;
         /// <summary>
-        /// Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        /// Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage? SsmlMessage;
 

@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        /// Configuration block for a message in a custom format defined by the client application. See `customPayload`.
         /// </summary>
         [Input("customPayload")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgs>? CustomPayload { get; set; }
 
         /// <summary>
-        /// Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        /// Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
         /// </summary>
         [Input("imageResponseCard")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardArgs>? ImageResponseCard { get; set; }
 
         /// <summary>
-        /// Configuration block for a message in plain text format. See `plain_text_message`.
+        /// Configuration block for a message in plain text format. See `plainTextMessage`.
         /// </summary>
         [Input("plainTextMessage")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessagePlainTextMessageArgs>? PlainTextMessage { get; set; }
 
         /// <summary>
-        /// Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        /// Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
         /// </summary>
         [Input("ssmlMessage")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageSsmlMessageArgs>? SsmlMessage { get; set; }

@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string PermissionsBoundary;
         /// <summary>
-        /// Contains information about the last time that an IAM role was used. See `role_last_used` for details.
+        /// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleRoleLastUsedResult> RoleLastUseds;
         /// <summary>

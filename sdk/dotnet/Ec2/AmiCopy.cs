@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ec2
     public partial class AmiCopy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Machine architecture for created instances. Defaults to `x86_64`.
+        /// Machine architecture for created instances. Defaults to `x8664`.
         /// </summary>
         [Output("architecture")]
         public Output<string> Architecture { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Id of the AMI to copy. This id must be valid in the region
-        /// given by `source_ami_region`.
+        /// given by `sourceAmiRegion`.
         /// </summary>
         [Output("sourceAmiId")]
         public Output<string> SourceAmiId { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SriovNetSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Id of the AMI to copy. This id must be valid in the region
-        /// given by `source_ami_region`.
+        /// given by `sourceAmiRegion`.
         /// </summary>
         [Input("sourceAmiId", required: true)]
         public Input<string> SourceAmiId { get; set; } = null!;
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class AmiCopyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Machine architecture for created instances. Defaults to `x86_64`.
+        /// Machine architecture for created instances. Defaults to `x8664`.
         /// </summary>
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Id of the AMI to copy. This id must be valid in the region
-        /// given by `source_ami_region`.
+        /// given by `sourceAmiRegion`.
         /// </summary>
         [Input("sourceAmiId")]
         public Input<string>? SourceAmiId { get; set; }
@@ -582,7 +582,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

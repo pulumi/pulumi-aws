@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
+        /// Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the `customResponse` block.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

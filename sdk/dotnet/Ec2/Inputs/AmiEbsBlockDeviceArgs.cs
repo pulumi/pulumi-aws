@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -41,28 +41,28 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// <summary>
         /// ARN of the Outpost on which the snapshot is stored.
         /// 
-        /// &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
+        /// &gt; **Note:** You can specify `encrypted` or `snapshotId` but not both.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// ID of an EBS snapshot that will be used to initialize the created
-        /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        /// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
         /// snapshot.
         /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
-        /// Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        /// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
         /// <summary>
         /// Size of created volumes in GiB.
-        /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        /// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
         /// as the selected snapshot.
         /// </summary>
         [Input("volumeSize")]

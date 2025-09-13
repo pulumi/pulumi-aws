@@ -235,7 +235,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
     public sealed class GetResourcesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
+        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `includeComplianceDetails` argument is also set to `true`.
         /// </summary>
         [Input("excludeCompliantResources")]
         public bool? ExcludeCompliantResources { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private List<Inputs.GetResourcesTagFilterArgs>? _tagFilters;
 
         /// <summary>
-        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
+        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resourceArnList`.
         /// </summary>
         public List<Inputs.GetResourcesTagFilterArgs> TagFilters
         {
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
     public sealed class GetResourcesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
+        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `includeComplianceDetails` argument is also set to `true`.
         /// </summary>
         [Input("excludeCompliantResources")]
         public Input<bool>? ExcludeCompliantResources { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private InputList<Inputs.GetResourcesTagFilterInputArgs>? _tagFilters;
 
         /// <summary>
-        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
+        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resourceArnList`.
         /// </summary>
         public InputList<Inputs.GetResourcesTagFilterInputArgs> TagFilters
         {

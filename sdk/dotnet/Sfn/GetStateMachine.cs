@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         public readonly string RevisionId;
         /// <summary>
-        /// Set to the role_arn used by the state function.
+        /// Set to the roleArn used by the state function.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>

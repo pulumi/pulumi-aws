@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES domain DKIM generation resource.
     /// 
-    /// Domain ownership needs to be confirmed first using ses_domain_identity Resource
+    /// Domain ownership needs to be confirmed first using sesDomainIdentity Resource
     /// 
     /// ## Example Usage
     /// 

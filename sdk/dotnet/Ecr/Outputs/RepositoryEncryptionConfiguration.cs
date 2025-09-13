@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecr.Outputs
         /// </summary>
         public readonly string? EncryptionType;
         /// <summary>
-        /// The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        /// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
         /// </summary>
         public readonly string? KmsKey;
 

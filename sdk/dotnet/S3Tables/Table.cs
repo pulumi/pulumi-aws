@@ -145,7 +145,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket encryption configuration object.
-        /// See `encryption_configuration` below.
+        /// See `encryptionConfiguration` below.
         /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.TableEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket maintenance configuration object.
-        /// See `maintenance_configuration` below.
+        /// See `maintenanceConfiguration` below.
         /// </summary>
         [Output("maintenanceConfiguration")]
         public Output<Outputs.TableMaintenanceConfiguration> MaintenanceConfiguration { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.S3Tables
     {
         /// <summary>
         /// A single table bucket encryption configuration object.
-        /// See `encryption_configuration` below.
+        /// See `encryptionConfiguration` below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.TableEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket maintenance configuration object.
-        /// See `maintenance_configuration` below.
+        /// See `maintenanceConfiguration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
         public Input<Inputs.TableMaintenanceConfigurationArgs>? MaintenanceConfiguration { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket encryption configuration object.
-        /// See `encryption_configuration` below.
+        /// See `encryptionConfiguration` below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.TableEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket maintenance configuration object.
-        /// See `maintenance_configuration` below.
+        /// See `maintenanceConfiguration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
         public Input<Inputs.TableMaintenanceConfigurationGetArgs>? MaintenanceConfiguration { get; set; }

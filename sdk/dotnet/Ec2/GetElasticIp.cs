@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+        /// Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+        /// Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

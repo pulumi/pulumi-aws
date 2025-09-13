@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; **Note:** Either `broker_id` or `broker_name` must be specified.
+        /// &gt; **Note:** Either `brokerId` or `brokerName` must be specified.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; **Note:** Either `broker_id` or `broker_name` must be specified.
+        /// &gt; **Note:** Either `brokerId` or `brokerName` must be specified.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

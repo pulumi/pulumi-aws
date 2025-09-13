@@ -14,7 +14,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     public sealed class DomainAdvancedSecurityOptions
     {
         /// <summary>
-        /// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+        /// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
         /// </summary>
         public readonly bool? AnonymousAuthEnabled;
         /// <summary>

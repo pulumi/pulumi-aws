@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Amp.Outputs
     public sealed class QueryLoggingConfigurationDestination
     {
         /// <summary>
-        /// Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+        /// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
         /// </summary>
         public readonly Outputs.QueryLoggingConfigurationDestinationCloudwatchLogs? CloudwatchLogs;
         /// <summary>

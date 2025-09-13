@@ -88,7 +88,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
         /// </summary>
         [Input("accepts")]
         public string? Accepts { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
         /// </summary>
         [Input("accepts")]
         public Input<string>? Accepts { get; set; }

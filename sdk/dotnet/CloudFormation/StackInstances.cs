@@ -164,7 +164,7 @@ namespace Pulumi.Aws.CloudFormation
     public partial class StackInstances : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+        /// Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
         /// </summary>
         [Output("accounts")]
         public Output<ImmutableArray<string>> Accounts { get; private set; } = null!;
@@ -176,13 +176,13 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string?> CallAs { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+        /// AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
         /// </summary>
         [Output("deploymentTargets")]
         public Output<Outputs.StackInstancesDeploymentTargets?> DeploymentTargets { get; private set; } = null!;
 
         /// <summary>
-        /// Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+        /// Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
         /// </summary>
         [Output("operationPreferences")]
         public Output<Outputs.StackInstancesOperationPreferences?> OperationPreferences { get; private set; } = null!;
@@ -206,13 +206,13 @@ namespace Pulumi.Aws.CloudFormation
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+        /// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
         /// </summary>
         [Output("retainStacks")]
         public Output<bool?> RetainStacks { get; private set; } = null!;
 
         /// <summary>
-        /// List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
+        /// List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stackInstanceSummaries`.
         /// </summary>
         [Output("stackInstanceSummaries")]
         public Output<ImmutableArray<Outputs.StackInstancesStackInstanceSummary>> StackInstanceSummaries { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+        /// Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
         /// </summary>
         public InputList<string> Accounts
         {
@@ -296,13 +296,13 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? CallAs { get; set; }
 
         /// <summary>
-        /// AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+        /// AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
         /// </summary>
         [Input("deploymentTargets")]
         public Input<Inputs.StackInstancesDeploymentTargetsArgs>? DeploymentTargets { get; set; }
 
         /// <summary>
-        /// Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+        /// Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
         /// </summary>
         [Input("operationPreferences")]
         public Input<Inputs.StackInstancesOperationPreferencesArgs>? OperationPreferences { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         /// <summary>
-        /// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+        /// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
         /// </summary>
         [Input("retainStacks")]
         public Input<bool>? RetainStacks { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+        /// Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
         /// </summary>
         public InputList<string> Accounts
         {
@@ -378,13 +378,13 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? CallAs { get; set; }
 
         /// <summary>
-        /// AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+        /// AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
         /// </summary>
         [Input("deploymentTargets")]
         public Input<Inputs.StackInstancesDeploymentTargetsGetArgs>? DeploymentTargets { get; set; }
 
         /// <summary>
-        /// Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+        /// Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
         /// </summary>
         [Input("operationPreferences")]
         public Input<Inputs.StackInstancesOperationPreferencesGetArgs>? OperationPreferences { get; set; }
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         /// <summary>
-        /// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+        /// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
         /// </summary>
         [Input("retainStacks")]
         public Input<bool>? RetainStacks { get; set; }
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputList<Inputs.StackInstancesStackInstanceSummaryGetArgs>? _stackInstanceSummaries;
 
         /// <summary>
-        /// List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
+        /// List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stackInstanceSummaries`.
         /// </summary>
         public InputList<Inputs.StackInstancesStackInstanceSummaryGetArgs> StackInstanceSummaries
         {

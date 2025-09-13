@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class BrokerInstance
     {
         /// <summary>
-        /// URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+        /// URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engineType`.
         /// </summary>
         public readonly string? ConsoleUrl;
         /// <summary>

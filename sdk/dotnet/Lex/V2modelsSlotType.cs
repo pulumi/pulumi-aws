@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Lex
     /// });
     /// ```
     /// 
-    /// ### value_selection_setting Usage
+    /// ### valueSelectionSetting Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Specifications for a composite slot type.
-        /// See `composite_slot_type_setting` argument reference below.
+        /// See `compositeSlotTypeSetting` argument reference below.
         /// </summary>
         [Output("compositeSlotTypeSettings")]
         public Output<ImmutableArray<Outputs.V2modelsSlotTypeCompositeSlotTypeSetting>> CompositeSlotTypeSettings { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Type of external information used to create the slot type.
-        /// See `external_source_setting` argument reference below.
+        /// See `externalSourceSetting` argument reference below.
         /// </summary>
         [Output("externalSourceSettings")]
         public Output<ImmutableArray<Outputs.V2modelsSlotTypeExternalSourceSetting>> ExternalSourceSettings { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
         /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-        /// See `slot_type_values` argument reference below.
+        /// See `slotTypeValues` argument reference below.
         /// </summary>
         [Output("slotTypeValues")]
         public Output<ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValue>> SlotTypeValues { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-        /// See `value_selection_setting` argument reference below.
+        /// See `valueSelectionSetting` argument reference below.
         /// </summary>
         [Output("valueSelectionSetting")]
         public Output<Outputs.V2modelsSlotTypeValueSelectionSetting?> ValueSelectionSetting { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Specifications for a composite slot type.
-        /// See `composite_slot_type_setting` argument reference below.
+        /// See `compositeSlotTypeSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs> CompositeSlotTypeSettings
         {
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Type of external information used to create the slot type.
-        /// See `external_source_setting` argument reference below.
+        /// See `externalSourceSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeExternalSourceSettingArgs> ExternalSourceSettings
         {
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
         /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-        /// See `slot_type_values` argument reference below.
+        /// See `slotTypeValues` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeSlotTypeValueArgs> SlotTypeValues
         {
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-        /// See `value_selection_setting` argument reference below.
+        /// See `valueSelectionSetting` argument reference below.
         /// </summary>
         [Input("valueSelectionSetting")]
         public Input<Inputs.V2modelsSlotTypeValueSelectionSettingArgs>? ValueSelectionSetting { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Specifications for a composite slot type.
-        /// See `composite_slot_type_setting` argument reference below.
+        /// See `compositeSlotTypeSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingGetArgs> CompositeSlotTypeSettings
         {
@@ -397,7 +397,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Type of external information used to create the slot type.
-        /// See `external_source_setting` argument reference below.
+        /// See `externalSourceSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeExternalSourceSettingGetArgs> ExternalSourceSettings
         {
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
         /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-        /// See `slot_type_values` argument reference below.
+        /// See `slotTypeValues` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeSlotTypeValueGetArgs> SlotTypeValues
         {
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-        /// See `value_selection_setting` argument reference below.
+        /// See `valueSelectionSetting` argument reference below.
         /// </summary>
         [Input("valueSelectionSetting")]
         public Input<Inputs.V2modelsSlotTypeValueSelectionSettingGetArgs>? ValueSelectionSetting { get; set; }

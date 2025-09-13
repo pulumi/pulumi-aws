@@ -101,7 +101,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+        /// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
         /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.LightSail
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+        /// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.LightSail
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+        /// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {

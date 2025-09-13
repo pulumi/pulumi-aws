@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class UserProfileUserSettingsCodeEditorAppSettings
     {
         /// <summary>
-        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>

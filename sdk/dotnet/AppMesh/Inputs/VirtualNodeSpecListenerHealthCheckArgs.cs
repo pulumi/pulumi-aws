@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        /// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

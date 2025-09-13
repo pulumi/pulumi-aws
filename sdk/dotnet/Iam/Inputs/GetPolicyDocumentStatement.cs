@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<string>? _resources;
 
         /// <summary>
-        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
         /// </summary>
         public List<string> Resources
         {

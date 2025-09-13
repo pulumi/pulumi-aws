@@ -13,13 +13,13 @@ namespace Pulumi.Aws.LB.Inputs
     public sealed class TargetGroupStickinessGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+        /// Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
         /// </summary>
         [Input("cookieDuration")]
         public Input<int>? CookieDuration { get; set; }
 
         /// <summary>
-        /// Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `app_cookie`.
+        /// Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
         /// </summary>
         [Input("cookieName")]
         public Input<string>? CookieName { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
+        /// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, `sourceIp` for NLBs, and `sourceIpDestIp`, `sourceIpDestIpProto` for GWLBs.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

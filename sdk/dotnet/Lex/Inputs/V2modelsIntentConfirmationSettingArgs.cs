@@ -19,73 +19,73 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// Configuration block for the intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invoke_dialog_code_hook`.  See `code_hook`.
+        /// Configuration block for the intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invokeDialogCodeHook`.  See `codeHook`.
         /// </summary>
         [Input("codeHook")]
         public Input<Inputs.V2modelsIntentConfirmationSettingCodeHookArgs>? CodeHook { get; set; }
 
         /// <summary>
-        /// Configuration block for conditional branches to evaluate after the intent is closed. See `confirmation_conditional`.
+        /// Configuration block for conditional branches to evaluate after the intent is closed. See `confirmationConditional`.
         /// </summary>
         [Input("confirmationConditional")]
         public Input<Inputs.V2modelsIntentConfirmationSettingConfirmationConditionalArgs>? ConfirmationConditional { get; set; }
 
         /// <summary>
-        /// Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmation_next_step`.
+        /// Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmationNextStep`.
         /// </summary>
         [Input("confirmationNextStep")]
         public Input<Inputs.V2modelsIntentConfirmationSettingConfirmationNextStepArgs>? ConfirmationNextStep { get; set; }
 
         /// <summary>
-        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmation_response`.
+        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmationResponse`.
         /// </summary>
         [Input("confirmationResponse")]
         public Input<Inputs.V2modelsIntentConfirmationSettingConfirmationResponseArgs>? ConfirmationResponse { get; set; }
 
         /// <summary>
-        /// Configuration block for conditional branches to evaluate after the intent is declined. See `declination_conditional`.
+        /// Configuration block for conditional branches to evaluate after the intent is declined. See `declinationConditional`.
         /// </summary>
         [Input("declinationConditional")]
         public Input<Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalArgs>? DeclinationConditional { get; set; }
 
         /// <summary>
-        /// Configuration block for the next step that the bot executes when the customer declines the intent. See `declination_next_step`.
+        /// Configuration block for the next step that the bot executes when the customer declines the intent. See `declinationNextStep`.
         /// </summary>
         [Input("declinationNextStep")]
         public Input<Inputs.V2modelsIntentConfirmationSettingDeclinationNextStepArgs>? DeclinationNextStep { get; set; }
 
         /// <summary>
-        /// Configuration block for when the user answers "no" to the question defined in `prompt_specification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declination_response`.
+        /// Configuration block for when the user answers "no" to the question defined in `promptSpecification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declinationResponse`.
         /// </summary>
         [Input("declinationResponse")]
         public Input<Inputs.V2modelsIntentConfirmationSettingDeclinationResponseArgs>? DeclinationResponse { get; set; }
 
         /// <summary>
-        /// Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitation_code_hook`.
+        /// Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitationCodeHook`.
         /// </summary>
         [Input("elicitationCodeHook")]
         public Input<Inputs.V2modelsIntentConfirmationSettingElicitationCodeHookArgs>? ElicitationCodeHook { get; set; }
 
         /// <summary>
-        /// Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failure_conditional`.
+        /// Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failureConditional`.
         /// </summary>
         [Input("failureConditional")]
         public Input<Inputs.V2modelsIntentConfirmationSettingFailureConditionalArgs>? FailureConditional { get; set; }
 
         /// <summary>
-        /// Configuration block for the next step to take in the conversation if the confirmation step fails. See `failure_next_step`.
+        /// Configuration block for the next step to take in the conversation if the confirmation step fails. See `failureNextStep`.
         /// </summary>
         [Input("failureNextStep")]
         public Input<Inputs.V2modelsIntentConfirmationSettingFailureNextStepArgs>? FailureNextStep { get; set; }
 
         /// <summary>
-        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
         /// </summary>
         [Input("failureResponse")]
         public Input<Inputs.V2modelsIntentConfirmationSettingFailureResponseArgs>? FailureResponse { get; set; }
 
         /// <summary>
-        /// Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
+        /// Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
         /// </summary>
         [Input("promptSpecification", required: true)]
         public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs> PromptSpecification { get; set; } = null!;

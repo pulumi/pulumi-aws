@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
         /// </summary>
         public readonly Outputs.ConnectorCapacityAutoscaling? Autoscaling;
         /// <summary>
-        /// Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
+        /// Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorCapacityProvisionedCapacity? ProvisionedCapacity;
 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Connect.Outputs
         /// </summary>
         public readonly bool? AutoAccept;
         /// <summary>
-        /// The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
+        /// The phone number for the user's desk phone. Required if `phoneType` is set as `DESK_PHONE`.
         /// </summary>
         public readonly string? DeskPhoneNumber;
         /// <summary>

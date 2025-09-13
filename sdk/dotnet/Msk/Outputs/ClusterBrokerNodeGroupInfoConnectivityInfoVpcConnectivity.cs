@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity
     {
         /// <summary>
-        /// Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication? ClientAuthentication;
 

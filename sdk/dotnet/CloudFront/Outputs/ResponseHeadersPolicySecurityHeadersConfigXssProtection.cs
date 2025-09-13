@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly bool Protection;
         /// <summary>
-        /// A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
+        /// A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `reportUri` when `modeBlock` is `true`.
         /// </summary>
         public readonly string? ReportUri;
 

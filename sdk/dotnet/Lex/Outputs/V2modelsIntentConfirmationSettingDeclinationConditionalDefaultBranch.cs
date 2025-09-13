@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch
     {
         /// <summary>
-        /// Configuration block for the next step in the conversation. See `next_step`.
+        /// Configuration block for the next step in the conversation. See `nextStep`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStep? NextStep;
         /// <summary>

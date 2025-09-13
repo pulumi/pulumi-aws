@@ -121,31 +121,31 @@ namespace Pulumi.Aws.DataSync
         public Output<int?> BlockSize { get; private set; } = null!;
 
         /// <summary>
-        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
         /// </summary>
         [Output("kerberosKeytab")]
         public Output<string?> KerberosKeytab { get; private set; } = null!;
 
         /// <summary>
-        /// Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        /// Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
         /// </summary>
         [Output("kerberosKeytabBase64")]
         public Output<string?> KerberosKeytabBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+        /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
         /// </summary>
         [Output("kerberosKrb5Conf")]
         public Output<string?> KerberosKrb5Conf { get; private set; } = null!;
 
         /// <summary>
-        /// Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+        /// Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
         /// </summary>
         [Output("kerberosKrb5ConfBase64")]
         public Output<string?> KerberosKrb5ConfBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
         /// </summary>
         [Output("kerberosPrincipal")]
         public Output<string?> KerberosPrincipal { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableArray<Outputs.LocationHdfsNameNode>> NameNodes { get; private set; } = null!;
 
         /// <summary>
-        /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         /// </summary>
         [Output("qopConfiguration")]
         public Output<Outputs.LocationHdfsQopConfiguration> QopConfiguration { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.DataSync
         public Output<int?> ReplicationFactor { get; private set; } = null!;
 
         /// <summary>
-        /// The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
+        /// The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
         /// </summary>
         [Output("simpleUser")]
         public Output<string?> SimpleUser { get; private set; } = null!;
@@ -193,13 +193,13 @@ namespace Pulumi.Aws.DataSync
         public Output<string?> Subdirectory { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -278,31 +278,31 @@ namespace Pulumi.Aws.DataSync
         public Input<int>? BlockSize { get; set; }
 
         /// <summary>
-        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
         /// </summary>
         [Input("kerberosKeytab")]
         public Input<string>? KerberosKeytab { get; set; }
 
         /// <summary>
-        /// Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        /// Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
         /// </summary>
         [Input("kerberosKeytabBase64")]
         public Input<string>? KerberosKeytabBase64 { get; set; }
 
         /// <summary>
-        /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+        /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
         /// </summary>
         [Input("kerberosKrb5Conf")]
         public Input<string>? KerberosKrb5Conf { get; set; }
 
         /// <summary>
-        /// Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+        /// Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
         /// </summary>
         [Input("kerberosKrb5ConfBase64")]
         public Input<string>? KerberosKrb5ConfBase64 { get; set; }
 
         /// <summary>
-        /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
         /// </summary>
         [Input("kerberosPrincipal")]
         public Input<string>? KerberosPrincipal { get; set; }
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         /// </summary>
         [Input("qopConfiguration")]
         public Input<Inputs.LocationHdfsQopConfigurationArgs>? QopConfiguration { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.DataSync
         public Input<int>? ReplicationFactor { get; set; }
 
         /// <summary>
-        /// The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
+        /// The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
         /// </summary>
         [Input("simpleUser")]
         public Input<string>? SimpleUser { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -406,31 +406,31 @@ namespace Pulumi.Aws.DataSync
         public Input<int>? BlockSize { get; set; }
 
         /// <summary>
-        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
         /// </summary>
         [Input("kerberosKeytab")]
         public Input<string>? KerberosKeytab { get; set; }
 
         /// <summary>
-        /// Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        /// Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
         /// </summary>
         [Input("kerberosKeytabBase64")]
         public Input<string>? KerberosKeytabBase64 { get; set; }
 
         /// <summary>
-        /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+        /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
         /// </summary>
         [Input("kerberosKrb5Conf")]
         public Input<string>? KerberosKrb5Conf { get; set; }
 
         /// <summary>
-        /// Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+        /// Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
         /// </summary>
         [Input("kerberosKrb5ConfBase64")]
         public Input<string>? KerberosKrb5ConfBase64 { get; set; }
 
         /// <summary>
-        /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
         /// </summary>
         [Input("kerberosPrincipal")]
         public Input<string>? KerberosPrincipal { get; set; }
@@ -454,7 +454,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         /// </summary>
         [Input("qopConfiguration")]
         public Input<Inputs.LocationHdfsQopConfigurationGetArgs>? QopConfiguration { get; set; }
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.DataSync
         public Input<int>? ReplicationFactor { get; set; }
 
         /// <summary>
-        /// The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
+        /// The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
         /// </summary>
         [Input("simpleUser")]
         public Input<string>? SimpleUser { get; set; }
@@ -487,7 +487,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -499,7 +499,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

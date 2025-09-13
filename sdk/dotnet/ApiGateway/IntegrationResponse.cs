@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ApiGateway
     /// Provides an HTTP Method Integration Response for an API Gateway Resource.
     /// 
     /// &gt; **Note:** Depends on having `aws.apigateway.Integration` inside your rest api. To ensure this
-    /// you might need to add an explicit `depends_on` for clean runs.
+    /// you might need to add an explicit `dependsOn` for clean runs.
     /// 
     /// ## Example Usage
     /// 
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
+        /// Map of response parameters that can be read from the backend response. For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         /// </summary>
         [Output("responseParameters")]
         public Output<ImmutableDictionary<string, string>?> ResponseParameters { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseParameters;
 
         /// <summary>
-        /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
+        /// Map of response parameters that can be read from the backend response. For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         /// </summary>
         public InputMap<string> ResponseParameters
         {
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseParameters;
 
         /// <summary>
-        /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
+        /// Map of response parameters that can be read from the backend response. For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         /// </summary>
         public InputMap<string> ResponseParameters
         {

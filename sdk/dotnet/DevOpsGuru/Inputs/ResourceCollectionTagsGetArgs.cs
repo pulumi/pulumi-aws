@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
         private InputList<string>? _tagValues;
 
         /// <summary>
-        /// Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
+        /// Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
         /// </summary>
         public InputList<string> TagValues
         {

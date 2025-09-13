@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// JSON string for supplying list of configurations for the EMR cluster.
         /// 
-        /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+        /// &gt; **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -473,7 +473,7 @@ namespace Pulumi.Aws.Emr
         public Output<string?> ConfigurationsJson { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
         /// </summary>
         [Output("coreInstanceFleet")]
         public Output<Outputs.ClusterCoreInstanceFleet> CoreInstanceFleet { get; private set; } = null!;
@@ -533,7 +533,7 @@ namespace Pulumi.Aws.Emr
         public Output<string?> LogUri { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
         /// </summary>
         [Output("masterInstanceFleet")]
         public Output<Outputs.ClusterMasterInstanceFleet> MasterInstanceFleet { get; private set; } = null!;
@@ -587,7 +587,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> ScaleDownBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
+        /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
         /// </summary>
         [Output("securityConfiguration")]
         public Output<string?> SecurityConfiguration { get; private set; } = null!;
@@ -601,7 +601,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
         /// </summary>
         [Output("stepConcurrencyLevel")]
         public Output<int?> StepConcurrencyLevel { get; private set; } = null!;
@@ -613,13 +613,13 @@ namespace Pulumi.Aws.Emr
         public Output<ImmutableArray<Outputs.ClusterStep>> Steps { get; private set; } = null!;
 
         /// <summary>
-        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -741,7 +741,7 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// JSON string for supplying list of configurations for the EMR cluster.
         /// 
-        /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+        /// &gt; **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -777,7 +777,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? ConfigurationsJson { get; set; }
 
         /// <summary>
-        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
         /// </summary>
         [Input("coreInstanceFleet")]
         public Input<Inputs.ClusterCoreInstanceFleetArgs>? CoreInstanceFleet { get; set; }
@@ -843,7 +843,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? LogUri { get; set; }
 
         /// <summary>
-        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
         /// </summary>
         [Input("masterInstanceFleet")]
         public Input<Inputs.ClusterMasterInstanceFleetArgs>? MasterInstanceFleet { get; set; }
@@ -897,7 +897,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? ScaleDownBehavior { get; set; }
 
         /// <summary>
-        /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
+        /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
         /// </summary>
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
@@ -911,7 +911,7 @@ namespace Pulumi.Aws.Emr
         public Input<string> ServiceRole { get; set; } = null!;
 
         /// <summary>
-        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
         /// </summary>
         [Input("stepConcurrencyLevel")]
         public Input<int>? StepConcurrencyLevel { get; set; }
@@ -932,7 +932,7 @@ namespace Pulumi.Aws.Emr
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1028,7 +1028,7 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// JSON string for supplying list of configurations for the EMR cluster.
         /// 
-        /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+        /// &gt; **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -1064,7 +1064,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? ConfigurationsJson { get; set; }
 
         /// <summary>
-        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
         /// </summary>
         [Input("coreInstanceFleet")]
         public Input<Inputs.ClusterCoreInstanceFleetGetArgs>? CoreInstanceFleet { get; set; }
@@ -1130,7 +1130,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? LogUri { get; set; }
 
         /// <summary>
-        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
         /// </summary>
         [Input("masterInstanceFleet")]
         public Input<Inputs.ClusterMasterInstanceFleetGetArgs>? MasterInstanceFleet { get; set; }
@@ -1190,7 +1190,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? ScaleDownBehavior { get; set; }
 
         /// <summary>
-        /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
+        /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
         /// </summary>
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
@@ -1204,7 +1204,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? ServiceRole { get; set; }
 
         /// <summary>
-        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
         /// </summary>
         [Input("stepConcurrencyLevel")]
         public Input<int>? StepConcurrencyLevel { get; set; }
@@ -1225,7 +1225,7 @@ namespace Pulumi.Aws.Emr
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1237,7 +1237,7 @@ namespace Pulumi.Aws.Emr
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

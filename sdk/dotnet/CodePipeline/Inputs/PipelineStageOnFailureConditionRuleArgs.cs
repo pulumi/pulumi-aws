@@ -67,7 +67,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        /// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
         /// </summary>
         [Input("ruleTypeId", required: true)]
         public Input<Inputs.PipelineStageOnFailureConditionRuleRuleTypeIdArgs> RuleTypeId { get; set; } = null!;

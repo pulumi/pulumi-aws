@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly bool QueryString;
         /// <summary>
-        /// When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+        /// When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
         /// </summary>
         public readonly ImmutableArray<string> QueryStringCacheKeys;
 

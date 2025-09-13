@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// &gt; **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
+    /// &gt; **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
     /// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
     /// 
     /// ### Using multiple launch specifications
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// &gt; In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
+    /// &gt; In this example, we use a `dynamic` block to define zero or more `launchSpecification` blocks, producing one for each element in the list of subnet ids.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The number of Spot pools across which to allocate your target Spot capacity.
-        /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+        /// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
         /// the number of Spot pools that you specify.
         /// </summary>
@@ -366,19 +366,19 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
-        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
         /// 
         /// **Note**: This takes in similar but not
         /// identical inputs as `aws.ec2.Instance`.  There are limitations on
         /// what you can specify. See the list of officially supported inputs in the
         /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
-        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
+        /// a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         [Output("launchSpecifications")]
         public Output<ImmutableArray<Outputs.SpotFleetRequestLaunchSpecification>> LaunchSpecifications { get; private set; } = null!;
 
         /// <summary>
-        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
         /// </summary>
         [Output("launchTemplateConfigs")]
         public Output<ImmutableArray<Outputs.SpotFleetRequestLaunchTemplateConfig>> LaunchTemplateConfigs { get; private set; } = null!;
@@ -438,13 +438,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SpotRequestState { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -458,7 +458,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int> TargetCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The unit for the target capacity. This can only be done with `instance_requirements` defined
+        /// The unit for the target capacity. This can only be done with `instanceRequirements` defined
         /// </summary>
         [Output("targetCapacityUnitType")]
         public Output<string?> TargetCapacityUnitType { get; private set; } = null!;
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Indicates whether running Spot
         /// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-        /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        /// If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
         /// </summary>
         [Output("terminateInstancesOnDelete")]
         public Output<string?> TerminateInstancesOnDelete { get; private set; } = null!;
@@ -598,7 +598,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The number of Spot pools across which to allocate your target Spot capacity.
-        /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+        /// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
         /// the number of Spot pools that you specify.
         /// </summary>
@@ -611,13 +611,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
-        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
         /// 
         /// **Note**: This takes in similar but not
         /// identical inputs as `aws.ec2.Instance`.  There are limitations on
         /// what you can specify. See the list of officially supported inputs in the
         /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
-        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
+        /// a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchSpecificationArgs> LaunchSpecifications
         {
@@ -629,7 +629,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SpotFleetRequestLaunchTemplateConfigArgs>? _launchTemplateConfigs;
 
         /// <summary>
-        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchTemplateConfigArgs> LaunchTemplateConfigs
         {
@@ -695,7 +695,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -712,7 +712,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int> TargetCapacity { get; set; } = null!;
 
         /// <summary>
-        /// The unit for the target capacity. This can only be done with `instance_requirements` defined
+        /// The unit for the target capacity. This can only be done with `instanceRequirements` defined
         /// </summary>
         [Input("targetCapacityUnitType")]
         public Input<string>? TargetCapacityUnitType { get; set; }
@@ -732,7 +732,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Indicates whether running Spot
         /// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-        /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        /// If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
         /// </summary>
         [Input("terminateInstancesOnDelete")]
         public Input<string>? TerminateInstancesOnDelete { get; set; }
@@ -823,7 +823,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The number of Spot pools across which to allocate your target Spot capacity.
-        /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+        /// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
         /// the number of Spot pools that you specify.
         /// </summary>
@@ -836,13 +836,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
-        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
         /// 
         /// **Note**: This takes in similar but not
         /// identical inputs as `aws.ec2.Instance`.  There are limitations on
         /// what you can specify. See the list of officially supported inputs in the
         /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
-        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
+        /// a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchSpecificationGetArgs> LaunchSpecifications
         {
@@ -854,7 +854,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SpotFleetRequestLaunchTemplateConfigGetArgs>? _launchTemplateConfigs;
 
         /// <summary>
-        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchTemplateConfigGetArgs> LaunchTemplateConfigs
         {
@@ -926,7 +926,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -938,7 +938,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -955,7 +955,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? TargetCapacity { get; set; }
 
         /// <summary>
-        /// The unit for the target capacity. This can only be done with `instance_requirements` defined
+        /// The unit for the target capacity. This can only be done with `instanceRequirements` defined
         /// </summary>
         [Input("targetCapacityUnitType")]
         public Input<string>? TargetCapacityUnitType { get; set; }
@@ -975,7 +975,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Indicates whether running Spot
         /// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-        /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        /// If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
         /// </summary>
         [Input("terminateInstancesOnDelete")]
         public Input<string>? TerminateInstancesOnDelete { get; set; }

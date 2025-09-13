@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount
     {
         /// <summary>
-        /// Defines custom handling for the web request. See `custom_request_handling` below for details.
+        /// Defines custom handling for the web request. See `customRequestHandling` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling? CustomRequestHandling;
 

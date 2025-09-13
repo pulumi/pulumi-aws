@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
     /// 
-    /// &gt; **Note:** By default, destroying this resource will keep your account settings intact. Set `reset_on_delete` to `true` to reset the account setttings to default. In a future major version of the provider, destroying the resource will reset account settings.
+    /// &gt; **Note:** By default, destroying this resource will keep your account settings intact. Set `resetOnDelete` to `true` to reset the account setttings to default. In a future major version of the provider, destroying the resource will reset account settings.
     /// 
     /// ## Example Usage
     /// 

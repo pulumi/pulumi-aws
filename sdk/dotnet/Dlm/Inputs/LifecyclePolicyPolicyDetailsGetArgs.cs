@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<Inputs.LifecyclePolicyPolicyDetailsActionGetArgs>? Action { get; set; }
 
         /// <summary>
-        /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
         /// </summary>
         [Input("eventSource")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsEventSourceGetArgs>? EventSource { get; set; }
@@ -67,9 +67,9 @@ namespace Pulumi.Aws.Dlm.Inputs
         private InputMap<string>? _targetTags;
 
         /// <summary>
-        /// A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted. Required when `policy_type` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policy_type` is `EVENT_BASED_POLICY`.
+        /// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `policyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policyType` is `EVENT_BASED_POLICY`.
         /// 
-        /// &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
+        /// &gt; Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
         /// </summary>
         public InputMap<string> TargetTags
         {

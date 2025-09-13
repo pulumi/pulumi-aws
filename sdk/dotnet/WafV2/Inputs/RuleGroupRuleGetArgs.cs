@@ -49,7 +49,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+        /// The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
         /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.RuleGroupRuleStatementGetArgs> Statement { get; set; } = null!;

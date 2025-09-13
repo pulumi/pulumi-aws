@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         /// </summary>
         [Output("disconnectOnSessionTimeout")]
         public Output<bool> DisconnectOnSessionTimeout { get; private set; } = null!;
@@ -167,13 +167,13 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<bool?> SplitTunnel { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         /// </summary>
         [Input("disconnectOnSessionTimeout")]
         public Input<bool>? DisconnectOnSessionTimeout { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         /// </summary>
         [Input("disconnectOnSessionTimeout")]
         public Input<bool>? DisconnectOnSessionTimeout { get; set; }
@@ -518,7 +518,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -530,7 +530,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

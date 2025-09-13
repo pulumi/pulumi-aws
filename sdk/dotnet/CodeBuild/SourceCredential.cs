@@ -117,7 +117,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-        /// app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
+        /// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
         /// Connection ARN.
         /// </summary>
         [Output("token")]
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-        /// app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
+        /// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
         /// Connection ARN.
         /// </summary>
         public Input<string>? Token
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-        /// app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
+        /// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
         /// Connection ARN.
         /// </summary>
         public Input<string>? Token

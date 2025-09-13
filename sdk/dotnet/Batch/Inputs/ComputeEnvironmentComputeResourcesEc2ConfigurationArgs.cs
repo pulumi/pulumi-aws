@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
+        /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
         /// </summary>
         [Input("imageIdOverride")]
         public Input<string>? ImageIdOverride { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string>? ImageKubernetesVersion { get; set; }
 
         /// <summary>
-        /// The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+        /// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
         /// </summary>
         [Input("imageType")]
         public Input<string>? ImageType { get; set; }

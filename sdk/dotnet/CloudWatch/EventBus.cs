@@ -63,7 +63,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// #### Required Resources
     /// 
-    /// * EventBridge Event Bus with `log_config` configured
+    /// * EventBridge Event Bus with `logConfig` configured
     /// * Log destinations:
     ///   
     ///     * CloudWatch Logs log group
@@ -461,7 +461,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventBusLogConfig?> LogConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+        /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -475,13 +475,13 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -563,7 +563,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventBusLogConfigArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+        /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -580,7 +580,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -633,7 +633,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventBusLogConfigGetArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+        /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -650,7 +650,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -662,7 +662,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

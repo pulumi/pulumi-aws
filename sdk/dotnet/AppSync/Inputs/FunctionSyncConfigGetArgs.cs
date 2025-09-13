@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         public Input<string>? ConflictHandler { get; set; }
 
         /// <summary>
-        /// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
+        /// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
         /// </summary>
         [Input("lambdaConflictHandlerConfig")]
         public Input<Inputs.FunctionSyncConfigLambdaConflictHandlerConfigGetArgs>? LambdaConflictHandlerConfig { get; set; }

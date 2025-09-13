@@ -21,7 +21,7 @@ namespace Pulumi.Aws.SsoAdmin.Inputs
         /// <summary>
         /// Determines how IAM Identity Center navigates the user to the target application.
         /// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-        /// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
+        /// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
         /// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
         /// </summary>
         [Input("origin", required: true)]

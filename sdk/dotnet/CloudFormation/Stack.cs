@@ -89,7 +89,7 @@ namespace Pulumi.Aws.CloudFormation
 
         /// <summary>
         /// Set to true to disable rollback of the stack if stack creation failed.
-        /// Conflicts with `on_failure`.
+        /// Conflicts with `onFailure`.
         /// </summary>
         [Output("disableRollback")]
         public Output<bool?> DisableRollback { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.CloudFormation
 
         /// <summary>
         /// Action to be taken if stack creation fails. This must be
-        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
         /// </summary>
         [Output("onFailure")]
         public Output<string?> OnFailure { get; private set; } = null!;
@@ -133,14 +133,14 @@ namespace Pulumi.Aws.CloudFormation
 
         /// <summary>
         /// Structure containing the stack policy body.
-        /// Conflicts w/ `policy_url`.
+        /// Conflicts w/ `policyUrl`.
         /// </summary>
         [Output("policyBody")]
         public Output<string> PolicyBody { get; private set; } = null!;
 
         /// <summary>
         /// Location of a file containing the stack policy.
-        /// Conflicts w/ `policy_body`.
+        /// Conflicts w/ `policyBody`.
         /// </summary>
         [Output("policyUrl")]
         public Output<string?> PolicyUrl { get; private set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.CloudFormation
 
         /// <summary>
         /// Set to true to disable rollback of the stack if stack creation failed.
-        /// Conflicts with `on_failure`.
+        /// Conflicts with `onFailure`.
         /// </summary>
         [Input("disableRollback")]
         public Input<bool>? DisableRollback { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.CloudFormation
 
         /// <summary>
         /// Action to be taken if stack creation fails. This must be
-        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
         /// </summary>
         [Input("onFailure")]
         public Input<string>? OnFailure { get; set; }
@@ -292,14 +292,14 @@ namespace Pulumi.Aws.CloudFormation
 
         /// <summary>
         /// Structure containing the stack policy body.
-        /// Conflicts w/ `policy_url`.
+        /// Conflicts w/ `policyUrl`.
         /// </summary>
         [Input("policyBody")]
         public Input<string>? PolicyBody { get; set; }
 
         /// <summary>
         /// Location of a file containing the stack policy.
-        /// Conflicts w/ `policy_body`.
+        /// Conflicts w/ `policyBody`.
         /// </summary>
         [Input("policyUrl")]
         public Input<string>? PolicyUrl { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.CloudFormation
 
         /// <summary>
         /// Set to true to disable rollback of the stack if stack creation failed.
-        /// Conflicts with `on_failure`.
+        /// Conflicts with `onFailure`.
         /// </summary>
         [Input("disableRollback")]
         public Input<bool>? DisableRollback { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.CloudFormation
 
         /// <summary>
         /// Action to be taken if stack creation fails. This must be
-        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
         /// </summary>
         [Input("onFailure")]
         public Input<string>? OnFailure { get; set; }
@@ -425,14 +425,14 @@ namespace Pulumi.Aws.CloudFormation
 
         /// <summary>
         /// Structure containing the stack policy body.
-        /// Conflicts w/ `policy_url`.
+        /// Conflicts w/ `policyUrl`.
         /// </summary>
         [Input("policyBody")]
         public Input<string>? PolicyBody { get; set; }
 
         /// <summary>
         /// Location of a file containing the stack policy.
-        /// Conflicts w/ `policy_body`.
+        /// Conflicts w/ `policyBody`.
         /// </summary>
         [Input("policyUrl")]
         public Input<string>? PolicyUrl { get; set; }
@@ -447,7 +447,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

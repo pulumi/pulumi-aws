@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableArray<Outputs.DataSetPhysicalTableMap>> PhysicalTableMaps { get; private set; } = null!;
 
         /// <summary>
-        /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        /// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
         /// </summary>
         [Output("refreshProperties")]
         public Output<Outputs.DataSetRefreshProperties?> RefreshProperties { get; private set; } = null!;
@@ -394,13 +394,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<Outputs.DataSetRowLevelPermissionTagConfiguration?> RowLevelPermissionTagConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -553,7 +553,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        /// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
         /// </summary>
         [Input("refreshProperties")]
         public Input<Inputs.DataSetRefreshPropertiesArgs>? RefreshProperties { get; set; }
@@ -580,7 +580,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -712,7 +712,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        /// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
         /// </summary>
         [Input("refreshProperties")]
         public Input<Inputs.DataSetRefreshPropertiesGetArgs>? RefreshProperties { get; set; }
@@ -739,7 +739,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -751,7 +751,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

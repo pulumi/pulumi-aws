@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// With the `disallowed_cidrs` attribute:
+    /// With the `disallowedCidrs` attribute:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

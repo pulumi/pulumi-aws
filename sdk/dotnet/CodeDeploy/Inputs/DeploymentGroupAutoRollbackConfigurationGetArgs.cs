@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         /// <summary>
         /// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
         /// 
-        /// _Only one `auto_rollback_configuration` is allowed_.
+        /// _Only one `autoRollbackConfiguration` is allowed_.
         /// </summary>
         public InputList<string> Events
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketLifecycleConfigurationRuleFilterAndGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
+        /// Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
         /// </summary>
         [Input("objectSizeGreaterThan")]
         public Input<int>? ObjectSizeGreaterThan { get; set; }

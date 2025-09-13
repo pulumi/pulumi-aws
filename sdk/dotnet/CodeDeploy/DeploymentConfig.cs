@@ -170,7 +170,7 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<string> DeploymentConfigName { get; private set; } = null!;
 
         /// <summary>
-        /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        /// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         /// </summary>
         [Output("minimumHealthyHosts")]
         public Output<Outputs.DeploymentConfigMinimumHealthyHosts?> MinimumHealthyHosts { get; private set; } = null!;
@@ -182,13 +182,13 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A traffic_routing_config block. Traffic Routing Config is documented below.
+        /// A trafficRoutingConfig block. Traffic Routing Config is documented below.
         /// </summary>
         [Output("trafficRoutingConfig")]
         public Output<Outputs.DeploymentConfigTrafficRoutingConfig?> TrafficRoutingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A zonal_config block. Zonal Config is documented below.
+        /// A zonalConfig block. Zonal Config is documented below.
         /// </summary>
         [Output("zonalConfig")]
         public Output<Outputs.DeploymentConfigZonalConfig?> ZonalConfig { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.CodeDeploy
         public Input<string>? DeploymentConfigName { get; set; }
 
         /// <summary>
-        /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        /// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         /// </summary>
         [Input("minimumHealthyHosts")]
         public Input<Inputs.DeploymentConfigMinimumHealthyHostsArgs>? MinimumHealthyHosts { get; set; }
@@ -264,13 +264,13 @@ namespace Pulumi.Aws.CodeDeploy
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A traffic_routing_config block. Traffic Routing Config is documented below.
+        /// A trafficRoutingConfig block. Traffic Routing Config is documented below.
         /// </summary>
         [Input("trafficRoutingConfig")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigArgs>? TrafficRoutingConfig { get; set; }
 
         /// <summary>
-        /// A zonal_config block. Zonal Config is documented below.
+        /// A zonalConfig block. Zonal Config is documented below.
         /// </summary>
         [Input("zonalConfig")]
         public Input<Inputs.DeploymentConfigZonalConfigArgs>? ZonalConfig { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.CodeDeploy
         public Input<string>? DeploymentConfigName { get; set; }
 
         /// <summary>
-        /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        /// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         /// </summary>
         [Input("minimumHealthyHosts")]
         public Input<Inputs.DeploymentConfigMinimumHealthyHostsGetArgs>? MinimumHealthyHosts { get; set; }
@@ -320,13 +320,13 @@ namespace Pulumi.Aws.CodeDeploy
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A traffic_routing_config block. Traffic Routing Config is documented below.
+        /// A trafficRoutingConfig block. Traffic Routing Config is documented below.
         /// </summary>
         [Input("trafficRoutingConfig")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigGetArgs>? TrafficRoutingConfig { get; set; }
 
         /// <summary>
-        /// A zonal_config block. Zonal Config is documented below.
+        /// A zonalConfig block. Zonal Config is documented below.
         /// </summary>
         [Input("zonalConfig")]
         public Input<Inputs.DeploymentConfigZonalConfigGetArgs>? ZonalConfig { get; set; }

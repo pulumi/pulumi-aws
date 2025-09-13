@@ -71,7 +71,7 @@ namespace Pulumi.Aws.RedShift
     public partial class Logging : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+        /// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         /// </summary>
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> LogDestinationType { get; private set; } = null!;
 
         /// <summary>
-        /// Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+        /// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
         /// </summary>
         [Output("logExports")]
         public Output<ImmutableArray<string>> LogExports { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class LoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+        /// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _logExports;
 
         /// <summary>
-        /// Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+        /// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
         /// </summary>
         public InputList<string> LogExports
         {
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class LoggingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+        /// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _logExports;
 
         /// <summary>
-        /// Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+        /// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
         /// </summary>
         public InputList<string> LogExports
         {

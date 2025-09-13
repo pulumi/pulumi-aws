@@ -149,7 +149,7 @@ namespace Pulumi.Aws.SecurityHub
         public readonly string SecurityControlId;
         /// <summary>
         /// A list that provides the status and other details for each security control that applies to each enabled standard.
-        /// See `standards_control_associations` below.
+        /// See `standardsControlAssociations` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardsControlAssociationsStandardsControlAssociationResult> StandardsControlAssociations;
 

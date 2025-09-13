@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SecurityLake
     /// <summary>
     /// Resource for managing an AWS Security Lake Subscriber.
     /// 
-    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.Subscriber`. Use a `depends_on` statement.
+    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.Subscriber`. Use a `dependsOn` statement.
     /// 
     /// ## Example Usage
     /// 
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.SecurityLake
         public Output<string> SubscriberEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS identity used to access your data. See `subscriber_identity` Block below.
+        /// The AWS identity used to access your data. See `subscriberIdentity` Block below.
         /// </summary>
         [Output("subscriberIdentity")]
         public Output<Outputs.SubscriberSubscriberIdentity?> SubscriberIdentity { get; private set; } = null!;
@@ -145,13 +145,13 @@ namespace Pulumi.Aws.SecurityLake
         public Output<string> SubscriberStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.SecurityLake
         public Input<string>? SubscriberDescription { get; set; }
 
         /// <summary>
-        /// The AWS identity used to access your data. See `subscriber_identity` Block below.
+        /// The AWS identity used to access your data. See `subscriberIdentity` Block below.
         /// </summary>
         [Input("subscriberIdentity")]
         public Input<Inputs.SubscriberSubscriberIdentityArgs>? SubscriberIdentity { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.SecurityLake
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.SecurityLake
         public Input<string>? SubscriberEndpoint { get; set; }
 
         /// <summary>
-        /// The AWS identity used to access your data. See `subscriber_identity` Block below.
+        /// The AWS identity used to access your data. See `subscriberIdentity` Block below.
         /// </summary>
         [Input("subscriberIdentity")]
         public Input<Inputs.SubscriberSubscriberIdentityGetArgs>? SubscriberIdentity { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.SecurityLake
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.SecurityLake
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

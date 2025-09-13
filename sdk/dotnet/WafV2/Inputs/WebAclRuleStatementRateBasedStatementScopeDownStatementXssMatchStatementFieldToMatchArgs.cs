@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs>? _headerOrders;
 
         /// <summary>
-        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs> HeaderOrders
         {
@@ -55,19 +55,19 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        /// Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
         /// </summary>
         [Input("ja3Fingerprint")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs>? Ja3Fingerprint { get; set; }
 
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        /// Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
         /// </summary>
         [Input("ja4Fingerprint")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs>? Ja4Fingerprint { get; set; }
 
         /// <summary>
-        /// Inspect the request body as JSON. See `json_body` for details.
+        /// Inspect the request body as JSON. See `jsonBody` for details.
         /// </summary>
         [Input("jsonBody")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs>? JsonBody { get; set; }
@@ -85,19 +85,19 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// Inspect a single header. See `single_header` below for details.
+        /// Inspect a single header. See `singleHeader` below for details.
         /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs>? SingleHeader { get; set; }
 
         /// <summary>
-        /// Inspect a single query argument. See `single_query_argument` below for details.
+        /// Inspect a single query argument. See `singleQueryArgument` below for details.
         /// </summary>
         [Input("singleQueryArgument")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs>? SingleQueryArgument { get; set; }
 
         /// <summary>
-        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uriFragment` below for details.
         /// </summary>
         [Input("uriFragment")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs>? UriFragment { get; set; }

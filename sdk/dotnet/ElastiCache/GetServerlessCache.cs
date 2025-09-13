@@ -134,7 +134,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+        /// The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
         /// </summary>
         public readonly Outputs.GetServerlessCacheCacheUsageLimitsResult CacheUsageLimits;
         /// <summary>
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.ElastiCache
         public readonly string MajorEngineVersion;
         public readonly string Name;
         /// <summary>
-        /// Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
+        /// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
         /// </summary>
         public readonly Outputs.GetServerlessCacheReaderEndpointResult ReaderEndpoint;
         public readonly string Region;

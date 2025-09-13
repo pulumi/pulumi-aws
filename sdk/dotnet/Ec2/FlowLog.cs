@@ -103,6 +103,8 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
+    /// ### Amazon Data Firehose logging
+    /// 
     /// ### S3 Logging
     /// 
     /// ```csharp
@@ -425,7 +427,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
         /// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        /// When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        /// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Output("maxAggregationInterval")]
         public Output<int?> MaxAggregationInterval { get; private set; } = null!;
@@ -443,15 +445,15 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
+        /// &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -571,7 +573,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
         /// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        /// When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        /// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
@@ -592,9 +594,9 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
+        /// &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -685,7 +687,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
         /// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        /// When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        /// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
@@ -706,9 +708,9 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
+        /// &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -720,7 +722,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

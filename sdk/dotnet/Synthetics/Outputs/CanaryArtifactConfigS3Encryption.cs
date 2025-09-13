@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Synthetics.Outputs
         /// </summary>
         public readonly string? EncryptionMode;
         /// <summary>
-        /// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+        /// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
         /// </summary>
         public readonly string? KmsKeyArn;
 

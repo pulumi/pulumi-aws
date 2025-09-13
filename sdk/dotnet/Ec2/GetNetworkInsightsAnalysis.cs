@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string StartDate;
         /// <summary>
-        /// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+        /// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
         /// </summary>
         public readonly string Status;
         /// <summary>

@@ -142,7 +142,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public readonly string DbName;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
         /// </summary>
         public readonly string DefaultIamRoleArn;
         /// <summary>

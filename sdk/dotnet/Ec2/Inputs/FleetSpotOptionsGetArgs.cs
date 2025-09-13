@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
         /// <summary>
-        /// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+        /// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
         /// </summary>
         [Input("instancePoolsToUseCount")]
         public Input<int>? InstancePoolsToUseCount { get; set; }

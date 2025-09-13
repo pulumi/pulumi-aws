@@ -103,7 +103,7 @@ namespace Pulumi.Aws.SsoAdmin
         private List<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>? _applicationAssignments;
 
         /// <summary>
-        /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
+        /// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
         /// </summary>
         public List<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentArgs> ApplicationAssignments
         {
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.SsoAdmin
         private InputList<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentInputArgs>? _applicationAssignments;
 
         /// <summary>
-        /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
+        /// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
         /// </summary>
         public InputList<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentInputArgs> ApplicationAssignments
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class GetPrincipalApplicationAssignmentsResult
     {
         /// <summary>
-        /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
+        /// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrincipalApplicationAssignmentsApplicationAssignmentResult> ApplicationAssignments;
         public readonly string Id;

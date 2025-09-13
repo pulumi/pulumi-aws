@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<bool>? AllowInterrupt { get; set; }
 
         /// <summary>
-        /// Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
+        /// Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
         /// </summary>
         [Input("allowedInputTypes", required: true)]
         public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesGetArgs> AllowedInputTypes { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for settings on audio and DTMF input. See `audio_and_dtmf_input_specification`.
+        /// Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
         /// </summary>
         [Input("audioAndDtmfInputSpecification")]
         public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationGetArgs>? AudioAndDtmfInputSpecification { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<string> MapBlockKey { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for the settings on text input. See `text_input_specification`.
+        /// Configuration block for the settings on text input. See `textInputSpecification`.
         /// </summary>
         [Input("textInputSpecification")]
         public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationGetArgs>? TextInputSpecification { get; set; }

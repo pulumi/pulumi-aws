@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration
     {
         /// <summary>
-        /// List of one or more seed URLs to crawl. See `seed_urls` block for details.
+        /// List of one or more seed URLs to crawl. See `seedUrls` block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl> SeedUrls;
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs
 {
     /// <summary>
-    /// &gt; **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `aws.iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+    /// &gt; **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
     /// 
     /// Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
     /// 
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> AvailabilityZoneRebalancing { get; private set; } = null!;
 
         /// <summary>
-        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
         /// </summary>
         [Output("capacityProviderStrategies")]
         public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategy>> CapacityProviderStrategies { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
         /// <summary>
-        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
         /// When using the forceNewDeployment property you also need to configure the triggers property.
         /// </summary>
         [Output("forceNewDeployment")]
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> IamRole { get; private set; } = null!;
 
         /// <summary>
-        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
         /// </summary>
         [Output("launchType")]
         public Output<string> LaunchType { get; private set; } = null!;
@@ -326,19 +326,19 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. See below.
         /// </summary>
         [Output("orderedPlacementStrategies")]
         public Output<ImmutableArray<Outputs.ServiceOrderedPlacementStrategy>> OrderedPlacementStrategies { get; private set; } = null!;
 
         /// <summary>
-        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. See below.
         /// </summary>
         [Output("placementConstraints")]
         public Output<ImmutableArray<Outputs.ServicePlacementConstraint>> PlacementConstraints { get; private set; } = null!;
 
         /// <summary>
-        /// Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Output("platformVersion")]
         public Output<string> PlatformVersion { get; private set; } = null!;
@@ -368,19 +368,19 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceServiceConnectConfiguration?> ServiceConnectConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        /// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
         /// </summary>
         [Output("serviceRegistries")]
         public Output<Outputs.ServiceServiceRegistries?> ServiceRegistries { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -477,7 +477,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceCapacityProviderStrategyArgs>? _capacityProviderStrategies;
 
         /// <summary>
-        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
         /// </summary>
         public InputList<Inputs.ServiceCapacityProviderStrategyArgs> CapacityProviderStrategies
         {
@@ -546,7 +546,7 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? ForceDelete { get; set; }
 
         /// <summary>
-        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
         /// When using the forceNewDeployment property you also need to configure the triggers property.
         /// </summary>
         [Input("forceNewDeployment")]
@@ -565,7 +565,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? IamRole { get; set; }
 
         /// <summary>
-        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
@@ -600,7 +600,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceOrderedPlacementStrategyArgs>? _orderedPlacementStrategies;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. See below.
         /// </summary>
         public InputList<Inputs.ServiceOrderedPlacementStrategyArgs> OrderedPlacementStrategies
         {
@@ -612,7 +612,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServicePlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. See below.
         /// </summary>
         public InputList<Inputs.ServicePlacementConstraintArgs> PlacementConstraints
         {
@@ -621,7 +621,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
@@ -651,7 +651,7 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.ServiceServiceConnectConfigurationArgs>? ServiceConnectConfiguration { get; set; }
 
         /// <summary>
-        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        /// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
         /// </summary>
         [Input("serviceRegistries")]
         public Input<Inputs.ServiceServiceRegistriesArgs>? ServiceRegistries { get; set; }
@@ -660,7 +660,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -740,7 +740,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>? _capacityProviderStrategies;
 
         /// <summary>
-        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
         /// </summary>
         public InputList<Inputs.ServiceCapacityProviderStrategyGetArgs> CapacityProviderStrategies
         {
@@ -809,7 +809,7 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? ForceDelete { get; set; }
 
         /// <summary>
-        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
         /// When using the forceNewDeployment property you also need to configure the triggers property.
         /// </summary>
         [Input("forceNewDeployment")]
@@ -828,7 +828,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? IamRole { get; set; }
 
         /// <summary>
-        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
@@ -863,7 +863,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs>? _orderedPlacementStrategies;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. See below.
         /// </summary>
         public InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs> OrderedPlacementStrategies
         {
@@ -875,7 +875,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServicePlacementConstraintGetArgs>? _placementConstraints;
 
         /// <summary>
-        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. See below.
         /// </summary>
         public InputList<Inputs.ServicePlacementConstraintGetArgs> PlacementConstraints
         {
@@ -884,7 +884,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
@@ -914,7 +914,7 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.ServiceServiceConnectConfigurationGetArgs>? ServiceConnectConfiguration { get; set; }
 
         /// <summary>
-        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        /// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
         /// </summary>
         [Input("serviceRegistries")]
         public Input<Inputs.ServiceServiceRegistriesGetArgs>? ServiceRegistries { get; set; }
@@ -923,7 +923,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -935,7 +935,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

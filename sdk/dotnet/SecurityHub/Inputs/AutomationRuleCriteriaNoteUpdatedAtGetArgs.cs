@@ -13,19 +13,19 @@ namespace Pulumi.Aws.SecurityHub.Inputs
     public sealed class AutomationRuleCriteriaNoteUpdatedAtGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A configuration block of the date range for the date filter. See date_range below for more details.
+        /// A configuration block of the date range for the date filter. See dateRange below for more details.
         /// </summary>
         [Input("dateRange")]
         public Input<Inputs.AutomationRuleCriteriaNoteUpdatedAtDateRangeGetArgs>? DateRange { get; set; }
 
         /// <summary>
-        /// An end date for the date filter. Required with `start` if `date_range` is not specified.
+        /// An end date for the date filter. Required with `start` if `dateRange` is not specified.
         /// </summary>
         [Input("end")]
         public Input<string>? End { get; set; }
 
         /// <summary>
-        /// A start date for the date filter. Required with `end` if `date_range` is not specified.
+        /// A start date for the date filter. Required with `end` if `dateRange` is not specified.
         /// </summary>
         [Input("start")]
         public Input<string>? Start { get; set; }

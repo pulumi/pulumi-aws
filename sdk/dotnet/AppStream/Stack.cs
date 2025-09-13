@@ -106,14 +106,14 @@ namespace Pulumi.Aws.AppStream
     {
         /// <summary>
         /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-        /// See `access_endpoints` below.
+        /// See `accessEndpoints` below.
         /// </summary>
         [Output("accessEndpoints")]
         public Output<ImmutableArray<Outputs.StackAccessEndpoint>> AccessEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Settings for application settings persistence.
-        /// See `application_settings` below.
+        /// See `applicationSettings` below.
         /// </summary>
         [Output("applicationSettings")]
         public Output<Outputs.StackApplicationSettings> ApplicationSettings { get; private set; } = null!;
@@ -176,20 +176,20 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Configuration block for the storage connectors to enable.
-        /// See `storage_connectors` below.
+        /// See `storageConnectors` below.
         /// </summary>
         [Output("storageConnectors")]
         public Output<ImmutableArray<Outputs.StackStorageConnector>> StorageConnectors { get; private set; } = null!;
 
         /// <summary>
         /// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-        /// See `streaming_experience_settings` below.
+        /// See `streamingExperienceSettings` below.
         /// </summary>
         [Output("streamingExperienceSettings")]
         public Output<Outputs.StackStreamingExperienceSettings> StreamingExperienceSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-        /// See `user_settings` below.
+        /// See `userSettings` below.
         /// </summary>
         [Output("userSettings")]
         public Output<ImmutableArray<Outputs.StackUserSetting>> UserSettings { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-        /// See `access_endpoints` below.
+        /// See `accessEndpoints` below.
         /// </summary>
         public InputList<Inputs.StackAccessEndpointArgs> AccessEndpoints
         {
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Settings for application settings persistence.
-        /// See `application_settings` below.
+        /// See `applicationSettings` below.
         /// </summary>
         [Input("applicationSettings")]
         public Input<Inputs.StackApplicationSettingsArgs>? ApplicationSettings { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Configuration block for the storage connectors to enable.
-        /// See `storage_connectors` below.
+        /// See `storageConnectors` below.
         /// </summary>
         public InputList<Inputs.StackStorageConnectorArgs> StorageConnectors
         {
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-        /// See `streaming_experience_settings` below.
+        /// See `streamingExperienceSettings` below.
         /// </summary>
         [Input("streamingExperienceSettings")]
         public Input<Inputs.StackStreamingExperienceSettingsArgs>? StreamingExperienceSettings { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.AppStream
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-        /// See `user_settings` below.
+        /// See `userSettings` below.
         /// </summary>
         public InputList<Inputs.StackUserSettingArgs> UserSettings
         {
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-        /// See `access_endpoints` below.
+        /// See `accessEndpoints` below.
         /// </summary>
         public InputList<Inputs.StackAccessEndpointGetArgs> AccessEndpoints
         {
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Settings for application settings persistence.
-        /// See `application_settings` below.
+        /// See `applicationSettings` below.
         /// </summary>
         [Input("applicationSettings")]
         public Input<Inputs.StackApplicationSettingsGetArgs>? ApplicationSettings { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Configuration block for the storage connectors to enable.
-        /// See `storage_connectors` below.
+        /// See `storageConnectors` below.
         /// </summary>
         public InputList<Inputs.StackStorageConnectorGetArgs> StorageConnectors
         {
@@ -470,7 +470,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-        /// See `streaming_experience_settings` below.
+        /// See `streamingExperienceSettings` below.
         /// </summary>
         [Input("streamingExperienceSettings")]
         public Input<Inputs.StackStreamingExperienceSettingsGetArgs>? StreamingExperienceSettings { get; set; }
@@ -479,7 +479,7 @@ namespace Pulumi.Aws.AppStream
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -500,7 +500,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-        /// See `user_settings` below.
+        /// See `userSettings` below.
         /// </summary>
         public InputList<Inputs.StackUserSettingGetArgs> UserSettings
         {

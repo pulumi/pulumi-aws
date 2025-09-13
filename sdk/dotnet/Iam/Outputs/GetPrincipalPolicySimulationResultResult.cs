@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Iam.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> DecisionDetails;
         /// <summary>
-        /// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
+        /// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrincipalPolicySimulationResultMatchedStatementResult> MatchedStatements;
         /// <summary>

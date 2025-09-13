@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentInitialResponseSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `code_hook`.
+        /// Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `codeHook`.
         /// </summary>
         [Input("codeHook")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookGetArgs>? CodeHook { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<Inputs.V2modelsIntentInitialResponseSettingConditionalGetArgs>? Conditional { get; set; }
 
         /// <summary>
-        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `initial_response`.
+        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `initialResponse`.
         /// </summary>
         [Input("initialResponse")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingInitialResponseGetArgs>? InitialResponse { get; set; }
 
         /// <summary>
-        /// Configuration block for the next step in the conversation. See `next_step`.
+        /// Configuration block for the next step in the conversation. See `nextStep`.
         /// </summary>
         [Input("nextStep")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingNextStepGetArgs>? NextStep { get; set; }

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> ModelArn { get; set; } = null!;
 
         /// <summary>
-        /// Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+        /// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
         /// </summary>
         [Input("parsingPrompt")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs>? ParsingPrompt { get; set; }

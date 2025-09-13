@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
+        /// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookieBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
         /// </summary>
         [Input("cookieBehavior", required: true)]
         public Input<string> CookieBehavior { get; set; } = null!;

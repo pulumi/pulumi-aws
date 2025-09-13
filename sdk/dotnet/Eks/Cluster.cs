@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ### EKS Cluster with EKS Auto Mode
     /// 
-    /// &gt; **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrap_self_managed_addons` is set to `false`.
+    /// &gt; **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrapSelfManagedAddons` is set to `false`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.ClusterRemoteNetworkConfig?> RemoteNetworkConfig { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+        /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -577,19 +577,19 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.ClusterStorageConfig?> StorageConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+        /// Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
         /// </summary>
         [Output("upgradePolicy")]
         public Output<Outputs.ClusterUpgradePolicy> UpgradePolicy { get; private set; } = null!;
@@ -680,7 +680,7 @@ namespace Pulumi.Aws.Eks
 
         [Input("defaultAddonsToRemoves")]
         private InputList<string>? _defaultAddonsToRemoves;
-        [Obsolete(@"Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider")]
+        [Obsolete(@"Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider")]
         public InputList<string> DefaultAddonsToRemoves
         {
             get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
@@ -748,7 +748,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.ClusterRemoteNetworkConfigArgs>? RemoteNetworkConfig { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+        /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -763,7 +763,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -772,7 +772,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+        /// Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
         /// </summary>
         [Input("upgradePolicy")]
         public Input<Inputs.ClusterUpgradePolicyArgs>? UpgradePolicy { get; set; }
@@ -849,7 +849,7 @@ namespace Pulumi.Aws.Eks
 
         [Input("defaultAddonsToRemoves")]
         private InputList<string>? _defaultAddonsToRemoves;
-        [Obsolete(@"Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider")]
+        [Obsolete(@"Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider")]
         public InputList<string> DefaultAddonsToRemoves
         {
             get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
@@ -941,7 +941,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.ClusterRemoteNetworkConfigGetArgs>? RemoteNetworkConfig { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+        /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -962,7 +962,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -974,7 +974,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -983,7 +983,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+        /// Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
         /// </summary>
         [Input("upgradePolicy")]
         public Input<Inputs.ClusterUpgradePolicyGetArgs>? UpgradePolicy { get; set; }

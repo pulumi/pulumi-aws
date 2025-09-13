@@ -137,6 +137,10 @@ import (
 //
 // ```
 //
+// ### Referencing domainValidationOptions With forEach Based Resources
+//
+// See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
+//
 // ## Import
 //
 // Using `pulumi import`, import certificates using their ARN. For example:

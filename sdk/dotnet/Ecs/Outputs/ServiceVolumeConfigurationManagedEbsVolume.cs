@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
+        /// Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
         /// </summary>
         public readonly int? SizeInGb;
         /// <summary>
-        /// Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
+        /// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly int? Throughput;
         /// <summary>
-        /// Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+        /// Volume Initialization Rate in MiB/s. You must also specify a `snapshotId`.
         /// </summary>
         public readonly int? VolumeInitializationRate;
         /// <summary>

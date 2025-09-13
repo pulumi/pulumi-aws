@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? DefaultEmailOption { get; set; }
 
         /// <summary>
-        /// Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        /// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
         /// </summary>
         [Input("emailMessage")]
         public Input<string>? EmailMessage { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? EmailMessageByLink { get; set; }
 
         /// <summary>
-        /// Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        /// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
         /// </summary>
         [Input("emailSubject")]
         public Input<string>? EmailSubject { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? EmailSubjectByLink { get; set; }
 
         /// <summary>
-        /// SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        /// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
         /// </summary>
         [Input("smsMessage")]
         public Input<string>? SmsMessage { get; set; }

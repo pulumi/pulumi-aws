@@ -15,7 +15,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// By default, applications will require users to have an explicit assignment in order to access an application.
     /// This resource can be used to adjust this default behavior if necessary.
     /// 
-    /// &gt; Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignment_required = true`).
+    /// &gt; Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignmentRequired = true`).
     /// 
     /// ## Example Usage
     /// 

@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Cfg
         public Output<string?> DeliveryS3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
         /// </summary>
         [Output("inputParameters")]
         public Output<ImmutableArray<Outputs.ConformancePackInputParameter>> InputParameters { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Cfg
         /// <summary>
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         /// 
-        /// &gt; **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
+        /// &gt; **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
         /// </summary>
         [Output("templateS3Uri")]
         public Output<string?> TemplateS3Uri { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<Inputs.ConformancePackInputParameterArgs>? _inputParameters;
 
         /// <summary>
-        /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
         /// </summary>
         public InputList<Inputs.ConformancePackInputParameterArgs> InputParameters
         {
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Cfg
         /// <summary>
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         /// 
-        /// &gt; **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
+        /// &gt; **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
         /// </summary>
         [Input("templateS3Uri")]
         public Input<string>? TemplateS3Uri { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.Cfg
         private InputList<Inputs.ConformancePackInputParameterGetArgs>? _inputParameters;
 
         /// <summary>
-        /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
         /// </summary>
         public InputList<Inputs.ConformancePackInputParameterGetArgs> InputParameters
         {
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.Cfg
         /// <summary>
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         /// 
-        /// &gt; **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
+        /// &gt; **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
         /// </summary>
         [Input("templateS3Uri")]
         public Input<string>? TemplateS3Uri { get; set; }

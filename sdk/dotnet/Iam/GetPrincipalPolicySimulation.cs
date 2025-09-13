@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Iam
         /// });
         /// ```
         /// 
-        /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+        /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Iam
         /// });
         /// ```
         /// 
-        /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
+        /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
         /// </summary>
         public static Task<GetPrincipalPolicySimulationResult> InvokeAsync(GetPrincipalPolicySimulationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrincipalPolicySimulationResult>("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args ?? new GetPrincipalPolicySimulationArgs(), options.WithDefaults());
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Iam
         /// });
         /// ```
         /// 
-        /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+        /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Iam
         /// });
         /// ```
         /// 
-        /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
+        /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
         /// </summary>
         public static Output<GetPrincipalPolicySimulationResult> Invoke(GetPrincipalPolicySimulationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrincipalPolicySimulationResult>("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args ?? new GetPrincipalPolicySimulationInvokeArgs(), options.WithDefaults());
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Iam
         /// });
         /// ```
         /// 
-        /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+        /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.Iam
         /// });
         /// ```
         /// 
-        /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
+        /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
         /// </summary>
         public static Output<GetPrincipalPolicySimulationResult> Invoke(GetPrincipalPolicySimulationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrincipalPolicySimulationResult>("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args ?? new GetPrincipalPolicySimulationInvokeArgs(), options.WithDefaults());
@@ -507,7 +507,7 @@ namespace Pulumi.Aws.Iam
         private List<string>? _additionalPoliciesJsons;
 
         /// <summary>
-        /// A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
+        /// A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policySourceArn`, allowing you to test the effect of hypothetical policies not yet created.
         /// </summary>
         public List<string> AdditionalPoliciesJsons
         {
@@ -516,7 +516,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The ARN of an user that will appear as the "caller" of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
+        /// The ARN of an user that will appear as the "caller" of the simulated requests. If you do not specify `callerArn` then the simulation will use the `policySourceArn` instead, if it contains a user ARN.
         /// </summary>
         [Input("callerArn")]
         public string? CallerArn { get; set; }
@@ -563,7 +563,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// This argument is important for actions that have either required or optional resource types listed in [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html), and you must provide ARNs that identify AWS objects of the appropriate types for the chosen actions.
         /// 
-        /// The policy simulator only automatically loads policies associated with the `policy_source_arn`, so if your given resources have their own resource-level policy then you'll also need to provide that explicitly using the `resource_policy_json` argument to achieve a realistic simulation.
+        /// The policy simulator only automatically loads policies associated with the `policySourceArn`, so if your given resources have their own resource-level policy then you'll also need to provide that explicitly using the `resourcePolicyJson` argument to achieve a realistic simulation.
         /// </summary>
         public List<string> ResourceArns
         {
@@ -580,15 +580,15 @@ namespace Pulumi.Aws.Iam
         public string? ResourceHandlingOption { get; set; }
 
         /// <summary>
-        /// An AWS account ID to use for any resource ARN in `resource_arns` that doesn't include its own AWS account ID. If unspecified, the simulator will use the account ID from the `caller_arn` argument as a placeholder.
+        /// An AWS account ID to use for any resource ARN in `resourceArns` that doesn't include its own AWS account ID. If unspecified, the simulator will use the account ID from the `callerArn` argument as a placeholder.
         /// </summary>
         [Input("resourceOwnerAccountId")]
         public string? ResourceOwnerAccountId { get; set; }
 
         /// <summary>
-        /// An IAM policy document representing the resource-level policy of all of the resources specified in `resource_arns`.
+        /// An IAM policy document representing the resource-level policy of all of the resources specified in `resourceArns`.
         /// 
-        /// The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resource_arns` above.
+        /// The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resourceArns` above.
         /// </summary>
         [Input("resourcePolicyJson")]
         public string? ResourcePolicyJson { get; set; }
@@ -619,7 +619,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _additionalPoliciesJsons;
 
         /// <summary>
-        /// A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
+        /// A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policySourceArn`, allowing you to test the effect of hypothetical policies not yet created.
         /// </summary>
         public InputList<string> AdditionalPoliciesJsons
         {
@@ -628,7 +628,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The ARN of an user that will appear as the "caller" of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
+        /// The ARN of an user that will appear as the "caller" of the simulated requests. If you do not specify `callerArn` then the simulation will use the `policySourceArn` instead, if it contains a user ARN.
         /// </summary>
         [Input("callerArn")]
         public Input<string>? CallerArn { get; set; }
@@ -675,7 +675,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// This argument is important for actions that have either required or optional resource types listed in [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html), and you must provide ARNs that identify AWS objects of the appropriate types for the chosen actions.
         /// 
-        /// The policy simulator only automatically loads policies associated with the `policy_source_arn`, so if your given resources have their own resource-level policy then you'll also need to provide that explicitly using the `resource_policy_json` argument to achieve a realistic simulation.
+        /// The policy simulator only automatically loads policies associated with the `policySourceArn`, so if your given resources have their own resource-level policy then you'll also need to provide that explicitly using the `resourcePolicyJson` argument to achieve a realistic simulation.
         /// </summary>
         public InputList<string> ResourceArns
         {
@@ -692,15 +692,15 @@ namespace Pulumi.Aws.Iam
         public Input<string>? ResourceHandlingOption { get; set; }
 
         /// <summary>
-        /// An AWS account ID to use for any resource ARN in `resource_arns` that doesn't include its own AWS account ID. If unspecified, the simulator will use the account ID from the `caller_arn` argument as a placeholder.
+        /// An AWS account ID to use for any resource ARN in `resourceArns` that doesn't include its own AWS account ID. If unspecified, the simulator will use the account ID from the `callerArn` argument as a placeholder.
         /// </summary>
         [Input("resourceOwnerAccountId")]
         public Input<string>? ResourceOwnerAccountId { get; set; }
 
         /// <summary>
-        /// An IAM policy document representing the resource-level policy of all of the resources specified in `resource_arns`.
+        /// An IAM policy document representing the resource-level policy of all of the resources specified in `resourceArns`.
         /// 
-        /// The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resource_arns` above.
+        /// The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resourceArns` above.
         /// </summary>
         [Input("resourcePolicyJson")]
         public Input<string>? ResourcePolicyJson { get; set; }

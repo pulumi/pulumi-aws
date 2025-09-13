@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
     public sealed class DomainEncryptAtRestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable encryption at rest. If the `encrypt_at_rest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires `elasticsearch_version` 5.1 or greater.
+        /// Whether to enable encryption at rest. If the `encryptAtRest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires `elasticsearchVersion` 5.1 or greater.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

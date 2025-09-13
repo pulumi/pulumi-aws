@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
         /// </summary>
         [Output("lifecyclePolicies")]
         public Output<ImmutableArray<Outputs.FileSystemLifecyclePolicy>> LifecyclePolicies { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Efs
         public Output<Outputs.FileSystemProtection> Protection { get; private set; } = null!;
 
         /// <summary>
-        /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+        /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
         /// </summary>
         [Output("provisionedThroughputInMibps")]
         public Output<double?> ProvisionedThroughputInMibps { get; private set; } = null!;
@@ -172,19 +172,19 @@ namespace Pulumi.Aws.Efs
         public Output<ImmutableArray<Outputs.FileSystemSizeInByte>> SizeInBytes { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
         /// </summary>
         [Output("throughputMode")]
         public Output<string?> ThroughputMode { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Efs
         private InputList<Inputs.FileSystemLifecyclePolicyArgs>? _lifecyclePolicies;
 
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
         /// </summary>
         public InputList<Inputs.FileSystemLifecyclePolicyArgs> LifecyclePolicies
         {
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Efs
         public Input<Inputs.FileSystemProtectionArgs>? Protection { get; set; }
 
         /// <summary>
-        /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+        /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
         /// </summary>
         [Input("provisionedThroughputInMibps")]
         public Input<double>? ProvisionedThroughputInMibps { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.Efs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -311,7 +311,7 @@ namespace Pulumi.Aws.Efs
         }
 
         /// <summary>
-        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
         /// </summary>
         [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.Efs
         private InputList<Inputs.FileSystemLifecyclePolicyGetArgs>? _lifecyclePolicies;
 
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
         /// </summary>
         public InputList<Inputs.FileSystemLifecyclePolicyGetArgs> LifecyclePolicies
         {
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.Efs
         public Input<Inputs.FileSystemProtectionGetArgs>? Protection { get; set; }
 
         /// <summary>
-        /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+        /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
         /// </summary>
         [Input("provisionedThroughputInMibps")]
         public Input<double>? ProvisionedThroughputInMibps { get; set; }
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.Efs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -451,7 +451,7 @@ namespace Pulumi.Aws.Efs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -460,7 +460,7 @@ namespace Pulumi.Aws.Efs
         }
 
         /// <summary>
-        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
         /// </summary>
         [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }

@@ -17,7 +17,7 @@ namespace Pulumi.Aws.DocDB
     /// Instances and DocumentDB manages the replication. You can use the [count][3]
     /// meta-parameter to make multiple instances and join them all to the same DocumentDB
     /// Cluster, or you may specify different Cluster Instance resources with various
-    /// `instance_class` sizes.
+    /// `instanceClass` sizes.
     /// 
     /// ## Example Usage
     /// 
@@ -240,13 +240,13 @@ namespace Pulumi.Aws.DocDB
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -614,7 +614,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -626,7 +626,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

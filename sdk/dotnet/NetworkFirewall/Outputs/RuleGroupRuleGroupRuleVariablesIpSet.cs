@@ -18,7 +18,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet IpSet;
         /// <summary>
-        /// A unique alphanumeric string to identify the `ip_set`.
+        /// A unique alphanumeric string to identify the `ipSet`.
         /// </summary>
         public readonly string Key;
 

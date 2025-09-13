@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     public sealed class PipelineTriggerAllGitConfiguration
     {
         /// <summary>
-        /// The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+        /// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerAllGitConfigurationPullRequest> PullRequests;
         /// <summary>

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
     public sealed class PresetVideoWatermarkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
+        /// The horizontal position of the watermark unless you specify a nonzero value for `horzontalOffset`.
         /// </summary>
         [Input("horizontalAlign")]
         public Input<string>? HorizontalAlign { get; set; }
 
         /// <summary>
-        /// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
+        /// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
         /// </summary>
         [Input("horizontalOffset")]
         public Input<string>? HorizontalOffset { get; set; }
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// The vertical position of the watermark unless you specify a nonzero value for `vertical_align`. Valid values are `Top`, `Bottom`, `Center`.
+        /// The vertical position of the watermark unless you specify a nonzero value for `verticalAlign`. Valid values are `Top`, `Bottom`, `Center`.
         /// </summary>
         [Input("verticalAlign")]
         public Input<string>? VerticalAlign { get; set; }
 
         /// <summary>
-        /// The amount by which you want the vertical position of the watermark to be offset from the position specified by `vertical_align`
+        /// The amount by which you want the vertical position of the watermark to be offset from the position specified by `verticalAlign`
         /// </summary>
         [Input("verticalOffset")]
         public Input<string>? VerticalOffset { get; set; }

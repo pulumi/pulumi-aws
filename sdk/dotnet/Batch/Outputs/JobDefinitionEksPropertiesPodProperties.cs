@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesContainer> Containers;
         /// <summary>
-        /// DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+        /// DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
         /// </summary>
         public readonly string? DnsPolicy;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly bool? HostNetwork;
         /// <summary>
-        /// List of Kubernetes secret resources. See `image_pull_secret` below.
+        /// List of Kubernetes secret resources. See `imagePullSecret` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecret> ImagePullSecrets;
         /// <summary>

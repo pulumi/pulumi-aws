@@ -63,13 +63,13 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<string> RegionName { get; set; } = null!;
 
         /// <summary>
-        /// ARN of the Table Stream. Only available when `stream_enabled = true`
+        /// ARN of the Table Stream. Only available when `streamEnabled = true`
         /// </summary>
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
 
         /// <summary>
-        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
         /// </summary>
         [Input("streamLabel")]
         public Input<string>? StreamLabel { get; set; }

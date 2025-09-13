@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Kms.Inputs
         private InputMap<string>? _encryptionContextEquals;
 
         /// <summary>
-        /// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
+        /// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
         /// </summary>
         public InputMap<string> EncryptionContextEquals
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Kms.Inputs
         private InputMap<string>? _encryptionContextSubset;
 
         /// <summary>
-        /// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
+        /// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
         /// </summary>
         public InputMap<string> EncryptionContextSubset
         {

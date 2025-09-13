@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// ARN of the IAM policy.
-        /// Conflicts with `name` and `path_prefix`.
+        /// Conflicts with `name` and `pathPrefix`.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// ARN of the IAM policy.
-        /// Conflicts with `name` and `path_prefix`.
+        /// Conflicts with `name` and `pathPrefix`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

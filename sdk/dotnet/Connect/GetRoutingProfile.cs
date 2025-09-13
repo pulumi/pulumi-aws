@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `routing_profile_id`
+        /// By `routingProfileId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `routing_profile_id`
+        /// By `routingProfileId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `routing_profile_id`
+        /// By `routingProfileId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Routing Profile by Routing Profile id
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
+        /// &gt; **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
         /// </summary>
         [Input("routingProfileId")]
         public string? RoutingProfileId { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Routing Profile by Routing Profile id
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
+        /// &gt; **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
         /// </summary>
         [Input("routingProfileId")]
         public Input<string>? RoutingProfileId { get; set; }
@@ -265,12 +265,12 @@ namespace Pulumi.Aws.Connect
         public readonly string Id;
         public readonly string InstanceId;
         /// <summary>
-        /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+        /// One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoutingProfileMediaConcurrencyResult> MediaConcurrencies;
         public readonly string Name;
         /// <summary>
-        /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+        /// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoutingProfileQueueConfigResult> QueueConfigs;
         public readonly string Region;

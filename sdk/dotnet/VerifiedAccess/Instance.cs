@@ -36,7 +36,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// });
     /// ```
     /// 
-    /// ### With `fips_enabled`
+    /// ### With `fipsEnabled`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// });
     /// ```
     /// 
-    /// ### With `cidr_endpoints_custom_subdomain`
+    /// ### With `cidrEndpointsCustomSubdomain`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
         /// </summary>
         [Output("verifiedAccessTrustProviders")]
         public Output<ImmutableArray<Outputs.InstanceVerifiedAccessTrustProvider>> VerifiedAccessTrustProviders { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.VerifiedAccess
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.VerifiedAccess
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.VerifiedAccess
         private InputList<Inputs.InstanceVerifiedAccessTrustProviderGetArgs>? _verifiedAccessTrustProviders;
 
         /// <summary>
-        /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
         /// </summary>
         public InputList<Inputs.InstanceVerifiedAccessTrustProviderGetArgs> VerifiedAccessTrustProviders
         {

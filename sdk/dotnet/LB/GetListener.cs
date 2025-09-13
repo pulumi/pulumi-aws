@@ -142,7 +142,7 @@ namespace Pulumi.Aws.LB
     public sealed class GetListenerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
+        /// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.LB
     public sealed class GetListenerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
+        /// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

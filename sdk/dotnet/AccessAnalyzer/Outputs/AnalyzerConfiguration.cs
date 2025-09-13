@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
     public sealed class AnalyzerConfiguration
     {
         /// <summary>
-        /// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+        /// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internalAccess` Block for details.
         /// </summary>
         public readonly Outputs.AnalyzerConfigurationInternalAccess? InternalAccess;
         /// <summary>
-        /// Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
+        /// Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unusedAccess` Block for details.
         /// </summary>
         public readonly Outputs.AnalyzerConfigurationUnusedAccess? UnusedAccess;
 

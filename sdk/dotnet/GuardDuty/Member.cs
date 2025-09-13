@@ -86,7 +86,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string?> InvitationMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         /// </summary>
         [Output("invite")]
         public Output<bool?> Invite { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? InvitationMessage { get; set; }
 
         /// <summary>
-        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         /// </summary>
         [Input("invite")]
         public Input<bool>? Invite { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? InvitationMessage { get; set; }
 
         /// <summary>
-        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         /// </summary>
         [Input("invite")]
         public Input<bool>? Invite { get; set; }

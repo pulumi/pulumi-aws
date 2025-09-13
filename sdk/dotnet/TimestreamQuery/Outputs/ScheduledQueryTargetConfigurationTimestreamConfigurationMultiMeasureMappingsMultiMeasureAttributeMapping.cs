@@ -22,7 +22,7 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
         /// </summary>
         public readonly string SourceColumn;
         /// <summary>
-        /// Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
+        /// Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
         /// </summary>
         public readonly string? TargetMultiMeasureAttributeName;
 

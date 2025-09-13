@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Synthetics
         public readonly string Id;
         public readonly string Region;
         /// <summary>
-        /// List of runtime versions. See `runtime_versions` attribute reference.
+        /// List of runtime versions. See `runtimeVersions` attribute reference.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRuntimeVersionsRuntimeVersionResult> RuntimeVersions;
 

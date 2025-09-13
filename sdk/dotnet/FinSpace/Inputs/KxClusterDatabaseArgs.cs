@@ -37,7 +37,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+        /// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
         /// </summary>
         [Input("dataviewName")]
         public Input<string>? DataviewName { get; set; }

@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Amp
         /// ```
         /// 
         /// The following example filters the workspaces by alias. Only the workspaces with
-        /// aliases that begin with the value of `alias_prefix` will be returned:
+        /// aliases that begin with the value of `aliasPrefix` will be returned:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Amp
         /// ```
         /// 
         /// The following example filters the workspaces by alias. Only the workspaces with
-        /// aliases that begin with the value of `alias_prefix` will be returned:
+        /// aliases that begin with the value of `aliasPrefix` will be returned:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Amp
         /// ```
         /// 
         /// The following example filters the workspaces by alias. Only the workspaces with
-        /// aliases that begin with the value of `alias_prefix` will be returned:
+        /// aliases that begin with the value of `aliasPrefix` will be returned:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

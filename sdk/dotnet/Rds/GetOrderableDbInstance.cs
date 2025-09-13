@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// 
-        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// 
-        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// 
-        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Rds
         public string Engine { get; set; } = null!;
 
         /// <summary>
-        /// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+        /// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engineLatestVersion` with `preferredInstanceClasses` and/or `preferredEngineVersions`. Using `engineLatestVersion` will avoid `multiple RDS DB Instance Classes` errors. If you use `engineLatestVersion` with `preferredInstanceClasses`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engineLatestVersion` may _not_ return the latest version in every situation.
         /// </summary>
         [Input("engineLatestVersion")]
         public bool? EngineLatestVersion { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _preferredEngineVersions;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
+        /// Ordered list of preferred RDS DB instance engine versions. When `engineLatestVersion` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. **CAUTION:** We don't recommend using `preferredEngineVersions` without `preferredInstanceClasses` since the data source returns an arbitrary `instanceClass` based on the first one AWS returns that matches the engine version and any other criteria.
         /// </summary>
         public List<string> PreferredEngineVersions
         {
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _preferredInstanceClasses;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
+        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. If you use `preferredInstanceClasses` without `preferredEngineVersions` or `engineLatestVersion`, the data source returns an arbitrary `engineVersion` based on the first one AWS returns matching the instance class and any other criteria.
         /// </summary>
         public List<string> PreferredInstanceClasses
         {
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
-        /// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+        /// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engineLatestVersion` with `preferredInstanceClasses` and/or `preferredEngineVersions`. Using `engineLatestVersion` will avoid `multiple RDS DB Instance Classes` errors. If you use `engineLatestVersion` with `preferredInstanceClasses`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engineLatestVersion` may _not_ return the latest version in every situation.
         /// </summary>
         [Input("engineLatestVersion")]
         public Input<bool>? EngineLatestVersion { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _preferredEngineVersions;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
+        /// Ordered list of preferred RDS DB instance engine versions. When `engineLatestVersion` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. **CAUTION:** We don't recommend using `preferredEngineVersions` without `preferredInstanceClasses` since the data source returns an arbitrary `instanceClass` based on the first one AWS returns that matches the engine version and any other criteria.
         /// </summary>
         public InputList<string> PreferredEngineVersions
         {
@@ -435,7 +435,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _preferredInstanceClasses;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
+        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. If you use `preferredInstanceClasses` without `preferredEngineVersions` or `engineLatestVersion`, the data source returns an arbitrary `engineVersion` based on the first one AWS returns matching the instance class and any other criteria.
         /// </summary>
         public InputList<string> PreferredInstanceClasses
         {

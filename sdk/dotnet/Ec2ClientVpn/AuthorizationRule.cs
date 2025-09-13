@@ -54,13 +54,13 @@ namespace Pulumi.Aws.Ec2ClientVpn
     public partial class AuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+        /// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
         /// </summary>
         [Output("accessGroupId")]
         public Output<string?> AccessGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+        /// Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
         /// </summary>
         [Output("authorizeAllGroups")]
         public Output<bool?> AuthorizeAllGroups { get; private set; } = null!;
@@ -136,13 +136,13 @@ namespace Pulumi.Aws.Ec2ClientVpn
     public sealed class AuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+        /// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
         /// </summary>
         [Input("accessGroupId")]
         public Input<string>? AccessGroupId { get; set; }
 
         /// <summary>
-        /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+        /// Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
         /// </summary>
         [Input("authorizeAllGroups")]
         public Input<bool>? AuthorizeAllGroups { get; set; }
@@ -180,13 +180,13 @@ namespace Pulumi.Aws.Ec2ClientVpn
     public sealed class AuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+        /// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
         /// </summary>
         [Input("accessGroupId")]
         public Input<string>? AccessGroupId { get; set; }
 
         /// <summary>
-        /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+        /// Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
         /// </summary>
         [Input("authorizeAllGroups")]
         public Input<bool>? AuthorizeAllGroups { get; set; }

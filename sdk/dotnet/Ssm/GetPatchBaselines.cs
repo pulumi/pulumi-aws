@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetPatchBaselinesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Only return baseline identities where `default_baseline` is `true`.
+        /// Only return baseline identities where `defaultBaseline` is `true`.
         /// </summary>
         [Input("defaultBaselines")]
         public bool? DefaultBaselines { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetPatchBaselinesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Only return baseline identities where `default_baseline` is `true`.
+        /// Only return baseline identities where `defaultBaseline` is `true`.
         /// </summary>
         [Input("defaultBaselines")]
         public Input<bool>? DefaultBaselines { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetPatchBaselinesResult
     {
         /// <summary>
-        /// List of baseline identities. See `baseline_identities` below.
+        /// List of baseline identities. See `baselineIdentities` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPatchBaselinesBaselineIdentityResult> BaselineIdentities;
         public readonly bool? DefaultBaselines;

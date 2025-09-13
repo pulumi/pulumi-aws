@@ -29,7 +29,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// <summary>
         /// List of TCP retry events. The only valid value is `connection-error`.
         /// 
-        /// You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
+        /// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
         /// </summary>
         public readonly ImmutableArray<string> TcpRetryEvents;
 

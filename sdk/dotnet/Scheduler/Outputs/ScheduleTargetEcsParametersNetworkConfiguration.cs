@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
     public sealed class ScheduleTargetEcsParametersNetworkConfiguration
     {
         /// <summary>
-        /// Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
+        /// Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
         /// </summary>
         public readonly bool? AssignPublicIp;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketObjectv2OverrideProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Override the provider `default_tags` configuration block.
+        /// Override the provider `defaultTags` configuration block.
         /// </summary>
         [Input("defaultTags")]
         public Input<Inputs.BucketObjectv2OverrideProviderDefaultTagsArgs>? DefaultTags { get; set; }

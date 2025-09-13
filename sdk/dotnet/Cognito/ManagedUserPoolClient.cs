@@ -57,19 +57,19 @@ namespace Pulumi.Aws.Cognito
         public Output<int> AccessTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         [Output("allowedOauthFlows")]
         public Output<ImmutableArray<string>> AllowedOauthFlows { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        /// Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
         /// </summary>
         [Output("allowedOauthFlowsUserPoolClient")]
         public Output<bool> AllowedOauthFlowsUserPoolClient { get; private set; } = null!;
 
         /// <summary>
-        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         [Output("allowedOauthScopes")]
         public Output<ImmutableArray<string>> AllowedOauthScopes { get; private set; } = null!;
@@ -81,13 +81,13 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.ManagedUserPoolClientAnalyticsConfiguration?> AnalyticsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+        /// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
         /// </summary>
         [Output("authSessionValidity")]
         public Output<int> AuthSessionValidity { get; private set; } = null!;
 
         /// <summary>
-        /// List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         [Output("callbackUrls")]
         public Output<ImmutableArray<string>> CallbackUrls { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Cognito
         public Output<int> IdTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         [Output("logoutUrls")]
         public Output<ImmutableArray<string>> LogoutUrls { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        /// List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
         [Output("supportedIdentityProviders")]
         public Output<ImmutableArray<string>> SupportedIdentityProviders { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _allowedOauthFlows;
 
         /// <summary>
-        /// List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> AllowedOauthFlows
         {
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        /// Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
         /// </summary>
         [Input("allowedOauthFlowsUserPoolClient")]
         public Input<bool>? AllowedOauthFlowsUserPoolClient { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _allowedOauthScopes;
 
         /// <summary>
-        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> AllowedOauthScopes
         {
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.ManagedUserPoolClientAnalyticsConfigurationArgs>? AnalyticsConfiguration { get; set; }
 
         /// <summary>
-        /// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+        /// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
         /// </summary>
         [Input("authSessionValidity")]
         public Input<int>? AuthSessionValidity { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _callbackUrls;
 
         /// <summary>
-        /// List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> CallbackUrls
         {
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _logoutUrls;
 
         /// <summary>
-        /// List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> LogoutUrls
         {
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _supportedIdentityProviders;
 
         /// <summary>
-        /// List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        /// List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
         public InputList<string> SupportedIdentityProviders
         {
@@ -470,7 +470,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _allowedOauthFlows;
 
         /// <summary>
-        /// List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> AllowedOauthFlows
         {
@@ -479,7 +479,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        /// Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
         /// </summary>
         [Input("allowedOauthFlowsUserPoolClient")]
         public Input<bool>? AllowedOauthFlowsUserPoolClient { get; set; }
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _allowedOauthScopes;
 
         /// <summary>
-        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> AllowedOauthScopes
         {
@@ -503,7 +503,7 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.ManagedUserPoolClientAnalyticsConfigurationGetArgs>? AnalyticsConfiguration { get; set; }
 
         /// <summary>
-        /// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+        /// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
         /// </summary>
         [Input("authSessionValidity")]
         public Input<int>? AuthSessionValidity { get; set; }
@@ -512,7 +512,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _callbackUrls;
 
         /// <summary>
-        /// List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> CallbackUrls
         {
@@ -576,7 +576,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _logoutUrls;
 
         /// <summary>
-        /// List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> LogoutUrls
         {
@@ -644,7 +644,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _supportedIdentityProviders;
 
         /// <summary>
-        /// List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        /// List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
         public InputList<string> SupportedIdentityProviders
         {

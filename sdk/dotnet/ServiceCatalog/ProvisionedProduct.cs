@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// A provisioned product is a resourced instance of a product. For example, provisioning a product based on a CloudFormation template launches a CloudFormation stack and its underlying resources.
     /// 
-    /// Like this resource, the `aws_servicecatalog_record` data source also provides information about a provisioned product. Although a Service Catalog record provides some overlapping information with this resource, a record is tied to a provisioned product event, such as provisioning, termination, and updating.
+    /// Like this resource, the `awsServicecatalogRecord` data source also provides information about a provisioned product. Although a Service Catalog record provides some overlapping information with this resource, a record is tied to a provisioned product event, such as provisioning, termination, and updating.
     /// 
     /// &gt; **Tip:** If you include conflicted keys as tags, AWS will report an error, "Parameter validation failed: Missing required parameter in Tags[N]:Value".
     /// 
@@ -140,43 +140,43 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<ImmutableArray<Outputs.ProvisionedProductOutput>> Outputs { get; private set; } = null!;
 
         /// <summary>
-        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
         /// </summary>
         [Output("pathId")]
         public Output<string> PathId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the path. You must provide `path_id` or `path_name`, but not both.
+        /// Name of the path. You must provide `pathId` or `pathName`, but not both.
         /// </summary>
         [Output("pathName")]
         public Output<string?> PathName { get; private set; } = null!;
 
         /// <summary>
-        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
         /// </summary>
         [Output("productId")]
         public Output<string> ProductId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the product. You must provide `product_id` or `product_name`, but not both.
+        /// Name of the product. You must provide `productId` or `productName`, but not both.
         /// </summary>
         [Output("productName")]
         public Output<string?> ProductName { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
         /// </summary>
         [Output("provisioningArtifactId")]
         public Output<string> ProvisioningArtifactId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
         /// </summary>
         [Output("provisioningArtifactName")]
         public Output<string?> ProvisioningArtifactName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
         /// </summary>
         [Output("provisioningParameters")]
         public Output<ImmutableArray<Outputs.ProvisionedProductProvisioningParameter>> ProvisioningParameters { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<bool?> RetainPhysicalResources { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+        /// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
         /// </summary>
         [Output("stackSetProvisioningPreferences")]
         public Output<Outputs.ProvisionedProductStackSetProvisioningPreferences?> StackSetProvisioningPreferences { get; private set; } = null!;
@@ -212,13 +212,13 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> StatusMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -308,37 +308,37 @@ namespace Pulumi.Aws.ServiceCatalog
         }
 
         /// <summary>
-        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
         /// </summary>
         [Input("pathId")]
         public Input<string>? PathId { get; set; }
 
         /// <summary>
-        /// Name of the path. You must provide `path_id` or `path_name`, but not both.
+        /// Name of the path. You must provide `pathId` or `pathName`, but not both.
         /// </summary>
         [Input("pathName")]
         public Input<string>? PathName { get; set; }
 
         /// <summary>
-        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
         /// <summary>
-        /// Name of the product. You must provide `product_id` or `product_name`, but not both.
+        /// Name of the product. You must provide `productId` or `productName`, but not both.
         /// </summary>
         [Input("productName")]
         public Input<string>? ProductName { get; set; }
 
         /// <summary>
-        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
         /// </summary>
         [Input("provisioningArtifactId")]
         public Input<string>? ProvisioningArtifactId { get; set; }
 
         /// <summary>
-        /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
         /// </summary>
         [Input("provisioningArtifactName")]
         public Input<string>? ProvisioningArtifactName { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputList<Inputs.ProvisionedProductProvisioningParameterArgs>? _provisioningParameters;
 
         /// <summary>
-        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
         /// </summary>
         public InputList<Inputs.ProvisionedProductProvisioningParameterArgs> ProvisioningParameters
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<bool>? RetainPhysicalResources { get; set; }
 
         /// <summary>
-        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+        /// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
         /// </summary>
         [Input("stackSetProvisioningPreferences")]
         public Input<Inputs.ProvisionedProductStackSetProvisioningPreferencesArgs>? StackSetProvisioningPreferences { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -486,37 +486,37 @@ namespace Pulumi.Aws.ServiceCatalog
         }
 
         /// <summary>
-        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
         /// </summary>
         [Input("pathId")]
         public Input<string>? PathId { get; set; }
 
         /// <summary>
-        /// Name of the path. You must provide `path_id` or `path_name`, but not both.
+        /// Name of the path. You must provide `pathId` or `pathName`, but not both.
         /// </summary>
         [Input("pathName")]
         public Input<string>? PathName { get; set; }
 
         /// <summary>
-        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
         /// <summary>
-        /// Name of the product. You must provide `product_id` or `product_name`, but not both.
+        /// Name of the product. You must provide `productId` or `productName`, but not both.
         /// </summary>
         [Input("productName")]
         public Input<string>? ProductName { get; set; }
 
         /// <summary>
-        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
         /// </summary>
         [Input("provisioningArtifactId")]
         public Input<string>? ProvisioningArtifactId { get; set; }
 
         /// <summary>
-        /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
         /// </summary>
         [Input("provisioningArtifactName")]
         public Input<string>? ProvisioningArtifactName { get; set; }
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputList<Inputs.ProvisionedProductProvisioningParameterGetArgs>? _provisioningParameters;
 
         /// <summary>
-        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
         /// </summary>
         public InputList<Inputs.ProvisionedProductProvisioningParameterGetArgs> ProvisioningParameters
         {
@@ -546,7 +546,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<bool>? RetainPhysicalResources { get; set; }
 
         /// <summary>
-        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+        /// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
         /// </summary>
         [Input("stackSetProvisioningPreferences")]
         public Input<Inputs.ProvisionedProductStackSetProvisioningPreferencesGetArgs>? StackSetProvisioningPreferences { get; set; }
@@ -567,7 +567,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -579,7 +579,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

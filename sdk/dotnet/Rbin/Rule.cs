@@ -107,13 +107,13 @@ namespace Pulumi.Aws.Rbin
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+        /// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
         /// </summary>
         [Output("excludeResourceTags")]
         public Output<ImmutableArray<Outputs.RuleExcludeResourceTag>> ExcludeResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the retention rule lock configuration. See `lock_configuration` below.
+        /// Information about the retention rule lock configuration. See `lockConfiguration` below.
         /// </summary>
         [Output("lockConfiguration")]
         public Output<Outputs.RuleLockConfiguration?> LockConfiguration { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Rbin
         public Output<string> LockEndTime { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+        /// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
         /// </summary>
         [Output("lockState")]
         public Output<string> LockState { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Rbin
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        /// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
         /// </summary>
         [Output("resourceTags")]
         public Output<ImmutableArray<Outputs.RuleResourceTag>> ResourceTags { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Rbin
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+        /// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Rbin
         private InputList<Inputs.RuleExcludeResourceTagArgs>? _excludeResourceTags;
 
         /// <summary>
-        /// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+        /// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
         /// </summary>
         public InputList<Inputs.RuleExcludeResourceTagArgs> ExcludeResourceTags
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Rbin
         }
 
         /// <summary>
-        /// Information about the retention rule lock configuration. See `lock_configuration` below.
+        /// Information about the retention rule lock configuration. See `lockConfiguration` below.
         /// </summary>
         [Input("lockConfiguration")]
         public Input<Inputs.RuleLockConfigurationArgs>? LockConfiguration { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Rbin
         private InputList<Inputs.RuleResourceTagArgs>? _resourceTags;
 
         /// <summary>
-        /// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        /// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
         /// </summary>
         public InputList<Inputs.RuleResourceTagArgs> ResourceTags
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Rbin
         public Input<string> ResourceType { get; set; } = null!;
 
         /// <summary>
-        /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+        /// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Rbin
         private InputList<Inputs.RuleExcludeResourceTagGetArgs>? _excludeResourceTags;
 
         /// <summary>
-        /// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+        /// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
         /// </summary>
         public InputList<Inputs.RuleExcludeResourceTagGetArgs> ExcludeResourceTags
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Rbin
         }
 
         /// <summary>
-        /// Information about the retention rule lock configuration. See `lock_configuration` below.
+        /// Information about the retention rule lock configuration. See `lockConfiguration` below.
         /// </summary>
         [Input("lockConfiguration")]
         public Input<Inputs.RuleLockConfigurationGetArgs>? LockConfiguration { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Rbin
         public Input<string>? LockEndTime { get; set; }
 
         /// <summary>
-        /// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+        /// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
         /// </summary>
         [Input("lockState")]
         public Input<string>? LockState { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Rbin
         private InputList<Inputs.RuleResourceTagGetArgs>? _resourceTags;
 
         /// <summary>
-        /// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        /// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
         /// </summary>
         public InputList<Inputs.RuleResourceTagGetArgs> ResourceTags
         {
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.Rbin
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
-        /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+        /// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
         /// 
         /// The following arguments are optional:
         /// </summary>

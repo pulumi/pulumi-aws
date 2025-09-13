@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
         public Input<string>? HostedZoneArn { get; set; }
 
         /// <summary>
-        /// Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+        /// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
         /// </summary>
         [Input("recordSetId")]
         public Input<string>? RecordSetId { get; set; }

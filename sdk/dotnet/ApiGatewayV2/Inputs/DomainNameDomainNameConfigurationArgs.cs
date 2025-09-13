@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
         /// </summary>
         [Input("ownershipVerificationCertificateArn")]
         public Input<string>? OwnershipVerificationCertificateArn { get; set; }

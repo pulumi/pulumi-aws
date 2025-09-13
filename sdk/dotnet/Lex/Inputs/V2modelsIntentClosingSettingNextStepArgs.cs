@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentClosingSettingNextStepArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
         /// </summary>
         [Input("dialogAction")]
         public Input<Inputs.V2modelsIntentClosingSettingNextStepDialogActionArgs>? DialogAction { get; set; }

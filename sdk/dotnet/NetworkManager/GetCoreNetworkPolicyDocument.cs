@@ -12,7 +12,7 @@ namespace Pulumi.Aws.NetworkManager
     public static class GetCoreNetworkPolicyDocument
     {
         /// <summary>
-        /// Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
+        /// Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
         /// 
         /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
         /// 
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCoreNetworkPolicyDocumentResult>("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args ?? new GetCoreNetworkPolicyDocumentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
+        /// Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
         /// 
         /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
         /// 
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.Invoke<GetCoreNetworkPolicyDocumentResult>("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args ?? new GetCoreNetworkPolicyDocumentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
+        /// Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
         /// 
         /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
         /// 
@@ -625,7 +625,7 @@ namespace Pulumi.Aws.NetworkManager
         private List<Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>? _attachmentPolicies;
 
         /// <summary>
-        /// In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+        /// In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
         /// </summary>
         public List<Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs> AttachmentPolicies
         {
@@ -661,7 +661,7 @@ namespace Pulumi.Aws.NetworkManager
         private List<Inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs>? _segmentActions;
 
         /// <summary>
-        /// A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+        /// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         /// </summary>
         public List<Inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs> SegmentActions
         {
@@ -673,7 +673,7 @@ namespace Pulumi.Aws.NetworkManager
         private List<Inputs.GetCoreNetworkPolicyDocumentSegmentArgs>? _segments;
 
         /// <summary>
-        /// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+        /// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         /// </summary>
         public List<Inputs.GetCoreNetworkPolicyDocumentSegmentArgs> Segments
         {
@@ -696,7 +696,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputList<Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs>? _attachmentPolicies;
 
         /// <summary>
-        /// In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+        /// In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
         /// </summary>
         public InputList<Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs> AttachmentPolicies
         {
@@ -732,7 +732,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs>? _segmentActions;
 
         /// <summary>
-        /// A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+        /// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         /// </summary>
         public InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs> SegmentActions
         {
@@ -744,7 +744,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs>? _segments;
 
         /// <summary>
-        /// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+        /// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         /// </summary>
         public InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs> Segments
         {

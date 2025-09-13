@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly int FrequencyInSeconds;
         /// <summary>
-        /// Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
+        /// Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup> MessageGroups;
 

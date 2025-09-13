@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

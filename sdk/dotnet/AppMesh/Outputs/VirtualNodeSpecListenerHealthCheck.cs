@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        /// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
         /// </summary>
         public readonly int? Port;
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.BcmData.Outputs
         /// </summary>
         public readonly string S3Bucket;
         /// <summary>
-        /// Output configuration for the data export. See the `s3_output_configurations` argument reference below.
+        /// Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> S3OutputConfigurations;
         /// <summary>

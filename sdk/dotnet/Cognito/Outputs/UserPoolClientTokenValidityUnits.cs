@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolClientTokenValidityUnits
     {
         /// <summary>
-        /// Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        /// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
         /// </summary>
         public readonly string? AccessToken;
         /// <summary>
-        /// Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        /// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
         /// </summary>
         public readonly string? IdToken;
         /// <summary>
-        /// Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        /// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
         /// </summary>
         public readonly string? RefreshToken;
 

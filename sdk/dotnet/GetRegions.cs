@@ -49,7 +49,7 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// 
-        /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+        /// To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// 
-        /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+        /// To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// 
-        /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+        /// To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

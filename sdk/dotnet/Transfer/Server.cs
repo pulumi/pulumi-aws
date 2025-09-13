@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Transfer
     /// <summary>
     /// Provides a AWS Transfer Server resource.
     /// 
-    /// &gt; **NOTE on AWS IAM permissions:** If the `endpoint_type` is set to `VPC`, the `ec2:DescribeVpcEndpoints` and `ec2:ModifyVpcEndpoint` [actions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-actions-as-permissions) are used.
+    /// &gt; **NOTE on AWS IAM permissions:** If the `endpointType` is set to `VPC`, the `ec2:DescribeVpcEndpoints` and `ec2:ModifyVpcEndpoint` [actions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-actions-as-permissions) are used.
     /// 
     /// &gt; **NOTE:** Use the `aws.transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
     /// 
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> Certificate { get; private set; } = null!;
 
         /// <summary>
-        /// The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
+        /// The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
         /// </summary>
         [Output("directoryId")]
         public Output<string?> DirectoryId { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
+        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
         /// </summary>
         [Output("endpointDetails")]
         public Output<Outputs.ServerEndpointDetails?> EndpointDetails { get; private set; } = null!;
@@ -284,13 +284,13 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
+        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
+        /// The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
         /// </summary>
         [Output("function")]
         public Output<string?> Function { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> IdentityProviderType { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+        /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
         /// </summary>
         [Output("invocationRole")]
         public Output<string?> InvocationRole { get; private set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> PreAuthenticationLoginBanner { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol settings that are configured for your server. See `protocol_details` Block below for details.
+        /// The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
         /// </summary>
         [Output("protocolDetails")]
         public Output<Outputs.ServerProtocolDetails> ProtocolDetails { get; private set; } = null!;
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
+        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
         /// </summary>
         [Output("s3StorageOptions")]
         public Output<Outputs.ServerS3StorageOptions> S3StorageOptions { get; private set; } = null!;
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        /// For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         /// </summary>
         [Output("sftpAuthenticationMethods")]
         public Output<string> SftpAuthenticationMethods { get; private set; } = null!;
@@ -403,25 +403,25 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableArray<string>> StructuredLogDestinations { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        /// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
         /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the workflow details. See `workflow_details` Block below for details.
+        /// Specifies the workflow details. See `workflowDetails` Block below for details.
         /// </summary>
         [Output("workflowDetails")]
         public Output<Outputs.ServerWorkflowDetails?> WorkflowDetails { get; private set; } = null!;
@@ -485,7 +485,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
-        /// The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
+        /// The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
@@ -497,7 +497,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
+        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.ServerEndpointDetailsArgs>? EndpointDetails { get; set; }
@@ -509,13 +509,13 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
+        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
+        /// The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
         /// </summary>
         [Input("function")]
         public Input<string>? Function { get; set; }
@@ -543,7 +543,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? IdentityProviderType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+        /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
         /// </summary>
         [Input("invocationRole")]
         public Input<string>? InvocationRole { get; set; }
@@ -587,7 +587,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The protocol settings that are configured for your server. See `protocol_details` Block below for details.
+        /// The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
         /// </summary>
         [Input("protocolDetails")]
         public Input<Inputs.ServerProtocolDetailsArgs>? ProtocolDetails { get; set; }
@@ -615,7 +615,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
+        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
         /// </summary>
         [Input("s3StorageOptions")]
         public Input<Inputs.ServerS3StorageOptionsArgs>? S3StorageOptions { get; set; }
@@ -646,7 +646,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? SecurityPolicyName { get; set; }
 
         /// <summary>
-        /// For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        /// For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         /// </summary>
         [Input("sftpAuthenticationMethods")]
         public Input<string>? SftpAuthenticationMethods { get; set; }
@@ -667,7 +667,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -676,13 +676,13 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        /// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Specifies the workflow details. See `workflow_details` Block below for details.
+        /// Specifies the workflow details. See `workflowDetails` Block below for details.
         /// </summary>
         [Input("workflowDetails")]
         public Input<Inputs.ServerWorkflowDetailsArgs>? WorkflowDetails { get; set; }
@@ -708,7 +708,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
-        /// The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
+        /// The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
@@ -726,7 +726,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
+        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.ServerEndpointDetailsGetArgs>? EndpointDetails { get; set; }
@@ -738,13 +738,13 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
+        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
+        /// The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
         /// </summary>
         [Input("function")]
         public Input<string>? Function { get; set; }
@@ -778,7 +778,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? IdentityProviderType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+        /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
         /// </summary>
         [Input("invocationRole")]
         public Input<string>? InvocationRole { get; set; }
@@ -822,7 +822,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The protocol settings that are configured for your server. See `protocol_details` Block below for details.
+        /// The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
         /// </summary>
         [Input("protocolDetails")]
         public Input<Inputs.ServerProtocolDetailsGetArgs>? ProtocolDetails { get; set; }
@@ -850,7 +850,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
+        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
         /// </summary>
         [Input("s3StorageOptions")]
         public Input<Inputs.ServerS3StorageOptionsGetArgs>? S3StorageOptions { get; set; }
@@ -881,7 +881,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? SecurityPolicyName { get; set; }
 
         /// <summary>
-        /// For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        /// For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         /// </summary>
         [Input("sftpAuthenticationMethods")]
         public Input<string>? SftpAuthenticationMethods { get; set; }
@@ -902,7 +902,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -914,7 +914,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -923,13 +923,13 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        /// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Specifies the workflow details. See `workflow_details` Block below for details.
+        /// Specifies the workflow details. See `workflowDetails` Block below for details.
         /// </summary>
         [Input("workflowDetails")]
         public Input<Inputs.ServerWorkflowDetailsGetArgs>? WorkflowDetails { get; set; }

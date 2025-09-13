@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? MaxFileSize;
         /// <summary>
-        /// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        /// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
         /// </summary>
         public readonly string? PluginName;
         /// <summary>

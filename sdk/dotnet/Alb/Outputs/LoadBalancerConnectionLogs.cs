@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Alb.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
-        /// Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
+        /// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

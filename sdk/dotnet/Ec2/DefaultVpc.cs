@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// The `aws.ec2.DefaultVpc` resource behaves differently from normal resources in that if a default VPC exists, this provider does not _create_ this resource, but instead "adopts" it into management.
     /// If no default VPC exists, the provider creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).
     /// By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
-    /// Set the `force_destroy` argument to `true` to delete the default VPC.
+    /// Set the `forceDestroy` argument to `true` to delete the default VPC.
     /// 
     /// ## Example Usage
     /// 

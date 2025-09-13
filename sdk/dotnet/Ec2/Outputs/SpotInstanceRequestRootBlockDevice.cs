@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
-        /// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
+        /// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
         /// </summary>
         public readonly int? Iops;
         /// <summary>
@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? TagsAll;
         /// <summary>
-        /// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
+        /// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
         /// </summary>
         public readonly int? Throughput;
         public readonly string? VolumeId;
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
         /// 
-        /// Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
+        /// Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
         /// </summary>
         public readonly string? VolumeType;
 

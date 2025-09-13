@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string? AggregateKeyType;
         /// <summary>
-        /// Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+        /// Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementCustomKey> CustomKeys;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly int? EvaluationWindowSec;
         /// <summary>
-        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
+        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementForwardedIpConfig? ForwardedIpConfig;
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly int Limit;
         /// <summary>
-        /// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
+        /// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement? ScopeDownStatement;
 

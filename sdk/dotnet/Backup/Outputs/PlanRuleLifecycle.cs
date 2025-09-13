@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly int? ColdStorageAfter;
         /// <summary>
-        /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
         /// </summary>
         public readonly int? DeleteAfter;
         /// <summary>

@@ -169,7 +169,7 @@ namespace Pulumi.Aws.SecretsManager
         public string SecretId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+        /// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
         /// </summary>
         [Input("versionId")]
         public string? VersionId { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.SecretsManager
         public Input<string> SecretId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+        /// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
         /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }

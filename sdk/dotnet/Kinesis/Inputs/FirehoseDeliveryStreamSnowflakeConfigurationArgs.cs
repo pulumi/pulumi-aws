@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamSnowflakeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL of the Snowflake account. Format: https://[account_identifier].snowflakecomputing.com.
+        /// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
         /// </summary>
         [Input("accountUrl", required: true)]
         public Input<string> AccountUrl { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
+        /// The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         }
 
         /// <summary>
-        /// The processing configuration. See `processing_configuration` block below for details.
+        /// The processing configuration. See `processingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 configuration. See `s3_configuration` block below for details.
+        /// The S3 configuration. See `s3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs> S3Configuration { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+        /// The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
         /// </summary>
         [Input("secretsManagerConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs>? SecretsManagerConfiguration { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> Table { get; set; } = null!;
 
         /// <summary>
-        /// The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
+        /// The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
         /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }

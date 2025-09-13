@@ -97,13 +97,13 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<Inputs.CatalogTableStorageDescriptorSchemaReferenceArgs>? SchemaReference { get; set; }
 
         /// <summary>
-        /// Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
+        /// Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
         /// </summary>
         [Input("serDeInfo")]
         public Input<Inputs.CatalogTableStorageDescriptorSerDeInfoArgs>? SerDeInfo { get; set; }
 
         /// <summary>
-        /// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
+        /// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
         /// </summary>
         [Input("skewedInfo")]
         public Input<Inputs.CatalogTableStorageDescriptorSkewedInfoArgs>? SkewedInfo { get; set; }
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<Inputs.CatalogTableStorageDescriptorSortColumnArgs>? _sortColumns;
 
         /// <summary>
-        /// Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
+        /// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
         /// </summary>
         public InputList<Inputs.CatalogTableStorageDescriptorSortColumnArgs> SortColumns
         {

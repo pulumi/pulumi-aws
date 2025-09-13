@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppConfig.Outputs
         /// </summary>
         public readonly string AlarmArn;
         /// <summary>
-        /// ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+        /// ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
         /// </summary>
         public readonly string? AlarmRoleArn;
 

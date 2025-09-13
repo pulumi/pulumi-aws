@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     public sealed class ApplicationPortalOptions
     {
         /// <summary>
-        /// Sign-in options for the access portal. See `sign_in_options` below.
+        /// Sign-in options for the access portal. See `signInOptions` below.
         /// </summary>
         public readonly Outputs.ApplicationPortalOptionsSignInOptions? SignInOptions;
         /// <summary>

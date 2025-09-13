@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseStorageConfiguration
     {
         /// <summary>
-        /// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
+        /// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration? OpensearchServerlessConfiguration;
         /// <summary>
-        /// The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
+        /// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration? PineconeConfiguration;
         /// <summary>
-        /// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
+        /// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration? RdsConfiguration;
         /// <summary>
-        /// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
+        /// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration? RedisEnterpriseCloudConfiguration;
         /// <summary>

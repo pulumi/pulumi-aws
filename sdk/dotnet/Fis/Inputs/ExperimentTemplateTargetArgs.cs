@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Fis.Inputs
         /// <summary>
         /// The resource type parameters.
         /// 
-        /// &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+        /// &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Fis.Inputs
         private InputList<string>? _resourceArns;
 
         /// <summary>
-        /// Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
+        /// Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
         /// </summary>
         public InputList<string> ResourceArns
         {
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Fis.Inputs
         private InputList<Inputs.ExperimentTemplateTargetResourceTagArgs>? _resourceTags;
 
         /// <summary>
-        /// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+        /// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
         /// </summary>
         public InputList<Inputs.ExperimentTemplateTargetResourceTagArgs> ResourceTags
         {

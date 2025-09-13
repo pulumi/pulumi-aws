@@ -79,10 +79,11 @@ namespace Pulumi.Aws.NeptuneGraph
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-        /// character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don't specify a graph
-        /// name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-        /// UUID.
+        /// The graph name. For example: my-graph-1.
+        /// 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
+        /// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+        /// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
+        /// 								followed by a combination of Stack Name and a UUID.
         /// </summary>
         [Output("graphName")]
         public Output<string> GraphName { get; private set; } = null!;
@@ -126,13 +127,13 @@ namespace Pulumi.Aws.NeptuneGraph
         public Output<int> ReplicaCount { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -199,10 +200,11 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-        /// character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don't specify a graph
-        /// name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-        /// UUID.
+        /// The graph name. For example: my-graph-1.
+        /// 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
+        /// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+        /// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
+        /// 								followed by a combination of Stack Name and a UUID.
         /// </summary>
         [Input("graphName")]
         public Input<string>? GraphName { get; set; }
@@ -249,7 +251,7 @@ namespace Pulumi.Aws.NeptuneGraph
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -293,10 +295,11 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
-        /// character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don't specify a graph
-        /// name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
-        /// UUID.
+        /// The graph name. For example: my-graph-1.
+        /// 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
+        /// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+        /// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
+        /// 								followed by a combination of Stack Name and a UUID.
         /// </summary>
         [Input("graphName")]
         public Input<string>? GraphName { get; set; }
@@ -343,7 +346,7 @@ namespace Pulumi.Aws.NeptuneGraph
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -355,7 +358,7 @@ namespace Pulumi.Aws.NeptuneGraph
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

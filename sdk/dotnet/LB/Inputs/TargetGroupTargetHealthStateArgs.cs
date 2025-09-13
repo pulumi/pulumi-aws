@@ -19,7 +19,7 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<bool> EnableUnhealthyConnectionTermination { get; set; } = null!;
 
         /// <summary>
-        /// Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+        /// Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
         /// </summary>
         [Input("unhealthyDrainingInterval")]
         public Input<int>? UnhealthyDrainingInterval { get; set; }

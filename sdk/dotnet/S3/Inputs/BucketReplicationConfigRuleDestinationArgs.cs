@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<Inputs.BucketReplicationConfigRuleDestinationAccessControlTranslationArgs>? AccessControlTranslation { get; set; }
 
         /// <summary>
-        /// Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+        /// Account ID to specify the replica ownership. Must be used in conjunction with `accessControlTranslation` override configuration.
         /// </summary>
         [Input("account")]
         public Input<string>? Account { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
+        /// Configuration block that provides information about encryption. See below. If `sourceSelectionCriteria` is specified, you must specify this element.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }

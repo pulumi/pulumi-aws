@@ -64,13 +64,13 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        /// ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
         /// </summary>
         [Output("mergedApiArn")]
         public Output<string> MergedApiArn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        /// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
         /// </summary>
         [Output("mergedApiId")]
         public Output<string> MergedApiId { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+        /// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
         /// </summary>
         [Output("sourceApiArn")]
         public Output<string> SourceApiArn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.AppSync
         public Output<ImmutableArray<Outputs.SourceApiAssociationSourceApiAssociationConfig>> SourceApiAssociationConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+        /// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
         /// </summary>
         [Output("sourceApiId")]
         public Output<string> SourceApiId { get; private set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        /// ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
         /// </summary>
         [Input("mergedApiArn")]
         public Input<string>? MergedApiArn { get; set; }
 
         /// <summary>
-        /// ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        /// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
         /// </summary>
         [Input("mergedApiId")]
         public Input<string>? MergedApiId { get; set; }
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+        /// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
         /// </summary>
         [Input("sourceApiArn")]
         public Input<string>? SourceApiArn { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+        /// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
         /// </summary>
         [Input("sourceApiId")]
         public Input<string>? SourceApiId { get; set; }
@@ -219,13 +219,13 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        /// ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
         /// </summary>
         [Input("mergedApiArn")]
         public Input<string>? MergedApiArn { get; set; }
 
         /// <summary>
-        /// ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        /// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
         /// </summary>
         [Input("mergedApiId")]
         public Input<string>? MergedApiId { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+        /// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
         /// </summary>
         [Input("sourceApiArn")]
         public Input<string>? SourceApiArn { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+        /// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
         /// </summary>
         [Input("sourceApiId")]
         public Input<string>? SourceApiId { get; set; }

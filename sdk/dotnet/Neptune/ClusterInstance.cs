@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Neptune
     /// A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
     /// 
     /// You can simply add neptune instances and Neptune manages the replication. You can use the count
-    /// meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
+    /// meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instanceClass` sizes.
     /// 
     /// ## Example Usage
     /// 
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> NeptuneParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Output("neptuneSubnetGroupName")]
         public Output<string> NeptuneSubnetGroupName { get; private set; } = null!;
@@ -217,13 +217,13 @@ namespace Pulumi.Aws.Neptune
         public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneParameterGroupName { get; set; }
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -502,7 +502,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneParameterGroupName { get; set; }
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
@@ -566,7 +566,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -578,7 +578,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

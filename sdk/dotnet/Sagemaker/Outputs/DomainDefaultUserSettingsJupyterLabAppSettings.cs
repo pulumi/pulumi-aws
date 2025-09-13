@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsJupyterLabAppSettings
     {
         /// <summary>
-        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? BuiltInLifecycleConfigArn;
         /// <summary>
-        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository> CodeRepositories;
         /// <summary>
-        /// A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        /// A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `customImage` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage> CustomImages;
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec? DefaultResourceSpec;
         /// <summary>
-        /// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        /// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings? EmrSettings;
         /// <summary>

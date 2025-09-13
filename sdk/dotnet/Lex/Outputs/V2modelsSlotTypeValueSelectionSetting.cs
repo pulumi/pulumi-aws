@@ -16,12 +16,12 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Provides settings that enable advanced recognition settings for slot values.
         /// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-        /// See `advanced_recognition_setting` argument reference below.
+        /// See `advancedRecognitionSetting` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting> AdvancedRecognitionSettings;
         /// <summary>
         /// Used to validate the value of the slot.
-        /// See `regex_filter` argument reference below.
+        /// See `regexFilter` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter> RegexFilters;
         /// <summary>

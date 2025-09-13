@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `docker_volume_configuration`
+    /// ### Example Using `dockerVolumeConfiguration`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `efs_volume_configuration`
+    /// ### Example Using `efsVolumeConfiguration`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `fsx_windows_file_server_volume_configuration`
+    /// ### Example Using `fsxWindowsFileServerVolumeConfiguration`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `container_definitions`
+    /// ### Example Using `containerDefinitions`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `runtime_platform` and `fargate`
+    /// ### Example Using `runtimePlatform` and `fargate`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> ContainerDefinitions { get; private set; } = null!;
 
         /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Output("cpu")]
         public Output<string?> Cpu { get; private set; } = null!;
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> IpcMode { get; private set; } = null!;
 
         /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Output("memory")]
         public Output<string?> Memory { get; private set; } = null!;
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> PidMode { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
         /// </summary>
         [Output("placementConstraints")]
         public Output<ImmutableArray<Outputs.TaskDefinitionPlacementConstraint>> PlacementConstraints { get; private set; } = null!;
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.Ecs
         public Output<int> Revision { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
+        /// Configuration block for runtimePlatform that containers in your task may use.
         /// </summary>
         [Output("runtimePlatform")]
         public Output<Outputs.TaskDefinitionRuntimePlatform?> RuntimePlatform { get; private set; } = null!;
@@ -462,13 +462,13 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -548,7 +548,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string> ContainerDefinitions { get; set; } = null!;
 
         /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
@@ -586,7 +586,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? IpcMode { get; set; }
 
         /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
@@ -607,7 +607,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.TaskDefinitionPlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
         /// </summary>
         public InputList<Inputs.TaskDefinitionPlacementConstraintArgs> PlacementConstraints
         {
@@ -640,7 +640,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
+        /// Configuration block for runtimePlatform that containers in your task may use.
         /// </summary>
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
@@ -655,7 +655,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -718,7 +718,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? ContainerDefinitions { get; set; }
 
         /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
@@ -756,7 +756,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? IpcMode { get; set; }
 
         /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
@@ -777,7 +777,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs>? _placementConstraints;
 
         /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
         /// </summary>
         public InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs> PlacementConstraints
         {
@@ -816,7 +816,7 @@ namespace Pulumi.Aws.Ecs
         public Input<int>? Revision { get; set; }
 
         /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
+        /// Configuration block for runtimePlatform that containers in your task may use.
         /// </summary>
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformGetArgs>? RuntimePlatform { get; set; }
@@ -831,7 +831,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -843,7 +843,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

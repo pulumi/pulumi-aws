@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     public sealed class DeploymentConfigTrafficRoutingConfig
     {
         /// <summary>
-        /// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
+        /// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
         /// </summary>
         public readonly Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedCanary? TimeBasedCanary;
         /// <summary>
-        /// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
+        /// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `timeBasedCanary` instead.
         /// </summary>
         public readonly Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinear? TimeBasedLinear;
         /// <summary>

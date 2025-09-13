@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Fms.Outputs
         /// </summary>
         public readonly string? ManagedServiceData;
         /// <summary>
-        /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+        /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
         /// </summary>
         public readonly Outputs.PolicySecurityServicePolicyDataPolicyOption? PolicyOption;
         /// <summary>

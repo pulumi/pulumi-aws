@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Msk
     /// });
     /// ```
     /// 
-    /// ### With volume_throughput argument
+    /// ### With volumeThroughput argument
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -334,13 +334,13 @@ namespace Pulumi.Aws.Msk
         public Output<string> BootstrapBrokersVpcConnectivityTls { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+        /// Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
         /// </summary>
         [Output("brokerNodeGroupInfo")]
         public Output<Outputs.ClusterBrokerNodeGroupInfo> BrokerNodeGroupInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
         /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ClusterClientAuthentication?> ClientAuthentication { get; private set; } = null!;
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> ClusterUuid { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
         /// </summary>
         [Output("configurationInfo")]
         public Output<Outputs.ClusterConfigurationInfo?> ConfigurationInfo { get; private set; } = null!;
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying encryption. See encryption_info Argument Reference below.
+        /// Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
         /// </summary>
         [Output("encryptionInfo")]
         public Output<Outputs.ClusterEncryptionInfo?> EncryptionInfo { get; private set; } = null!;
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> KafkaVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
         /// </summary>
         [Output("loggingInfo")]
         public Output<Outputs.ClusterLoggingInfo?> LoggingInfo { get; private set; } = null!;
@@ -400,7 +400,7 @@ namespace Pulumi.Aws.Msk
         public Output<int> NumberOfBrokerNodes { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
         /// </summary>
         [Output("openMonitoring")]
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
@@ -418,13 +418,13 @@ namespace Pulumi.Aws.Msk
         public Output<string> StorageMode { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -488,13 +488,13 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+        /// Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
         /// </summary>
         [Input("brokerNodeGroupInfo", required: true)]
         public Input<Inputs.ClusterBrokerNodeGroupInfoArgs> BrokerNodeGroupInfo { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
         /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationArgs>? ClientAuthentication { get; set; }
@@ -506,13 +506,13 @@ namespace Pulumi.Aws.Msk
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
         /// </summary>
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoArgs>? ConfigurationInfo { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying encryption. See encryption_info Argument Reference below.
+        /// Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
         /// </summary>
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoArgs>? EncryptionInfo { get; set; }
@@ -530,7 +530,7 @@ namespace Pulumi.Aws.Msk
         public Input<string> KafkaVersion { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
         /// </summary>
         [Input("loggingInfo")]
         public Input<Inputs.ClusterLoggingInfoArgs>? LoggingInfo { get; set; }
@@ -542,7 +542,7 @@ namespace Pulumi.Aws.Msk
         public Input<int> NumberOfBrokerNodes { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
@@ -563,7 +563,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -646,13 +646,13 @@ namespace Pulumi.Aws.Msk
         public Input<string>? BootstrapBrokersVpcConnectivityTls { get; set; }
 
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+        /// Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
         /// </summary>
         [Input("brokerNodeGroupInfo")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoGetArgs>? BrokerNodeGroupInfo { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
         /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationGetArgs>? ClientAuthentication { get; set; }
@@ -670,7 +670,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? ClusterUuid { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
         /// </summary>
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoGetArgs>? ConfigurationInfo { get; set; }
@@ -682,7 +682,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? CurrentVersion { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying encryption. See encryption_info Argument Reference below.
+        /// Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
         /// </summary>
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoGetArgs>? EncryptionInfo { get; set; }
@@ -700,7 +700,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? KafkaVersion { get; set; }
 
         /// <summary>
-        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
         /// </summary>
         [Input("loggingInfo")]
         public Input<Inputs.ClusterLoggingInfoGetArgs>? LoggingInfo { get; set; }
@@ -712,7 +712,7 @@ namespace Pulumi.Aws.Msk
         public Input<int>? NumberOfBrokerNodes { get; set; }
 
         /// <summary>
-        /// Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringGetArgs>? OpenMonitoring { get; set; }
@@ -733,7 +733,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -745,7 +745,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration
     {
         /// <summary>
-        /// Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+        /// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> LevelConfigurations;
         /// <summary>

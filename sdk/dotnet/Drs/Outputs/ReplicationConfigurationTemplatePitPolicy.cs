@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Drs.Outputs
         /// </summary>
         public readonly int? RuleId;
         /// <summary>
-        /// Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+        /// Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
         /// </summary>
         public readonly string Units;
 

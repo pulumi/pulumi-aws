@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Name of the parameter.
         /// 
-        /// **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+        /// **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
         /// </summary>
         [Input("mapBlockKey", required: true)]
         public Input<string> MapBlockKey { get; set; } = null!;

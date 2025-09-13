@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Route53Domains
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
+        /// The list of nameservers for the domain. See `nameServer` Blocks for more details.
         /// </summary>
         [Output("nameServers")]
         public Output<ImmutableArray<Outputs.DomainNameServer>> NameServers { get; private set; } = null!;
@@ -198,13 +198,13 @@ namespace Pulumi.Aws.Route53Domains
         public Output<ImmutableArray<string>> StatusLists { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Route53Domains
         /// <summary>
         /// Whether the domain is locked for transfer. Default: `true`.
         /// 
-        /// &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+        /// &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
         /// </summary>
         [Output("transferLock")]
         public Output<bool> TransferLock { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputList<Inputs.DomainNameServerArgs>? _nameServers;
 
         /// <summary>
-        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
+        /// The list of nameservers for the domain. See `nameServer` Blocks for more details.
         /// </summary>
         public InputList<Inputs.DomainNameServerArgs> NameServers
         {
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.Route53Domains
         /// <summary>
         /// Whether the domain is locked for transfer. Default: `true`.
         /// 
-        /// &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+        /// &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
         /// </summary>
         [Input("transferLock")]
         public Input<bool>? TransferLock { get; set; }
@@ -487,7 +487,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputList<Inputs.DomainNameServerGetArgs>? _nameServers;
 
         /// <summary>
-        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
+        /// The list of nameservers for the domain. See `nameServer` Blocks for more details.
         /// </summary>
         public InputList<Inputs.DomainNameServerGetArgs> NameServers
         {
@@ -535,7 +535,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -547,7 +547,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -573,7 +573,7 @@ namespace Pulumi.Aws.Route53Domains
         /// <summary>
         /// Whether the domain is locked for transfer. Default: `true`.
         /// 
-        /// &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+        /// &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
         /// </summary>
         [Input("transferLock")]
         public Input<bool>? TransferLock { get; set; }

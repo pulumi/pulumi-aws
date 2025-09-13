@@ -102,7 +102,7 @@ namespace Pulumi.Aws.RedShift
         public Output<int?> AutomatedSnapshotRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.RedShift
         public Output<bool> EnhancedVpcRouting { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
         /// </summary>
         [Output("finalSnapshotIdentifier")]
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableArray<string>> IamRoles { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -238,8 +238,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `master_password` and `master_password_wo`.
-        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `masterPassword` and `masterPasswordWo`.
+        /// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
         /// </summary>
         [Output("manageMasterPassword")]
         public Output<bool?> ManageMasterPassword { get; private set; } = null!;
@@ -252,8 +252,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Conflicts with `manage_master_password` and `master_password_wo`.
-        /// One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+        /// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
         /// Note that this may show up in logs, and it will be stored in the state file.
         /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.RedShift
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
         /// </summary>
         [Output("snapshotArn")]
         public Output<string?> SnapshotArn { get; private set; } = null!;
@@ -349,13 +349,13 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> SnapshotClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
+        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
         /// </summary>
         [Output("snapshotIdentifier")]
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.RedShift
         public Input<int>? AutomatedSnapshotRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? EnhancedVpcRouting { get; set; }
 
         /// <summary>
-        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
@@ -545,7 +545,7 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -558,8 +558,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `master_password` and `master_password_wo`.
-        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `masterPassword` and `masterPasswordWo`.
+        /// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
         public Input<bool>? ManageMasterPassword { get; set; }
@@ -575,8 +575,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Conflicts with `manage_master_password` and `master_password_wo`.
-        /// One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+        /// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
         /// Note that this may show up in logs, and it will be stored in the state file.
         /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
@@ -661,7 +661,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
         /// </summary>
         [Input("snapshotArn")]
         public Input<string>? SnapshotArn { get; set; }
@@ -673,7 +673,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? SnapshotClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
+        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
@@ -682,7 +682,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
@@ -746,7 +746,7 @@ namespace Pulumi.Aws.RedShift
         public Input<int>? AutomatedSnapshotRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -863,7 +863,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? EnhancedVpcRouting { get; set; }
 
         /// <summary>
-        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
@@ -881,7 +881,7 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -894,8 +894,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `master_password` and `master_password_wo`.
-        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `masterPassword` and `masterPasswordWo`.
+        /// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
         public Input<bool>? ManageMasterPassword { get; set; }
@@ -911,8 +911,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Conflicts with `manage_master_password` and `master_password_wo`.
-        /// One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+        /// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
         /// Note that this may show up in logs, and it will be stored in the state file.
         /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
@@ -1003,7 +1003,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
         /// </summary>
         [Input("snapshotArn")]
         public Input<string>? SnapshotArn { get; set; }
@@ -1015,7 +1015,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? SnapshotClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
+        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
@@ -1024,7 +1024,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
@@ -1039,7 +1039,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

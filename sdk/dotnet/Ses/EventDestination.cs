@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Ses
         /// <summary>
         /// Send the events to an SNS Topic destination
         /// 
-        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
+        /// &gt; **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
         /// </summary>
         [Output("snsDestination")]
         public Output<Outputs.EventDestinationSnsDestination?> SnsDestination { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Ses
         /// <summary>
         /// Send the events to an SNS Topic destination
         /// 
-        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
+        /// &gt; **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
         /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.EventDestinationSnsDestinationArgs>? SnsDestination { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.Ses
         /// <summary>
         /// Send the events to an SNS Topic destination
         /// 
-        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
+        /// &gt; **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
         /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.EventDestinationSnsDestinationGetArgs>? SnsDestination { get; set; }

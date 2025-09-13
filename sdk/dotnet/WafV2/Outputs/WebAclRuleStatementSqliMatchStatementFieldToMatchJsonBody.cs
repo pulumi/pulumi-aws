@@ -18,11 +18,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string? InvalidFallbackBehavior;
         /// <summary>
-        /// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        /// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern MatchPattern;
         /// <summary>
-        /// The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        /// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         /// </summary>
         public readonly string MatchScope;
         /// <summary>

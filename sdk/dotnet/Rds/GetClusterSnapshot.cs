@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Rds
         public readonly bool? IncludePublic;
         public readonly bool? IncludeShared;
         /// <summary>
-        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+        /// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>

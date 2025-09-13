@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string CustomerMasterKeySpec;
         /// <summary>
-        /// Encryption algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `ENCRYPT_DECRYPT`.
+        /// Encryption algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `ENCRYPT_DECRYPT`.
         /// </summary>
         public readonly ImmutableArray<string> EncryptionAlgorithms;
         public readonly ImmutableArray<string> GrantTokens;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Kms
         public readonly string PublicKeyPem;
         public readonly string Region;
         /// <summary>
-        /// Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
+        /// Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
         /// </summary>
         public readonly ImmutableArray<string> SigningAlgorithms;
 

@@ -130,7 +130,7 @@ namespace Pulumi.Aws.IdentityStore
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+        /// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
         /// </summary>
         [Input("alternateIdentifier")]
         public Inputs.GetGroupAlternateIdentifierArgs? AlternateIdentifier { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// The identifier for a group in the Identity Store.
         /// 
-        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
         /// </summary>
         [Input("groupId")]
         public string? GroupId { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.IdentityStore
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+        /// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
         /// </summary>
         [Input("alternateIdentifier")]
         public Input<Inputs.GetGroupAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// The identifier for a group in the Identity Store.
         /// 
-        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }

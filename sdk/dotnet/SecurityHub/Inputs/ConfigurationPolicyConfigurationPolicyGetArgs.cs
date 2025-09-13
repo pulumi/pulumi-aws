@@ -16,7 +16,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<string>? _enabledStandardArns;
 
         /// <summary>
-        /// A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+        /// A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
         /// </summary>
         public InputList<string> EnabledStandardArns
         {

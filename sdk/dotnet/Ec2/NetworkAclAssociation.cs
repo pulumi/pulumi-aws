@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2
     /// Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
     /// 
     /// &gt; **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
-    /// and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
+    /// and a network ACL resource with a `subnetIds` attribute. Do not use the same subnet ID in both a network ACL
     /// resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
     /// 
     /// ## Example Usage

@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
-    /// &gt; **Note:** Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
+    /// &gt; **Note:** Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `updateRuntimeOn` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
     /// 
     /// ## Import
     /// 
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+        /// ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
         /// </summary>
         [Output("runtimeVersionArn")]
         public Output<string?> RuntimeVersionArn { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+        /// ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
         /// </summary>
         [Input("runtimeVersionArn")]
         public Input<string>? RuntimeVersionArn { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+        /// ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
         /// </summary>
         [Input("runtimeVersionArn")]
         public Input<string>? RuntimeVersionArn { get; set; }

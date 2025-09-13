@@ -196,7 +196,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
+        /// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
         /// </summary>
         [Output("eventPattern")]
         public Output<string?> EventPattern { get; private set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
+        /// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
         /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
+        /// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
         /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }

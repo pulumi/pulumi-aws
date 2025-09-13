@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class BrokerLogs
     {
         /// <summary>
-        /// Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
+        /// Whether to enable audit logging. Only possible for `engineType` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
         /// </summary>
         public readonly bool? Audit;
         /// <summary>

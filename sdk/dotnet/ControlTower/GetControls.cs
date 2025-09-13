@@ -151,7 +151,7 @@ namespace Pulumi.Aws.ControlTower
     public sealed class GetControlsResult
     {
         /// <summary>
-        /// List of all the ARNs for the controls applied to the `target_identifier`.
+        /// List of all the ARNs for the controls applied to the `targetIdentifier`.
         /// </summary>
         public readonly ImmutableArray<string> EnabledControls;
         /// <summary>

@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Emr
         public Output<string?> ConfigurationsJson { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ebsConfigs")]
         public Output<ImmutableArray<Outputs.InstanceGroupEbsConfig>> EbsConfigs { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Emr
         private InputList<Inputs.InstanceGroupEbsConfigArgs>? _ebsConfigs;
 
         /// <summary>
-        /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.InstanceGroupEbsConfigArgs> EbsConfigs
         {
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Emr
         private InputList<Inputs.InstanceGroupEbsConfigGetArgs>? _ebsConfigs;
 
         /// <summary>
-        /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.InstanceGroupEbsConfigGetArgs> EbsConfigs
         {

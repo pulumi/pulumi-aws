@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly Outputs.GroupInstanceRefreshPreferencesAlarmSpecification? AlarmSpecification;
         /// <summary>
-        /// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
+        /// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
         /// </summary>
         public readonly bool? AutoRollback;
         /// <summary>

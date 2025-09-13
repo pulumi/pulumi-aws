@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetPatchBaselineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filters the results against the baselines default_baseline field.
+        /// Filters the results against the baselines defaultBaseline field.
         /// </summary>
         [Input("defaultBaseline")]
         public bool? DefaultBaseline { get; set; }
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetPatchBaselineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filters the results against the baselines default_baseline field.
+        /// Filters the results against the baselines defaultBaseline field.
         /// </summary>
         [Input("defaultBaseline")]
         public Input<bool>? DefaultBaseline { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly ImmutableArray<string> RejectedPatches;
         /// <summary>
-        /// Action specified to take on patches included in the `rejected_patches` list.
+        /// Action specified to take on patches included in the `rejectedPatches` list.
         /// </summary>
         public readonly string RejectedPatchesAction;
         /// <summary>

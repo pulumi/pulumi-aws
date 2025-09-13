@@ -40,7 +40,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         private InputList<Inputs.PipelineTriggerAllGitConfigurationPullRequestFilePathGetArgs>? _filePaths;
 
         /// <summary>
-        /// The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+        /// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
         /// </summary>
         public InputList<Inputs.PipelineTriggerAllGitConfigurationPullRequestFilePathGetArgs> FilePaths
         {

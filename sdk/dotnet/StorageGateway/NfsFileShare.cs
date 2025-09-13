@@ -60,7 +60,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> AuditDestinationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
         /// </summary>
         [Output("bucketRegion")]
         public Output<string?> BucketRegion { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> DefaultStorageClass { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
         /// </summary>
         [Output("fileShareName")]
         public Output<string> FileShareName { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<bool?> KmsEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
@@ -180,13 +180,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> Squash { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? AuditDestinationArn { get; set; }
 
         /// <summary>
-        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
         /// </summary>
         [Input("bucketRegion")]
         public Input<string>? BucketRegion { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? DefaultStorageClass { get; set; }
 
         /// <summary>
-        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
         /// </summary>
         [Input("fileShareName")]
         public Input<string>? FileShareName { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? AuditDestinationArn { get; set; }
 
         /// <summary>
-        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
         /// </summary>
         [Input("bucketRegion")]
         public Input<string>? BucketRegion { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? DefaultStorageClass { get; set; }
 
         /// <summary>
-        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
         /// </summary>
         [Input("fileShareName")]
         public Input<string>? FileShareName { get; set; }
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -543,7 +543,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

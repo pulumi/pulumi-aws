@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly int MemorySizeInMb;
         /// <summary>
-        /// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        /// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
         /// </summary>
         public readonly int? ProvisionedConcurrency;
 

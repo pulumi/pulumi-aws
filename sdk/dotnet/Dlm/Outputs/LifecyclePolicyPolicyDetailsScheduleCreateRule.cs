@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleCreateRule
     {
         /// <summary>
-        /// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+        /// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
         /// </summary>
         public readonly string? CronExpression;
         public readonly int? Interval;
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+        /// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
         /// </summary>
         public readonly string? Times;
 

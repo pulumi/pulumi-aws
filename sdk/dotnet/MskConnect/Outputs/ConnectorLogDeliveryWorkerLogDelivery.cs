@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorLogDeliveryWorkerLogDelivery
     {
         /// <summary>
-        /// Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
+        /// Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs? CloudwatchLogs;
         /// <summary>

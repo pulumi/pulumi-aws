@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class InstanceRestoreToPointInTime
     {
         /// <summary>
-        /// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        /// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
         /// </summary>
         public readonly string? RestoreTime;
         /// <summary>
-        /// The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+        /// The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
         /// </summary>
         public readonly string? SourceDbInstanceAutomatedBackupsArn;
         /// <summary>
-        /// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+        /// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
         /// </summary>
         public readonly string? SourceDbInstanceIdentifier;
         /// <summary>
-        /// The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+        /// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
         /// </summary>
         public readonly string? SourceDbiResourceId;
         /// <summary>
-        /// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+        /// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
         /// </summary>
         public readonly bool? UseLatestRestorableTime;
 

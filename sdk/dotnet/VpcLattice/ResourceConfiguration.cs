@@ -148,7 +148,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<ImmutableArray<string>> PortRanges { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+        /// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -174,19 +174,19 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string?> ResourceConfigurationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
+        /// ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
         /// </summary>
         [Output("resourceGatewayIdentifier")]
         public Output<string> ResourceGatewayIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+        /// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? ResourceConfigurationGroupId { get; set; }
 
         /// <summary>
-        /// ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
+        /// ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
         /// </summary>
         [Input("resourceGatewayIdentifier")]
         public Input<string>? ResourceGatewayIdentifier { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+        /// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? ResourceConfigurationGroupId { get; set; }
 
         /// <summary>
-        /// ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
+        /// ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
         /// </summary>
         [Input("resourceGatewayIdentifier")]
         public Input<string>? ResourceGatewayIdentifier { get; set; }
@@ -397,7 +397,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -409,7 +409,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

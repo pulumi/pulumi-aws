@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Alb
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
         /// </summary>
         [Output("lambdaMultiValueHeadersEnabled")]
         public Output<bool?> LambdaMultiValueHeadersEnabled { get; private set; } = null!;
@@ -232,19 +232,19 @@ namespace Pulumi.Aws.Alb
         public Output<ImmutableArray<string>> LoadBalancerArns { get; private set; } = null!;
 
         /// <summary>
-        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
         /// </summary>
         [Output("loadBalancingAlgorithmType")]
         public Output<string> LoadBalancingAlgorithmType { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+        /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         /// </summary>
         [Output("loadBalancingAnomalyMitigation")]
         public Output<string> LoadBalancingAnomalyMitigation { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
+        /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
         /// </summary>
         [Output("loadBalancingCrossZoneEnabled")]
         public Output<string> LoadBalancingCrossZoneEnabled { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Alb
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+        /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
@@ -276,8 +276,8 @@ namespace Pulumi.Aws.Alb
         /// <summary>
         /// Protocol to use for routing traffic to the targets.
         /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
-        /// Required when `target_type` is `instance`, `ip`, or `alb`.
-        /// Does not apply when `target_type` is `lambda`.
+        /// Required when `targetType` is `instance`, `ip`, or `alb`.
+        /// Does not apply when `targetType` is `lambda`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -313,31 +313,31 @@ namespace Pulumi.Aws.Alb
         public Output<Outputs.TargetGroupStickiness> Stickiness { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        /// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
         /// </summary>
         [Output("targetFailovers")]
         public Output<ImmutableArray<Outputs.TargetGroupTargetFailover>> TargetFailovers { get; private set; } = null!;
 
         /// <summary>
-        /// Target health requirements block. See target_group_health for more information.
+        /// Target health requirements block. See targetGroupHealth for more information.
         /// </summary>
         [Output("targetGroupHealth")]
         public Output<Outputs.TargetGroupTargetGroupHealth> TargetGroupHealth { get; private set; } = null!;
 
         /// <summary>
-        /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
         /// </summary>
         [Output("targetHealthStates")]
         public Output<ImmutableArray<Outputs.TargetGroupTargetHealthState>> TargetHealthStates { get; private set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Alb
         public Output<string?> TargetType { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+        /// Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
         /// </summary>
         [Output("vpcId")]
         public Output<string?> VpcId { get; private set; } = null!;
@@ -439,25 +439,25 @@ namespace Pulumi.Aws.Alb
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
         /// </summary>
         [Input("lambdaMultiValueHeadersEnabled")]
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
 
         /// <summary>
-        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
         /// </summary>
         [Input("loadBalancingAlgorithmType")]
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
-        /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+        /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         /// </summary>
         [Input("loadBalancingAnomalyMitigation")]
         public Input<string>? LoadBalancingAnomalyMitigation { get; set; }
 
         /// <summary>
-        /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
+        /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
         /// </summary>
         [Input("loadBalancingCrossZoneEnabled")]
         public Input<string>? LoadBalancingCrossZoneEnabled { get; set; }
@@ -475,7 +475,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+        /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -489,8 +489,8 @@ namespace Pulumi.Aws.Alb
         /// <summary>
         /// Protocol to use for routing traffic to the targets.
         /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
-        /// Required when `target_type` is `instance`, `ip`, or `alb`.
-        /// Does not apply when `target_type` is `lambda`.
+        /// Required when `targetType` is `instance`, `ip`, or `alb`.
+        /// Does not apply when `targetType` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -529,7 +529,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -541,7 +541,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.TargetGroupTargetFailoverArgs>? _targetFailovers;
 
         /// <summary>
-        /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        /// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
         /// </summary>
         public InputList<Inputs.TargetGroupTargetFailoverArgs> TargetFailovers
         {
@@ -550,7 +550,7 @@ namespace Pulumi.Aws.Alb
         }
 
         /// <summary>
-        /// Target health requirements block. See target_group_health for more information.
+        /// Target health requirements block. See targetGroupHealth for more information.
         /// </summary>
         [Input("targetGroupHealth")]
         public Input<Inputs.TargetGroupTargetGroupHealthArgs>? TargetGroupHealth { get; set; }
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.TargetGroupTargetHealthStateArgs>? _targetHealthStates;
 
         /// <summary>
-        /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
         /// </summary>
         public InputList<Inputs.TargetGroupTargetHealthStateArgs> TargetHealthStates
         {
@@ -584,7 +584,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? TargetType { get; set; }
 
         /// <summary>
-        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+        /// Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -634,7 +634,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
         /// </summary>
         [Input("lambdaMultiValueHeadersEnabled")]
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
@@ -652,19 +652,19 @@ namespace Pulumi.Aws.Alb
         }
 
         /// <summary>
-        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
         /// </summary>
         [Input("loadBalancingAlgorithmType")]
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
-        /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+        /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         /// </summary>
         [Input("loadBalancingAnomalyMitigation")]
         public Input<string>? LoadBalancingAnomalyMitigation { get; set; }
 
         /// <summary>
-        /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
+        /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
         /// </summary>
         [Input("loadBalancingCrossZoneEnabled")]
         public Input<string>? LoadBalancingCrossZoneEnabled { get; set; }
@@ -682,7 +682,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+        /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -696,8 +696,8 @@ namespace Pulumi.Aws.Alb
         /// <summary>
         /// Protocol to use for routing traffic to the targets.
         /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
-        /// Required when `target_type` is `instance`, `ip`, or `alb`.
-        /// Does not apply when `target_type` is `lambda`.
+        /// Required when `targetType` is `instance`, `ip`, or `alb`.
+        /// Does not apply when `targetType` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -736,7 +736,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -748,7 +748,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -760,7 +760,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.TargetGroupTargetFailoverGetArgs>? _targetFailovers;
 
         /// <summary>
-        /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        /// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
         /// </summary>
         public InputList<Inputs.TargetGroupTargetFailoverGetArgs> TargetFailovers
         {
@@ -769,7 +769,7 @@ namespace Pulumi.Aws.Alb
         }
 
         /// <summary>
-        /// Target health requirements block. See target_group_health for more information.
+        /// Target health requirements block. See targetGroupHealth for more information.
         /// </summary>
         [Input("targetGroupHealth")]
         public Input<Inputs.TargetGroupTargetGroupHealthGetArgs>? TargetGroupHealth { get; set; }
@@ -778,7 +778,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.TargetGroupTargetHealthStateGetArgs>? _targetHealthStates;
 
         /// <summary>
-        /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
         /// </summary>
         public InputList<Inputs.TargetGroupTargetHealthStateGetArgs> TargetHealthStates
         {
@@ -803,7 +803,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? TargetType { get; set; }
 
         /// <summary>
-        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+        /// Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
