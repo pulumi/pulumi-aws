@@ -22,6 +22,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      id-token: write # For ESC secrets.
     uses: ./.github/workflows/prerequisites.yml
     secrets: inherit
     with:
@@ -33,6 +34,9 @@ jobs:
     uses: ./.github/workflows/build_provider.yml
     needs: prerequisites
     secrets: inherit
+    permissions:
+      contents: read
+      id-token: write # For ESC secrets.
     with:
       version: ${{ needs.prerequisites.outputs.version }}
 
@@ -41,6 +45,9 @@ jobs:
     needs: prerequisites
     uses: ./.github/workflows/build_sdk.yml
     secrets: inherit
+    permissions:
+      contents: write # For Renovate SDKs.
+      id-token: write # For ESC secrets.
     with:
       version: ${{ needs.prerequisites.outputs.version }}
 
@@ -49,6 +56,9 @@ jobs:
     needs: prerequisites
     uses: ./.github/workflows/main-post-build.yml
     secrets: inherit
+    permissions:
+      contents: write # For Renovate SDKs.
+      id-token: write # For ESC secrets.
     with:
       version: ${{ needs.prerequisites.outputs.version }}
 
@@ -79,6 +89,9 @@ jobs:
     name: Tag release if labeled as needs-release
     needs: publish
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # For ESC secrets.
     steps:
     - name: Checkout Repo
       uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0

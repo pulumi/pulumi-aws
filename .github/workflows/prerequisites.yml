@@ -43,6 +43,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      id-token: write # For ESC secrets.
     outputs:
       version: ${{ steps.provider-version.outputs.version }}
     steps:
@@ -78,6 +79,8 @@ jobs:
         tools: go, pulumictl, pulumicli, schema-tools
     - name: Prepare local workspace before restoring previously built files
       run: make prepare_local_workspace
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Generate schema
       run: make schema
     - name: Build provider binary
@@ -87,7 +90,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@fdcc8476540edceab3de004e990f80d881c6cc00 # v5.5.0
+      uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
       env:
         CODECOV_TOKEN: ${{ steps.esc-secrets.outputs.CODECOV_TOKEN }}
     - if: inputs.is_pr
