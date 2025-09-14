@@ -42,6 +42,9 @@ jobs:
         - dotnet
         - go
         - java
+    permissions:
+      contents: write # For Renovate SDKs.
+      id-token: write # For ESC secrets.
     steps:
       # Run as first step so we don't delete things that have just been installed
       - name: Free Disk Space (Ubuntu)
