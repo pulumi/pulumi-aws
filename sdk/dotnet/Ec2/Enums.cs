@@ -325,6 +325,17 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType I4i_Large { get; } = new InstanceType("i4i.large");
         public static InstanceType I4i_Metal { get; } = new InstanceType("i4i.metal");
         public static InstanceType I4i_XLarge { get; } = new InstanceType("i4i.xlarge");
+        public static InstanceType I7i_12XLarge { get; } = new InstanceType("i7i.12xlarge");
+        public static InstanceType I7i_16XLarge { get; } = new InstanceType("i7i.16xlarge");
+        public static InstanceType I7i_24XLarge { get; } = new InstanceType("i7i.24xlarge");
+        public static InstanceType I7i_2XLarge { get; } = new InstanceType("i7i.2xlarge");
+        public static InstanceType I7i_48XLarge { get; } = new InstanceType("i7i.48xlarge");
+        public static InstanceType I7i_4XLarge { get; } = new InstanceType("i7i.4xlarge");
+        public static InstanceType I7i_8XLarge { get; } = new InstanceType("i7i.8xlarge");
+        public static InstanceType I7i_Large { get; } = new InstanceType("i7i.large");
+        public static InstanceType I7i_Metal_24xl { get; } = new InstanceType("i7i.metal-24xl");
+        public static InstanceType I7i_Metal_48xl { get; } = new InstanceType("i7i.metal-48xl");
+        public static InstanceType I7i_XLarge { get; } = new InstanceType("i7i.xlarge");
         public static InstanceType Im4gn_16XLarge { get; } = new InstanceType("im4gn.16xlarge");
         public static InstanceType Im4gn_2XLarge { get; } = new InstanceType("im4gn.2xlarge");
         public static InstanceType Im4gn_4XLarge { get; } = new InstanceType("im4gn.4xlarge");
