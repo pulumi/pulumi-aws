@@ -464,6 +464,17 @@ const (
 	InstanceType_I4i_Large         = InstanceType("i4i.large")
 	InstanceType_I4i_Metal         = InstanceType("i4i.metal")
 	InstanceType_I4i_XLarge        = InstanceType("i4i.xlarge")
+	InstanceType_I7i_12XLarge      = InstanceType("i7i.12xlarge")
+	InstanceType_I7i_16XLarge      = InstanceType("i7i.16xlarge")
+	InstanceType_I7i_24XLarge      = InstanceType("i7i.24xlarge")
+	InstanceType_I7i_2XLarge       = InstanceType("i7i.2xlarge")
+	InstanceType_I7i_48XLarge      = InstanceType("i7i.48xlarge")
+	InstanceType_I7i_4XLarge       = InstanceType("i7i.4xlarge")
+	InstanceType_I7i_8XLarge       = InstanceType("i7i.8xlarge")
+	InstanceType_I7i_Large         = InstanceType("i7i.large")
+	InstanceType_I7i_Metal_24xl    = InstanceType("i7i.metal-24xl")
+	InstanceType_I7i_Metal_48xl    = InstanceType("i7i.metal-48xl")
+	InstanceType_I7i_XLarge        = InstanceType("i7i.xlarge")
 	InstanceType_Im4gn_16XLarge    = InstanceType("im4gn.16xlarge")
 	InstanceType_Im4gn_2XLarge     = InstanceType("im4gn.2xlarge")
 	InstanceType_Im4gn_4XLarge     = InstanceType("im4gn.4xlarge")
@@ -1362,6 +1373,17 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_I4i_Large
 //	InstanceType_I4i_Metal
 //	InstanceType_I4i_XLarge
+//	InstanceType_I7i_12XLarge
+//	InstanceType_I7i_16XLarge
+//	InstanceType_I7i_24XLarge
+//	InstanceType_I7i_2XLarge
+//	InstanceType_I7i_48XLarge
+//	InstanceType_I7i_4XLarge
+//	InstanceType_I7i_8XLarge
+//	InstanceType_I7i_Large
+//	InstanceType_I7i_Metal_24xl
+//	InstanceType_I7i_Metal_48xl
+//	InstanceType_I7i_XLarge
 //	InstanceType_Im4gn_16XLarge
 //	InstanceType_Im4gn_2XLarge
 //	InstanceType_Im4gn_4XLarge

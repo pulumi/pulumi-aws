@@ -272,6 +272,17 @@ i4i.8xlarge
 i4i.large
 i4i.metal
 i4i.xlarge
+i7i.12xlarge
+i7i.16xlarge
+i7i.24xlarge
+i7i.2xlarge
+i7i.48xlarge
+i7i.4xlarge
+i7i.8xlarge
+i7i.large
+i7i.metal-24xl
+i7i.metal-48xl
+i7i.xlarge
 im4gn.16xlarge
 im4gn.2xlarge
 im4gn.4xlarge
