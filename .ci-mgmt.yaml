@@ -16,6 +16,8 @@ toolVersions:
   nodejs: "20.x"
   pulumi: "3.187.0"
   python: "3.11.8"
+esc:
+  enabled: true
 env:
   PULUMI_MISSING_DOCS_ERROR: true
   AWS_REGION: "us-west-2"
