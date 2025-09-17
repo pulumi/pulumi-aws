@@ -11,7 +11,7 @@ dotnet = '8.0'
 java = 'corretto-11'
 
 # Executable tools
-pulumi = 'latest'
+pulumi = '3.190.0'
 "go:github.com/pulumi/pulumictl/cmd/pulumictl" = 'latest'
 gradle = '7.6'
 
