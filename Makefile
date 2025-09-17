@@ -7,7 +7,6 @@ PROVIDER_PATH := provider/v7
 VERSION_PATH := $(PROVIDER_PATH)/pkg/version.Version
 CODEGEN := pulumi-tfgen-$(PACK)
 PROVIDER := pulumi-resource-$(PACK)
-JAVA_GEN := pulumi-java-gen
 TESTPARALLELISM := 10
 GOTESTARGS := ""
 WORKING_DIR := $(shell pwd)
@@ -125,8 +124,8 @@ generate_java: .make/generate_java
 build_java: .make/build_java
 .make/generate_java: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 .make/generate_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
-.make/generate_java: .make/install_plugins bin/pulumi-java-gen .make/schema
-	PULUMI_HOME=$(GEN_PULUMI_HOME) PULUMI_CONVERT_EXAMPLES_CACHE_DIR=$(GEN_PULUMI_CONVERT_EXAMPLES_CACHE_DIR) bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
+.make/generate_java: .make/install_plugins bin/$(CODEGEN)
+	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) java --out sdk/java/
 	printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/java/go.mod
 	@touch $@
 .make/build_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
