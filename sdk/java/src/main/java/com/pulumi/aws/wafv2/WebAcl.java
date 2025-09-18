@@ -86,10 +86,10 @@ import javax.annotation.Nullable;
  *                     .count(WebAclRuleOverrideActionCountArgs.builder()
  *                         .build())
  *                     .build())
- *                 .statement(Map.of("managedRuleGroupStatement", Map.ofEntries(
- *                     Map.entry("name", "AWSManagedRulesCommonRuleSet"),
- *                     Map.entry("vendorName", "AWS"),
- *                     Map.entry("ruleActionOverrides",                     
+ *                 .statement(Map.of("managedRuleGroupStatement", WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
+ *                     .name("AWSManagedRulesCommonRuleSet")
+ *                     .vendorName("AWS")
+ *                     .ruleActionOverrides(                    
  *                         WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.builder()
  *                             .actionToUse(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.builder()
  *                                 .count(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs.builder()
@@ -103,15 +103,15 @@ import javax.annotation.Nullable;
  *                                     .build())
  *                                 .build())
  *                             .name("NoUserAgent_HEADER")
- *                             .build()),
- *                     Map.entry("scopeDownStatement", WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs.builder()
+ *                             .build())
+ *                     .scopeDownStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs.builder()
  *                         .geoMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs.builder()
  *                             .countryCodes(                            
  *                                 "US",
  *                                 "NL")
  *                             .build())
  *                         .build())
- *                 )))
+ *                     .build()))
  *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                     .cloudwatchMetricsEnabled(false)
  *                     .metricName("friendly-rule-metric-name")
@@ -373,17 +373,19 @@ import javax.annotation.Nullable;
  *                     .block(WebAclRuleActionBlockArgs.builder()
  *                         .build())
  *                     .build())
- *                 .statement(Map.of("rateBasedStatement", Map.ofEntries(
- *                     Map.entry("limit", 10000),
- *                     Map.entry("aggregateKeyType", "IP"),
- *                     Map.entry("scopeDownStatement", WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes(                            
- *                                 "US",
- *                                 "NL")
+ *                 .statement(WebAclRuleStatementArgs.builder()
+ *                     .rateBasedStatement(Map.ofEntries(
+ *                         Map.entry("limit", 10000),
+ *                         Map.entry("aggregateKeyType", "IP"),
+ *                         Map.entry("scopeDownStatement", WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes(                                
+ *                                     "US",
+ *                                     "NL")
+ *                                 .build())
  *                             .build())
- *                         .build())
- *                 )))
+ *                     ))
+ *                     .build())
  *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                     .cloudwatchMetricsEnabled(false)
  *                     .metricName("friendly-rule-metric-name")
