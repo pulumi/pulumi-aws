@@ -54,6 +54,28 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
+        /// 
+        /// ### Handling Key-Value Secret Strings in JSON
+        /// 
+        /// Reading key-value pairs from JSON back into a native map
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = exampleAwsSecretsmanagerSecretVersion.SecretString,
+        ///         }).Apply(invoke =&gt; invoke.Result?.Key1),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetSecretVersionResult> InvokeAsync(GetSecretVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionArgs(), options.WithDefaults());
@@ -101,6 +123,28 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
+        /// 
+        /// ### Handling Key-Value Secret Strings in JSON
+        /// 
+        /// Reading key-value pairs from JSON back into a native map
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = exampleAwsSecretsmanagerSecretVersion.SecretString,
+        ///         }).Apply(invoke =&gt; invoke.Result?.Key1),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSecretVersionResult> Invoke(GetSecretVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionInvokeArgs(), options.WithDefaults());
@@ -146,6 +190,28 @@ namespace Pulumi.Aws.SecretsManager
         ///         VersionStage = "example",
         ///     });
         /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Handling Key-Value Secret Strings in JSON
+        /// 
+        /// Reading key-value pairs from JSON back into a native map
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = exampleAwsSecretsmanagerSecretVersion.SecretString,
+        ///         }).Apply(invoke =&gt; invoke.Result?.Key1),
+        ///     };
         /// });
         /// ```
         /// </summary>

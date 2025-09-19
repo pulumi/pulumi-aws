@@ -97,6 +97,47 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
     """
     This resource can be useful for getting back a set of subnet IDs.
 
+    ## Example Usage
+
+    The following shows outputting all CIDR blocks for every subnet ID in a VPC.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.ec2.get_subnets(filters=[{
+        "name": "vpc-id",
+        "values": [vpc_id],
+    }])
+    example_get_subnet = {__key: aws.ec2.get_subnet(id=__value) for __key, __value in std.toset(input=example.ids).result}
+    pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_get_subnet])
+    ```
+
+    The following example retrieves a set of all subnets in a VPC with a custom
+    tag of `Tier` set to a value of "Private" so that the `ec2.Instance` resource
+    can loop through the subnets, putting instances across availability zones.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    private = aws.ec2.get_subnets(filters=[{
+            "name": "vpc-id",
+            "values": [vpc_id],
+        }],
+        tags={
+            "Tier": "Private",
+        })
+    app = []
+    for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=private.ids).result)]:
+        app.append(aws.ec2.Instance(f"app-{range['key']}",
+            ami=ami,
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
+            subnet_id=range["value"]))
+    ```
+
 
     :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -122,6 +163,47 @@ def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetsResult]:
     """
     This resource can be useful for getting back a set of subnet IDs.
+
+    ## Example Usage
+
+    The following shows outputting all CIDR blocks for every subnet ID in a VPC.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.ec2.get_subnets(filters=[{
+        "name": "vpc-id",
+        "values": [vpc_id],
+    }])
+    example_get_subnet = {__key: aws.ec2.get_subnet(id=__value) for __key, __value in std.toset(input=example.ids).result}
+    pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_get_subnet])
+    ```
+
+    The following example retrieves a set of all subnets in a VPC with a custom
+    tag of `Tier` set to a value of "Private" so that the `ec2.Instance` resource
+    can loop through the subnets, putting instances across availability zones.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    private = aws.ec2.get_subnets(filters=[{
+            "name": "vpc-id",
+            "values": [vpc_id],
+        }],
+        tags={
+            "Tier": "Private",
+        })
+    app = []
+    for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=private.ids).result)]:
+        app.append(aws.ec2.Instance(f"app-{range['key']}",
+            ami=ami,
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
+            subnet_id=range["value"]))
+    ```
 
 
     :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']] filters: Custom filter block as described below.

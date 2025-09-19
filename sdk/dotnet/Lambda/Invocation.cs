@@ -18,6 +18,53 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Invocation
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Lambda function to invoke
+    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "data_processor",
+    ///         Role = lambdaRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.Python3d12,
+    ///     });
+    /// 
+    ///     // Invoke the function once during resource creation
+    ///     var exampleInvocation = new Aws.Lambda.Invocation("example", new()
+    ///     {
+    ///         FunctionName = example.Name,
+    ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["operation"] = "initialize",
+    ///             ["config"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["environment"] = "production",
+    ///                 ["debug"] = false,
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["initializationResult"] = Std.Jsondecode.Invoke(new()
+    ///         {
+    ///             Input = exampleInvocation.Result,
+    ///         }).Apply(invoke =&gt; invoke.Result?.Status),
+    ///     };
+    /// });
+    /// ```
+    /// 
     /// ### Dynamic Invocation with Triggers
     /// 
     /// ```csharp

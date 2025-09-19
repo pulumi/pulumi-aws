@@ -75,6 +75,17 @@ def get_clusters(region: Optional[_builtins.str] = None,
     """
     Retrieve EKS Clusters list
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.eks.get_clusters()
+    example_get_cluster = {__key: aws.eks.get_cluster(name=__value) for __key, __value in std.toset(input=example.names).result}
+    ```
+
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -91,6 +102,17 @@ def get_clusters_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] 
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
     """
     Retrieve EKS Clusters list
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.eks.get_clusters()
+    example_get_cluster = {__key: aws.eks.get_cluster(name=__value) for __key, __value in std.toset(input=example.names).result}
+    ```
 
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

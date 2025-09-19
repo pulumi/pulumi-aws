@@ -32,23 +32,23 @@ import (
 //				AuthenticationType: pulumi.String("API_KEY"),
 //				Name:               pulumi.String("tf-example"),
 //				Schema: pulumi.String(`type Mutation {
-//		putPost(id: ID!, title: String!): Post
-//	}
 //
-//	type Post {
-//		id: ID!
-//		title: String!
-//	}
+// \tputPost(id: ID!, title: String!): Post
+// }
 //
-//	type Query {
-//		singlePost(id: ID!): Post
-//	}
+// type Post {
+// \tid: ID!
+// \ttitle: String!
+// }
 //
-//	schema {
-//		query: Query
-//		mutation: Mutation
-//	}
+// type Query {
+// \tsinglePost(id: ID!): Post
+// }
 //
+// schema {
+// \tquery: Query
+// \tmutation: Mutation
+// }
 // `),
 //
 //			})
@@ -73,11 +73,11 @@ import (
 //				Type:       pulumi.String("Query"),
 //				DataSource: testDataSource.Name,
 //				RequestTemplate: pulumi.String(`{
-//	    "version": "2018-05-29",
-//	    "method": "GET",
-//	    "resourcePath": "/",
-//	    "params":{
-//	        "headers": $utils.http.copyheaders($ctx.request.headers)
+//	    \"version\": \"2018-05-29\",
+//	    \"method\": \"GET\",
+//	    \"resourcePath\": \"/\",
+//	    \"params\":{
+//	        \"headers\": $utils.http.copyheaders($ctx.request.headers)
 //	    }
 //	}
 //

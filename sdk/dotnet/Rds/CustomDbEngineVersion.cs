@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = "19.cdb_cev1",
     ///         KmsKeyId = example.Arn,
     ///         Manifest = @"  {
-    /// 	""databaseInstallationFileNames"":[""V982063-01.zip""]
+    /// \t\""databaseInstallationFileNames\"":[\""V982063-01.zip\""]
     ///   }
     /// ",
     ///         Tags = 

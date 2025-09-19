@@ -223,8 +223,9 @@ import (
 //				AuthenticationType: pulumi.String("AWS_IAM"),
 //				Name:               pulumi.String("example"),
 //				Schema: pulumi.String(`schema {
-//		query: Query
-//	}
+//
+// \tquery: Query
+// }
 //
 //	type Query {
 //	  test: Int

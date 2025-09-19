@@ -30,13 +30,13 @@ namespace Pulumi.Aws.Sfn
     ///         Name = "my-state-machine",
     ///         RoleArn = iamForSfn.Arn,
     ///         Definition = @$"{{
-    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
-    ///   ""StartAt"": ""HelloWorld"",
-    ///   ""States"": {{
-    ///     ""HelloWorld"": {{
-    ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{lambda.Arn}"",
-    ///       ""End"": true
+    ///   \""Comment\"": \""A Hello World example of the Amazon States Language using an AWS Lambda Function\"",
+    ///   \""StartAt\"": \""HelloWorld\"",
+    ///   \""States\"": {{
+    ///     \""HelloWorld\"": {{
+    ///       \""Type\"": \""Task\"",
+    ///       \""Resource\"": \""{lambda.Arn}\"",
+    ///       \""End\"": true
     ///     }}
     ///   }}
     /// }}
@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Sfn
     ///         RoleArn = iamForSfn.Arn,
     ///         Type = "EXPRESS",
     ///         Definition = @$"{{
-    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
-    ///   ""StartAt"": ""HelloWorld"",
-    ///   ""States"": {{
-    ///     ""HelloWorld"": {{
-    ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{lambda.Arn}"",
-    ///       ""End"": true
+    ///   \""Comment\"": \""A Hello World example of the Amazon States Language using an AWS Lambda Function\"",
+    ///   \""StartAt\"": \""HelloWorld\"",
+    ///   \""States\"": {{
+    ///     \""HelloWorld\"": {{
+    ///       \""Type\"": \""Task\"",
+    ///       \""Resource\"": \""{lambda.Arn}\"",
+    ///       \""End\"": true
     ///     }}
     ///   }}
     /// }}
@@ -97,13 +97,13 @@ namespace Pulumi.Aws.Sfn
     ///         Publish = true,
     ///         Type = "EXPRESS",
     ///         Definition = @$"{{
-    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
-    ///   ""StartAt"": ""HelloWorld"",
-    ///   ""States"": {{
-    ///     ""HelloWorld"": {{
-    ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{lambda.Arn}"",
-    ///       ""End"": true
+    ///   \""Comment\"": \""A Hello World example of the Amazon States Language using an AWS Lambda Function\"",
+    ///   \""StartAt\"": \""HelloWorld\"",
+    ///   \""States\"": {{
+    ///     \""HelloWorld\"": {{
+    ///       \""Type\"": \""Task\"",
+    ///       \""Resource\"": \""{lambda.Arn}\"",
+    ///       \""End\"": true
     ///     }}
     ///   }}
     /// }}
@@ -131,13 +131,13 @@ namespace Pulumi.Aws.Sfn
     ///         Name = "my-state-machine",
     ///         RoleArn = iamForSfn.Arn,
     ///         Definition = @$"{{
-    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
-    ///   ""StartAt"": ""HelloWorld"",
-    ///   ""States"": {{
-    ///     ""HelloWorld"": {{
-    ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{lambda.Arn}"",
-    ///       ""End"": true
+    ///   \""Comment\"": \""A Hello World example of the Amazon States Language using an AWS Lambda Function\"",
+    ///   \""StartAt\"": \""HelloWorld\"",
+    ///   \""States\"": {{
+    ///     \""HelloWorld\"": {{
+    ///       \""Type\"": \""Task\"",
+    ///       \""Resource\"": \""{lambda.Arn}\"",
+    ///       \""End\"": true
     ///     }}
     ///   }}
     /// }}
@@ -171,13 +171,13 @@ namespace Pulumi.Aws.Sfn
     ///         Name = "my-state-machine",
     ///         RoleArn = iamForSfn.Arn,
     ///         Definition = @$"{{
-    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
-    ///   ""StartAt"": ""HelloWorld"",
-    ///   ""States"": {{
-    ///     ""HelloWorld"": {{
-    ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{lambda.Arn}"",
-    ///       ""End"": true
+    ///   \""Comment\"": \""A Hello World example of the Amazon States Language using an AWS Lambda Function\"",
+    ///   \""StartAt\"": \""HelloWorld\"",
+    ///   \""States\"": {{
+    ///     \""HelloWorld\"": {{
+    ///       \""Type\"": \""Task\"",
+    ///       \""Resource\"": \""{lambda.Arn}\"",
+    ///       \""End\"": true
     ///     }}
     ///   }}
     /// }}

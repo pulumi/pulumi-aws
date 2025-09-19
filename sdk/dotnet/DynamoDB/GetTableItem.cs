@@ -35,7 +35,7 @@ namespace Pulumi.Aws.DynamoDB
         ///         },
         ///         ProjectionExpression = "#P",
         ///         Key = @"{
-        /// 	""hashKey"": {""S"": ""example""}
+        /// \t\""hashKey\"": {\""S\"": \""example\""}
         /// }
         /// ",
         ///     });
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.DynamoDB
         ///         },
         ///         ProjectionExpression = "#P",
         ///         Key = @"{
-        /// 	""hashKey"": {""S"": ""example""}
+        /// \t\""hashKey\"": {\""S\"": \""example\""}
         /// }
         /// ",
         ///     });
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.DynamoDB
         ///         },
         ///         ProjectionExpression = "#P",
         ///         Key = @"{
-        /// 	""hashKey"": {""S"": ""example""}
+        /// \t\""hashKey\"": {\""S\"": \""example\""}
         /// }
         /// ",
         ///     });

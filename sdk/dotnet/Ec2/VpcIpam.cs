@@ -47,6 +47,54 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Shared with multiple operating_regions:
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var config = new Config();
+    ///     var ipamRegions = config.GetObject&lt;dynamic[]&gt;("ipamRegions") ?? new[]
+    ///     {
+    ///         "us-east-1",
+    ///         "us-west-2",
+    ///     };
+    ///     // ensure current provider region is an operating_regions entry
+    ///     var allIpamRegions = Std.Concat.Invoke(new()
+    ///     {
+    ///         Input = new[]
+    ///         {
+    ///             new[]
+    ///             {
+    ///                 current.Apply(getRegionResult =&gt; getRegionResult.Region),
+    ///             },
+    ///             ipamRegions,
+    ///         },
+    ///     }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
+    ///     {
+    ///         Input = invoke.Result,
+    ///     })).Apply(invoke =&gt; invoke.Result);
+    /// 
+    ///     var main = new Aws.Ec2.VpcIpam("main", new()
+    ///     {
+    ///         OperatingRegions = .Apply(entries =&gt; entries.Select(entry =&gt; 
+    ///         {
+    ///             return 
+    ///             {
+    ///                 { "regionName", entry.Value },
+    ///             };
+    ///         }).ToList()),
+    ///         Description = "multi region ipam",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IPAMs using the IPAM `id`. For example:

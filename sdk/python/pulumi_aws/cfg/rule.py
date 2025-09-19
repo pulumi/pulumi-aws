@@ -472,16 +472,16 @@ class Rule(pulumi.CustomResource):
                 }],
                 "custom_policy_details": {
                     "policy_runtime": "guard-2.x.x",
-                    "policy_text": \"\"\"\\x09  rule tableisactive when
-        \\x09\\x09  resourceType == "AWS::DynamoDB::Table" {
-        \\x09\\x09  configuration.tableStatus == ['ACTIVE']
-        \\x09  }
-        \\x09  
-        \\x09  rule checkcompliance when
-        \\x09\\x09  resourceType == "AWS::DynamoDB::Table"
-        \\x09\\x09  tableisactive {
-        \\x09\\x09\\x09  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
-        \\x09  }
+                    "policy_text": \"\"\"\\t  rule tableisactive when
+        \\t\\t  resourceType == \\"AWS::DynamoDB::Table\\" {
+        \\t\\t  configuration.tableStatus == ['ACTIVE']
+        \\t  }
+        \\t  
+        \\t  rule checkcompliance when
+        \\t\\t  resourceType == \\"AWS::DynamoDB::Table\\"
+        \\t\\t  tableisactive {
+        \\t\\t\\t  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == \\"ENABLED\\"
+        \\t  }
         \"\"\",
                 },
             })
@@ -600,16 +600,16 @@ class Rule(pulumi.CustomResource):
                 }],
                 "custom_policy_details": {
                     "policy_runtime": "guard-2.x.x",
-                    "policy_text": \"\"\"\\x09  rule tableisactive when
-        \\x09\\x09  resourceType == "AWS::DynamoDB::Table" {
-        \\x09\\x09  configuration.tableStatus == ['ACTIVE']
-        \\x09  }
-        \\x09  
-        \\x09  rule checkcompliance when
-        \\x09\\x09  resourceType == "AWS::DynamoDB::Table"
-        \\x09\\x09  tableisactive {
-        \\x09\\x09\\x09  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
-        \\x09  }
+                    "policy_text": \"\"\"\\t  rule tableisactive when
+        \\t\\t  resourceType == \\"AWS::DynamoDB::Table\\" {
+        \\t\\t  configuration.tableStatus == ['ACTIVE']
+        \\t  }
+        \\t  
+        \\t  rule checkcompliance when
+        \\t\\t  resourceType == \\"AWS::DynamoDB::Table\\"
+        \\t\\t  tableisactive {
+        \\t\\t\\t  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == \\"ENABLED\\"
+        \\t  }
         \"\"\",
                 },
             })

@@ -46,11 +46,11 @@ namespace Pulumi.Aws.DynamoDB
     ///         TableName = exampleTable.Name,
     ///         HashKey = exampleTable.HashKey,
     ///         Item = @"{
-    ///   ""exampleHashKey"": {""S"": ""something""},
-    ///   ""one"": {""N"": ""11111""},
-    ///   ""two"": {""N"": ""22222""},
-    ///   ""three"": {""N"": ""33333""},
-    ///   ""four"": {""N"": ""44444""}
+    ///   \""exampleHashKey\"": {\""S\"": \""something\""},
+    ///   \""one\"": {\""N\"": \""11111\""},
+    ///   \""two\"": {\""N\"": \""22222\""},
+    ///   \""three\"": {\""N\"": \""33333\""},
+    ///   \""four\"": {\""N\"": \""44444\""}
     /// }
     /// ",
     ///     });

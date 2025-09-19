@@ -62,7 +62,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         RequestTemplates = 
     ///         {
     ///             { "application/xml", @"{
-    ///    ""body"" : $input.json('$')
+    ///    \""body\"" : $input.json('$')
     /// }
     /// " },
     ///         },

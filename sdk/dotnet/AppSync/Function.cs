@@ -63,11 +63,11 @@ namespace Pulumi.Aws.AppSync
     ///         DataSource = exampleDataSource.Name,
     ///         Name = "example",
     ///         RequestMappingTemplate = @"{
-    ///     ""version"": ""2018-05-29"",
-    ///     ""method"": ""GET"",
-    ///     ""resourcePath"": ""/"",
-    ///     ""params"":{
-    ///         ""headers"": $utils.http.copyheaders($ctx.request.headers)
+    ///     \""version\"": \""2018-05-29\"",
+    ///     \""method\"": \""GET\"",
+    ///     \""resourcePath\"": \""/\"",
+    ///     \""params\"":{
+    ///         \""headers\"": $utils.http.copyheaders($ctx.request.headers)
     ///     }
     /// }
     /// ",

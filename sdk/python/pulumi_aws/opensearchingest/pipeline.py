@@ -470,19 +470,19 @@ class Pipeline(pulumi.CustomResource):
         }))
         example_pipeline = aws.opensearchingest.Pipeline("example",
             pipeline_name="example",
-            pipeline_configuration_body=example.arn.apply(lambda arn: f\"\"\"version: "2"
+            pipeline_configuration_body=example.arn.apply(lambda arn: f\"\"\"version: \\"2\\"
         example-pipeline:
           source:
             http:
-              path: "/example"
+              path: \\"/example\\"
           sink:
             - s3:
                 aws:
-                  sts_role_arn: "{arn}"
-                  region: "{current.region}"
-                bucket: "example"
+                  sts_role_arn: \\"{arn}\\"
+                  region: \\"{current.region}\\"
+                bucket: \\"example\\"
                 threshold:
-                  event_collect_timeout: "60s"
+                  event_collect_timeout: \\"60s\\"
                 codec:
                   ndjson:
         \"\"\"),
@@ -559,19 +559,19 @@ class Pipeline(pulumi.CustomResource):
         }))
         example_pipeline = aws.opensearchingest.Pipeline("example",
             pipeline_name="example",
-            pipeline_configuration_body=example.arn.apply(lambda arn: f\"\"\"version: "2"
+            pipeline_configuration_body=example.arn.apply(lambda arn: f\"\"\"version: \\"2\\"
         example-pipeline:
           source:
             http:
-              path: "/example"
+              path: \\"/example\\"
           sink:
             - s3:
                 aws:
-                  sts_role_arn: "{arn}"
-                  region: "{current.region}"
-                bucket: "example"
+                  sts_role_arn: \\"{arn}\\"
+                  region: \\"{current.region}\\"
+                bucket: \\"example\\"
                 threshold:
-                  event_collect_timeout: "60s"
+                  event_collect_timeout: \\"60s\\"
                 codec:
                   ndjson:
         \"\"\"),

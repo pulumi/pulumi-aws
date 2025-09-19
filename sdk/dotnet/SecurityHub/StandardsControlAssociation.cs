@@ -45,6 +45,39 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Disabling security control in all standards
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Threading.Tasks;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(async() =&gt; 
+    /// {
+    ///     var example = new Aws.SecurityHub.Account("example");
+    /// 
+    ///     var iam1 = await Aws.SecurityHub.GetStandardsControlAssociations.InvokeAsync(new()
+    ///     {
+    ///         SecurityControlId = "IAM.1",
+    ///     });
+    /// 
+    ///     var iam1StandardsControlAssociation = new List&lt;Aws.SecurityHub.StandardsControlAssociation&gt;();
+    ///     foreach (var range in )
+    ///     {
+    ///         iam1StandardsControlAssociation.Add(new Aws.SecurityHub.StandardsControlAssociation($"iam_1-{range.Key}", new()
+    ///         {
+    ///             StandardsArn = range.Key,
+    ///             SecurityControlId = iam1.SecurityControlId,
+    ///             AssociationStatus = "DISABLED",
+    ///             UpdatedReason = "Not needed",
+    ///         }));
+    ///     }
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/standardsControlAssociation:StandardsControlAssociation")]
     public partial class StandardsControlAssociation : global::Pulumi.CustomResource

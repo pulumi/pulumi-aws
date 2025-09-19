@@ -64,6 +64,46 @@ namespace Pulumi.Aws.SecretsManager
     /// ```
     /// 
     /// Reading key-value pairs from JSON back into a native map
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["example"] = Std.Jsondecode.Invoke(new()
+    ///         {
+    ///             Input = exampleAwsSecretsmanagerSecretVersion.SecretString,
+    ///         }).Apply(invoke =&gt; invoke.Result?.Key1),
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `secret_id` - (String) ID of the secret.
+    /// 
+    /// * `version_id` - (String) ID of the secret version.
+    /// 
+    /// #### Optional
+    /// 
+    /// - `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// - `region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
+    /// 
+    /// console
+    /// 
+    /// % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secretVersion:SecretVersion")]
     public partial class SecretVersion : global::Pulumi.CustomResource

@@ -597,7 +597,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="19.cdb_cev1",
             kms_key_id=example.arn,
             manifest=\"\"\"  {
-        \\x09"databaseInstallationFileNames":["V982063-01.zip"]
+        \\t\\"databaseInstallationFileNames\\":[\\"V982063-01.zip\\"]
           }
         \"\"\",
             tags={
@@ -708,7 +708,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="19.cdb_cev1",
             kms_key_id=example.arn,
             manifest=\"\"\"  {
-        \\x09"databaseInstallationFileNames":["V982063-01.zip"]
+        \\t\\"databaseInstallationFileNames\\":[\\"V982063-01.zip\\"]
           }
         \"\"\",
             tags={

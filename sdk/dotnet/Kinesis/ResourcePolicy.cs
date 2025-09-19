@@ -27,21 +27,21 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         ResourceArn = exampleAwsKinesisStream.Arn,
     ///         Policy = @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Id"": ""writePolicy"",
-    ///   ""Statement"": [{{
-    ///     ""Sid"": ""writestatement"",
-    ///     ""Effect"": ""Allow"",
-    ///     ""Principal"": {{
-    ///       ""AWS"": ""123456789456""
+    ///   \""Version\"": \""2012-10-17\"",
+    ///   \""Id\"": \""writePolicy\"",
+    ///   \""Statement\"": [{{
+    ///     \""Sid\"": \""writestatement\"",
+    ///     \""Effect\"": \""Allow\"",
+    ///     \""Principal\"": {{
+    ///       \""AWS\"": \""123456789456\""
     ///     }},
-    ///     ""Action"": [
-    ///       ""kinesis:DescribeStreamSummary"",
-    ///       ""kinesis:ListShards"",
-    ///       ""kinesis:PutRecord"",
-    ///       ""kinesis:PutRecords""
+    ///     \""Action\"": [
+    ///       \""kinesis:DescribeStreamSummary\"",
+    ///       \""kinesis:ListShards\"",
+    ///       \""kinesis:PutRecord\"",
+    ///       \""kinesis:PutRecords\""
     ///     ],
-    ///     ""Resource"": ""{exampleAwsKinesisStream.Arn}""
+    ///     \""Resource\"": \""{exampleAwsKinesisStream.Arn}\""
     ///   }}]
     /// }}
     /// ",

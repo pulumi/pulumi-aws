@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Ssm
     /// yum install -y httpd
     /// systemctl enable httpd
     /// systemctl start httpd
-    /// echo ""&lt;h1&gt;Web Server - {prefix}&lt;/h1&gt;"" &gt; /var/www/html/index.html
+    /// echo \""&lt;h1&gt;Web Server - {prefix}&lt;/h1&gt;\"" &gt; /var/www/html/index.html
     /// ",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Tags = 

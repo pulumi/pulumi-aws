@@ -67,15 +67,15 @@ namespace Pulumi.Aws.ElasticSearch
     ///             var current = values.Item1;
     ///             var currentGetCallerIdentity = values.Item2;
     ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
+    ///   \""Version\"": \""2012-10-17\"",
+    ///   \""Statement\"": [
     ///     {{
-    ///       ""Action"": ""es:*"",
-    ///       ""Principal"": ""*"",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*"",
-    ///       ""Condition"": {{
-    ///         ""IpAddress"": {{""aws:SourceIp"": [""66.193.100.22/32""]}}
+    ///       \""Action\"": \""es:*\"",
+    ///       \""Principal\"": \""*\"",
+    ///       \""Effect\"": \""Allow\"",
+    ///       \""Resource\"": \""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*\"",
+    ///       \""Condition\"": {{
+    ///         \""IpAddress\"": {{\""aws:SourceIp\"": [\""66.193.100.22/32\""]}}
     ///       }}
     ///     }}
     ///   ]
@@ -254,15 +254,15 @@ namespace Pulumi.Aws.ElasticSearch
     ///             var current = values.Item1;
     ///             var currentGetCallerIdentity = values.Item2;
     ///             return @$"{{
-    /// 	""Version"": ""2012-10-17"",
-    /// 	""Statement"": [
-    /// 		{{
-    /// 			""Action"": ""es:*"",
-    /// 			""Principal"": ""*"",
-    /// 			""Effect"": ""Allow"",
-    /// 			""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*""
-    /// 		}}
-    /// 	]
+    /// \t\""Version\"": \""2012-10-17\"",
+    /// \t\""Statement\"": [
+    /// \t\t{{
+    /// \t\t\t\""Action\"": \""es:*\"",
+    /// \t\t\t\""Principal\"": \""*\"",
+    /// \t\t\t\""Effect\"": \""Allow\"",
+    /// \t\t\t\""Resource\"": \""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*\""
+    /// \t\t}}
+    /// \t]
     /// }}
     /// ";
     ///         }),

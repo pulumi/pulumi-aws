@@ -180,16 +180,16 @@ namespace Pulumi.Aws.Cfg
     ///             CustomPolicyDetails = new Aws.Cfg.Inputs.RuleSourceCustomPolicyDetailsArgs
     ///             {
     ///                 PolicyRuntime = "guard-2.x.x",
-    ///                 PolicyText = @"	  rule tableisactive when
-    /// 		  resourceType == ""AWS::DynamoDB::Table"" {
-    /// 		  configuration.tableStatus == ['ACTIVE']
-    /// 	  }
-    /// 	  
-    /// 	  rule checkcompliance when
-    /// 		  resourceType == ""AWS::DynamoDB::Table""
-    /// 		  tableisactive {
-    /// 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == ""ENABLED""
-    /// 	  }
+    ///                 PolicyText = @"\t  rule tableisactive when
+    /// \t\t  resourceType == \""AWS::DynamoDB::Table\"" {
+    /// \t\t  configuration.tableStatus == ['ACTIVE']
+    /// \t  }
+    /// \t  
+    /// \t  rule checkcompliance when
+    /// \t\t  resourceType == \""AWS::DynamoDB::Table\""
+    /// \t\t  tableisactive {
+    /// \t\t\t  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == \""ENABLED\""
+    /// \t  }
     /// ",
     ///             },
     ///         },

@@ -39,16 +39,16 @@ import (
 //
 // rule tableisactive when
 //
-//	    resourceType == "AWS::DynamoDB::Table" {
+//	    resourceType == \"AWS::DynamoDB::Table\" {
 //	    configuration.tableStatus == %status
 //	}
 //
 // rule checkcompliance when
 //
-//	resourceType == "AWS::DynamoDB::Table"
+//	resourceType == \"AWS::DynamoDB::Table\"
 //	tableisactive {
 //	    let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-//	    %pitr == "ENABLED"
+//	    %pitr == \"ENABLED\"
 //	}
 //
 // `),

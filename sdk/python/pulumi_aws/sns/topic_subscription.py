@@ -698,21 +698,21 @@ class TopicSubscription(pulumi.CustomResource):
             endpoint="https://example.com/endpoint",
             raw_message_delivery=True,
             delivery_policy=\"\"\"{
-          "healthyRetryPolicy": {
-            "minDelayTarget": 20,
-            "maxDelayTarget": 20,
-            "numRetries": 3,
-            "numMaxDelayRetries": 0,
-            "numNoDelayRetries": 0,
-            "numMinDelayRetries": 0,
-            "backoffFunction": "linear"
+          \\"healthyRetryPolicy\\": {
+            \\"minDelayTarget\\": 20,
+            \\"maxDelayTarget\\": 20,
+            \\"numRetries\\": 3,
+            \\"numMaxDelayRetries\\": 0,
+            \\"numNoDelayRetries\\": 0,
+            \\"numMinDelayRetries\\": 0,
+            \\"backoffFunction\\": \\"linear\\"
           },
-          "sicklyRetryPolicy": null,
-          "throttlePolicy": null,
-          "requestPolicy": {
-            "headerContentType": "text/plain; application/json"
+          \\"sicklyRetryPolicy\\": null,
+          \\"throttlePolicy\\": null,
+          \\"requestPolicy\\": {
+            \\"headerContentType\\": \\"text/plain; application/json\\"
           },
-          "guaranteed": false
+          \\"guaranteed\\": false
         }
         \"\"\")
         ```
@@ -910,21 +910,21 @@ class TopicSubscription(pulumi.CustomResource):
             endpoint="https://example.com/endpoint",
             raw_message_delivery=True,
             delivery_policy=\"\"\"{
-          "healthyRetryPolicy": {
-            "minDelayTarget": 20,
-            "maxDelayTarget": 20,
-            "numRetries": 3,
-            "numMaxDelayRetries": 0,
-            "numNoDelayRetries": 0,
-            "numMinDelayRetries": 0,
-            "backoffFunction": "linear"
+          \\"healthyRetryPolicy\\": {
+            \\"minDelayTarget\\": 20,
+            \\"maxDelayTarget\\": 20,
+            \\"numRetries\\": 3,
+            \\"numMaxDelayRetries\\": 0,
+            \\"numNoDelayRetries\\": 0,
+            \\"numMinDelayRetries\\": 0,
+            \\"backoffFunction\\": \\"linear\\"
           },
-          "sicklyRetryPolicy": null,
-          "throttlePolicy": null,
-          "requestPolicy": {
-            "headerContentType": "text/plain; application/json"
+          \\"sicklyRetryPolicy\\": null,
+          \\"throttlePolicy\\": null,
+          \\"requestPolicy\\": {
+            \\"headerContentType\\": \\"text/plain; application/json\\"
           },
-          "guaranteed": false
+          \\"guaranteed\\": false
         }
         \"\"\")
         ```

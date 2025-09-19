@@ -30,12 +30,12 @@ namespace Pulumi.Aws.Mq
     ///         Name = "example",
     ///         EngineType = "ActiveMQ",
     ///         EngineVersion = "5.17.6",
-    ///         Data = @"&lt;?xml version=""1.0"" encoding=""UTF-8"" standalone=""yes""?&gt;
-    /// &lt;broker xmlns=""http://activemq.apache.org/schema/core""&gt;
+    ///         Data = @"&lt;?xml version=\""1.0\"" encoding=\""UTF-8\"" standalone=\""yes\""?&gt;
+    /// &lt;broker xmlns=\""http://activemq.apache.org/schema/core\""&gt;
     ///   &lt;plugins&gt;
-    ///     &lt;forcePersistencyModeBrokerPlugin persistenceFlag=""true""/&gt;
+    ///     &lt;forcePersistencyModeBrokerPlugin persistenceFlag=\""true\""/&gt;
     ///     &lt;statisticsBrokerPlugin/&gt;
-    ///     &lt;timeStampingBrokerPlugin ttlCeiling=""86400000"" zeroExpirationOverride=""86400000""/&gt;
+    ///     &lt;timeStampingBrokerPlugin ttlCeiling=\""86400000\"" zeroExpirationOverride=\""86400000\""/&gt;
     ///   &lt;/plugins&gt;
     /// &lt;/broker&gt;
     /// ",

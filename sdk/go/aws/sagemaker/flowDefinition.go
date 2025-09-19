@@ -135,16 +135,16 @@ import (
 //				HumanLoopActivationConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigArgs{
 //					HumanLoopActivationConditionsConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{
 //						HumanLoopActivationConditions: pulumi.String(`        {
-//				"Conditions": [
-//				  {
-//					"ConditionType": "Sampling",
-//					"ConditionParameters": {
-//					  "RandomSamplingPercentage": 5
-//					}
-//				  }
-//				]
-//			}
 //
+// \t\t\t\"Conditions\": [
+// \t\t\t  {
+// \t\t\t\t\"ConditionType\": \"Sampling\",
+// \t\t\t\t\"ConditionParameters\": {
+// \t\t\t\t  \"RandomSamplingPercentage\": 5
+// \t\t\t\t}
+// \t\t\t  }
+// \t\t\t]
+// \t\t}
 // `),
 //
 //					},

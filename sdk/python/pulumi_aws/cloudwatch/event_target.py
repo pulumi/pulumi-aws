@@ -1024,8 +1024,8 @@ class EventTarget(pulumi.CustomResource):
                     "status": "$.detail.status",
                 },
                 "input_template": \"\"\"{
-          "instance_id": <instance>,
-          "instance_status": <status>
+          \\"instance_id\\": <instance>,
+          \\"instance_status\\": <status>
         }
         \"\"\",
             })
@@ -1164,7 +1164,7 @@ class EventTarget(pulumi.CustomResource):
                     "input": "$.detail.input",
                 },
                 "input_template": \"\"\"      {
-                "input": <input>
+                \\"input\\": <input>
               }
         \"\"\",
             },
@@ -1505,8 +1505,8 @@ class EventTarget(pulumi.CustomResource):
                     "status": "$.detail.status",
                 },
                 "input_template": \"\"\"{
-          "instance_id": <instance>,
-          "instance_status": <status>
+          \\"instance_id\\": <instance>,
+          \\"instance_status\\": <status>
         }
         \"\"\",
             })
@@ -1645,7 +1645,7 @@ class EventTarget(pulumi.CustomResource):
                     "input": "$.detail.input",
                 },
                 "input_template": \"\"\"      {
-                "input": <input>
+                \\"input\\": <input>
               }
         \"\"\",
             },

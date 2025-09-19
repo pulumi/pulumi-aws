@@ -27,15 +27,15 @@ namespace Pulumi.Aws.Route53
     ///         Name = "example",
     ///         Comment = "example comment",
     ///         Document = @"{
-    ///   ""AWSPolicyFormatVersion"": ""2015-10-01"",
-    ///   ""RecordType"": ""A"",
-    ///   ""Endpoints"": {
-    ///     ""endpoint-start-NkPh"": {
-    ///       ""Type"": ""value"",
-    ///       ""Value"": ""10.0.0.2""
+    ///   \""AWSPolicyFormatVersion\"": \""2015-10-01\"",
+    ///   \""RecordType\"": \""A\"",
+    ///   \""Endpoints\"": {
+    ///     \""endpoint-start-NkPh\"": {
+    ///       \""Type\"": \""value\"",
+    ///       \""Value\"": \""10.0.0.2\""
     ///     }
     ///   },
-    ///   ""StartEndpoint"": ""endpoint-start-NkPh""
+    ///   \""StartEndpoint\"": \""endpoint-start-NkPh\""
     /// }
     /// ",
     ///     });

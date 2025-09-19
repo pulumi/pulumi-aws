@@ -35,7 +35,7 @@ import (
 //					"#P": "Percentile",
 //				},
 //				ProjectionExpression: pulumi.StringRef("#P"),
-//				Key:                  "{\n	\"hashKey\": {\"S\": \"example\"}\n}\n",
+//				Key:                  "{\n\\t\\\"hashKey\\\": {\\\"S\\\": \\\"example\\\"}\n}\n",
 //			}, nil)
 //			if err != nil {
 //				return err
