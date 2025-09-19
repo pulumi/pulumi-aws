@@ -481,7 +481,7 @@ class ReplicationConfig(pulumi.CustomResource):
             source_endpoint_arn=source["endpointArn"],
             target_endpoint_arn=target["endpointArn"],
             table_mappings=\"\"\"  {
-            "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"include","object-locator":{"schema-name":"%%","table-name":"%%"}}]
+            \\"rules\\":[{\\"rule-type\\":\\"selection\\",\\"rule-id\\":\\"1\\",\\"rule-name\\":\\"1\\",\\"rule-action\\":\\"include\\",\\"object-locator\\":{\\"schema-name\\":\\"%%\\",\\"table-name\\":\\"%%\\"}}]
           }
         \"\"\",
             start_replication=True,
@@ -540,7 +540,7 @@ class ReplicationConfig(pulumi.CustomResource):
             source_endpoint_arn=source["endpointArn"],
             target_endpoint_arn=target["endpointArn"],
             table_mappings=\"\"\"  {
-            "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"include","object-locator":{"schema-name":"%%","table-name":"%%"}}]
+            \\"rules\\":[{\\"rule-type\\":\\"selection\\",\\"rule-id\\":\\"1\\",\\"rule-name\\":\\"1\\",\\"rule-action\\":\\"include\\",\\"object-locator\\":{\\"schema-name\\":\\"%%\\",\\"table-name\\":\\"%%\\"}}]
           }
         \"\"\",
             start_replication=True,

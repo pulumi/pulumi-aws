@@ -75,23 +75,6 @@ def get_registration_code(region: Optional[_builtins.str] = None,
     """
     Gets a registration code used to register a CA certificate with AWS IoT.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_tls as tls
-
-    example = aws.iot.get_registration_code()
-    verification = tls.index.PrivateKey("verification", algorithm=RSA)
-    verification_cert_request = tls.index.CertRequest("verification",
-        key_algorithm=RSA,
-        private_key_pem=verification.private_key_pem,
-        subject=[{
-            commonName: example.registration_code,
-        }])
-    ```
-
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -108,23 +91,6 @@ def get_registration_code_output(region: Optional[pulumi.Input[Optional[_builtin
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationCodeResult]:
     """
     Gets a registration code used to register a CA certificate with AWS IoT.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_tls as tls
-
-    example = aws.iot.get_registration_code()
-    verification = tls.index.PrivateKey("verification", algorithm=RSA)
-    verification_cert_request = tls.index.CertRequest("verification",
-        key_algorithm=RSA,
-        private_key_pem=verification.private_key_pem,
-        subject=[{
-            commonName: example.registration_code,
-        }])
-    ```
 
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

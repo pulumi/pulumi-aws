@@ -561,8 +561,8 @@ namespace Pulumi.Aws.CloudWatch
     ///                 { "status", "$.detail.status" },
     ///             },
     ///             InputTemplate = @"{
-    ///   ""instance_id"": &lt;instance&gt;,
-    ///   ""instance_status"": &lt;status&gt;
+    ///   \""instance_id\"": &lt;instance&gt;,
+    ///   \""instance_status\"": &lt;status&gt;
     /// }
     /// ",
     ///         },
@@ -810,7 +810,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                 { "input", "$.detail.input" },
     ///             },
     ///             InputTemplate = @"      {
-    ///         ""input"": &lt;input&gt;
+    ///         \""input\"": &lt;input&gt;
     ///       }
     /// ",
     ///         },

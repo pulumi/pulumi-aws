@@ -43,6 +43,37 @@ import * as utilities from "../utilities";
  * ```
  *
  * Reading key-value pairs from JSON back into a native map
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as std from "@pulumi/std";
+ *
+ * export const example = std.jsondecode({
+ *     input: exampleAwsSecretsmanagerSecretVersion.secretString,
+ * }).then(invoke => invoke.result?.key1);
+ * ```
+ *
+ * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `secret_id` - (String) ID of the secret.
+ *
+ * * `version_id` - (String) ID of the secret version.
+ *
+ * #### Optional
+ *
+ * - `account_id` (String) AWS Account where this resource is managed.
+ *
+ * - `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
+ *
+ * console
+ *
+ * % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
  */
 export class SecretVersion extends pulumi.CustomResource {
     /**

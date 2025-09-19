@@ -534,13 +534,13 @@ class StateMachine(pulumi.CustomResource):
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}
@@ -559,13 +559,13 @@ class StateMachine(pulumi.CustomResource):
             role_arn=iam_for_sfn["arn"],
             type="EXPRESS",
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}
@@ -585,13 +585,13 @@ class StateMachine(pulumi.CustomResource):
             publish=True,
             type="EXPRESS",
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}
@@ -611,13 +611,13 @@ class StateMachine(pulumi.CustomResource):
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}
@@ -642,13 +642,13 @@ class StateMachine(pulumi.CustomResource):
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}
@@ -704,13 +704,13 @@ class StateMachine(pulumi.CustomResource):
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}
@@ -729,13 +729,13 @@ class StateMachine(pulumi.CustomResource):
             role_arn=iam_for_sfn["arn"],
             type="EXPRESS",
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}
@@ -755,13 +755,13 @@ class StateMachine(pulumi.CustomResource):
             publish=True,
             type="EXPRESS",
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}
@@ -781,13 +781,13 @@ class StateMachine(pulumi.CustomResource):
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}
@@ -812,13 +812,13 @@ class StateMachine(pulumi.CustomResource):
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{lambda_["arn"]}",
-              "End": true
+          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
+          \\"StartAt\\": \\"HelloWorld\\",
+          \\"States\\": {{
+            \\"HelloWorld\\": {{
+              \\"Type\\": \\"Task\\",
+              \\"Resource\\": \\"{lambda_["arn"]}\\",
+              \\"End\\": true
             }}
           }}
         }}

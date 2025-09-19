@@ -37,9 +37,9 @@ import (
 //					pulumi.String("Spark"),
 //				},
 //				AdditionalInfo: pulumi.String(`{
-//	  "instanceAwsClientConfiguration": {
-//	    "proxyPort": 8099,
-//	    "proxyHost": "myproxy.example.com"
+//	  \"instanceAwsClientConfiguration\": {
+//	    \"proxyPort\": 8099,
+//	    \"proxyHost\": \"myproxy.example.com\"
 //	  }
 //	}
 //
@@ -69,33 +69,33 @@ import (
 //		BidPrice: pulumi.String("0.30"),
 //		AutoscalingPolicy: pulumi.String(`{
 //
-//	"Constraints": {
-//	  "MinCapacity": 1,
-//	  "MaxCapacity": 2
+//	\"Constraints\": {
+//	  \"MinCapacity\": 1,
+//	  \"MaxCapacity\": 2
 //	},
 //
-// "Rules": [
+// \"Rules\": [
 //
 //	{
-//	  "Name": "ScaleOutMemoryPercentage",
-//	  "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
-//	  "Action": {
-//	    "SimpleScalingPolicyConfiguration": {
-//	      "AdjustmentType": "CHANGE_IN_CAPACITY",
-//	      "ScalingAdjustment": 1,
-//	      "CoolDown": 300
+//	  \"Name\": \"ScaleOutMemoryPercentage\",
+//	  \"Description\": \"Scale out if YARNMemoryAvailablePercentage is less than 15\",
+//	  \"Action\": {
+//	    \"SimpleScalingPolicyConfiguration\": {
+//	      \"AdjustmentType\": \"CHANGE_IN_CAPACITY\",
+//	      \"ScalingAdjustment\": 1,
+//	      \"CoolDown\": 300
 //	    }
 //	  },
-//	  "Trigger": {
-//	    "CloudWatchAlarmDefinition": {
-//	      "ComparisonOperator": "LESS_THAN",
-//	      "EvaluationPeriods": 1,
-//	      "MetricName": "YARNMemoryAvailablePercentage",
-//	      "Namespace": "AWS/ElasticMapReduce",
-//	      "Period": 300,
-//	      "Statistic": "AVERAGE",
-//	      "Threshold": 15.0,
-//	      "Unit": "PERCENT"
+//	  \"Trigger\": {
+//	    \"CloudWatchAlarmDefinition\": {
+//	      \"ComparisonOperator\": \"LESS_THAN\",
+//	      \"EvaluationPeriods\": 1,
+//	      \"MetricName\": \"YARNMemoryAvailablePercentage\",
+//	      \"Namespace\": \"AWS/ElasticMapReduce\",
+//	      \"Period\": 300,
+//	      \"Statistic\": \"AVERAGE\",
+//	      \"Threshold\": 15.0,
+//	      \"Unit\": \"PERCENT\"
 //	    }
 //	  }
 //	}
@@ -122,28 +122,28 @@ import (
 //				},
 //				ConfigurationsJson: pulumi.String(`  [
 //	    {
-//	      "Classification": "hadoop-env",
-//	      "Configurations": [
+//	      \"Classification\": \"hadoop-env\",
+//	      \"Configurations\": [
 //	        {
-//	          "Classification": "export",
-//	          "Properties": {
-//	            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//	          \"Classification\": \"export\",
+//	          \"Properties\": {
+//	            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
 //	          }
 //	        }
 //	      ],
-//	      "Properties": {}
+//	      \"Properties\": {}
 //	    },
 //	    {
-//	      "Classification": "spark-env",
-//	      "Configurations": [
+//	      \"Classification\": \"spark-env\",
+//	      \"Configurations\": [
 //	        {
-//	          "Classification": "export",
-//	          "Properties": {
-//	            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//	          \"Classification\": \"export\",
+//	          \"Properties\": {
+//	            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
 //	          }
 //	        }
 //	      ],
-//	      "Properties": {}
+//	      \"Properties\": {}
 //	    }
 //	  ]
 //
@@ -423,16 +423,16 @@ type Cluster struct {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
 	// 			ConfigurationsJson: pulumi.String(`[
 	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
+	// \"Classification\": \"hadoop-env\",
+	// \"Configurations\": [
 	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// \"Classification\": \"export\",
+	// \"Properties\": {
+	// \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
 	// }
 	// }
 	// ],
-	// "Properties": {}
+	// \"Properties\": {}
 	// }
 	// ]
 	// `),
@@ -575,16 +575,16 @@ type clusterState struct {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
 	// 			ConfigurationsJson: pulumi.String(`[
 	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
+	// \"Classification\": \"hadoop-env\",
+	// \"Configurations\": [
 	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// \"Classification\": \"export\",
+	// \"Properties\": {
+	// \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
 	// }
 	// }
 	// ],
-	// "Properties": {}
+	// \"Properties\": {}
 	// }
 	// ]
 	// `),
@@ -692,16 +692,16 @@ type ClusterState struct {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
 	// 			ConfigurationsJson: pulumi.String(`[
 	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
+	// \"Classification\": \"hadoop-env\",
+	// \"Configurations\": [
 	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// \"Classification\": \"export\",
+	// \"Properties\": {
+	// \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
 	// }
 	// }
 	// ],
-	// "Properties": {}
+	// \"Properties\": {}
 	// }
 	// ]
 	// `),
@@ -810,16 +810,16 @@ type clusterArgs struct {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
 	// 			ConfigurationsJson: pulumi.String(`[
 	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
+	// \"Classification\": \"hadoop-env\",
+	// \"Configurations\": [
 	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// \"Classification\": \"export\",
+	// \"Properties\": {
+	// \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
 	// }
 	// }
 	// ],
-	// "Properties": {}
+	// \"Properties\": {}
 	// }
 	// ]
 	// `),
@@ -921,16 +921,16 @@ type ClusterArgs struct {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
 	// 			ConfigurationsJson: pulumi.String(`[
 	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
+	// \"Classification\": \"hadoop-env\",
+	// \"Configurations\": [
 	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// \"Classification\": \"export\",
+	// \"Properties\": {
+	// \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
 	// }
 	// }
 	// ],
-	// "Properties": {}
+	// \"Properties\": {}
 	// }
 	// ]
 	// `),
@@ -1147,16 +1147,16 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 //				ConfigurationsJson: pulumi.String(`[
 //
 // {
-// "Classification": "hadoop-env",
-// "Configurations": [
+// \"Classification\": \"hadoop-env\",
+// \"Configurations\": [
 // {
-// "Classification": "export",
-// "Properties": {
-// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+// \"Classification\": \"export\",
+// \"Properties\": {
+// \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
 // }
 // }
 // ],
-// "Properties": {}
+// \"Properties\": {}
 // }
 // ]
 // `),

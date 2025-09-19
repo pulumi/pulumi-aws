@@ -21,6 +21,82 @@ namespace Pulumi.Aws.Lambda
         /// &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Invocation
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetInvocation.Invoke(new()
+        ///     {
+        ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+        ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["operation"] = "getStatus",
+        ///             ["id"] = "123456",
+        ///         }),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["result"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getInvocationResult =&gt; getInvocationResult.Result),
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Dynamic Resource Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get resource configuration from Lambda
+        ///     var resourceConfig = Aws.Lambda.GetInvocation.Invoke(new()
+        ///     {
+        ///         FunctionName = "resource-config-generator",
+        ///         Qualifier = "production",
+        ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["environment"] = environment,
+        ///             ["region"] = current.Region,
+        ///             ["service"] = "api",
+        ///         }),
+        ///     });
+        /// 
+        ///     var config = Std.Jsondecode.Invoke(new()
+        ///     {
+        ///         Input = resourceConfig.Apply(getInvocationResult =&gt; getInvocationResult.Result),
+        ///     }).Apply(invoke =&gt; invoke.Result);
+        /// 
+        ///     // Use dynamic configuration
+        ///     var example = new Aws.ElastiCache.Cluster("example", new()
+        ///     {
+        ///         ClusterId = config?.Cache?.ClusterId,
+        ///         Engine = config?.Cache?.Engine,
+        ///         NodeType = config?.Cache?.NodeType,
+        ///         NumCacheNodes = config?.Cache?.Nodes,
+        ///         ParameterGroupName = config?.Cache?.ParameterGroup,
+        ///         Tags = config?.Tags,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetInvocationResult> InvokeAsync(GetInvocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationArgs(), options.WithDefaults());
@@ -35,6 +111,82 @@ namespace Pulumi.Aws.Lambda
         /// &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Invocation
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetInvocation.Invoke(new()
+        ///     {
+        ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+        ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["operation"] = "getStatus",
+        ///             ["id"] = "123456",
+        ///         }),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["result"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getInvocationResult =&gt; getInvocationResult.Result),
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Dynamic Resource Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get resource configuration from Lambda
+        ///     var resourceConfig = Aws.Lambda.GetInvocation.Invoke(new()
+        ///     {
+        ///         FunctionName = "resource-config-generator",
+        ///         Qualifier = "production",
+        ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["environment"] = environment,
+        ///             ["region"] = current.Region,
+        ///             ["service"] = "api",
+        ///         }),
+        ///     });
+        /// 
+        ///     var config = Std.Jsondecode.Invoke(new()
+        ///     {
+        ///         Input = resourceConfig.Apply(getInvocationResult =&gt; getInvocationResult.Result),
+        ///     }).Apply(invoke =&gt; invoke.Result);
+        /// 
+        ///     // Use dynamic configuration
+        ///     var example = new Aws.ElastiCache.Cluster("example", new()
+        ///     {
+        ///         ClusterId = config?.Cache?.ClusterId,
+        ///         Engine = config?.Cache?.Engine,
+        ///         NodeType = config?.Cache?.NodeType,
+        ///         NumCacheNodes = config?.Cache?.Nodes,
+        ///         ParameterGroupName = config?.Cache?.ParameterGroup,
+        ///         Tags = config?.Tags,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetInvocationResult> Invoke(GetInvocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationInvokeArgs(), options.WithDefaults());
@@ -49,6 +201,82 @@ namespace Pulumi.Aws.Lambda
         /// &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Invocation
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetInvocation.Invoke(new()
+        ///     {
+        ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+        ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["operation"] = "getStatus",
+        ///             ["id"] = "123456",
+        ///         }),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["result"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = example.Apply(getInvocationResult =&gt; getInvocationResult.Result),
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Dynamic Resource Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get resource configuration from Lambda
+        ///     var resourceConfig = Aws.Lambda.GetInvocation.Invoke(new()
+        ///     {
+        ///         FunctionName = "resource-config-generator",
+        ///         Qualifier = "production",
+        ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["environment"] = environment,
+        ///             ["region"] = current.Region,
+        ///             ["service"] = "api",
+        ///         }),
+        ///     });
+        /// 
+        ///     var config = Std.Jsondecode.Invoke(new()
+        ///     {
+        ///         Input = resourceConfig.Apply(getInvocationResult =&gt; getInvocationResult.Result),
+        ///     }).Apply(invoke =&gt; invoke.Result);
+        /// 
+        ///     // Use dynamic configuration
+        ///     var example = new Aws.ElastiCache.Cluster("example", new()
+        ///     {
+        ///         ClusterId = config?.Cache?.ClusterId,
+        ///         Engine = config?.Cache?.Engine,
+        ///         NodeType = config?.Cache?.NodeType,
+        ///         NumCacheNodes = config?.Cache?.Nodes,
+        ///         ParameterGroupName = config?.Cache?.ParameterGroup,
+        ///         Tags = config?.Tags,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetInvocationResult> Invoke(GetInvocationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationInvokeArgs(), options.WithDefaults());

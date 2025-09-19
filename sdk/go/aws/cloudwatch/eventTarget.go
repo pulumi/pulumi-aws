@@ -595,7 +595,7 @@ import (
 //						"instance": pulumi.String("$.detail.instance"),
 //						"status":   pulumi.String("$.detail.status"),
 //					},
-//					InputTemplate: pulumi.String("{\n  \"instance_id\": <instance>,\n  \"instance_status\": <status>\n}\n"),
+//					InputTemplate: pulumi.String("{\n  \\\"instance_id\\\": <instance>,\n  \\\"instance_status\\\": <status>\n}\n"),
 //				},
 //			})
 //			if err != nil {
@@ -861,7 +861,7 @@ import (
 //					InputPaths: pulumi.StringMap{
 //						"input": pulumi.String("$.detail.input"),
 //					},
-//					InputTemplate: pulumi.String("      {\n        \"input\": <input>\n      }\n"),
+//					InputTemplate: pulumi.String("      {\n        \\\"input\\\": <input>\n      }\n"),
 //				},
 //				AppsyncTarget: &cloudwatch.EventTargetAppsyncTargetArgs{
 //					GraphqlOperation: pulumi.String("mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}"),

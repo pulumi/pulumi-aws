@@ -127,9 +127,9 @@ namespace Pulumi.Aws.Glue
     ///             DeleteBehavior = "LOG",
     ///         },
     ///         Configuration = @"{
-    ///   ""Version"":1.0,
-    ///   ""Grouping"": {
-    ///     ""TableGroupingPolicy"": ""CombineCompatibleSchemas""
+    ///   \""Version\"":1.0,
+    ///   \""Grouping\"": {
+    ///     \""TableGroupingPolicy\"": \""CombineCompatibleSchemas\""
     ///   }
     /// }
     /// ",

@@ -579,10 +579,10 @@ class ScheduledQuery(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name=example_aws_timestreamwrite_table["tableName"],
             query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\x09ROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
         FROM exampledatabase.exampletable
         WHERE measure_name = 'metrics' AND time > ago(2h)
         GROUP BY region, hostname, az, BIN(time, 15s)
@@ -762,10 +762,10 @@ class ScheduledQuery(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name=example_aws_timestreamwrite_table["tableName"],
             query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\x09ROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
         FROM exampledatabase.exampletable
         WHERE measure_name = 'metrics' AND time > ago(2h)
         GROUP BY region, hostname, az, BIN(time, 15s)
@@ -879,10 +879,10 @@ class ScheduledQuery(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name=example_aws_timestreamwrite_table["tableName"],
             query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\x09ROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
         FROM exampledatabase.exampletable
         WHERE measure_name = 'metrics' AND time > ago(2h)
         GROUP BY region, hostname, az, BIN(time, 15s)
@@ -1062,10 +1062,10 @@ class ScheduledQuery(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name=example_aws_timestreamwrite_table["tableName"],
             query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\x09ROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\x09ROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
         FROM exampledatabase.exampletable
         WHERE measure_name = 'metrics' AND time > ago(2h)
         GROUP BY region, hostname, az, BIN(time, 15s)

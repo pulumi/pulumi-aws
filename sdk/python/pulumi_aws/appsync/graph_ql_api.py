@@ -799,7 +799,7 @@ class GraphQLApi(pulumi.CustomResource):
             authentication_type="AWS_IAM",
             name="example",
             schema=\"\"\"schema {
-        \\x09query: Query
+        \\tquery: Query
         }
         type Query {
           test: Int
@@ -987,7 +987,7 @@ class GraphQLApi(pulumi.CustomResource):
             authentication_type="AWS_IAM",
             name="example",
             schema=\"\"\"schema {
-        \\x09query: Query
+        \\tquery: Query
         }
         type Query {
           test: Int

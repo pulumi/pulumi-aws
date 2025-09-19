@@ -37,28 +37,28 @@ import (
 //				EngineType: pulumi.String("bluage"),
 //				Definition: &m2.ApplicationDefinitionArgs{
 //					Content: pulumi.Sprintf(`{
-//	  "definition": {
-//	    "listeners": [
+//	  \"definition\": {
+//	    \"listeners\": [
 //	      {
-//	        "port": 8196,
-//	        "type": "http"
+//	        \"port\": 8196,
+//	        \"type\": \"http\"
 //	      }
 //	    ],
-//	    "ba-application": {
-//	      "app-location": "%v/PlanetsDemo-v1.zip"
+//	    \"ba-application\": {
+//	      \"app-location\": \"%v/PlanetsDemo-v1.zip\"
 //	    }
 //	  },
-//	  "source-locations": [
+//	  \"source-locations\": [
 //	    {
-//	      "source-id": "s3-source",
-//	      "source-type": "s3",
-//	      "properties": {
-//	        "s3-bucket": "example-bucket",
-//	        "s3-key-prefix": "v1"
+//	      \"source-id\": \"s3-source\",
+//	      \"source-type\": \"s3\",
+//	      \"properties\": {
+//	        \"s3-bucket\": \"example-bucket\",
+//	        \"s3-key-prefix\": \"v1\"
 //	      }
 //	    }
 //	  ],
-//	  "template-version": "2.0"
+//	  \"template-version\": \"2.0\"
 //	}
 //
 // `, s3_source),

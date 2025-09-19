@@ -16,6 +16,40 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Eks.NodeGroup("example", new()
+    ///     {
+    ///         ClusterName = "example",
+    ///         NodeGroupName = "example",
+    ///     });
+    /// 
+    ///     var exampleTag = new List&lt;Aws.AutoScaling.Tag&gt;();
+    ///     foreach (var range in )
+    ///     {
+    ///         exampleTag.Add(new Aws.AutoScaling.Tag($"example-{range.Key}", new()
+    ///         {
+    ///             AutoscalingGroupName = range.Value,
+    ///             TagDetails = new Aws.AutoScaling.Inputs.TagTagArgs
+    ///             {
+    ///                 Key = "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
+    ///                 Value = "SPOT",
+    ///                 PropagateAtLaunch = false,
+    ///             },
+    ///         }));
+    ///     }
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:

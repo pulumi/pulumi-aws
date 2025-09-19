@@ -21,69 +21,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acmpca"
-//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//				PermanentDeletionTimeInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			key, err := tls.NewPrivateKey(ctx, "key", &tls.PrivateKeyArgs{
-//				Algorithm: "RSA",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			csr, err := tls.NewCertRequest(ctx, "csr", &tls.CertRequestArgs{
-//				PrivateKeyPem: key.PrivateKeyPem,
-//				Subject: []map[string]interface{}{
-//					map[string]interface{}{
-//						"commonName": "example",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acmpca.NewCertificate(ctx, "example", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
-//				CertificateSigningRequest: csr.CertRequestPem,
-//				SigningAlgorithm:          pulumi.String("SHA256WITHRSA"),
-//				Validity: &acmpca.CertificateValidityArgs{
-//					Type:  pulumi.String("YEARS"),
-//					Value: pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:

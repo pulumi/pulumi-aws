@@ -465,19 +465,19 @@ class Workflow(pulumi.CustomResource):
             action: LaunchInstance
             onFailure: Abort
             inputs:
-              waitFor: "ssmAgent"
+              waitFor: \\"ssmAgent\\"
 
           - name: TerminateTestInstance
             action: TerminateInstance
             onFailure: Continue
             inputs:
-              instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+              instanceId.$: \\"$.stepOutputs.LaunchTestInstance.instanceId\\"
 
           - name: WaitForActionAtEnd
             action: WaitForAction
             if:
               booleanEquals: true
-              value: "$.parameters.waitForActionAtEnd"
+              value: \\"$.parameters.waitForActionAtEnd\\"
         \"\"\")
         ```
 
@@ -541,19 +541,19 @@ class Workflow(pulumi.CustomResource):
             action: LaunchInstance
             onFailure: Abort
             inputs:
-              waitFor: "ssmAgent"
+              waitFor: \\"ssmAgent\\"
 
           - name: TerminateTestInstance
             action: TerminateInstance
             onFailure: Continue
             inputs:
-              instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+              instanceId.$: \\"$.stepOutputs.LaunchTestInstance.instanceId\\"
 
           - name: WaitForActionAtEnd
             action: WaitForAction
             if:
               booleanEquals: true
-              value: "$.parameters.waitForActionAtEnd"
+              value: \\"$.parameters.waitForActionAtEnd\\"
         \"\"\")
         ```
 

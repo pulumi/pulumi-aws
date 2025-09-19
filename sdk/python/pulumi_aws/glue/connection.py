@@ -581,17 +581,19 @@ class Connection(pulumi.CustomResource):
             secret_id=example.id,
             secret_string=json.dumps({
                 "credentials": std.base64encode(input=\"\"\"{
-          "type": "service_account",
-          "project_id": "example-project",
-          "private_key_id": "example-key",
-          "private_key": "-----BEGIN RSA PRIVATE KEY-----\\nREDACTED\\n-----END RSA PRIVATE KEY-----",
-          "client_email": "example-project@appspot.gserviceaccount.com",
-          "client_id": example-client",
-          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-          "token_uri": "https://oauth2.googleapis.com/token",
-          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
-          "universe_domain": "googleapis.com"
+          \\"type\\": \\"service_account\\",
+          \\"project_id\\": \\"example-project\\",
+          \\"private_key_id\\": \\"example-key\\",
+          \\"private_key\\": \\"-----BEGIN RSA PRIVATE KEY-----\\
+        REDACTED\\
+        -----END RSA PRIVATE KEY-----\\",
+          \\"client_email\\": \\"example-project@appspot.gserviceaccount.com\\",
+          \\"client_id\\": example-client\\",
+          \\"auth_uri\\": \\"https://accounts.google.com/o/oauth2/auth\\",
+          \\"token_uri\\": \\"https://oauth2.googleapis.com/token\\",
+          \\"auth_provider_x509_cert_url\\": \\"https://www.googleapis.com/oauth2/v1/certs\\",
+          \\"client_x509_cert_url\\": \\"https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com\\",
+          \\"universe_domain\\": \\"googleapis.com\\"
         }
         \"\"\").result,
             }))
@@ -873,17 +875,19 @@ class Connection(pulumi.CustomResource):
             secret_id=example.id,
             secret_string=json.dumps({
                 "credentials": std.base64encode(input=\"\"\"{
-          "type": "service_account",
-          "project_id": "example-project",
-          "private_key_id": "example-key",
-          "private_key": "-----BEGIN RSA PRIVATE KEY-----\\nREDACTED\\n-----END RSA PRIVATE KEY-----",
-          "client_email": "example-project@appspot.gserviceaccount.com",
-          "client_id": example-client",
-          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-          "token_uri": "https://oauth2.googleapis.com/token",
-          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
-          "universe_domain": "googleapis.com"
+          \\"type\\": \\"service_account\\",
+          \\"project_id\\": \\"example-project\\",
+          \\"private_key_id\\": \\"example-key\\",
+          \\"private_key\\": \\"-----BEGIN RSA PRIVATE KEY-----\\
+        REDACTED\\
+        -----END RSA PRIVATE KEY-----\\",
+          \\"client_email\\": \\"example-project@appspot.gserviceaccount.com\\",
+          \\"client_id\\": example-client\\",
+          \\"auth_uri\\": \\"https://accounts.google.com/o/oauth2/auth\\",
+          \\"token_uri\\": \\"https://oauth2.googleapis.com/token\\",
+          \\"auth_provider_x509_cert_url\\": \\"https://www.googleapis.com/oauth2/v1/certs\\",
+          \\"client_x509_cert_url\\": \\"https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com\\",
+          \\"universe_domain\\": \\"googleapis.com\\"
         }
         \"\"\").result,
             }))

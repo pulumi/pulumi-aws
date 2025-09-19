@@ -1081,19 +1081,19 @@ class Topic(pulumi.CustomResource):
         user_updates = aws.sns.Topic("user_updates",
             name="user-updates-topic",
             delivery_policy=\"\"\"{
-          "http": {
-            "defaultHealthyRetryPolicy": {
-              "minDelayTarget": 20,
-              "maxDelayTarget": 20,
-              "numRetries": 3,
-              "numMaxDelayRetries": 0,
-              "numNoDelayRetries": 0,
-              "numMinDelayRetries": 0,
-              "backoffFunction": "linear"
+          \\"http\\": {
+            \\"defaultHealthyRetryPolicy\\": {
+              \\"minDelayTarget\\": 20,
+              \\"maxDelayTarget\\": 20,
+              \\"numRetries\\": 3,
+              \\"numMaxDelayRetries\\": 0,
+              \\"numNoDelayRetries\\": 0,
+              \\"numMinDelayRetries\\": 0,
+              \\"backoffFunction\\": \\"linear\\"
             },
-            "disableSubscriptionOverrides": false,
-            "defaultThrottlePolicy": {
-              "maxReceivesPerSecond": 1
+            \\"disableSubscriptionOverrides\\": false,
+            \\"defaultThrottlePolicy\\": {
+              \\"maxReceivesPerSecond\\": 1
             }
           }
         }
@@ -1194,19 +1194,19 @@ class Topic(pulumi.CustomResource):
         user_updates = aws.sns.Topic("user_updates",
             name="user-updates-topic",
             delivery_policy=\"\"\"{
-          "http": {
-            "defaultHealthyRetryPolicy": {
-              "minDelayTarget": 20,
-              "maxDelayTarget": 20,
-              "numRetries": 3,
-              "numMaxDelayRetries": 0,
-              "numNoDelayRetries": 0,
-              "numMinDelayRetries": 0,
-              "backoffFunction": "linear"
+          \\"http\\": {
+            \\"defaultHealthyRetryPolicy\\": {
+              \\"minDelayTarget\\": 20,
+              \\"maxDelayTarget\\": 20,
+              \\"numRetries\\": 3,
+              \\"numMaxDelayRetries\\": 0,
+              \\"numNoDelayRetries\\": 0,
+              \\"numMinDelayRetries\\": 0,
+              \\"backoffFunction\\": \\"linear\\"
             },
-            "disableSubscriptionOverrides": false,
-            "defaultThrottlePolicy": {
-              "maxReceivesPerSecond": 1
+            \\"disableSubscriptionOverrides\\": false,
+            \\"defaultThrottlePolicy\\": {
+              \\"maxReceivesPerSecond\\": 1
             }
           }
         }
