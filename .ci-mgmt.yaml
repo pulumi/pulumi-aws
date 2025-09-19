@@ -50,7 +50,7 @@ plugins:
   - name: std
     version: "1.6.2"
   - name: terraform
-    version: "1.0.17"
+    version: "1.2.4"
     kind: converter
 # Use `pulumi convert` for translating examples from TF to Pulumi.
 pulumiConvert: 1
