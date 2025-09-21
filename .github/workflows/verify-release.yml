@@ -104,6 +104,8 @@ jobs:
           providerVersion: ${{ inputs.providerVersion }}
         env:
           NODE_AUTH_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}
       - name: Verify python release
         uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         with:
@@ -112,6 +114,9 @@ jobs:
           provider: aws
           providerVersion: ${{ inputs.providerVersion }}
           packageVersion: ${{ inputs.pythonVersion || inputs.providerVersion }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}
       - name: Verify dotnet release
         uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         with:
@@ -119,6 +124,9 @@ jobs:
           directory: examples/webserver-cs
           provider: aws
           providerVersion: ${{ inputs.providerVersion }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}
       - name: Verify go release
         uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         if: inputs.skipGoSdk == false
@@ -127,3 +135,6 @@ jobs:
           directory: examples/webserver-go
           provider: aws
           providerVersion: ${{ inputs.providerVersion }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}
