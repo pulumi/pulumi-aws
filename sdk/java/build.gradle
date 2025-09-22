@@ -12,7 +12,7 @@ group = "com.pulumi"
 
 def resolvedVersion = System.getenv("PACKAGE_VERSION") ?:
     (project.version == "unspecified"
-         ? "0.0.1"
+         ? "7.8.0-alpha.1758518223+48f3c1d"
          : project.version)
 
 def signingKey = System.getenv("SIGNING_KEY")
@@ -45,7 +45,7 @@ repositories {
 dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
-    implementation("com.pulumi:pulumi:1.16.0")
+    implementation("com.pulumi:pulumi:1.0.0")
 }
 
 task sourcesJar(type: Jar) {
