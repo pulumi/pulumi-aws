@@ -1,0 +1,11 @@
+[[tools.dotnet]]
+version = "8.0.413"
+backend = "asdf:dotnet"
+
+[[tools.go]]
+version = "1.24.6"
+backend = "core:go"
+
+[[tools."go:github.com/pulumi/pulumictl/cmd/pulumictl"]]
+version = "0.0.50"
+backend = "go:github.com/pulumi/pulumictl/cmd/pulumictl"

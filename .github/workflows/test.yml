@@ -11,6 +11,7 @@ on:
          description: Version of the provider to test
 
 env:
+  MISE_ENV: test
   PR_COMMIT_SHA: ${{ github.event.client_payload.pull_request.head.sha }}
   AWS_REGION: us-west-2
   PULUMI_API: https://api.pulumi-staging.io
@@ -55,8 +56,13 @@ jobs:
       with:
         repository: pulumi/examples
         path: p-examples
-    - name: Setup tools
-      uses: ./.github/actions/setup-tools
+    - name: Setup mise
+      uses: jdx/mise-action@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        cache_key: "mise-{{platform}}-{{file_hash}}"
+        # only saving the cache in the prerequisites job
+        cache_save: false
     - name: Prepare local workspace
       run: make prepare_local_workspace
       env:
