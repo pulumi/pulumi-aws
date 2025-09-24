@@ -102,11 +102,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the load balancer.
+ *
  * Using `pulumi import`, import LBs using their ARN. For example:
  *
- * ```sh
- * $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
- * ```
+ * console
+ *
+ * % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**

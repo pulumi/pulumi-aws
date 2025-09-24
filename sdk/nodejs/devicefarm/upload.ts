@@ -25,11 +25,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm upload.
+ *
  * Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
  *
- * ```sh
- * $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
- * ```
+ * console
+ *
+ * % pulumi import aws_devicefarm_upload.example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
  */
 export class Upload extends pulumi.CustomResource {
     /**

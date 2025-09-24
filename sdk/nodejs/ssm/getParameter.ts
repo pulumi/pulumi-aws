@@ -9,12 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Default
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = aws.ssm.getParameter({
  *     name: "foo",
+ * });
+ * ```
+ *
+ * ### With version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = aws.ssm.getParameter({
+ *     name: "foo:3",
  * });
  * ```
  *
@@ -34,7 +47,7 @@ export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetParameterArgs {
     /**
-     * Name of the parameter.
+     * Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
      */
     name: string;
     /**
@@ -87,12 +100,25 @@ export interface GetParameterResult {
  *
  * ## Example Usage
  *
+ * ### Default
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = aws.ssm.getParameter({
  *     name: "foo",
+ * });
+ * ```
+ *
+ * ### With version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = aws.ssm.getParameter({
+ *     name: "foo:3",
  * });
  * ```
  *
@@ -112,7 +138,7 @@ export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.I
  */
 export interface GetParameterOutputArgs {
     /**
-     * Name of the parameter.
+     * Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
      */
     name: pulumi.Input<string>;
     /**

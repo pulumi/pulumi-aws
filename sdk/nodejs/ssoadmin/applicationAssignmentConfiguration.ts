@@ -28,11 +28,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
+ *
  * Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
  *
- * ```sh
- * $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::123456789012:application/id-12345678
- * ```
+ * console
+ *
+ * % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
  */
 export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
     /**

@@ -68,6 +68,10 @@ export interface GetBudgetResult {
      */
     readonly autoAdjustDatas: outputs.budgets.GetBudgetAutoAdjustData[];
     /**
+     * ARN of the billing view.
+     */
+    readonly billingViewArn: string;
+    /**
      * Boolean indicating whether this budget has been exceeded.
      */
     readonly budgetExceeded: boolean;

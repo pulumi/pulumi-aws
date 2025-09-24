@@ -85,20 +85,45 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `bucket` (String) S3 bucket name.
+ *
+ * #### Optional
+ *
+ * * `account_id` (String) AWS Account where this resource is managed.
+ *
+ * * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
+ *
+ * * `region` (String) Region where this resource is managed.
+ *
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  *
- * __Using `pulumi import` to import__ S3 bucket logging using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+ * terraform
+ *
+ * import {
+ *
+ *   to = aws_s3_bucket_logging.example
+ *
+ *   id = "bucket-name,123456789012"
+ *
+ * }
+ *
+ * **Using `pulumi import` to import** S3 bucket logging using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
  *
  * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
  *
- * ```sh
- * $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
- * ```
+ * console
+ *
+ * % pulumi import aws_s3_bucket_logging.example bucket-name
+ *
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  *
- * ```sh
- * $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
- * ```
+ * console
+ *
+ * % pulumi import aws_s3_bucket_logging.example bucket-name,123456789012
  *
  * @deprecated aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging
  */

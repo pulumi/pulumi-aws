@@ -35,11 +35,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
+ *
  * Using `pulumi import`, import IAM Policies using the `arn`. For example:
  *
- * ```sh
- * $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
- * ```
+ * console
+ *
+ * % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
  */
 export class Policy extends pulumi.CustomResource {
     /**

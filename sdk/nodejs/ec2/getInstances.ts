@@ -59,9 +59,10 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
  */
 export interface GetInstancesArgs {
     /**
-     * One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [describe-instances in the AWS CLI reference][1].
+     * One or more filters to apply to the search.
+     * If multiple `filter` blocks are provided, they all must be true.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * See `filter` Block below.
      */
     filters?: inputs.ec2.GetInstancesFilter[];
     /**
@@ -160,9 +161,10 @@ export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.
  */
 export interface GetInstancesOutputArgs {
     /**
-     * One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [describe-instances in the AWS CLI reference][1].
+     * One or more filters to apply to the search.
+     * If multiple `filter` blocks are provided, they all must be true.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * See `filter` Block below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstancesFilterArgs>[]>;
     /**

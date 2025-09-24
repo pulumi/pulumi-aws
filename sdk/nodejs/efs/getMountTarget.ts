@@ -84,6 +84,14 @@ export interface GetMountTargetResult {
      */
     readonly ipAddress: string;
     /**
+     * IP address type for the mount target.
+     */
+    readonly ipAddressType: string;
+    /**
+     * IPv6 address at which the file system may be mounted via the mount target.
+     */
+    readonly ipv6Address: string;
+    /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
     readonly mountTargetDnsName: string;

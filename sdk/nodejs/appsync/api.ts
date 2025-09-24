@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *         authProviders: [{
  *             authType: "AWS_LAMBDA",
  *             lambdaAuthorizerConfig: {
- *                 authorizerUri: exampleAwsLambdaFunction.invokeArn,
+ *                 authorizerUri: exampleAwsLambdaFunction.arn,
  *                 authorizerResultTtlInSeconds: 300,
  *             },
  *         }],

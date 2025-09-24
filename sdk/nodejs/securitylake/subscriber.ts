@@ -14,6 +14,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,6 +29,38 @@ import * as utilities from "../utilities";
  *             sourceVersion: "1.0",
  *         },
  *     }],
+ *     subscriberIdentity: {
+ *         externalId: "example",
+ *         principal: "1234567890",
+ *     },
+ * }, {
+ *     dependsOn: [exampleAwsSecuritylakeDataLake],
+ * });
+ * ```
+ *
+ * ### Multiple Log Sources
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.securitylake.Subscriber("example", {
+ *     subscriberName: "example-name",
+ *     accessType: "S3",
+ *     sources: [
+ *         {
+ *             awsLogSourceResource: {
+ *                 sourceName: "SH_FINDINGS",
+ *                 sourceVersion: "2.0",
+ *             },
+ *         },
+ *         {
+ *             awsLogSourceResource: {
+ *                 sourceName: "ROUTE53",
+ *                 sourceVersion: "2.0",
+ *             },
+ *         },
+ *     ],
  *     subscriberIdentity: {
  *         externalId: "example",
  *         principal: "1234567890",

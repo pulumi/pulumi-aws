@@ -63,11 +63,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the Security Lake data lake.
+ *
  * Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
  *
- * ```sh
- * $ pulumi import aws:securitylake/dataLake:DataLake example arn:aws:securitylake:eu-west-1:123456789012:data-lake/default
- * ```
+ * console
+ *
+ * % pulumi import aws_securitylake_data_lake.example arn:aws:securitylake:eu-west-1:123456789012:data-lake/default
  */
 export class DataLake extends pulumi.CustomResource {
     /**

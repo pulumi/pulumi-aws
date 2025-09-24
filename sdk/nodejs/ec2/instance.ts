@@ -208,11 +208,23 @@ import {InstanceProfile} from "../iam";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` - (String) ID of the instance.
+ *
+ * #### Optional
+ *
+ * * `account_id` (String) AWS Account where this resource is managed.
+ *
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import instances using the `id`. For example:
  *
- * ```sh
- * $ pulumi import aws:ec2/instance:Instance web i-12345678
- * ```
+ * console
+ *
+ * % pulumi import aws_instance.web i-12345678
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -385,9 +397,13 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly passwordData: pulumi.Output<string>;
     /**
-     * Placement Group to start the instance in.
+     * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      */
     declare public readonly placementGroup: pulumi.Output<string>;
+    /**
+     * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+     */
+    declare public readonly placementGroupId: pulumi.Output<string>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
@@ -536,6 +552,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["outpostArn"] = state?.outpostArn;
             resourceInputs["passwordData"] = state?.passwordData;
             resourceInputs["placementGroup"] = state?.placementGroup;
+            resourceInputs["placementGroupId"] = state?.placementGroupId;
             resourceInputs["placementPartitionNumber"] = state?.placementPartitionNumber;
             resourceInputs["primaryNetworkInterface"] = state?.primaryNetworkInterface;
             resourceInputs["primaryNetworkInterfaceId"] = state?.primaryNetworkInterfaceId;
@@ -592,6 +609,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["monitoring"] = args?.monitoring;
             resourceInputs["networkInterfaces"] = args?.networkInterfaces;
             resourceInputs["placementGroup"] = args?.placementGroup;
+            resourceInputs["placementGroupId"] = args?.placementGroupId;
             resourceInputs["placementPartitionNumber"] = args?.placementPartitionNumber;
             resourceInputs["primaryNetworkInterface"] = args?.primaryNetworkInterface;
             resourceInputs["privateDnsNameOptions"] = args?.privateDnsNameOptions;
@@ -773,9 +791,13 @@ export interface InstanceState {
      */
     passwordData?: pulumi.Input<string>;
     /**
-     * Placement Group to start the instance in.
+     * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      */
     placementGroup?: pulumi.Input<string>;
+    /**
+     * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+     */
+    placementGroupId?: pulumi.Input<string>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
@@ -1003,9 +1025,13 @@ export interface InstanceArgs {
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceNetworkInterface>[]>;
     /**
-     * Placement Group to start the instance in.
+     * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      */
     placementGroup?: pulumi.Input<string>;
+    /**
+     * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+     */
+    placementGroupId?: pulumi.Input<string>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */

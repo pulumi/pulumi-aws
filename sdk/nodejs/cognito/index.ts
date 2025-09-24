@@ -70,6 +70,11 @@ export type LogDeliveryConfiguration = import("./logDeliveryConfiguration").LogD
 export const LogDeliveryConfiguration: typeof import("./logDeliveryConfiguration").LogDeliveryConfiguration = null as any;
 utilities.lazyLoad(exports, ["LogDeliveryConfiguration"], () => require("./logDeliveryConfiguration"));
 
+export { ManagedLoginBrandingArgs, ManagedLoginBrandingState } from "./managedLoginBranding";
+export type ManagedLoginBranding = import("./managedLoginBranding").ManagedLoginBranding;
+export const ManagedLoginBranding: typeof import("./managedLoginBranding").ManagedLoginBranding = null as any;
+utilities.lazyLoad(exports, ["ManagedLoginBranding"], () => require("./managedLoginBranding"));
+
 export { ManagedUserPoolClientArgs, ManagedUserPoolClientState } from "./managedUserPoolClient";
 export type ManagedUserPoolClient = import("./managedUserPoolClient").ManagedUserPoolClient;
 export const ManagedUserPoolClient: typeof import("./managedUserPoolClient").ManagedUserPoolClient = null as any;
@@ -135,6 +140,8 @@ const _module = {
                 return new IdentityProvider(name, <any>undefined, { urn })
             case "aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration":
                 return new LogDeliveryConfiguration(name, <any>undefined, { urn })
+            case "aws:cognito/managedLoginBranding:ManagedLoginBranding":
+                return new ManagedLoginBranding(name, <any>undefined, { urn })
             case "aws:cognito/managedUserPoolClient:ManagedUserPoolClient":
                 return new ManagedUserPoolClient(name, <any>undefined, { urn })
             case "aws:cognito/resourceServer:ResourceServer":
@@ -165,6 +172,7 @@ pulumi.runtime.registerResourceModule("aws", "cognito/identityPoolProviderPrinci
 pulumi.runtime.registerResourceModule("aws", "cognito/identityPoolRoleAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/identityProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/logDeliveryConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "cognito/managedLoginBranding", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/managedUserPoolClient", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/resourceServer", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/riskConfiguration", _module)

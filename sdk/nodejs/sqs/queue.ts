@@ -110,11 +110,23 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `url` (String) URL of the SQS queue.
+ *
+ * #### Optional
+ *
+ * * `account_id` (String) AWS Account where this resource is managed.
+ *
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import SQS Queues using the queue `url`. For example:
  *
- * ```sh
- * $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
- * ```
+ * console
+ *
+ * % pulumi import aws_sqs_queue.example https://queue.amazonaws.com/80398EXAMPLE/MyQueue
  */
 export class Queue extends pulumi.CustomResource {
     /**

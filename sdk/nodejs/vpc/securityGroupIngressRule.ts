@@ -38,11 +38,23 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` - (String) ID of the security group rule.
+ *
+ * #### Optional
+ *
+ * * `account_id` (String) AWS Account where this resource is managed.
+ *
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:
  *
- * ```sh
- * $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
- * ```
+ * console
+ *
+ * % pulumi import aws_vpc_security_group_ingress_rule.example sgr-02108b27edd666983
  */
 export class SecurityGroupIngressRule extends pulumi.CustomResource {
     /**
