@@ -260,13 +260,6 @@ upstream: .make/upstream
 	@touch $@
 .PHONY: upstream
 
-bin/pulumi-java-gen: PULUMI_JAVA_VERSION := $(shell cat .pulumi-java-gen.version)
-bin/pulumi-java-gen: PLAT := $(shell go version | sed -En "s/go version go.* (.*)\/(.*)/\1-\2/p")
-bin/pulumi-java-gen: PULUMI_JAVA_URL := "https://github.com/pulumi/pulumi-java/releases/download/v$(PULUMI_JAVA_VERSION)/pulumi-language-java-v$(PULUMI_JAVA_VERSION)-$(PLAT).tar.gz"
-bin/pulumi-java-gen:
-	wget -q -O - "$(PULUMI_JAVA_URL)" | tar -xzf - -C $(WORKING_DIR)/bin pulumi-java-gen
-	@touch bin/pulumi-language-java
-
 # To make an immediately observable change to .ci-mgmt.yaml:
 #
 # - Edit .ci-mgmt.yaml
